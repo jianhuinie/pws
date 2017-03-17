@@ -1,0 +1,74 @@
+#container {
+	#box {
+		#content {
+			#content-right { 
+				width: 800px;
+				float: right;
+				overflow: hidden;
+				.breadcrumb {
+					background-color: #9cf;
+				}
+				#myCarousel {
+					margin-bottom: 20px;
+				}
+				#texts {
+					#left {
+						width: 580px;
+						float: left;
+						#updateThesisForm {
+							margin: 0 auto;
+							text-align: center;
+							.item {
+								margin-top: 30px;
+								input[type=text] {
+									margin-left: 20px;
+									border-color: #ccf;
+								}
+								textarea {
+									margin-left: 20px;
+									width: 400px;
+									height: 200px;
+									resize: true;
+								}
+								input[type=submit] {
+									 width: 100px;
+									 line-height: 32px;
+									 border: 1px solid black;
+									 border-radius: 4px;
+									 background-color: #fc3;
+									 color: black;
+									 font-weight: bold;
+									 &:hover {
+									 	background-color: #f90;
+									 }
+								}
+							}
+						}
+					}
+					#right {
+						width: 200px;
+						height: 500px;
+						float: right;
+						border: 1px solid black;
+						border-radius: 6px;
+						background-color: #ccf;
+						#title {
+							font-weight: bold;
+							font-size: 20px;
+							margin-top: 10px;
+							margin-left: 10px;
+						}
+						.listItem {
+							width: 180px;
+							margin: 0 auto;
+							margin-top: 10px;
+						}
+					}
+					#clearfix {
+						clear: both;
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,203 @@
+@bgcolorLeft: #9cf;
+@bgcolorHover: #09c;
+#container {
+	#box {
+		width: 1024px;
+		margin: 0 auto;
+		#logo {
+			width: 100%;
+			height: 118px;
+			background: url("../pics/logo.jpg");
+			margin-top: 20px;
+		}
+		#nav {
+			margin-top: 10px;
+			background-color: #9cf;
+			border-radius: 2px;	
+				a {
+					display: inline-block;
+					width: 100px;
+					text-decoration: none;
+					text-align: center;
+					line-height: 32px;
+					font-size: 20px;
+					color: #000;
+					&:hover {
+						background-color: #036;
+						color: #fff;
+					}
+				}
+				.active {
+						background-color: #036;
+						color: #fff;
+					}
+		}
+		#content {
+			margin-top: 10px;
+			#content-left {
+				width: 200px;
+				float: left;
+				margin-right: 24px;
+				#hasLoged {
+					border: 1px solid black;
+					border-radius : 6px;
+					height: 240px;
+					background-color: @bgcolorLeft;
+					#title {
+						font-size: 18px;
+						font-weight: bold;
+						margin-top: 10px;
+						margin-left: 10px;
+					}
+					.item {
+						width: 160px;
+						margin: 0 auto;
+						line-height: 24px;
+						text-align: center;
+						margin-top: 10px;
+						a {
+							display: block;
+							width: 100%;
+							height: 100%;
+							border: 1px solid black;
+							background-color: #9cc;
+							border-radius: 4px;
+							text-decoration: none;
+							color: black;
+							&:hover {
+								background-color: #036;
+							}
+						}
+					}
+				}
+				#login-form {
+					border: 1px solid black;
+					border-radius : 6px;
+					height: 170px;
+					background-color: @bgcolorLeft;
+					#title {
+						font-size: 18px;
+						font-weight: bold;
+						margin-top: 10px;
+						margin-left: 10px;
+					}
+					form {
+						input[type=text] {
+							margin-left: 10px;
+							margin-top: 10px;
+							border: 1px solid #cff;
+						}
+						input[type=password] {
+							margin-left: 10px;
+							margin-top: 10px;
+							border: 1px solid #cff;
+						}
+						input[type=submit] {
+							margin-top: 15px;
+							margin-left: 10px;
+							width: 80px;
+							border-radius: 4px;
+							line-height: 24px;
+							text-align: center;
+							border: none;
+							font-weight: bold;
+							color: black;
+						}
+						#login {
+							background-color: #06c;
+						}
+						#setup {
+							display: inline-block;
+							background-color: #c60;
+							margin-top: 15px;
+							margin-left: 10px;
+							width: 80px;
+							border-radius: 4px;
+							line-height: 26px;
+							text-align: center;
+							border: none;
+							font-weight: bold;
+							text-decoration: none;
+							color: black;
+						}
+					}
+				}
+				#notices {
+					margin-top: 10px;
+					border: 1px solid black;
+					border-radius : 6px;
+					height: 270px;
+					background-color: @bgcolorLeft;
+					#title {
+						font-size: 18px;
+						font-weight: bold;
+						margin-top: 10px;
+						margin-left: 10px;
+					}
+					div {
+						width: 160px;
+						margin-top: 10px;
+						margin-left: 10px;
+						a {
+							text-decoration: none;
+							display: block;
+							width: 100%;
+							height: 100%;
+							color: #292421;
+						}
+						&:hover {
+							background-color: @bgcolorHover;
+						}
+					}
+				}
+				#tips {
+					margin-top: 10px;
+					border: 1px solid black;
+					border-radius : 6px;
+					height: 240px;
+					background-color: @bgcolorLeft;
+					div {
+						margin: 0 auto;
+						margin-top: 10px;
+						text-align: center;
+						border-bottom: 1px dashed green;
+						width: 120px;
+						padding-bottom: 6px;
+						a {
+							text-decoration: none;
+							display: block;
+							width: 100%;
+							height: 100%;
+							color: #292421;
+						}
+						&:hover {
+							background-color: @bgcolorHover;
+						}
+					}
+				}
+			}
+			#content-right { 
+				width: 800px;
+				float: right;
+				overflow: hidden;
+			}
+			#clear {
+				clear: both;
+			}
+		}
+		#footer {
+			margin-top: 20px;
+			height: 70px;
+			border: 1px solid black;
+			border-radius: 6px;
+			background-color: @bgcolorLeft;
+			p:first-child {
+				margin-top: 10px;
+				margin-left: 55px;
+			}
+			p:last-child {
+				margin-left: 260px;
+			}
+		}
+	}
+}

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>用户注册</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet/less" href="../common/layout.less" type="text/less">
+	<link rel="stylesheet/less" href="../css/register.less" type="text/less">
+	<link rel="stylesheet" type="text/css" href="../lib/bootstrap.css">
+	<script type="text/javascript" src="../lib/jquery-1.12.2.min.js"></script>
+	<script type="text/javascript" src="../common/showPics.js"></script>
+	<script type="text/javascript" src="../js/register.js"></script>
+	<script type="text/javascript" src="../lib/less.js"></script>
+	<script type="text/javascript" src="../lib/bootstrap.js"></script>
+	
+</head>
+<body>
+	<div id="container">
+		<div id="box">
+			<div id="logo">
+				
+			</div>
+			<div id="nav">
+					 <a href="../php/index.php">首页</a>
+					 <a href="../php/news.php">会议新闻</a> 
+					 <a href="../php/notifiers">会议通知</a> 
+					 <a href="../php/meetings.php">会议预告</a> 
+				 	 <a href="../php/videos.php">会议视频</a> 
+					 <a href="../php/articles.php">会议论文</a>
+					 <a href="../php/comments.php">会议评述</a>
+					 <a href="../php/experience.php">经验交流</a>
+					 <a href="../php/specialReports.php">特邀报告</a>
+			</div>
+			<div id="content">
+				<div id="content-left">
+					<!--
+					<div id="login-form">
+						<div id="title"> 用户登录 </div>
+						<form method="post" action="../php/login.php">
+							<input type="text" id="username" name="username" placeholder="用户名">
+							<input type="password" id="password" name="password" placeholder="密码">
+							<input type="submit" id="login" value="登录">
+							<a href="register.html" id="setup">注册</a>
+						</form>
+					</div>-->
+					<div id="notices" style="margin-top: 0">
+						<p id="title">学术会议在线公告</p>
+						<div id="rules">
+							<a href="rules.php">1.国际学术会议信息发布规则</a>
+						</div>
+						<div id="job-invited">
+							<a href="jobInvited.php">2.国际学术会议兼职信息员招聘启事</a>
+						</div>
+						<div id="lectures">
+							<a href="lectures.php">
+								3.高校学术讲座交流平台开通,欢迎使用！
+							</a>
+						</div>
+						<div id="new-version">
+							<a href="newVersion.php">
+								4.教育部科技发展中心门户网站新版上线公告 
+							</a>
+						</div>
+					</div>
+					<div id="tips">
+						<div id="online-intro">
+							<a href="onlineIntro.php">在线介绍</a>
+						</div>
+						<div id="users-guide"><a href="usersGuide.php">用户指南</a></div>
+						<div id="friend-links">
+							<a href="friendLinks.php">友情链接</a>
+						</div>
+						<div id="school-lectures">
+							<a href="http://58.205.208.119/" target="_blank">高校讲座</a>
+						</div>
+						<div id="map-navigation">
+							<a href="http://map.baidu.com/mobile/webapp/index/index" 
+							target="_blank">
+								地图导航
+							</a>
+						</div>
+						<div id="book-hotel">
+							<a href="http://hotel.qunar.com/" target="_blank">酒店预订</a>
+						</div>
+					</div>
+				</div>
+				<div id="content-right">
+					<ul class="breadcrumb">
+						<li><a href="../php/index.php">首页</a> <span class="divider">/</span></li>
+						<li class="active">用户注册</li>
+					</ul>
+					<div id="myCarousel" class="carousel slide">
+						<!--
+						<ol class="carousel-indicators">
+							<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+						    <li data-target="#myCarousel" data-slide-to="1"></li>
+						    <li data-target="#myCarousel" data-slide-to="2"></li>
+						</ol>
+						-->
+						  <!-- Carousel items -->
+						<div class="carousel-inner">
+						    <div class="active item">
+						    	<a href="http://www.baidu.com/" target="_blank"><img src="../pics/pic1.jpg"></a> 
+						    </div>
+						    <div class="item">
+						    	<a href="http://www.baidu.com/" target="_blank"><img src="../pics/pic1.jpg"></a>
+						    </div>
+						    <div class="item">
+						    	<a href="http://www.baidu.com/" target="_blank"><img src="../pics/pic1.jpg"></a> 
+						    </div>
+						</div>
+						  <!-- Carousel nav -->
+						<!--
+						<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+						<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+						-->
+					</div>
+					<form id="setupForm" method="post">
+						<div id="warning">
+							带*的为必填项
+						</div>
+						<div class="title">
+						请选择你的用户名
+						</div>
+						<div class="inputText">
+							<label><span>*</span>用户名：</label>
+							<input type="text" name="registerUsername" id="registerUsername">
+							<div id="noteTip1">
+								用户名由字母数字组成（字母区分大小写，且只能以字母或数字开头）
+							</div>
+						</div>
+						<div class="title">
+							请填写安全设置（以下信息对保护您的账号安全极为重要，请您慎重填写并牢记）
+						</div>
+						<div class="inputText">
+							<label><span>*</span>登录密码:</label>
+							<input type="password" name="registerPassword" id="registerPassword">
+							<div id="noteTip2">
+								 密码长度6-16位，字母区分大小写
+							</div>
+						</div>
+						<div class="inputText">
+							<label><span>*</span>重复登录密码:</label>
+							<input type="password" name="repeatPassword" id="repeatPassword">
+						</div>
+						<div class="inputText">
+							<label><span>*</span>真实姓名:</label>
+							<input type="text" name="name" id="name">
+						</div>
+						<div class="inputText">
+							<label><span>*</span>性别:</label>
+							<input type="radio" name="gender" value="男">男
+							<input type="radio" name="gender" value="女">女
+						</div>
+						<div class="inputText">
+							<label><span>*</span>出生日期:</label>
+							<input type="date" name="birthday" id="birthday">
+						</div>
+						<div class="inputText">
+							<span>*</span>
+							<input type="checkbox" name="readRule" id="readRule">
+							我已看过并同意 
+							<a href="registerRule.html">《中国学术会议在线服务条款》</a>
+						</div>
+						<div id="submitButton">
+							<input type="submit" id="submit" disabled value="马上注册" onclick=" if(validateForm()) { form.action='../php/register.php' }">
+						</div>
+					</form>
+				</div>
+				<div id="clear"></div>
+			</div>
+			<div id="footer">
+				<p>
+					主管：哈尔滨工程大学 主办：哈尔滨工程大学计算机学院 版权所有：哈尔滨工程大学聂建辉| 黑ICP备032310310号| 文保网安备案号：0472932882
+				</p>
+				<p>
+					联系电话: 18746069058 | 15350185020 电子邮件: jianhuinie@hrbeu.edu.cn
+				</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

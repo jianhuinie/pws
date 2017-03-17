@@ -1,0 +1,1 @@
+function route(e,o){return console.log("About to route a request for "+e),"function"==typeof handlers[e]?handlers[e](o):(console.log("No request handler found for "+e),"404 not found")}var handler=require("./handlers"),handlers=handler.handlers;exports.route=route;

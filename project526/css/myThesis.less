@@ -1,0 +1,91 @@
+#container {
+	#box {
+		#content{
+			#content-right { 
+			 	.breadcrumb {
+					background-color: #9cf;
+				}
+				#myCarousel {
+					margin-bottom: 20px;
+				}
+				#texts {
+					#left {
+						width: 580px;
+						float: left;
+						#tabs {
+							background-color: #9cf;
+							margin-bottom: 20px; 
+							div {
+								display: inline-block;
+								font-size: 20px;
+								color: black;
+								width: 130px;
+								line-height: 32px;
+								text-align: center;
+								margin-right: 16px;
+								cursor: pointer;
+								&:last-child {
+									margin-right: 0;
+								}
+								&:hover {
+									background-color: #036;
+									color: #fff;
+								}
+							} 
+							.active {
+								background-color: #036;
+								color: #fff;
+							}
+						}
+						table {
+							thead {
+								font-weight: bold;
+							}
+							margin-bottom: 20px;
+							tr:nth-child(2n) {
+								background-color: #9c9;
+							}
+							tr:nth-child(2n+1) {
+								background-color: #693;
+							}
+						}
+						.pager {
+							li{
+								margin-right: 20px;
+								&:last-child {
+									margin-right: 0;
+									color: #c33;
+								}
+							}
+							#page {
+								color: #039;
+							}
+						}
+					}
+					#right {
+						width: 200px;
+						height: 500px;
+						float: right;
+						border: 1px solid black;
+						border-radius: 6px;
+						background-color: #ccf;
+						#title {
+							font-weight: bold;
+							font-size: 20px;
+							margin-top: 10px;
+							margin-left: 10px;
+						}
+						.listItem {
+							width: 180px;
+							margin: 0 auto;
+							margin-top: 10px;
+						}
+					}
+					#clearfix {
+						clear: both;
+					}
+				}
+			}
+		}	 
+	}
+}

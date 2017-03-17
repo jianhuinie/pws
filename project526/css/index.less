@@ -1,0 +1,319 @@
+@bgcolorOne: #fff;
+@bgcolorTwo: #f5f5f5;
+@bgcolorRight: #87ceeb;
+#container {
+	#box {
+		#myCarousel {
+			margin-top: 20px;
+		}
+		#content {
+			#content-right {
+				#innerbox {
+					#news {
+						position: relative;
+						width: 395px;
+						height: 200px;
+						float: left;
+						margin-right:10px;
+						border: 1px solid black;
+						border-radius: 6px;
+						background-color: @bgcolorTwo;
+						#more {
+							position: absolute;
+							top: 10px;
+							right: 20px;
+							text-decoration: none;
+						}
+						#title {
+							font-size: 18px;
+							font-weight: bold;
+							margin-top: 10px;
+							margin-left: 10px;
+						}
+						div {
+							width: 360px;
+							margin-top: 10px;
+							margin-left: 10px;
+							border-bottom: 1px dashed #cff;
+							padding-bottom: 6px;
+							a {
+								text-decoration: none;
+								display: block;
+								width: 100%;
+								height: 100%;
+							}
+							&:hover {
+								background-color: @bgcolorRight;
+							}
+						}
+					}
+					#notifiers {
+						position: relative;
+						width:395px;
+						height: 200px;
+						float: right;
+						border: 1px solid black;
+						border-radius: 6px;
+						background-color: @bgcolorTwo;
+						#more {
+							position: absolute;
+							top: 10px;
+							right: 20px;
+							text-decoration: none;
+						}
+						#title {
+							font-size: 18px;
+							font-weight: bold;
+							margin-top: 10px;
+							margin-left: 10px;
+						}
+						div {
+							width: 360px;
+							margin-top: 10px;
+							margin-left: 10px;
+							border-bottom: 1px dashed #cff;
+							padding-bottom: 6px;
+							a {
+								text-decoration: none;
+								display: block;
+								width: 100%;
+								height: 100%;
+							}
+							&:hover {
+								background-color: @bgcolorRight;
+							}
+						}
+					}
+					#clearfix {
+						clear: both;
+					}
+				}
+				#meetings {
+					position: relative;
+					margin-top: 10px;
+					height: 240px;
+					border: 1px solid black;
+					border-radius: 6px;
+					background-color: @bgcolorTwo;
+					#more {
+							position: absolute;
+							top: 10px;
+							right: 20px;
+							text-decoration: none;
+						}
+					#title {
+						font-size: 18px;
+						font-weight: bold;
+						margin-top: 10px;
+						margin-left: 10px;
+					}
+					table {
+						thead {
+							font-weight: bold;
+						}
+						tr:nth-child(2n) {
+							background-color: @bgcolorOne;
+						}
+					}
+				}
+				#meeting-comments {
+					position: relative;
+					margin-top: 10px;
+					height: 240px;
+					border: 1px solid black;
+					border-radius: 6px;
+					background-color: @bgcolorTwo;
+					#more {
+							position: absolute;
+							top: 10px;
+							right: 20px;
+							text-decoration: none;
+						}
+					#title {
+						font-size: 18px;
+						font-weight: bold;
+						margin-top: 10px;
+						margin-left: 10px;
+					}
+					table {
+						thead {
+							font-weight: bold;
+						}
+						tr:nth-child(2n) {
+							background-color: @bgcolorOne;
+						}
+					}
+				}
+				#special-reports {
+					position: relative;
+					margin-top: 10px;
+					height: 240px;
+					border: 1px solid black;
+					border-radius: 6px;
+					background-color: @bgcolorTwo;
+					#more {
+							position: absolute;
+							top: 10px;
+							right: 20px;
+							text-decoration: none;
+						}
+					#title {
+						font-size: 18px;
+						font-weight: bold;
+						margin-top: 10px;
+						margin-left: 10px;
+					}
+					table {
+						thead {
+							font-weight: bold;
+						}
+						tr:nth-child(2n) {
+							background-color: @bgcolorOne;
+						}
+					}
+				}
+				#videos {
+					position: relative;
+					margin-top: 10px;
+					height: 270px;
+					border: 1px solid black;
+					border-radius: 6px;
+					background-color: @bgcolorTwo;
+					#more {
+							position: absolute;
+							top: 10px;
+							right: 20px;
+							text-decoration: none;
+						}
+					#title {
+						font-size: 18px;
+						font-weight: bold;
+						margin-top: 10px;
+						margin-left: 10px;
+					}
+					#listLeft {
+						width: 360px;
+						margin-left: 20px;
+						float: left;
+						.item {
+							position: relative;
+							height: 90px;
+							margin-bottom: 30px;
+							.videoPlay {
+								position: absolute;
+								left: 35px;
+								top: 30px;
+							}
+							.photo {
+								width: 100px;
+								height: 88px;
+								float: left;
+							}
+							.detail {
+								padding-left: 10px;
+								width: 240px;
+								float: right;
+								.palyButton {
+									width: 80px;
+									line-height: 30px;
+									text-align: center;
+									position: relative;
+								    bottom: 5px;
+									a {
+										display: block;
+										width: 100%;
+										height: 100%;
+										text-decoration: none;
+										background-color: #f90;
+										border-radius: 2px;
+										border: 1px solid black;
+										color: #000;
+										font-weight: bold;
+									}
+								}
+								div {
+									p {
+										overflow: hidden;
+										white-space: nowrap;
+										text-overflow: ellipsis;
+									}
+								}
+							}
+							.clear {
+								clear: both;
+							}
+						}
+					}
+					#listRight {
+						width: 360px;
+						margin-right: 20px;
+						float: right;
+						.item {
+							position: relative;
+							height: 90px;
+							margin-bottom: 30px;
+							.photo {
+								width: 100px;
+								height: 88px;
+								float: left;
+							}
+							.videoPlay {
+								position: absolute;
+								left: 35px;
+								top: 30px;
+							}
+							.detail {
+								padding-left: 10px;
+								width: 240px;
+								float: right;
+								.palyButton {
+									width: 80px;
+									line-height: 30px;
+									text-align: center;
+									position: relative;
+								    bottom: 5px;
+									a {
+										display: block;
+										width: 100%;
+										height: 100%;
+										text-decoration: none;
+										background-color: #f90;
+										border-radius: 2px; 
+										border: 1px solid black;
+										color: #000;
+										font-weight: bold;
+									}
+								}
+								div {
+									p {
+										overflow: hidden;
+										white-space: nowrap;
+										text-overflow: ellipsis;
+									}
+								}
+							}
+							.clear {
+								clear: both;
+							}
+						}
+					}
+					#clearfix {
+						clear: both;
+					}
+				}
+			}
+		}
+	}
+	#toTop {
+		width: 40px;
+		height: 80px;
+		background: url("../pics/top_bg.png");
+		position: fixed;
+		right: 40px;
+		bottom: 20px;
+		&:hover {
+			cursor: pointer;
+		}
+		display:none;
+	}
+}
