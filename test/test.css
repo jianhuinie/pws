@@ -43,3 +43,31 @@
     width: 200px;
     height: 100px;
 }
+
+.item-list{
+    width: 680px;
+    min-height: 50px;
+    max-height: 100px;
+    overflow-y: scroll;
+}
+.item-list .item {
+    height: 22px;
+    border: 1px solid black;
+}
+.item-list .item:last-child {
+    border-top: none;
+}
+.item-list .item:nth-child(2n) {
+    background-color: #ccc;
+}
+.item-list .item:nth-child(2n+1) {
+    background-color: #fff;
+}
+.item-list .item span {
+    float: left;
+    border-right: 1px solid #000;
+    padding: 0 3px;
+}
+.item-list .item span:last-child {
+    border: none;
+}
