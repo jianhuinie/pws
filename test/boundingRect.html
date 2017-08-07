@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>test</title>
+    <meta charset="utf-8">
+    <script src="./jQuery/dist/jquery.js"></script>
+    <script type="text/javascript">
+        function clickMe() {
+            var box = document.getElementById('box');
+            console.log(box.getBoundingClientRect());
+            console.log($('#box').offset());
+        }
+    </script>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+            margin-top: 200px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+         <div style="height: 1000px"></div>
+        <div id="box"></div>
+        <div onclick="clickMe()">点我</div>
+        <div>
+            getBoundingClientRect相对于视口（以边为界限）
+            offset相对于html文档（左上角为原点）
+            window.innerHeight  可用高度
+            和$(window).innerHeight() 等价
+            window.outerHeight  浏览器高度
+        </div>
+    </div>
+</body>
+</html>
