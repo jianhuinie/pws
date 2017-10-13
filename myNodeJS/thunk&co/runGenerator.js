@@ -1,6 +1,16 @@
 var fs = require('fs');
 var thunkify = require('thunkify');
 var readFile = thunkify(fs.readFile);
+var co = require('co');
+var callback = function (err, data) {
+    if (err) {
+        return console.error(err);
+    }
+    console.log("异步读取文件数据: " + data.toString());
+}
+
+//传统回调方式
+fs.readFile('input.txt', callback);
 
 var gen = function* () {
     var r1 = yield readFile('input.txt');
@@ -32,3 +42,4 @@ var runGenerator = function (gen) {
     jumpText();
 }
 runGenerator(gen);
+co(gen);

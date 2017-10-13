@@ -11,7 +11,7 @@ var gen = function* () {
 };
 // yield 命令后面，只能是 Thunk 函数或 Promise 对象
 co(gen).then(function (data) {
-    console.log(data);
+    // console.log(data);
 });
 
 //promise版本
@@ -55,6 +55,9 @@ var runPromise = function (gen) {
     jumpNext();
 };
 runPromise(gen1);
+co(gen1).then(function (data) {
+    // console.log(data);
+});
 
 //co  源码
 function co(gen) {
