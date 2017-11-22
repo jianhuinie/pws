@@ -21,6 +21,7 @@ var gen = function* () {
 //手动执行
 var g = gen();
 var r1 = g.next();
+console.log(r1)
 r1.value(function(err, data) {
     if (err) throw err;
     var r2 = g.next(data);
@@ -32,14 +33,14 @@ r1.value(function(err, data) {
 //自动执行   递归的过程
 var runGenerator = function (gen) {
     var g = gen();
-    var jumpText = function (err, data) {
+    var jumpNext = function (err, data) {
         var result = g.next(data);
         if (result.done) {
             return;
         }
-        result.value(jumpText);
+        result.value(jumpNext);
     }
-    jumpText();
+    jumpNext();
 }
 runGenerator(gen);
 co(gen);

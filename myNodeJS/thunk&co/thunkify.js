@@ -2,7 +2,7 @@ var thunkify = require('thunkify');
 var fs = require('fs');
 
 var read = thunkify(fs.readFile);
-read('input.txt')(function(err, data){
+read('input.txt')(function(err, data) {
     if (err) {
         return console.error(err);
     }
