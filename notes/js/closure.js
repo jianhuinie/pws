@@ -15,3 +15,10 @@ for (var i = 0; i < 10; i++) {
     // }
 }
 arr[1]();
+
+function Dog() {
+    this.name = 'Gim';
+    return {name: 'Hellen'}
+}
+var dog = new Dog();
+console.log(dog.name);
