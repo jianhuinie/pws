@@ -1,0 +1,78 @@
+.editor-audio {
+    &:hover {
+        border: 1px solid #ff6c00;
+    }
+    background-color: #fff;
+    height: 186px;
+    padding: 20px 0;
+    position: relative;
+    .icon-microphone2 {
+        position: absolute;
+        font-size: 24px;
+        color: #ccc;
+        left: 10px;
+    }
+    .upload-audio {
+        display: inline-block;
+        width: 242px;
+        margin-left: 45px;
+        height: 138px;
+        border: 1px solid #ccc;
+        color: #ccc;
+        padding-top: 60px;
+        cursor: pointer;
+        text-align: center;
+        & > div {
+            font-size: 16px;
+        }
+    }
+    .audio-box {
+        display: inline-block;
+        width: 242px;
+        margin-left: 45px;
+        height: 138px;
+        color: #ccc;
+        padding-top: 50px;
+        cursor: pointer;
+        text-align: center;
+        .voice-icon {
+            display: inline-block;
+            width: 16px;
+            height: 17px;
+            background: url(../img/ic_voice.png) no-repeat center;
+            position: relative;
+            font-size: 20px;
+            right: 130px;
+            bottom: 13px;
+        }
+    }
+    .re-upload {
+        display: inline-block;
+        border: 1px solid #ccc;
+        width: 84px;
+        line-height: 34px;
+        text-align: center;
+        cursor: pointer;
+        font-size: 14px;
+        color: #6d6d6e;
+        position: relative;
+        bottom: 18px;
+        left: 30px;
+    }
+    .uploading-mask {
+        width: 242px;
+        height: 138px;
+        position: absolute;
+        top: 20px;
+        left: 45px;
+        background-color: #000;
+        opacity: .6;
+        text-align: center;
+        padding-top: 50px;
+        span {
+            display: block;
+            color: #fff;
+            font-size: 14px;
+        }
+    }
+}

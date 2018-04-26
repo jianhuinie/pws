@@ -1,0 +1,163 @@
+#site-nav {
+    color: #666;
+    background-color: #F4F4F4;
+    border-bottom: 1px solid #DDD;
+    font-size: 12px;
+    height: 32px;
+    position: relative;
+    z-index: 4;
+    .wrapper {
+        width: 1190px;
+        margin: 0 auto;
+        .menu {
+            background-color: #FFF;
+            border: 1px solid #ccc;
+            display: none;
+            top: 32px;
+            left: 0;
+            text-align: center;
+        }
+        .status-info,
+        .user-info {
+            display: inline-block;
+            li {
+                display: inline-block;
+                height: 32px;
+                line-height: 32px;
+                padding: 0 10px;
+                position: relative;
+                cursor: pointer;
+            }
+            .icon {
+                margin-right: 5px;
+                font-size: 13px;
+                position: relative;
+                display: inline-block;
+                vertical-align: baseline;
+            }
+        }
+        .status-info {
+            a.logout-link {
+                margin-left: 7px;
+            }
+            li:first-child {
+                padding-left: 0;
+            }
+            .icon {
+                color: #FF6c00;
+            }
+            .wechat {
+                cursor: pointer;
+                .icon {
+                    color: #666;
+                }
+                .menu {
+                    width: 150px;
+                    .text-primary {
+                        color: #ff6c00;
+                    }
+                    .qrcode-box {
+                        width: 115px;
+                        height: 115px;
+                        margin: 0 auto;
+                        background: url('../img/wechat_qrcode.png');
+                    }
+                }
+                &:hover {
+                    .icon {
+                        color: green;
+                    }
+                }
+            }
+        }
+        .user-info {
+            float: right;
+            .index-page {
+                color: #F95710;
+            }
+            .center-menu {
+                width: 138px;
+                text-align: left;
+                padding-left: 19px;
+                a {
+                    display: block;
+                }
+                a.btn-primary {
+                    width: 100px;
+                    text-align: center;
+                    margin-bottom: 13px;
+                    background-color: #ff6c00;
+                    border: 1px solid #ff6c00;
+                    color: #fff;
+                }
+            }
+            .courses-menu {
+                padding: 10px;
+                a.btn-primary {
+                    padding: 10px;
+                    text-align: center;
+                    background-color: #ff6c00;
+                    border: 1px solid #ff6c00;
+                    color: #fff;
+                }
+            }
+            .services-menu {
+                width: 80px;
+                padding: 10px 14px;
+                a {
+                    display: block;
+                }
+            }
+            .change-type:before,
+            .org-stage:before {
+                background-color: #CCC;
+                content: ' ';
+                width: 1px;
+                height: 12px;
+                position: absolute;
+                left: 0;
+                top: 10px;
+            }
+            .change-type:after {
+                background-color: #CCC;
+                content: ' ';
+                width: 1px;
+                height: 12px;
+                position: absolute;
+                right: 0;
+                top: 10px;
+            }
+            .services:before {
+                background-color: #CCC;
+                content: ' ';
+                width: 1px;
+                height: 12px;
+                position: absolute;
+                left: 0;
+                top: 10px;
+            }
+        }
+    }
+}
+.show-telephone-dialog {
+    width: 420px !important;
+    .text {
+        text-align: left;
+        color: #555;
+    }
+    .phone {
+        vertical-align: middle;
+        font-size: 24px;
+        margin-bottom: 20px;
+        text-align: center;
+        i {
+            color: #FF6c00;
+            margin-right: 8px;
+            font-size: 30px;
+            vertical-align: middle;
+        }
+        span {
+            font-size: 24px;
+        }
+    }
+}

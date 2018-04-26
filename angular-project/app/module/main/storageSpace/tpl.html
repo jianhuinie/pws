@@ -1,0 +1,189 @@
+<div class="storage-space">
+    <div class="header">
+        <span class="title">存储空间</span>
+        <span class="used-space">已使用存储空间：
+            <span class="quantity">{{usedSpace}}/{{totalSpace}}</span>
+        </span>
+    </div>
+
+    <div class="purchase-page index-page" ng-show="showPurchase">
+        <div class="buy-header">购买存储空间{{userNumber}}</div>
+        <!-- <div class="header">
+            <span class="title">存储空间</span>
+        </div> -->
+        <div class="text-info">开通对象：<span ng-bind="userName"></span></div>
+        <div class="text-info">套餐类型：<span ng-bind="beginDate + '至' + endDate"></span></div>
+        <div class="item-list">
+            <div class="item" ng-repeat="product in productList"
+                              ng-class="{'selected': selectedId === product.id}"
+                              ng-click="select(product)">
+                <div class="capacity" ng-bind="product.size + 'G'"></div>
+                <div class="price" 
+                     ng-bind="'¥' + product.price_list[vipLevel].price + '元/年'"></div>
+                <!-- <div class="price-novip" 
+                     ng-bind="'非会员价格¥' + product.price_list[0].price + '元/年'"
+                     ng-hide="vipLevel===0">
+                </div> -->
+                <span class="recommed-choice" ng-show="product.recommend"></span>
+            </div>
+        </div>
+        <div class="remind-info" ng-show="!selectSpace">由于跟谁学平台策略调整，存储空间使用完成后将不再支持购买。</div>
+        <div class="pay-money" ng-show="selectSpace">
+            应付金额：<span class="money">¥{{payMoney}}</span>
+        </div>
+        <div class="clearfix"></div>
+        <div class="buttons" ng-show="selectSpace">
+            <!-- <span class="go-back" ng-click="goBack()">返回</span> -->
+            <span class="confirm-buy">确认购买</span>
+        </div>
+        <div class="remind-info right" ng-show="selectSpace">由于跟谁学平台策略调整，存储空间使用完成后将不再支持购买。</div>
+    </div>
+
+    <div class="index-page" ng-show="showPurchase">
+        <!-- <div class="buy-header">购买存储空间{{userNumber}}</div>
+        <div class="buy-intro">
+            <span class="set-border"></span>
+            <span class="text-info">买的越多折扣越多 会员还有额外折扣</span>
+            <span class="set-border"></span>
+        </div>
+        <div class="item-list">
+            <div class="item" ng-repeat="product in productList">
+                <div class="capacity" ng-bind="product.size + 'G'"></div>
+                <div class="capacity-intro" ng-bind="product.description"></div>
+                <div class="price-{{vipStatusMap[price.vip_level]}}" ng-repeat="price in product.price_list">
+                    <span class="text-info" ng-bind="price.vip_name"></span>
+                    <span class="price" ng-bind="'¥' + price.price + '元/年'"></span>
+                </div>
+                <div class="buy-button" ng-click="buy(product)">立即购买</div>
+                <span class="recommed-choice"  ng-show="product.recommend"></span>
+            </div>
+        </div>
+        <div class="banner" ng-click="jumpVipCenter()">
+            
+        </div>
+        <div class="about-storage">
+            <div class="title">
+                <span class="tip-icon"></span>
+                <span>关于存储空间</span>
+            </div>
+            <div class="item-intro">
+                普通用户享有10G的免费云端存储空间，会员老师可以获赠更多的免费存储空间
+            </div>
+            <ul>
+                <li>个体老师</li>
+            </ul>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="line-header">会员类型</th>
+                        <th>非会员</th>
+                        <th>会员</th>
+                        <th>高级会员</th>
+                        <th>超级会员</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="line-header">存储空间</td>
+                        <td>10G</td>
+                        <td>20G</td>
+                        <td>50G</td>
+                        <td>100G</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <ul>
+                <li>机构</li>
+            </ul>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="line-header">会员类型</th>
+                        <th>非会员</th>
+                        <th>会员</th>
+                        <th>高级会员</th>
+                        <th>超级会员</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="line-header">存储空间</td>
+                        <td>10G</td>
+                        <td>40G</td>
+                        <td>100G</td>
+                        <td>200G</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div> -->
+        <div class="about-storage">
+            <div class="title">
+                <span class="tip-icon"></span>
+                <span>如何更好地利用存储空间</span>
+            </div>
+            <div class="item-intro">
+                定期清理资料库中的资料文件
+            </div>
+            <div class="item-intro">
+                删除已经不再使用的直播回放视频
+            </div>
+            <div class="item-intro">
+                当视频课程下架后，记得删除资料库中的视频文件
+            </div>
+        </div>
+        <div class="about-storage">
+            <div class="title">
+                <span class="tip-icon"></span>
+                <span>存储空间购买的有效期如何计算？</span>
+            </div>
+            <div class="item-intro">
+                您成功购买存储空间，可以立即获得一年该存储空间的使用权，一年的有效期是按365天的有效期计算。
+            </div>
+            <div class="item-intro" style="color:#9d9d9e;font-size: 14px;">
+                例如：您于2016-9-10购买了存储空间，则可使用至2017-9-10 23:59:59。
+            </div>
+        </div>
+        <div class="about-storage">
+            <div class="title">
+                <span class="tip-icon"></span>
+                <span>存储空间到期后怎么办？</span>
+            </div>
+            <div class="item-intro">
+                您购买的存储空间到期后，可以自由选择是否续费。如果不续费，将收回到期的付费存储空间。
+            </div>
+            <div class="item-intro">
+               存储空间回收后若实际存储空间占用量等于或大于可用存储空间，我们不会删除您的数据内容，将会暂停
+            </div>
+            <div class="item-intro">
+                您对存储空间的所有上传行为，其他功能可以正常使用。
+            </div>
+        </div>
+        <div class="about-storage" ng-show="historyRecords.length">
+            <div class="title">
+                <span class="tip-icon"></span>
+                <span>存储空间购买记录</span>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="row-header first-line">方式</th>
+                        <th class="row-header">容量大小</th>
+                        <th class="row-header">有效期</th>
+                        <th class="row-header">状态</th>
+                        <th class="row-header">购买时间</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="record in historyRecords">
+                        <td class="first-line" ng-bind="record.origin_type_cn"></td>
+                        <td ng-bind="record.size_gb"></td>
+                        <td ng-bind="record.data_range"></td>
+                        <td ng-bind="record.status_cn"></td>
+                        <td ng-bind="record.create_time"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

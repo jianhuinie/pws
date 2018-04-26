@@ -1,0 +1,73 @@
+.choose-group-dialog {
+	.content {
+		position: relative;
+		height: 210px;
+		width: 100%;
+		button {
+			outline: none;
+		}
+		.new-group {
+			position: absolute;
+			margin-left: 13px;
+			height: 30px;
+			top: -24px;
+			right: 15px;
+		}
+		.group-list {
+			width: 100%;
+			height: 164px;
+			overflow-y: auto;
+			margin-top: 20px;
+			.group-item {
+				background: #fff;
+				height: 36px;
+				line-height: 36px;
+				.label {
+					cursor: pointer;
+					width: auto;
+					max-width: 130px;
+					vertical-align: inherit;
+					margin-right: 20px;
+				}
+				.radio {
+					line-height: 13px;
+				}
+				.delete-group {
+					display: none;
+					float: right;
+					margin-right: 15px;
+				}
+			}
+			.group-item:hover {
+				background: #f4f4f4;
+				.delete-group {
+					display: block;
+				}
+			}
+		}
+
+		.cancel, .done {
+			position: absolute;
+			bottom: 5px;
+			border-radius: 3px;
+			border: none;
+			font-size:14px;
+		}
+		.cancel {
+			left: 70px;
+			width: 98px;
+			height: 32px;
+			background: #ffffff;
+			border: 1px solid #cdcdce;
+			color: #3d3d3e;
+		}
+		.done {
+			right: 70px;
+			background: #ff6c00;
+			width: 100px;
+			height: 34px;
+			color: #fff;
+		}
+
+	}
+}

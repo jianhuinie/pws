@@ -1,0 +1,404 @@
+<div class="one2one-edit-container">
+    <div class="top-info">
+        <a class="go-back" ng-href="{{courseListUrl}}">
+            &lt;返回
+        </a>
+        <span class="one2one-title">／优选一对一设置</span>
+        <span class="remind-info" 
+              ng-if="courseNumber && verifyStatus === 'FAILED'"
+              tooltip
+              options="verifyReasonsOpt">
+            <i class="icon icon-ic_detail"></i>
+            课程审核被拒，请修改相关信息后重新提交(失败原因：{{failedItems}})
+        </span>
+    </div>
+    <side-nav options="sideNavOptions"></side-nav>
+    <div class="course-edit">
+        <div class="basic-info module-area">
+            <div class="title">基础信息</div>
+            <div class="basic-item teach-subjects">
+                <div class="title-inline">
+                    教授科目
+                </div>
+                <div class="detail-info" ng-if="!courseNumber">
+                    <dropdown options="level1SubjectOptions"></dropdown>
+                    <dropdown options="level2SubjectOptions"></dropdown>
+                    <dropdown options="level3SubjectOptions"
+                              ng-if="showLevel3Dropdown">
+                        
+                    </dropdown>
+                </div>
+                <div class="detail-info" ng-if="courseNumber">
+                    <div class="dropdown" ng-if="level1Subject">
+                        <button class="button secondary small">
+                            <i class="icon icon-caret-down"></i>
+                            <span class="selected-value" ng-bind="level1Subject"></span>
+                        </button>
+                    </div>
+                    <div class="dropdown" ng-if="level2Subject" >
+                        <button class="button secondary small">
+                            <i class="icon icon-caret-down"></i>
+                            <span class="selected-value" ng-bind="level2Subject"></span>
+                        </button>
+                    </div>
+                    <div class="dropdown" ng-if="level3Subject">
+                        <button class="button secondary small">
+                            <i class="icon icon-caret-down"></i>
+                            <span class="selected-value" ng-bind="level3Subject"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="basic-item course-type">
+                <div class="title-inline">
+                    课程类型
+                </div>
+                <div class="detail-info">
+                     <span class="cag-item" 
+                           ng-repeat="cag in categories"
+                           ng-click="selectCategory(cag)"
+                           ng-class="{'active':cag.selected}"
+                           >
+                           {{cag.name}}
+                         <i class="icon icon-close" 
+                            ng-if="cag.type === 'CUSTOM' && cag.name !== '全部'"
+                            ng-click="deleteCategory($index)"></i>
+                     </span>
+                    <span ng-if="!cagEditFlag 
+                                 && (!categories.length 
+                                     || categories[0].type === 'CUSTOM'
+                                     || categories[0].name === '全部')"
+                          ng-click="editCategory()">
+                        +&nbsp;添加自定义类型
+                    </span>
+                    <div ng-if="cagEditFlag
+                                && (!categories.length 
+                                    || categories[0].type === 'CUSTOM'
+                                    || categories[0].name === '全部')"
+                        class="category-edit-form form">
+                        <div class="form-input">
+                            <input type="text" name="category" placeholder="10个字以内"
+                                   ng-model="editingCag.name">
+                            <span data-error-for="category" class="error"></span>
+                        </div>
+                        <span class="btn-save action-btn" ng-click="saveEditCag()">保存</span>
+                        <span class="btn-cancel action-btn" ng-click="cancelEditCag()">取消</span>
+                    </div>
+                </div>
+            </div>
+            <div class="basic-item lesson-way">
+                <div class="title-inline">
+                    授课方式
+                </div>
+                <div class="detail-info">
+                    <span ng-repeat="way in lessonWayMap"
+                          ng-bind="way.text"
+                          ng-class="{'active':way.selected}"
+                          ng-click="selectWay(way)">
+                        
+                    </span>
+                </div>
+            </div>
+            <div class="basic-item teach-address"
+                 ng-if="lessonWayMap[1].selected">
+                <div class="title-inline">
+                    上课地点
+                </div>
+                <div class="detail-info">
+                    <i class="icon icon-location-o"></i>
+                    {{addressDefault.location_addr}}
+                </div>
+                <div class="actions">
+                    <span ng-click="updateAddress()" ng-if="showUpdateAddressBtn">刷新地址</span>
+                    <a ng-href="{{modifyAddressUrl}}"
+                       target="_blank"
+                       ng-click="toChangeAddress()">
+                        修改地址
+                    </a>
+                </div>
+            </div>
+            <div class="basic-item course-prices">
+                <div class="title-inline">
+                    课程价格 <span>(元/小时)</span>
+                    <span class="text-tip" ng-if="!cagCount">
+                        <i class="icon icon-ic_detail"></i>
+                        请设置课程类型
+                    </span>
+                    <span class="text-tip" ng-if="cagCount && !lessonWayCount">
+                        <i class="icon icon-ic_detail"></i>
+                        请选择授课方式
+                    </span>
+                    <span class="help-info" tooltip options="priceHelpOptions">
+                        <i class="icon icon-help"></i>
+                        如何设置课程价格
+                    </span>
+                </div>
+                <div class="detail-info">
+                    <table ng-if="cagCount && lessonWayCount">
+                        <tr>
+                            <td></td>
+                            <td ng-repeat="way in lessonWayMap" ng-if="way.selected">
+                                {{way.text}}
+                            </td>
+                        </tr>
+                        <tr ng-repeat="cag in categories" ng-if="cag.selected">
+                            <td>{{cag.name}}</td>
+                            <td ng-repeat="way in lessonWayMap" ng-if="way.selected">
+                                <input type="number"
+                                       min="0"
+                                       ng-model="cag[priceArrayMap[way.value]]">
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="about-course module-area">
+            <div class="title">课程相关介绍</div>
+            <div class="box pictures">
+                <div class="text-title">
+                    图片介绍
+                    <span class="help-info" tooltip options="introPicHelpOptions">
+                        <i class="icon icon-help"></i>
+                        帮助信息
+                    </span>
+                </div>
+                <div class="pic-list">
+                    <div class="pic-item" ng-repeat="pic in introPics">
+                        <div class="pic-box">
+                            <img ng-src="{{pic.image_url}}{{photoParam}}">
+                            <span class="close-icon" 
+                                  ng-click="deleteIntroPic($index)">
+                                
+                            </span>
+                        </div>
+                        <input type="text" ng-model="pic.title"
+                               placeholder="添加描述">
+                    </div>
+                    <div class="upload-pic" ng-click="uploadIntroPic()"
+                         ng-if="introPics.length < 4">
+                        <i class="icon icon-ic_add"></i>
+                        <div>上传照片</div>
+                        <div class="uploading-mask" ng-if="introPicUploading">
+                            <span>上传中,请稍后...</span>
+                            <span ng-bind="introPicUploadParam.uploadedPercent"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box honors">
+                <div class="text-title">
+                    荣誉奖励
+                    <span class="help-info" tooltip options="honorPicHelpOptions">
+                        <i class="icon icon-help"></i>
+                        帮助信息
+                    </span>
+                </div>
+                <div class="pic-list">
+                    <div class="pic-item" ng-repeat="pic in honorPics">
+                        <div class="pic-box">
+                            <img ng-src="{{pic.image_url}}{{photoParam}}">
+                            <span class="close-icon" 
+                                  ng-click="deleteHonorPic($index)">
+                                
+                            </span>
+                        </div>
+                        <input type="text" ng-model="pic.title"
+                               placeholder="添加描述">
+                    </div>
+                    <div class="upload-pic" ng-click="uploadHonorPic()"
+                         ng-if="honorPics.length < 4">
+                        <i class="icon icon-ic_add"></i>
+                        <div>上传照片</div>
+                        <div class="uploading-mask" ng-if="honorPicUploading">
+                            <span>上传中,请稍后...</span>
+                            <span ng-bind="honorPicUploadParam.uploadedPercent"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box videos">
+                <div class="text-title">
+                    视频介绍
+                    <span class="help-info" tooltip options="videoHelpOptions">
+                        <i class="icon icon-help"></i>
+                        帮助信息
+                    </span>
+                </div>
+                <div class="video-list">
+                    <div class="video-item" ng-repeat="video in introVideos">
+                        <div class="pic-box">
+                            <img ng-src="{{video.cover_url}}{{photoParam}}">
+                            <span class="close-icon" 
+                                  ng-click="deleteIntroVideo($index)">
+                                
+                            </span>
+                            <span class="icon-video"></span>
+                        </div>
+                        <input type="text" ng-model="video.title"
+                               placeholder="添加描述">
+                    </div>
+                    <div class="upload-video" ng-click="uploadVideo()"
+                         ng-if="introVideos.length < 1">
+                        <i class="icon icon-ic_add"></i>
+                        <div>上传视频</div>
+                        <div class="uploading-mask" ng-if="videoUploading">
+                            <span>上传中,请稍后...</span>
+                            <span ng-bind="videoUploadParam.uploadedPercent"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box cases">
+                <div class="text-title">
+                    优秀教学案例
+                    <span class="help-info" tooltip options="caseHelpOptions">
+                        <i class="icon icon-help"></i>
+                        帮助信息
+                    </span>
+                </div>
+                <div ng-repeat="caseItem in successCases">
+                    <div class="case-item"
+                         ng-show="!caseItem.editing">
+                        <span class="date" ng-bind="caseItem.displayDate"></span>
+                        <span  class="name" ng-bind="caseItem.title"></span>
+                        <div ng-bind-html="caseItem.content" class="content">
+                            
+                        </div>
+                        <div class="edit-buttons">
+                            <span ng-click="editCase(caseItem)" 
+                                  class="edit-case">
+                                编辑
+                            </span>
+                            <span ng-click="deleteCase($index)" class="delete-case">删除</span>
+                        </div>
+                    </div>
+                    <div class="case-edit-form form" ng-if="caseItem.editing">
+                        <div class="edit-title">优秀教学案例</div>
+                        <div class="case-name">
+                            <div class="case-title">案例名称（30字以内）</div>
+                            <div class="form-input">
+                                <input type="text" name="caseTitle"
+                                       ng-model="editingCase.title">
+                                <span data-error-for="caseTitle" class="error"></span>
+                            </div>
+                        </div>
+                        <div class="case-date">
+                            <div class="case-title">日期</div>
+                            <div class="form-input">
+                                 <input datetimepicker options="dateTimeOptions" 
+                                        name="caseDate"
+                                        ng-model="editingCase.timeStamp">
+                                <span data-error-for="caseDate" class="error"></span>
+                            </div>
+                        </div>
+                        <div class="case-content">
+                            <div class="case-title">描述你的案例（50-300字）</div>
+                            <div class="text-info">
+                                详细的案例描述还有助于学生更了解您，提高约课率
+                            </div>
+                            <div class="form-input">
+                                <textarea name="caseContent"
+                                          ng-model="editingCase.content">
+                                              
+                                </textarea>
+                                <div class="input-remind" 
+                                     ng-if="editingCase.content.length < 50">
+                                    还需要输入{{50 - editingCase.content.length}}个字
+                                </div>
+                                <div class="input-remind"
+                                     ng-if="editingCase.content.length >= 50
+                                            && editingCase.content.length <= 300">
+                                    您已输入{{editingCase.content.length}}个字
+                                </div>
+                                <div class="input-remind"
+                                     ng-if="editingCase.content.length > 300">
+                                    已超出限制{{editingCase.content.length - 300}}个字
+                                </div>
+                                <span data-error-for="caseContent" class="error"></span>
+                            </div>
+                        </div>
+                        <div class="case-example">
+                            <div class="text-title">
+                                示例
+                                <span ng-click="switchCaseExample()">
+                                    <i class="icon icon-refresh"></i>
+                                    换一个
+                                </span>
+                            </div>
+                            <div class="example-item" ng-if="caseExampleIndex === 0">
+                                <div>
+                                    <span>标题：</span>
+                                    <span class="text-detail">双胞胎艺术考前生，顺利考入中戏，中央院作曲系</span>
+                                </div>
+                                <div>
+                                    <span>时间：</span>
+                                    <span class="text-detail">2016年02月</span>
+                                </div>
+                                <div>
+                                    <span>描述：</span>
+                                    <span class="text-detail">
+                                        2015～2016年，双胞胎刘思媛和刘思宇同学，跟着我学习美声唱法，
+                                        打下了深厚的功底。临考前，我为两位同学选择并指导考前曲目，
+                                        使得两位同学在2016年的艺考的大军中脱颖而出，刘思媛同学考上了中央戏剧学院表演系，
+                                        刘思宇同学考入中央音乐学院作曲系，两位同学都考入了理想学府！
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="example-item" ng-if="caseExampleIndex === 1">
+                                <div>
+                                    <span>标题：</span>
+                                    <span class="text-detail">罗明宇高考数学147分考入清华大学</span>
+                                </div>
+                                <div>
+                                    <span>时间：</span>
+                                    <span class="text-detail">2015年08月</span>
+                                </div>
+                                <div>
+                                    <span>描述：</span>
+                                    <span class="text-detail">
+                                        罗明宇，在2015.8.7开始上课，当时数学成绩在120左右，
+                                        数学相对较弱。通过一年的学习，2016年高考中，该同学高考数学147分，
+                                        总分687被清华大学录取。相册有对应成绩截图。（有图有真相）
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="example-item" ng-if="caseExampleIndex === 2">
+                                <div>
+                                    <span>标题：</span>
+                                    <span class="text-detail">高三提分</span>
+                                </div>
+                                <div>
+                                    <span>时间：</span>
+                                    <span class="text-detail">2015年09月</span>
+                                </div>
+                                <div>
+                                    <span>描述：</span>
+                                    <span class="text-detail">
+                                        在北京某学校任教期间，用一个学期使高三任教常规理科班从平均分倒数第二名提升至第二名。擅长在阅读和作文上，通过分析每个同学的痛点问题，结合他们自身不同情况，制定进步计划，达到良好提分效果。制定进步计划，达到良好提分效果。
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="actions">
+                            <span class="btn-save" ng-click="saveCase(caseItem)">保存</span>
+                            <span class="btn-cancel" ng-click="cancelEditCase(caseItem, $index)">取消</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="add-case" ng-click="addSuccessCases()"
+                     ng-if="!caseEditFlag && successCases.length < 3">
+                    + &nbsp;&nbsp;优秀教学案例
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="release-course">
+        <button class="save-btn" 
+                ng-click="releaseCourse()"
+                ng-disabled="savingCourse"
+                ng-class="{'btn-disabled':savingCourse}">
+            发布课程
+        </button>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="tribble-subject-wrapper">
+	<div class="subject-list" ng-show="level1Subjects.length">
+		<div class="subject-level level1">
+			<div ng-repeat="level1Subject in level1Subjects" ng-bind="level1Subject.name"
+				 ng-class="{'active':level1Subject.active}" ng-click="toLevel2Subject(level1Subject)">
+
+			</div>
+		</div>
+		<div class="subject-level level1">
+			<div ng-repeat="level2Subject in level2Subjects" ng-bind="level2Subject.name"
+				 ng-class="{'active':level2Subject.active}" ng-click="toLevel3Subject(level2Subject)">
+				
+			</div>
+		</div>
+		<div class="subject-level level1">
+			<div ng-repeat="level3Subject in level3Subjects" ng-bind="level3Subject.name"
+				 ng-class="{'active':level3Subject.active}" ng-click="finishSelectSubject(level3Subject)">
+				
+			</div>
+		</div>
+	</div>
+	<div class="empty-box" ng-hide="level1Subjects.length">
+		未找到搜索结果，您可以换个词重新查询或者在
+		<span class="search-all" ng-click="searchAll()">全部类目</span>
+		中选择相近的类目
+	</div>
+	<div class="search-form">
+		<input id="search-input" type="text" placeholder="输入关键词快速查找分类"
+			ng-model="searchKey"/>
+		<span ng-click="doSearch()"><i class="icon icon-search"></i></span>
+	</div>
+</div>

@@ -1,0 +1,32 @@
+<div class="content">
+    <div class="photo-list" ng-show="photos.length && !isLoading">
+        <div class="photo-item" ng-repeat="photo in photos"
+             ng-click="selectPic(photo)">
+            <img ng-src="{{photo.url}}{{photoParam}}">
+            <span class="photo-intro" ng-bind="photo.title"></span>
+            <span class="icon icon-selected" ng-show="photo.selected"></span>
+            <span class="icon icon-noselected" ng-hide="photo.selected"></span>
+        </div>
+    </div>
+    <p ng-if="photos.length">你还可以选择{{4 - length - selectedCount}}张照片</p>
+    <div ng-show="!photos.length && !isLoading">
+        <empty-data options="{}"></empty-data>
+        <div class="no-photos"> 
+            当前没有可以选择的照片。
+        </div>
+    </div>
+    <div class="buttons" ng-show="photos.length && !isLoading">
+        <span class="cancel" ng-click="dialog.close()">
+            取消
+        </span>
+        <span class="confirm-select" ng-click="confirmSelect()">
+            确定
+        </span>
+    </div>
+    <div class="known-it" ng-show="!photos.length && !isLoading" ng-click="dialog.close()">
+        我知道了
+    </div>
+     <div ng-show="isLoading">
+        <loading-status></loading-status>
+    </div>
+</div>

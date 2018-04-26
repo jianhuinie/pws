@@ -1,0 +1,53 @@
+<div class="teacher-live">
+    <div class="nav-bar">
+        <div class="logo">
+            <span class="logo-pic"></span>
+            <span class="logo-text">老师版</span>
+        </div>
+        <div class="user-info">
+            <div class="user-avatar">
+                <img ng-src="{{user.user_avatar}}" alt="头像">
+            </div>
+            <div class="user-name" ng-bind="user.user_name"></div>
+            <div class="date-now">
+                <today-date></today-date>
+            </div>
+        </div>
+        <div class="nav-panel">
+            <div class="panel-item" 
+                ng-class="{'active': $state.current.name == 'commonPage.teacherLive.courses'}">
+                <i class="icon icon-ic_kecheng"></i>
+                <span class="panel-text">我的课程</span>
+            </div>
+        </div>
+        <div class="nav-options">
+            <div class="options-item">
+                <i class="icon icon-ic_hireclassroom"></i>
+                <span class="options-text">
+                    <a href="https://{{env}}.genshuixue.com/live/teacher_trial?number={{user.user_number }}">
+                        体验教室
+                    </a>
+                </span>
+            </div>
+            <div class="options-item">
+                <i class="icon icon-ic_yijian"></i>
+                <span class="options-text">
+                    <a href="https://{{env}}.genshuixue.com/guide/feedback?a=feedback" target="_blank">
+                        意见反馈
+                    </a>
+                </span>
+            </div>
+            <div class="options-item">
+                <i class="icon icon-ic_tuichu"></i>
+                <span class="options-text">
+                    <a href="https://{{env}}.genshuixue.com/auth/logout?next=/auth/signin_client_v2">
+                        退出登录
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="live-content">
+        <div ui-view></div>
+    </div>
+</div>

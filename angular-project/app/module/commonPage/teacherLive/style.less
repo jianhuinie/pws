@@ -1,0 +1,121 @@
+@import './courses/style.less';
+.teacher-live {
+    .nav-bar {
+        width: 158px;
+        opacity: 0.99;
+        background: #333439;
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        min-height: 534px;
+        text-align: center;
+        color: #fff;
+        .logo {
+            margin-top: 20px;
+            .logo-pic {
+                display: inline-block;
+                width: 78px;
+                height: 17px;
+                background-image: url(../img/live/logo-live.png);
+            }
+            .logo-text {
+                color: #9D9D9E;
+                font-size: 13px;
+                border-left: 1px solid #9D9D9E;
+                padding-left: 5px;
+                position: relative;
+                bottom: 4px;
+                margin-left: 3px;
+            }
+        }
+        .user-info {
+            .user-avatar {
+                margin-top: 12px;
+                margin-bottom: 6px;
+                img {
+                    width: 64px;
+                    height: 64px;
+                    border-radius: 50%;
+                }
+            }
+            .user-name {
+                max-width: 100px;
+                margin: 0 auto;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                font-family: MicrosoftYaHei;
+                font-size: 14px;
+                color: #DDDDDE;
+                line-height: 14px;
+                font-weight: 200;
+                margin-bottom: 8px;
+            }
+            .date-now {
+                font-family: ArialMT;
+                font-size: 12px;
+                color: #6D6D6E;
+                line-height: 12px;
+                margin-bottom: 10px;
+            }
+        }
+        .nav-panel {
+            .panel-item {
+                padding-top: 14px;
+                cursor: pointer;
+                height: 46px;
+                font-family: MicrosoftYaHei;
+                font-size: 16px;
+                font-weight: 200;
+                color: #DDDDDE;
+                letter-spacing: 1px;
+                line-height: 16px;
+                i {
+                    font-size: 18px;
+                }
+                .panel-text {
+                    position: relative;
+                    bottom: 2px;
+                }
+            }
+            .active {
+                background: #1E1F22 !important;
+            }
+        }
+        .nav-options {
+            position: absolute;
+            bottom: 35px;
+            width: 100%;
+            .options-item {
+                padding-top: 14px;
+                cursor: pointer;
+                height: 46px;
+                i {
+                    font-size: 18px;
+                }
+                .options-text {
+                    position: relative;
+                    bottom: 2px;
+                    a {
+                        font-family: MicrosoftYaHei;
+                        font-size: 16px;
+                        font-weight: 200;
+                        color: #9d9d9e;
+                        letter-spacing: 1px;
+                        line-height: 16px;
+                    }
+                }
+            }
+        }
+    }
+    .live-content {
+        position: fixed;
+        left: 158px;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        min-width: 642px;
+        overflow: scroll;
+    }
+}

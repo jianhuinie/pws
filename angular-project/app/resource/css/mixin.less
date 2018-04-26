@@ -1,0 +1,92 @@
+@import './mixin/ie';
+@import './mixin/position';
+@import './mixin/animation';
+@import './mixin/transformations';
+@import './mixin/transitions';
+// Vendor Prefixes
+//
+// All vendor mixins are deprecated as of v3.2.0 due to the introduction of
+// Autoprefixer in our Gruntfile. They will be removed in v4.
+
+// - Animations
+// - Backface visibility
+// - Box shadow
+// - Box sizing
+// - Content columns
+// - Hyphens
+// - Placeholder text
+// - Transformations
+// - Transitions
+// - User Select
+
+// Backface visibility
+// Prevent browsers from flickering when using CSS 3D transforms.
+// Default value is `visible`, but can be changed to `hidden`
+
+.backface-visibility(@visibility){
+  -webkit-backface-visibility: @visibility;
+     -moz-backface-visibility: @visibility;
+          backface-visibility: @visibility;
+}
+
+// Drop shadows
+//
+// Note: Deprecated `.box-shadow()` as of v3.1.0 since all of Bootstrap's
+// supported browsers that have box shadow capabilities now support it.
+
+.box-shadow(@shadow) {
+  -webkit-box-shadow: @shadow; // iOS <4.3 & Android <4.1
+          box-shadow: @shadow;
+}
+
+// Box sizing
+.box-sizing(@boxmodel) {
+  -webkit-box-sizing: @boxmodel;
+     -moz-box-sizing: @boxmodel;
+          box-sizing: @boxmodel;
+}
+
+// CSS3 Content Columns
+.content-columns(@column-count; @column-gap: @grid-gutter-width) {
+  -webkit-column-count: @column-count;
+     -moz-column-count: @column-count;
+          column-count: @column-count;
+  -webkit-column-gap: @column-gap;
+     -moz-column-gap: @column-gap;
+          column-gap: @column-gap;
+}
+
+// Optional hyphenation
+.hyphens(@mode: auto) {
+  word-wrap: break-word;
+  -webkit-hyphens: @mode;
+     -moz-hyphens: @mode;
+      -ms-hyphens: @mode; // IE10+
+       -o-hyphens: @mode;
+          hyphens: @mode;
+}
+
+// Placeholder text
+.placeholder(@color: @input-color-placeholder) {
+  &::-moz-placeholder           { color: @color;   // Firefox
+                                  opacity: 1; } // See https://github.com/twbs/bootstrap/pull/11526
+  &:-ms-input-placeholder       { color: @color; } // Internet Explorer 10+
+  &::-webkit-input-placeholder  { color: @color; } // Safari and Chrome
+}
+
+
+// User select
+// For selecting text on the page
+
+.user-select(@select) {
+  -webkit-user-select: @select;
+     -moz-user-select: @select;
+      -ms-user-select: @select; // IE10+
+          user-select: @select;
+}
+
+.text-overflow() {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

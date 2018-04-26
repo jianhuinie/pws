@@ -1,0 +1,17 @@
+<div class="side-bar">
+    <div class="menu" ng-repeat="list in sidebarConfig">
+        <div class="large title" ng-bind="list.name" ng-if="!list.url"></div>
+        <div class="large title" ng-if="list.url"
+             ng-class="{'active': item.active}">
+           <a ng-href="{{list.url}}" class="title" ng-bind="list.name" ></a>
+        </div>
+        <div class="sub-menu">
+            <a ng-repeat="item in list.items" 
+                class="link small fluid" 
+                ng-href="{{item.url}}" 
+                target="_blank" ng-bind="item.name"
+                ng-class="{'active': item.active}">
+            </a>
+        </div>
+    </div>
+</div>

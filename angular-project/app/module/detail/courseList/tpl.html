@@ -1,0 +1,27 @@
+<div class="course-list">
+    <div class="title">
+        课程设置
+        <span ng-if="$state.current.name === 'detail.courseList.videocourse'"
+            class="examine-time">
+            审核工作时间：9:00-21:00（审核需1天左右，请耐心等待）
+        </span>
+    </div>
+    <div class="nav-bar">
+        <a href="https://{{env}}.genshuixue.com/teacher_course/list_admin">1对1</a>
+
+        <a ng-class="{'active': $state.current.name === 'detail.courseList.one2one'}"
+            ui-sref="detail.courseList.one2one"
+            ng-if="user.manager_one_on_one_course_permission === 1">
+            优选1对1
+        </a>
+
+        <a href="https://{{env}}.genshuixue.com/tcenter/courses/class-courses/list-html?lesson_way=4">线下班课</a>
+        <a href="https://{{env}}.genshuixue.com/tcenter/courses/class-courses/list-html?lesson_way=2">直播课</a>
+
+        <a ng-class="{'active': $state.current.name === 'detail.courseList.videocourse'}"
+            ui-sref="detail.courseList.videocourse">
+            视频课
+        </a>
+    </div>
+</div>
+<div ui-view></div>

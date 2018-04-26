@@ -1,0 +1,20 @@
+<div class="editor-video editor-content">
+    <i class="icon draggable-icon icon-live-o"></i>
+    <div class="upload-video" ng-if="!options.videoId" ng-click="uploadVideo()">
+        <div>
+            <i class="icon icon-ic_add"></i>
+            上传视频
+        </div>
+    </div>
+    <div class="image-box" ng-if="options.videoId">
+        <crop-image options="imgOptions"></crop-image>
+       <span class="voice-icon"></span>
+    </div>
+    <div ng-if="options.videoId" class="re-upload" ng-click="uploadVideo()">
+        重新上传
+    </div>
+    <div class="uploading-mask" ng-if="videoUploading">
+        <span>上传中,请稍后...</span>
+        <span ng-bind="videoUploadParam.uploadedPercent"></span>
+    </div>
+</div>

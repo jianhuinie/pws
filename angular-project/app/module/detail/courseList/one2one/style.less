@@ -1,0 +1,110 @@
+.one2one-list {
+    padding: 0 30px;
+    margin-top: 20px;
+    .add-course {
+        display: inline-block;
+        background-color: #6287d5;
+        color: #fff;
+        border: 1px solid #567ed2;
+        padding: 6px 12px;
+        text-align: center;
+        cursor: pointer;
+        font-size: 14px;
+        border-radius: 2px;
+        i {
+            margin-right: 5px;
+        }
+    }
+    .add-course-disabled {
+        background: #ccc;
+        border: none;
+        padding: 7px 13px;
+    }
+    .item-list {
+        margin-top: 20px;
+        margin-bottom: 100px;
+        .course-name {
+            width: 198px;
+        }
+        .course-price {
+            width: 200px;
+        }
+        .course-actions {
+            width: 120px;
+        }
+        .teached-hours, .course-status {
+            width: 100px;
+        }
+        .list-head {
+            background-color: #f7f7f7;
+            color: #555;
+            height: 42px;
+            span {
+                line-height: 42px;
+                float: left;
+                text-align: center;
+            }
+        }
+        .item {
+            > div {
+                float: left;
+                text-align: center;
+                vertical-align: middle;
+                padding-top: 12px;
+                &:first-child {
+                    padding: 0;
+                }
+            }
+            padding: 10px 0;
+            height: 64px;
+            color: #222;
+            border-bottom: 1px solid #ccc;
+            .course-name {
+                span {
+                    font-size: 12px;
+                    color: #9D9D9D;
+                    margin-left: 5px;
+                    padding-right: 5px;
+                    border-right: 1px solid #9D9D9D;
+                    &:first-child {
+                        margin: 0
+                    }
+                    &:last-child {
+                        border: none;
+                    }
+                }
+            }
+            .course-price {
+                color: #ff6c00;
+                .view-roster {
+                    font-size: 12px;
+                    cursor: pointer;
+                }
+                span {
+                    color: #888;
+                }
+            }
+            .teached-hours, .course-status {
+                color: #888;
+            }
+            .set-cursor {
+                cursor: pointer;
+                .ex-tooltip-layer {
+                    text-align: left;
+                    top: 40px !important;
+                }
+            }
+            .course-actions {
+                color: #6287D5;
+                span {
+                    cursor: pointer;
+                    margin-right: 14px;
+                    &:last-child {
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+

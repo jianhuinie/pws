@@ -1,0 +1,58 @@
+<div class="content">
+    <div class="tool-bar">
+        <span class="set-style">样式：</span>
+        <ul class="tool-bar-list">
+            <li class="tool-bar-item grey" ng-click="setBgStyle('white')"
+                ng-if="style !== 'white'">
+            </li>
+            <li class="icon-check-circle grey" ng-if="style === 'white'"></li>
+
+            <li class="tool-bar-item black" ng-click="setBgStyle('black')"
+                ng-if="style !== 'black'">
+            </li>
+            <li class="icon-check-circle black" ng-if="style === 'black'"></li>
+
+            <li class="tool-bar-item red" ng-click="setBgStyle('brown')"
+                ng-if="style !== 'brown'">
+            </li>
+            <li class="icon-check-circle red" ng-if="style === 'brown'"></li>
+
+            <li class="tool-bar-item pink" ng-click="setBgStyle('pink')"
+                ng-if="style !== 'pink'">
+            </li>
+            <li class="icon-check-circle pink" ng-if="style === 'pink'"></li>
+
+            <li class="tool-bar-item green" ng-click="setBgStyle('green')"
+                ng-if="style !== 'green'">
+            </li>
+            <li class="icon-check-circle green" ng-if="style === 'green'"></li>
+
+            <li class="tool-bar-item blue" ng-click="setBgStyle('blue')"
+                ng-if="style !== 'blue'">
+            </li>
+            <li class="icon-check-circle blue" ng-if="style === 'blue'"></li>
+        </ul>
+        <div class="exit-preview" ng-click="dialog.close()">退出预览</div>
+    </div>
+    <div class="detail-box {{style}}">
+        <div ng-repeat="item in editorList track by $index">
+            <div ng-if="item.type === 'title'" class="preview-title" ng-bind="item.options.text"></div>
+            <div ng-if="item.type === 'body'" class="preview-body {{bodyColorClassMap[item.options.color]}}" 
+                 ng-bind-html="item.options.text"
+                 ng-class="{'font-bold':item.options.fontWeight==='bold','font-big':item.options.fontSize==='17px','align-center':item.options.textAlign==='center'}">
+
+            </div>
+            <div ng-if="item.type === 'photo'" class="preview-photo">
+                <crop-image options="{width:740,height:430,imgSrc:item.options.url}"></crop-image>
+            </div>
+            <div ng-if="item.type === 'video'" class="preview-video">
+                <span class="video-icon"></span>
+                <crop-image options="{width:740,height:430,imgSrc:item.options.coverUrl}"></crop-image>
+            </div>
+            <div ng-if="item.type === 'audio'" class="preview-audio">
+                <img src="https://imgs.genshuixue.com/0cms/d/file/content/2016/08/57b693e1e3815.png">
+                <span class="voice-icon"></span>
+            </div>
+        </div>
+    </div>
+</div>

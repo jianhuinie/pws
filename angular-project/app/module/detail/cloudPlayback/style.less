@@ -1,0 +1,248 @@
+@import './editExpireDateDialog/style';
+@import './addVideoDialog/style';
+@import './closePlaybackDialog/style';
+.cloud-playback {
+    .title {
+        background-color: #fbfbfb;
+        font-weight: bold;
+        font-size: 16px;
+        color: #6D6D6D;
+        padding: 8px 30px;
+        border-bottom: 1px solid #ddd;
+    }
+    .course-tabs {
+        border-bottom: 1px solid #ccc;
+        margin: 20px 30px 0 30px;
+        height: 49px;
+        .tab {
+            float: left;
+            padding: 12px 36px;
+            color: #555;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .tab:hover, .active {
+            color: #6287d5;
+            border-bottom: 4px solid #6287d5;
+        }
+    }
+    .item-list {
+        margin-top: 20px;
+        margin-bottom: 100px;
+        padding: 0 24px;
+        .course-info {
+            width: 270px;
+            cursor: pointer;
+            .ex-tooltip-layer {
+                top: 30px;
+            }
+        }
+        .course-time, .course-expireday {
+            width: 100px;
+        }
+        .course-deadline {
+            width: 120px;
+            margin: 0 10px 0 20px;
+        }
+        .course-actions {
+            width: 128px;
+            position: relative;
+            left: 15px;
+            .icon-question-circle {
+                cursor: pointer;
+            }
+            .ex-tooltip-layer {
+                font-size: 12px;
+                text-align: left;
+            }
+        }
+        .list-head {
+            background: #F7F9FA;
+            color: #2D2D2E;
+            font-size: 14px;
+            height: 45px;
+            span {
+                line-height: 45px;
+                float: left;
+                text-align: center;
+            }
+            .course-info {
+                position: relative;
+                right: 25px;
+            }
+        }
+        .item {
+            margin-top: 10px;
+            color: #3D3D3E;
+            font-size: 13px;
+            .item-info {
+                height: 110px;
+                background-color: #ffffff;
+                border: 1px solid #ededee;
+                position: relative;
+                div.inline {
+                    float: left;
+                    height: 110px;
+                    text-align: center;
+                    vertical-align: middle;
+                }
+                .inline.course-info {
+                    text-align: left;
+                    padding-left: 25px;
+                    padding-top: 14px;
+                    .img-box {
+                        display: inline-block;
+                        width: 80px;
+                        height: 80px;
+                    }
+                    .detal-info {
+                        width: 135px;
+                        display: inline-block;
+                        height: 80px;
+                        vertical-align: top;
+                        padding-top: 12px;
+                        margin-left: 10px;
+                        .playback-count, .student-name {
+                            color: #9D9D9E;
+                            margin-top: 15px;
+                        }
+                    }
+                }
+                .course-expireday, .course-actions {
+                    padding-top: 48px;
+                }
+                .course-deadline {
+                    padding-top: 38px;
+                    div.success {
+                        color: #1DB954;
+                    }
+                    div.disabled {
+                        color: #9D9D9E;
+                    }
+                }
+                .course-time {
+                    padding-top: 25px;
+                    &.one2one {
+                        padding-top: 48px;
+                    }
+                }
+                .course-expireday {
+                    .edit {
+                        color: #37A4F5;
+                        cursor: pointer;
+                        margin-left: 5px;
+                    }
+                }
+                .course-actions {
+                    cursor: pointer;
+                    color: #37A4F5;
+                    span {
+                        cursor: pointer;
+                    }
+                    &.disabled {
+                        color: #9D9D9E;
+                        cursor: text;
+                    }
+                }
+                .toggle-show {
+                    width: 52px;
+                    line-height: 22px;
+                    position: absolute;
+                    bottom: 0;
+                    text-align: center;
+                    cursor: pointer;
+                    right: 0;
+                    border: 1px solid #EDEDEE;
+                    border-bottom: none;
+                    font-size: 11px;
+                    color: #9D9D9E;
+                }
+            }
+            .sub-list {
+                color: #3D3D3E;
+                .sublist-header {
+                    line-height: 45px;
+                    background: #FBFBFB;
+                    border-bottom: 1px solid #f1f1f1;
+                    padding-left: 30px;
+                    span {
+                        text-align: center;
+                        display: inline-block;
+                    }
+                }
+                .schedule-name {
+                    width: 100px;
+                }
+                .schedule-time {
+                    width: 180px;
+                    margin-left: 40px;
+                    margin-right: 60px;
+                }
+                .schedule-actions {
+                    width: 330px;
+                }
+                .sub-item {
+                    padding-left: 30px;
+                    height: 45px;
+                    background: #FBFBFB;
+                    border-bottom: 1px solid #f1f1f1;
+                    div.inline {
+                        display: inline-block;
+                        line-height: 45px;
+                        text-align: center;
+                    }
+                    .inline.schedule-actions {
+                        text-align: right;
+                        span {
+                            margin-right: 20px;
+                            color: #37A4F5;
+                            cursor: pointer;
+                            &.disabled {
+                                color: #9D9D9E;
+                                cursor: text;
+                            }
+                            &.remind {
+                                color: #FF6c00;
+                                cursor: text;
+                            }
+                            &.warning {
+                                color: #FF5850;
+                                cursor: text;
+                            }
+                            &.success {
+                                color: #1DB954;
+                            }
+                            i {
+                                cursor: pointer;
+                            }
+                            .ex-tooltip-layer {
+                                text-align: left;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .pager-box {
+        text-align: center;
+        margin: 20px;
+    }
+}
+.replace-remind-dialog {
+    .content {
+        .danger {
+            color: #ff0000;
+        }
+    }
+    .footer {
+        button {
+            background-color: #fff;
+            border-color: #ccc;
+            color: #555;
+        }
+        .secondary {
+            color: #000;
+        }
+    }
+}

@@ -1,0 +1,75 @@
+.select-playback-dialog {
+    height: 400px;
+    .header {
+        background-color: #fff;
+        border: none;
+    }
+    .body {
+        padding: 10px 25px 20px 25px;
+    }
+    .content {
+        .content-header {
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 3px;
+            span {
+                font-family: MicrosoftYaHei;
+                font-size: 13px;
+                color: #9D9D9E;
+                letter-spacing: 1px;
+                line-height: 13px;
+                &:first-child {
+                    margin-right: 270px;
+                    margin-left: 15px;
+                }
+            }
+        }
+        .lesson-list {
+            max-height: 300px;
+            overflow-y: auto;
+            .lesson-item {
+                padding-left: 15px;
+                position: relative;
+                line-height: 50px;
+                border-bottom: 1px solid #eee;
+                cursor: pointer;
+                &:hover {
+                    background-color: #f8f8f8;
+                }
+                .lesson-index, .lesson-date {
+                    font-family: ArialMT;
+                    font-size: 12px;
+                    color: #9D9D9E;
+                    letter-spacing: 0;
+                    line-height: 12px;
+                    margin-right: 12px;
+                }
+                .lesson-name {
+                    display: inline-block;
+                    width: 275px;
+                    font-family: MicrosoftYaHei;
+                    font-size: 13px;
+                    color: #3D3D3E;
+                    letter-spacing: 1px;
+                    line-height: 13px;
+                    position: relative;
+                    top: 2px;
+                }
+                .view-playback {
+                    display: inline-block;
+                    width: 46px;
+                    line-height: 20px;
+                    text-align: center;
+                    border: 1px solid #43B244;
+                    border-radius: 2px;
+                    font-family: MicrosoftYaHei;
+                    font-size: 12px;
+                    color: #43B244;
+                    letter-spacing: 0.67px;
+                    position: absolute;
+                    right: 10px;
+                    top: 15px;
+                }
+            }
+        }
+    }
+}

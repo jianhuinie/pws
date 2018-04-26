@@ -1,0 +1,44 @@
+<div class="live-courses">
+    <div class="title">
+        <span class="title-text">我的课程</span>
+        <span class="btn-refresh" ng-click="refresh()">
+            <i class="icon icon-ic_refresh"></i>
+            刷新列表
+        </span>
+    </div>
+    <div class="course-list" ng-if="!isLoading &&courseList.length">
+        <div class="course" ng-repeat="item in courseList">
+            <div class="course-cover">
+                <div class="course-label" ng-bind="courseLabelMap[item.course.type]"></div>
+                <crop-image options="{width:160,height:90,imgSrc:item.course.cover_url}"></crop-image>
+            </div>
+            <div class="course-info">
+                <div class="course-title" ng-bind="item.course.name"></div>
+                <!-- <div class="course-teacher" ng-bind="item.course.name"></div> -->
+                <div class="course-plan">
+                    {{item.dateText}}
+                    {{item.beginTime}}-{{item.endTime}}
+                    <!-- <span ng-bind="item.beginTime"></span> -->
+                    <!-- <span ng-bind="item.endTime"></span> -->
+                </div>
+            </div>
+            <div class="course-actions" ng-if="!item.disabledEnterClassRoom">
+                <a class="enter-classroom" ng-href="{{item.live_room_params_pc.location}}">进入教室</a>
+            </div>
+            <div class="course-actions disabled"  ng-if="item.disabledEnterClassRoom"
+                 tooltip options="item.remindTipOptions">
+                进入教室
+            </div>
+        </div>
+    </div>
+    <div class="no-data" ng-if="!isLoading && !courseList.length">
+        <div class="pic-empty"></div>
+        <div class="text-empty">暂无课程，先去开课吧</div>
+        <div>
+            <a href="https://{{env}}.genshuixue.com/teacher_center/set_course" target="_blank">
+                立即开课
+            </a>
+        </div>
+    </div>
+    <loading-status ng-if="isLoading"></loading-status>
+</div>

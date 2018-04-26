@@ -1,0 +1,118 @@
+
+.ex-tooltip {
+    display: inline-block;
+    position: relative;
+
+    >.icon-question-circle {
+        font-size: 13px;
+        margin-left: 2px;
+        position: relative;
+        top: 1px;
+        cursor: pointer;
+    }
+
+    &-layer{
+        color: #3D3D3E;
+        position: absolute;
+        z-index: 1;
+        padding: 10px 20px;
+        word-wrap: break-word;
+        font-size: 14px;
+        line-height: 20px;
+        font-family: 'Microsoft yahei','微软雅黑',Tahoma,Verdana,Arial,sans-serif;
+        background: #fffaf2;
+        border: 1px solid #ff6c00;
+        border-radius: 6px;
+    }
+}
+
+.ex-tooltip-top {
+
+    >.ex-tooltip-layer  {
+        bottom: 30px;
+
+        >.ex-tooltip-before {
+            content: '';
+            position: absolute;
+            border: 10px solid transparent;
+            border-top-color: #fffaf2;
+            bottom: -19px;
+            z-index: 1;
+        }
+        >.ex-tooltip-after {
+            content: '';
+            position: absolute;
+            border: 10px solid transparent;
+            border-top-color: #ff6c00;
+            bottom: -20px;
+        }
+    }
+}
+
+.ex-tooltip-bottom {
+
+    >.ex-tooltip-layer  {
+        top: 25px;
+        >.ex-tooltip-before {
+            content: '';
+            position: absolute;
+            border: 10px solid transparent;
+            border-bottom-color: #fffaf2;
+            top: -19px;
+            z-index: 1;
+        }
+        >.ex-tooltip-after {
+            content: '';
+            position: absolute;
+            border: 10px solid transparent;
+            border-bottom-color: #ff6c00;
+            top: -20px;
+        }
+    }
+}
+
+.ex-tooltip-left {
+    >.ex-tooltip-layer {
+        right: 78px;
+        top: -4px;
+
+        >.ex-tooltip-before {
+            content: '';
+            position: absolute;
+            border: 10px solid transparent;
+            border-left-color: #fffaf2;
+            right: -19px;
+            z-index: 1;
+        }
+        >.ex-tooltip-after {
+            content: '';
+            position: absolute;
+            border: 10px solid transparent;
+            border-left-color: #ff6c00;
+            right: -20px;
+        }
+    }
+}
+
+.ex-tooltip-right {
+    >.ex-tooltip-layer {
+        left: 24px;
+        top: -4px;
+
+        >.ex-tooltip-before {
+            content: '';
+            position: absolute;
+            border: 10px solid transparent;
+            border-right-color: #fffaf2;
+            left: -19px;
+            z-index: 1;
+        }
+        >.ex-tooltip-after {
+            content: '';
+            position: absolute;
+            border: 10px solid transparent;
+            border-right-color: #ff6c00;
+            left: -20px;
+        }
+    }
+}

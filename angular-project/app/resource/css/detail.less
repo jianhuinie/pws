@@ -1,0 +1,112 @@
+@import 'base';
+@import 'mixin';
+@import 'variables';
+@import '../icomoon/0.1.1/style';
+@import './component/error';
+@import '../../common/style';
+@import '../../module/detail/style';
+#content {
+    #user-header {
+        .wrapper {
+            width: 1000px;
+            margin: 0 auto;
+            padding: 10px 0 4px;
+            position: relative;
+            .logo {
+                display: inline-block;
+                width: 154px;
+                height: 50px;
+                background: url('../img/logo-usercenter.png');
+                background-size: contain;
+            }
+            span {
+                display: inline-block;
+                color: #6D6D6D;
+                font-size: 18px;
+                height: 60px;
+                line-height: 60px;
+                margin-left: 10px;
+                padding-left: 13px;
+                vertical-align: top;
+                position: relative;
+                a {
+                    color: #6D6D6D;
+                    text-decoration: none;
+                }
+                &:before {
+                    background-color: #d8d8d8;
+                    content: ' ';
+                    width: 1px;
+                    height: 30px;
+                    position: absolute;
+                    left: 0;
+                    top: 15px;
+                }
+            }
+        }
+    }
+    #nav {
+        background-color: #ff6c00;
+        .wrapper {
+            width: 1000px;
+            margin: 0 auto;
+        }
+        .feedback {
+            color: #fff;
+            float: right;
+            i {
+                display: inline-block;
+                vertical-align: baseline;
+            }
+            a {
+                color: #FFF;
+                display: inline-block;
+                font-size: 16px;
+                padding: 10px 0;
+            }
+        }
+        a.tab {
+            color: #FFF;
+            display: inline-block;
+            font-size: 16px;
+            padding: 10px 20px;
+            position: relative;
+            text-decoration: none;
+            span.vip-icon {
+                display: inline-block;
+                width: 32px;
+                height: 24px;
+                background: url('../img/ic_4.0.png');
+                position: absolute;
+                top: -9px;
+                right: -14px;
+                z-index: 1;
+            }
+        }
+        .tab.active:after {
+            content: ' ';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            margin-left: -8px;
+            border: 8px solid transparent;
+            border-bottom-color: #f8f8f8;
+        }
+        .tab:hover {
+            background-color: #f29100;
+        }
+    }
+    #main-box {
+        width: 1000px;
+        margin: 0 auto;
+        margin-top: 20px;
+        .view-container {
+            width: 800px;
+            vertical-align: top;
+            display: inline-block;
+            border: 1px solid #e5e5e5;
+            min-height: 500px;
+            box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.05);
+        }
+    }
+}

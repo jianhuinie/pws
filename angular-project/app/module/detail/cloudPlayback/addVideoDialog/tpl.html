@@ -1,0 +1,10 @@
+<div class="content">
+   <span class="close-icon" ng-click="dialog.close()">×</span>
+    <!--<div ng-if="course.video_item_exist">仅更换回放视频<span class="remind-text">（更换之后，将不能撤销操作）</span>，不会更换资料库和视频课中的视频文件。请选择视频来源</div>-->
+    <!--<div ng-if="!course.video_item_exist">更换之后，将不能撤销操作。请选择视频来源</div>-->
+    <div>请选择视频来源</div>
+    <div class="buttons">
+        <span class="from-disk" ng-click="selectFormDisk()">从资料库中选择</span>
+        <span class="from-local" ng-click="localUpload()">本地上传</span>
+    </div>
+</div>

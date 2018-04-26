@@ -1,0 +1,7 @@
+<div class="history-subjects-wrapper">
+	<div class="subject-item" ng-repeat="item in historySubjects track by $index"
+		 ng-bind="item.path_crumbs" ng-class="{'active': item.active}"
+		 ng-click="selectHistorySubject(item)">
+
+	</div>
+</div>

@@ -1,0 +1,14 @@
+<div class="content">
+    <div class="edit-form form">
+        将{{currentIndex + 1}}第节移动到
+        <div class="form-group">
+            第
+            <input type="number" min="1" max="{{sectionsCount}}" name="removeIndex" ng-model="removeIndex">
+            课节之后
+        </div>
+    </div>
+    <div class="buttons">
+        <span class="cancel-update" ng-click="cancelUpdate()">取消</span>
+        <span class="confirm-update" ng-click="confirmUpdate()">确定</span>
+    </div>
+</div>

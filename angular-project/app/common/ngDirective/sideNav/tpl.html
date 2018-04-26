@@ -1,0 +1,11 @@
+<div class="side-nav">
+    <ul class="item-list">
+        <li class="item" 
+            ng-repeat="item in options.sideMenus"
+            ng-class="{'active':item.active}"
+            ng-bind="item.text"
+            ng-click="scrollToItem(item.boxClass)">
+        </li>
+    </ul>
+</div>
+<div class="side-nav-placeholder" ng-if="sideNavFixed"></div>

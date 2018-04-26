@@ -1,0 +1,7 @@
+
+<div class="edit-chapterinfo">
+   <span class="chapter-index" ng-bind="'第' + (opts.chapterIndex + 1) + '章'"></span>
+   <input type="text" placeholder="请输入章节名称，最多输入20个字" maxlength="20" ng-model="opts.name">
+   <span class="button save-btn" ng-click="saveChange()">保存</span>
+   <span class="button cancel-btn" ng-click="cancelChange()">取消</span>
+</div>

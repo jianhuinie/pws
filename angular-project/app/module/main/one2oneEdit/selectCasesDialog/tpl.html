@@ -1,0 +1,32 @@
+<div class="content">
+    <div class="case-list" ng-show="cases.length && !isLoading">
+        <div class="case-item" ng-repeat="caseItem in cases"
+             ng-click="selectCase(caseItem)"
+             ng-class="{'active':caseItem.selected}">
+            <span class="date" ng-bind="caseItem.displayDate"></span>
+            <span  class="name" ng-bind="caseItem.title"></span>
+            <div ng-bind="caseItem.content" class="case-content"></div>
+        </div>
+    </div>
+    <p ng-if="cases.length">你还可以选择{{3 - length - selectedCount}}个案例</p>
+    <div ng-show="!cases.length && !isLoading">
+        <empty-data options="{}"></empty-data>
+        <div class="no-cases"> 
+            当前没有可以选择的成功案例。
+        </div>
+    </div>
+    <div class="buttons" ng-show="cases.length && !isLoading">
+        <span class="cancel" ng-click="dialog.close()">
+            取消
+        </span>
+        <span class="confirm-select" ng-click="confirmSelect()">
+            确定
+        </span>
+    </div>
+    <div class="known-it" ng-show="!cases.length && !isLoading" ng-click="dialog.close()">
+        我知道了
+    </div>
+     <div ng-show="isLoading">
+        <loading-status></loading-status>
+    </div>
+</div>

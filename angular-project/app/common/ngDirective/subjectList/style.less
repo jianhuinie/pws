@@ -1,0 +1,33 @@
+.subject-list-wrapper {
+	// max-height: 240px;
+	overflow-y: auto;
+	.active {
+		background-color: #e2f2fd;
+		border: dotted 1px #b7ddfc;
+		// border: dashed 1px #fff;
+	}
+	ul {
+		padding: 0;
+		li {
+			.cursor;
+			height: 23.5px;
+		    width: 100%;
+		    line-height: 23.5px;
+		    padding-left: 20px;
+		    padding-right: 2px;
+		    color: #3d3d3e;
+		    position: relative;
+		    border: 1px solid #fff;
+		    .icon-angle-right {
+		    	position: absolute;
+			    right: 2px;
+			    top: 50%;
+			    /* margin-top: -50%; */
+			    transform: translate(-50%, -50%);
+		    }
+		    &:hover {
+		    	.active;
+		    }
+		}
+	}
+}
