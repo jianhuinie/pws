@@ -1,0 +1,116 @@
+{{ *
+
+@file 身份证认证
+@author wangyujie
+
+* }}
+
+{{ strip }}
+
+<div class="form">
+    <div class="form-group">
+        <label class="form-label">
+            <i class="form-required"></i>
+            姓名
+        </label>
+        <div class="form-controls">
+            <input class="form-text" type="text" name="realname" required maxlength="50" minlength="2" pattern="^[\u4d00-\u9fa5a-zA-Z][\u4d00-\u9fa5a-zA-Z\s\.·]*$" />
+            <span class="error"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">
+            <i class="form-required"></i>
+            身份证号码
+        </label>
+        <div class="form-controls">
+            <input type="text" class="form-text" name="idnumber" required maxlength="18" />
+            <span class="error"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">
+            <i class="form-required"></i>
+            手持身份证照片
+        </label>
+        <div class="form-controls">
+            <div class="uploader-form">
+                <div class="identity-all">
+                    {{ include file="common/component/imageUploader.html" }}
+                </div>
+                <div class="example">
+                    <h4>示例</h4>
+                    <div class="sample">
+                        <img src="{{ $static_origin }}/asset/img/teacher-center/cert/identity-all_76129a324e.jpg" alt="参考示例图" />
+                    </div>
+                    <ul>
+                        <li>1、免冠，保证五官清晰可见</li>
+                        <li>2、手持证件，不要遮挡证件上的信息</li>
+                    </ul>
+                </div>
+                {{ if $reasons && $reasons.storage_id }}
+                <div class="message message-error">
+                    <i class="icon icon-info-circle"></i>
+                    审核被拒，具体原因是：
+                    {{ foreach $reasons.storage_id as $item }}
+                        {{ $item }}；
+                    {{ /foreach }}
+                </div>
+                {{ /if }}
+            </div>
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">
+            身份证正面
+        </label>
+        <div class="form-controls">
+            <div class="uploader-form">
+                <div class="identity-front">
+                    {{ include file="common/component/imageUploader.html" }}
+                </div>
+
+                <div class="example">
+                    <h4>示例</h4>
+                    <div class="sample">
+                        <img src="{{ $static_origin }}/asset/img/teacher-center/cert/identity-front_f7e42d75ad.jpg" alt="参考示例图" />
+                    </div>
+                    <ul>
+                        <li>1、证件与手持证件一致</li>
+                        <li>2、证件文字清晰可见</li>
+                    </ul>
+                </div>
+                {{ if $reasons && $reasons.additional_imga_id }}
+                <div class="message message-error">
+                    <i class="icon icon-info-circle"></i>
+                    审核被拒，具体原因是：
+                    {{ foreach $reasons.additional_imga_id as $item }}
+                        {{ $item }}；
+                    {{ /foreach }}
+                </div>
+                {{ /if }}
+            </div>
+
+        </div>
+    </div>
+
+    <input type="hidden" name="type" value="1" />
+    <input type="hidden" name="storage_id" value="" />
+    <input type="hidden" name="imga_id" value="" />
+
+    <div class="form-action">
+        <button id="identity-save" class="btn btn-primary btn-save">
+            提交
+        </button>
+        <a href="/user_cert/list" class="btn btn-default">
+            取消
+        </a>
+    </div>
+</div>
+
+
+{{ /strip }}

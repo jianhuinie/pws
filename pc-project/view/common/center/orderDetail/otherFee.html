@@ -1,0 +1,88 @@
+{{ *
+
+@file 订单信息 - 其他费用
+@author zhujialu
+
+* }}
+{{ strip }}
+
+{{ include file="common/variable/videoDivide.html" scope=parent }}
+
+<div class="other-fee">
+    <h2>
+        <i class="icon icon-circle"></i>
+        其他费用
+    </h2>
+    <div class="content">
+
+        {{ $fee_detail = $tpl_data.fee_detail }}
+
+        {{ if isset($fee_detail.divide_teacher_money) }}
+        <div class="fee-item teacher-money">
+            实际收入：
+            <strong>
+                ￥{{ $fee_detail.divide_teacher_money|number_format: 2 }}
+            </strong>
+        </div>
+        {{ /if }}
+
+        {{ if isset($fee_detail.divide_type) &&  $fee_detail.divide_type == 'pl_1' }}
+            {{ if $fee_detail.divide_money != 0 }}
+                <div class="fee-item">
+                    渠道推广费：
+                    ￥{{ $fee_detail.divide_money|number_format: 2 }}
+                </div>
+            {{ /if }}
+            {{ if $fee_detail.divide_platform_money != 0 }}
+                <div class="fee-item">
+                    此订单将收取平台技术服务费：
+                    ￥{{ $fee_detail.divide_platform_money|number_format: 2 }}
+                </div>
+            {{ /if }}
+        {{ else if isset($fee_detail.divide_type) &&  $fee_detail.divide_type == 'pl_6' }}
+            {{ if $fee_detail.divide_money != 0 }}
+                <div class="fee-item">
+                    渠道推广费：
+                    ￥{{ $fee_detail.divide_money|number_format: 2 }}
+                </div>
+            {{ /if }}
+            {{ if $fee_detail.divide_platform_money != 0 }}
+                <div class="fee-item">
+                    此订单将收取平台技术服务费：
+                    ￥{{ $fee_detail.divide_platform_money|number_format: 2 }}
+                </div>
+            {{ /if }}
+        {{ else if isset($fee_detail.divide_type) &&  $fee_detail.divide_type == 'pl_7' }}
+            {{ if $fee_detail.divide_money != 0 }}
+                <div class="fee-item">
+                    课程分享佣金：
+                    ￥{{ $fee_detail.divide_money|number_format: 2 }}
+                </div>
+            {{ /if }}
+            {{ if $fee_detail.divide_platform_money != 0 }}
+                <div class="fee-item">
+                    此订单将收取平台技术服务费：
+                    ￥{{ $fee_detail.divide_platform_money|number_format: 2 }}
+                </div>
+            {{ /if }}
+        {{ else }}
+            {{ if isset($fee_detail.divide_platform_money) }}
+                <div class="fee-item">
+                    此订单将收取平台技术服务费：
+                    ￥{{ $fee_detail.divide_platform_money|number_format: 2 }}
+                </div>
+            {{ /if }}
+        {{ /if }}
+
+        {{ if isset($fee_detail.divide_applestore_money) }}
+        <div class="fee-item">
+            苹果渠道费：
+            ￥{{ $fee_detail.divide_applestore_money }}
+        </div>
+        {{ /if }}
+
+
+
+    </div>
+</div>
+{{ /strip }}

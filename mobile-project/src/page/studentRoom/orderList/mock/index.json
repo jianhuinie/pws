@@ -1,0 +1,39 @@
+{
+    "code": 0,
+    "message": "请求成功",
+    "tpl_data": {
+        "source_order_set": {
+            "display_price": 300,
+            "consult_price": 100,
+            "distance": 5,
+            "only_teach": true,
+            "teach_time_arr": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1
+            ]
+        },
+        "address": {
+            "location_addr": "fffgh",
+            "detailed_address": ""
+        }
+    }
+}

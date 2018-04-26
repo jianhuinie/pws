@@ -1,0 +1,231 @@
+@import 'common/countrySelect/countrySelect.styl';
+
+#container {
+    position: relative;
+    &.vcode_mode {
+        #login_form_vcode {
+            display: block;
+        }
+        #login_form_password {
+            display: none;
+        }
+    }
+    &.password_mode {
+        #login_form_vcode {
+            display: none;
+        }
+        #login_form_password {
+            display: block;
+        }
+    }
+    .login_form {
+        position: relative;
+        margin: 0 rem(15);
+        font-size: rem(15);
+
+        .error_tip {
+            position: relative;
+            height: rem(20)
+            line-height: rem(20);
+            font-size: rem(12);
+            color: red;
+        }
+
+        .input_wrap {
+            position: relative;
+            overflow: hidden;
+
+            .item {
+                position: relative;
+                height: rem(45);
+                width: 100%;
+                overflow: hidden;
+                border-bottom: 1px solid #dddddd;
+
+                .user_wrap {
+                    height: 100%;
+                    margin-left: rem(75);
+                }
+                .vcode_wrap, .password_wrap {
+                    height: 100%;
+                    margin-left: rem(75);
+                }
+
+
+
+                .input_text {
+                    height: 100%;
+                    width: 100%;
+                    font-size: rem(15);
+                    box-sizing: border-box;
+                    border: 0 none;
+                    color: #3d3d3d;
+                    -webkit-appearance: none;
+                    background-color: #FFF;
+                    vertical-align:middle;
+                    outline: none;
+                    &:-webkit-autofill {-webkit-box-shadow: 0 0 0 rem(1000) white inset;}
+                }
+            }
+        }
+        .submit_button {
+            position: relative;
+            margin-top: rem(15);
+            width: 100%;
+            height: rem(45);
+            line-height: rem(45);
+            text-align: center;
+            font-size: rem(18);
+            color: #FFFFFF;
+            border-radius: rem(2);
+            &.disable {
+                color: rgba(255, 255, 255, 0.5);
+            }
+        }
+        .left_wrap {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: rem(75);
+            height: rem(45);
+            font-size: rem(15);
+            line-height: rem(45);
+            word-spacing: rem(5);
+            letter-spacing: rem(5);
+        }
+        .right_wrap {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: rem(110);
+            height: rem(45);
+            font-size: rem(15);
+            text-align: center;
+            line-height: rem(40);
+        }
+        .link_wrap {
+            font-size: rem(13);
+            line-height: rem(30);
+            overflow: hidden;
+            .right {
+                float: right;
+            }
+            a {
+                color: #6688d5;
+            }
+        }
+    }
+
+    .bottom_tip {
+        text-align: center;
+        font-size: rem(12);
+        color: #6d6d6d;
+    }
+    .bottom {
+        margin-top: rem(10);
+        .title {
+            position: relative;
+            width: 100%;
+            height: rem(20);
+            text-align: center;
+            color: #9d9d9d;
+            font-size: rem(12);
+            line-height: rem(20);
+            .decoration-wrap {
+                position: absolute;
+                left: 0;
+                top: 50%;
+                width: 100%;
+                padding: 0 rem(15);
+                .decoration {
+                    position: relative;
+                    height: rem(1);
+                    border-top: 1px solid #dddddd;
+                }
+            }
+
+            span {
+                position: absolute;
+                left: 50%;
+                padding: 0 rem(5);
+                background-color: #FFFFFF;
+                transform: translate(-50%, 0);
+            }
+        }
+        .list_wrap {
+            margin-top: rem(5);
+            text-align: center;
+            ul {
+                overflow: hidden;
+            }
+
+            .item {
+                position: relative;
+                width: rem(45);
+                height: rem(45);
+                zoom: 1;
+                padding-top: rem(5);
+                display: inline-block;
+                margin: 0 rem(4);
+                overflow: hidden;
+                .thirdWebsiteLogo {
+                    position: relative;
+                    width: rem(35);
+                    height: rem(35);
+                    border: 0 none;
+                    left: auto;
+                    margin: 0 auto;
+                    display: block;
+                    background-image: url(/src/page/invite/target/img/557f86858c2ed.png);
+                    background-size: rem(32) rem(200);
+                    background-repeat: no-repeat;
+                    &.qq_logo {
+                        background-position-y: 0;
+                    }
+                    &.weixin_logo {
+                        background-position-y: rem(-50);
+                    }
+                    &.weibo_logo {
+                        background-position-y: rem(-100);
+                    }
+                    &.baidu_logo {
+                        background-position-y: rem(-150);
+                    }
+                }
+            }
+        }
+    }
+}
+
+btn_vcode(color)
+    height: rem(45);
+    text-align: right;
+    line-height: rem(45);
+    font-size: rem(13);
+    color color
+
+    &.disable {
+        color: #9D9D9D;
+    }
+
+.student-btn-vcode
+    btn_vcode(#ff7f00)
+
+.teacher-btn-vcode
+    btn_vcode(#37a4f5)
+
+/*个性化组件样式*/
+.country_select_control .country_text {
+    word-spacing: 0 !important;
+    letter-spacing: 0 !important;
+    text-align: left !important;
+}
+
+.country_select_control .country_text img {
+    margin: 0 !important;
+    vertical-align: inherit !important;
+}
+
+.country_select_control .country_text span {
+    vertical-align: inherit !important;
+}

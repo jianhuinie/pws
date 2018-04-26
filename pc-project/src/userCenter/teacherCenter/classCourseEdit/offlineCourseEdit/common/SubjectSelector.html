@@ -1,0 +1,60 @@
+<div class="subject-selector">
+
+    <div class="suggestion">
+        {{#if recommendClassify}}
+            <div class="labels recommend-classify">
+                {{#each recommendClassify}}
+                <div class="label link{{#if options.id == id}} active{{/if}}" on-click="selectHistorySubject(this)">
+                    {{path_crumbs}}
+                </div>
+                {{/each}}
+            </div>
+        {{/if}}
+        {{#if courseClassifyList}}
+            <div class="classifyMenu">
+                {{#if courseClassifyList.classifyListOne || courseClassifyList.classifyListTwo || courseClassifyList.classifyListThree }}
+                    <div class="row">
+                        {{#each courseClassifyList.classifyListOne}}
+                        <div class="classify-item{{#if chooseClassifyId.Id == id}} active{{/if}}" on-click="checkOneClassify(this)">
+                            {{name}}
+                        </div>
+                        {{/each}}
+                    </div>
+
+                    <div class="row">
+                        {{#each courseClassifyList.classifyListTwo[chooseClassifyId.Id]}}
+                        <div class="classify-item{{#if chooseClassifyId.twoId == id}} active{{/if}}" on-click="checkTwoClassify(this)">
+                            {{name}}
+                        </div>
+                        {{/each}}
+                    </div>
+
+                    <div class="row">
+                        {{#each courseClassifyList.classifyListThree[chooseClassifyId.twoId]}}
+                        <div class="classify-item{{#if options.id == id}} active{{/if}}" on-click="checkThreeClassify(this)">
+                            {{name}}
+                        </div>
+                        {{/each}}
+                    </div>
+                {{else}}
+                    <div class="clospan">
+                        未找到搜索结果，您可以换个词重新查询或者在<span on-click="blankSearch()">全部类目</span>中选择相近的类目
+                    </div>
+                {{/if}}
+            </div>
+        {{/if}}
+
+    </div>
+
+    <div class="input-group fluid">
+        <Input options="{{courseClassifyOptions}}" on-enter="searchByEnter" />
+        <div class="button primary floated" on-click="search()">
+            <i class="icon-search-o"></i>
+        </div>
+    </div>
+
+    <style>
+        {{style}}
+    </style>
+</div>
+

@@ -1,0 +1,1 @@
+define("activity/helloteacherNew",["require","exports"],function(require,exports){"use strict";exports.init=function(){}});

@@ -1,0 +1,14 @@
+{
+  "code": 0,
+  "msg": "succ",
+  "tpl_data": {
+    "video_url": "http:\/\/m.genshuixue.com\/video\/play_view\/419279",
+    "city": "400+",
+    "user": "8000\u4e07+",
+    "teacher": "60\u4e07+"
+  },
+  "ts": 1494405618,
+  "declare_config": {
+    "declareTpl": "v2\/resources\/page\/activity\/liudan_tiku\/index"
+  }
+}

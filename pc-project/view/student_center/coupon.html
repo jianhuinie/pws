@@ -1,0 +1,322 @@
+{{ *
+@file 学生中心 - 钱包管理 - 优惠券
+@author liucong
+* }}
+
+{{ extends file="common/center/base.html" }}
+
+{{ block name="data" }}
+    {{ $smarty.block.parent }}
+
+    {{ $tabs = [] }}
+
+    {{ $tab = [] }}
+    {{ $tab.title = '未使用优惠券' }}
+    {{ $tab.key = 'ing' }}
+    {{ $tabs[] = $tab }}
+
+    {{ $tab = [] }}
+    {{ $tab.title = '已使用优惠券' }}
+    {{ $tab.key = 'succ' }}
+    {{ $tabs[] = $tab }}
+
+    {{ $tab = [] }}
+    {{ $tab.title = '已过期优惠券' }}
+    {{ $tab.key = 'expired' }}
+    {{ $tabs[] = $tab }}
+
+    {{ $tab = [] }}
+
+    {{ $tab_key_map = [] }}
+
+    {{ $tab_key_map['1'] = 'ing' }}
+    {{ $tab_key_map['2'] = 'succ' }}
+    {{ $tab_key_map['3'] = 'expired' }}
+
+    {{ if isset($smarty.get.status) }}
+        {{ $status = $tab_key_map[$smarty.get.status] }}
+    {{ else }}
+        {{ $status = $tab_key_map["1"] }}
+    {{ /if }}
+
+    {{ $script_path = 'studentCenter/coupon' }}
+
+{{ /block }}
+
+{{ block name="title" }}
+钱包管理 - 优惠券
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/studentCenter/coupon.less">
+{{ $smarty.block.parent }}
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+    {{ include file="student_center/common/sidebar.html" active="coupon" }}
+
+    <div id="content" class="card">
+        <div class="card-header">
+            <h2>优惠券</h2>
+        </div>
+        <div class="card-body">
+            {{ include file="common/center/component/listTabs.html" tabs=$tabs key=$status tab_count=$tpl_data.count }}
+            <table class="table coupons">
+
+                <thead>
+                    <tr>
+                        <th width="20%">面值</th>
+                        <th width="35%" class="left">使用条件</th>
+                        <th width="25%" >来源</th>
+                        <th width="25%" >{{ if $status == 'ing' }}有效期{{ else }}使用详情{{ /if }}</th>
+                    </tr>
+                </thead>
+
+                <tbody class="{{ if $status == 'ing' }}available{{ else }}unavailable{{ /if }}">
+                {{ foreach $tpl_data.coupon as $coupon }}
+                <tr class="splitter"></tr>
+                <tr>
+                    <td class="denominations">
+                        <div class="border-left"></div>
+                        {{ * 13 折扣 11 代金券 * }}
+                        {{ if $coupon.type == '13' }}
+                            {{ if $coupon.discount != 0 }}
+                                {{ $coupon.discount }}折
+                            {{ else }}
+                                免单券
+                            {{ /if }}
+                        {{ else if $coupon.type == '11' }}
+                        ￥{{ $coupon.balance }}
+                        {{ /if }}
+                    </td>
+
+                    <td class="left cond">
+                        {{ * 视频课限定条件 * }}
+                        {{ if !empty($coupon.cond_video) }}
+                            {{ $cond_video_arr = [] }}
+                            {{ * 优惠券类型限定条件 * }}
+                            {{ if $coupon.is_common == '0' }}
+                                {{ if isset($coupon.cond_plat_limit) && $coupon.cond_plat_limit == 1 }}
+                                {{ $cond_video_arr[] = '带<span class="icon-new-coupon"></span>标识的老师可使用' }}
+                                {{ else }}
+                                {{ $cond_video_arr[] = '不限' }}
+                                {{ /if }}
+                            {{ /if }}
+                            {{ $cond_video_arr[] = '购买【'|cat:$coupon.cond_video[0].name|truncate:12|cat:'】等视频课可用' }}
+                            {{ foreach $coupon.cond_video as $cond_video }}
+                                {{ $cond_video_name = $cond_video.name|cn_truncate:13 }}
+                                {{ $cond_video_arr[] = '<a target="_blank" data-width="300" data-title="'|cat:$cond_video.name|cat:'" href="'|cat:$origin_http|cat:'/video_course/getcourseshowdetail?number='|cat:$cond_video.number|cat:'" class="text-info">【'|cat:$cond_video_name|cat:'】</a>' }}
+                            {{ /foreach }}
+
+                            {{ $start_index = 0 }}
+                            {{ if $coupon.is_common == '0' }}
+                                {{ $start_index = 1 }}
+                            {{ /if }}
+                            {{ foreach $cond_video_arr as $cond_line }}
+                                {{ if $cond_line@index == $start_index + 1 }}
+                                <div class="cond-menu">
+                                {{ /if }}
+
+                                <div>
+                                {{ $cond_line }}
+                                {{ if $cond_line@index == $start_index && $cond_video_arr|count > $start_index + 1 }}
+                                    <i class="icon icon-caret-down"></i>
+                                {{ /if }}
+                                </div>
+
+                                {{ if $cond_line@index >= $start_index + 1 && $cond_line@last }}
+                                </div>
+                                {{ /if }}
+
+                            {{ /foreach }}
+
+                        {{ else }}
+                            {{ $cond_arr = [] }}
+                            {{ * 使用条件 * }}
+
+                            {{ * 一般情况下 有啥限制条件就显示啥
+                                 course_type会融合到teacher和org里面显示
+                                 如果有且仅有course_type的限制
+                                 那么course_type需要单独显示 * }}
+
+                            {{ *
+                                与班课有关的优惠券条件，逐一分行显示
+                            * }}
+
+                            {{ *
+                                以下是超级复杂的展示逻辑，期待下次前后端统一改改
+
+                                前两行直接展示，后面的放在下拉menu里
+                                所以把条件先暂存再$cond_arr数组里
+                                然后循环输出，发现到了第三行，就弄到menu里面
+                            * }}
+
+                            {{ $only_has_course_type_cond = (empty($coupon.cond_teacher) && empty($coupon.cond_organization) && empty($coupon.cond_video)) && !empty($coupon.cond_course_type) }}
+
+                            {{ * 优惠券类型限定条件 * }}
+                            {{ if $coupon.is_common == '0' }}
+                                {{ if isset($coupon.cond_plat_limit) && $coupon.cond_plat_limit == 1 }}
+                                {{ $cond_arr[] = '带<span class="icon-new-coupon"></span>标识的老师可使用' }}
+                                {{ else }}
+                                {{ $cond_arr[] = '不限' }}
+                                {{ /if }}
+                            {{ /if }}
+
+                            {{ * 最多抵扣限定条件 * }}
+                            {{ if isset($coupon.threshold) &&  $coupon.threshold > 0 }}
+                                {{ $cond_arr[] = '满'|cat:$coupon.threshold|cat:'' }}
+                            {{ /if }}
+
+                            {{ if !empty($coupon.max_discount_money) }}
+                                {{ $cond_arr[] = '最多抵扣'|cat:$coupon.max_discount_money }}
+                            {{ /if }}
+
+
+                            {{ * 老师限定条件 * }}
+                            {{ if !empty($coupon.cond_teacher) }}
+                            {{ $cond_teacher_str = '' }}
+                            {{ foreach $coupon.cond_teacher as $teacher }}
+                            {{ $cond_teacher_str = $cond_teacher_str|cat:'<a target="_blank" class="text-info" href="'|cat:$origin_http|cat:$teacher.url|cat:'">'|cat:$teacher.name_cut|cat:'</a>' }}
+                            {{ if !$teacher@last }}
+                            {{ $cond_teacher_str = $cond_teacher_str|cat:'、' }}
+                            {{ /if }}
+                            {{ /foreach }}
+                            {{ $cond_teacher_str = $cond_teacher_str|cat:'主讲的' }}
+                            {{ if !empty($coupon.cond_course_type) }}
+                                {{ foreach $coupon.cond_course_type as $course_type }}
+                                {{ $cond_teacher_str = $cond_teacher_str|cat:$course_type }}
+                                {{ if !$course_type@last }}
+                                {{ $cond_teacher_str = $cond_teacher_str|cat:'、' }}
+                                {{ /if }}
+                                {{ /foreach }}
+                            {{ /if }}
+                            {{ $cond_teacher_str = $cond_teacher_str|cat:'课程' }}
+                            {{ $cond_arr[] = $cond_teacher_str }}
+                            {{ /if }}
+
+                            {{ * 机构限定条件 * }}
+                            {{ if !empty($coupon.cond_organization) }}
+                            {{ $cond_organization_str = '' }}
+                            {{ foreach $coupon.cond_organization as $org }}
+                                {{ $cond_organization_str = $cond_organization_str|cat:'<a target="_blank" class="text-info" href="'|cat:$org.url|cat:'">'|cat:$org.name|cat:'</a>' }}
+                            {{ if !$org@last }}
+                            {{ $cond_organization_str = $cond_organization_str|cat:'、' }}
+                            {{ /if }}
+                            {{ /foreach }}
+                            {{ $cond_organization_str = $cond_organization_str|cat:'的' }}
+                            {{ if !empty($coupon.cond_course_type) }}
+                                {{ foreach $coupon.cond_course_type as $course_type }}
+                                {{ $cond_organization_str = $cond_organization_str|cat:$course_type }}
+                                {{ if !$course_type@last }}
+                                {{ $cond_organization_str = $cond_organization_str|cat:'、' }}
+                                {{ /if }}
+                                {{ /foreach }}
+                            {{ /if }}
+                            {{ $cond_organization_str = $cond_organization_str|cat:'课程' }}
+                            {{ $cond_arr[] = $cond_organization_str }}
+                            {{ /if }}
+
+
+                            {{ * APP限定条件 * }}
+                            {{ if $coupon.cond_tid == 1 }}
+                            {{ $cond_arr[] = 'APP专享' }}
+                            {{ /if }}
+
+                            {{ * 科目限定条件 * }}
+                            {{ if !empty($coupon.cond_subject) }}
+                            {{ $cond_subject_str = '' }}
+                            {{ foreach $coupon.cond_subject as $subject }}
+                            {{ $cond_subject_str = $cond_subject_str|cat:$subject.name }}
+                            {{ if !$subject@last }}
+                            {{ $cond_subject_str = $cond_subject_str|cat:'、' }}
+                            {{ /if }}
+                            {{ /foreach }}
+                            {{ $cond_subject_str = $cond_subject_str|cat:'类课程' }}
+                            {{ $cond_arr[] = $cond_subject_str }}
+                            {{ /if }}
+
+                            {{ * 只有课程限定条件的情况 * }}
+                            {{ if $only_has_course_type_cond }}
+                                {{ $cond_course_type_str = '' }}
+                                {{ if !empty($coupon.cond_course_type) }}
+                                {{ foreach $coupon.cond_course_type as $course_type }}
+                                {{ $cond_course_type_str = $cond_course_type_str|cat:$course_type }}
+                                {{ if !$course_type@last }}
+                                {{ $cond_course_type_str = $cond_course_type_str|cat:'、' }}
+                                {{ /if }}
+                                {{ /foreach }}
+                                {{ $cond_course_type_str = $cond_course_type_str|cat:'课程' }}
+                                {{ /if }}
+                                {{ $cond_arr[] = $cond_course_type_str }}
+                            {{ /if }}
+
+                            {{ * 班课限定条件 * }}
+                            {{ if !empty($coupon.cond_class) }}
+                                {{ foreach $coupon.cond_class as $cond_class }}
+                                    {{ $cond_class_name = $cond_class.name|cn_truncate:13 }}
+
+                                    {{ if $coupon.cond_course_type == 4 }}
+                                        {{ $cond_arr[] = '<a target="_blank" data-width="300" data-title="'|cat:$cond_class.name|cat:'" href="'|cat:$origin_http|cat:'/org_class_course/detail/'|cat:$cond_class.number|cat:'" class="text-info">'|cat:$cond_class_name|cat:'</a>' }}
+                                    {{ else }}
+                                        {{ $cond_arr[] = '<a target="_blank" data-width="300" data-title="'|cat:$cond_class.name|cat:'" href="'|cat:$origin_http|cat:'/teacher/classCourseDetail?number='|cat:$cond_class.number|cat:'" class="text-info">'|cat:$cond_class_name|cat:'</a>' }}
+                                    {{ /if }}
+
+                                {{ /foreach }}
+                            {{ /if }}
+
+                            {{ * 统一输出 * }}
+                            {{ foreach $cond_arr as $cond_line }}
+                                {{ if $cond_line@index == 2 }}
+                                <div class="cond-menu">
+                                {{ /if }}
+
+                                <div>
+                                {{ $cond_line }}
+                                {{ if $cond_line@index == 1 && $cond_arr|count > 2 }}
+                                    <i class="icon icon-caret-down"></i>
+                                {{ /if }}
+                                </div>
+
+                                {{ if $cond_line@index >= 2 && $cond_line@last }}
+                                </div>
+                                {{ /if }}
+
+                            {{ /foreach }}
+
+                        {{ /if }}
+                    </td>
+
+                    <td>
+                        {{ $coupon.source }}
+                    </td>
+
+                    <td>
+                        <div class="border-right"></div>
+                        {{ if $status == 'succ' }}
+                            <a class="text-info" href="{{ $origin_http }}/order/studentOrderDetail?purchase_id={{ $coupon.purchase_id }}">
+                            {{ $coupon.purchase_time }}<br/>
+                            订单号：{{ $coupon.purchase_id }}
+                            </a>
+                        {{ else }}
+                            {{ $coupon.effect_time|truncate:10:'' }}</br>至{{ $coupon.expire_time|truncate:10:'' }}
+                        {{ /if }}
+                    </td>
+                </tr>
+                {{ /foreach }}
+                </tbody>
+            </table>
+            {{ if !empty($tpl_data.coupon) }}
+            {{ else }}
+            <div class="no-data">
+                <div class="wrapper">
+                    <i class="icon icon-info-circle"></i>
+                    没有该优惠券
+                </div>
+            </div>
+            {{ /if }}
+        </div>
+    </div>
+
+{{ /strip }}
+{{ /block }}

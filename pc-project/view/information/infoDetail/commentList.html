@@ -1,0 +1,112 @@
+{{ *
+
+@file 评论列表
+@author zhujialu
+
+* }}
+
+{{ strip }}
+
+{{ $total = $tpl_data.comment_list.total }}
+
+
+{{ $comment_list = $tpl_data.comment_list }}
+{{ include file="common/variable/lesson.html" scope=parent }}
+
+{{ if count($comment_list.comment) > 0 }}
+<div class="list">
+
+    {{ foreach $comment_list.comment as $item }}
+    <div class="item">
+
+        <dl>
+            <dt>
+                {{ include file="common/component/avatar.html" type="small" img=$item.user_avatar }}
+            </dt>
+            <dd{{ if $item.user_name != $item.user_name_cut }} data-title="{{ $item.user_name }}"{{ /if }}>
+                {{ $item.user_name_cut }}
+            </dd>
+        </dl>
+
+        <div class="comment">
+
+            <div class="order-info">
+                <span>{{ $item.course_name }}</span>
+                <span>{{ $lessonMap[$item.lesson_way] }}</span>
+                <span>{{ $item.hours }} 小时</span>
+                {{ if isset($item.fr)&& $item.fr == 2 }}
+                    <span>（邀请评价）</span>
+                {{ /if }}
+            </div>
+
+            <div class="score-info">
+
+                <span class="date">
+                    {{ $item.create_time|date_format:"%G-%m-%d" }}
+                </span>
+
+                <span class="score-face">
+                    {{ if $item.face_type == 1 }}
+
+                    <i class="icon icon-smile-o"></i>
+                    好评
+
+                    {{ else if $item.face_type == 2 }}
+
+                    <i class="icon icon-neutral-o"></i>
+                    中评
+
+                    {{ else if $item.face_type == 3 }}
+
+                    <i class="icon icon-frown-o"></i>
+                    差评
+
+                    {{ /if }}
+                </span>
+
+                 <span>
+                    描述相符：
+                    {{ include file="common/component/starScore.html" score=$item.desc_match }}
+                </span>
+                <span>
+                    教学态度：
+                    {{ include file="common/component/starScore.html" score=$item.service_attitude }}
+                </span>
+                <span>
+                    响应速度：
+                    {{ include file="common/component/starScore.html" score=$item.teach_result }}
+                </span>
+
+            </div>
+
+            <p class="content">
+                心声：{{ $item.info|escape }}
+            </p>
+
+        </div>
+
+    </div>
+    {{ /foreach }}
+
+</div>
+{{ else }}
+        <div class="no-data">
+
+            <div class="wrapper">
+
+                <p>暂时没有评价哦 ~</p>
+
+                {{ if $total === 0 }}
+                <b id="invite-comment" class="btn btn-primary">
+                    <i class="icon icon-chat"></i>
+                    我要评价
+                </b>
+                {{ /if }}
+            </div>
+
+        </div>
+{{ /if }}
+
+{{ include file="common/component/pager.html" page=$comment_list.pager.page page_size=$comment_list.pager.page_size count=$comment_list.pager.count }}
+
+{{ /strip }}

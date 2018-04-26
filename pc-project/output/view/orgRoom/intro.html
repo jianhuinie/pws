@@ -1,0 +1,85 @@
+{{ *
+
+@file 机构简介页
+@author jixiaohui
+
+* }}
+
+{{ extends file="./common/base.html" }}
+
+{{ block name="data" }}
+
+    {{ $need_im = false }}
+    {{ $smarty.block.parent }}
+    {{ $script_path = "org/intro_ba96fde202" }}
+    {{ $script_data.orgnumber = $tpl_data.base_info.number }}
+    {{ if not empty($tpl_data.base_info.support_tianxiao) }}
+        {{ $script_data.isTianxiaoOrg = $tpl_data.base_info.support_tianxiao }}
+    {{ /if }}
+
+    {{ $active = 'intro' }}
+    {{ $flotage_config.hidden = 1 }}
+    {{ $need_location_seo = true }}
+{{ /block }}
+
+
+{{ block name="title" }}
+{{ strip }}
+    {{ $tpl_data.title }}
+{{ /strip }}
+{{ /block }}
+
+{{ block name="keywords" }}
+{{ strip }}
+    {{ $tpl_data.keywords }}
+{{ /strip }}
+{{ /block }}
+
+{{ block name="description" }}
+{{ strip }}
+    {{ $tpl_data.description }}
+{{ /strip }}
+{{ /block }}
+
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/org/intro_473687d2f3.css">
+<style>
+    #site-nav .status-info li:nth-child(3){
+        display: none
+    }
+
+    .user-info li {
+        display: none
+    }
+    .user-info .my-course,
+    .user-info .custom-service {
+        display: inline-block;
+    }
+    #site-nav .course-menu {
+        left: -100px;
+    }
+    #site-nav .course-menu:before, #site-nav .course-menu:after {
+        left: 13em;
+    }
+
+</style>
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+<div class="introduce">
+    {{ if $tpl_data.content }}
+        <div class="content">
+            {{ $tpl_data.content }}
+        </div>
+    {{ else }}
+        <div class="no-data">
+            <div class="pic"></div>
+            <span class="text">TA太懒了，还没有留下介绍</span>
+        </div>
+    {{ /if }}
+</div>
+{{ include file="common/component/loginDialog.html" onlyShowStudent=1 }}
+{{ /strip }}
+{{ /block }}

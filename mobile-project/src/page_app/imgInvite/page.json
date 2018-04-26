@@ -1,0 +1,27 @@
+[
+    {
+        "tpl": "./index.tpl",
+        "router": "/invite-card/index",
+        "mock_data": "./mock/index.json"
+    },
+    {
+        "tpl": "./input.tpl",
+        "router": "/invite-card/input",
+        "mock_data": ""
+    },
+    {
+        "tpl": "./view.tpl",
+        "router": "/invite-card/view",
+        "mock_data": "./mock/view.json"
+    },
+    {
+        "tpl": "./searchClass.tpl",
+        "router": "/invite-card/searchClass",
+        "mock_data": "./mock/searchClass.json"
+    },
+    {
+        "tpl": "./finish.tpl",
+        "router": "/invite-card/finish",
+        "mock_data": "./mock/finish.json"
+    }
+]

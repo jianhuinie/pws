@@ -1,0 +1,14 @@
+<div class="tag-input">
+    <div class="buttons fluid tiny" on-click="clickTags">
+        {{#each options.value:index}}
+        <label class="button primary outline">
+            {{.}}
+            <i class="icon icon-times" on-click="deleteTag(index)"></i>
+        </label>
+        {{/each}}
+    </div>
+    <Input options="{{inputOptions}}" />
+    <style>
+        {{style}}
+    </style>
+</div>

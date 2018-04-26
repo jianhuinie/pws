@@ -1,0 +1,181 @@
+@import "page/_base/base.styl";
+@import "page/_common/nav_bar/nav_bar.styl";
+
+body {
+    background: #fff;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.nav-header {
+    background: #f6f7f7;
+}
+
+.top-bar {
+    display: flex;
+    border-bottom: rem(1) solid #ededee;
+    text-align: center;
+    .teacher,
+    .student {
+        flex: 1;
+        font-size: rem(15);
+        line-height: 2.8;
+    }
+    .selected {
+        color: #37a4f5;
+    }
+}
+
+.teacher-student {
+    .nums {
+        position: relative;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        // width: 100%;
+        height: rem(115);
+        box-shadow: 0 0 0 0 #ededee;
+        background: #f8f8f8;
+        .been-registered,
+        .been-worked {
+            flex: 1;
+            color: #3d3d3e;
+            text-align: center;
+            padding: rem(24);
+            .num {
+                font-family: SanFranciscoDisplay-Medium;
+                font-size: rem(36);
+                line-height: rem(38);
+            }
+            .desc {
+                font-size: rem(13);
+            }
+        }
+        .arrow-dir {
+            display: block;
+            position: relative;
+            top: 50%;
+            right: rem(15);
+            margin-top: rem(-6.5);
+            width: rem(8);
+            height: rem(13);
+        }
+    }
+    .tip {
+        padding: rem(20);
+        font-size: rem(16);
+        color: #ff5850;
+        text-align: center;
+    }
+    .invite-btn {
+        display: block;
+        margin: 0 rem(15);
+        border-radius: rem(3);
+        padding: rem(15);
+        background: #ff5850;
+        height: rem(44);
+        line-height: rem(17);
+        font-size: rem(17);
+        color: #f8f8f8;
+        text-align: center;
+    }
+    .prize-one,
+    .prize-two,
+    .prize-three {
+        padding: rem(15);
+        text-align: center;
+        .title {
+            padding: 0 0 rem(15);
+            font-size: rem(18);
+            color: #3d3d3e;
+        }
+        .title-sub {
+            margin: rem(-15) 0 rem(15);
+            font-size: rem(14);
+            color: #9d9d9e;
+        }
+        .title-one {
+            padding: rem(15) 0 rem(15);
+        }
+        .body {
+            padding: rem(30) rem(24);
+            width: 100%;
+            text-align: left;
+            color: #fff;
+            .row-1,
+            .row-2,
+            .row-3 {
+                padding-bottom: rem(20);
+                overflow: hidden;
+                .row-img {
+                    float: left;
+                    margin-right: rem(20);
+                    width: rem(40);
+                    height: rem(40);
+                }
+                .text {
+                    float: left;
+                    font-size: rem(16);
+                    line-height: rem(22);
+                    .tip-max {
+                        font-size: rem(14);
+                        line-height: rem(14);
+                        opacity: .5;
+                    }
+                }
+            }
+            .row-last {
+                padding-bottom: 0;
+            }
+        }
+        .body-1,
+        .body-2 {
+            border-radius: rem(6);
+            background: #37a4f5;
+        }
+        .body-3 {
+            border-radius: rem(6);
+            background: #ff5850;
+            background-image: linear-gradient(-180deg, #f4398d 0%, rgba(255, 74, 0, .2) 100%);
+        }
+    }
+    .block-qr-code {
+        text-align: center;
+        .img {
+            padding: rem(20) 0 rem(5);
+        }
+    }
+}
+
+.block-share {
+    text-align: center;
+    color: #9d9d9e;
+    font-size: rem(13);
+    .title {
+        padding: rem(15);
+    }
+    .body {
+        // display: -webkit-flex;
+        // display: -moz-flex;
+        // display: -ms-flex;
+        // display: -o-flex;
+        // display: flex;
+        .unit {
+            float: left;
+            padding-bottom: rem(15);
+            width: 33.3%;
+            .img {
+                width: rem(50);
+                height: rem(50);
+            }
+            .desc {
+                font-size: rem(14);
+                padding-top: rem(10);
+            }
+        }
+    }
+}

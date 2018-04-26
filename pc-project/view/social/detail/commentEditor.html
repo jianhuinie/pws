@@ -1,0 +1,31 @@
+{{ strip }}
+<div class="comment-editor">
+    <div class="user-avatar" data="{{ $userInfo.avatar }}">
+        {{ if isset($userInfo.avatar) }}
+        {{ include file="common/component/image.html" url=$tpl_data.login_user.avatar width=48 height=48 }}
+        {{ else }}
+        <img src="{{ $defaultAvatar }}" width="48px" height="48px">
+        {{ /if }}
+    </div>
+    <div class="comment-content">
+        <textarea placeholder="说说你的看法"></textarea>
+        <div class="comment-attach">
+            <div class="comment-attach-top">
+                <span class="comment-show-photos">
+                    <i class="icon icon-pictures"></i>晒照片
+                    <input type="file" name="files" multiple>
+                </span>
+                <span>按住Ctrl可同时选择多张图片，最多可上传6张照片</span>
+                <span class="form-hint">还可以输入<strong>100</strong>字</span>
+            </div>
+            <div class="comment-img-list-wrapper" style="display:none">
+                <ul class="comment-img-list"></ul>
+            </div>
+        </div>
+        <div class="comment-actions">
+            <button class="btn btn-primary">评论</button>
+        </div>
+    </div>
+</div>
+{{ include file="teacher_center/component/imageUploadDialog.html" }}
+{{ /strip }}

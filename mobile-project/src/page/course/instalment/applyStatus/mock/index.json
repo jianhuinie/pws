@@ -1,0 +1,23 @@
+{
+    "tpl_data": [
+        {
+            "purchase_id": "160701475716",
+            "course_number": "11111111",
+            "course_price": "1",
+            "loan_amounts": "1",
+            "loan_stages": "6",
+            "user_id": "341940",
+            "user_role": "2",
+            "org_id": "3734",
+            "status": "1",
+            "loan_status": "1",
+            "confirm_status": "0",
+            "refund_status": "1",
+            "create_time": "2016-07-01 14:22:15",
+            "update_time": "2016-07-22 19:26:18",
+            "course_name": "测试课程",
+            "display_status": 4,
+            "display_status_name": "待确认"
+        }
+    ]
+}

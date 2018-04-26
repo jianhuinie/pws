@@ -1,0 +1,376 @@
+{{ strip }}
+
+{{ $coupons = $tpl_data.coupons }}
+{{ $dialog_name = '预约试听' }}
+{{ $display_status = $tpl_data.course_info.display_status }}
+{{ **如果审核未通过则状态置为暂停招生** }}
+{{ if $tpl_data.course_info.verify_status == 2 }}
+    {{ $display_status = 3 }}
+{{ /if }}
+{{ $trial_info = $tpl_data.trial_info }}
+{{ $online_data = $tpl_data.trial_info.lesson.online_data }}
+{{ if $tpl_data.course_type == 4 }}
+    {{ $sku_type="3810" }}
+{{ else }}
+    {{ $sku_type="class" }}
+{{ /if }}
+
+{{ $url = $smarty.get.action }}
+
+<div id="courseInfo">
+
+    <div class="left">
+        <div class="img">
+            <div class="lists">
+                {{ include file="common/component/image.html" width=480 height=270 url=$tpl_data.course_info.cover.url }}
+                {{ foreach $tpl_data.course_info.photos as $val }}
+                {{ if $val.url != $tpl_data.course_info.cover.url }}
+                {{ include file="common/component/image.html" width=480 height=270 url=$val.url }}
+                {{ /if }}
+                {{ /foreach }}
+            </div>
+            {{ if count($tpl_data.course_info.photos) >= 2 }}
+                <div class="leftBar">
+                    <i class="icon icon-chevron-left"></i>
+                </div>
+                <div class="rightBar">
+                    <i class="icon icon-chevron-right"></i>
+                </div>
+            {{ /if }}
+        </div>
+        <ul class="icons">
+            <li id="favor" data-coursenum="{{ $tpl_data.course_info.number }}" {{ if $tpl_data.course_type == 4 }}style="display:none;"{{ /if }}>
+            <i class="icon icon-favor"></i>
+            <span class="text">收藏</span>
+            (<span class="popularity">0</span>人)&nbsp;&nbsp;&nbsp;
+            </li>
+            <li class="social-share" data-click="share" data-sku="{{ $sku_type }}|{{ $tpl_data.course_info.number }}">
+                <i class="icon icon-share"></i>
+                <span>&nbsp;分享</span>
+                {{ if $tpl_data.course_type != 4 }}
+                    {{ include file="common/component/baiduShare.html" style="left:-90px;" }}
+                {{ else }}
+                    {{ include file="common/component/baiduShare.html" style="left:-180px;" }}
+                {{ /if }}
+            </li>
+
+        </ul>
+    </div>
+
+    <div class="right">
+        {{ $name = $tpl_data.course_info.name|cn_truncate:20 }}
+        <div class="title" {{ if $name != $tpl_data.course_info.name }} data-title="{{ $tpl_data.course_info.name }}" {{ /if }} data-width="200px">
+            {{ $name }}
+        </div>
+
+        <ul class="price">
+            {{ $show_zhekou = false }}
+
+            {{ if !empty($tpl_data.course_info.discount) && $tpl_data.course_info.discount }}
+                {{ if $tpl_data.course_info.discount.type == 1 }}
+                    {{ * 限额折扣 活动中提醒 * }}
+                    {{ $show_zhekou = true }}
+                    {{ $remain_amount = $tpl_data.course_info.discount.remain_amount }}
+                    {{ $class = "price-tip-end" }}
+                    {{ $price = $tpl_data.course_info.discount.discount_price }}
+                    {{ $price_no = $tpl_data.course_info.discount.pre_price }}
+                {{ else if $tpl_data.course_info.discount.type == 2 }}
+
+                    {{ $cur_time = $smarty.now }}
+                    {{ $start_time = strtotime($tpl_data.course_info.discount.start_time) }}
+                    {{ $end_time = strtotime($tpl_data.course_info.discount.end_time) }}
+
+                    {{ if ($start_time - $cur_time) < (24*60*60) && ($start_time - $cur_time > 0) }}
+                        {{ * 活动开始前24小时提醒 * }}
+                        {{ $show_zhekou = true }}
+                        {{ $zhekou_descript = "限时折扣｜距抢购开始 " }}
+                        {{ $class = "price-tip-begin" }}
+                        {{ $time = ($start_time - $cur_time) }}
+                        {{ $price = $tpl_data.course_info.discount.pre_price }}
+                        {{ $price_no = $tpl_data.course_info.discount.discount_price }}
+                    {{ else if ($start_time < $cur_time) && ($cur_time < $end_time) }}
+                        {{ * 活动进行中 * }}
+                        {{ $show_zhekou = true }}
+                        {{ $zhekou_descript = "限时折扣｜距抢购结束 " }}
+                        {{ $class = "price-tip-end" }}
+                        {{ $time = ($end_time - $cur_time) }}
+                        {{ $price = $tpl_data.course_info.discount.discount_price }}
+                        {{ $price_no = $tpl_data.course_info.discount.pre_price }}
+                    {{ /if }}
+                {{ /if }}
+            {{ /if }}
+
+            <li class="now">
+                &nbsp;￥
+                <span>
+                    {{ if $show_zhekou }}
+                        {{ $price }}
+                    {{ else if $tpl_data.course_info.can_chaban }}
+                        {{ $tpl_data.course_info.realtime_price }}
+                    {{ else }}
+                        {{ $tpl_data.course_info.price }}
+                    {{ /if }}
+                </span>
+            </li>
+
+            <li class="previous">
+                {{ if $show_zhekou }}
+                    {{ if $class == "price-tip-begin" }}
+                        <span class="cheap-price">
+                            抢购价：￥{{ $price_no }}
+                        </span>
+                    {{ else if $class == "price-tip-end" }}
+                        <span>￥{{ $price_no }}</span>
+                    {{ /if }}
+                {{ else }}
+                    {{ if isset($tpl_data.course_info.original_price) }}
+                        <span>
+                            ￥{{ $tpl_data.course_info.original_price }}
+                        </span>
+                    {{ /if }}
+                {{ /if }}
+            </li>
+
+            {{ if isset($tpl_data.course_info.cashback) && $tpl_data.course_info.cashback != 0 }}
+                <span class="cps-scholarship">
+                    返奖学金：
+                    <strong>￥</strong>
+                    {{ $tpl_data.course_info.cashback }}
+                </span>
+            {{ /if }}
+
+            {{ if $tpl_data.course_info.price != 0 && $tpl_data.course_info.retire_flag == 0 }}
+            <a href="/activity/fee_safe_guard" target="_blank">
+                <i class="icon icon-safety-money"></i>
+            </a>
+            {{ /if }}
+
+            {{ if $display_status == 2 || ($display_status == 5 && $tpl_data.course_info.can_chaban) }}
+                {{ if $tpl_data.fenqi }}
+                    <li class="can-stage">
+                        <span class="stage-desc">{{ $tpl_data.fenqi.desc }}</span>
+                        <span class="stage-pay">{{ $tpl_data.fenqi.tag_name }}</span>
+                    </li>
+                {{ /if }}
+            {{ /if }}
+        </ul>
+
+        {{ if isset($coupons) && count($coupons) > 0 }}
+        <div class="get-coupon text-primary">
+            <div class="coupons">
+                <i class="icon icon-coupons"></i><span>&nbsp;领取优惠券</span>
+            </div>
+            <div class="coupon">
+                <span class="small-arrow"></span>
+                <span class="big-arrow"></span>
+                <ul class="coupon-list">
+                    {{ foreach $coupons as $item }}
+                    <li class="coupon-color" data-num="{{ $item.serial_num }}">
+                        <div class="coupon-info">
+                            <div class="balance">
+                                ￥<em>{{ $item.balance }}</em>
+                            </div>
+                            <div class="threshold">
+                                {{ if $item.cond_course_type != 0 }}
+                                指定课程可用
+                                {{ else if $item.cond_threshold == 0 }}
+                                不限
+                                {{ else }}
+                                满{{ $item.cond_threshold }}使用
+                                {{ /if }}
+                            </div>
+                        </div>
+                        <div class="status">
+                            {{ include file="common/variable/couponStatus.html" scope=parent }}
+                            {{ $couponStatusMap[1] }}
+                        </div>
+
+                    </li>
+                    {{ /foreach }}
+                </ul>
+            </div>
+        </div>
+        {{ /if }}
+
+        <div class="numbers">
+            <i class="icon icon-group-o"></i>
+            <span>&nbsp;班级{{ $tpl_data.course_info.max_student }}人&nbsp;｜已报<span class="applied">{{ $tpl_data.course_info.total_pay }}</span>人</span>
+
+            {{ if $show_zhekou && $tpl_data.course_info.discount.type == 1 }}
+                <div class="zhekou-info {{ $class }}">
+                    限额折扣&nbsp;|&nbsp;剩余{{ $remain_amount }}个优惠名额
+                </div>
+            {{ else if $show_zhekou && !empty($time) && $tpl_data.course_info.discount.type == 2 }}
+                <div class="zhekou-info {{ $class }}">
+                    {{ $zhekou_descript }}
+                    <span class="limit-discount {{ $class }}" data-cur="{{ $cur_time }}" data-start="{{ $start_time }}" data-end="{{ $end_time }}">
+                        <span class="time">
+                            {{ include file='common/component/countDown.html' time=$time }}
+                        </span>
+                    </span>
+                </div>
+            {{ /if }}
+        </div>
+
+        <div class="arrange">
+            <i class="icon icon-clock-o"></i>
+                    <span>
+                        &nbsp;{{ $tpl_data.course_info.arrangement }}
+                        &nbsp;&nbsp;&nbsp;</span>
+            <span class="viewPlan" data-link="#teachOutline">查看课程安排</span>
+        </div>
+
+        <div class="address">
+            <i class="icon icon-location"></i>
+            <span>
+                &nbsp;
+                {{ if $tpl_data.course_info.lesson_way == 4 }}
+                    {{ if !$tpl_data.course_info.country }}
+                        {{ $tpl_data.course_info.location|escape|cn_truncate:30 }}
+                    {{ else }}
+                        {{ $tpl_data.course_info.country }}-
+                        {{ $tpl_data.course_info.location|escape|cn_truncate:22 }}
+                    {{ /if }}
+
+                {{ else }}
+                    在线授课
+                {{ /if }}
+            </span>
+        </div>
+
+        <div class="promises class-course-icon">
+            {{ **实名认证** }}
+                {{ include file="common/component/guaranteeLabel.html" type="certification" }}
+            {{ **资金安全** }}
+                {{ include file="common/component/guaranteeLabel.html" type="safety-money" }}
+            {{ **随时退班** }}
+            {{ if $tpl_data.course_info.retire_flag == 0 }}
+                {{ include file="common/component/guaranteeLabel.html" type="anytime-quitclass" }}
+            {{ else if $tpl_data.course_info.retire_flag == 100 }}
+                <!--a href="http://www.genshuixue.com/guide/guarantee?a=guarantee" target="_blank" class="icon icon-noway-retire"></a-->
+            {{ else }}
+                {{ * 限时退班 * }}
+                {{ include file="common/component/guaranteeLabel.html" type="limit-quitclass" }}
+            {{ /if }}
+
+            {{ if $tpl_data.course_info.chaban_flag == 3 }}
+                {{ * 随时插班 * }}
+                {{ include file="common/component/guaranteeLabel.html" type="anytime-joinclass" }}
+            {{ /if }}
+
+            {{ if $tpl_data.course_info.chaban_flag == 2 }}
+                {{ * 限时插班 * }}
+                {{ include file="common/component/guaranteeLabel.html" type="limit-joinclass" }}
+            {{ /if }}
+        </div>
+        <div class="buttons">
+
+            <!--{{ if $tpl_data.course_info.lesson_way == 2 }}
+                {{ if $trial_info.is_support_trial == true && !empty($trial_info.lesson) && $display_status != 15 }}
+                    <div class="online-trial" data-location="{{ $online_data.location }}" data-mode="{{ $online_data.mode }}" data-tiemstamp="{{ $online_data.tiemstamp }}" data-token="{{ $online_data.token }}" data-room-no="{{ $trial_info.lesson.room_no }}">
+                        进教室试听
+                    </div>
+                {{ /if }}
+            {{ else }}
+                <div class="btn-trial" data-dialog="预约">
+                    预约试听
+                </div>
+            {{ /if }}
+
+          
+            {{ if $display_status == 2 }}
+                {{ if $tpl_data.course_info.max_student <= $tpl_data.course_info.total_pay && $tpl_data.course_type != 4 }}
+                    <div class="default hugeBtn">还有机会，<i>{{ $tpl_data.course_info.total_pay-$tpl_data.course_info.succ_pay }}</i>人待付款</div>
+                {{ else }}
+                    <div class="primary
+                    {{ if $url != 'shenhe' }} reserve-course{{ else }} disabled{{ /if }}
+                    {{ if $tpl_data.course_info.total_pay != 0 }} hugeBtn{{ /if }}">
+                        {{ if $tpl_data.course_info.total_pay == 0 }}
+                            立即报名
+                        {{ else }}
+                            已报{{ $tpl_data.course_info.total_pay }}人&nbsp;&nbsp;|&nbsp;&nbsp;立即报名
+                        {{ /if }}
+                    </div>
+                {{ /if }}
+
+            {{ else if $display_status == 3 || ( $display_status == 5 && $tpl_data.course_info.status == 3) }}
+                <div class="default">本班课已停招</div>
+            {{ else if $display_status == 4 }}
+                <div class="default">本班课已报满</div>
+            {{ else if $display_status == 5 }}
+                {{ **加入插班判断** }}
+                {{ if $display_status == 5 && $tpl_data.course_info.can_chaban }}
+
+                    {{ if $tpl_data.course_info.is_full }}
+                        <div class="default small">本班课进行中</div>
+                    {{ else if $show_zhekou }}
+                        <div class="primary {{ if $url != 'shenhe' }} reserve-course{{ else }} disabled{{ /if }}{{ if $tpl_data.course_info.total_pay != 0 }} hugeBtn{{ /if }}">
+                            {{ if $tpl_data.course_info.total_pay == 0 }}
+                                立即报名
+                            {{ else }}
+                                已报{{ $tpl_data.course_info.total_pay }}人 | 立即报名
+                            {{ /if }}
+                        </div>
+                    {{ else }}
+                        <div class="primary {{ if $url != 'shenhe' }} reserve-course{{ else }} disabled{{ /if }} hugeBtn">
+                            插班价￥{{ $tpl_data.course_info.realtime_price }} | 立即报名
+                        </div>
+                    {{ /if }}
+
+                {{ else }}
+                    <div class="default">进行中</div>
+                {{ /if }}
+            {{ else if $display_status == 6 }}
+                {{ if $tpl_data.course_info.has_replay == true }}
+                    <div class="see-replay">观看回放</div>
+                {{ else }}
+                    <div class="default">本班课已完成</div>
+                {{ /if }}
+            {{ else if $display_status == 8 }}
+                <div class="default">本班课审核中</div>
+            {{ else if $display_status == 12 }}
+                <div class="default">本班课已失效</div>
+            {{ else if $display_status == 13 }}
+                <div class="default">本班课已完成</div>
+            {{ else if $display_status == 15 }}
+                <div class="primary-enter-room" data-click="order_1" data-sku="{{ $sku_type }}|{{ $tpl_data.course_info.number }}">进入教室</div>
+            {{ else if $display_status == 16 }}
+                <div class="default">即将开课</div>
+            {{ else if $display_status == 17 }}
+                <div class="default">本班课进行中</div>
+            {{ /if }}-->
+            
+
+            <!--{{ $org = $tpl_data.organization }}
+                {{ if isset($org.city_filter) && $org.city_filter && isset($org.extension) && $org.extension }}
+                <div class="phone">
+                    <p>免费咨询</p>
+                    <p class="number">{{ $org.extension }}</p>
+                </div>
+               {{ /if }}-->
+        </div>
+        {{ if $tpl_data.course_info.is_sign }}
+            <div  class="is-sign" ></div>
+            <div class="recent-time">最近课节：{{ $tpl_data.course_info.recent_time }}</div>
+        {{ /if }}
+    </div>
+
+</div>
+
+{{ if isset($user_data) }}
+{{ $mobile = $user_data.mobile }}
+{{ $username = $user_data.display_name }}
+{{ else }}
+{{ $mobile = '' }}
+{{ $username = '' }}
+{{ /if }}
+
+{{ if $tpl_data.is_organization }}
+{{ $kf = 'false' }}
+{{ else }}
+{{ $kf = 'true' }}
+{{ /if }}
+
+{{ include file="common/component/advisoryDialog.html" object_name=$tpl_data.course_info.name dialog_name='预约' mobile=$mobile username=$username kf=$kf }}
+
+{{ /strip }}

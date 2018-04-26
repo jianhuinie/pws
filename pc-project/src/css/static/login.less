@@ -1,0 +1,128 @@
+@import '../common/layout.less';
+@import '../common/component/login-form.less';
+
+
+body {
+    background: #fff;
+}
+
+#main {
+    background: #fff;
+    .clearfix();
+
+    margin: 78px auto;
+    width: 940px;
+
+    .form {
+        float: right;
+        padding: 0 ;
+        width: 385px ;
+        background: #fff;
+    }
+
+    .activity-label {
+        color: #4081B6;
+    }
+}
+
+.login-header {
+    background: #fff;
+    border-bottom: 1px solid #DEDEDE;
+    padding: @padding-vertical-content 0;
+
+    .wrapper {
+        width: 900px;
+        margin: 0 auto;
+        position: relative;
+    }
+    .signup {
+        color: @brand-primary;
+        cursor: pointer;
+    }
+    h1 {
+        img {
+            vertical-align: middle;
+        }
+
+        font-size: @font-size-medium;
+
+        a {
+            margin-right: @gap-horizontal-small;
+        }
+
+
+    }
+
+    h2 {
+        .icon-phone {
+            margin-right: @gap-horizontal-tiny;
+            position: relative;
+            top: 1px;
+            color: #ff9900;
+        }
+
+        a {
+            color: @brand-primary;
+        }
+
+        b {
+            position: relative;
+            bottom: 2px;
+            color: @brand-gray-light;
+            margin: 0 @gap-vertical-small;
+        }
+
+        position: absolute;
+        right: 0;
+        top: 18px;
+    }
+
+
+}
+
+.login-form {
+    border: 1px solid #DEDEDE;
+}
+
+
+.login-banner-student, .login-banner-teacher {
+
+    float: left;
+
+    a, img {
+        display: block;
+        width: 531px;
+        height: 313px;
+    }
+}
+
+.login-banner-teacher {
+    display: none;
+}
+
+.login-banner-art-activity {
+    width: 900px;
+    height: 378px;
+    background: url(../../img/activity/art/login.jpg) no-repeat;
+}
+
+.login-form-art-activity {
+    margin-top: 30px;
+    margin-right: 50px;
+    height: 260px;
+
+    .form-body {
+        background-color: #fff;
+    }
+
+    .btn {
+        width: 147px;
+    }
+}
+
+.copyright {
+    margin: 130px 0 46px 0;
+    text-align: center;
+    color: #999;
+    font-size: @font-size-tiny;
+}

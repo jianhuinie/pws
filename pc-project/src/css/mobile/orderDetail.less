@@ -1,0 +1,291 @@
+/**
+ * @file 移动端 - 订单详情
+ * @author zhangjiayi
+ */
+@import '../common/layout.less';
+
+body {
+    cursor: default;
+    width: 100%;
+    min-width: 0;
+    moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -o-user-select:none;
+    -khtml-user-select:none;
+    -webkit-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+
+#mobile-body {
+
+    padding: 0;
+    margin: 0;
+    min-width: 320px;
+
+    .order-date {
+        background-color: #FFFFFF;
+        border-bottom: 1px solid @brand-gray-light;
+        color: #BBBBBB;
+        font-size: 1em;
+        padding: 0.5em;
+
+        span {
+            padding-left: 0.5em;
+        }
+
+        .date,
+        .time {
+            float: right;
+        }
+
+    }
+
+    .order-head {
+        background-color: #FFFFFF;
+        border-bottom: 1px solid @brand-gray;
+        overflow:hidden;
+        //text-align: center;
+        //width: 100%;
+
+
+        .person-detail {
+            padding: 10px;
+            height: 70px;
+
+            .person-foto {
+                float: left;
+                width: 70px;
+                height: 70px;
+
+                img {
+                    border-radius: 50%;
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+
+            .person-name {
+                float: left;
+                font-size: 135%;
+                line-height: 70px;
+                margin-left: 5px;
+            }
+            .person-phone{
+                float: right;
+                font-size: 3em;
+                float: right;
+                //border: 1px solid @brand-gray;
+                width: 1em;
+                height: 70px;
+                line-height: 70px;
+
+                i{
+
+                    color: #fff;
+                    border-radius: 50%;
+                    background-color:@brand-primary;
+                    text-align:center;
+                }
+
+            }
+
+        }
+
+
+
+        .person-order {
+            border-top: 1px solid @brand-gray-light;
+            font-size: 1em;
+            text-align: left;
+            padding: 10px;
+            span {
+                color: #BBBBBB;
+                text-align: left;
+            }
+            money {
+                margin-left: 1em;
+            }
+            .lesson-way {
+                color: #FFF;
+            }
+        }
+
+    }
+
+    .order-detail-wrapper {
+        background-color: @brand-gray-lighter;
+        padding:15px 8px;
+        .order-detail {
+            background-color: #FFFFFF;
+            border: 1px solid @brand-gray;
+            border-radius: 0.5em;
+            line-height:3em;
+            clear: both;
+
+            div {
+                //padding: 1em;
+            }
+
+            .order-type {
+                border-bottom: 1px solid @brand-gray;
+                font-size: 1em;
+                padding: 0 10px;
+                overflow: hidden;
+
+                .order-status {
+                    float: left;
+                }
+
+                .order-price {
+                    float: right;
+                }
+            }
+
+            .order-total {
+                //border-bottom: 1px solid @brand-gray;
+                font-size: 1em;
+                padding: 0 10px;
+
+                span {
+                    color: #BBBBBB;
+                }
+
+                strong {
+                    font-size: 1.2em;
+                }
+
+            }
+
+            .order-progress {
+                padding: 0 10px;
+                height: 1em;
+
+                .progress {
+                    height: 1em;
+                    border-radius: 0.3em;
+                }
+            }
+
+            .order-past {
+                font-size: 1em;
+                overflow: hidden;
+                padding: 0 10px;
+
+                span {
+                    color: #BBBBBB;
+                }
+
+                strong {
+                    font-size: 1.2em;
+                }
+
+                .order-present {
+                    float: left;
+                }
+
+                .order-rest {
+                    float: right;
+
+                    strong {
+                        color: @brand-info;
+                    }
+                }
+
+            }
+
+            .order-control {
+                border-top: 1px solid @brand-gray;
+                padding: 10px;
+
+                .btn {
+                    -webkit-border-radius: 6px;
+                    -moz-border-radius: 6px;
+                    border-radius: 6px;
+                    font-size: 1em;
+                    margin: 0px 2px;
+                    display: block;
+                }
+                div {
+                    display: inline-block
+                }
+                div:last-child {
+                    margin-right: 0px;
+                }
+                /* one item */
+                div:first-child:nth-last-child(1) {
+                    width: 100%;
+                }
+                /* two items */
+                div:first-child:nth-last-child(2),
+                    div:first-child:nth-last-child(2) ~ div {
+                    width: 50%;
+                }
+                /* three items */
+                div:first-child:nth-last-child(3),
+                    div:first-child:nth-last-child(3) ~ div {
+                    width: 33.3333%;
+                }
+
+            }
+
+        }
+    }
+
+    .order-lesson-list {
+        background-color: @brand-gray-lighter;
+        border-top: 1px solid @brand-gray;
+        overflow: hidden;
+        position:relative;
+
+        .lesson {
+            border-bottom: 1px solid @brand-gray;
+            font-size: 1em;
+            overflow:hidden;
+            padding: 10px;
+            list-style:none;
+
+            .lesson-date {
+                float: left;
+                width:25%;
+
+                strong {
+                    font-size: 1.2em;
+                }
+
+                .date,
+                .week {
+                    clear: both;
+                }
+
+                .week {
+                    font-size: 1em;
+                    font-color: #000;
+                    text-align: left;
+                    margin-left: 0.5em;
+                }
+
+            }
+
+            .lesson-time {
+                width:50%;
+                text-align: center;
+                float: left;
+
+            }
+
+            .lesson-rest {
+                width:25%;
+                text-align: right;
+                float: left;
+            }
+
+        }
+        .lesson:last-child {
+            border-bottom:none;
+        }
+
+    }
+
+}

@@ -1,0 +1,46 @@
+{{ *
+
+@file 手机页面 - 微信服务号分享名片
+@author tangrongyan
+
+* }}
+
+{{ extends file="common/mobile/base.html" }}
+
+{{ block name="data" }}
+
+{{ $smarty.block.parent }}
+
+{{ /block }}
+
+{{ block name="title" prepend }}
+邀请好友 - 个人专属二维码
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/mobile/postcard.less">
+{{ /block }}
+
+{{ block name="body" }}
+{{ strip }}
+<div id="mobile-body">
+
+
+
+
+    <div class="item">
+        <h1>个人专属二维码</h1>
+
+        <img class="" src="{{ $static_origin }}/src/img/mobile/qr.jpg" />
+
+        <p>推荐好友扫描二维码关注跟谁学， 让你的朋友也获得更好的学习体验 吧~╭(╯3╰)╮</p>
+
+        <div>
+            <a class="btn btn-info order-control-again">把跟谁学分享给好友</a>
+        </div>
+    </div>
+
+</div>
+
+{{ /strip }}
+{{ /block }}

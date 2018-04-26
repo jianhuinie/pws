@@ -1,0 +1,19 @@
+{{ $is_org = $tpl_data.is_org }}
+
+{{ if $is_org }}
+{{ $rank = [] }}
+{{ $rank.id = "rank" }}
+{{ $rank.header = "机构老师综合实力榜" }}
+{{ $rank.data = $tpl_data.teacher_rank }}
+{{ $rank.prompt = "打入老师账户的课酬,才能计入此排行榜。" }}
+{{ /if }}
+
+{{ if !$is_org }}
+{{ $rank = [] }}
+{{ $rank.id = "rank" }}
+{{ $rank.header = "独立老师综合实力榜" }}
+{{ $rank.data = $tpl_data.teacher_rank }}
+{{ $rank.prompt = "打入老师账户的课酬,才能计入此排行榜。" }}
+{{ /if }}
+
+{{ $activity_link = "/activity/teacherRank5" }}

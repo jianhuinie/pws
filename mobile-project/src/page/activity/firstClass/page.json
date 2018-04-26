@@ -1,0 +1,12 @@
+[
+    {
+        "tpl": "./index.tpl",
+        "router": "/activity/firstLessonHome",
+        "mock_data": "./mock/index.json"
+    },
+    {
+        "tpl": "./recommend.tpl",
+        "router": "/activity/firstLessonRecommend",
+        "mock_data": "./mock/recommend.json"
+    }
+]

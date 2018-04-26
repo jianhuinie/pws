@@ -1,0 +1,240 @@
+{{ *
+
+@file TA的课程 － 正在学
+@author zhengjunxin
+
+* }}
+
+{{ extends file="common/main/base.html" }}
+
+{{ block name="data" }}
+    {{ $active = 'track' }}
+    {{ $smarty.block.parent }}
+    {{ $nav_config.hidden = 1 }}
+    {{ $nav_config.active = '' }}
+    {{ $flotage_config.hidden = true }}
+
+{{ /block }}
+
+{{ block name="title" }}
+    {{ if isset($tpl_data.basic_info.nickname) }}
+        {{ $tpl_data.basic_info.nickname }}的课程
+    {{ /if }} － 跟谁学
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/student/trackLearning_0842096e2b.css">
+{{ if isset($tpl_data.huike.is_huike_student) && $tpl_data.huike.is_huike_student }}
+    <style type="text/css">
+        #site-nav .status-info li:nth-child(3){
+            display: none;
+        }
+
+        .user-info li {
+            display: none;
+        }
+        .user-info .my-course,
+        .user-info .custom-service {
+            display: inline-block;
+        }
+        #site-nav .course-menu {
+            left: -100px;
+        }
+        #site-nav .course-menu:before, #site-nav .course-menu:after {
+            left: 13em;
+        }
+        #header {
+            display: none;
+        }
+        #footer .wrapper > div {
+            display: none;
+        }
+        #footer .wrapper .copyright {
+            display: block;
+        }
+    </style>
+{{ /if }}
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+{{ if isset($tpl_data.huike.is_huike_student) && $tpl_data.huike.is_huike_student }}
+    <div class="huike-header">
+        <a href="{{ $tpl_data.huike.org_url }}" class="huike-logo" target="_blank"></a>
+    </div>
+{{ /if }}
+{{ include file= "student/common/banner.html" }}
+<div id="main">
+    {{ include file="student/common/header.html" }}
+
+    <div id="track-container">
+        {{ if $tpl_data.trajectory_hide }}
+            <div class="track">
+                <div class="title">
+                    {{ $tpl_data.basic_info.nickname }}的课程
+                </div>
+                <div class="no-learning">
+                    <div class="wenzai"></div>
+                    <span>由于学生设置，TA的课程暂时不可见哦~</span>
+                </div>
+            </div>
+        {{ else }}
+            <div class="track">
+                <div class="title">
+                    {{ $tpl_data.basic_info.nickname }}的课程
+                </div>
+                <div class="nav">
+                    <a class="item active">
+                        正在学（{{ $tpl_data.learn_now.number }}）
+                    </a>
+                    <a href="/student/trackLearned?user_number={{ $tpl_data.basic_info.user_number }}" class="item">
+                        已学过（{{ $tpl_data.learn_done.number }}）
+                    </a>
+                </div>
+                {{ if ($tpl_data.learn_now.number == 0) && ($tpl_data.learn_done.number == 0) }}
+                    <div class="picture">
+                        <div class="finding">
+                            <div class="finding-bg"></div>
+                            {{ if !empty($user_data) && isset($user_data.user_number) && $user_data.user_number == $tpl_data.basic_info.user_number }}
+                                <p>
+                                    还没有学习任何课程，赶快去学习吧
+                                </p>
+                                <a href="/s/city/{{ $city }}/search.html" target="_blank" class="btn btn-primary">找好老师</a>
+                            {{ else }}
+                                <p>
+                                    该用户还没有学习过
+                                </p>
+                            {{ /if }}
+                        </div>
+                    </div>
+                {{ else }}
+                <div class="classes">
+                    {{ if $tpl_data.learn_now.number > 3 && !isset($user_data.user_number) }}
+                        {{ foreach $tpl_data.learn_now.courses as $item }}
+                            {{ if $item@index < 3 }}
+                                <div class="class">
+                                    <a class="course" href="{{ $item.course_link }}" target="_blank">
+                                        <div class="avatar img-thumbnail">
+
+                                            {{ if $item.course_type == "一对一" }}
+                                                <img class="one-icon" src="http://img.gsxservice.com/0cms/d/file/content/2015/04/5532456d1204f.png" alt="icon" />
+                                                {{ include class="one2one" file="common/component/image.html" url=$item.course_cover width=30 height=30 alt="头像" }}
+                                                <p>
+                                                    {{ $name = $item.teacher_name|cn_truncate:6 }}
+                                                    {{ $name }}
+                                                </p>
+                                            {{ else }}
+                                                {{ include file="common/component/image.html" url=$item.course_cover width=80 height=60 alt="头像" }}
+                                            {{ /if }}
+                                        </div>
+                                    </a>
+
+                                    <div class="content">
+                                        <div class="info">
+                                            {{ * <span class="date">
+                                                {{ $time = $item.course_date|date_format:"%m"|string_format:"%d月" }}
+                                                {{ $time }}{{ $item.course_date|date_format:"%d日" }}
+                                            </span> * }}
+                                            <span class="title">
+                                                <a href="{{ $item.course_link }}" target="_blank">
+                                                    {{ $name = $item.course_name|cn_truncate: 30 }}
+                                                    {{ $name }}
+                                                </a>
+                                            </span>
+                                            {{ * <span class="time">
+                                                {{ if $item.course_type == "直播课" || $item.course_type == "视频课" }}
+                                                    第{{ $item.course_process }}课节
+                                                {{ else if $item.course_type == "一对一" }}
+                                                    {{ $item.course_process }}小时
+                                                {{ /if }}
+                                            </span> * }}
+
+                                        </div>
+                                        <div class="teacher">
+                                            <a href="{{ $item.teacher_link }}" target="_blank">
+                                                {{ $name = $item.teacher_name|cn_truncate: 30 }}
+                                                <span {{ if $name != $item.teacher_name }} data-title="{{ $item.teacher_name }}" data-width="28em" {{ /if }}>
+                                                    {{ $name }}
+                                                </span>
+                                            </a>
+                                            <span>
+                                                ( {{ $item.course_type }} )
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            {{ /if }}
+                        {{ /foreach }}
+                        <p class="need-login">
+                            要查看全部课程请先
+                            <a href="/static/login" target="_blank">登录</span>
+                        </p>
+                    {{ else }}
+                        {{ foreach $tpl_data.learn_now.courses as $item }}
+                        <div class="class">
+                            <a class="course" href="{{ $item.course_link }}" target="_blank">
+                                <div class="avatar img-thumbnail">
+
+                                    {{ if $item.course_type == "一对一" }}
+                                        <img class="one-icon" src="http://img.gsxservice.com/0cms/d/file/content/2015/04/5532456d1204f.png" alt="icon" />
+                                        {{ include class="one2one" file="common/component/image.html" url=$item.course_cover width=30 height=30 alt="头像" }}
+                                        <p>
+                                            {{ $name = $item.teacher_name|cn_truncate:6 }}
+                                            {{ $name }}
+                                        </p>
+                                    {{ else }}
+                                        {{ include file="common/component/image.html" url=$item.course_cover width=80 height=60 alt="头像" }}
+                                    {{ /if }}
+                                </div>
+                            </a>
+
+                            <div class="content">
+                                <div class="info">
+                                    {{ * <span class="date">
+                                        {{ $time = $item.course_date|date_format:"%m"|string_format:"%d月" }}
+                                        {{ $time }}{{ $item.course_date|date_format:"%d日" }}
+                                    </span> * }}
+                                    <span class="title">
+                                        <a href="{{ $item.course_link }}" target="_blank">
+                                            {{ $name = $item.course_name|cn_truncate: 30 }}
+                                            {{ $name }}
+                                        </a>
+                                    </span>
+                                    {{ * <span class="time">
+                                        {{ if $item.course_type == "直播课" || $item.course_type == "视频课" }}
+                                            第{{ $item.course_process }}课节
+                                        {{ else if $item.course_type == "一对一" }}
+                                            {{ $item.course_process }}小时
+                                        {{ /if }}
+                                    </span> * }}
+
+                                </div>
+                                <div class="teacher">
+                                    <a href="{{ $item.teacher_link }}" target="_blank">
+                                        {{ $name = $item.teacher_name|cn_truncate: 30 }}
+                                        <span {{ if $name != $item.teacher_name }} data-title="{{ $item.teacher_name }}" data-width="28em" {{ /if }}>
+                                            {{ $name }}
+                                        </span>
+                                    </a>
+                                    <span>
+                                        ( {{ $item.course_type }} )
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        {{ /foreach }}
+                    {{ /if }}
+                </div>
+                {{ /if }}
+            </div>
+
+            {{ if isset($user_data.user_number) && $user_data.user_number }}
+                {{ include file="common/component/pager.html" count=$tpl_data.learn_now.number page=$tpl_data.learn_now.page_now page_size=$tpl_data.learn_now.page_size show_count=5 url="/student/trackLearning?user_number="|cat:{{ $tpl_data.basic_info.user_number }} hide_jump=true }}
+            {{ /if }}
+        {{ /if }}
+    </div>
+
+</div>
+
+{{ /strip }}
+{{ /block }}

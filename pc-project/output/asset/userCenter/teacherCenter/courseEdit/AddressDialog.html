@@ -1,0 +1,92 @@
+<div class="dialog address-dialog set-address-dialog">
+    <div class="header">
+        <div class="title">
+            添加新地址
+        </div>
+    </div>
+    <div class="close">
+        ×
+    </div>
+    <div class="body">
+
+        <div class="block">
+            首先选择省市区信息，然后填写详细地址，最后使用地图定位准确位置
+        </div>
+
+        <div class="form">
+            <div class="group">
+                <label class="label">
+                    所在地区
+                </label>
+                <div class="controls">
+                    <div class="inline">
+                        <span class="info small
+                        {{#if !mapHidden}} hidden{{/if}}
+                        " data-title="如果你无法找到所属区县，可能该区已经被合并或属于虚拟行政区（地方经济开发区、非国家三级行政区），请选择左侧最近的区县" data-max-width="30em">
+                            找不到所属区县？
+                        </span>
+                    </div>
+
+                    <AddressSelect options="{{addressSelectOptions}}" />
+                </div>
+            </div>
+
+            <div class="group">
+                <label class="label">
+                    详细地址
+                </label>
+                <div class="controls">
+                    <AutoComplete options="{{addressOptions}}" />
+                    <div class="block message primary"></div>
+                    <div class="block message error"></div>
+                    <div class="block approve">
+                        <label class="label checkbox inline normal-box">
+                            <input type="checkbox" name='regular_address'
+                            {{#if asRegularAddress}} checked="checked" {{/if}}
+                            on-click="toggleStatus()" />
+                            <span>
+                                设置为常用地址
+                            </span>
+                        </label>
+                        <div class="map-position button secondery" on-click="pin()" disabled='{{mapDisabled}}'>
+                            地图定位
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="group footer">
+                <div class="controls">
+                    <div class="buttons">
+                        <div class="button primary" on-click='save()'>
+                            保存
+                        </div>
+                        <div class="button link" on-click="close()">
+                            取消
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="map
+        {{#if mapHidden}} hidden{{/if}}
+        ">
+            <BaiduMap options="{{mapOptions}}" />
+            <span class="buttons small fluid">
+                <button class="primary button" on-click="savePosition()">
+                    保存位置
+                </button>
+                <button class="button secondary" on-click="backPosition()">
+                    回原位置
+                </button>
+            </span>
+        </div>
+
+    </div>
+
+    <style>
+        {{style}}
+    </style>
+</div>

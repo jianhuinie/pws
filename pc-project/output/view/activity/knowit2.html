@@ -1,0 +1,335 @@
+{{ extends file="common/pc/base.html" }}
+
+{{ block name="title" }}
+    {{ $tpl_data.share.title }}
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/activity/knowit2_f9567f9dc8.css">
+{{ /block }}
+
+{{ block name="data" }}
+
+{{ $need_im = ture }}
+{{ $smarty.block.parent }}
+
+{{ $script_path = "activity/knowit2_4df1fe46a7" }}
+
+{{ $flotage_config.hidden = 1 }}
+{{ $rave_config.hidden = 1 }}
+{{ $nav_config.hidden = 1 }}
+{{ $amd_more = [ 'common/main/component/header_40e06bdd81' ] }}
+
+
+{{ $baidu_share_text = $tpl_data.share.share_text|default:"懂行2.0" }}
+
+{{ $baidu_share_image = $tpl_data.share.share_image|default:"" }}
+
+{{ /block }}
+
+
+{{ block name="description" }}
+     {{ $tpl_data.share.description|default:'跟谁学' }}
+{{ /block }}
+
+{{ block name="keywords"  }}
+
+    {{ $smarty.block.parent }}
+    {{ $tpl_data.share.keywords|default:'跟谁学' }}
+{{ /block }}
+
+
+{{ strip }}
+{{ block name="body" }}
+
+    {{ $zn = $tpl_data.zn|default:'zn_gsx' }}
+    {{ include file="./common/getClickMonitorUrl.html" }}
+
+
+
+{{ $smarty.block.parent }}
+
+{{ include file="common/siteNav.html" }}
+{{ include file="common/main/common/header.html" }}
+{{ include file="common/script.html" }}
+<div id="main">
+
+    <div class="side-nav">
+        <div class="wrapper">
+            <div class="container">
+                <ul>
+                    <li class="applay" >
+                        <div class="content">分享</div>
+                        <div id="share">{{ include file="common/component/baiduShare.html" }}</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <style>
+        #main {
+            background: {{ $tpl_data.page_backgroune|default:'#ffffff' }};
+        }
+        #main #layout {
+            background: {{ $tpl_data.page_backgroune|default:'#ffffff' }} url("{{ $tpl_data.style.top_image|default:'' }}") 50% 0 no-repeat;
+            /*height: {{ $tpl_data.style.top_height|default:'658px' }};*/
+        }
+        .school-info .tab-content {
+
+        }
+        .school-info .content-wrapper .span_bg {
+
+        }
+        #main #last {
+            background: {{ $tpl_data.style.page_bottom }}
+        }
+        #main .side-nav li.applay .content {
+            /*opacity: 0.7;
+            filter: alpha(opacity=70);*/
+            /*border-radius: 20%;*/
+
+            background: url({{ $tpl_data.share.share_button }});
+        }
+        /* 分享按钮为纯色的时候
+        background: {{ $tpl_data.style.listbox_nomarl }};
+
+        // 分享按钮为纯色的时候
+        #main .side-nav li.applay .content:hover {
+            opacity: 1;
+            filter: alpha(opacity=70);
+            background: {{ $tpl_data.style.listbox_hover }};
+        }
+        */
+    </style>
+    <div id="layout">
+        <img src="{{ $tpl_data.style.top_image }}" alt="" />
+    </div>
+
+    <div class="school-info">
+
+
+        {{ foreach $tpl_data.schoollist_datas as $subject }}
+        <div class="content-wrapper">
+
+            <div class="title">
+                <div>
+                    <span class="t1">
+                    {{ $subject.title.title1 }}
+                    </span>
+                    ·
+                    <span class="t2">
+                    {{ $subject.title.title2 }}
+                    </span>
+                    <span class="span_bg" style="background: {{ $subject.title.title_bg }};/*box-shadow: 0px 0px 12px {{ $subject.title.title_bg }}*/"></span>
+                </div>
+
+                <div class="special-header-ads">
+                    <ul class="">
+                        {{ foreach $subject.title.news as $news }}
+                        <li class="special-ad-item">
+                            <a class="text-right" href="{{ $news.link }}" target="_blank">
+                                <i class="bot" style="background: {{ $subject.title.title_bg }}"></i>
+                                <span>
+                                    【{{ $news.tip }}】
+                                </span>
+                                <span class="text">
+                                    {{ $news.title|cn_truncate:50 }}
+                                </span>
+                            </a>
+                        </li>
+                        {{ /foreach }}
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <div class="banner-course">
+
+                <a href="{{ $subject.course.banner_course.link }}" target="_blank" data-click-monitor="1" data-href="{{ getClickMonitorUrl number=$subject.course.banner_course.number zn=$zn url=$subject.course.banner_course.link attach='course_number='|cat:$subject.course.banner_course.number }}">
+
+                    {{ include file="common/component/image.html" url=$subject.course.banner_course.img width="760" height="328" }}
+
+                    <p class="info">
+                      <span class="">{{ $subject.course.banner_course.time }}</span>   |&nbsp;
+                      <span>
+                            已报<i>{{ $subject.course.banner_course.renshu }}</i>人
+                      </span>
+                    </p>
+                    <p class="info-mask"></p>
+                </a>
+
+            </div>
+
+
+
+
+                <ul class="list" {{ if $subject@index == 0 }}style="display: block" {{ /if }}>
+                    {{ foreach $subject.course.list_course as $sigle }}
+                    <li {{ if !$sigle@first && !$sigle@last }}class="isMiddle"{{ /if }}>
+
+                        <a href="{{ $sigle.link }}" target="_blank"  data-click-monitor="1" data-href="{{ getClickMonitorUrl number=$sigle.number zn=$zn url=$sigle.link attach='course_number='|cat:$sigle.number }}">
+                              {{ include file="common/component/image.html" url=$sigle.img width="160" height="90" alt=$sigle.main_teacher }}
+                        </a>
+                        <div class="school-baseinfo">
+                            <em>
+                            <a target="_blank" title="{{ $sigle.title }}" href="{{ $sigle.link }}" >{{ $sigle.title|cn_truncate: 14 }}</a>
+                            </em>
+
+                             <a class="school-intro" target="_blank" href="{{ $sigle.link }}"  data-click-monitor="1" data-href="{{ getClickMonitorUrl number=$sigle.number zn=$zn url=$sigle.link attach='course_number='|cat:$sigle.number }}" title="{{ $sigle.main_teacher|escape:'html' }}">
+                                {{ $sigle.main_teacher|escape:'html' }}
+                            </a>
+
+                                <p class="info">
+                                  <span class=""> {{ $sigle.time }}</span>   |&nbsp;
+                                  <span>
+                                        已报<i>{{ $sigle.renshu }}</i>人
+                                  </span>
+                                </p>
+                        </div>
+                       <!-- <div class="school-mask">
+                            <a target="_blank" href="{{ $sigle.link }}"  data-click-monitor="1" data-href="{{ getClickMonitorUrl number=$sigle.number zn=$zn url=$sigle.link attach='course_number='|cat:$sigle.number }}"></a>
+                        </div> -->
+                    </li>
+                    {{ /foreach }}
+                </ul>
+
+        </div>
+        {{ /foreach }}
+
+
+
+
+    </div>
+
+
+
+<!-- 精致生活掌门人 -->
+
+{{ function toText }}
+
+    {{ if $value == -1 }}
+         30年以上
+    {{ else }}
+        {{ $value }}年教龄
+    {{ /if }}
+
+{{ /function }}
+
+    {{ if isset($tpl_data.recommend_teacher) && count($tpl_data.recommend_teacher) > 0 }}
+
+        <div id="recommend-teacher" class="recommend-list">
+            <div class="recommed-header">
+                <h4>精致生活掌门人</h4>
+            </div>
+            <div class="recommend-content">
+                <ul class="teacher-list">
+
+                    {{ foreach $tpl_data.recommend_teacher as $teacher }}
+
+
+                    <li class="teacher-item">
+                        <a href="{{ $teacher.detail_url }}" target="_blank" data-number="{{ $teacher.number }}" data-click-monitor="1" data-href="{{ getClickMonitorUrl number=$teacher.number zn=$zn url=$teacher.detail_url attach='teacher_number='|cat:$teacher.number }}">
+                            <div class="teacher-avatar">
+                                <img data-src="{{ $teacher.avatar_url }}@1e_100w_100h_1c_0i_1o_90Q_1x" width="100px" height="100px"/>
+                            </div>
+                            <div class="teacher-content">
+                                <div class="teacher-name" title='{{ $teacher.name }}'>{{ $teacher.name }}</div>
+                                <div class="teacher-course" title="{{ $teacher.course }}">
+                                    {{ $teacher.course }}
+                                </div>
+                                <div class="teacher-experience">
+                                    <span>{{ toText value=$teacher.experience }}</span>
+                                </div>
+                                {{ if $teacher.isLocal }}
+                                <div class="teacher-address">
+                                    <i class="icon icon-location-o"></i>
+                                    {{ $teacher.address }}
+                                </div>
+                                {{ else }}
+                                <div class="teacher-status">
+                                    {{ if $teacher.status }}
+                                    可在线授课
+                                    {{ /if }}
+                                </div>
+                                {{ /if }}
+                            </div>
+                        </a>
+                    </li>
+
+                    {{ /foreach }}
+
+
+
+
+                </ul>
+            </div>
+        </div>
+
+{{ /if }}
+
+
+
+    {{ if isset($tpl_data.org_list) && count($tpl_data.org_list) > 0 }}
+
+        <div class="org-list-wrapper">
+            <ul class="org-list">
+                {{ foreach $tpl_data.org_list as $item }}
+                <li class="org-logo {{ if $item@last }}last{{ /if }}">
+                    <a href="{{ $item.button_url }}" target="_blank" data-click-monitor="1" data-href="{{ getClickMonitorUrl number=$item.number zn=$zn url=$item.button_url attach='org_number='|cat:$item.number }}">
+
+                        <img alt="{{ $item.name }}" data-src="{{ $item.avatar }}@1e_60h_1c_0i_1o_90Q_1x"/>
+
+                    </a>
+                </li>
+                {{ /foreach }}
+            </ul>
+        </div>
+
+
+    {{ /if }}
+
+
+    {{ if isset($tpl_data.pc_img) && $tpl_data.pc_img != '' }}
+
+       <div class="imagelist-datas">
+
+
+        <a {{ if isset($tpl_data.pc_img_url) && $tpl_data.pc_img_url != '' }}href="{{ $tpl_data.pc_img_url }}" target="_blank"{{ /if }} >
+
+            <img width="1100px" height="auto" data-src="{{ $tpl_data.pc_img }}@1e_1100w_1c_0i_1o_90Q_1x" alt="" />
+
+        </a>
+
+        <!-- 当图片有多张是一个数组的时候，开启 -->
+       {{ * foreach $tpl_data.img_list as $single_img }}
+
+        <a {{ if isset($single_img.link) && $single_img.link != '' }}href="{{ $single_img.link }}"{{ /if }}>
+
+            <img width="1100px" height="auto" data-src="{{ $single_img.img }}@1e_1100w_1c_0i_1o_90Q_1x" alt="" />
+
+        </a>
+
+       {{ /foreach * }}
+
+       </div>
+
+    {{ /if }}
+
+
+
+
+
+
+
+
+
+    <div id="last">
+        <p>
+            Copyright © 2014 - 2017 跟谁学版权所有. 京公网安备11010802015210号 | 京ICP备14027590号-1
+        </p>
+    </div>
+
+</div>
+{{ /block }}
+{{ /strip }}

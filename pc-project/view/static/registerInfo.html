@@ -1,0 +1,131 @@
+{{ *
+
+@file 浅注册老师设置信息页
+@author jixiaohui
+
+* }}
+
+{{ extends file="common/center/base.html" }}
+
+{{ block name="data" }}
+{{ strip }}
+    {{ $need_im = false }}
+    {{ $smarty.block.parent }}
+    {{ $script_path = "static/registerInfo" }}
+    {{ $script_data.subjects = $tpl_data.subjects }}
+    {{ $script_data.info = $tpl_data }}
+{{ /strip }}
+{{ /block }}
+
+{{ block name="title" }}欢迎来到跟谁学{{ /block }}
+
+{{ block name="keywords" }}欢迎来到跟谁学{{ /block }}
+
+{{ block name="description" }}欢迎来到跟谁学{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/static/registerInfo.less">
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+<div id="register-header">
+    <div class="wrapper">
+
+        <a href="{{ $root_http }}" class="logo"><sup>测试版</sup></a>
+
+        <div class="city">
+            <strong>
+                {{ $curr_city.name }}
+            </strong>
+            <div class="city-trigger">
+                <a rel="nofollow" href="/changecity/init">切换城市</a>
+            </div>
+        </div>
+
+        <span class="welcome">欢迎来到跟谁学</span>
+
+    </div>
+</div>
+<div id="info-body">
+    <div class="info-box form" action="/teacher_center/upsert_profile" method="post">
+        <div class="section avatar-section">
+            <div class="option info-avatar">上传头像</div>
+            <div class="box">
+                {{ if !empty($tpl_data.avatar) }}
+                    <img class="upload-img" src="{{ $tpl_data.avatar }}">
+                    <input type="hidden" name="avatar" value="{{ $tpl_data.avatar_id }}">
+                {{ else }}
+                    <div class="upload">
+                        <i class="icon icon-plus"></i>
+                        <span>点击上传</span>
+                    </div>
+                    <img class="upload-img" src="" style="display:none;">
+                    <input type="hidden" name="avatar" value="">
+                {{ /if }}
+            </div>
+        </div>
+        <div class="section name-section form-group">
+            <div class="option info-name">姓名</div>
+            <div class="box form-controls">
+                <input class="form-text" maxlength="50" minlength="2"  name="realname" placeholder="请填写真实姓名" pattern="^[\u4d00-\u9fa5a-zA-Z][\u4d00-\u9fa5a-zA-Z\s\.·]*$" {{ if !empty($tpl_data.realname) }}value="{{ $tpl_data.realname }}" disabled{{ /if }}>
+                <span class="error"></span>
+            </div>
+        </div>
+        <div class="section sex-section">
+            <div class="option info-sex">性别</div>
+            <div class="box">
+                {{ $male_class = "" }}
+                {{ $female_class = "" }}
+                {{ if isset($tpl_data.sex) }}
+                    {{ if $tpl_data.sex == 1 }}
+                        {{ $male_class = "active" }}
+                    {{ else if $tpl_data.sex == 0 }}
+                        {{ $female_class = "active" }}
+                    {{ /if }}
+                {{ /if }}
+                <div class="sex">
+                    <div class="sex-item male-box {{ $male_class }}">
+                        <i class="icon icon-user male"></i>男
+                    </div>
+                    <div class="sex-item female-box {{ $female_class }}">
+                        <i class="icon icon-user female"></i>女
+                    </div>
+                </div>
+                <input type="hidden" name="sex" value="{{ $tpl_data.sex }}">
+            </div>
+        </div>
+        <div class="section subject-section">
+            <div class="option info-subject">教学科目</div>
+            <div class="box">
+                <div class="dropdown category1">
+                    <span class="btn-default">
+                        <i class="caret"></i>
+                        <span>请选择</span>
+                    </span>
+                    <ul class="dropdown-menu">
+                    </ul>
+                </div>
+                <div class="dropdown category2">
+                    <span class="btn-default">
+                        <i class="caret"></i>
+                        <span>请选择</span>
+                    </span>
+                    <ul class="dropdown-menu">
+                    </ul>
+                </div>
+                <div class="dropdown category3">
+                    <span class="btn-default">
+                        <i class="caret"></i>
+                        <span>请选择</span>
+                    </span>
+                    <ul class="dropdown-menu">
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-default">加入跟谁学</button>
+    </div>
+</div>
+{{ /strip }}
+{{ /block }}

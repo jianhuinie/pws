@@ -1,0 +1,109 @@
+@import 'resource/css/mixin/position.styl';
+@import 'resource/css/mixin/common.styl';
+@import "module/index.styl";
+.gift-dialog {
+    width: 100%;
+    max-width: rem(414);
+    center(fixed);
+    border: 0;
+    outline: 0;
+    .gift-receive {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        &-bg {
+            width: 100%;
+            min-height: rem(440);
+        }
+        &-close {
+            text-align: center;
+            font-size: rem(20);
+            line-height: rem(20);
+            margin-top: rem(25);
+        }
+        &-content {
+            position: absolute;
+            z-index: 9999;
+            margin: 0;
+            padding: 0;
+            left: 11.05%;
+            top: 33.9%;
+            width: 78%;
+            height: 35.9%;
+            overflow-y: auto;
+            .gift-item {
+                &:nth-child(1) {
+                    margin-top: rem(10);
+                }
+                margin-left: 4%;
+                width: 96%;
+                height: rem(72);
+                padding-top: rem(12);
+                display: flex;
+                &:nth-child(1) {
+                    border-bottom: rem(1) solid #f6f6f6;
+                }
+                .gift-item-cover {
+                    width: rem(106);
+                    height: rem(60);
+                    outline: rem(1) solid #f6f6f6;
+                }
+                .gift-item-detail {
+                    flex: 1;
+                    padding: 0 rem(10);
+                    font-size: rem(14);
+                    overflow: hidden;
+                    &-title {
+                        height: rem(40);
+                        overflow: hidden;
+                        font-size: rem(15);
+                        line-height: rem(20);
+                        color: #3d3d3e;
+                        mult-ellipsis(2);
+                    }
+                    &-body {
+                        height: rem(20);
+                        display: flex;
+                        &-name {
+                            flex: 1;
+                            color: #9d9d9e;
+                            ellipsis();
+                            line-height: rem(24);
+                        }
+                        &-number {
+                            max-width: rem(80); 
+                            font-size: rem(12);
+                            line-height: rem(24);
+                            color: #9d9d9e;
+                            ellipsis();
+                        }
+                    }
+                }       
+            }
+        }
+        &-opreate {
+            position: absolute;
+            width: 100%;
+            bottom: rem(77);
+            text-align: center;
+            .desc {
+                opacity: 0.8;
+                font-size: rem(12);
+                color: #fff;
+                letter-spacing: 0;
+            }
+            .gain {
+                width: rem(112);
+                height: rem(38);
+                margin-top: rem(7);
+                line-height: rem(38);
+                font-size: rem(16);
+                color: #ff5850;
+                letter-spacing: 0;
+                background: #fff;
+                box-shadow: 0 0 rem(6) 0 rgba(242,180,177,0.30);
+                border-radius: rem(5);
+            }
+        }
+    }
+}

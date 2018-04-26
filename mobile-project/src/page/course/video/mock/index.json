@@ -1,0 +1,244 @@
+{
+    "code": 0,
+    "msg": "succ",
+    "tpl_data": {
+        "one_on_one_teacher_mobile": 888888888,
+        "course_info": {
+            "id": "358911",
+            "user_id": "347019",
+            "user_role": "0",
+            "number": "17051998431",
+            "name": "\u89c6\u9891\u8bfe\u5df2\u8fc7\u671f\u652f\u6301\u8d2d\u4e70",
+            "portrait": "https:\/\/test-imgs.genshuixue.com\/935855_lji05uyg.jpeg",
+            "price": "1",
+            "price_ios": "0",
+            "introduce": "111111111111111111111111111111111111111111111111111",
+            "label_ids": "",
+            "subject_id": "975,976,977,\u827a\u672f,\u5668\u4e50,\u94a2\u7434",
+            "new_subject_id": "977",
+            "expire_hours": "1",
+            "language": "1",
+            "course_items_count": "1",
+            "detail": "<p>22222222222222222222<\/p>",
+            "status": "1",
+            "verify_status": "1",
+            "outer_from": "0",
+            "outer_id": "0",
+            "chapter_mode": "1",
+            "teacher_uids": "",
+            "preface": "https:\/\/test-imgs.genshuixue.com\/935855_lji05uyg.jpeg",
+            "title": "\u89c6\u9891\u8bfe\u5df2\u8fc7\u671f\u652f\u6301\u8d2d\u4e70",
+            "brief": "<p>22222222222222222222<\/p>",
+            "payer_count": 2,
+            "student_count": 2,
+            "has_free_item": false,
+            "play_count": "3",
+            "um_tc": null,
+            "um_tc_share_uid": null,
+            "fenqi": null,
+            "coupon_list": [],
+            "has_buy_course": true,
+            "has_add_course": true,
+            "pay_url": "\/pay\/productDetail?type=3&course_number=17051998431",
+            "can_access": null,
+            "course_type": 3,
+            "cashback": 0,
+            "video_play_url": "",
+            "video": null,
+            "current_item": {
+                "id": "11672",
+                "user_id": "347019",
+                "user_role": "0",
+                "number": "17051998431",
+                "section_id": "17051973542",
+                "title": "1111111",
+                "pay_status": "2",
+                "play_count": "3",
+                "index": "1",
+                "media_id": "17986",
+                "create_time": "2017-05-19 09:57:02",
+                "update_time": "2017-05-19 10:00:05",
+                "file_name": "11.mp4",
+                "verify_status": "1",
+                "reason": "",
+                "reason_text": "",
+                "verify_old_value": "",
+                "playback_id": null,
+                "verify_outer_reasons": "",
+                "introduce": "",
+                "chapter_id": "0"
+            },
+            "discount": null,
+            "great_rate": 100
+        },
+        "video_items": null,
+        "video_items_chapter": [
+            {
+                "id": "8",
+                "title": "第一章章节标题可以输入很长很长吗“吉他”",
+                "introduce": "第一章章节内容简介部分，第一章章节内容简介部分，第一章章节内容简介部分，·1234567890-~！@#￥%……&*（）——第一章章节内容简介部分，第一章章节内容简介部分，第一章章节内“”“是打开速到，。、《》{}{}：“：“【】””？”容简介部分，第一章章节内容简介部分，",
+                "index": "1",
+                "section_id": "17051973542",
+                "title": "1111111",
+                "number": "17051998431",
+                "play_count": 3,
+                "total_length": 1,
+                "display_time": "8\u79d2",
+                "pay_status": "2",
+                "preface": "https:\/\/test-imgs.genshuixue.com\/00-upload\/image-test\/121831_62a3e3943dc9c4f16dc0baa76f6829c0_zACNPDHB.jpg",
+                "media_id": "17986",
+                "fid": "124204",
+                "token": "oRubPps3zwOwRRlS4-TJqIaSapxMQyFpVSIyF6GxD9o",
+                "can_access": false
+            }
+        ],
+        "material_info": {
+            "material": [
+                {
+                    "name": "2016.9.10泛词上线清单2.xlsx"
+                },
+                {
+                    "name": "90 (1).jpg"
+                }
+            ],
+            "total_count": 2,
+            "detail_url": "https://beta-m.genshuixue.com/course_material/list?course_number=17012135512&course_type=3"
+        },
+        "teacher_info": [
+            {
+                "number": "415444278",
+                "vip_level": 0,
+                "name": "\u738b\u5029\u5029",
+                "avatar": "https:\/\/test-imgs.genshuixue.com\/926999_2pxjdqmv.jpeg",
+                "intro": "\u6211\u662f\u4e00\u4e2a\u597d\u8001\u5e08",
+                "icon_url": null,
+                "area_id": "17040384",
+                "student_count": 129,
+                "great_rate": "0.63",
+                "homepage_url": "https:\/\/test-m.genshuixue.com\/415444278w",
+                "teach_time": "1950",
+                "course_list_url": "https:\/\/test-m.genshuixue.com\/teacher\/course\/415444278"
+            }
+        ],
+        "org_info": null,
+        "qrcode_url": "https:\/\/test-m.genshuixue.com\/video_course\/getcourseshowdetail?number=17051998431",
+        "can_trial_items": [],
+        "comment_info": {
+            "additional": {
+                "price": "1",
+                "is_free": false,
+                "can_comment": true,
+                "has_comment": false,
+                "user_id": "344074",
+                "purchase_id_video": "1117051935068192",
+                "average": "0",
+                "comment_tag": null,
+                "user_total_number": "0",
+                "has_more": 0,
+                "next_cursor": 2,
+                "total_number": "0"
+            },
+            "comment_list": [],
+            "pager": {
+                "count": "0",
+                "page": 1,
+                "page_size": 5
+            }
+        },
+        "related_course": {
+            "courses": [
+                {
+                    "number": "17032298419",
+                    "name": "\u89c6\u9891\u8bfe\u5386\u53f2\u8ba2\u5355\u6587\u6848",
+                    "type": 3,
+                    "current_price": "0.01",
+                    "origin_price": null,
+                    "price": "0.01",
+                    "logo": "https:\/\/test-imgs.genshuixue.com\/876479_5ps3xqle.jpeg",
+                    "url": "\/video_course\/getcourseshowdetail?number=17032298419"
+                },
+                {
+                    "number": "16031640641",
+                    "name": "\u7279\u79cd\u51751",
+                    "type": 3,
+                    "current_price": "0",
+                    "origin_price": null,
+                    "price": "0",
+                    "logo": "https:\/\/test-imgs.genshuixue.com\/435114_k96epcfu.jpeg",
+                    "url": "\/video_course\/getcourseshowdetail?number=16031640641"
+                },
+                {
+                    "number": "16031640657",
+                    "name": "\u7279\u79cd\u5175-\u9739\u96f3\u706b\u201c\u4ed8\u8d39-\u53ef\u8bd5\u542c\u8bfe\u7a0b\u201d",
+                    "type": 3,
+                    "current_price": "2000",
+                    "origin_price": null,
+                    "price": "2000",
+                    "logo": "https:\/\/test-imgs.genshuixue.com\/435105_ln0c9lva.jpeg",
+                    "url": "\/video_course\/getcourseshowdetail?number=16031640657"
+                }
+            ],
+            "more_url": "https:\/\/test-m.genshuixue.com\/415444278w"
+        },
+        "has_buy_course": true,
+        "favorite_info": {
+            "favorite_status": 0,
+            "type": 4,
+            "number": "17051998431"
+        },
+        "page_title": "\u3010\u89c6\u9891\u3011\u89c6\u9891\u8bfe\u5df2\u8fc7\u671f\u652f\u6301\u8d2d\u4e70_\u94a2\u7434_-\u8ddf\u8c01\u5b66",
+        "page_keywords": "\u89c6\u9891\u8bfe\u5df2\u8fc7\u671f\u652f\u6301\u8d2d\u4e70\uff0c\u94a2\u7434\u89c6\u9891\u8bfe\u7a0b",
+        "description": "\u8ddf\u8c01\u5b66\u4e3a\u60a8\u63d0\u4f9b\u89c6\u9891\u8bfe\u5df2\u8fc7\u671f\u652f\u6301\u8d2d\u4e70\u89c6\u9891\u8bfe\u7a0b\uff0c111111111111111111111111111111111111111111111111111\u3002\u627e\u597d\u8001\u5e08\uff0c\u4e0a\u8ddf\u8c01\u5b66\uff01",
+        "is_juhuixue": 0,
+        "share_info": {
+            "title": "\u89c6\u9891\u8bfe\u5df2\u8fc7\u671f\u652f\u6301\u8d2d\u4e70",
+            "img_url": "https:\/\/test-imgs.genshuixue.com\/935855_lji05uyg.jpeg@300w_300h",
+            "img": "https:\/\/test-imgs.genshuixue.com\/935855_lji05uyg.jpeg@300w_300h",
+            "url": "https:\/\/test-m.genshuixue.com\/video_course\/getcourseshowdetail?number=17051998431&render=json",
+            "text": "\u738b\u5029\u5029\u8001\u5e08\u5728\u8ddf\u8c01\u5b66\u5f00\u8bbe\u94a2\u7434\u89c6\u9891\u8bfe\u300a\u89c6\u9891\u8bfe\u5df2\u8fc7\u671f\u652f\u6301\u8d2d\u4e70\u300b\uff0c\u611f\u5174\u8da3\u7684\u4f19\u4f34\u53ef\u4ee5\u70b9\u51fb\u89c2\u770b\u54e6http:\/\/test.gensx.cn\/DieKXz",
+            "content": "\u738b\u5029\u5029\u8001\u5e08\u5728\u8ddf\u8c01\u5b66\u5f00\u8bbe\u94a2\u7434\u89c6\u9891\u8bfe\u300a\u89c6\u9891\u8bfe\u5df2\u8fc7\u671f\u652f\u6301\u8d2d\u4e70\u300b\uff0c\u611f\u5174\u8da3\u7684\u4f19\u4f34\u53ef\u4ee5\u70b9\u51fb\u89c2\u770b\u54e6http:\/\/test.gensx.cn\/DieKXz",
+            "share_weixin": {
+                "title": "\u89c6\u9891\u8bfe\u5df2\u8fc7\u671f\u652f\u6301\u8d2d\u4e70",
+                "img": "https:\/\/test-imgs.genshuixue.com\/935855_lji05uyg.jpeg@300w_300h",
+                "content": "\u738b\u5029\u5029\u8001\u5e08\u5728\u8ddf\u8c01\u5b66\u5f00\u8bbe\u94a2\u7434\u89c6\u9891\u8bfe\u300a\u89c6\u9891\u8bfe\u5df2\u8fc7\u671f\u652f\u6301\u8d2d\u4e70\u300b\uff0c\u611f\u5174\u8da3\u7684\u4f19\u4f34\u53ef\u4ee5\u70b9\u51fb\u89c2\u770b\u54e6",
+                "url": "https:\/\/test-m.genshuixue.com\/video_course\/getcourseshowdetail?number=17051998431&render=json"
+            },
+            "share_qq": {
+                "title": "\u89c6\u9891\u8bfe\u5df2\u8fc7\u671f\u652f\u6301\u8d2d\u4e70",
+                "img": "https:\/\/test-imgs.genshuixue.com\/935855_lji05uyg.jpeg@300w_300h",
+                "content": "\u738b\u5029\u5029\u8001\u5e08\u5728\u8ddf\u8c01\u5b66\u5f00\u8bbe\u94a2\u7434\u89c6\u9891\u8bfe\u300a\u89c6\u9891\u8bfe\u5df2\u8fc7\u671f\u652f\u6301\u8d2d\u4e70\u300b\uff0c\u611f\u5174\u8da3\u7684\u4f19\u4f34\u53ef\u4ee5\u70b9\u51fb\u89c2\u770b\u54e6",
+                "url": "https:\/\/test-m.genshuixue.com\/video_course\/getcourseshowdetail?number=17051998431&render=json"
+            },
+            "share_qzone": {
+                "title": "\u89c6\u9891\u8bfe\u5df2\u8fc7\u671f\u652f\u6301\u8d2d\u4e70",
+                "img": "https:\/\/test-imgs.genshuixue.com\/935855_lji05uyg.jpeg@300w_300h",
+                "content": "\u738b\u5029\u5029\u8001\u5e08\u5728\u8ddf\u8c01\u5b66\u5f00\u8bbe\u94a2\u7434\u89c6\u9891\u8bfe\u300a\u89c6\u9891\u8bfe\u5df2\u8fc7\u671f\u652f\u6301\u8d2d\u4e70\u300b\uff0c\u611f\u5174\u8da3\u7684\u4f19\u4f34\u53ef\u4ee5\u70b9\u51fb\u89c2\u770b\u54e6",
+                "url": "https:\/\/test-m.genshuixue.com\/video_course\/getcourseshowdetail?number=17051998431&render=json"
+            },
+            "share_pyq": {
+                "title": "\u89c6\u9891\u8bfe\u5df2\u8fc7\u671f\u652f\u6301\u8d2d\u4e70",
+                "img": "https:\/\/test-imgs.genshuixue.com\/935855_lji05uyg.jpeg@300w_300h",
+                "content": "\u738b\u5029\u5029\u8001\u5e08\u5728\u8ddf\u8c01\u5b66\u5f00\u8bbe\u94a2\u7434\u89c6\u9891\u8bfe\u300a\u89c6\u9891\u8bfe\u5df2\u8fc7\u671f\u652f\u6301\u8d2d\u4e70\u300b",
+                "url": "https:\/\/test-m.genshuixue.com\/video_course\/getcourseshowdetail?number=17051998431&render=json"
+            },
+            "share_weibo": {
+                "title": "\u89c6\u9891\u8bfe\u5df2\u8fc7\u671f\u652f\u6301\u8d2d\u4e70",
+                "img": "https:\/\/test-imgs.genshuixue.com\/935855_lji05uyg.jpeg@300w_300h",
+                "content": "@\u8ddf\u8c01\u5b66 \u738b\u5029\u5029\u8001\u5e08\u5728\u8ddf\u8c01\u5b66\u5f00\u8bbe\u94a2\u7434\u89c6\u9891\u8bfe\u300a\u89c6\u9891\u8bfe\u5df2\u8fc7\u671f\u652f\u6301\u8d2d\u4e70\u300b\uff0c\u611f\u5174\u8da3\u7684\u4f19\u4f34\u53ef\u4ee5\u70b9\u51fb\u89c2\u770b\u54e6",
+                "url": "https:\/\/test-m.genshuixue.com\/video_course\/getcourseshowdetail?number=17051998431&render=json"
+            },
+            "share_sms": {
+                "title": "\u89c6\u9891\u8bfe\u5df2\u8fc7\u671f\u652f\u6301\u8d2d\u4e70",
+                "img": "https:\/\/test-imgs.genshuixue.com\/935855_lji05uyg.jpeg@300w_300h",
+                "content": "\u738b\u5029\u5029\u8001\u5e08\u5728\u8ddf\u8c01\u5b66\u5f00\u8bbe\u94a2\u7434\u89c6\u9891\u8bfe\u300a\u89c6\u9891\u8bfe\u5df2\u8fc7\u671f\u652f\u6301\u8d2d\u4e70\u300b\uff0c\u611f\u5174\u8da3\u7684\u4f19\u4f34\u53ef\u4ee5\u70b9\u51fb\u89c2\u770b\u54e6http:\/\/test.gensx.cn\/DieKXz",
+                "url": "https:\/\/test-m.genshuixue.com\/video_course\/getcourseshowdetail?number=17051998431&render=json"
+            },
+            "share_reward": null
+        },
+        "is_cloudcourse": false
+    },
+    "ts": 1495179774,
+    "declare_config": {
+        "declareTpl": "v2\/resources\/page\/course\/video\/index"
+    }
+}

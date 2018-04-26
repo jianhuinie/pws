@@ -1,0 +1,70 @@
+
+{{ $title = $title }}
+{{ $subject_item = $item }}
+
+{{ $more_url = "courses?subject_id="|cat: $subject_item.subject.id }}
+
+{{ if $subject_item.subject.id == 1 }}
+{{ $subject_type = "political-type" }}
+{{ $data_click = "politic" }}
+{{ else if $subject_item.subject.id == 2 }}
+{{ $subject_type = "english-type" }}
+{{ $data_click = "english" }}
+{{ else if $subject_item.subject.id == 3 }}
+{{ $subject_type = "math-type" }}
+{{ $data_click = "math" }}
+{{ else }}
+{{ $subject_type = "other-type" }}
+{{ $data_click = "other" }}
+{{ /if }}
+
+<div class="course-lists {{ $subject_type }}">
+    {{ * 头部 * }}
+    <div class="header-title">
+        <span class="title">{{ $title }}</span>
+        <a href="{{ $origin }}/{{ $more_url }}" class="more-icon" target="_blank">
+            更多 <i class="icon icon-chevron-right"></i>
+        </a>
+    </div>
+    {{ * 课程 * }}
+    <div class="content-center">
+        <div class="first-line">
+            {{ * 课程列表 * }}
+            <ul>
+                <a href="{{ $subject_item.banner.url }}" class="political-banner" target="_blank" data-click="{{ $data_click }}">
+                    {{ include file="common/component/image.html" width=580 height=380 url= $subject_item.banner.image }}
+                </a>
+                {{ foreach $subject_item.courses as $course }}
+                <li class="course-item {{ if $course@index == 1 || $course@index == 5 }}no-margin{{ /if }}" data-click="{{ $data_click }}" data-sku="{{ $class_name[$course.course_type] }}|{{ $course.number }}">
+                    <a href="{{ $course.url }}" class="class-item-link" target="_blank">
+                        {{ include file="common/component/image.html" width=275 height=380 url=$course.cover }}
+                        <div class="teacher-info">
+                            <p class="teacher-name">{{ $course.teacher_display_name|cn_truncate:10 }}</p>
+                            <p class="course-name">
+                                {{ $course.name|cn_truncate:35 }}
+                            </p>
+                            <p class="course-intro">
+                                {{ $course.description|cn_truncate:45 }}
+                            </p>
+                            <div class="price-lessons">
+                                    <span class="price">
+                                        {{ if $course.price == 0 }}
+                                        免费
+                                        {{ else }}
+                                        ¥{{ $course.price }}
+                                        {{ /if }}
+                                    </span>
+                                    <span class="lessons-count">
+                                        {{ $course.course_brief }}
+                                    </span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+
+                {{ /foreach }}
+            </ul>
+
+        </div>
+    </div>
+</div>

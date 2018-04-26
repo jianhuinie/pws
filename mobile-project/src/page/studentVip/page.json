@@ -1,0 +1,11 @@
+[
+    {
+        "tpl": "./myActivity/index.tpl",
+        "router": "/student-vip-activity",
+        "mock_data": "./myActivity/mock/index.json"
+    },
+    {
+        "tpl": "./group/index.tpl",
+        "router": "/student-vip-group"
+    }
+]

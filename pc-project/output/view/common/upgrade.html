@@ -1,0 +1,50 @@
+{{ *
+
+@file 针对低版本IE的升级提示
+@author zhujialu
+
+* }}
+
+{{ strip }}
+<!--[if lt IE 8]>
+
+<div class="browser-upgrade">
+    <div class="wrapper">
+        您的浏览器版本过低，为了保证更好的安全性和浏览体验，建议更换高级浏览器，如：
+        <a href="http://www.baidu.com/s?wd=谷歌浏览器">谷歌浏览器</a>
+        <a href="http://www.baidu.com/s?wd=火狐浏览器">火狐浏览器</a>
+        <a href="http://www.baidu.com/s?wd=360极速浏览器">360 极速浏览器</a>
+    </div>
+</div>
+<style>
+    body {
+        padding-top: 40px;
+    }
+    .browser-upgrade {
+
+        background-color: #DA7575;
+        border-bottom: 1px solid #D65F39;
+        color: #F0F0F0;
+        padding: 10px 0;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+
+        z-index: 10000;
+    }
+    .browser-upgrade .wrapper {
+        width: 1100px;
+        margin: 0 auto;
+    }
+    .browser-upgrade a {
+        color: yellow;
+        margin-right: 10px;
+        text-decoration: underline;
+    }
+
+</style>
+
+<![endif]-->
+{{ /strip }}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.8.3 (29802) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_single options select</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="过渡版本" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard-6" transform="translate(-601.000000, -212.000000)" fill="#000000">
+            <path d="M609,227.5 C613.142136,227.5 616.5,224.142136 616.5,220 C616.5,215.857864 613.142136,212.5 609,212.5 C604.857864,212.5 601.5,215.857864 601.5,220 C601.5,224.142136 604.857864,227.5 609,227.5 Z M609,223 C610.656854,223 612,221.656854 612,220 C612,218.343146 610.656854,217 609,217 C607.343146,217 606,218.343146 606,220 C606,221.656854 607.343146,223 609,223 Z" id="ic_single-options-select"></path>
+        </g>
+    </g>
+</svg>

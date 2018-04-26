@@ -1,0 +1,97 @@
+@import 'resource/css/mixin/common.styl';
+@import "module/index.styl";
+.student-follow {
+    background: #f2f3f4;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: auto;
+    &-list {
+        margin: 0;
+        padding: 0 0 0 rem(15);
+        list-style: none;  
+        background: #fff; 
+        &-item {
+            height: rem(72);
+            display: flex;
+            align-items: center;
+            border-bottom: rem(1) solid #f6f6f6;
+            .avatar-container-big {
+                width: rem(46);
+                height: rem(46);
+            }
+            &-detail {
+                margin: 0 rem(24) 0 rem(12);
+                flex: 1;
+                overflow: hidden;
+                .name {
+                    ellipsis();
+                    font-size: rem(16);
+                    color: #3D3D3E;
+                    line-height: rem(16);
+                }
+                .desc {
+                    ellipsis();
+                    font-size: rem(12);
+                    color: #6D6D6E;
+                    letter-spacing: 0;
+                    line-height: rem(12);
+                    margin-top: rem(8);
+                }
+            }
+            &-state {
+                width: rem(87);
+                height: rem(72);
+                display: flex;
+                align-items: center;
+                &-operate {
+                    width: rem(70);
+                    height: rem(30);
+                    line-height: rem(32);
+                    text-align: center;
+                    font-size: rem(14);
+                    color: #F95D5D;
+                    border: rem(1) solid #F95D5D;
+                    border-radius: rem(3);
+                    &.cancel {
+                        color: #6D6D6E;
+                        border: rem(1) solid #9D9D9E;
+                    }
+                }
+            }
+        }
+    }
+    .no-more {
+        font-size: rem(14);
+        color: #9D9D9E;
+        letter-spacing: 0;
+        line-height: rem(14);
+        text-align: center;
+        margin-top: rem(16);
+        margin-bottom: rem(10);
+    }
+    &-dlolag {
+        text-align: center;
+        background: #f2f3f4;
+        &-confirm {
+            height: rem(48);
+            line-height: rem(48);
+            font-size: rem(16);
+            color: #F95D5D;
+            background: #fff;
+        }
+        &-close {
+            margin-top: rem(4);
+            height: rem(46);
+            line-height: rem(46);
+            font-size: rem(16);
+            color: #3D3D3E;
+            background: #fff;
+        }
+    }
+}
+.slide-mask-div {
+    max-width: rem(414);
+}

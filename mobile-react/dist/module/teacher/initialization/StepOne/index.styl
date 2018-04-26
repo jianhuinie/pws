@@ -1,0 +1,42 @@
+
+@import "module/index.styl";
+.welcome-join {
+    background: #f2f3f4;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: rem(15) rem(18);
+    &-img {
+        display: block;
+        width: 100%;
+        height: rem(260);
+    }
+    &-check {
+        display: flex;
+        align-items: center;
+        font-size: rem(13);
+        height: rem(12);
+        color: #3d3d3e;
+        &.first {
+            margin-top: rem(20);
+        }
+        &.second {
+            margin-top: rem(14);
+        }
+        input[type="checkbox"] {
+            margin-right: rem(8);
+            height: rem(12);
+            width: rem(12);
+            border: rem(1) solid #ccc;
+            border-radius: rem(2);
+        }
+        .protocol {
+            color: #37a4f5;
+        }
+    }
+    &-next {
+        margin-top: rem(16);
+    }
+}

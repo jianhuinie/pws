@@ -1,0 +1,150 @@
+.course-tag {
+    margin: 20px;
+    margin-bottom: 0;
+    span {
+        background-color: #f3f3f3;
+        border-radius: 3px;
+        cursor: pointer;
+        display: inline-block;
+        padding: 4px 10px;
+        margin-right: 10px;
+        margin-bottom: 5px;
+        &.active {
+            background-color: #ff9a01;
+            color: #fff;
+            cursor: default;
+        }
+    }
+
+}
+
+.course-item{
+    position: relative;
+    width: inherit;
+    margin: 0 20px;
+    padding: 20px 0;
+    height: 156px;
+    border-bottom: 1px solid #eee;
+    .course-link {
+        float: left;
+        margin-right: 20px;
+        .course-remark{
+            position: absolute;
+            top: 50px;
+            left: 10px;
+            display: inline-block;
+            width: 180px;
+            height: 45px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-align: center;
+            font-size: 14px;
+            color: #fff;
+        }
+        img{
+            width: 200px;
+            height: 112px;
+        }
+        .icon_zhekou{
+            background: url("/src/img/teacherIndex/model/icon_zhekou.png");
+            width: 65px;
+            height: 23px;
+            position: absolute;
+            top: 25px;
+            left: -5px;
+            color: #fff8ba;
+            font-size: 12px;
+            padding: 5px 0 0 10px;
+        }
+    }
+    .course-title {
+        a {
+            font-size: 14px;
+            color: #222222;
+
+            .course-lesson-way {
+                width: 45px;
+                height: 15px;
+                color: #6187dc;
+                border: 1px solid #6187dc;
+                padding: 2px 3px;
+            }
+        }
+        .fenqi_tag {
+            background: #37A4F5;
+            display: inline-block;
+            border-radius: 2px;
+            line-height: 15px;
+            text-align: center;
+            color: #fff;
+            margin-left: 10px;
+            font-size: 9px;
+            padding: 0 2px;
+        }
+    }
+    .course-item-info{
+        li{
+            margin-bottom: 5px;
+            &:first-child{
+                margin-bottom: 10px;
+            }
+        }
+     }
+    .course-price{
+        position: absolute;
+        bottom: 60px;
+        right: 10px;
+        font-size: 18px;
+        color: #f95;
+        width: 110px;
+        text-align: center;
+        .cheap-price {
+            font-size: 12px;
+            color: #a2a2a2;;
+        }
+        .not-price {
+          font-size: 12px;
+          text-decoration: line-through;
+          color: #a2a2a2;;
+        }
+        .free{
+            color:#56b02a;
+        }
+        span{
+            display: inherit;
+        }
+        .price-qi{
+            font-size: 14px;
+            color: #888;
+            margin-left: 3px;
+        }
+    }
+    .course-button{
+        position: absolute;
+        right: 20px;
+        bottom: 25px;
+        span{
+            margin-right: 10px;
+            font-size: 12px;
+        }
+        a{
+          width: 80px;
+          height: 30px;
+          text-align: center;
+          padding: 3px;
+        }
+        .green{
+            background: #56b02a;
+            border-color: #56b02a;
+        }
+        .gray{
+            background: #808080;
+            border-color: #808080;
+        }
+        .white{
+            background: #FFFFFF;
+            border-color: #222;
+            color: #222;
+        }
+    }
+}

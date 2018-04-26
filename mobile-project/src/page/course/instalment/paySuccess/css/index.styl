@@ -1,0 +1,40 @@
+@import "page/_base/base.styl";
+@import "page/_common/nav_bar/nav_bar.styl";
+
+$bg-font-color = #6d6d6e;
+
+body
+    color $bg-font-color
+    font-size rem(14)
+
+.pay-status
+    > div
+        margin 0 rem(20)
+        font-size rem(16)
+        text-align center
+
+    > .submit:hover
+        background-color #2C84C6
+
+    > .submit
+        display block
+        background-color #3fa5f2
+        border-radius rem(2)
+        margin 0 rem(20)
+        height rem(36)
+        line-height rem(36)
+        color #fff
+        text-align center
+        margin-top rem(25)
+
+    .des
+        padding rem(20) 0
+
+    .icon-success
+        margin-top rem(45)
+        margin-bottom rem(25)
+        text-align center
+        > span.icon-check-alt
+            color #48b14b
+            font-size rem(100)
+

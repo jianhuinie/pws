@@ -1,0 +1,110 @@
+{{ *
+
+@file 优选一对一课程详情 － 老师介绍
+@author wangyujie
+
+* }}
+
+{{ strip }}
+
+<div id="course-teacher">
+
+    <h3>
+        <span>老师介绍</span>
+    </h3>
+
+    <div class="content">
+        <div class="profile">
+            <div class="info">
+
+                <div class="teacher-intro">
+                    {{ $teacher.introduce }}
+                </div>
+
+                <div class="skills">
+                    {{ if !empty($teacher.display_skills) }}
+                        {{ foreach $teacher.display_skills as $skill }}
+                            <span>
+                                {{ $skill.title }}
+                            </span>
+                        {{ /foreach }}
+                    {{ /if }}
+                </div>
+
+                {{ if count($course.videos) }}
+                <ul class="video-show" id="videoShow">
+                    {{ foreach $course.videos as $video }}
+                    <li>
+                        {{ include file="common/component/videoThumbnail.html" img=$video.cover_url video=$video.play_url_m title=$video.title }}
+                    </li>
+                    {{ /foreach }}
+
+                {{ /if }}
+            </div>
+        </div>
+
+        {{ if count($course.success_cases) }}
+        <div id="teacher-success">
+            <h4 class="title">成功案例</h4>
+            <ul class="list">
+                {{ foreach $course.success_cases as $val }}
+                    <li>
+                        <i class="icon icon-circle-o"></i>
+
+                        <div class="title">
+                            {{ $val.title }}
+                        </div>
+
+                        <div class="date">
+                            {{ $val.date }}
+                        </div>
+
+                        <div class="detail">
+                            {{ $val.content }}
+                        </div>
+                    </li>
+                {{ /foreach }}
+            </ul>
+        </div>
+        {{ /if }}
+
+        {{ if count($course.honors) }}
+        <div id="teacher-honors">
+            <h4 class="title">荣誉奖励</h4>
+            <ul class="list">
+                {{ foreach $course.honors as $honor }}
+                    <li>
+                        {{ include file="common/component/image.html" url=$honor.image_url alt=$honor.title width=180 height=134 }}
+                    </li>
+                {{ /foreach }}
+            </ul>
+        </div>
+        {{ /if }}
+
+        {{ if count($teacher.bios) }}
+        <div id="teacher-bios">
+            <h4 class="title">教学经历</h4>
+            <ul class="list">
+                {{ foreach $teacher.bios as $val }}
+                    <li>
+                        <i class="icon icon-circle-o"></i>
+                        <div class="title">
+                            {{ if $val.end_date == '0000-00-00' }}
+                                {{ $val.start_date }} — 至今
+                            {{ else }}
+                                {{ $val.start_date }} — {{ $val.end_date }}
+                            {{ /if }}
+                        </div>
+                        <div class="detail">
+                            {{ $val.content }}
+                        </div>
+                    </li>
+                {{ /foreach }}
+            </ul>
+        </div>
+        {{ /if }}
+    </div>
+
+</div>
+
+{{ /strip }}

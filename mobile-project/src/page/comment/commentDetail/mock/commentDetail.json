@@ -1,0 +1,315 @@
+{
+    "code": 0,
+    "msg": "succ",
+    "tpl_data": {
+        "comment_list": [],
+        "related_comment_list": [
+            {
+                "serial_number": "0",
+                "user_id": "5224522",
+                "teacher_user_id": "5257959",
+                "desc_match": "5.0",
+                "teach_result": "5.0",
+                "service_attitude": "5.0",
+                "face_type": "1",
+                "info": "老师把家庭各种关系都进行分析    告诉我们夫妻关系乃定海神针  各种关系处理不当都会影响到孩子 回头想想的确以往对孩子影响挺大   而现在该怎么办？怎么挽回以改善现状？希望后面老师能讲到  谢谢老师指导！",
+                "create_time": "2017-03-24 05:54",
+                "fr": "0",
+                "course_type": "2",
+                "course_number": "170315764175",
+                "thumb_up": "0",
+                "has_photo": "0",
+                "display_title": "总课程",
+                "anonymous": "0",
+                "total_score": "5.0",
+                "comment_num": "1",
+                "teacher_user_number": "878619368",
+                "private_domain": "878619368",
+                "comment_id": "1646421",
+                "has_thumb_up": false,
+                "comprehensive_score": "5.0",
+                "course": {
+                    "course_number": "170315764175",
+                    "course_url": "https://m.genshuixue.com/teacher/classCourseDetail/170315764175",
+                    "teacher_name": "宽高训练营讲师",
+                    "course_type": "2",
+                    "course_name": "怎样听课更高效"
+                },
+                "user": {
+                    "display_name": "187****7159",
+                    "avatar_url": "https://imgs.genshuixue.com/30538_wyai8uo2.jpeg",
+                    "number": "898145958",
+                    "url": "http://www.genshuixue.com/x/898145958"
+                },
+                "photo_list": [],
+                "is_my_comment": false,
+                "if_can_addition": false,
+                "if_can_review": false,
+                "has_more": 0,
+                "can_open": 0
+            },
+            {
+                "serial_number": "0",
+                "user_id": "5256286",
+                "teacher_user_id": "5257959",
+                "desc_match": "5.0",
+                "teach_result": "5.0",
+                "service_attitude": "5.0",
+                "face_type": "1",
+                "info": "有些方法得去实践，非常好，感谢",
+                "create_time": "2017-03-23 20:34",
+                "fr": "0",
+                "course_type": "2",
+                "course_number": "170315764175",
+                "thumb_up": "0",
+                "has_photo": "0",
+                "display_title": "总课程",
+                "anonymous": "0",
+                "total_score": "5.0",
+                "comment_num": "1",
+                "teacher_user_number": "878619368",
+                "private_domain": "878619368",
+                "comment_id": "1645174",
+                "has_thumb_up": false,
+                "comprehensive_score": "5.0",
+                "course": {
+                    "course_number": "170315764175",
+                    "course_url": "https://m.genshuixue.com/teacher/classCourseDetail/170315764175",
+                    "teacher_name": "宽高训练营讲师",
+                    "course_type": "2",
+                    "course_name": "怎样听课更高效"
+                },
+                "user": {
+                    "display_name": "Miss陈",
+                    "avatar_url": "https://img.genshuixue.com/30530_8bzjq1xy.jpeg",
+                    "number": "876549298",
+                    "url": "http://www.genshuixue.com/x/876549298"
+                },
+                "photo_list": [],
+                "is_my_comment": false,
+                "if_can_addition": false,
+                "if_can_review": false,
+                "has_more": 0,
+                "can_open": 0
+            },
+            {
+                "serial_number": "0",
+                "user_id": "4716918",
+                "teacher_user_id": "5257959",
+                "desc_match": "5.0",
+                "teach_result": "5.0",
+                "service_attitude": "5.0",
+                "face_type": "1",
+                "info": "棒棒的！真好的有用的课程。！！",
+                "create_time": "2017-03-22 20:09",
+                "fr": "0",
+                "course_type": "2",
+                "course_number": "170315764175",
+                "thumb_up": "0",
+                "has_photo": "0",
+                "display_title": "总课程",
+                "anonymous": "0",
+                "total_score": "5.0",
+                "comment_num": "1",
+                "teacher_user_number": "878619368",
+                "private_domain": "878619368",
+                "comment_id": "1643594",
+                "has_thumb_up": false,
+                "comprehensive_score": "5.0",
+                "course": {
+                    "course_number": "170315764175",
+                    "course_url": "https://m.genshuixue.com/teacher/classCourseDetail/170315764175",
+                    "teacher_name": "宽高训练营讲师",
+                    "course_type": "2",
+                    "course_name": "怎样听课更高效"
+                },
+                "user": {
+                    "display_name": "永远幸福",
+                    "avatar_url": "https://imgs.genshuixue.com/25101704_ihtv32c6.jpeg",
+                    "number": "961879948",
+                    "url": "http://www.genshuixue.com/x/961879948"
+                },
+                "photo_list": [],
+                "is_my_comment": false,
+                "if_can_addition": false,
+                "if_can_review": false,
+                "has_more": 0,
+                "can_open": 0
+            },
+            {
+                "serial_number": "170321918790",
+                "user_id": "4413062",
+                "teacher_user_id": "5257959",
+                "desc_match": "5.0",
+                "teach_result": "5.0",
+                "service_attitude": "5.0",
+                "face_type": "1",
+                "info": "老师讲得很棒，思维敏捷，语言丰富，还会反复听，重点是学会此方法",
+                "create_time": "2017-03-21 21:00",
+                "fr": "0",
+                "course_type": "2",
+                "course_number": "170315764175",
+                "thumb_up": "0",
+                "has_photo": "0",
+                "display_title": "第1课节(03月21日)",
+                "anonymous": "0",
+                "total_score": "5.0",
+                "comment_num": "1",
+                "teacher_user_number": "878619368",
+                "private_domain": "878619368",
+                "comment_id": "1642125",
+                "has_thumb_up": false,
+                "comprehensive_score": "5.0",
+                "course": {
+                    "course_number": "170315764175",
+                    "course_url": "https://m.genshuixue.com/teacher/classCourseDetail/170315764175",
+                    "teacher_name": "宽高训练营讲师",
+                    "course_type": "2",
+                    "course_name": "怎样听课更高效"
+                },
+                "user": {
+                    "display_name": "宇",
+                    "avatar_url": "https://img.genshuixue.com/30542_9krav90h.jpeg",
+                    "number": "581024508",
+                    "url": "http://www.genshuixue.com/x/581024508"
+                },
+                "photo_list": [],
+                "is_my_comment": false,
+                "if_can_addition": false,
+                "if_can_review": false,
+                "has_more": 0,
+                "can_open": 0
+            },
+            {
+                "serial_number": "170321983863",
+                "user_id": "5304126",
+                "teacher_user_id": "5257959",
+                "desc_match": "5.0",
+                "teach_result": "5.0",
+                "service_attitude": "5.0",
+                "face_type": "1",
+                "info": "教育学硕士，名符其实!以自己的学习经验教育学生，有很强的针对性和指导性!赞一个!",
+                "create_time": "2017-03-21 20:27",
+                "fr": "0",
+                "course_type": "2",
+                "course_number": "170315764175",
+                "thumb_up": "0",
+                "has_photo": "0",
+                "display_title": "第1课节(03月21日)",
+                "anonymous": "0",
+                "total_score": "5.0",
+                "comment_num": "1",
+                "teacher_user_number": "878619368",
+                "private_domain": "878619368",
+                "comment_id": "1642013",
+                "has_thumb_up": false,
+                "comprehensive_score": "5.0",
+                "course": {
+                    "course_number": "170315764175",
+                    "course_url": "https://m.genshuixue.com/teacher/classCourseDetail/170315764175",
+                    "teacher_name": "宽高训练营讲师",
+                    "course_type": "2",
+                    "course_name": "怎样听课更高效"
+                },
+                "user": {
+                    "display_name": "临海沐风",
+                    "avatar_url": "https://img.genshuixue.com/30772426_ii678m86.jpeg",
+                    "number": "753516098",
+                    "url": "http://www.genshuixue.com/x/753516098"
+                },
+                "photo_list": [],
+                "is_my_comment": false,
+                "if_can_addition": false,
+                "if_can_review": false,
+                "has_more": 0,
+                "can_open": 0
+            }
+        ],
+        "next_cursor": 2,
+        "has_more": 0,
+        "additional": {
+            "average": {
+                "total": 5,
+                "one": 0,
+                "two": 0,
+                "three": 0,
+                "four": 0,
+                "five": 5,
+                "total_rate": "1.00",
+                "one_rate": "0.00",
+                "two_rate": "0.00",
+                "three_rate": "0.00",
+                "four_rate": "0.00",
+                "five_rate": "1.00"
+            },
+            "user_total_number": "5",
+            "face_type": {
+                "total": 5,
+                "lower": 0,
+                "great": 5,
+                "middle": 0,
+                "has_photo": 0
+            },
+            "user_diff": 0,
+            "comment_nav": {
+                "face_type": 0,
+                "comment_type": "3",
+                "sort_by": "display_order"
+            },
+            "comment_type": {
+                "total": {
+                    "value": 0,
+                    "name": "全部评价",
+                    "total_count": 5
+                },
+                "normal": {
+                    "value": 1,
+                    "name": "一对一评价",
+                    "total_count": 0
+                },
+                "class": {
+                    "value": 3,
+                    "name": "班课评价",
+                    "total_count": 5
+                },
+                "video": {
+                    "value": 4,
+                    "name": "视频课评价",
+                    "total_count": 0
+                },
+                "invite": {
+                    "value": 2,
+                    "name": "邀请评价",
+                    "total_count": 0
+                }
+            },
+            "total_score": {
+                "total": 5,
+                "one": 0,
+                "two": 0,
+                "three": 0,
+                "four": 0,
+                "five": 5,
+                "total_rate": "1.00",
+                "one_rate": "0.00",
+                "two_rate": "0.00",
+                "three_rate": "0.00",
+                "four_rate": "0.00",
+                "five_rate": "1.00"
+            }
+        },
+        "profile": {
+            "number": "878619368",
+            "name": "宽高训练营讲师"
+        },
+        "course_comment_count": 0,
+        "course_number": "170321767238",
+        "comment_type": "3",
+        "face_type": 0,
+        "view_all_url": "https://m.genshuixue.com/878619368/tcomment"
+    },
+    "ts": 1490839276,
+    "declare_config": {
+        "declareTpl": "v2/resources/page/comment/commentDetail/courseComment"
+    }
+}

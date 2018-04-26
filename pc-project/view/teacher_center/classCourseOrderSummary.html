@@ -1,0 +1,277 @@
+{{ *
+    @file 班课订单汇总
+    @author liucong
+* }}
+
+{{ extends file="common/center/base.html" }}
+
+{{ block name="data" }}
+{{ $smarty.block.parent }}
+
+{{ $script_path = "teacherCenter/classCourseOrderSummary" }}
+
+{{ $script_data.schedules = $tpl_data.schedule }}
+{{ $script_data.courseNumber = $tpl_data.number }}
+
+{{ $script_data.enrollCount = $tpl_data.stat.count }}
+{{ $script_data.vip_level = $user_data.vip_level }}
+
+{{ $progress_map = [] }}
+{{ $progress_map['enrolling'] = "开始招生" }}
+{{ $progress_map['teaching'] = "开始上课" }}
+{{ $progress_map['finish'] = "课程完成" }}
+{{ $progress_map['expired'] = "无人报名结束" }}
+
+{{ $progress_class = [] }}
+{{ $progress_class['2'] = "two" }}
+{{ $progress_class['3'] = "three" }}
+{{ $progress_class['4'] = "four" }}
+
+{{ /block }}
+
+{{ block name="title" prepend }}我的订单 - 班课订单 - 汇总{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/teacherCenter/classCourseOrderSummary.less">
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+    {{ include file="common/variable/classCourseDisplayStatus.html" scope=parent }}
+    <div class="crumb">
+        <label>您的位置：</label>
+        <a href="/">首页</a><span class="splitter">&nbsp;&gt;&nbsp;</span>
+        <a href="/teacher_center/index">个人中心</a><span class="splitter">&nbsp;&gt;&nbsp;</span>
+        <a href="/order/teacherOrders">我的订单</a><span class="splitter">&nbsp;&gt;&nbsp;</span>
+        <a href="/teacher_center/classCourseOrderList">班课订单</a><span class="splitter">&nbsp;&gt;&nbsp;</span>
+
+        <a href="/tcenter/courses/class-courses/form?lesson_way={{ $tpl_data.lesson_way }}&number={{ $tpl_data.number }}" class="goto-edit">前往班课设置&nbsp;<i class="icon icon-question-circle" data-title="开设班课、编辑班课、暂停招生都在这里哦~"></i></a>
+    </div>
+
+    {{ if !empty($tpl_data.progress_log) }}
+    <div class="status-progress {{ $progress_class[$tpl_data.progress_log|count] }}">
+    {{ foreach $tpl_data.progress_log as $key=>$value }}
+        {{ if ($value && ($smarty.now >= $value)) }}
+            {{ $passed = true }}
+        {{ else }}
+            {{ $passed = false }}
+        {{ /if }}
+
+        {{ if $value@index != 0 }}
+        <div class="connector{{ if $passed }} success{{ /if }}"></div>
+        {{ /if }}
+
+        <div class="step">
+            <div class="status{{ if $passed }} success{{ /if }}"><i class="icon icon-check-circle"></i>{{ $progress_map[$key] }}</div>
+            <div class="time">{{ if isset($value) }}{{ $value|date_format:"%Y-%m-%d %H:%M" }}{{ /if }}</div>
+        </div>
+    {{ /foreach }}
+    </div>
+    {{ /if }}
+
+    <div class="section base-info">
+        <h2><i class="icon icon-circle"></i>班课信息</h2>
+        <div class="content">
+            <div class="protrait">
+                <a href="/teacher/classCourseDetail?number={{ $tpl_data.number }}" target="_blank">
+                    {{ include file="common/variable/photo.html" url=$tpl_data.cover.url raw_width=$tpl_data.cover.width raw_height=$tpl_data.cover.height width=150 height=100 }}
+                    <img src="{{ $photo }}">
+                </a>
+            </div>
+
+            <div class="info-detail">
+                <div class="column-left">
+                    <div>
+                        <label>班课名称：</label>{{ $tpl_data.name }}
+                    </div>
+                    <div>
+                        <label>班课价格：</label>
+                        <span class="text-primary">￥{{ $tpl_data.price|number_format:2 }}</span>
+                        {{ if isset($tpl_data.original_price) }}
+                        <span class="origin-price">￥{{ $tpl_data.original_price|number_format:2 }}</span>
+                        {{ /if }}
+                    </div>
+                    <div>
+                        <label>班级人数：</label>{{ $tpl_data.max_student }}人（已报<span class="text-primary">{{ $tpl_data.stat.total_pay }}</span>人）
+                    </div>
+                    <div>
+                        <label>上课方式：</label>
+                        {{ if $tpl_data.lesson_way == 2 }}
+                        线上授课
+                        {{ else if $tpl_data.lesson_way == 4 }}
+                        线下授课
+                        {{ /if }}
+                    </div>
+                </div>
+                <div class="column-right">
+                    <div>
+                        <label>班课编号：</label>{{ $tpl_data.number }}
+                    </div>
+                    <div>
+                        <label>退班规则：</label>
+                        {{ if $tpl_data.retire_flag == 0 }}
+                            随时退款
+                        {{ else if $tpl_data.retire_flag == 1 }}
+                            开班{{ ($tpl_data.retire_length / 3600)|number_format:0 }}小时前可退
+                        {{ else if $tpl_data.retire_flag == 2 }}
+                            第{{ $tpl_data.retire_length }}节课后不可退
+                        {{ else if $tpl_data.retire_flag == 100 }}
+                            报名后不可退
+                        {{ /if }}
+                    </div>
+                    <div>
+                        <label>插班规则：</label>
+                        {{ if $tpl_data.chaban_flag == 3 }}
+                            随时插班
+                            {{ if $tpl_data.chaban_price_flag && !in_array($tpl_data.display_status, ['1', '2', '3', '4']) }}
+                            （插班价：￥{{ $tpl_data.realtime_price|number_format:2 }}）
+                            {{ /if }}
+                        {{ else if $tpl_data.chaban_flag == 2 }}
+                            第{{ $tpl_data.chaban_quota }}节课前可插班
+                            {{ if $tpl_data.chaban_price_flag && !in_array($tpl_data.display_status, ['1', '2', '3', '4']) }}
+                                （插班价：￥{{ $tpl_data.realtime_price|number_format:2 }}）
+                            {{ /if }}
+                        {{ else if $tpl_data.chaban_flag == 1 }}
+                        不可插班
+                        {{ /if }}
+                    </div>
+                    <div>
+                        <label>班课状态：</label><span class="text-primary">{{ $display_status_map[$tpl_data.display_status] }}</span>
+                    </div>
+                </div>
+                {{ if $tpl_data.lesson_way == 4 && isset($tpl_data.offline_poi) && $tpl_data.offline_poi.lng }}
+                <div class="address">
+                    <label>上课地址：</label>
+                    {{ if !$tpl_data.country }}
+                        {{ $tpl_data.address|escape|truncate:40 }}
+                        <span class="map" data-offline='{{ json_encode($tpl_data.offline_poi, 77) }}' data-map="{{ $tpl_data.address|escape }}">查看地图位置</span>
+                    {{ else }}
+                        {{ $tpl_data.country }}-
+                        {{ $tpl_data.address|escape|truncate:36 }}
+                    {{ /if }}
+                </div>
+                {{ /if }}
+            </div>
+        </div>
+    </div>
+
+    {{ if !empty($tpl_data.schedule) }}
+    <div class="section schedule">
+        <h2><i class="icon icon-circle"></i>教学计划</h2>
+        <div class="content">
+            <div class="header">
+                <div>
+                    <label>课节数量：</label>{{ $tpl_data.schedule|count }}节
+                </div>
+                <div>
+                    <label>课程时长：</label>{{ ($tpl_data.course_len / 3600)|number_format:2 }}小时
+                </div>
+                <div>
+                    <label>课程安排：</label><span data-title="{{ $tpl_data.arrangement }}" data-width="200">{{ $tpl_data.arrangement|cn_truncate:15 }}</span>
+                </div>
+            </div>
+            <div class="schedule-list">
+            </div>
+            {{ if $tpl_data.schedule|count > 3 }}
+            <div class="expand-collapse">
+                <div class="expand">系统默认展示最近的三节课，点击查看全部课程<i class="icon icon-angle-down"></i></div>
+                <div class="collapse">收起<i class="icon icon-angle-up"></i></div>
+            </div>
+            {{ /if }}
+        </div>
+    </div>
+    {{ /if }}
+
+    <div class="section enroll">
+        <h2>
+            <i class="icon icon-circle"></i>报名详情
+            {{ if isset($tpl_data.stat.total_pay) && $tpl_data.stat.total_pay > 0 }}
+                {{ if isset($tpl_data.has_roster) && $tpl_data.has_roster }}
+                    <a class="goto-roster" data-price="{{ $tpl_data.price }}" data-way="{{ $tpl_data.lesson_way }}" href="{{ $tpl_data.roster_url }}" target="_blank">
+                        查看花名册
+                    </a>
+                {{ else if isset($tpl_data.shizi_login) && $tpl_data.shizi_login }}
+                    <span class="text-info" data-title="师资系统无权查看花名册">
+                        查看花名册
+                    </span>
+                {{ else }}
+                    <span data-title="请通过机构后台进入老师个人中心<br/>查看花名册。">
+                        查看花名册
+                    </span>
+                {{ /if }}
+
+            {{ /if }}
+        </h2>
+        <div class="content">
+            <div class="summary">
+                <label>报名人数：</label>已报名<span class="highlight">{{ $tpl_data.stat.total_pay }}</span>&nbsp;/&nbsp;{{ $tpl_data.max_student }}（其中<span class="text-primary">{{ $tpl_data.stat.status_succ }}</span>人已付款，{{ $tpl_data.stat.status_ing }}人未付款）
+                <div>
+                    <label>班课累计学费：</label>
+                    <span class="highlight">￥{{ $tpl_data.fee.total|number_format:2 }}</span>
+                    （其中
+                    {{ if isset($tpl_data.fee.coupon) && $tpl_data.fee.coupon != 0 }}
+                        优惠券抵扣
+                        <span class="text-primary">
+                            ￥{{ $tpl_data.fee.coupon|number_format:2 }}
+                        </span>，
+                    {{ /if }}
+                    <span class="text-primary">
+                        ￥{{ $tpl_data.fee.paid|number_format:2 }}
+                    </span>已确认，
+                    <span class="text-primary">
+                        ￥{{ $tpl_data.fee.unpaid|number_format:2 }}
+                    </span>
+                    待确认）
+                </div>
+            </div>
+
+            <!-- {{ if $tpl_data.show_close }}
+            <div class="actions manual-op">
+                <span class="message">
+                    当前班级已报<span class="text-primary">{{ $tpl_data.stat.total_pay }}</span>人，距离保底开班还差<span class="text-primary">{{ $tpl_data.min_student - $tpl_data.stat.total_pay }}</span>人，你可以选择是否开班，如未选择开课前3天将自动关班。
+                </span>
+
+                <button class="btn-primary new small open-class">确认开班</button>
+                <button class="btn-default small close-class">关闭班级</button>
+                <i class="icon icon-times-circle close"></i>
+            </div>
+            {{ /if }} -->
+
+            {{ if $tpl_data.stat.count > 0 }}
+            <div class="search form">
+                <div class="form-group">
+                    <label class="form-label">学生名称：</label>
+                    <div class="form-controls">
+                        <input type="text" class="form-text" name="student_display_name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">订单编号：</label>
+                    <div class="form-controls">
+                        <input type="text" class="form-text" name="purchase_id">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">订单状态：</label>
+                    <div class="form-controls">
+                        {{ include file="common/ui/dropdown.html" class="group-select" }}
+                    </div>
+                </div>
+                <button class="btn-primary new submit">搜索</button>
+            </div>
+
+            <div class="order-list"></div>
+            {{ else }}
+            <div class="empty-order-list">
+                <div class="empty-hint"></div>
+                <p>还没有人报名哦</p>
+            </div>
+            {{ /if }}
+        </div>
+    </div>
+
+    {{ include file="common/component/baiduMap.html" }}
+    {{ include file="common/center/component/enterClassroom.html" }}
+
+{{ /strip }}
+{{ /block }}

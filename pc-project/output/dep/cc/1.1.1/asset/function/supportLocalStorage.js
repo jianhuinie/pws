@@ -1,0 +1,1 @@
+define("cc/function/supportLocalStorage",["require","exports","module"],function(){"use strict";return function(){return"undefined"!=typeof window.localStorage}});

@@ -1,0 +1,22 @@
+{
+    "tpl_data": {
+        "id": "3",
+        "user_id": "343483",
+        "number":"234234",
+            "vote_count": "398",
+        "name": "黄小猛的妹妹",
+        "description": "哈哈哈我好开心",
+        "video_addr": "http://hlsdl-video.genshuixue.com/release/vod/508085_2c3e91e401195c8fe7eaf5b4fe1c4db9_AGOcD6XI_mp4/508085_2c3e91e401195c8fe7eaf5b4fe1c4db9_AGOcD6XI.m3u8?dlSecret=9cd903f97525b6879e0c12a48f97c37e&dlTime=1460195131",
+        "grade":"小学组",
+        "avatar": "",
+        "talent": "网球",
+        "rank": 1,
+        "visiter_id": "343483",
+        "vote_status": 1,
+        "has_pay":0,
+        "can_vote":true,
+        "poster": "https://imgs.genshuixue.com/00-x-upload/image/508085_bbe15e7b56eb097587e123b9b990393d_Vei1Aw3F.jpg",
+        "frozen": "0",
+        "video_status": "0"
+        }
+}

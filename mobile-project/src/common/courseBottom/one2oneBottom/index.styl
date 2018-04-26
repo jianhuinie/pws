@@ -1,0 +1,46 @@
+@import '../share/index.styl';
+@import '../consult/index.styl';
+@import '../favor/index.styl';
+@import '../tryListen/index.styl';
+@import '../purchase/index.styl';
+
+.bottom {
+    display: flex;
+    background: white;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    width: 100%;
+    height: rem(50);
+    z-index: 2;
+    img {
+        height: rem(20);
+    }
+    .super {
+        background: #00BCD4;
+        color: white;
+        border-right: rem(1) solid #13A7BA;
+    }
+}
+
+.list-bottom {
+    flex: 1.5;
+    height: rem(50);
+    line-height: rem(50);
+    font-family: PingFang-SC-Regular;
+    letter-spacing: rem(0.53);
+    font-size: rem(15);
+    &.orange {
+        background: #FF6C00;
+        color: white;
+    }
+    &.red {
+        background: #FF5252;
+        color: white;
+    }
+    &.coffee {
+        background: #795547;
+        color: white;
+    }
+}

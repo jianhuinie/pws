@@ -1,0 +1,97 @@
+@import "page/studentRoom/_part/detailCard.styl";
+.detail {
+    background: #ffffff;
+    border-radius: rem(4);
+    margin: rem(10) rem(15);
+    box-shadow: rem(1) rem(1) rem(10) #DBDBDB;
+    .table {
+        .table-header {
+            padding: rem(10) rem(15);
+            display: flex;
+            .title-item {
+                flex: 1;
+            }
+            .title-item-name {
+                font-family: PingFangSC-Regular;
+                font-size: rem(13);
+                color: #3d3d3e;
+                letter-spacing: rem(-0.25);
+                text-align: center;
+                margin-right: rem(10);
+            }
+            .title-item-time {
+                margin-left: rem(4);
+                margin-right: rem(4);
+                font-family: PingFangSC-Regular;
+                font-size: rem(13);
+                color: #3d3d3e;
+                letter-spacing: rem(-0.32);
+                text-align: center;
+                height: rem(36);
+                line-height: rem(36);
+            }
+        }
+        .timer-container {
+            padding: rem(10) rem(15);
+            display: flex;
+            .time-item {
+                flex: 1;
+                text-align: center;
+                .icon-ic_noselect {
+                    color: #B3B3B3;
+                    font-size: rem(20);
+                }
+                .icon-focus {
+                    color: #1DB954;
+                    font-size: rem(20);
+                }
+                .icon-ic_unselect {
+                    color: #ff9100;
+                    font-size: rem(20);
+                }
+            }
+            .time-item-name {
+                text-align: left;
+                span {
+                    font-family: PingFangSC-Regular;
+                    font-size: rem(13);
+                    color: #3d3d3e;
+                    letter-spacing: rem(-0.32)px;
+                    line-height: rem(13);
+                    text-align: center;
+                }
+            }
+        }
+        .warn {
+            display: flex;
+            padding: rem(15) rem(10);
+            line-height: rem(20);
+            .warn-item-1 {
+                flex: 2;
+            }
+            .warn-item-2 {
+                flex: 1.1;
+            }
+            .warn-item {
+                text-align: center;
+                .icon {
+                    font-size: rem(12);
+                    display: inline-block;
+                }
+                .icon-focus {
+                    color: #1DB954;
+                }
+                .icon-ic_unselect {
+                    color: #ff9100;
+                }
+                .icon-ic_noselect {
+                    color: #B3B3B3;
+                }
+                .warn-text {
+                    font-size: rem(12);
+                    color: #9d9d9e;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,107 @@
+{{ strip }}
+    <div id="courseIntro" class="card">
+        <div class="title">报名须知</div>
+        <div class="details">
+            {{ if !empty($tpl_data.course_info.information) || !empty($tpl_data.course_info.target) || !empty($tpl_data.course_info.student_desc) }}
+                <div class="courseInfo">
+                    <span class="tip">课程信息：</span>
+                    <p>
+                        {{ if !empty($tpl_data.course_info.information) }}
+                        {{ $tpl_data.course_info.information }}
+                        {{ else if !empty($tpl_data.course_info.student_desc) && !empty($tpl_data.course_info.target) }}
+                        {{ $tpl_data.course_info.student_desc }} <br />
+                        {{ $tpl_data.course_info.target }}
+                        {{ /if }}
+                    </p>
+                </div>
+            {{ /if }}
+            {{ if isset($tpl_data.course_info.retire_flag) }}
+                <p>
+                    <span class="tip">退班原则：</span>
+                    {{ if $tpl_data.course_info.retire_flag == 0 }}
+                        随时可退
+                    {{ else if $tpl_data.course_info.retire_flag == 1 }}
+                        开班前1小时不可退
+                    {{ else if $tpl_data.course_info.retire_flag == 2 }}
+                        开班{{ $tpl_data.course_info.retire_length|escape }}节课后不可退
+                    {{ else if $tpl_data.course_info.retire_flag == 100 }}
+                        报名后不可退
+                    {{ /if }}
+                </p>
+            {{ /if }}
+            <p>
+                <span class="tip">插班原则：</span>
+                {{ if $tpl_data.course_info.chaban_flag == 3 }}
+                    随时可插班
+                {{ else if $tpl_data.course_info.chaban_flag == 2 }}
+                    第{{ $tpl_data.course_info.chaban_quota }}节课开始前可插班
+                {{ else if $tpl_data.course_info.chaban_flag == 1 }}
+                    不可插班
+                {{ /if }}
+            </p>
+
+            {{ if $tpl_data.course_info.auto_playback_record }}
+                <p>
+                    <span class="tip">回放有效期：</span>
+                    {{ if empty($tpl_data.course_info.playback_expire_day) }}
+                        10
+                    {{ else }}   
+                        {{ $tpl_data.course_info.playback_expire_day }}
+                    {{ /if }}
+                        天
+                </p>
+            {{ /if }}
+            
+            {{ if isset($tpl_data.course_info.min_student) && ($tpl_data.course_info.min_student > 1) }}
+                <p>
+                    <span class="tip">成班原则：</span>
+                        超过{{ $tpl_data.course_info.min_student }}人报名即可成班&nbsp;&nbsp;&nbsp;
+                </p>
+                    {{ $course_info = $tpl_data.course_info }}
+                    {{ if !isset($course_info.total_pay) }}
+                        {{ $total_pay = 0 }}
+                    {{ else }}
+                        {{ $total_pay = $course_info.total_pay }}
+                    {{ /if }}
+
+                    {{ * $course_info.open_status 1：已确认开班   2：未确认开班   3：关闭开班 * }}
+                    {{ * $course_info.auto_status 1：手动开班 10：自动开班 3：手动关闭  30：自动关闭* }}
+                    {{ * $course_info.over_close_time 1：三天以内 0：不在三天以内 * }}
+
+                    {{ if $course_info.min_student > 1 }}
+                    {{ * 未进行过操作，肯定是在三天外，未到保底人数 * }}
+                    {{ if ($course_info.open_status == 2) && ($course_info.min_student > $total_pay) }}
+                <div class="broadcast">
+                    <i class="icon icon-speaker"></i>
+                    <span>报班须知：距离最低开班人数还差<span class="text-primary-dark">{{ $course_info.min_student - $course_info.total_pay }}</span>人，如未到最低开班人数，开课前1天自动关班，付费学生全额退款。</span>
+                </div>
+                {{ * 已经开班，肯定是老师手动开，并且未到保底人数 * }}
+                {{ else if ($course_info.open_status == 1) && ($course_info.min_student > $total_pay) }}
+                <div class="broadcast">
+                    <i class="icon icon-speaker"></i>
+                    <span>报班须知：老师已手动确认开班，班课将会如期进行，请放心报班。</span>
+                </div>
+                {{ * 已经关班，人数未到保底人数 * }}
+                {{ else if ($course_info.open_status == 3) && ($course_info.min_student > $total_pay) }}
+                {{ if $course_info.auto_status == 30 }}
+                <div class="broadcast">
+                    <i class="icon icon-speaker"></i>
+                    <span>报班须知：距离开班已不足1天，班课未到最低开班人数自动关闭，付费学生已全额退款。</span>
+                </div>
+                {{ else }}
+                <div class="broadcast">
+                    <i class="icon icon-speaker"></i>
+                    <span>报班须知：由于未到保底开班人数，老师已手动关闭班级，付费学生全额退款。</span>
+                </div>
+                {{ /if }}
+                {{ else if $course_info.min_student <= $total_pay }}
+                <div class="broadcast">
+                    <i class="icon icon-speaker"></i>
+                    <span>报班须知：报班人数已超过最低开班人数，班课将会如期进行，请放心报班。</span>
+                </div>
+                {{ /if }}
+                {{ /if }}
+            {{ /if }}
+        </div>
+    </div>
+{{ /strip }}

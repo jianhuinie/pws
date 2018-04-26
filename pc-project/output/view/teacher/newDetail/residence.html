@@ -1,0 +1,38 @@
+{{ *
+
+@file 常用教学地点
+@author jixiaohui
+
+* }}
+
+{{ strip }}
+{{ $addr_flag = true }}
+{{ $addr = $tpl_data.area|cat:' '|cat:$tpl_data.address }}
+
+{{ if isset($tpl_data.offline_poi) }}
+    {{ if (!$tpl_data.offline_poi.lng && !$tpl_data.offline_poi.lat) ||
+          ($tpl_data.offline_poi.lng == 116.404000 && $tpl_data.offline_poi.lat == 39.915495) }}
+        {{ $addr_flag = false }}
+    {{ /if }}
+{{ /if }}
+
+{{ if $addr_flag }}
+<div id="teacher-residence">
+    <div class="new-title">
+        <i class="icon icon-location-o"></i>常用教学地点
+        {{ if $addr_flag }}
+           <a class="amplify">放大地图</a>
+            <a class="reduce">缩小地图</a>
+        {{ /if }}
+    </div>
+    <div class="map-container">
+
+        <div id="map"></div>
+
+    </div>
+</div>
+{{ else }}
+<div id="teacher-residence">
+</div>
+{{ /if }}
+{{ /strip }}

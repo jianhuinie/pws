@@ -1,0 +1,1 @@
+define("cc/function/viewportHeight",["require","exports","module"],function(){"use strict";return function(){return window.innerHeight||document.documentElement.clientHeight}});

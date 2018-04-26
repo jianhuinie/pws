@@ -1,0 +1,230 @@
+{{ *
+
+@file 订单列表 - 班课订单元素
+@author zhujialu
+
+* }}
+{{ strip }}
+
+<div class="course-order-item">
+
+    <div class="order-header">
+
+        <span class="order-date">
+            创建时间：{{ $order.create_time|date_format: '%Y年%m月%d日 %H:%M' }}
+        </span>
+
+        <span class="order-id">
+            班课编号：
+            {{ $order.course_number }}
+        </span>
+
+        {{ include file="common/variable/orderStatus.html" scope=parent }}
+
+        {{ if $orderStatus[$order.status][1] == '待支付' && isset($order.expired_length) && $order.expired_length > 0 }}
+
+        <span class="pay-tip text-primary">
+            请立即支付，
+            <span id="count-down-{{ $order.purchase_id }}" class="count-down">
+
+                {{ $hours = ($order.expired_length / 3600)|floor }}
+                {{ $minutes = (($order.expired_length % 3600) / 60)|floor }}
+                {{ $seconds = (($order.expired_length % 3600) % 60)|floor }}
+
+                {{ if $hours < 10 && $hours > -10 }}
+                    {{ $hours = '0'|cat: $hours }}
+                {{ /if }}
+
+                {{ if $minutes < 10 && $minutes > -10 }}
+                    {{ $minutes = '0'|cat: $minutes }}
+                {{ /if }}
+
+                {{ if $seconds < 10 && $seconds > -10 }}
+                    {{ $seconds = '0'|cat: $seconds }}
+                {{ /if }}
+
+                {{ $hours }}:{{ $minutes }}:{{ $seconds }}
+
+            </span>
+            后订单将失效
+        </span>
+
+        <script>
+
+            (function () {
+
+                var elem = document.getElementById('count-down-{{ $order.purchase_id }}');
+                var timestamp = {{ $order.expired_length }};
+
+                function pad(num) {
+                    return num < 10 ? ('0' + num) : num;
+                }
+
+                var timer = setInterval(
+                    function () {
+
+                        timestamp -= 1;
+
+                        if (timestamp < 1) {
+                            clearInterval(timer);
+                            alert(
+                                '编号为 {{ $order.purchase_id }} 的订单已失效'
+                            );
+                        }
+
+                        var hours = Math.floor( timestamp / 3600 );
+                        var minutes = Math.floor( ( timestamp % 3600 ) / 60 );
+                        var seconds = Math.floor( ( timestamp % 3600 ) % 60 );
+
+                        elem.innerHTML = pad(hours)
+                                       + ':'
+                                       + pad(minutes)
+                                       + ':'
+                                       + pad(seconds);
+                    },
+                    1000
+                );
+
+            })();
+
+        </script>
+        {{ /if }}
+
+    </div>
+
+    <table class="order-body">
+        <tbody>
+            <tr>
+                <td class="course-info">
+                    <a class="course-photo" target="_blank" href="/teacher/classCourseDetail?number={{ $order.course_number }}">
+                        {{ include file="common/variable/photo.html" url=$order.photos.url raw_width=$order.photos.width raw_height=$order.photos.height width=100 height=95 }}
+                        <img src="{{ $photo }}">
+                    </a>
+                    <a href="/teacher/classCourseDetail?number={{ $order.course_number }}" target="_blank" class="course-name" data-title="{{ $order.course_name }}">
+                        {{ $order.course_name }}
+                    </a>
+
+                    <div>
+
+                    {{ include file="common/variable/lesson.html" scope=parent }}
+                    {{ $lesson_way = $lessonMap[$order.lesson_way] }}
+
+                        {{ if $lesson_way == '在线授课' }}
+
+                        <strong>
+                            上课方式：
+                        </strong>
+                        在线授课
+
+                        {{ else }}
+
+                        <strong>
+                            上课地点：
+                        </strong>
+                        {{ include file="common/function/displayAddress.html" address=$order.address_area }}
+
+                        {{ $real_address|cn_truncate: 37 }}
+
+                        {{ /if }}
+
+                    </div>
+
+                    <label class="class-course-label">
+                        班课
+                    </label>
+                </td>
+
+                <td class="study-progress">
+
+                    总价：￥{{ $order.pay_money|number_format: 2 }}
+
+                    {{ if isset($order.status) }}
+
+                        {{ include file="common/variable/orderStatus.html" scope=parent }}
+
+                        <span class="order-status">
+                            {{ $orderStatus[$order.status][1] }}
+                        </span>
+
+                    {{ /if }}
+
+
+                    <div class="progress tiny">
+                        {{ if $order.hours > 0 }}
+                        <div class="progress-bar-info" style="width: {{ $order.progress*100/60.0/$order.hours }}%;">
+                        </div>
+                        {{ else }}
+                        <div class="progress-bar-info" style="width: 100%;">
+                        </div>
+                        {{ /if }}
+                    </div>
+
+                    {{ $percent = ($order.progress/60)|string_format:"%.1f" }}
+                    {{ $parts = explode('.', $percent) }}
+                    {{ if $parts[1] == 0 }}
+                        {{ $percent = $parts[0] }}
+                    {{ /if }}
+
+                    已完成 <span class="rate"><b>{{ $percent }}</b>/{{ $order.hours }}</span> 课时
+
+
+                </td>
+
+                <td class="order-action">
+
+
+                    {{ if isset($order.order_url.reserve_lesson_url) && $order.order_url.reserve_lesson_url }}
+
+                    {{ if $order.order_url.reserve_lesson_status == 1 }}
+                    <a class="btn-link tiny btn-block" href="{{ $order.order_url.reserve_lesson_url }}" target="_blank">
+                        发起约课
+                    </a>
+                    {{ /if }}
+
+                    {{ /if }}
+
+                    {{ if isset($order.order_url.confirm_pay_url) && $order.order_url.confirm_pay_url }}
+
+                        <a class="btn-link tiny btn-block" href="{{ $order.order_url.confirm_pay_url }}" target="_blank" >确认支付</a>
+
+                    {{ /if }}
+
+
+                    {{ if isset($order.order_url.comment_url) && $order.order_url.comment_url && !isset($hideCommentBtn) }}
+                        <a class="btn-link tiny btn-block" href="{{ $order.order_url.comment_url }}" target="_blank" >
+                        评价
+                        </a>
+                    {{ /if }}
+
+                    {{ if isset($order.order_url.order_detail_url) && $order.order_url.order_detail_url }}
+                        <a class="btn-link tiny btn-block" href="{{ $order.order_url.order_detail_url }}" target="_blank">
+                            查看详情
+                        </a>
+                    {{ /if }}
+
+                    {{ if isset($order.order_url.cancel_order_url) && $order.order_url.cancel_order_url }}
+                        <span class="btn-link tiny btn-block cancel-order"
+                              data-url="{{ $order.order_url.cancel_order_url }}"
+                              data-price="{{ $order.rest_prices }}"
+                        >取消订单
+                        </span>
+                    {{ /if }}
+
+                    {{ if isset($order.order_url.appeal_url) && $order.order_url.appeal_url }}
+                        <span class="btn-link tiny btn-block appeal-order" data-url="{{ $order.order_url.appeal_url }}">
+                            我要申诉
+                        </span>
+                    {{ /if }}
+
+                    {{ if !empty($user_data) && $user_data.user_type == 0 && $order.pay_status == 0 }}
+                    <span class="btn-link tiny btn-block edit-price" data-purchase-id="{{ $order.purchase_id }}" >修改价格</span>
+                    {{ /if }}
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+{{ /strip }}

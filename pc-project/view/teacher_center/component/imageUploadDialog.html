@@ -1,0 +1,33 @@
+{{ strip }}
+<script type="text/html" id="imageUploadDialogTpl">
+    <div class="img-list-header">
+        成功上传<span class="success">0</span>张
+        <span class="leave-wrapper">(最多还可以上传<span class="leave">${maxPhoto}</span>张)</span>
+        <span class="error-tip-wrapper">(<span class="error-tip"></span>)</span>
+    </div>
+    <div class="images-wrapper">
+        <ul>
+            <li class="image-item add-btn">
+                <div>
+                    <div class="icon icon-plus"></div>
+                    <div class="text-tip">继续添加</div>
+                </div>
+                <input type="file" name="files" multiple />
+            </li>
+            <!-- for: ${fileItems} as ${file} -->
+            <li class="image-item" data-file="${file.name}" data-index="${uploadCount}">
+                <i class="icon icon-recycle-bin"></i>
+                <div class="img-wrapper"><img src=""/></div>
+                <div class="input-mark-wrapper">
+                    <input class="input-mark" type="text" maxlength="12" placeholder="添加描述，最多12个字"/>
+                </div>
+            </li>
+            <!-- /for -->
+        </ul>
+    </div>
+    <div class="upload-actions">
+        <button class="btn btn-default clear-btn">清空并退出</button>
+        <button class="btn btn-primary save-btn">确定</button>
+    </div>
+</script>
+{{ /strip }}

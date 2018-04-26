@@ -1,0 +1,119 @@
+.des {
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0px 1px 3px rgba(0,0,0,0.05);
+
+    .des-label {
+        padding-bottom: 5px;
+        line-height: 1;
+        border-bottom: solid 1px #eee;
+        .clearfix();
+        h1,
+        label {
+            color: #333;
+            font-size: 16px;
+        }
+        a {
+            float: right;
+            margin-top: 2px;
+            color: #999;
+            font-size: 12px;
+            &.action {
+                color: #6187dc;
+            }
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+        .small {
+            margin-left: 5px;
+            font-size: 12px;
+            color: #999;
+        }
+    }
+
+    .group-members {
+
+        .members-row {
+            margin-bottom: 10px;
+            .clearfix();
+            .text-left {
+                float: left;
+            }
+            .text-right {
+                float: right;
+            }
+            .text-center {
+                float: left;
+                margin-left: 25px;
+            }
+        }
+
+        .group-member {
+            width: 62px;
+            display: block;
+            .avatar-wrapper {
+                margin: 14px 10px 10px;
+                width: 42px;
+                height: 42px;
+                border: solid 1px #eee;
+                overflow: hidden;
+                border-radius: 50%;
+            }
+            .member-name {
+                font-size: 12px;
+                line-height: 1;
+                color: #666;
+                text-align: center;
+                &.owner {
+                    color: #f90;
+                }
+            }
+        }
+    }
+
+    .des-info {
+        padding-top: 5px;
+        min-height: 100px;
+        p {
+            line-height: 23px;
+            font-size: 13px;
+            word-break: break-all;
+            color: #666;
+        }
+    }
+
+    .rank {
+        margin-top: 20px;
+        padding-top: 15px;
+        line-height: 1;
+        border-top: solid 1px #eee;
+        .clearfix();
+        label {
+            font-size: 13px;
+            color: #666;
+            .small {
+                color: #f90;
+            }
+        }
+        .detail {
+            margin-top: 1px;
+            float: right;
+            font-size: 12px;
+            color: #999;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .apply-wrapper {
+        margin-top: 20px;
+        text-align: center;
+        .btn {
+            font-size: 12px;
+            padding: 4px 12px;
+
+        }
+    }
+}

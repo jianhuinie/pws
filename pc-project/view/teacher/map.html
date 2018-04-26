@@ -1,0 +1,340 @@
+{{ *
+
+@file 地图找老师
+@author jixiaohui
+
+* }}
+
+
+{{ extends file="common/pc/base.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $tpl_data.q = $tpl_data.q|escape }}
+
+    {{ $script_path = "teacher/map" }}
+
+    {{ $filter = $tpl_data.filter }}
+    {{ $condition = $tpl_data.condition }}
+
+    {{ * 封装condition * }}
+    {{ $condition['q'] = $tpl_data.q }}
+    {{ $condition['page'] = $tpl_data.pager.page }}
+
+    {{ $script_data.condition = $condition }}
+
+    {{ if isset($condition.area) }}
+        {{ $script_data.area = $condition.area }}
+    {{ /if }}
+
+    {{ if isset($condition.q) }}
+        {{ $script_data.q = $condition.q }}
+    {{ /if }}
+
+    {{ if isset($condition.course) }}
+        {{ $script_data.course = $condition.course }}
+    {{ /if }}
+
+    {{ $script_data.teachers = $tpl_data.teachers }}
+
+    {{ $nav_config.active = '' }}
+    {{ $current_page = 'search' }}
+
+    {{ $flotage_config = [] }}
+    {{ * 不显示右下浮层 * }}
+    {{ $flotage_config.hidden = 1 }}
+
+    {{ $rave_config = [] }}
+    {{ * 不显示活动 * }}
+    {{ $rave_config.hidden = 1 }}
+
+{{ /block }}
+
+
+{{ block name="title" }}{{ if !empty($tpl_data.title) }}{{ $tpl_data.title }}{{ /if }}{{ /block }}
+
+{{ block name="description" }}{{ if !empty($tpl_data.description) }}{{ $tpl_data.description }}{{ /if }}{{ /block }}
+
+{{ block name="keywords" }}{{ if !empty($tpl_data.keywords) }}{{ $tpl_data.keywords }}{{ /if }}{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/teacher/map.less">
+{{ /block }}
+
+{{ block name="body" }}
+
+{{ strip }}
+{{ $smarty.block.parent }}
+<div id="map-header">
+    <div class="logo-box">
+        <a href="/" class="logo"></a>
+        <div class="city">
+            <strong>{{ $curr_city.name }}</strong>
+            <div class="city-trigger">
+                <a rel="nofollow" href="/changecity/init">切换城市</a>
+            </div>
+        </div>
+    </div>
+    <div class="search-form">
+        <i class="icon icon-search"></i>
+        <div class="placeholder-wrappers">
+            <div class="placeholder" {{ if !empty($tpl_data.q) }}style="display:none;"{{ /if }}>搜索你想学的科目、老师试试</div>
+            <input class="search-input form-text" type="text" name="q" {{ if !empty($tpl_data.q) }}value="{{ $tpl_data.q }}"{{ /if }} autocomplete="off">
+        </div>
+        <button class="btn">搜索</button>
+        <!--a class="to-search">
+            <i class="icon icon-list"></i>
+            去列表页找老师
+        </a-->
+    </div>
+    <ul class="info-box" id="site-nav">
+        <li class="user-index">
+            <a {{ if isset($tpl_data.is_www) && $tpl_data.is_www }}
+                href="{{ $origin_http }}"
+            {{ else }}
+                href="{{ $origin_http }}/{{ $curr_city.domain }}/"
+            {{ /if }}>跟谁学首页</a>
+        </li>
+        {{ $has_login = isset($user_data.user_number) }}
+        <li class="login-info">
+
+            <a class="login-link" href="{{ $root_https }}/static/login?next={{ urlencode($smarty.server.REQUEST_URI) }}">
+                <i class="icon icon-user"></i>
+                请登录
+            </a>
+
+        </li>
+        {{ if !$has_login }}
+        <li>
+            <a class="register-link" href="{{ $root_https }}/static/register">
+                免费注册
+            </a>
+        </li>
+        {{ /if }}
+        <li>
+            <a href="http://www.genshuixue.com/static/app">
+                <i class="icon icon-mobile"></i>
+                跟谁学手机APP
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="main">
+    <div id="content">
+        <div id="action">
+            <div id="select">
+                <div class="select-item category">
+                    {{ $course_txt = '课程类别' }}
+                    {{ foreach $filter.course as $val }}
+                        {{ if $val.style == 'active' }}
+                            {{ $course_txt = $val.name }}
+                        {{ /if }}
+                    {{ /foreach }}
+                    <span class="item-title">{{ $course_txt }}</span>
+                    <i class="icon icon-caret-down"></i>
+
+                    <ul class="list" style="display:none;">
+                        <li class="cat-item level1 first">全部类别</li>
+                        {{ foreach $filter.course as $val }}
+                        <li class="cat-item level1 {{ if $val.style == 'active' }}active{{ /if }}  {{ if $val@last }}last{{ /if }}"  data-cid="{{ $val.id }}">
+                            <span>{{ $val.name }}</span>
+                            {{ if $val.next }}
+                                <i>></i>
+                            {{ /if }}
+                        </li>
+                        {{ /foreach }}
+                    </ul>
+                    <div class="level2-box">
+
+                    </div>
+                    <div class="level3-box">
+
+                    </div>
+                </div>
+                <div class="select-item area{{ if empty($tpl_data.filter.area.list) }} disabled{{ /if }}">
+                    {{ $area_txt = '授课区域' }}
+                    {{ $area_counter = 0 }}
+                    {{ if count($tpl_data.filter.area.list) > 0 }}
+                        {{ foreach $tpl_data.filter.area.list as $val }}
+                            {{ if $val.style == 'active' }}
+                                {{ $area_counter = $area_counter + 1 }}
+                                {{ $area_txt = $val.name }}
+                            {{ /if }}
+                        {{ /foreach }}
+                    {{ /if }}
+                    <span class="item-title">{{ if $area_counter < 2 }}{{ $area_txt }}{{ else }}多区域{{ /if }}</span>
+                    {{ if count($tpl_data.filter.area.list) > 0 }}
+                    <i class="icon icon-caret-down"></i>
+                    <ul class="list" style="display:none;">
+                        <li class="area-item first {{ if $val.style == 'active' }}active{{ /if }}" {{ if count($tpl_data.filter.area.list) == 1 }}style="display:none;"{{ /if }}>
+                            <label>
+                                全部地区
+                            </label>
+                        </li>
+                        {{ foreach $tpl_data.filter.area.list as $val }}
+                        <li class="area-item  {{ if $val@index == 0 }}second{{ /if }} {{ if $val.style == 'active' }}active{{ /if }}">
+                            <label>
+                                <input type="checkbox" data-areaid="{{ $val.id }}" {{ if $val.style == 'active' }}checked="checked"{{ /if }}>
+                                {{ $name_cut = $val.name|cn_truncate:3 }}
+                                <span {{ if $name_cut != $val.name }}data-title="{{ $val.name }}"{{ /if }}>{{ $name_cut }}</span>
+                            </label>
+                        </li>
+                        {{ /foreach }}
+                        <li class="more last" {{ if count($tpl_data.filter.area.list) == 1 }}style="display:none;"{{ /if }}>
+                            <span>多选</span>
+                            <button class="small btn-primary area-submit">确定</button>
+                            <button class="small btn-link area-cancel">取消</button>
+                        </li>
+                    </ul>
+                    {{ /if }}
+                </div>
+                <div class="select-item sex">
+                    {{ $sex_txt = '老师性别' }}
+                    {{ if isset($condition.sex) }}
+                        {{ if $condition.sex == 0 }}
+                            {{ $sex_txt = '女' }}
+                        {{ else }}
+                            {{ $sex_txt = '男' }}
+                        {{ /if }}
+                    {{ /if }}
+                    <span class="item-title">{{ $sex_txt }}</span>
+                    <i class="icon icon-caret-down"></i>
+                    <ul class="list" style="display:none;">
+                        <li class="item first {{ if empty($condition.sex)&& !(isset($condition.sex)&&$condition.sex == 0) }}active{{ /if }}" >全部</li>
+                        <li class="item {{ if isset($condition.sex) && $condition.sex == 1 }}active{{ /if }}" data-value="1">男</li>
+                        <li class="item {{ if isset($condition.sex) && $condition.sex == 0 }}active{{ /if }} last" data-value="0">女</li>
+                    </ul>
+                </div>
+                <div class="select-item identity">
+                    {{ $identity_txt = '老师身份' }}
+                    {{ if isset($condition.teacher_type) }}
+                        {{ if $condition.teacher_type == 1 }}
+                            {{ $identity_txt = '独立老师' }}
+                        {{ else if $condition.teacher_type == 99 }}
+                            {{ $identity_txt = '机构老师' }}
+                        {{ else if $condition.teacher_type == 2 }}
+                            {{ $identity_txt = '在校生' }}
+                        {{ else }}
+                            {{ $identity_txt = '其他' }}
+                        {{ /if }}
+                    {{ /if }}
+                    <span clsss="item-title">{{ $identity_txt }}</span>
+                    <i class="icon icon-caret-down"></i>
+                    <ul class="list" style="display:none;">
+                        {{ $flag = !empty($condition.teacher_type) }}
+                        <li class="item first {{ if !$flag }}active{{ /if }}">全部</li>
+                        <li class="item {{ if $flag && $condition.teacher_type == 1 }}active{{ /if }}" data-value="1">独立老师</li>
+                        <li class="item {{ if $flag && $condition.teacher_type == 99 }}active{{ /if }}" data-value="99">机构老师</li>
+                        <li class="item {{ if $flag && $condition.teacher_type == 2 }}active{{ /if }}" data-value="2">在校生</li>
+                        <li class="item {{ if $flag && $condition.teacher_type == 3 }}active{{ /if }} last" data-value="3">其他（白领、技能达人等）</li>
+                    </ul>
+                </div>
+                <div class="select-item time">
+                    <span clsss="item-title">
+                        {{ $date_counter = 0  }}
+                        {{ $date_text = '' }}
+                        {{ foreach $filter.date as $val }}
+                            {{ if $val.style == 'active' }}
+                                {{ $date_counter = $date_counter + 1 }}
+                                {{ $date_text = $val.name }}
+                            {{ /if }}
+                        {{ /foreach }}
+                        {{ if $date_counter > 1 }}
+                            多天
+                        {{ else if $date_counter == 1 }}
+                            {{ $date_text }}
+                        {{ else }}
+                            上课时间
+                        {{ /if }}
+                    </span>
+                    <i class="icon icon-caret-down"></i>
+                    <ul class="list" style="display:none;">
+                        {{ foreach $filter.date as $val }}
+                        <li {{ if $val@first }}class="first"{{ /if }} >
+                            <label>
+                                <input type="checkbox" data-dateid="{{ $val.id }}" {{ if $val.style=="active" }}checked="checked"{{ /if }}>
+                                {{ $val.name }}
+                            </label>
+                        </li>
+                        {{ /foreach }}
+                        <li class="last">
+                            <button class="small btn-primary date-submit">确定</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="filter">
+                <span class="section-title">筛选：</span>
+                <div class="filter-box">
+                    <label class="form-checkbox">
+                        <input class="intro" type="checkbox" {{ if !empty($condition.video) }}checked="checked"{{ /if }}>
+                        <span>视频介绍</span>
+                    </label>
+                    <label class="form-checkbox">
+                        <input class="course" type="checkbox" {{ if !empty($condition.has_class) }}checked="checked"{{ /if }}>
+                        <span>班课</span>
+                    </label>
+                    <label class="form-checkbox">
+                        <input class="video" type="checkbox" {{ if !empty($condition.has_video_course) }}checked="checked"{{ /if }}>
+                        <span>视频课</span>
+                    </label>
+                    <label class="form-checkbox">
+                        <input class="online" type="checkbox" {{ if !empty($condition.approach) && $condition.approach == 2 }}checked="checked"{{ /if }}>
+                        <span>可在线授课</span>
+                    </label>
+                </div>
+            </div>
+            {{ if (!empty($condition.min_price_first) || (isset($condition.min_price_first)&&($condition.min_price_first == 0)) ) && !empty($condition.max_price_first) && $condition.min_price_first != $condition.max_price_first }}
+            <div id="price" data-min="{{ $condition.min_price_first }}" data-max="{{ $condition.max_price_first }}" style="display:none;">
+                <span>价格：</span>
+                <div class="price-container">
+                    <span class="start-num">¥{{ $condition.min_price_first }}</span>
+                    <div class="price-progress-box">
+                        <div class="price-progress">
+                            <div class="price-start">
+                                <div class="empty"></div>
+                                <div class="price-btn price-start-btn"></div>
+                            </div>
+                            <div class="price-end">
+                                <div class="price-btn price-end-btn"></div>
+                                <div class="empty"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="end-num">¥{{ $condition.max_price_first }}</span>
+                </div>
+            </div>
+            {{ /if }}
+            <div id="sort">
+                <span class="section-title">排序：</span>
+                <div class="sort-box">
+                    <a {{ if !empty($condition.sort) && $condition.sort == 'all' }}class="active"{{ /if }} data-type="all">综合排序</a>
+                    <a {{ if !empty($condition.sort) && $condition.sort == 'popular' }}class="active"{{ /if }} data-type="popular">人气排序</a>
+                    <a {{ if !empty($condition.sort) && $condition.sort == 'comment' }}class="active"{{ /if }} data-type="comment">评价数</a>
+                    <a {{ if !empty($condition.sort) && ($condition.sort == 'price_asc'||$condition.sort == 'price_desc') }}class="active" data-type="{{ $condition.sort }}"{{ /if }}>
+                        价格
+                        {{ if !empty($condition.sort) && $condition.sort == 'price_desc' }}
+                            <i class="arrow-down"></i>
+                        {{ else if !empty($condition.sort) && $condition.sort == 'price_asc' }}
+                            <i class="arrow-up"></i>
+                        {{ else }}
+                            <i class="arrow-empty"></i>
+                        {{ /if }}
+                    </a>
+                </div>
+                <span class="tip">{{ if $tpl_data.pager.result_total >= 1000 }}超过1000位老师，仅显示前1000位{{ else }}共{{ $tpl_data.pager.result_total }} 位老师{{ /if }}</span>
+            </div>
+        </div>
+        <div id="list">
+            {{ include file="teacher/map/teacherList.html" tpl_data = $tpl_data }}
+        </div>
+    </div>
+    <div id="map"></div>
+</div>
+{{ include file="common/component/baiduMap.html" }}
+{{ include file="common/script.html" }}
+{{ /strip }}
+
+{{ /block }}

@@ -1,0 +1,285 @@
+/**
+ * @file 帮我找老师
+ * @author wangyujie
+ */
+@import './common/layout.less';
+@import '../common/component/mobileInput';
+@import '../teacherCenter/component/form-address.less';
+
+.hidden {
+    display: none;
+}
+
+#main {
+    background-color: #fff;
+    border-radius: 6px;
+    width: 1100px;
+    margin: 57px auto;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+
+    .help-block {
+        font-size: @font-size-tiny;
+        color: @brand-text-lighter;
+    }
+
+    #seek-box {
+
+        #box-header {
+            width: 1000px;
+            height: 40px;
+            margin: 30px auto 0;
+        }
+
+        .step-one {
+            background: url(../../img/static/search/seekTeacherStepOne.png) no-repeat 0 0;
+        }
+
+        .step-two {
+            background: url(../../img/static/search/seekTeacherStepTwo.png) no-repeat 0 0;
+        }
+
+        #box-body {
+
+            padding-bottom: 30px;
+            position: relative;
+            .clearfix();
+
+            .form {
+                width: 670px;
+                margin: 30px 0px 0px 30px;
+
+                h1 {
+                    color: @brand-text;
+                    font-weight: bold;
+                    font-size: 16px;
+                    margin-left: 50px;
+                    margin-bottom: 20px;
+
+                    span {
+                        color: @brand-text-lighter;
+                        font-size: 14px;
+                        font-weight: normal;
+                        display: block;
+                    }
+                }
+
+                .form(120px);
+
+                .dropdown {
+                    .btn-default {
+                        width: 100px;
+                    }
+                }
+
+                .new-address {
+                    clear: both;
+                    max-width: 750px;
+                    margin-top: @gap-horizontal-medium;
+                    .clearfix();
+                    .form-action {
+                        display: none;
+                    }
+                    textarea[name="location_addr"] {
+                        overflow-y: hidden;
+                    }
+                    .regular-addr {
+                        .form-controls {
+                            display: none;
+                        }
+                    }
+                    .map {
+                        #map {
+                            width: 212px;
+                            height: 180px;
+                        }
+                    }
+                    .form-controls {
+                        margin-left: 0px;
+                    }
+                }
+
+                textarea[name="message_txt"] {
+                    width: 320px;
+                    height: 72px;
+                }
+
+                .no-login {
+                    display: none;
+                }
+
+                .sms-code-text {
+                    width: 164px;
+                }
+
+                .voice-code-text {
+                    width: 138px;
+                }
+
+                .btn-verify {
+                    margin-left: @gap-horizontal-medium;
+                }
+
+                .form-action {
+                    padding-left: 100px;
+                }
+
+                #hasinvitecode {
+                    padding-left: 97px;
+                }
+
+                #captcha {
+                    .form-block {
+                        margin-top: 25px;
+                    }
+                }
+
+                .voice-code-link {
+                    margin-left: 110px;
+
+                    .btn-link {
+                        font-size: @font-size-tiny;
+                        color: @brand-info;
+                        &:hover {
+                            color: @brand-primary;
+                        }
+                    }
+                    span {
+                        padding-top: 0;
+                    }
+                }
+
+                .login {
+                    float:right;
+                    color:#3d3d3d;
+                    font-size: 12px;
+                    margin: 12px 17px 0px 15px;
+
+                    a {
+                        color:#ff9900;
+                    }
+                }
+
+                #enterinvitecode, #hasinvitecode {
+                    margin-top: 0;
+                }
+
+                .form-group:nth-child(7) {
+                    margin-bottom: 5px;
+                }
+
+                input[name="captcha"] {
+                    margin-right: 10px;
+                }
+
+                .disable-international {
+                    input[name="mobile"] {
+                        width: 270px;
+                    }
+                }
+                .enable-international {
+                    input[name="mobile"] {
+                        width: 213px;
+                    }
+                }
+                .error.has-role {
+                    width: 300px !important;
+                    right: -200px !important;
+                    display: block !important;
+                }
+            }
+
+            #seek-success {
+                display: none;
+                width: 670px;
+                min-height: 450px;
+                margin: 100px 0px 0px 100px;
+                .icon-check-circle {
+                    color: @brand-success;
+                    font-size: 50px;
+                    float: left;
+                    margin-right: @gap-horizontal-medium;
+                }
+                .seek-success {
+                    float: left;
+                    width: 360px;
+                    .btn-primary {
+                        display: block;
+                        width: 120px;
+                        margin: @gap-horizontal-huge 0;
+                    }
+                    .hint {
+                        color: @brand-text-lighter;
+                    }
+                }
+                h1 {
+                    font-size: 24px;
+                }
+            }
+
+            .sns-login {
+                border-left: 1px solid #e9e9e9;
+                width: 400px;
+                position: absolute;
+                right: 20px;
+                top: 60px;
+                text-align: center;
+                padding: 0 50px;
+
+                h5 {
+                    color: #333;
+                    font-size: 16px;
+                    margin-bottom: 10px;
+                }
+                li {
+                    color: @brand-text-light;
+                    display: inline-block;
+                    margin-right: @gap-horizontal-medium;
+                    .icon-pitch-on {
+                        color: @brand-primary;
+                        font-size: 16px;
+                        margin-right: @gap-horizontal-tiny;
+                    }
+                }
+            }
+
+            .qcode {
+                margin: @gap-horizontal-tiny auto;
+            }
+
+        }
+
+        #box-footer {
+            clear:left;
+            color:#8d8d8d;
+            font-size: 12px;
+            position: relative;
+            left: 100px;
+            margin-top: 5px;
+
+            a {
+                color:#ff9900;
+            }
+        }
+
+    }
+
+    .btn-change-captcha {
+        color: @brand-info;
+        cursor: pointer;
+        &:hover {
+            color: @brand-primary;
+        }
+    }
+
+    .tel-code-select {
+        .dropdown-menu {
+            width: 267px;
+            .suggestion {
+                color: red;
+                position: relative;
+                right: -30px;
+            }
+        }
+    }
+
+}

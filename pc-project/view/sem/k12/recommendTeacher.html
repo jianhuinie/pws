@@ -1,0 +1,57 @@
+{{ strip }}
+
+<div class="recommend-teacher">
+
+    <div class="recommend-teacher-header">
+        <h3>推荐老师</h3>
+        <span class="hint">还有一大波老师正在路上...</span>
+    </div>
+
+    <div class="recommend-teacher-content">
+
+        <div class="recommend-teacher-tab">
+            <b class="tab-nav active" data-cat="middle">
+                初中/中考
+            </b>
+            <b class="tab-nav" data-cat="high">
+                高中/高考
+            </b>
+        </div>
+
+        <div class="recommend-teacher-box middle">
+
+            {{ $options = $teacher.middle.options }}
+            {{ include file="sem/component/searchBox.html" subject=$options.course_2 areas=$options.area }}
+
+            <div class="teacher-list">
+                {{ include file="sem/k12/teacherList.html" teachers=$teacher.middle.data }}
+            </div>
+
+            <div class="more">
+                <a href="" target="_blank" class="btn-default">
+                    更多老师&nbsp;&gt;
+                </a>
+            </div>
+
+        </div>
+
+        <div class="recommend-teacher-box high">
+
+            {{ $options = $teacher.high.options }}
+            {{ include file="sem/component/searchBox.html" subject=$options.course_2 areas=$options.area }}
+
+            <div class="teacher-list">
+                {{ include file="sem/k12/teacherList.html" teachers=$teacher.high.data }}
+            </div>
+
+            <div class="more">
+                <a href="" target="_blank" class="btn-default">
+                    更多老师&nbsp;&gt;
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+{{ /strip }}

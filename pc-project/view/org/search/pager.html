@@ -1,0 +1,180 @@
+{{ *
+    @file 全站 pager 组件
+    @description 参数
+                 show_count 总共要显示的页码个数
+                 count 物料总数
+                 page_size 每页的个数
+                 page  当前的页码
+                 url   需要附加page参数的url
+                 hide_jump 是否隐藏输入页码跳转
+                 text 页码跳转的文案
+                 nofollow 这个标签的意义是告诉搜索引擎"不要追踪此网页上的链接或不要追踪此特定链接"seo专属
+
+    @author  liucong
+* }}
+{{ strip }}
+
+{{ if not isset($url) }}
+{{ $url = $smarty.server.REQUEST_URI }}
+{{ /if }}
+
+{{ * 拆分url $path 和 $search * }}
+{{ $url_parts = explode('?', $url) }}
+{{ $path = $url_parts[0] }}
+{{ $search = '?' }}
+
+{{ if isset($url_parts[1]) }}
+    {{ $search = $search|cat:$url_parts[1] }}
+
+    {{ * 转义参数 * }}
+    {{ $search_safe = '' }}
+
+    {{ * 判断$search中有没有page参数，有的话去除 * }}
+    {{ $params = explode('&', $search) }}
+    {{ foreach $params as $item }}
+
+        {{ * 特殊情况处理 -> ?&a=111 * }}
+        {{ if $item@index == 0 && $item == '?' }}
+            {{ $search_safe = $search_safe|cat: '?' }}
+        {{ /if }}
+
+        {{ $tokens = explode('=', $item) }}
+        {{ if $tokens[0] != 'page' && $tokens[0] != '?page' && isset($tokens[1]) }}
+            {{ $key = $tokens[0]|escape }}
+            {{ $value = $tokens[1]|escape }}
+
+            {{ if $item@index != 0 }}
+                {{ $search_safe = $search_safe|cat: '&'|cat: $key|cat: '='|cat: $value }}
+            {{ else }}
+                {{ $search_safe = $search_safe|cat: $key|cat: '='|cat: $value }}
+            {{ /if }}
+
+        {{ /if }}
+    {{ /foreach }}
+
+    {{ $search = $search_safe }}
+
+    {{ if $search == '' }}
+        {{ $search = '?' }}
+    {{ else if $search !== '?' }}
+        {{ $search = $search|cat:'&' }}
+    {{ /if }}
+{{ /if }}
+
+{{ * 默认当前页为1 * }}
+{{ if not isset($page) }}
+{{ $page = 1 }}
+{{ /if }}
+
+{{ if !isset($page_size) || $page_size == 0 }}
+{{ $page_size = 20 }}
+{{ /if }}
+
+{{ if not isset($count) }}
+{{ $count = 1 }}
+{{ /if }}
+
+{{ $page_count = ($count / $page_size)|ceil }}
+
+{{ if not isset($show_count) }}
+{{ $show_count = 4 }}
+{{ /if }}
+
+{{ * 要被替换的字段 * }}
+{{ $replace_src = "page="|cat:$page }}
+
+{{ * 让当前页码前后都有show_count/2个页码 * }}
+{{ if $show_count % 2 == 1 }}
+{{ $show_count = $show_count - 1 }}
+{{ /if }}
+
+
+{{ if $page_count > 1 }}
+<div class="pager-block">
+
+    <div class="pager">
+
+        {{ if $page > 1 }}
+        <a href="{{ $path }}{{ $search }}page={{ $page-1 }}" data-page="{{ $page-1 }}" data-source="search" {{ if isset($nofollow) }}rel="nofollow"{{ /if }}>
+            <i class="icon icon-chevron-left"></i> 上一页
+        </a>
+        {{ /if }}
+
+        {{ if $page_count <= $show_count + 1 }}
+            {{ $start = 1 }}
+            {{ $end = $page_count }}
+        {{ elseif $page_count <= $page + $show_count  }}
+            {{ $end = $page_count }}
+            {{ $start = $page_count - $show_count }}
+        {{ elseif $page <= ($show_count/2) }}
+            {{ $start = 1 }}
+            {{ $end = 1 + $show_count }}
+        {{ else }}
+            {{ $start = $page - $show_count/2  }}
+            {{ $end = $page + $show_count/2 }}
+        {{ /if }}
+
+        {{ if $start > 2 }}
+        <a href="{{ $path }}{{ $search }}page=1" data-source="search" data-page="1" {{ if isset($nofollow) }}rel="nofollow"{{ /if }}>1</a>
+        <b class="ellipsis">...</b>
+        {{ /if }}
+
+
+
+        {{ for $item=$start to $end }}
+
+        {{ $replace_to = "page="|cat:$item }}
+
+        {{ if $item != $page }}
+        <a href="{{ $path }}{{ $search }}page={{ $item }}" data-source="search"  data-page="{{ $item }}" {{ if isset($nofollow) }}rel="nofollow"{{ /if }}>{{ $item }}</a>
+        {{ else }}
+        <a class="active" {{ if isset($nofollow) }}rel="nofollow"{{ /if }}>{{ $item }}</a>
+        {{ /if }}
+        {{ /for }}
+
+        {{ if $end < $page_count }}
+        <b class="ellipsis">...</b>
+        <a href="{{ $path }}{{ $search }}page={{ $page_count }}" data-page="{{ $page_count }}" data-source="search"  {{ if isset($nofollow) }}rel="nofollow"{{ /if }}>{{ $page_count }}</a>
+        {{ /if }}
+
+        {{ if $page < $page_count }}
+        <a href="{{ $path }}{{ $search }}page={{ $page+1 }}" data-page="{{ $page+1 }}" data-source="search"  {{ if isset($nofollow) }}rel="nofollow"{{ /if }}>
+            下一页 <i class="icon icon-chevron-right"></i>
+        </a>
+        {{ /if }}
+
+    </div>
+
+    {{ if !isset($hide_jump) || !$hide_jump }}
+    <div class="pager-form">
+        {{ if isset($text) }}
+            <b>{{ $text }}</b>
+        {{ else }}
+            <b>共 {{ $page_count }} 页，去第</b>
+        {{ /if }}
+        <input class="form-text small" type="text" onchange="
+            var button = this.nextSibling.nextSibling;
+            var page = this.value;
+
+            button.href = 'javascript:void(0);';
+            button.removeAttribute('data-page');
+
+            if (/^\d+$/.test(page) && parseInt(page, 10) >= 1 && parseInt(page, 10) <= {{ $page_count }}) {
+                button.href = '{{ $path }}{{ $search }}page=' + page;
+                button.setAttribute('data-page', page);
+                button.setAttribute('data-source', 'search');
+            }
+            else {
+                this.select();
+            }
+        "/>
+        <b>页</b>
+
+        <a class="btn-default small">确定</a>
+
+    </div>
+    {{ /if }}
+</div>
+{{ /if }}
+
+{{ /strip }}

@@ -1,0 +1,61 @@
+{{ *
+
+@file 头像
+
+      参数：
+
+      type 必传，头像类型，可选值包括 tiny small medium large
+      img 必传，头像地址
+      url 可选，如果需要点击跳转，可配置跳转 url
+      target 可选，打开方式，跟 a 标签的 target 取值相同
+      raw 可选，是否不需要压缩，原图展现
+      log 可选，点击统计
+      alt 可选, 名字
+
+@author zhujialu
+
+* }}
+{{ strip }}
+
+{{ $width_map['tiny'] = 48 }}
+{{ $width_map['smaller'] = 54 }}
+{{ $width_map['small'] = 60 }}
+{{ $width_map['mediumer'] = 72 }}
+{{ $width_map['medium'] = 80 }}
+{{ $width_map['middle'] = 90 }}
+{{ $width_map['big'] = 98 }}
+{{ $width_map['large'] = 150 }}
+{{ $width_map['larger'] = 152 }}
+{{ $width_map['huge'] = 167 }}
+
+{{ if !isset($url) }}
+    {{ $url = '' }}
+{{ /if }}
+
+{{ if empty($alt) }}
+    {{ $alt = '头像' }}
+{{ /if }}
+
+{{ if $url }}
+<a class="avatar-{{ $type }}" href="{{ $url }}"{{ if isset($target) }} target="{{ $target }}"{{ /if }} {{ if isset($log) }}log={{ $log }}{{ /if }}>
+{{ else }}
+<b class="avatar-{{ $type }}">
+{{ /if }}
+
+    {{ if isset($raw) && $raw }}
+
+    <img src="{{ $img }}" alt="{{ $alt }}" />
+
+    {{ else }}
+
+    {{ include file="common/component/image.html" url=$img width=$width_map[$type] alt=$alt }}
+
+    {{ /if }}
+
+{{ if $url }}
+</a>
+{{ else }}
+</b>
+{{ /if }}
+
+{{ /strip }}

@@ -1,0 +1,163 @@
+@import "common/fixTab/fixTab.styl";
+body {
+    margin: 0;
+}
+.course-container {
+    background: #f7f9fa;
+    .tips {
+        color: #9d9d9e;
+        display: inline-block;
+        position: absolute;
+        left: 50%;
+        top: 50vh;
+        transform: translateX(-50%);
+    }
+    .search {
+        padding: rem(5.625) rem(9.375) 0;
+        overflow: hidden;
+        background: rgba(247,249,249, 1);
+        box-shadow: 0 rem(2) rem(10) rem(1) rgba(247,249,249, 0.8);
+        .cancel, .confirm {
+            display: inline-block;
+            line-height: rem(34.5);
+            width: 17%;
+            float: right;
+            text-align: center;
+            &.hide {
+                display: none;
+            }
+        }
+        .confirm {
+            color: #ff9100;
+        }
+        .cancel {
+            color: #9d9d9e;
+        }
+        .tip {
+            margin: 0 0 rem(7.5);
+            font-size: rem(12);
+            color: #999;
+        }
+        .doSearch {
+            background: #ddd;
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+            height: rem(32);
+            padding: 0 rem(13.5);
+            color: #9d9d9e;
+            display: inline-block;
+            float: right;
+            &.active {
+                color: #fff;
+                background: #ff9100;
+            }
+        }
+        .inp {
+            border: 1px solid #ddd;
+            border-right: none;
+            border-radius: rem(3);
+            padding-left: rem(7.5);
+            height: rem(32.25);
+            background: #fff;
+            line-height: rem(32.25);
+            width: 80%;
+            #goSearch {
+                font-size: rem(13.5);
+                width: 70%;
+                border: none;
+                &:focus {
+                    outline: none;
+                    border: none;
+                    box-shadow: none;
+                }
+            }
+        }
+        .choose {
+            position: absolute;
+            left: rem(15);
+            top: rem(42);
+            background: #000;
+            opacity: 0.7;
+            color: #fff;
+            text-align: center;
+            font-size: rem(13.5);
+            width: rem(79.5);
+            border-radius: rem(5);
+            &.hide {
+                display: none;
+            }
+            &:before {
+                content: '';
+                display: inline-block;
+                width: rem(0);
+                height: rem(0);
+                border: 8px solid transparent;
+                border-bottom-color: #000;
+                left: rem(18);
+                position: absolute;
+                top: rem(-15);
+            }
+            p {
+                padding: rem(7.5) 0;
+                border-bottom: 1px solid #666;
+                &:last-child {
+                    border-bottom: none;
+                }
+            }
+        }
+    }
+    .course-list {
+        margin-top: rem(12);
+        .course {
+            height: rem(78);
+            background: #fff;
+            border-bottom: 1px solid #f7f9fa;
+            padding: rem(6) rem(12);
+            display: flex;
+            .course-img {
+                width: 35%;
+                height: 100%;
+                margin-right: rem(7.5);
+            }
+            .right-info {
+                display: inline-block;
+                width: 61%;
+                height: 100%;
+                vertical-align: rem(6);
+                .title {
+                    line-height: rem(25);
+                    .tag {
+                        background: #3fa5f2;
+                        border-radius: rem(2);
+                        padding: 0 rem(8);
+                        font-size: rem(12.75);
+                        color: #fff;
+                        margin-right: rem(3);
+                        float: left;
+                    }
+                    .course-name {
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        margin: 0;
+                    }
+                }
+                .middle {
+                    overflow: hidden;
+                    margin: rem(7.5) 0 0;
+                    .icon {
+                        height: rem(21);
+                        width: rem(21);
+                        float: right;
+                        opacity: 0;
+                        transition: all 0.2s ease;
+                    }
+                }
+                .price {
+                    color: #ff9100;
+                    margin: rem(7.5) 0 0;
+                }
+            }
+        }
+    }
+}

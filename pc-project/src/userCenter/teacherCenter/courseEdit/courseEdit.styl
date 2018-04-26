@@ -1,0 +1,298 @@
+/**
+ * @file 课程设置 - 添加或编辑一对一课程
+ * @author wangtianhua
+ */
+
+@import '../../common/layout.styl';
+
+.course-edit {
+
+    padding: 30px 40px;
+
+    > h1 {
+        color: $brand-header;
+        font-weight: normal;
+        margin: 0;
+        margin-bottom: 30px;
+    }
+
+    > h1 + div {
+        .group {
+            + .group {
+                margin-top: 24px;
+            }
+            > .label {
+                width: 5em;
+                .temp-tip {
+                    color: #888;
+                    font-size: 12px;
+                }
+            }
+            .course-name-input {
+                width: 513px;
+            }
+            .course-classify {
+                width: 405px;
+                float: left;
+            }
+            .search {
+                width: 100px;
+                margin-left: 8px;
+                vertical-align: top;
+            }
+            .price {
+                width: 500px;
+                position: relative;
+                .input-group {
+                    margin-left: 10px;
+                    input {
+                        width: 120px;
+                    }
+                }
+                .help {
+                    width: 100px;
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                }
+
+            }
+            .course-info {
+                width: 367px;
+                textarea {
+                    height: 80px;
+                }
+            }
+            .course-help {
+                float: right;
+                width: 100px;
+                background: #f00;
+            }
+            .images.huge > .image {
+                width: 210px;
+                height: 122px;
+                margin-left: 0px;
+                margin-right: 10px;
+            }
+            .images > .image + .image {
+                 margin-left: 0px;
+                 margin-top: 7px;
+            }
+            .image > .title {
+                display: block;
+                font-size: 12px;
+                margin-top: 10px;
+            }
+
+        }
+
+        .footer {
+            text-align: center;
+            > .button {
+                width: 100px;
+                padding: 10px;
+            }
+        }
+
+        .subject-select > .dropdown {
+            width: 135px;
+        }
+
+        .course-settings-guide {
+            margin-left: 10px;
+        }
+
+    }
+
+    .no-data {
+        color: $brand-desc;
+    }
+    .infor {
+        font-size: 120%;
+
+        + .more,
+        + .less {
+            margin-top: $vertical-large;
+        }
+    }
+    .suggestion {
+        display: inline-block;
+        position: relative;
+        .less {
+            background-color: $brand-bg;
+            border: 1px solid $brand-border;
+            color: $brand-desc;
+            padding: 4px 10px;
+
+            &:hover {
+                background-color: lighten($brand-primary, 95%);
+                border-color: $brand-primary;
+                transition-duration: 0.2s;
+                transition-property: background-color border-color;
+            }
+            .true-word {
+                float: left;
+                width: 6em;
+                text-overflow();
+            }
+
+            + .less {
+                margin-top: $vertical-medium;
+            }
+        }
+        .more {
+            color: $brand-desc;
+            .true-word {
+                float: left;
+                width: 6em;
+                text-overflow();
+            }
+            + .more {
+                margin-top: $vertical-medium;
+            }
+        }
+        .word-list {
+            display: inline-block;
+            .word {
+                display: inline-block;
+                width: 6em;
+                padding: 3px;
+                text-overflow();
+            }
+        }
+    }
+
+    .input + .menu {
+        border: 1px solid $brand-border;
+        font-size: 12px;
+        padding: 10px 12px;
+        top: 35px;
+        left: 0;
+        right: 0;
+    }
+    .icon {
+        padding-right: 5px;
+    }
+    .templates {
+        .image {
+            border: #fff solid 5px;
+            &.active {
+                border: 5px solid #ffbf5f;
+            }
+            .mode {
+                cursor: pointer;
+                position: relative;
+                .button {
+                    display: none;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    margin-left: -44px;
+                    margin-top: -13px;
+                }
+
+                &:hover {
+
+                    .button {
+                        display: block;
+                        z-index: 1;
+                    }
+                    &:after {
+                        content: ' ';
+                        background-color: #000;
+                        opacity(0.3);
+                        width: 200px;
+                        height: 112px;
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                    }
+                }
+            }
+        }
+        .block {
+            font-size: 12px;
+            color: #555;
+            margin: 10px 0;
+        }
+    }
+}
+.preview-mask {
+    opacity(0.6);
+    background-color: #000;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 5;
+}
+
+.preview-phone {
+    transform: scale(0.7);
+    position: fixed;
+    left: 20%;
+    right: 0;
+    top: -80px;
+    bottom: 0;
+    z-index: 5;
+    .view {
+        float: left;
+        background: url('../indexDecorate/img/preview-phone.png');
+        width: 382px;
+        height: 790px;
+        padding: 95px 23px 100px;
+        .view-content {
+            width: 100%;
+            height: 100%;
+
+            .pic-box {
+                width: 100%;
+                height: 100%;
+                overflow-y: scroll;
+                .preview-image {
+                    width: 100%;
+                }
+            }
+        }
+        .html-box {
+            width: 100%;
+            height: 100%;
+            iframe {
+                border: none;
+                height: 100%;
+                width: 100%;
+            }
+        }
+    }
+    .actions {
+        color: #fff;
+        text-align: center;
+        float: left;
+        margin-left: 130px;
+        .prev-temp,
+        .next-temp,
+        .exit-preview {
+            border: 1px solid #fff;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 22px;
+            padding: 9px 26px 8px;
+            &:hover {
+                background: #fff;
+                color: #555;
+            }
+        }
+        .prev-temp {
+            margin-top: 100px;
+        }
+        .next-temp {
+            margin-top: 100px;
+        }
+        .exit-preview {
+            margin-top: 280px;
+        }
+    }
+
+}
+

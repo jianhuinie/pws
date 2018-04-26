@@ -1,0 +1,110 @@
+{{ *
+
+@file 课程设置 - 课时优惠包
+@author zhujialu, wangyujie
+
+* }}
+
+{{ extends file="common/center/base.html" }}
+
+{{ block name="data" }}
+    {{ $smarty.block.parent }}
+    {{ $script_path = "teacherCenter/courseCombo" }}
+
+{{ /block }}
+
+{{ block name="title" prepend }}
+课程设置 - 课时优惠包
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/teacherCenter/courseCombo.less">
+{{ /block }}
+
+{{ block name="main" }}
+
+{{ strip }}
+
+    {{ include file="teacher_center/common/sidebar.html" active="course" }}
+
+    <div id="content" class="card">
+
+        <div class="card-header">
+            <a href="/teacher_course/list_admin">
+                课程设置
+            </a>
+            &nbsp;&gt;&nbsp;
+            <a>课时优惠包</a>
+        </div>
+
+        <div class="card-body">
+
+            <div class="course-combo">
+
+                {{ if count($tpl_data.combo_list) < $tpl_data.combo_quota }}
+                <div class="form-trigger">
+                    <div class="create-combo edit">
+                        <i class="icon icon-round-add"></i>
+                        添加课时优惠包
+                    </div>
+                    <p>
+                        课时优惠包适用于你提供的所有授课科目，合理的折扣能够吸引学生购买更多课时，建议越长的课时优惠包提供越大的折扣哦！
+                    </p>
+                </div>
+                {{ /if }}
+
+                {{ include file="teacher_center/course/comboForm.html" }}
+
+                {{ foreach $tpl_data.combo_list as $item }}
+                <div class="combo form-trigger" data-combo='{{ json_encode($item) }}'>
+
+                    <div class="action">
+                        <i class="icon edit">编辑</i>
+                        <i class="icon remove">删除</i>
+                    </div>
+
+                    <i class="icon icon-combo-blue"></i>
+
+                    <div class="info">
+                        <span class="time">{{ $item.hours }}小时</span>
+                        <span class="discount">
+                            {{ if $item.discount == 0 }}
+                                免费
+                            {{ else if $item.discount == 10 }}
+                                无折扣
+                            {{ else }}
+                                {{ $item.discount }} 折
+                            {{ /if }}
+                        </span>
+
+                        {{ if isset($item.verify_status) && $item.verify_status == 2 }}
+                        <div class="message message-error">
+                            <i class="icon icon-info-circle"></i>
+                            本课时优惠包设置有问题哦，快修改一下吧！
+                        </div>
+                        {{ /if }}
+
+                        <span class="name">
+                            {{ $item.name|cn_truncate: 20 }}
+                        </span>
+
+                    </div>
+                </div>
+                {{ include file="teacher_center/course/comboForm.html" }}
+
+                {{ /foreach }}
+
+                <div class="go-back">
+                    <a class="btn btn-default" href="/teacher_course/list_admin">
+                        返回课程设置
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+{{ /strip }}
+{{ /block }}

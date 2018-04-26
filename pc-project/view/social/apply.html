@@ -1,0 +1,103 @@
+{{ *
+
+@file 申请管理员
+@author zengcheng
+
+* }}
+{{ extends file="social/common/base.html" }}
+
+{{ block name="data" }}
+
+    {{ * 需要im * }}
+    {{ $need_im = false }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $nav_config.active = '' }}
+    {{ $nav_config.hidden = 1 }}
+    {{ $flotage_config.hidden = true }}
+
+    {{ $script_data.groupId = $tpl_data.id }}
+    {{ $script_data.groupName = $tpl_data.name }}
+
+    {{ $script_path = "social/apply" }}
+
+{{ /block }}
+
+{{ block name = "style" }}
+    <link rel="stylesheet" href="{{ $static_origin }}/src/css/social/apply.less">
+{{ /block }}
+
+{{ block name="main" }}
+
+{{ strip }}
+<div id="main">
+    <div class="wrapper">
+        <h4 class="label">管理员申请</h4>
+        <div class="form" id="apply-form">
+            <div class="form-group">
+                <label class="form-label">
+                    <i class="form-required"></i>姓名：
+                </label>
+                <div class="form-controls">
+                    <input class="form-text" type="text" name="name" autocomplete="off" data-validate-name="name"/>
+                    <span class="error"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="form-label">
+                    <i class="form-required"></i>身份证：
+                </label>
+                <div class="form-controls">
+                    <input class="form-text" type="text" name="number" autocomplete="off" data-validate-name="number"/>
+                    <span class="error"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="form-label">
+                    <i class="form-required"></i>竞选宣言：
+                </label>
+                <div class="form-controls">
+                    <textarea class="form-text intro" placeholder="100字以内" name="intro" autocomplete="off" data-validate-name="intro" maxlength="100"></textarea>
+                    <span class="error"></span>
+                </div>
+            </div>
+            <div class="form-group upload-group">
+                <label class="form-label">
+                    <i class="form-required"></i>上传证件照：
+                </label>
+                <div class="form-controls">
+                    <input type="hidden" name="idImg" data-validate-name="idImg">
+                    <div class="upload-btn">
+                        <div class="icon-wrapper"><i class="icon icon-plus"></i></div>
+                        <div class="icon-label">点击上传</div>
+                        <div class="image-wrapper image"><img src=""></div>
+                        <div class="image-browse">上传图片</div>
+                    </div>
+                    <div class="example-label">示例</div>
+                    <div class="img-example">
+                        {{ include file="common/component/image.html" url="http://img.gsxservice.com/807139_l6fir5d5.jpeg" width=150 height=125 }}
+                    </div>
+                    <span class="error"></span>
+                </div>
+            </div>
+            <div class="form-group directions-wrapper">
+                <div class="form-controls">
+                    <label>
+                        <input type="checkbox" name="hasRead" data-validate-name="hasRead" checked="checked"/>我已阅读并同意遵守
+                    </label>
+                    <span class="directions-link">《管理员申请条款》</span>
+                    <span class="error"></span>
+                </div>
+            </div>
+            <div class="form-group form-actions">
+                <div class="form-controls">
+                    <button class="btn btn-primary btn-apply" type="button">提交申请</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{ include file="./apply/instruction.html" }}
+{{ /strip }}
+{{ /block }}

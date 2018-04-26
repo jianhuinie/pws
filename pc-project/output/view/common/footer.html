@@ -1,0 +1,229 @@
+{{ *
+   * @file 2014.09版首页的footer
+   * @author peilonghui
+* }}
+
+{{ strip }}
+<div id="footer">
+    <div class="wrapper">
+        <div class="favor-links">
+            <div class="tel">
+                <i class="icon icon-phone"></i>
+                <h4>4000-910-910</h4>
+                <span>周一至周日&nbsp;9:00-23:00</span>
+            </div>
+
+            <div class="list">
+                <h4>关注我们</h4>
+                <ul>
+                    <li>
+                        <span class="show-wechat">
+                            官方微信
+                        </span>
+                    </li>
+                    <li class="weibo">
+                        <a rel="nofollow" href="http://weibo.com/genshuixue" target="_blank">
+                            新浪微博
+                        </a>
+                    </li>
+                    <li>
+                        <a rel="nofollow" href="{{ $root_http }}/guide/business?a=business" target="_blank">
+                             联系我们
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="list">
+                <h4>关于跟谁学</h4>
+                <ul>
+                    <li>
+                        <a rel="nofollow" href="{{ $root_http }}/guide/about?a=about" target="_blank">了解我们
+                        </a>
+                    </li>
+                    <li>
+                        <a rel="nofollow" href="http://www.genshuixue.com/activity/onekey_teacher?name=zhsh" target="_blank">
+                            代理合作
+                        </a>
+                    </li>
+                    <li>
+                        <a rel="nofollow" href="{{ $root_http }}/guide/recruit" target="_blank">校园招聘</a>
+                    </li>
+                    <li>
+                        <a rel="nofollow" href="{{ $root_http }}/guide/join?a=join" target="_blank">社会招聘</a>
+                    </li>
+                    <li>
+                        <a rel="nofollow" href="{{ $root_http }}/guide/clause?a=clause" target="_blank">
+                            网站条款
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="list">
+                <h4>服务支持</h4>
+                <ul>
+                     <li>
+                        <a rel="nofollow" href="{{ $root_http }}/guide/guarantee?a=guarantee" target="_blank">
+                            平台保障
+                        </a>
+                    </li>
+                    <li>
+                        <a rel="nofollow" href="{{ $root_http }}/guide/video?a=video" target="_blank">
+                            视频拍摄
+                        </a>
+                    </li>
+                    <li>
+                        <a rel="nofollow" href="{{ $root_http }}/guide/pay?a=pay" target="_blank">
+                            支付问题
+                        </a>
+                    </li>
+                    <li>
+                        <a rel="nofollow" href="{{ $root_http }}/guide/feedback?a=feedback" target="_blank">
+                            意见反馈
+                        </a>
+                    </li>
+                    <li>
+                        <a rel="nofollow" href="{{ $root_http }}/guide/tort?a=tort" target="_blank">
+                            侵权投诉
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+             <div class="list">
+                <h4>帮助中心</h4>
+                <ul>
+                    <li>
+                        <a rel="nofollow" href="http://www.genshuixue.com/static/student" target="_blank">
+                            平台流程
+                        </a>
+                    </li>
+                    <li>
+                        <a rel="nofollow" href="{{ $root_http }}/guide/entering?a=entering" target="_blank">
+                            老师入驻
+                        </a>
+                    </li>
+                    <li>
+                        <a rel="nofollow" href="{{ $root_http }}/guide/teacher?a=teacher" target="_blank">
+                            老师帮助
+                        </a>
+                    </li>
+                    <li>
+                        <a rel="nofollow" href="{{ $root_http }}/guide/student?a=student" target="_blank">
+                            学生帮助
+                        </a>
+                    </li>
+                    <li>
+                        <a rel="nofollow" href="{{ $root_http }}/guide/org?a=org" target="_blank">
+                            机构帮助
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="site-map">
+            <ul>
+                <li>
+                    <a rel="nofollow" href="http://www.genshuixue.com/guide/clause?a=clause" target="_blank">
+                        网站条款
+                    </a>
+                </li>
+                <li>
+                    <a rel="nofollow" href="http://www.genshuixue.com/guide/notice?a=notice" target="_blank">
+                        活动公告
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.genshuixue.com/guide/news?a=news" target="_blank">
+                        新闻报道
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.genshuixue.com/static/links#8" target="_blank">
+                        申请合作
+                    </a>
+                </li>
+                <li>
+                    <!--首页、搜索结果页-->
+                    {{ if isset($tpl_data.site_map) && $tpl_data.site_map }}
+                        <a href="/static/seoWebMap" target="_blank">
+                            网站地图
+                        </a>
+                    {{ else }}
+                        <a href="http://www.genshuixue.com/static/seoWebMap" target="_blank">
+                            网站地图
+                        </a>
+                    {{ /if }}
+                </li>
+                <li>
+                    <a href="http://www.genshuixue.com/st/-975_1061_1066.html" target="_blank">
+                        油画培训
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.genshuixue.com/bj/st--975_1061.html" target="_blank">
+                        绘画培训
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.genshuixue.com/sh/st--975_1031_1034.html" target="_blank">
+                        拉丁舞培训
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.genshuixue.com/i-ielts/a/4" target="_blank">
+                        雅思机经
+                    </a>
+                </li>
+                <li>
+                    <a href=" http://www.genshuixue.com/so/-573_600_603.html" target="_blank">
+                        Java培训
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        {{ if isset($show_friend_links) && $show_friend_links }}
+        <div class="friend-links">
+            <ul>
+                <li class="friend-links-label"><strong>合作伙伴：</strong></li>
+                {{ * 此处由js生成外链 但首页有特殊的策略：部分js输出* }}
+
+                {{ if isset($tpl_data.friendLinks) }}
+                {{ foreach $tpl_data.friendLinks as $fl }}
+                    {{ if !$fl.jsload }}
+                <li>
+                    <a href="{{ $fl.link }}" target="_blank"{{ if $fl.nofollow }} rel="nofollow"{{ /if }}>{{ $fl.title }}</a>
+                </li>
+                    {{ /if }}
+                {{ /foreach }}
+                {{ /if }}
+
+                <li class="friend-links-last">
+                    <a href="{{ $root }}/static/links" target="_blank" class="more">更多</a>
+                </li>
+            </ul>
+        </div>
+        {{ /if }}
+
+        <div class="copyright">
+            Copyright © 2014 - 2017 北京百家互联科技有限公司版权所有. 京公网安备11010802015210号 | 京ICP备14027590号-1
+        </div>
+
+        {{ if $env === 'www' }}
+        <div class="cert">
+            <a style="display: none;" class="anquan_auth" rel="nofollow" key ="55fac474efbfb024124812c8" logo_size="124x47"  logo_type="realname"  href="http://www.anquan.org" >
+                <script src="//static.anquan.org/static/outer/js/aq_auth.js"></script>
+            </a>
+            <a id="_pingansec_bottomimagelarge_shiming" href="http://si.trustutn.org/info?sn=785161021024981516566&certType=1">
+                <img src="http://v.trustutn.org/images/cert/bottom_large_img.png"/>
+            </a>
+        </div>
+        {{ /if }}
+
+    </div>
+</div>
+{{ /strip }}

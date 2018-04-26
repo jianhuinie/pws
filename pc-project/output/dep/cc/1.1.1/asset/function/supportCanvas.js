@@ -1,0 +1,1 @@
+define("cc/function/supportCanvas",["require","exports","module"],function(){"use strict";return function(){var e=document.createElement("canvas");return e&&e.getContext?!0:!1}});

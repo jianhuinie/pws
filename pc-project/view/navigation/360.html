@@ -1,0 +1,319 @@
+{{ extends file="common/pc/base.html" }}
+
+{{ block name="data" }}
+{{ strip }}
+    {{ $need_im = false }}
+    {{ $smarty.block.parent }}
+
+    {{ $script_path = "navigation/360" }}
+
+    {{ $nav_config.video = 0 }}
+    {{ $nav_config.popup = 0 }}
+    {{ $nav_config.active = 'index' }}
+
+    {{ $script_data.provinceid = $tpl_data.curr_province.id }}
+    {{ $script_data.cityid = $tpl_data.curr_city.id }}
+
+    {{ $show_app_qrcode = false }}
+    {{ $is_home_page = true }}
+    {{ $need_mobile_seo = false }}
+{{ /strip }}
+{{ /block }}
+
+
+{{ block name="meta" }}
+{{ strip }}
+{{ /strip }}
+{{ /block }}
+
+{{ block name="title" }}
+{{ strip }}
+{{ /strip }}
+{{ /block }}
+
+
+{{ block name="keywords" }}
+{{ strip }}
+{{ /strip }}
+{{ /block }}
+
+{{ block name="description" }}
+{{ strip }}
+{{ /strip }}
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/navigation/360.less">
+{{ /block }}
+
+{{ block name="body" }}
+{{ strip }}
+
+<div class="main">
+    <div class="wrapper">
+        <div class="base-head">
+            <div class="head">
+                <ul class="navigation">
+                    <li class="area">
+                        <form class="area-form" action="" method="get">
+                            <label class="city-name">{{ $tpl_data.curr_city.name }}</label>
+                            <select class="province-select" value="{{ $tpl_data.curr_province.id }}">
+                                {{ foreach $tpl_data.provinces as $province }}
+                                <option value="{{ $province.province_id }}" {{ if $tpl_data.curr_province.id == $province.province_id }}selected{{ /if }}>{{ $province.province }}</option>
+                                {{ /foreach }}
+                            </select>
+                            <select class="city-select" name="city" value="{{ $tpl_data.curr_city.id }}">
+                                <option>...</option>
+                            </select>
+                        </form>
+                    </li>
+                    <li class="nav-360-item">
+                        <p class="type-name">留学考试</p>
+                        <div class="course-area">
+                            <a href="http://{{ $tpl_data.domain|default:'www' }}.genshuixue.com/st/托福.html?source=gsx_360daohan_pc" target="_blank">托福</a>
+                            <a href="http://{{ $tpl_data.domain|default:'www' }}.genshuixue.com/st/雅思.html?source=gsx_360daohan_pc" target="_blank">雅思</a>
+                            <a href="http://{{ $tpl_data.domain|default:'www' }}.genshuixue.com/st/SAT.html?source=gsx_360daohan_pc" target="_blank">SAT</a>
+                            <a href="http://{{ $tpl_data.domain|default:'www' }}.genshuixue.com/st/GRE.html?source=gsx_360daohan_pc" target="_blank">GRE</a>
+                            <a href="http://{{ $tpl_data.domain|default:'www' }}.genshuixue.com/st/AP.html?source=gsx_360daohan_pc" target="_blank">AP</a>
+                        </div>
+                    </li>
+                    <li class="nav-360-item">
+                        <p class="type-name">留学技巧</p>
+                        <div class="course-area">
+                            <a href="http://{{ $tpl_data.domain|default:'www' }}.genshuixue.com/st/择校辅导.html?source=gsx_360daohan_pc" target="_blank">择校辅导</a>
+                            <a href="http://{{ $tpl_data.domain|default:'www' }}.genshuixue.com/st/文书辅导.html?source=gsx_360daohan_pc" target="_blank">文书辅导</a>
+                            <a href="http://{{ $tpl_data.domain|default:'www' }}.genshuixue.com/st/签证辅导.html?source=gsx_360daohan_pc" target="_blank">签证辅导</a>
+                        </div>
+                    </li>
+                    <li class="nav-360-item">
+                        <p class="type-name">其他</p>
+                        <div class="course-area">
+                            <a href="http://{{ $tpl_data.domain|default:'www' }}.genshuixue.com/st/美洲留学.html?source=gsx_360daohan_pc" target="_blank">美洲留学</a>
+                            <a href="http://{{ $tpl_data.domain|default:'www' }}.genshuixue.com/st/亚洲留学.html?source=gsx_360daohan_pc" target="_blank">亚洲留学</a>
+                            <a href="http://{{ $tpl_data.domain|default:'www' }}.genshuixue.com/st/澳洲留学.html?source=gsx_360daohan_pc" target="_blank">澳洲留学</a>
+                        </div>
+                    </li>
+                </ul>
+                <div class="banner">
+                    <a href="http://www.genshuixue.com/track/source?id=zn_overseas_pc&type=&teacher_number=&org_number=&class_number=&url=http%3A%2F%2F{{ $tpl_data.domain|default:'www' }}.genshuixue.com%2Frecommend%2FseekTeacher%3Fsource%3Dgsx_daohang_zhaolaoshi" target="_blank">
+                        <img src="http://img.gsxservice.com/0cms/d/file/content/2015/12/566286efc147e.jpg">
+                    </a>
+                </div>
+            </div>
+            <div class="hot-activity">
+                <p class="caption">热门活动</p>
+                <a href="http://{{ $tpl_data.domain|default:'www' }}.genshuixue.com/recommend/seekTeacher?source=gsx_daohang_zhaolaoshi" target="_blank">
+                    <img class="hot-activity-img first" src="http://img.gsxservice.com/0cms/d/file/content/2015/12/5662869b34484.jpg">
+                </a>
+                <a href="http://{{ $tpl_data.domain|default:'www' }}.genshuixue.com/teacher/classCourseDetail/151009520605?source=gsx_360daohan_pc" target="_blank">
+                    <img class="hot-activity-img" src="http://img.gsxservice.com/4463254_gbuaacvi.jpg">
+                </a>
+                <a href="http://{{ $tpl_data.domain|default:'www' }}.genshuixue.com/teacher/classCourseDetail/151112842614?source=gsx_360daohan_pc" target="_blank">
+                    <img class="hot-activity-img" src="http://img.gsxservice.com/4463290_87p2iu35.jpg">
+                </a>
+                <a href="http://{{ $tpl_data.domain|default:'www' }}.genshuixue.com/teacher/classCourseDetail/151026578792?source=gsx_360daohan_pc" target="_blank">
+                    <img class="hot-activity-img" src="http://img.gsxservice.com/4463300_16enohlj.jpg">
+                </a>
+            </div>
+        </div>
+
+    {{ foreach $tpl_data.courses as $courses }}
+        <div class="level-block">
+            <div class="head-area">
+                <p class="caption">{{ $courses.title }}</p>
+                <ul class="tab-header">
+                {{ foreach $courses.content as $content }}
+                    <li class="tab-item tab-item-selected" data-subject="{{ $content.subject_id }}" data-tpl="">
+                        <a class="{{ if $content@first }}tab-item-selected{{ /if }}" href="javascript:void(0)" data-subject="{{ $content.subject_id }}">
+                        {{ $content.key }}
+                        </a>
+                    </li>
+                {{ /foreach }}
+                </ul>
+
+                <a class="more" href="{{ $courses.more_url }}" target="_blank">更多&gt;&gt;</a>
+                <div class="bottom-line"></div>
+            </div>
+
+<script type="text/template" id="teacher-template">
+
+
+    <!-- for: ${page_content} as ${exam}, ${index} -->
+        <li class="course-item">
+            <div class="cover">
+                <a class="cover-url" href="${exam.course_url}?source=gsx_360daohan_pc" target="_blank">
+                    <img src="${exam.cover}">
+                </a>
+                <p class="title-bg"></p>
+                <div class="title">
+                    <a href="${exam.course_url}?source=gsx_360daohan_pc" target="_blank" title="${exam.name}">${exam.name}</a>
+                </div>
+            </div>
+            <div class="info-area">
+                <div class="detail-area">
+                    <div class="price">
+                        <span class="price-current">¥${exam.price}</span>
+                        <!-- if: ${exam.original_price} -->
+                        <span class="price-original">¥${exam.original_price}</span>
+                        <!-- /if -->
+                    </div>
+
+                  <!-- if: ${exam.is1to1} == 0 -->
+                    <span class="date">${exam.begin_time}</span>
+                  <!-- /if -->
+
+                  <!-- if: ${exam.org_name} != null -->
+                    <div class="org-outter">
+                        <a class="institution" title="${exam.org_name}" href="${exam.org_url}?source=gsx_360daohan_pc" target="_blank">${exam.org_name}</a>
+                    </div>
+                  <!--else-->
+                    <div class="teacher-outter">
+                        <a class="institution teacher-single" title="${exam.teacher_name}" href="${exam.teacher_url}?source=gsx_360daohan_pc" target="_blank">${exam.teacher_name}</a>
+                    </div>
+                  <!-- /if -->
+                </div>
+                <div class="button-area">
+                    <a class="button" href="${exam.course_url}?source=gsx_360daohan_pc" target="_blank">
+                  <!-- if: ${exam.is1to1} == 0 -->
+                        查看详情
+                  <!--else -->
+                        咨询报名
+                  <!-- /if -->
+
+                    </a>
+                </div>
+            </div>
+        </li>
+     <!-- /for -->
+
+</script>
+
+            <ul class="course-list">
+                {{ foreach $courses.content as $exam_w }}
+                    {{ if $exam_w@first }}
+                      {{ foreach $exam_w.details as $exam }}
+                <li class="course-item">
+                    <div class="cover">
+                        <a class="cover-url" href="{{ $exam.course_url }}?source=gsx_360daohan_pc" target="_blank">
+                            <img src="{{ $exam.cover }}@1e_127h_1c_0i_1o_90Q_1x">
+                        </a>
+                        <p class="title-bg"></p>
+                        <div class="title">
+                            <a href="{{ $exam.course_url }}?source=gsx_360daohan_pc" target="_blank" title="{{ $exam.name }}">{{ $exam.name }}</a>
+                        </div>
+                    </div>
+                    <div class="info-area">
+                        <div class="detail-area">
+                            <div class="price">
+                                <span class="price-current">¥{{ $exam.price }}</span>
+                                {{ if isset($exam.original_price) }}
+                                <span class="price-original">¥{{ $exam.original_price }}</span>
+                                {{ /if }}
+                            </div>
+
+                          {{ if $exam.is1to1 == 0 }}
+                            <span class="date">{{ $exam.begin_time }}</span>
+                          {{ /if }}
+
+                            {{ if $exam.org_name != null }}
+                            <div class="org-outter">
+                                <a class="institution" title="{{ $exam.org_name }}" href="{{ $exam.org_url }}?source=gsx_360daohan_pc" target="_blank">{{ $exam.org_name }}</a>
+                            </div>
+                            {{ else }}
+                            <div class="teacher-outter">
+                                <a class="institution teacher-single" title="{{ $exam.teacher_name }}" href="{{ $exam.teacher_url }}?source=gsx_360daohan_pc" target="_blank">{{ $exam.teacher_name }}</a>
+                            </div>
+                            {{ /if }}
+                        </div>
+                        <div class="button-area">
+                            <a class="button" href="{{ $exam.course_url }}?source=gsx_360daohan_pc" target="_blank">
+                              {{ if $exam.is1to1 == 0 }}
+                                查看详情
+                              {{ else if $exam.is1to1 == 1 }}
+                                咨询报名
+                              {{ /if }}
+
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                     {{ /foreach }}
+                   {{ /if }}
+                {{ /foreach }}
+            </ul>
+            <div class="clear-both"></div>
+            <div class="hot-section">
+                <p class="hot-section-caption">热门文章</p>
+                <div class="article-area">
+                    <ul class="article-list">
+                      {{ foreach $courses.hot_news as $hot_news }}
+                        <li class="article-item">
+                            <a href="{{ $hot_news.url }}?source=gsx_360daohan_pc" title="{{ $hot_news.subject }}" target="_blank">
+                                {{ $hot_news.subject }}
+                            </a>
+                        </li>
+                      {{ /foreach }}
+                    </ul>
+
+                    <div class="clear-both"></div>
+                </div>
+                <a class="section-adv" {{ if $courses.section_ad_1.img_url }} href="{{ $courses.section_ad_1.img_url }}?source=gsx_360daohan_pc" {{ /if }} target="_blank">
+                    <img  src="{{ $courses.section_ad_1.img }}@1e_120h_1c_0i_1o_90Q_1x">
+                </a>
+            </div>
+            <div class="hot-section">
+                <p class="hot-section-caption">精品教育机构</p>
+                <ul class="refined-list">
+
+                  {{ foreach $courses.hot_orgs as $hot_orgs }}
+                    <li class="refined-item">
+                        <div class="org-area">
+                            <a href="{{ $hot_orgs.link }}?source=gsx_360daohan_pc" target="_blank">
+                                <img class="org-logo" src="{{ $hot_orgs.logo }}">
+                            </a>
+                            <div class="org-detail">
+                                <h3 class="org-caption">
+                                    <a href="{{ $hot_orgs.link }}?source=gsx_360daohan_pc" target="_blank" title="{{ $hot_orgs.title }}">{{ $hot_orgs.title }}</a>
+                                </h3>
+                                <p class="org-addr" title="{{ $hot_orgs.address }}">地点：{{ $hot_orgs.address }}</p>
+                                <a class="button" href="{{ $hot_orgs.link }}?source=gsx_360daohan_pc" target="_blank">咨询报名</a>
+                                <a class="button button-grey sec-button calling" href="javascript:;" data-click-monitor="1" data-name="{{ $hot_orgs.title }}" data-org-number="{{ $hot_orgs.number }}">免费通话</a>
+                            </div>
+                            <div class="clear-both"></div>
+                        </div>
+                        <p class="org-desc" title="{{ $hot_orgs.desc }}">{{ $hot_orgs.desc }}</p>
+                    </li>
+                  {{ /foreach }}
+
+                    <div class="clear-both"></div>
+                </ul>
+            </div>
+            <a href="{{ $courses.section_ad_2.img_url }}?source=gsx_360daohan_pc" target="_blank">
+                <img class="adv-mid-banner" src="{{ $courses.section_ad_2.img }}">
+            </a>
+        </div>
+    {{ /foreach }}
+
+
+    </div>
+</div>
+<script src="http://s0.qhimg.com/monitor/;monitor/8e133f74.js"></script>
+<script type="text/javascript">
+var monitor = window.monitor;
+(function () {
+    if (!monitor) {
+        return;
+    }
+    monitor.setConf({
+        'trackUrl': 'http://haostat.qihoo.com/haopv.gif',
+        'clickUrl': 'http://haostat.qihoo.com/haoclk.gif'
+    }).setUrl(location.href)
+      .getTrack()
+      .getClickAndKeydown();
+})();
+</script>
+{{ include file="common/component/callingDialog.html" }}
+{{ include file="common/script.html" }}
+
+{{ /strip }}
+{{ /block }}

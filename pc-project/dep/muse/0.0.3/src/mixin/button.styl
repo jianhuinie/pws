@@ -1,0 +1,50 @@
+/**
+ * @file 按钮
+ * @author zhujl
+ */
+
+button() {
+
+    display: inline-block;
+    text-align: center;
+
+    if ($support-mouse == true) {
+        cursor: pointer;
+        user-select: none;
+    }
+
+    ui-size('btn');
+
+}
+
+button-default() {
+    ui-type($type-hash['btn-default']);
+}
+
+button-primary() {
+    ui-type($type-hash['btn-primary']);
+}
+
+button-info() {
+    ui-type($type-hash['btn-info']);
+}
+
+button-success() {
+    ui-type($type-hash['btn-success']);
+}
+
+button-error() {
+    ui-type($type-hash['btn-error']);
+}
+
+button-link() {
+    ui-type($type-hash['btn-link']);
+}
+
+btn-block() {
+    width: 100%;
+
+    & + & {
+        margin-top: $btn-block-gap;
+    }
+}

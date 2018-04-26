@@ -1,0 +1,115 @@
+{{ *
+
+@file 班课设置 - 课程照片
+@author wangyujie
+
+* }}
+
+{{ strip }}
+
+{{ function getPhoto item=null }}
+
+<li data-photo='{{ json_encode($item, 77) }}' {{ if $index == 0 }}class="first"{{ /if }}>
+
+    {{ include file="common/variable/photo.html" url=$item.url raw_width=$item.width raw_height=$item.height width=180 height=101 }}
+
+    {{ include file="common/component/imageThumbnail.html" url=$item.url title='此图为课程封面' crop_url=$photo editable=true disable_rename=true }}
+
+</li>
+
+{{ /function }}
+
+{{ function getPhotoShowcase list=null }}
+
+    <div class="photo-showcase">
+
+        <div class="info-header form-trigger">
+            <i class="icon icon-image-o"></i>
+            <h3>
+                课程照片
+                {{ if $reason }}
+                <div class="message message-error">
+                    <i class="icon icon-info-circle"></i>
+                    你的课程照片包含违规内容，请修改后再次 提交审核
+                </div>
+                <a data-title="
+                {{ foreach $reason as $item }}
+                    {{ $item }}<br />
+                {{ /foreach }}
+                ">
+                    查看课程照片违规内容
+                </a>
+                {{ /if }}
+            </h3>
+            <span class="edit action-edit">
+                <i class="icon icon-plus"></i>
+                添加
+            </span>
+            {{ if isset($list) && count($list) > 1 }}
+            <span class="edit enable-order">
+                <i class="icon icon-arrow-sort"></i>照片排序
+            </span>
+            <span class="edit cancel-order">
+                取消排序
+            </span>
+            <span class="edit save-order">
+                保存顺序
+            </span>
+            {{ /if }}
+        </div>
+
+        <div class="info-body">
+            <div class="drag-tip">拖动排序：按住鼠标左键，将照片拖动到需要的位置后保存</div>
+            <ul class="photo-list">
+
+                {{ if isset($list) && $list }}
+
+                    {{ foreach $list as $key=>$item }}
+
+                        {{ if !empty($item) }}
+
+                            {{ getPhoto key=$key item=$item index=$item@index }}
+
+                        {{ /if }}
+
+                    {{ /foreach }}
+
+                {{ /if }}
+
+            </ul>
+
+        </div>
+
+    </div>
+
+{{ /function }}
+
+<div class="photo">
+
+    <script type="text/plain" class="tpl-showcase">
+    {{ getPhotoShowcase }}
+    </script>
+
+    {{ if isset($tpl_data.photos) && count($tpl_data.photos) > 0 }}
+
+        {{ getPhotoShowcase list=$tpl_data.photos }}
+
+    {{ else }}
+
+    <div class="noinfo form-trigger action-edit edit">
+
+        <span class="desc">请上传教学场地、教材、器材、作品等能体现该课程特色的照片</span>
+
+        <i class="icon icon-round-edit"></i>
+        <h3>
+            课程照片
+        </h3>
+
+    </div>
+
+    {{ /if }}
+
+    {{ include file="./classPhotoForm.html" }}
+
+</div>
+{{ /strip }}

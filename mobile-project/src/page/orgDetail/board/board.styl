@@ -1,0 +1,188 @@
+@import "page/orgDetail/board/swiper.styl";
+
+.board {
+    background: #FEFBEA;
+    padding-top: rem(15);
+    padding-left: rem(10);
+    .first-nav {
+        position: relative;
+        .avatar {
+            width: rem(60);
+            float: left;
+            img {
+                height: rem(50);
+                width: rem(50);
+                border-radius: rem(4);
+            }
+        }
+        .info {
+            float: left;
+            .header-line {
+                margin-bottom: rem(4);
+                position: relative;
+                .name {
+                    font-family: PingFang-SC-Regular;
+                    font-size: rem(17);
+                    color: #3C3D3D;
+                    letter-spacing: rem(-0.41);
+                    max-width: rem(90);
+                    float: left;
+                    height: rem(33);
+                    line-height: rem(33);
+                }
+                .teacher-vip {
+                    display: inline-block;
+                    margin-left: rem(2);
+                    img {
+                        width: rem(20);
+                        height: rem(20);
+                    }
+                }
+                .teacher-gold {
+                    display: inline-block;
+                    margin-left: rem(2);
+                    img {
+                        width: rem(20);
+                        height: rem(20);
+                    }
+                }
+                .audio {
+                    width: rem(75);
+                    position: relative;
+                    display: inline-block;
+                    .audio {
+                        height: rem(16);
+                        width: rem(16);
+                        position: absolute;
+                        left: rem(10);
+                        top: rem(7);
+                    }
+                    .border {
+                        width: rem(75);
+                        height: rem(30);
+                    }
+                    .time {
+                        position: absolute;
+                        top: rem(7);
+                        right: rem(10);
+                        font-family: Helvetica;
+                        font-size: rem(14);
+                        color: #9D9D9E;
+                    }
+                }
+            }
+            .bottom-line {
+                font-family: PingFang-SC-Regular;
+                font-size: rem(13);
+                color: #6D6D6E;
+                letter-spacing: rem(-0.32);
+                line-height: rem(20);
+                height: rem(20);
+                float: left;
+                span{
+                    display: inline-block;
+                }
+            }
+        }
+        .focus {
+            width: rem(60);
+            height: rem(30);
+            position: absolute;
+            right: rem(15);
+            top: 0;
+            background: #ff6c00;
+            text-align: center;
+            line-height: rem(30);
+            color: white;
+            border-radius: rem(4);
+            font-size: rem(14);
+            padding-bottom: rem(30);
+        }
+    }
+    .second-nav {
+        font-family: PingFang-SC-Regular;
+        font-size: rem(14);
+        color: #9D9D9E;
+        letter-spacing: rem(-0.34);
+        line-height: rem(14);
+        margin: rem(10) 0;
+        p {
+            line-height: rem(20);
+        }
+    }
+
+    .location {
+        border-bottom: 1px solid #F8F7EB;
+        padding-bottom: rem(10);
+        padding-top: rem(10);
+        position: relative;
+        .icon {
+            position: absolute;
+            top: rem(8);
+            img {
+                height: rem(16);
+                width: rem(16);
+            }
+        }
+        .address {
+            font-family: PingFang-SC-Regular;
+            font-size: rem(15);
+            color: #3D3D3E;
+            letter-spacing: rem(-0.37);
+            //line-height: rem(15);
+            padding-left: rem(20);
+            padding-right: rem(10);
+        }
+        .distance {
+            font-family: PingFang-SC-Regular;
+            color: #9d9d9e;
+            position: absolute;
+            right: 0;
+            top: rem(8);
+            .intoIcon {
+                height: rem(20);
+                width: rem(20);
+                img {
+                    height: rem(12);
+                    width: rem(8);
+                    margin-left: rem(5);
+                }
+            }
+
+        }
+    }
+    .phoneCall {
+        position: relative;
+        display: block;
+        padding: rem(10) 0;
+        .icon {
+            height: rem(18);
+            width: rem(16);
+            position: absolute;
+            top: rem(12);
+        }
+        .phone {
+            font-family: PingFang-SC-Regular;
+            font-size: rem(15);
+            color: #3D3D3E;
+            letter-spacing: rem(-0.37);
+            line-height: rem(15);
+            padding-left: rem(20);
+        }
+        .text {
+            display: block;
+            float: right;
+            font-family: PingFang-SC-Regular;
+            font-size: rem(13);
+            color: #9d9d9e;
+            letter-spacing: rem(-0.32);
+            line-height: rem(13);
+            margin-top: rem(5);
+                img {
+                    height: rem(12);
+                    width: rem(8);
+                    margin-left: rem(5);
+                }
+        }
+    }
+}

@@ -1,0 +1,43 @@
+.scd-subject-content {
+	width: 100%;
+	font-family: PingFang-SC-Regular;
+	background: #fff;
+	position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+	.scd-subject-item {
+		/*width: rem(310);*/
+		width: 83%;
+		margin: auto;
+		.title {
+			width: 100%;
+			height: rem(16);
+			font-size: rem(14);
+			color: #6d6d6e;
+			text-align: left;
+		}
+		.detail {
+			width: 100%;
+			margin-bottom: rem(15);
+			.item {
+				display: inline-block;;
+				width: 30%;
+				height: rem(34);
+				line-height: rem(34);
+				margin: rem(10) 5% 0 0;
+				border: 1px solid #ddddde;
+				border-radius: rem(5);
+				color: #3d3d3e;
+				background-color: #f8f8f8;
+				font-size: rem(14);
+				text-align: center;
+				box-sizing: border-box;
+			}
+			.item:nth-child(3n) {
+				margin-right: 0;
+			}
+		}
+	}
+}

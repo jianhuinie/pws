@@ -1,0 +1,65 @@
+/**
+ * @file 活动报名列表
+ * @author niejianhui
+ */
+
+@import '../../../common/layout.styl';
+#content {
+    padding: 10px 20px;
+
+    .activity-list,
+    .joined-activity {
+        .no-activity {
+            font-size: 12px;
+            color: $brand-desc;
+            text-align: center;
+            line-height: 300px;
+        }
+        .info-box {
+            height: 115px;
+            border-bottom: 1px solid $brand-divider;
+            padding-left: 20px;
+            margin-bottom: 5px;
+            margin-top: 20px;
+            .right {
+                position: relative;
+                .title {
+                    font-size: 16px;
+                    font-weight: bold;
+                }
+                .description {
+                    width: 500px;
+                    height: 42px;
+                    font-size: 14px;
+                    margin-top: 5px;
+                    margin-bottom: 10px;
+                    overflow: hidden;
+                    word-break: normal;
+                }
+                .detail {
+                    li {
+                        margin-right: 50px;
+                        font-size: 14px;
+                        span {
+                            color: $brand-primary;
+                        }
+                    }
+                }
+                .qrcode {
+                    position: absolute;
+                    bottom: -8px;
+                    right: 4px;
+                    text-align: center;
+                    p {
+                        font-size: 12px;
+                    }
+                }
+                .button {
+                    position: absolute;
+                    right: 5px;
+                    bottom: 5px;
+                }
+            }
+        }
+    }
+}

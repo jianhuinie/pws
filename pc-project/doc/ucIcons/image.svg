@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="24px" height="22px" viewBox="0 0 24 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.8.3 (29802) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 3</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="过渡版本" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard-6" transform="translate(-433.000000, -312.000000)" fill="#000000">
+            <g id="Group-3" transform="translate(432.000000, 312.000000)">
+                <g id="Group-18" transform="translate(0.000000, 8.400000)">
+                    <rect id="Rectangle-627" transform="translate(5.566905, 4.666905) rotate(45.000000) translate(-5.566905, -4.666905) " x="5.06690476" y="-1.33309524" width="1" height="12" rx="0.5"></rect>
+                    <rect id="Rectangle-627-Copy" transform="translate(13.346194, 4.666905) rotate(-45.000000) translate(-13.346194, -4.666905) " x="12.8461941" y="-1.33309524" width="1" height="12" rx="0.5"></rect>
+                </g>
+                <g id="Group-18-Copy" transform="translate(14.200000, 10.600000)">
+                    <rect id="Rectangle-627" transform="translate(3.264279, 2.766905) rotate(45.000000) translate(-3.264279, -2.766905) " x="2.76427872" y="-0.202943725" width="1" height="5.93969696" rx="0.5"></rect>
+                    <path d="M7.07720269,-0.536971574 L7.57858531,-0.536971574 C7.85549129,-0.536971574 8.07996793,-0.306682599 8.07996793,-0.0267730046 L8.07996793,6.37562206 C8.07996793,6.65739695 7.92042268,7.05583625 7.73427357,7.25420164 L7.40457268,7.60553957 C7.21365095,7.80899078 7.05936844,7.74627477 7.0599697,7.46701335 L7.07720269,-0.536971574 Z" id="Rectangle-627-Copy" transform="translate(7.569968, 3.594066) rotate(-45.000000) translate(-7.569968, -3.594066) "></path>
+                </g>
+                <path d="M19.6,8.9 C20.8702549,8.9 21.9,7.87025492 21.9,6.6 C21.9,5.32974508 20.8702549,4.3 19.6,4.3 C18.3297451,4.3 17.3,5.32974508 17.3,6.6 C17.3,7.87025492 18.3297451,8.9 19.6,8.9 L19.6,8.9 L19.6,8.9 L19.6,8.9 Z M19.6,7.9 C18.8820298,7.9 18.3,7.31797017 18.3,6.6 C18.3,5.88202983 18.8820298,5.3 19.6,5.3 C20.3179702,5.3 20.9,5.88202983 20.9,6.6 C20.9,7.31797017 20.3179702,7.9 19.6,7.9 L19.6,7.9 L19.6,7.9 L19.6,7.9 Z" id="Oval-60"></path>
+                <path d="M2,0 L24,0 L24,1 L2,1 L2,0 Z M2,21 L24,21 L24,22 L2,22 L2,21 Z M1,0 L2,0 L2,22 L1,22 L1,0 Z M24,0 L25,0 L25,22 L24,22 L24,0 Z" id="Combined-Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

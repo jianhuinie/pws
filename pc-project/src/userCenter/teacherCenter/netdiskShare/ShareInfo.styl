@@ -1,0 +1,276 @@
+/**
+ * @file 资料共享
+ * @author wangtianhua
+ */
+.add-file-dialog {
+    width: 700px;
+    border-radius: 8px;
+    > .header {
+        background-color: #FD9126;
+        border-radius: 8px 8px 0 0;
+        color: #fff;
+        text-align: center;
+        height: 42px;
+    }
+    > .close {
+        color: #c66808;
+    }
+    .items-list {
+        margin-top: 20px;
+        border: 1px solid #ccc;
+        overflow-y: auto;
+        height: 300px;
+        .item {
+            background: #f7f9fa;
+            padding: 5px 10px;
+            border-bottom: 1px solid #cdcdce;
+            height: 74px;
+            overflow: hidden;
+            position: relative;
+            .file-name {
+                margin-left: 40px;
+            }
+            .icon-info-circle,
+            .icon-check-circle {
+                font-size: 16px;
+                position: absolute;
+                top: 14px;
+            }
+            > .status {
+                margin-left: 40px;
+                width: 400px;
+                height: 16px;
+                position: relative;
+                display: inline-block;
+                .progress-wrapper {
+                    height: 8px;
+                    margin: 5px 0;
+                    background-color: #E7F3EA;
+                    > .label {
+                        background-color: #5BCA7E;
+                        height: 8px;
+                        padding: 0 !important;
+                        position: relative;
+                        top: -8px;
+                    }
+                    .progress-span {
+                        position: absolute;
+                        right: -65px;
+                        color: #000;
+                        background: transparent;
+                        border: none;
+                        top: -2px;
+                        padding-left: 10px;
+                        color: #6d6d6e;
+                    }
+                }
+                .cancel {
+                    position: absolute;
+                    right: -187px;
+                    top: -5px;
+                }
+            }
+        }
+    }
+    .upload-wrapper {
+        float: right;
+        margin-right: 20px;
+        margin-top: -4px;
+    }
+}
+.add-from-netdisk-dialog {
+    width: 700px;
+    border-radius: 8px;
+
+    > .header {
+        background-color: #FD9126;
+        border-radius: 8px 8px 0 0;
+        color: #fff;
+        text-align: center;
+        height: 42px;
+    }
+    > .close {
+        color: #c66808;
+    }
+
+    .body {
+        padding: 10px 15px;
+    }
+    .items-list-from-netdisk {
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        .item-list {
+            height: 300px;
+            overflow-y: auto;
+            input[type="checkbox"] {
+                display: none;
+            }
+            .checkspan {
+                width: 15px;
+                height: 15px;
+                border-radius: 10%;
+                display: inline-block;
+                .icon-checked {
+                    display: none;
+                }
+                .icon-unchecked {
+                    display: inline-block;
+                }
+            }
+
+            input[type="checkbox"]:checked + .checkspan {
+                .icon-checked {
+                    display: inline-block;
+                }
+                .icon-unchecked {
+                    display: none;
+                }
+            }
+        }
+        .list-body {
+            height: 200px;
+            width: 100%;
+            text-align: center;
+            line-height: 200px;
+        }
+
+        .item {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            font-size: 12px;
+            height: 48px;
+            overflow: hidden;
+            line-height: 48px;
+            border-bottom: #f8f8f8 solid 1px;
+
+            > div {
+                display: inline-block;
+            }
+            .item-name {
+                width: 50%;
+                overflow: hidden;
+                &.has-sub {
+                    cursor: pointer;
+                }
+                .solid {
+                    width: 15px;
+                    display: inline-block;
+                }
+            }
+            .item-size {
+                width: 25%;
+                vertical-align: top;
+                padding-left: 10px;
+            }
+            .item-status {
+                width: 22%;
+                vertical-align: top;
+                padding-left: 5px;
+            }
+        }
+        .item-header {
+            background-color: #f8f8f8;
+            border-bottom: 1px solid #ccc;
+            height: 36px;
+            line-height: 36px;
+            border-radius: 10px 10px 0 0;
+            background-color: #E5E5E5;
+            color: #3d3d3e;
+            font-size: 13px;
+            input[type="checkbox"] {
+                opacity: 0;
+                margin: 0;
+                position: relative;
+                left: 0;
+                top: 0px;
+                z-index: 9;
+            }
+            .checkspan {
+                width: 15px;
+                height: 15px;
+                border-radius: 10%;
+                display: inline-block;
+                margin-right: 10px;
+                position: relative;
+                left: -11px;
+                top: 2px;
+                .icon-checked {
+                    display: none;
+                }
+                .icon-unchecked {
+                    display: inline-block;
+                }
+            }
+
+            input[type="checkbox"]:checked + .checkspan {
+                .icon-checked {
+                    display: inline-block;
+                }
+                .icon-unchecked {
+                    display: none;
+                }
+            }
+            .item-name {
+                padding-left: 15px;
+            }
+            .checked-all {
+                margin: 0 15px;
+            }
+            .item-size {
+                padding-left: 0px;
+            }
+            .item-status {
+                padding-left: 0px;
+            }
+        }
+
+    }
+}
+.netdisk-share-info {
+    .help {
+        float: right;
+        display: inline-block;
+    }
+    .inline {
+        display: inline-block;
+    }
+    .image-icon {
+        width: auto;
+        vertical-align: middle;
+        padding: 0 8px;
+        padding-left: 13px;
+    }
+    .crumbs {
+        overflow: hidden;
+        height: 30px;
+        > .text {
+            cursor: pointer;
+        }
+    }
+}
+
+.footer {
+    margin-top: 20px;
+    .choose {
+        display: inline-block;
+    }
+    .error {
+        display: inline-block;
+        width: 610px;
+    }
+    .submit-button {
+        width: 108px;
+        height: 34px;
+        border-radius: 3px;
+    }
+    > .button {
+        float: right;
+        position: relative;
+        top: -20px;
+        right: 0;
+    }
+}

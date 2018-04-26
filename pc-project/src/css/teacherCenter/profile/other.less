@@ -1,0 +1,60 @@
+/**
+ * @file 其他信息
+ * @author zhujialu
+ */
+.other {
+
+    clear: both;
+
+    .content {
+        padding: 20px;
+        .word-break();
+        .clearfix();
+    }
+
+    h2 + .form-hint {
+        margin-top: @gap-vertical-large;
+    }
+
+    .form-editor {
+        width: 700px;
+        margin-top: @gap-vertical-small;
+    }
+
+    textarea {
+        width: 678px;
+        height: 80px;
+    }
+
+    .reasons {
+        color: @brand-error;
+        .icon {
+            padding-right: @gap-horizontal-tiny;
+        }
+    }
+
+    .form-error {
+        border: 1px solid @brand-error;
+    }
+
+    .child-error {
+        .edui-editor {
+            border: 1px solid @brand-error;
+        }
+    }
+
+    .message {
+        display: inline-block;
+        margin-left: @gap-horizontal-large;
+        padding: @gap-vertical-tiny
+                 @gap-horizontal-medium;
+
+    }
+
+}
+
+.sensitive {
+    em {
+        color: @brand-primary;
+    }
+}

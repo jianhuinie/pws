@@ -1,0 +1,32 @@
+{
+    "code": 0,
+    "msg": "succ",
+    "data": {
+        "checkin": {
+            "today": {
+                "integral": 3,
+                "serial_day": 10,
+                "text": "今天心情不错",
+                "mood": 2,
+                "create_time": "2015-02-02 12:11:12"
+            },
+            "month": "2015-02",
+            "pre_month": "2015-01",
+            "next_month": "",
+            "calendar": [
+                {
+                    "date": "2015-03-04",
+                    "has_checkin": true,
+                    "mood": "2",
+                    "text": "todayisagoodday",
+                    "create_time": "2015-03-04 17:06:34"
+                }
+            ]
+        },
+        "tpl": {
+            "checkin": "啥都木有"
+        }
+
+    },
+    "ts": 1422586841
+}

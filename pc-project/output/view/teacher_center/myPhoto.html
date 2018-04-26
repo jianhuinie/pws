@@ -1,0 +1,46 @@
+{{ extends file="common/center/base.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $nav_active_tab = 'index' }}
+
+    {{ $script_path = "teacherCenter/myPhoto_01e21fd88f" }}
+
+    {{ $script_data.maxPhoto = $tpl_data.photo_max }}
+    {{ $script_data.countPhoto = $tpl_data.photo_count }}
+
+
+{{ /block }}
+
+{{ block name="title" prepend }}
+我的照片 -
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/teacherCenter/myPhoto_e76059acb2.css">
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+    {{ include file="teacher_center/common/floatHelp.html" }}
+    {{ include file="teacher_center/common/sidebar.html" active="photos" }}
+
+    <div id="content" class="card">
+        <div class="card-header">
+            <h2>我的照片</h2>
+            <a class="text-info" href="{{ $origin_http }}/teacher_center/preview_home" target="_blank">
+                预览主页
+            </a>
+            <span class="hint">仅支持 .jpg、.png、.jpeg 格式照片，大小不超过10M</span>
+        </div>
+
+        <div class="card-body">
+            {{ include file="teacher_center/profile/photo.html" }}
+        </div>
+    </div>
+
+
+{{ /strip }}
+{{ /block }}

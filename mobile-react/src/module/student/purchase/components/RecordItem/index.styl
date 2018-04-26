@@ -1,0 +1,45 @@
+@import 'resource/css/mixin/common.styl';
+.record-item {
+    display: flex;
+    padding: rem(15) 0;
+    border-bottom: rem(1) solid #f6f6f6;
+    &-cover {
+        width: rem(120);
+        height: rem(65);
+        outline: rem(1) solid #f6f6f6;
+        border-radius: rem(2);
+    }
+    &-detail {
+        position: relative;
+        margin-left: rem(10);
+        flex: 1;   
+        overflow: hidden;
+        &-top {
+            mult-ellipsis(2);
+            font-size: rem(14);
+            color: #3D3D3E;
+            letter-spacing: 0;
+            line-height: rem(17);
+        }
+        &-middle {
+            margin-top: rem(2);
+            font-size: rem(11);
+            color: #6D6D6E;
+            line-height: rem(12);
+            height: rem(12);
+            overflow: hidden;
+        }
+        &-foot {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            font-size: rem(12);
+            color: #3D3D3E;
+            line-height: rem(14);
+            .price {
+                color: #F95D5D;
+                margin-left: rem(8);
+            }
+        }
+    }
+}

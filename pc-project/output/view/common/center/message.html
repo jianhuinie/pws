@@ -1,0 +1,52 @@
+{{ *
+
+@file 我的消息
+@author zhangjiayi
+
+* }}
+
+{{ extends file="common/center/base.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $script_path = "common/center/message_f3032e8a96" }}
+
+    {{ if isset($tpl_data.message_setting) }}
+        {{ $script_data.defaultSetting = $tpl_data.message_setting.default_setting }}
+    {{ /if }}
+
+    {{ if isset($tpl_data.sys_messages.list) && count($tpl_data.sys_messages.list) > 0 }}
+        {{ $script_data.eid = $tpl_data.sys_messages.list[count($tpl_data.sys_messages.list) - 1].msg_id }}
+    {{ /if }}
+
+    {{ $nav_active_tab = 'message' }}
+
+{{ /block }}
+
+{{ block name="title" prepend }}
+我的消息 -
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/common/center/message_23cef4115d.css">
+{{ $smarty.block.parent }}
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+
+    {{ block name="sidebar" }}{{ /block }}
+
+    <div id="content" class="card">
+        <div class="card-header">
+            <h2>我的消息</h2>
+        </div>
+        <div class="card-body">
+            {{ block name="content" }}{{ /block }}
+        </div>
+    </div>
+
+{{ /strip }}
+{{ /block }}

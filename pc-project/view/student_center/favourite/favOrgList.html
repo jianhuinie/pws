@@ -1,0 +1,44 @@
+{{ *
+
+@file 机构收藏列表
+@author caoying
+
+* }}
+
+{{ strip }}
+
+{{ foreach $tpl_data.items as $item }}
+<div class="org-info" data-content='{{ json_encode($item,77) }}'>
+    <div class="org-img">
+        <a href="{{ $item.url }}"><img src="{{ $item.avatar }}@75w_75h_1c_1e"></a>
+    </div>
+    <div class="org-summary">
+        <div class="org-name">
+            {{ $item.title }}
+        </div>
+        <div class="org-score">
+        {{ if $item.mark != 0 }}
+        {{ include file="common/component/starScore.html" score=$item.mark }}
+            <span class="score-text">{{ $item.mark|number_format: 1 }}分</span>
+        {{ /if }}
+        </div>
+        {{ if mb_strlen($item.brief,'utf-8') > 30 }}
+        <div class="org-brief" data-title="{{ $item.brief }}" data-width="240px">
+            {{ $item.brief|cn_truncate:30:"..." }}
+        </div>
+        {{ else }}
+        <div class="org-brief">
+            {{ $item.brief }}
+        </div>
+        {{ /if }}
+    </div>
+    <div class="org-oper">
+        <button class="btn-small btn-primary">查看详情</button>
+        <a class="org-delete" data-pager='{{ json_encode($tpl_data.pager) }}'>删除收藏</a>
+    </div>
+</div>
+{{ /foreach }}
+
+{{ include file="common/component/pager.html" page=$tpl_data.pager.page page_size=$tpl_data.pager.page_size count=$tpl_data.pager.count }}
+
+{{ /strip }}

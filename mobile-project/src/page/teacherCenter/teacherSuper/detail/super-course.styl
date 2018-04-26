@@ -1,0 +1,123 @@
+.teacher-course {
+  border-radius: rem(3);
+  margin: rem(15);
+  background: #ffffff;
+  padding: rem(20) 0;
+  margin-top: 0;
+  .title-coupon {
+    font-size: rem(14);
+    padding: 0 rem(15);
+    padding-bottom: rem(5);
+    .title {
+      display: inline-block;
+    }
+    .coupon {
+      display: inline-block;
+      float: right;
+      color: $R500;
+      .icon-coupon-vip {
+        font-size: rem(25);
+        vertical-align: middle;
+        margin-top: rem(-1);
+        display: inline-block;
+      }
+      .icon-angle-right {
+        vertical-align: middle;
+      }
+    }
+  }
+  .senior-course-info {
+    padding: rem(10) rem(15);
+    &:hover {
+      background: #ebeced;
+    }
+
+    position: relative;
+    overflow: hidden;
+    min-height: rem(79);
+    margin-top: rem(2);
+    .left-cover {
+      position: absolute;
+      width: rem(120);
+      height: rem(76);
+      border-radius: rem(2);
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: rem(2);
+      }
+    }
+    .right-info {
+      padding-left: rem(130);
+      .type-name {
+        min-height: rem(44);
+        .course-type {
+          color: $C500;
+          font-size: rem(10);
+          border: 1px solid $C500;
+          /*padding: 0 4px;*/
+          border-radius: rem(2);
+          display: inline-block;
+          height: rem(20);
+          line-height: rem(20);
+          padding: 0 rem(2) rem(20) rem(2);
+        }
+        .course-name {
+          font-size: rem(15);
+          color: $G500;
+          display: -webkit-box;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: normal !important;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+        }
+      }
+      .price {
+        margin-top: rem(10);
+        .current-price {
+          font-size: rem(13);
+          color: $R500;
+        }
+        .original-price {
+          font-size: rem(10);
+          text-decoration: line-through;
+          color: $G300;
+        }
+      }
+
+    }
+  }
+  .more-course {
+    margin: 0 auto;
+    text-align: center;
+    margin-top: rem(14);
+    position: relative;
+    span {
+      font-size: rem(14);
+      color: $G300;
+    }
+    .icon {
+      color: $G300;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      margin-left: rem(5);
+
+    }
+
+  }
+}
+.img-background .fenqi{
+  background: #37a4f5;
+  color: #fff;
+  font-size: rem(9);
+  padding: rem(1) rem(4) rem(0) rem(4);
+  border-radius: rem(2);
+  position: absolute;
+  top: rem(3);
+  right: rem(3);
+  &.hide{
+    display: none;
+  }
+}

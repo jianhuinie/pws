@@ -1,0 +1,62 @@
+{{ *
+
+@file 图片缩略图
+
+      参数：
+      url：必传，图片地址
+      title：必传，图片标题
+      editable: 可选，是否需要编辑
+      crop_url: 可选，经过某种算法裁剪后的 url
+      disable_rename: 可选，是否禁用重命名
+
+@author zhujialu
+
+* }}
+{{ strip }}
+
+{{ if !isset($title) }}
+    {{ $title="" }}
+{{ /if }}
+
+<div class="img-thumbnail" data-image="{{ $url }}" data-name="{{ $title }}">
+
+    {{ if isset($crop_url) && $crop_url }}
+
+    <img src="{{ $crop_url }}" />
+
+    {{ else }}
+
+    {{ include file="common/component/image.html" url=$url width=180 }}
+
+    {{ /if }}
+
+    {{ if isset($editable) && $editable }}
+    <div class="action">
+        <i class="trigger">
+            <i class="icon icon-angle-down"></i>
+        </i>
+        <ul class="menu">
+            {{ if !isset($disable_rename) || !$disable_rename }}
+            <li class="rename">
+                <i class="icon icon-pencil"></i>
+                重命名
+            </li>
+            {{ /if }}
+            <li class="remove">
+                <i class="icon icon-times"></i>
+                删除
+            </li>
+        </ul>
+    </div>
+    {{ /if }}
+
+</div>
+
+<span class="caption">
+    <em>{{ $title }}</em>
+    <i class="icon icon-question-circle" data-title="课程封面将作为页面展示、对外分享的头图，是学
+生对于班课的第一印象，建议使用高质量的图片
+" data-width="20em"></i>
+</span>
+
+{{ /strip }}

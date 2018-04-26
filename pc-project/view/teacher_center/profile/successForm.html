@@ -1,0 +1,67 @@
+{{ *
+
+@file 相关案例表单
+@author wangyujie
+
+* }}
+{{ strip }}
+<div class="form form-success">
+
+    <h2>相关案例</h2>
+
+    <div class="form-group title">
+        <label class="form-label">
+            案例名称（30字以内）
+        </label>
+        <div class="form-controls">
+            <input type="text" name="title" class="form-text" required maxlength="30" />
+            <span class="error"></span>
+        </div>
+    </div>
+
+
+    <div class="success-date">
+        <label class="form-label">
+            日期
+        </label>
+        {{ include file="common/component/dateSelect.html" year_required=1 month_required=1 }}
+    </div>
+
+    <div class="form-group">
+
+        <label class="form-label">
+            描述你的案例（50~300字）
+        </label>
+
+        <div class="form-controls">
+            <div class="form-hint">
+                详细的案例描述有助于学生更了解您，提高约课率。
+            </div>
+
+            <div class="form-editor">
+                <textarea class="form-text" name="content" autocomplete="off" placeholder="
+                例如：<br />
+                2013年，指导学生在美术高考中获得优异成绩，其中95%的学生考入了中央美术学院、清华大学美术学院<br />
+                2012年，国内最畅销的职业生涯科普书籍著者，至今销量超过80万册<br />
+                意大利罗马国际音乐节银奖得主"></textarea>
+
+                <div class="reasons form-block">
+                </div>
+
+                <div class="form-hint"></div>
+                <span class="error"></span>
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="form-action">
+        <button class="btn-primary btn-save">保存</button>
+        <button class="btn-default btn-cancel">取消</button>
+    </div>
+
+
+</div>
+{{ /strip }}

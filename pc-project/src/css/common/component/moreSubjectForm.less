@@ -1,0 +1,141 @@
+/**
+ * @file 多课程选择
+ * @author wangyujie
+ */
+.form-subjects {
+
+    // 已选课程
+    .selected-sub {
+        .icon-plus-circle {
+            font-size: 20px;
+            color: @brand-info-light;
+            vertical-align: top;
+            margin-right: @gap-horizontal-tiny;
+        }
+        .action {
+            color: @brand-info;
+            cursor: pointer;
+            display: inline-block;
+            &:hover {
+                .icon {
+                    color: @brand-info;
+                }
+            }
+        }
+        .sub-list {
+            li {
+                float: left;
+                border: 1px solid @brand-info;
+                border-radius: 2px;
+                color: @brand-info;
+                cursor: pointer;
+                padding: 2px @gap-horizontal-medium;
+                margin-right: @gap-horizontal-small;
+                margin-bottom: @gap-horizontal-small;
+                &:hover {
+                    background-color: @brand-info;
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    // 选课组件
+    .to-select {
+        display: none;
+        margin-bottom: @gap-horizontal-small;
+        .dropdown {
+            width: 160px;
+        }
+        .category3 {
+            display: none;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            margin-left: 85px;
+            margin-top: @gap-horizontal-medium;
+            padding: @gap-horizontal-medium;
+            .clearfix();
+            ul.category3-list {
+                float: left;
+                width: 615px;
+                .clearfix();
+            }
+            li {
+                float: left;
+                border: 1px solid @brand-info;
+                border-radius: 2px;
+                color: @brand-info;
+                cursor: pointer;
+                padding: 2px @gap-horizontal-medium;
+                margin-right: @gap-horizontal-small;
+                margin-bottom: @gap-horizontal-small;
+                &:hover {
+                    background-color: @brand-info;
+                    color: #fff;
+                }
+            }
+            li.active {
+                background-color: @brand-info;
+                color: #fff;
+            }
+
+        }
+
+    }
+
+    // 临时选中数据
+    .temp-selected {
+        display: none;
+        margin-left: 85px;
+
+        .temp-list {
+            float: left;
+            .clearfix();
+            li {
+                float: left;
+                border: 1px solid @brand-info;
+                border-radius: 2px;
+                color: @brand-info;
+                padding: 1px @gap-horizontal-medium;
+                margin-right: @gap-horizontal-small;
+                margin-bottom: @gap-horizontal-tiny;
+                .icon-times {
+                    cursor: pointer;
+                    margin-left: @gap-horizontal-tiny;
+                }
+                &:hover {
+                    background-color: @brand-info;
+                    color: #fff;
+                }
+            }
+        }
+
+        .action {
+            display: none;
+            color: @brand-info;
+            cursor: pointer;
+            .icon {
+                margin-right: @gap-horizontal-tiny;
+            }
+            &:hover {
+                .icon {
+                    color: @brand-info;
+                }
+            }
+        }
+
+        .sure,
+        .clear-all {
+            color: @brand-info;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 12px;
+            padding-left: @gap-horizontal-medium;
+            &:hover {
+                color: @brand-primary;
+            }
+        }
+
+    }
+
+}

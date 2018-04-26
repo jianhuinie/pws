@@ -1,0 +1,304 @@
+/**
+ * @file 会员中心
+ * @author wuhongjie
+ */
+@import '../../../common/layout.styl';
+@import '../component/VipUpdateDialog.styl';
+
+#breadcrumb{
+  display none
+}
+
+#nav {
+    .item + .item {
+        margin-left: 8px;
+        padding-left: 8px;
+    }
+
+}
+
+#header {
+    h1 {
+        display: none;
+    }
+}
+
+#menu {
+    display: none;
+}
+
+#content {
+    min-width:1000px;
+    .tab-nav-primary {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        .nav-item {
+            color: #6d6d6e;
+            font-size: 14px;
+            margin-right: 30px;
+        }
+        .active-tab {
+            border-bottom: 3px solid #ff9a00;
+            color: #3d3d3e;
+            font-size: 14px;
+            padding-bottom: 8px;
+        }
+    }
+    .vip-header {
+        width 100%
+        height 250px
+        .header-left {
+            width 230px
+            height 250px
+            float left
+            background #FFFFFF
+            padding-top 10px
+            text-align center
+            .header-left-photo{
+              display :block;
+            }
+            .header-left-name{
+                display :inline-block;
+                font-size: 16px;
+                color: #222222;
+                .icon {
+                  width: 20px;
+                  height: 18px;
+                  margin-left: 5px;
+                  display: inline-block;
+                  background: url("img/small-novip.png") no-repeat;
+                }
+                .vip-icon-level1{
+                    background: url("img/small-vip.png") no-repeat;
+                }
+                .vip-icon-level2{
+                    background: url("img/small-gvip.png") no-repeat;
+                }
+                .vip-icon-level3{
+                    background: url("img/small-cvip.png") no-repeat;
+                }
+            }
+            .header-left-tip{
+                font-size 12px;
+                color #555555
+                .icon-wen {
+                    width: 15px;
+                    display: inline-block;
+                    height: 14px;
+                    position: relative;
+                    top: 3px;
+                    background: url("img/wen.png");
+                }
+            }
+            .header-left-button{
+                .button {
+                    color: #FFFFFF;
+                    width: 170px;
+                    height: 36px;
+                    font-size: 14px;
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin-top: 5px;
+                    border-radius: 2px;
+                }
+                .tips {
+                    color: #f95710;
+                    font-size: 12px;
+                    text-align: left;
+                    padding: 0 4px;
+                    margin: 3px auto;
+                }
+            }
+        }
+        .header-right {
+            width 751px
+            float right
+            height 250px
+            display inline-bloc
+            background url("img/banner-new.jpg")
+        }
+    }
+    .vip-title {
+        font-size 20px
+        color #000000
+        margin-top: 20px;
+        .vip-red {
+            width: 5px;
+            height: 20px;
+            background: #f95710;
+            display: inline-block;
+            position: relative;
+            top: 2px;
+            margin-right: 10px;
+        }
+        .hint {
+            font-size: 14px;
+            color: #6d6d6d;
+            vertical-align: text-bottom;
+            margin-left: 8px;
+        }
+    }
+    .vip-center {
+        width: 1020px;
+        height: 600px;
+        .vip-item {
+            display: inline-block;
+            width: 231px;
+            height: 265px;
+            background: #FFFFFF;
+            margin: 10px 20px 10px 0px;
+            cursor: pointer;
+            position: relative;
+            &:hover {
+                border-bottom-width:5px;
+                margin-top: 5px;
+                height: 270px;
+            }
+            .vip-descript {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: 70px;
+                text-align: center;
+                .vip-descript-title{
+                    position: relative;
+                    font-size: 16px;
+                    color: #222222;
+                    .icon-new {
+                        width: 23px;
+                        height: 15px;
+                        display: inline-block;
+                        position: absolute;
+                        top: -5px;
+                        margin-left: 5px;
+                        background: url(img/icon_new.gif);
+                    }
+                }
+                .vip-descript-content {
+                    font-size: 12px;
+                    color: #555555;
+                }
+            }
+        }
+        .item-ke {
+            background: url("img/ic_live.png");
+            border-bottom: 1px solid #ff5846;
+        }
+        .item-biao {
+            background: url("img/biao.png");
+            border-bottom: 1px solid #c683eb;
+        }
+        .item-gu {
+            background: url("img/gu.png");
+            border-bottom: 1px solid #66d8b9;
+        }
+        .item-zhui {
+            background: url("img/zhui.png");
+            border-bottom: 1px solid #a8dc84;
+        }
+        .item-you {
+            background: url("img/you.png");
+            border-bottom: 1px solid #9c7ffc;
+        }
+        .item-hua {
+            background: url("img/hua.png");
+            border-bottom: 1px solid #8daef7;
+        }
+        .item-tui {
+            background: url("img/tui.png");
+            border-bottom: 1px solid #98d36f;
+        }
+        .item-fen {
+            background: url("img/ic_kongjian.png");
+            border-bottom: 1px solid #c683eb;
+        }
+    }
+    .vip-other {
+        width: 100%;
+        margin-top: 10px;
+        font-size: 14px;
+        height: 150px;
+        .other-item {
+            float: left;
+            display: inline-block;
+            width: 248px;
+            text-align: center;
+            background: #ffffff;
+            height: 70px;
+            margin-left: 2px;
+            margin-top: 2px;
+            color: #555555;
+            padding-top: 23px;
+            position:relative;
+            cursor:pointer;
+            &:hover {
+                color: #f90;
+            }
+            .icon-hot {
+                width: 21px;
+                height: 16px;
+                display: inline-block;
+                position: absolute;
+                top: 20px;
+                margin-left: 5px;
+                background: url("img/icon_hot.gif");
+            }
+            .icon-new {
+                width: 23px;
+                height: 15px;
+                display: inline-block;
+                position: absolute;
+                top: 20px;
+                margin-left: 5px;
+                background: url("img/icon_new.gif");
+            }
+        }
+    }
+    .vip-level{
+        width:100%;
+        height:104px;
+        margin-top: 10px;
+        .level-link{
+            width: 492px;
+            display: inline-block;
+            text-align: center;
+            background: #ffffff;
+            margin-left: 2px;
+            height: 104px;
+            color: #222222;
+            font-size: 14px;
+            padding-top: 50px;
+            padding-left: 20px;
+            cursor:pointer;
+            position: relative;
+            &:hover {
+                color: #f90;
+            }
+            .icon{
+                display: inline-block;
+                position: absolute;
+                top: 36px;
+            }
+            .icon-level3{
+                background: url("img/cvip.png") no-repeat;
+                width: 40px;
+                height: 40px;
+                left: 105px;
+            }
+            .icon-level2{
+                background: url("img/gvip.png") no-repeat;
+                width: 40px;
+                height: 40px;
+                left: 105px;
+            }
+            .icon-level1{
+                background: url("img/vip.png") no-repeat;
+                width: 40px;
+                height: 40px;
+                left: 120px;
+            }
+        }
+    }
+}
+

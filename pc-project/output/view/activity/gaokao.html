@@ -1,0 +1,81 @@
+{{ extends file="common/pc/base.html" }}
+
+{{ block name="title" }}
+高考－跟谁学
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/activity/gaokao_b7d721bf0f.css" xmlns="http://www.w3.org/1999/html">
+{{ /block }}
+
+{{ block name="data" }}
+
+{{ $need_im = true }}
+{{ $smarty.block.parent }}
+{{ $script_path = "activity/gaokao_eae39caeae" }}
+{{ $script_data.subjectId = $tpl_data.subject_id }}
+{{ $script_data.nextCursor = $tpl_data.next_cursor }}
+{{ $script_data.hasMore = $tpl_data.has_more }}
+
+{{ $flotage_config.hidden = 1 }}
+{{ $rave_config.hidden = 1 }}
+{{ $nav_config.hidden = 1 }}
+
+{{ /block }}
+
+{{ strip }}
+{{ block name="body" }}
+
+{{ $smarty.block.parent }}
+
+{{ include file="common/siteNav.html" }}
+{{ include file="common/main/common/header.html" }}
+{{ include file="common/script.html" }}
+
+<div id="main">
+    <div id="hiddenDiv" style="display: none;"></div>
+    <div id="content-left" class="content">
+        <div class="title-div">
+            <div class="title">{{ $tpl_data.subject_name }}</div>
+        </div>
+        <div class="content-div">
+            {{ foreach $tpl_data.list as $val }}
+            <a class="subject-item" {{ if !$val.cover_img }} style='height:140px;' {{ /if }} href="{{ $val.link }}" target="_blank">
+                {{ if $val.cover_img }}
+                <img src="{{ $val.cover_img }}">
+                {{ /if }}
+                <div class="item-content">
+                    <div class="item-title">
+                        {{ $title = $val.title|cn_truncate:18 }}
+                        <em><nobr>{{ $val.title }}</nobr></em>
+                    </div>
+                    <div class="item-description">
+                        {{ $description = $val.description|cn_truncate:78 }}
+                        {{ $description }}
+                    </div>
+                </div>
+            </a>
+            {{ /foreach }}
+        </div>
+        <div class="seemore" {{ if !$tpl_data.has_more }} style="display:none;" {{ /if }}>加载更多</div>
+    </div>
+    <div id="content-right" class="content">
+        <div class="title-div">
+            <div class="title">课程推荐</div>
+        </div>
+        <div class="recommend-teacher">
+            <a class="recomment-item" target="_blank" href="http://www.genshuixue.com/teacher/classCourseDetail/151220937495?source=gsx_baiduPCkapian_yingyujiqiao">
+                <img class="recomment-img" src="{{ $static_origin }}/asset/img/activity/gaokao/yingyu_17f9411bf7.jpg">
+            </a>
+            <a class="recomment-item" target="_blank" href="http://www.genshuixue.com/activity/one2oneWinter?zn=zn_121_pcbanner&source=gsx_baiduPCkapian&isp=1">
+                <img class="recomment-img" src="{{ $static_origin }}/asset/img/activity/gaokao/yiduiyi_9d6a8a40ba.jpg">
+            </a>
+            <a class="recomment-item" target="_blank" href="http://www.genshuixue.com/teacher/classCourseDetail/151218871889?source=gsx_baiduPCkapian_jinghuayikao">
+                <img class="recomment-img" src="{{ $static_origin }}/asset/img/activity/gaokao/yikao_4bb3ae18a7.jpg">
+            </a>
+        </div>
+    </div>
+</div>
+{{ include file="common/footer.html" }}
+{{ /block }}
+{{ /strip }}

@@ -1,0 +1,109 @@
+/**
+ * @file 个人中心头部
+ * @author zhujialu
+ */
+#header {
+
+    @height: 60px;
+
+    background-color: #FFF;
+
+    .wrapper {
+        width: @page-width;
+
+        margin: 0 auto;
+        padding: 10px 0 4px;
+        position: relative;
+/*
+        .teacher-qr-container {
+            position: absolute; right: 0; top: 0;
+
+            & > div {
+                font-size: 13px;
+                display: inline-block;
+
+                &:last-child {
+                    margin-bottom: 6px;
+                    vertical-align: bottom;
+                }
+
+                .teacher-app-title {
+                    color: #ff9900;
+                }
+
+            }
+        }
+*/
+    }
+
+    .logo {
+        .inline-block();
+        background: url(../../../../img/logo-beta.png) no-repeat;
+        width: 150px;
+        height: @height;
+    }
+
+    .logo-huikejian {
+        .inline-block();
+        background: url(../../../../img/logo-huikejian.png) no-repeat;
+        width: 120px;
+        height: @height;
+        position: relative;
+        top: 4px;
+    }
+
+    h1 {
+        .inline-block();
+        color: @brand-text-light;
+        font-size: 18px;
+        height: @height;
+        line-height: @height;
+        margin-left: 10px;
+        padding-left: 13px;
+        vertical-align: top;
+        position: relative;
+
+        &:before {
+            background-color: #d8d8d8;
+            content: ' ';
+            width: 1px;
+            height: 30px;
+            position: absolute;
+            left: 0;
+            top: 15px;
+        }
+    }
+
+    .user-info {
+        color: #FFF;
+        float: right;
+    }
+
+    .home,
+    .notification,
+    .username,
+    .avatar-tiny {
+        vertical-align: top;
+    }
+
+    .home,
+    .notification,
+    .username {
+        position: relative;
+        top: 14px;
+    }
+
+    .home,
+    .notification {
+        color: #FFF;
+        margin-right: 30px;
+    }
+    .icon-mail {
+        margin-right: @gap-horizontal-tiny;
+    }
+
+    .avatar-tiny {
+        .inline-block();
+        margin-left: 20px;
+    }
+}

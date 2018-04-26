@@ -1,0 +1,172 @@
+/**
+ * @file 表单元素
+ * @author zhujl
+ */
+
+form-group() {
+
+    clearfix();
+
+    position: relative;
+
+    if (typeof($form-group-border) == 'rgba') {
+        border-bottom: 1px solid $form-group-border;
+    }
+
+    if ($form-group-gap > 0) {
+        padding-top: 0.5 * $form-group-gap;
+        padding-bottom: 0.5 * $form-group-gap;
+    }
+
+}
+
+form-action() {
+    margin-top: $form-action-gap;
+}
+
+// 域标签
+form-label() {
+    float: left;
+    font-weight: $form-label-font-weight;
+    padding-right: $form-label-gap;
+    text-align: right;
+}
+
+form-required() {
+    margin-right: $form-required-gap;
+    &:after {
+        content: '*';
+        color: $form-required-color;
+        font-size: $form-required-font-size;
+    }
+}
+
+form-hint() {
+
+    ui-size('form-hint');
+    ui-type($type-hash['form-hint']);
+
+}
+form-controls() {
+
+}
+
+input-group() {
+
+    display: inline-block;
+    clearfix();
+}
+
+input-group-addon() {
+
+    float: left;
+
+    ui-type($type-hash['input-group-addon']);
+
+    &:first-child {
+        border-right: none;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+}
+
+// 文本输入框
+form-text() {
+
+    margin: 0;
+
+    textarea& {
+        resize: none;
+    }
+
+    ui-type($type-hash['form-text']);
+
+    // 不能合并写
+    &::-webkit-input-placeholder { /* WebKit browsers */
+        color: $form-text-color-placeholder;
+    }
+    &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+        color: $form-text-color-placeholder;
+    }
+    &::-moz-placeholder { /* Mozilla Firefox 19+ */
+        color: $form-text-color-placeholder;
+    }
+    &:-ms-input-placeholder { /* Internet Explorer 10+ */
+        color: $form-text-color-placeholder;
+    }
+}
+
+// 模拟 Placeholder
+form-placeholder-wrapper() {
+
+    background-color: #FFF;
+    display: inline-block;
+    position: relative;
+    line-height: 0;
+
+    .form-text {
+        background-color: transparent;
+        position: relative;
+        z-index: $zindex-tiny;
+    }
+}
+
+
+form-placeholder() {
+    border-color: transparent;
+    color: $form-text-color-placeholder;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+form-number() {
+    display: inline-block;
+    position: relative;
+}
+
+// 单选复选框
+form-box() {
+
+    if ($support-mouse) {
+        user-select: none;
+        cursor: pointer;
+    }
+
+    input {
+        if ($support-mouse) {
+            cursor: pointer;
+        }
+        margin-right: $form-box-inner-gap;
+    }
+
+    & + & {
+        margin-left: $form-box-gap;
+    }
+
+}
+
+form-inline() {
+
+    display: inline-block;
+
+    if ($form-inline-gap > 0) {
+        margin-left: $form-inline-gap;
+    }
+
+    &:empty {
+        display: none;
+    }
+}
+
+form-block() {
+
+    display: block;
+
+    if ($form-block-gap > 0) {
+        margin-top: $form-block-gap;
+    }
+
+}
+

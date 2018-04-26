@@ -1,0 +1,25 @@
+{{ extends file="./common/teacherRank.html" }}
+
+{{ block name="data" }}
+
+{{ $smarty.block.parent }}
+{{ include file="teacher_center/data/teacherRank/season2.html" scope=parent }}
+
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/teacherCenter/teacherRank2_8043119b17.css">
+{{ /block }}
+
+{{ block name="previousRank" }}
+    {{ if isset($tpl_data.is_download_app) &&  $tpl_data.is_download_app && !empty($tpl_data.previous_rank_msg) }}
+    <div class="previous">
+        <div class="header">
+            往期排名
+        </div>
+        <div class="msg">
+            {{ $tpl_data.previous_rank_msg }}
+        </div>
+    </div>
+    {{ /if }}
+{{ /block }}

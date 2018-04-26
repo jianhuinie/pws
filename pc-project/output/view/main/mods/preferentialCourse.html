@@ -1,0 +1,194 @@
+{{ strip }}
+{{ if !isset($data.study_star) }}
+{{ $data.study_star = [] }}
+{{ /if }}
+{{ if !isset($data.org_list) }}
+{{ $data.org_list = [] }}
+{{ /if }}
+{{ if !isset($data.course_list) }}
+{{ $data.course_list = [] }}
+{{ /if }}
+{{ if !isset($data.teacher_list) }}
+{{ $data.teacher_list = [] }}
+{{ /if }}
+<div class="preferent-wrapper">
+
+    <div class="preferent-left">
+        <h4 class="list-title">学习之星</h4>
+        <div class="media-list-wrapper">
+            <ul class="media-list star-list">
+                {{ foreach array_slice($data.study_star, 0, 8) as $item }}
+                <li class="media-item">
+                    <div class="media-index">
+                        <span class="index {{ if $item@index < 3 }}with-strong{{ /if }}">
+                            {{ $item@index + 1 }}
+                        </span>
+                    </div>
+                    <div class="media-content">
+                        <div class="media-avatar">
+                            <a class="click-monitor" rel="nofollow" href="{{ $item.detail_url }}" target="_blank" data-monitor-type="ju_click" data-monitor-stype="1" data-monitor-sid="{{ $item.number }}">
+                                {{ include file="common/component/image.html" url=$item.avatar_url width=40 height=40 lazy_load=true }}
+                            </a>
+                        </div>
+                        <div class="media-info">
+                            <div class="media-name">
+                                <a class="ellipsis click-monitor" rel="nofollow" href="{{ $item.detail_url }}" target="_blank" data-monitor-type="ju_click" data-monitor-stype="1" data-monitor-sid="{{ $item.number }}">{{ $item.name }}</a>
+                            </div>
+                            <div class="media-description ellipsis">ID：{{ $item.number }}</div>
+                        </div>
+                    </div>
+                </li>
+                {{ /foreach }}
+            </ul>
+        </div>
+    </div>
+
+    <div class="preferent-right">
+        <h4 class="list-title">
+            热门榜单
+            {{ * 暂时不需要 打开之后需要修改js跳转机构，老师和课程搜索页 * }}
+            <!--<a class="more-link" href="">更多<i class="icon icon-chevron-right"></i></a>-->
+        </h4>
+        <div class="media-list-wrapper">
+
+            <div class="list-category">
+                <span class="category-item active" data-nav-for="teacher-list">老师</span>
+                <span class="category-item" data-nav-for="course-list">课程</span>
+                <span class="category-item" data-nav-for="org-list">机构</span>
+            </div>
+
+            <ul class="media-list teacher-list active" data-qid="{{ $data.qid_list.teacher_list }}">
+                {{ foreach array_slice($data.teacher_list, 0, 7) as $item }}
+                {{ ** 埋点统计 ** }}
+                {{ $log_url = ($item@index+1)|cat:","|cat:$item.number|cat:","|cat:$data.qid_list.teacher_list|cat:","|cat:$item.is_cms }}
+
+                <li class="media-item" data-num="{{ $item.number }}" data-cms="{{ $item.is_cms }}" log="{{ $log_url }}">
+                    <div class="media-index">
+                        <span class="index {{ if $item@index < 3 }}with-strong{{ /if }}">
+                            {{ $item@index + 1 }}
+                        </span>
+                    </div>
+                    <div class="media-content">
+                        <div class="media-avatar">
+                            <a class="click-monitor" rel="nofollow" href="{{ $item.detail_url }}" target="_blank" data-monitor-type="ju_click" data-monitor-stype="2" data-monitor-tid="{{ $item.number }}">
+                                {{ include file="common/component/image.html" url=$item.avatar_url width=40 height=40 lazy_load=true }}
+                            </a>
+                        </div>
+                        <div class="media-info">
+                            <div class="media-name" title="{{ $item.name }}">
+                                <a class="ellipsis click-monitor" rel="nofollow" href="{{ $item.detail_url }}" target="_blank" data-monitor-type="ju_click" data-monitor-stype="2" data-monitor-tid="{{ $item.number }}">{{ $item.name }}</a>
+                            </div>
+                            <div class="media-description ellipsis">{{ $item.main_subject_name }}</div>
+                        </div>
+                    </div>
+                </li>
+                {{ /foreach }}
+            </ul>
+
+            <ul class="media-list course-list" data-qid="{{ $data.qid_list.course_list }}">
+                {{ foreach array_slice($data.course_list, 0, 7) as $item }}
+                {{ ** 埋点统计 ** }}
+                {{ $log_url = ($item@index+1)|cat:","|cat:$item.number|cat:","|cat:$data.qid_list.course_list|cat:","|cat:$item.is_cms }}
+                <li class="media-item" data-num="{{ $item.number }}" data-cms="{{ $item.is_cms }}" log="{{ $log_url }}">
+                    <div class="media-index">
+                        <span class="index {{ if $item@index < 3 }}with-strong{{ /if }}">
+                            {{ $item@index + 1 }}
+                        </span>
+                    </div>
+                    <div class="media-info">
+                        <div class="media-name" title="{{ $item.course_name }}">
+                            <a class="ellipsis click-monitor" rel="nofollow" href="{{ $item.url }}" target="_blank" data-monitor-type="ju_click" data-monitor-stype="3" data-monitor-cid="{{ $item.number }}">{{ $item.course_name }}</a>
+                        </div>
+                        <div class="media-description ellipsis">{{ $item.course_type }}</div>
+                    </div>
+                </li>
+                {{ /foreach }}
+            </ul>
+
+            <ul class="media-list org-list" data-qid="{{ $data.qid_list.org_list }}">
+                {{ foreach array_slice($data.org_list, 0, 7) as $item }}
+                {{ ** 埋点统计 ** }}
+                {{ $log_url = ($item@index+1)|cat:","|cat:$item.number|cat:","|cat:$data.qid_list.org_list|cat:","|cat:$item.is_cms }}
+
+                 <li class="media-item" data-num="{{ $item.number }}" data-cms="{{ $item.is_cms }}" log="{{ $log_url }}">
+                    <div class="media-index">
+                        <span class="index {{ if $item@index < 3 }}with-strong{{ /if }}">
+                            {{ $item@index + 1 }}
+                        </span>
+                    </div>
+                    <div class="media-content">
+                        <div class="media-avatar">
+                            <a class="click-monitor" rel="nofollow" href="{{ $item.domain }}" target="_blank" data-monitor-type="ju_click" data-monitor-stype="4" data-monitor-oid="{{ $item.number }}">
+                                {{ include file="common/component/image.html" url=$item.logo width=40 height=40 lazy_load=true }}
+                            </a>
+                        </div>
+                        <div class="media-info">
+                            <div class="media-name" title="{{ $item.name }}">
+                                <a class="ellipsis click-monitor" rel="nofollow" href="{{ $item.domain }}" target="_blank" data-monitor-type="ju_click" data-monitor-stype="4" data-monitor-oid="{{ $item.number }}">
+                                    {{ $item.name }}
+                                </a>
+                            </div>
+                            <div class="media-description ellipsis">{{ $item.brief }}</div>
+                        </div>
+                    </div>
+                </li>
+                {{ /foreach }}
+            </ul>
+        </div>
+    </div>
+
+    <div class="preferent-middle">
+        <h4 class="list-title highlight">
+            聚惠学
+            <a class="more-link" rel="nofollow" href="http://ju.genshuixue.com/?zn=zn_juhuixue_zixun_pc" target="_blank">
+                更多<i class="icon icon-chevron-right"></i>
+            </a>
+        </h4>
+
+        <div class="recommend-teacher">
+            <div class="teacher-banner">
+                <a class="click-monitor" rel="nofollow" href="{{ $data.banner.url }}" target="_blank" data-monitor="{{ $data.banner.monitor }}" data-click-monitor="{{ $data.banner.clickMonitor }}" data-monitor-type="ju_click" data-monitor-stype="5" data-monitor-cid="{{ $item.number }}">
+                    {{ include file="common/component/image.html" url=$data.banner.img width=500 height=250 alt=$data.banner.hover|default:'' lazy_load=true }}
+                </a>
+            </div>
+            <div class="teacher-course-description">
+                <div class="teacher-course-name">
+                    <a class="click-monitor" rel="nofollow" href="{{ $data.banner.url }}" target="_blank" data-monitor-type="ju_click" data-monitor-stype="5" data-monitor-cid="{{ $item.number }}">{{ $data.banner.name }}</a>
+                </div>
+                <div class="teacher-description">{{ $data.banner.brief|cn_truncate:61 }}</div>
+                <div class="teacher-course-status">
+                    已报名<span class="strong">{{ $data.banner.pay_count }}/</span>{{ $data.banner.max_count }}
+                </div>
+            </div>
+        </div>
+
+        <div class="recommend-course-list">
+            <ul>
+                {{ foreach $data.recommend_courses as $item }}
+                <li class="course-item">
+                    <div class="course-banner">
+                        <a class="click-monitor" rel="nofollow" href="{{ $item.url }}" target="_blank" data-monitor-type="ju_click" data-monitor-stype="5" data-monitor-cid="{{ $item.number }}">
+                            {{ include file="common/component/image.html" url=$item.img width=214 height=120 alt=$item.hover|default:'' lazy_load=true }}
+                        </a>
+                    </div>
+                    <div class="course-info">
+                        <div class="course-name ellipsis" title="{{ $item.name }}">
+                            <a class="click-monitor" rel="nofollow" href="{{ $item.url }}" target="_blank" data-monitor-type="ju_click" data-monitor-stype="5" data-monitor-cid="{{ $item.number }}">{{ $item.name }}</a>
+                        </div>
+                        <div class="course-other">
+                            <span class="course-time">{{ $item.plan }}</span>
+                            {{ if $item.pay_count >= 10 }}
+                            <span class="divider">|</span>
+                            <span class="course-status">
+                                已报<span class="strong">{{ $item.pay_count }}</span>人
+                            </span>
+                            {{ /if }}
+                        </div>
+                    </div>
+                </li>
+                {{ /foreach }}
+            </ul>
+        </div>
+    </div>
+</div>
+{{ /strip }}

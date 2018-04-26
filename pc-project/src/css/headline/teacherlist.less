@@ -1,0 +1,55 @@
+.teacher-list {
+    .ellipsis {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .teacher-item {
+        display: block;
+        padding: 20px 0;
+        height: 110px;
+        border-top: solid 1px #eee;
+        cursor: pointer;
+        .teacher-avatar {
+            display: inline-block;
+            position: relative;
+            cursor: pointer;
+            img {
+                display: block;
+            }
+        }
+        .teacher-info {
+            margin-left: 20px;
+            height: 70px;
+            line-height: 1;
+            display: inline-block;
+            vertical-align: top;
+            .teacher-name {
+                font-size: 16px;
+                color: #333;
+                max-width: 200px;
+                &:hover {
+                    color: #f90;
+                }
+            }
+            .teacher-experience {
+                font-size: 12px;
+                margin: 10px 0;
+                color: #fff;
+                span {
+                    display: inline-block;
+                    background: #f90;
+                    height: 20px;
+                    line-height: 20px;
+                    padding: 0 5px;
+                    border-radius: 3px;
+                }
+            }
+            .teacher-course {
+                max-width: 200px;
+                font-size: 12px;
+                color: #666;
+            }
+        }
+    }
+}

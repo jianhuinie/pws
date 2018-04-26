@@ -1,0 +1,20 @@
+<div class="dropdowns tight date-select
+{{#if options.className}} {{options.className}}{{/if}}
+">
+
+    {{#if options.year}}
+        <Select options={{options.year}} />
+    {{/if}}
+
+    {{#if options.month}}
+        <Select options={{options.month}} />
+    {{/if}}
+
+    {{#if options.date}}
+        <Select options={{options.date}} />
+    {{/if}}
+
+    <style>
+        {{style}}
+    </style>
+</div>

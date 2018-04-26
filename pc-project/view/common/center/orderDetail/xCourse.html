@@ -1,0 +1,139 @@
+{{ *
+
+@file 机构X课 - 课程信息
+@author wangyujie
+
+* }}
+{{ strip }}
+
+{{ if $lesson_count > 0 }}
+
+<div class="course">
+
+    <h2>
+        <i class="icon icon-circle"></i>
+        课程信息
+    </h2>
+
+    {{ if $lesson_count > 10 && $latest_lesson }}
+    <div class="content latest-lesson">
+        <table class="table">
+            <caption>
+                最近课节
+                <i class="icon icon-caret-up"></i>
+            </caption>
+            <thead>
+                <tr>
+                    <th class="course-date">课程日期</th>
+                    <th class="course-time">课程时间</th>
+                    <th class="course-duration">课程时长</th>
+                    <th class="course-status">课程状态</th>
+                    <th class="course-options">课程操作</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {{ $canceled_status['62'] = 1 }}
+                {{ $canceled_status['63'] = 1 }}
+                {{ $canceled_status['80'] = 1 }}
+                {{ $canceled_status['81'] = 1 }}
+
+                <tr{{ if isset($canceled_status[$latest_lesson.status]) }} class="canceled"{{ /if }}>
+                    <td>
+                        {{ $latest_lesson.start_time|date_format: '%Y-%m-%d' }}
+                    </td>
+                    <td>
+                        {{ $latest_lesson.start_time|date_format: '%H:%M' }}
+                        -
+                        {{ $latest_lesson.end_time|date_format: '%H:%M' }}
+                    </td>
+                    <td>
+                        {{ $latest_lesson.class_count }} 课时
+                    </td>
+                    <td>
+                        {{ $latest_lesson.operation.label }}
+                    </td>
+                    <td data-course-status="{{ $latest_lesson.display_status }}" data-teacher-number="{{ $teacher.number }}"
+                    {{ if isset($latest_lesson.online_data) }}
+                    data-online='{{ json_encode($latest_lesson.online_data, 77) }}'
+                    {{ /if }}
+                    >
+
+                        {{ include file="common/center/component/scheduleAction.html" purchase_id=$latest_lesson.purchase_id actions=$latest_lesson.operation.actions lesson=$latest_lesson use_plat_ensure=$latest_lesson.use_plat_ensure }}
+
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+    {{ /if }}
+
+    <div class="content">
+        {{ if $lessons }}
+            <table class="table">
+                <caption>
+                    全部课程
+                    <i class="icon icon-caret-up"></i>
+                </caption>
+                <thead>
+                    <tr>
+                        <th class="course-date">课程日期</th>
+                        <th class="course-time">课程时间</th>
+                        <th class="course-duration">课程时长</th>
+                        <th class="course-status">课程状态</th>
+                        <th class="course-options">课程操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    {{ $canceled_status['62'] = 1 }}
+                    {{ $canceled_status['63'] = 1 }}
+                    {{ $canceled_status['80'] = 1 }}
+                    {{ $canceled_status['81'] = 1 }}
+
+                    {{ foreach $lessons as $item }}
+                    <tr{{ if isset($canceled_status[$item.status]) }} class="canceled"{{ /if }}>
+                        <td>
+                            {{ $item.start_time|date_format: '%Y-%m-%d' }}
+                        </td>
+                        <td>
+                            {{ $item.start_time|date_format: '%H:%M' }}
+                            -
+                            {{ $item.end_time|date_format: '%H:%M' }}
+                        </td>
+                        <td>
+                            {{ $item.class_count }} 课时
+                        </td>
+                        <td>
+                            {{ $item.operation.label }}
+                        </td>
+
+                        <td data-course-status="{{ $item.display_status }}" data-teacher-number="{{ $teacher.number }}"
+                        {{ if isset($item.online_data) }}
+                        data-online='{{ json_encode($item.online_data, 77) }}'
+                        {{ /if }}
+                        >
+
+                            {{ include file="common/center/component/scheduleAction.html" purchase_id=$item.purchase_id actions=$item.operation.actions lesson=$item use_plat_ensure=$item.use_plat_ensure }}
+
+                        </td>
+                    </tr>
+                    {{ /foreach }}
+
+                </tbody>
+            </table>
+        {{ else }}
+            <p class="no-lesson">
+                共{{ $ext_info.class_count }}节课，1课时{{ $ext_info.class_length }}分钟，与老师沟通后上课~
+            </p>
+        {{ /if }}
+    </div>
+
+</div>
+
+    {{ include file="common/center/component/enterClassroom.html" }}
+{{ /if }}
+
+
+{{ /strip }}

@@ -1,0 +1,103 @@
+{{ *
+
+@file 课程评价
+@author jixiaohui
+
+* }}
+{{ extends file="common/center/base.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+    {{ **先封印掉,联调的时候在解封** }}
+    {{ if $tpl_data.order.course_type == 2 && $identity == "student" }}
+        {{ $script_path = "common/center/courseComment_be8dbe3607" }}
+    {{ else }}
+        {{ $script_path = "common/center/comment_5721a8f8d1" }}
+    {{ /if }}
+
+{{ /block }}
+
+{{ block name="title" prepend }}
+课程评价 -
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/common/center/comment_6b7973702d.css">
+{{ $smarty.block.parent }}
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+
+    {{ block name="sidebar" }}{{ /block }}
+
+    <div id="content" class="card" data-identity="{{ $identity }}">
+        <div class="card-header">
+            <h2>课程评价</h2>
+        </div>
+        <div class="card-body">
+            <div class="order-list">
+            {{ **先封印掉,联调的时候在解封** }}
+            {{ if $tpl_data.order.course_type == 2 && $identity == "student" }}
+                {{ include file="common/center/component/courseOrderItem.html" order=$tpl_data.order hideCommentBtn=true }}
+            {{ else }}
+                {{ include file="common/center/component/orderItem.html" order=$tpl_data.order hideCommentBtn=true }}
+            {{ /if }}
+            </div>
+
+            {{ **先封印掉,联调的时候在解封** }}
+            {{ if $tpl_data.order.course_type == 2 && $identity == "student" }}
+                {{ if !isset($tpl_data.extra) }}
+                    {{ $tpl_data.extra = null }}
+                {{ /if }}
+                {{ include file="common/center/component/courseComment.html" tpl_data = $tpl_data.teachers pid=$tpl_data.order.purchase_id extra=$tpl_data.extra }}
+            {{ else }}
+            <div class="form comment-box" id="comment-form">
+
+                <div class="score">
+                    <i class="form-required"></i>总体评分：
+                     {{ include file="common/component/starScore2.html" score=5 }}
+                </div>
+
+                <div class="form-group">
+
+                    <label class="form-label">
+                        <i class="form-required"></i>评价内容：
+                    </label>
+
+                    <div class="form-editor">
+                        <textarea name="info" type="text" class="form-text" placeholder="
+                            {{ if $identity == 'teacher' }}
+                                对你的学生评价吧!
+                            {{ else }}
+                                {{ if isset($tpl_data.extra) && isset($tpl_data.extra.comment) }}
+                                    {{ $tpl_data.extra.comment.content }}
+                                {{ else }}
+                                    快来写下你对老师的评价吧，还可以点击下方的“晒照片”秀几张图哦！
+                                {{ /if }}
+                            {{ /if }}
+                            " required>
+                        </textarea>
+                        <span class="form-hint">
+                            可以输入<strong>200</strong>字
+                        </span>
+                    </div>
+                    <span class="error"></span>
+
+                </div>
+
+                {{ if $identity == "student" }}
+                {{ include file="common/component/moreImageUploader.html" }}
+                {{ /if }}
+
+                <div class="form-action">
+                    <button class="btn btn-info btn-comment">发表评论</button>
+                </div>
+            </div>
+            {{ /if }}
+        </div>
+    </div>
+
+{{ /strip }}
+{{ /block }}

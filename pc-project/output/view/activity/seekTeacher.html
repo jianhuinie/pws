@@ -1,0 +1,160 @@
+{{ *
+
+@file 平台留单页
+@author wangtianhua
+
+* }}
+
+
+{{ extends file="common/pc/base.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $script_path = "activity/seekTeacher_325bdecbc9" }}
+    {{ $script_data.cityDomain = $curr_city.domain }}
+    {{ $script_data.name = $user_data.name }}
+    {{ $script_data.mobile = $user_data.mobile }}
+
+
+    {{ $nav_config.active = '' }}
+    {{ $nav_config.hidden = 1 }}
+
+    {{ $baidu_share_text = "" }}
+    {{ $baidu_share_image = "" }}
+
+
+{{ /block }}
+
+
+{{ block name="title" prepend }}
+ 平台留单页-
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/activity/seekTeacher_79eb21c938.css">
+{{ /block }}
+
+{{ block name="body" }}
+    {{ $smarty.block.parent }}
+    {{ include file="common/siteNav.html" }}
+    {{ strip }}
+        <div id="header">
+            <div class="wrapper">
+                <a href="{{ $origin_http }}/" class="logo" >
+                </a>
+                <img alt="跟谁学" class="instruction" src="{{ $static_origin }}/asset/img/instruction_3d79d0d3ce.png"/>
+                <div class="phone">
+                    咨询热线：4000-910-910，010-86448910
+                </div>
+            </div>
+        </div>
+
+        <div class="main">
+            <div class="banner">
+                <a href="#seek-teacher" class="find">立即找好老师</a>
+            </div>
+            <div class="title">马上填写您的找老师需求</div>
+            <div class="Subtitle">
+                我们将在<span class="text-primary">15分钟内免费</span>帮您推荐好老师
+            </div>
+
+            {{ include file="teacher/seekTeacher.html" }}
+
+            <div class="ad-news">
+                <div class="title">
+                    <div class="line"></div>
+                    如何帮您找好老师
+                    <div class="line"></div>
+                </div>
+                <div class="wrapper">
+                    <div class="news">
+                        <div class="pic-box">
+                            <img src="{{ $static_origin }}/asset/img/activity/seekTeacher/news-1_0a21134622.jpg" alt="快速找">
+                            <div class="intro">快速找</div>
+                        </div>
+                        <div class="intruction">不知道如何找到好老师？跟谁学汇聚 50万认证老师，覆盖上千门学习科目，15分钟内响应需求</div>
+                        <div class="add-intruction">
+                            <div class="number badge-error">1</div>
+                            <div class="tips">
+                                <div class="title">提出找老师需求</div>
+                                <div>课程顾问15分钟内联系您，确定意向后为您全球找老师</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="news">
+                        <div class="pic-box">
+                            <img src="{{ $static_origin }}/asset/img/activity/seekTeacher/news-2_cd2dfd600d.jpg" alt="专业找">
+                            <div class="intro">专业找</div>
+                        </div>
+                        <div class="intruction">不知道哪个老师更合适？数百专业课程 顾问，会根据您的需求量身定制，帮您找到最适合的老师</div>
+                        <div class="add-intruction">
+                            <div class="number badge-success">2</div>
+                            <div class="tips">
+                                <div class="title">推荐老师</div>
+                                <div>根据您的需求精确匹配，推荐符合需求的好老师</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="news last">
+                        <div class="pic-box">
+                            <img src="{{ $static_origin }}/asset/img/activity/seekTeacher/news-3_9fa054f696.jpg" alt="放心找">
+                            <div class="intro">放心找</div>
+                        </div>
+                        <div class="intruction">不了解老师情况不敢下单？先试听后上课，不满意可更换，每笔支付都有安全保障，支持随时退款</div>
+                        <div class="add-intruction">
+                            <div class="number badge-info">3</div>
+                            <div class="tips">
+                                <div class="title">确认并开始学习</div>
+                                <div>与老师沟通确认后，开始跟老师学习 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="economy">
+                <div class="title">
+                    <div class="line"></div>
+                    万千白领学生家长信赖的找好老师神器
+                    <div class="line"></div>
+                </div>
+                <div class="topic">
+                    <a>
+                        <div class="mode"></div>
+                        <div class="intro">CCTV、人民日报等报道</div>
+                        <img src="{{ $static_origin }}/asset/img/activity/seekTeacher/topic-1_d1dfdee778.jpg">
+                    </a>
+                    <a class="even">
+                        <div class="mode"></div>
+                        <div class="intro">A轮融资5000万美元最高纪录</div>
+                        <img src="{{ $static_origin }}/asset/img/activity/seekTeacher/topic-2_b1e47bd32d.jpg">
+                    </a>
+                    <a href="http://tv.cntv.cn/video/C10316/d1fb4d4502dd4a159ecb88cbd348a7e5" target="_blank">
+                        <div class="mode"></div>
+                        <div class="intro">央视《对话》中美青年再对话</div>
+                        <img src="{{ $static_origin }}/asset/img/activity/seekTeacher/topic-3_e3adc6eaaf.jpg">
+                    </a>
+                    <a href="http://tv.cntv.cn/video/C10329/ec9d383f44c449c1917cbc839a9da42d" target="_blank" class="even">
+                        <div class="mode"></div>
+                        <div class="intro">央视《经济半小时》</div>
+                        <img src="{{ $static_origin }}/asset/img/activity/seekTeacher/topic-4_2009756b58.jpg">
+                    </a>
+                </div>
+                <p>跟谁学作为全球最大好老师平台，汇集全球50万认证好老师，覆盖数千门学习科目，拥有数百名专业学习顾问，15分钟帮助80%的用户推荐好老师</p>
+                <div class="find-teacher">
+                    <img src="{{ $static_origin }}/asset/img/activity/seekTeacher/find_e73274d6d3.jpg">
+                    <a href="#seek-teacher" class="btn-primary">立即找好老师</a>
+                </div>
+            </div>
+        </div>
+
+
+
+    {{ /strip }}
+    {{ include file="common/script.html" }}
+    {{ block name="script" }}{{ /block }}
+    {{ include file="common/footer.html" }}
+{{ /block }}

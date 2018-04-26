@@ -1,0 +1,200 @@
+{{ *
+
+@file The home page of recruitment presentation activity
+@author kuanghongrui@baijiahulian.com
+@date 9/5/2015
+* }}
+
+{{ extends file="common/main/base.html" }}
+
+{{ block name="data" }}
+
+    {{ * 需要im * }}
+    {{ $need_im = false }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $nav_config.hidden = 1 }}
+    {{ $flotage_config.hidden = true }}
+
+    {{ $script_path = "activity/recruitment2016" }}
+
+    {{ $career_page_num = 4 }}
+    {{ $script_data.career_page_num = $career_page_num }}
+
+    {{ $tab_list_page_num = 8 }}
+    {{ $script_data.tab_list_page_num = $tab_list_page_num }}
+
+    {{ * 不需要底部 * }}
+    {{ $footer_config.hidden = true }}
+
+    {{ * 百度分享 * }}
+    {{ $baidu_share_text = $tpl_data.share.content|default:"百度高薪职位！名企HR面对面，让你的简历，不再石沉大海。" }}
+    {{ $baidu_share_image = $tpl_data.share.img|default:"" }}
+
+{{ /block }}
+
+{{ block name="title" }}
+{{ $tpl_data.tdk.title }}
+{{ /block }}
+
+{{ block name="description" }}
+{{ $tpl_data.tdk.description }}
+{{ /block }}
+
+{{ block name="keywords" }}
+{{ $tpl_data.tdk.keywords }}
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/activity/recruitment2016.less">
+{{ /block }}
+
+
+{{ strip }}
+{{ block name="main" }}
+<div class="banner-container">
+    <div class="banner">
+        <div class="greentrain">
+            <a class="greentrain-cv" href="javascript:;"></a>
+            <a class="greentrain-rec" href="javascript:;"></a>
+        </div>
+    </div>
+</div>
+<a class="sharing-btn" href="javascript:;">分享{{ include file="common/component/baiduShare.html" }}</a>
+<div class="content-body">
+    <div class="caption-fonts caption-fonts-cv">
+        <div class="color-block-caption-left"></div>
+        <div class="color-block-caption-right"></div>
+        <div class="caption-content"></div>
+        <div class="caption-greentrain-font"></div>
+    </div>
+    {{ foreach $tpl_data.careers as $career }}
+    <div class="rec-container">
+        <div class="sprite rec-caption">
+            <div class="rec-caption-font">{{ $career.title }}</div>
+        </div>
+        <ul class="rec-list">
+            {{ foreach $career.list as $item }}
+            <li class="rec-list-item {{ if $item@index >= $career_page_num }}rec-list-item-hidden{{ /if }}">
+                <a href="{{ $item.button_url }}" target="_blank">
+                    <img class="logo-circle" src="{{ $item.preface }}@1e_230w_129h_1c_0i_1o_90Q_1x">
+                </a>
+                <div class="rec-content">
+                    <h3>{{ $item.name }}</h3>
+                    <p>主讲人：{{ $item.speaker }}</p>
+                    <p>{{ $item.time }}</p>
+                </div>
+                {{ if $item.button_name == "回看视频" }}
+                <a class="playback-btn" href="{{ $item.button_url }}" target="_blank">回看视频</a>
+                {{ elseif $item.button_name == "立即报名" }}
+                <a class="signup-btn" href="{{ $item.button_url }}" target="_blank">立即报名</a>
+                {{ elseif $item.button_name == "敬请期待" }}
+                <a class="await-btn" href="{{ $item.button_url }}" target="_blank">敬请期待</a>
+                {{ /if }}
+            </li>
+            {{ /foreach }}
+        </ul>
+        {{ if $career.list|@count > $career_page_num }}
+        <a class="sprite icon-more" href="javascript:;"></a>
+        {{ /if }}
+    </div>
+    {{ /foreach }}
+    <div class="caption-fonts caption-fonts-rec">
+        <div class="color-block-caption-left"></div>
+        <div class="color-block-caption-right"></div>
+        <div class="caption-content"></div>
+    </div>
+    <ul class="menu-anchor-container menu-anchor-rec">
+        <li class="menu-anchor-item menu-anchor-item-knowself menu-anchor-item-selected" data-type="knowself">{{ $tpl_data.tab_1.title }}</li>
+        <li class="menu-anchor-item menu-anchor-item-fieldinfo" data-type="fieldinfo">{{ $tpl_data.tab_2.title }}</li>
+    </ul>
+    <div class="rec-content-container rec-content-container-knowself">
+        <ul class="rec-content-list-container rec-content-list-knowself">
+            {{ foreach $tpl_data.tab_1.list as $item }}
+            <li class="rec-content-list-item {{ if $item@index >= $tab_list_page_num }}rec-content-list-item-hidden{{ /if }}">
+                <a href="{{ $item.course_url }}" target="_blank">
+                    <img class="rec-list-item-cover" src="{{ $item.cou_avatar }}" width="220" height="131">
+                </a>
+                <div class="rec-content-list-item-info">
+                    <a href="{{ $item.course_url }}" class="name-link" target="_blank">
+                        <p class="name" title="{{ $item.name }}">{{ $item.name }}</p>
+                    </a>
+                    <p class="time" title="{{ $item.time }}">{{ $item.time }}</p>
+                </div>
+                {{ if $item.can_pay == 0 }}
+                <a class="list-item-button rec-list-item-button rec-list-item-button-full" href="{{ $item.course_url }}" target="_blank">已报满</a>
+                {{ else }}
+                <a class="list-item-button rec-list-item-button rec-list-item-button-signup" href="{{ $item.course_url }}" target="_blank">立即报名</a>
+                {{ /if }}
+            </li>
+            {{ /foreach }}
+        </ul>
+        {{ if $tpl_data.tab_1.list|@count > $tab_list_page_num }}
+        <a class="sprite icon-more" href="javascript:;"></a>
+        {{ /if }}
+        <div class="clear-both"></div>
+    </div>
+    <div class="rec-content-container rec-content-container-fieldinfo">
+        <ul class="rec-content-list-container rec-content-list-fieldinfo">
+            {{ foreach $tpl_data.tab_2.list as $item }}
+            <li class="rec-content-list-item {{ if $item@index >= $tab_list_page_num }}rec-content-list-item-hidden{{ /if }}">
+                <a href="{{ $item.course_url }}" target="_blank">
+                    <img class="rec-list-item-cover" src="{{ $item.cou_avatar }}" width="220" height="131">
+                </a>
+                <div class="rec-content-list-item-info">
+                    <p class="name" title="{{ $item.name }}">{{ $item.name }}</p>
+                    <p class="time" title="{{ $item.time }}">{{ $item.time }}</p>
+                </div>
+                {{ if $item.can_pay == 0 }}
+                <a class="list-item-button rec-list-item-button rec-list-item-button-full" href="{{ $item.course_url }}" target="_blank">已报满</a>
+                {{ else }}
+                <a class="list-item-button rec-list-item-button rec-list-item-button-signup" href="{{ $item.course_url }}" target="_blank">立即报名</a>
+                {{ /if }}
+            </li>
+            {{ /foreach }}
+        </ul>
+        {{ if $tpl_data.tab_2.list|@count > $tab_list_page_num }}
+        <a class="sprite icon-more" href="javascript:;"></a>
+        {{ /if }}
+        <div class="clear-both"></div>
+    </div>
+    <div class="caption-fonts caption-fonts-cooperation">
+        <div class="color-block-caption-left"></div>
+        <div class="color-block-caption-right"></div>
+        <div class="caption-content"></div>
+    </div>
+    <div class="partners-logo-container">
+        <ul class="partners-logo">
+            {{ foreach $tpl_data.org as $org }}
+            <li class="partner-logo-item">
+                {{ if $org.url == "" }}
+                <img class="logo" src="{{ $org.img }}@1e_160w_80h_1c_0i_1o_90Q_1x">
+                {{ else }}
+                <a href="{{ $org.url }}" target="_blank">
+                    <img class="logo" src="{{ $org.img }}@1e_160w_80h_1c_0i_1o_90Q_1x">
+                </a>
+                {{ /if }}
+            </li>
+            {{ /foreach }}
+        </ul>
+        <div class="clear-both"></div>
+    </div>
+</div>
+<p class="qrcode-area-fonts">更多课程 更多职位 尽可关注</p>
+<ul class="qrcode-area">
+    <li class="qrcode-left">
+        <img src="../../src/img/activity/recruitment2016/xiaozhao-qrcode.png">
+        <p class="">校招管家微信二维码</p>
+    </li>
+    <li>
+        <img src="../../src/img/activity/recruitment2016/genshuixue-qrcode.png">
+        <p class="">跟谁学微信二维码</p>
+    </li>
+</ul>
+<div class="footer">Copyright © 2014 - 2017 跟谁学版权所有. 京公网安备11010802015210号 | 京ICP备14027590号-1</div>
+
+{{ * include file="common/footer.html" * }}
+
+{{ /block }}
+{{ /strip }}

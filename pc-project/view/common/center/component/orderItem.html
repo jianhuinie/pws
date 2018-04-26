@@ -1,0 +1,602 @@
+{{ *
+
+@file 订单列表 - 单个订单元素
+@author zhujialu
+
+* }}
+{{ strip }}
+
+{{ $is_course = $order.course_type == 1 }}
+{{ $is_class_course = $order.course_type == 2 }}
+{{ $is_video_course = $order.course_type == 3 }}
+{{ $is_org_course = $order.course_type == 4 }}
+{{ $is_trial_course = $order.course_type == 5 }}
+{{ $is_x_course = $order.course_type == 11 || $order.course_type == 12 }}
+
+<div class="order-item" data-teachernum="{{ $order.teacher_user_number }}" data-teachername="{{ $order.teacher_user_name }}">
+
+    <div class="order-header">
+
+        <span class="order-price">
+            {{ if isset($order.fenqi_flag) && $order.fenqi_flag == 2 }}
+                <span class="can-stage">分期购</span>
+            {{ /if }}
+            {{ if $is_video_course }}价格：{{ else }}总价：{{ /if }}
+            <span class="new-price">￥{{ $order.pay_money|number_format: 2 }}</span>
+
+            {{ if $order.pre_pay_money >= 0 }}
+            <del class="old-price">￥{{ $order.pre_pay_money|number_format: 2 }}</del>
+            {{ /if }}
+        </span>
+
+        <span class="order-date">
+            {{ $order.create_time|date_format: '%Y-%m-%d %H:%M' }}
+        </span>
+
+        <span class="order-id">
+            订单号：
+            {{ $order.purchase_id }}
+        </span>
+
+        {{ if $is_class_course || $is_org_course || $is_video_course || $is_x_course }}
+            {{ * 班课，机构班课，视频课，机构X课 * }}
+
+            {{ include file="common/variable/orderStatus.html" scope=parent }}
+
+            {{ if $orderStatus[$order.status][1] == '待支付' && isset($order.expired_length) && $order.expired_length > 0 }}
+
+            <span class="pay-tip text-primary">
+                请立即支付，
+                <span id="count-down-{{ $order.purchase_id }}" class="count-down">
+
+                    {{ $hours = ($order.expired_length / 3600)|floor }}
+                    {{ $minutes = (($order.expired_length % 3600) / 60)|floor }}
+                    {{ $seconds = (($order.expired_length % 3600) % 60)|floor }}
+
+                    {{ if $hours < 10 && $hours > -10 }}
+                        {{ $hours = '0'|cat: $hours }}
+                    {{ /if }}
+
+                    {{ if $minutes < 10 && $minutes > -10 }}
+                        {{ $minutes = '0'|cat: $minutes }}
+                    {{ /if }}
+
+                    {{ if $seconds < 10 && $seconds > -10 }}
+                        {{ $seconds = '0'|cat: $seconds }}
+                    {{ /if }}
+
+                    {{ $hours }}:{{ $minutes }}:{{ $seconds }}
+                </span>
+                后订单将失效
+            </span>
+
+            <script>
+
+                (function () {
+
+                    var elem = document.getElementById('count-down-{{ $order.purchase_id }}');
+                    var timestamp = {{ $order.expired_length }};
+
+                    function pad(num) {
+                        return num < 10 ? ('0' + num) : num;
+                    }
+
+                    var timer = setInterval(
+                        function () {
+
+                            timestamp -= 1;
+
+                            if (timestamp < 1) {
+                                clearInterval(timer);
+                                alert(
+                                    '编号为 {{ $order.purchase_id }} 的订单已失效'
+                                );
+                            }
+
+                            var hours = Math.floor( timestamp / 3600 );
+                            var minutes = Math.floor( ( timestamp % 3600 ) / 60 );
+                            var seconds = Math.floor( ( timestamp % 3600 ) % 60 );
+
+                            elem.innerHTML = pad(hours)
+                                           + ':'
+                                           + pad(minutes)
+                                           + ':'
+                                           + pad(seconds);
+                        },
+                        1000
+                    );
+                })();
+            </script>
+            {{ /if }}
+        {{ /if }}
+
+        {{ if $order.user_name && $is_course }}
+            {{ * 一对一 * }}
+
+            {{ if isset($order.qreserve_sign) && $order.qreserve_sign == 1 }}
+                {{ $opened = 1 }}
+            {{ else }}
+                {{ $opened = 0 }}
+            {{ /if }}
+
+            {{ if $user_data.user_type == 0 }}
+
+                {{ if $opened == 1 }}
+                    <i class="icon icon-lightning-circle" data-title="{{ $order.display_name }}为你开启了闪电约课，你向该学生约课将被自动确认。{{ if !(isset($order.use_plat_ensure) && $order.use_plat_ensure == 0) }}课程结束后系统会自动支付课酬。{{ /if }}" data-width="20em"></i>
+                {{ else if $opened == 0 }}
+                    <i class="icon icon-lightning-o" data-title="闪电约课未开启。学生为你开启闪电约课后，你发起的约课会被系统自动确认。" data-width="21em"></i>
+                {{ /if }}
+            {{ else if $user_data.user_type == 2 }}
+
+                {{ if $opened == 1 }}
+                    <i class="icon icon-lightning-circle close-qreserve" data-title="你为{{ $order.display_name }}开启了闪电约课，TA向你约课及时间修改系统将会自动确认，如需取消请点击闪电标识" data-width="20em" data-user-num="{{ $order.teacher_user_number }}"></i>
+                {{ else if $opened == 0 }}
+                    <i class="icon icon-lightning-o open-qreserve" data-title="点击开启闪电约课，{{ $order.display_name }}向你发起的约课及时间修改系统将会自动确认" data-width="20em" data-user-num="{{ $order.teacher_user_number }}"></i>
+                {{ /if }}
+            {{ /if }}
+        {{ /if }}
+
+        {{ include file="common/component/safeguardIcon.html" use_plat_ensure=($order.use_plat_ensure|default:1) user_type=$user_data.user_type course_type=$order.course_type retire_flag=($order.retire_flag|default:0) retire_length=($order.retire_length|default:"") }}
+    </div>
+
+    {{ if $is_trial_course }}
+        <table class="order-body">
+            <tbody>
+                <tr>
+                    <td class="course-info">
+
+                        <span class="course-name">
+                        {{ if $order.course_type ==2  }}
+                          <a href="{{ if $order.course_type == 4 }} /org_class_course/detail/{{ $order.course_number }}{{ else }} /teacher/classCourseDetail/{{ $order.course_number }}{{ /if }}" target="_blank">  {{ $order.course_name }} </a>
+                        {{ else }}
+                           {{ $order.course_name }}
+                        {{ /if }}
+                        </span>
+
+                        <span class="user-name" data-title="{{ $order.display_name }}" data-width="20em">
+                            {{ if $user_data.user_type == 2 }}
+                            <a href="/{{ $order.private_domain }}" target="_blank">  {{ $order.display_name|cn_truncate:6 }} </a>
+                            {{ else }}
+                                {{ $order.display_name|cn_truncate:6 }}
+                            {{ /if }}
+                        </span>
+
+                        <label class="trial-course-label">
+                            试听课
+                        </label>
+
+                        <div>
+                            <span class="label-default small">
+                                {{ if $order.lesson_way == 2 }}
+                                在线试听
+                                {{ else if $order.lesson_way == 4 }}
+                                线下试听
+                                {{ /if }}
+                            </span>
+                        </div>
+                    </td>
+
+                    <td class="study-progress">
+
+                        总价：￥{{ $order.pay_money|number_format: 2 }}
+
+                        {{ if isset($order.status) }}
+
+                            {{ if $is_video_course }}
+                                {{ include file="common/variable/videoCourseOrderStatus.html" scope=parent }}
+                            {{ else }}
+                                {{ include file="common/variable/orderStatus.html" scope=parent }}
+                            {{ /if }}
+
+                            <span class="order-status">
+                                {{ $orderStatus[$order.status][1] }}
+                            </span>
+                        {{ /if }}
+
+                        <div class="progress tiny">
+                            <div class="progress-bar-info" style="width:
+                            {{ if $is_video_course && $order.course_items_count }}
+                                {{ $order.current_index*100/$order.course_items_count }}
+                            {{ else if $order.hours != '0.0' }}
+                                {{ $order.progress*100/60.0/$order.hours }}
+                            {{ /if }}%;">
+                            </div>
+                        </div>
+
+                        {{ $percent = ($order.progress/60)|string_format:"%.1f" }}
+                        {{ $parts = explode('.', $percent) }}
+                        {{ if $parts[1] == 0 }}
+                            {{ $percent = $parts[0] }}
+                        {{ /if }}
+
+                        已完成 {{ $percent }} / {{ $order.hours }}小时
+                    </td>
+
+                    <td class="order-action">
+
+                        {{ if isset($order.order_url.reserve_lesson_url) && $order.order_url.reserve_lesson_url }}
+                            {{ if $order.order_url.reserve_lesson_status == 1 }}
+
+                                {{ if $user_data.user_type == 2 }}
+                                <a class="btn-link tiny btn-block invite-reserve" data-pid="{{ $order.purchase_id }}">
+                                    请老师排课
+                                </a>
+                                {{ else }}
+                                <a class="btn-link tiny btn-block" href="{{ $order.order_url.reserve_lesson_url }}" target="_blank">
+                                    为学生排课
+                                </a>
+                                {{ /if }}
+                            {{ /if }}
+                        {{ /if }}
+
+                        {{ if isset($order.order_url.confirm_pay_url) && $order.order_url.confirm_pay_url }}
+                            <span class="btn-link tiny btn-block confirm-pay" data-url="{{ $order.order_url.confirm_pay_url }}" {{ if $is_video_course }} data-video-course="true" data-lesson-type="{{ $order.video_lesson_type }}"{{ /if }}>确认支付</span>
+                        {{ /if }}
+
+                        {{ if isset($order.order_url.comment_url) && $order.order_url.comment_url && !isset($hideCommentBtn) }}
+                            <a class="btn-link tiny btn-block comment-order" href="{{ $order.order_url.comment_url }}" target="_blank" >
+                                评价
+                            </a>
+                        {{ /if }}
+
+                        {{ if isset($order.status) && $order.status == 'appeal_over' }}
+                            <a class="btn-link tiny btn-block"
+                            data-width="23em" data-title="{{ $order.appeal_result_text }}">
+                                申诉结果
+                            </a>
+                        {{ /if }}
+
+                        {{ if isset($order.order_url.order_detail_url) && $order.order_url.order_detail_url }}
+                            <a class="btn-link tiny btn-block" href="{{ $order.order_url.order_detail_url }}" target="_blank">
+                                查看详情
+                            </a>
+                        {{ /if }}
+
+                        {{ if isset($order.order_url.cancel_order_url) && $order.order_url.cancel_order_url }}
+                            <span class="btn-link tiny btn-block cancel-order"
+                                  data-url="{{ $order.order_url.cancel_order_url }}"
+                                  data-price="{{ $order.rest_prices }}"
+                                  data-status="{{ $order.status }}"
+                            >
+                            {{ if $user_data.user_type == 2 && $is_class_course && $order.price == 0 }}
+                                取消订单
+                            {{ else if $user_data.user_type == 2 && $order.status == "pay_success" && $order.rest_prices != '0.00' }}
+                                申请退款
+                            {{ else }}
+                                取消订单
+                            {{ /if }}
+                            </span>
+                        {{ /if }}
+
+                        {{ * 开启了平台支付保障的 才会有退款或申诉 * }}
+                        {{ if isset($order.use_plat_ensure) && $order.use_plat_ensure && isset($order.order_url.appeal_url) && $order.order_url.appeal_url }}
+                            <span class="btn-link tiny btn-block appeal-order" data-url="{{ $order.order_url.appeal_url }}">
+                                {{ if $user_data.user_type == 2 && $order.price > 0 }}
+                                    申请退款
+                                {{ else }}
+                                    我要申诉
+                                {{ /if }}
+                            </span>
+                        {{ /if }}
+
+                        {{ if !empty($user_data) && $user_data.user_type == 0 && $order.pay_status == 0 }}
+                            <span class="btn-link tiny btn-block edit-price" data-isclasscourse="{{ $is_class_course }}" data-purchase-id="{{ $order.purchase_id }}" data-order='{{ json_encode($order, 77) }}' >
+                                修改价格
+                            </span>
+                        {{ /if }}
+
+                        {{ if $user_data.user_type == 2 && ($order.status == 'normal_over' || $order.status == 'canceled' || $order.status == 'refunded') }}
+                            <span class="btn-link tiny btn-block delete-order">
+                                删除订单
+                            </span>
+                        {{ /if }}
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    {{ else }}
+        <table class="order-body">
+            <tbody>
+                <tr>
+                    <td class="course-info">
+                        {{ *如果视频课违规* }}
+                        {{ if $is_video_course && !empty($order.title_verify_status) }}
+                            <span class="course-name wrong-title">
+                                <i class="icon icon-info-circle"></i>
+                                该课程标题包含违规内容，请等待老师修改完成后，再进行查看
+                            </span>
+                        {{ else }}
+                            <span class="course-name"
+
+                                {{ $course_name_cut = $order.course_name|cn_truncate: 10 }}
+
+                                {{ if $course_name_cut != $order.course_name }}
+                                    data-title="{{ $order.course_name }}"
+                                {{ /if }}>
+
+                                {{ if $order.course_type ==2 && $user_data.user_type == 2  }}
+                                <a href="/teacher/classCourseDetail/{{ $order.course_number }}" target="_blank">  {{ $course_name_cut }} </a>
+                                {{ else if $order.course_type ==3 && $user_data.user_type == 2  }}
+                                <a href="/video_course/getcourseshowdetail?number={{ $order.course_number }}&user_number={{ $order.teacher_user_number }}" target="_blank">  {{ $course_name_cut }} </a>
+                                {{ else }}
+                                    {{ $course_name_cut }}
+                                {{ /if }}
+                            </span>
+                        {{ /if }}
+
+                        {{ if $order.trade_info && !($is_video_course && !empty($order.title_verify_status)) }}
+
+                            {{ $trade_info_cut = $order.trade_info|cn_truncate: 5 }}
+
+                            <span class="class-info"
+                                {{ if $trade_info_cut != $order.trade_info }}
+                                    data-title="{{ $order.trade_info }}"
+                                {{ /if }}
+                            >
+                                （{{ $trade_info_cut }}）
+                            </span>
+
+                        {{ /if }}
+
+                        {{ if $is_class_course || $is_org_course || $order.course_type == 12 }}
+                        <label class="class-course-label">
+                            班课
+                        </label>
+                        {{ /if }}
+
+                        {{ if $is_video_course && empty($order.title_verify_status) }}
+                        <label class="video-course-label">
+                            视频课
+                        </label>
+                        {{ /if }}
+
+                        {{ if $order.display_name && !($is_video_course && !empty($order.title_verify_status))  }}
+                        <span class="user-name">
+                            {{ if $user_data.user_type == 2 }}
+                            <a href="/{{ $order.private_domain }}" target="_blank">  {{ $order.display_name }} </a>
+                            {{ else }}
+                            {{ $order.display_name }}
+                            {{ /if }}
+                        </span>
+                        {{ /if }}
+
+                        <div>
+
+                        {{ if !$is_video_course }}
+                            {{ include file="common/variable/lesson.html" scope=parent }}
+                            {{ $lesson_way = $lessonMap[$order.lesson_way] }}
+
+                            {{ if $is_class_course || $is_org_course || $is_x_course }}
+
+                                {{ if $lesson_way == '在线授课' }}
+                                    <strong>
+                                        上课方式：
+                                    </strong>
+                                    在线授课
+                                {{ else }}
+
+                                    <strong>
+                                        上课地点：
+                                    </strong>
+                                    {{ if $order.address_area.full_address }}
+                                        <span data-title="{{ $order.address_area.full_address }}" data-width="20em">
+                                            {{ $order.address_area.full_address|cn_truncate: 22 }}
+                                        </span>
+                                    {{ else }}
+                                        <span>待定</span>
+                                    {{ /if }}
+
+                                {{ /if }}
+
+                            {{ else }}
+                                <span class="label-default small">
+                                    {{ $lesson_way }}
+                                </span>
+
+                                <span class="new-price">
+                                    ￥{{ $order.price|number_format: 2 }}/小时
+                                </span>
+
+                                {{ if $order.pre_pay_money >= 0 && $order.hours > 0 }}
+                                <span class="old-price">
+                                    （<del>￥{{ ($order.pre_pay_money / $order.hours)|number_format: 2 }}/小时</del>）
+                                </span>
+                                {{ /if }}
+
+                            {{ /if }}
+                        {{ else }}
+                            {{ if $order.hours == 0 }}
+                            随时看
+                            {{ else }}
+                            <span>观看有效期：{{ $order.valid_days }}天</span>
+                            {{ /if }}
+                        {{ /if }}
+
+                        </div>
+                    </td>
+
+                    <td class="study-progress">
+
+                        {{ if $is_video_course }}
+                            价格
+                        {{ else }}
+                            总价
+                        {{ /if }}：￥{{ $order.pay_money|number_format: 2 }}
+
+                        {{ if isset($order.status) }}
+                            {{ if $is_video_course }}
+                                {{ include file="common/variable/videoCourseOrderStatus.html" scope=parent }}
+                            {{ else }}
+                                {{ include file="common/variable/orderStatus.html" scope=parent }}
+                            {{ /if }}
+                            <span class="order-status">
+                                {{ $orderStatus[$order.status][1] }}
+                            </span>
+                        {{ /if }}
+
+                        {{ if !$is_org_course }}
+                            <div class="progress tiny">
+                                <div class="progress-bar-info" style="width:
+                                {{ if $is_video_course && $order.course_items_count }}
+                                    {{ $order.current_index*100/$order.course_items_count }}
+                                {{ else if $is_x_course && $order.hours != '0.0' }}
+                                    {{ $order.succ_confirm_count*100/$order.hours }}
+                                {{ else if $order.hours != '0.0' }}
+                                    {{ $order.progress*100/60.0/$order.hours }}
+                                {{ /if }}%;">
+                                </div>
+                            </div>
+
+                            {{ if $is_video_course }}
+                                已学习{{ $order.current_index }}/{{ $order.course_items_count }}课节
+                            {{ else }}
+                                {{ $percent = ($order.progress/60)|string_format:"%.2f" }}
+                                {{ $parts = explode('.', $percent) }}
+                                {{ if $parts[1] == 0 }}
+                                    {{ $percent = $parts[0] }}
+                                {{ /if }}
+
+                                {{ if $is_class_course }}
+                                    已完成 {{ $percent }} / {{ $order.hours }} 课节
+                                {{ else if $is_x_course }}
+                                    已完成 {{ $order.succ_confirm_count }} / {{ $order.hours }} 课时
+                                {{ else }}
+                                    已完成 {{ $percent }} / {{ $order.hours }} 课时
+                                {{ /if }}
+
+                            {{ /if }}
+                        {{ /if }}
+                    </td>
+
+                    <td class="order-action">
+
+                        {{ if isset($order.order_url.reserve_lesson_url) && $order.order_url.reserve_lesson_url }}
+                            {{ if $order.order_url.reserve_lesson_status == 1 }}
+                                {{ if $user_data.user_type == 2 }}
+                                    <a class="btn-link tiny btn-block" href="{{ $order.order_url.reserve_lesson_url }}" target="_blank">
+                                        发起约课
+                                    </a>
+                                    <a class="btn-link tiny btn-block invite-reserve" data-pid="{{ $order.purchase_id }}">
+                                        请老师排课
+                                    </a>
+                                {{ else }}
+                                    <a class="btn-link tiny btn-block" href="{{ $order.order_url.reserve_lesson_url }}" target="_blank">
+                                        为学生排课
+                                    </a>
+                                {{ /if }}
+                            {{ /if }}
+                        {{ /if }}
+
+                        {{ if isset($order.order_url.confirm_pay_url) && $order.order_url.confirm_pay_url }}
+                            {{ if $is_org_course }}
+                                <span class="btn-link tiny btn-block confirm-nosuccess-pay" data-pid="{{ $order.purchase_id }}" data-url="{{ $order.order_url.confirm_pay_url }}">
+                                    确认支付
+                                </span>
+                            {{ else }}
+                                <span class="btn-link tiny btn-block confirm-pay" data-url="{{ $order.order_url.confirm_pay_url }}" {{ if $is_video_course }} data-video-course="true" data-lesson-type="{{ $order.video_lesson_type }}"{{ /if }}>
+                                    确认支付
+                                </span>
+                            {{ /if }}
+                        {{ /if }}
+
+                        {{ if isset($order.order_url.comment_url) && $order.order_url.comment_url && !isset($hideCommentBtn) }}
+                            <a class="btn-link tiny btn-block comment-order" href="{{ $order.order_url.comment_url }}" target="_blank" >
+                                评价
+                            </a>
+                        {{ /if }}
+
+                        {{ if isset($order.status) && $order.status == 'appeal_over' }}
+                            <a class="btn-link tiny btn-block"
+                            data-width="23em" data-title="{{ $order.appeal_result_text }}">
+                                申诉结果
+                            </a>
+                        {{ /if }}
+
+                        {{ if isset($order.order_url.order_detail_url) && $order.order_url.order_detail_url }}
+                            <a class="btn-link tiny btn-block" href="{{ $order.order_url.order_detail_url }}" target="_blank">
+                                查看详情
+                            </a>
+                        {{ /if }}
+
+                        {{ if !empty($user_data) && $user_data.user_type == 0 && $order.pay_status == 0 && !$is_video_course  }}
+                            {{ if $order.is_prefer_normal_course }}
+                                <span class="btn-link tiny btn-block" data-title="该类型订单暂不支持修改价格">
+                                    修改价格
+                                </span>
+                            {{ else }}
+                                <span class="btn-link tiny btn-block edit-price" data-isclasscourse="{{ $is_class_course }}" data-purchase-id="{{ $order.purchase_id }}" data-order='{{ json_encode($order, 77) }}'>
+                                    修改价格
+                                </span>
+                            {{ /if }}
+                        {{ /if }}
+
+                        {{ if $is_x_course }}
+                            {{ if isset($order.use_plat_ensure) && $order.use_plat_ensure && $order.retire_flag == 0 && $order.order_status == 10 && $order.refund_status != 1 }}
+                                <a class="btn-link tiny btn-block" href="/pay/refund?purchase_id={{ $order.purchase_id }}">
+                                    {{ if $order.refund_status == 2 || $order.refund_status == 3 }}
+                                        申请退款
+                                    {{ else if $order.refund_status == 0 }}
+                                        退款中
+                                    {{ /if }}
+                                </a>
+                            {{ /if }}
+                        {{ /if }}
+
+                        {{ if $user_data.user_type == 2 && ($order.status == 'normal_over' || $order.status == 'canceled' || $order.status == 'refunded'
+                            || ($is_video_course && $order.status == 'pay_success')) }}
+                            <span class="btn-link tiny btn-block delete-order">
+                                删除订单
+                            </span>
+                        {{ /if }}
+
+                        {{ * 设置了取消订单的url * }}
+                        {{ if isset($order.order_url.cancel_order_url) && $order.order_url.cancel_order_url }}
+                            <span class="btn-link tiny btn-block cancel-order"
+                                  data-url="{{ $order.order_url.cancel_order_url }}"
+                                  data-price="{{ $order.rest_prices }}"
+                                  data-status="{{ $order.status }}"
+                            >
+
+                            {{ if $order.parent_purchase_type == 4 }}
+                                {{ * 组合课 * }}
+                                {{ if $user_data.user_type == 2 && $order.status == "wait_for_pay" }}
+                                    取消订单
+                                {{ /if }}
+                            {{ else if !$is_org_course && !$is_x_course }}
+                                {{ * 非3810课程 可以申请退款和取消订单 * }}
+                                {{ if $user_data.user_type == 2 && $is_class_course && $order.price == 0 }}
+                                    取消订单
+                                {{ else if $user_data.user_type == 2 && $order.status == "pay_success" && $order.rest_prices != '0.00' }}
+                                    申请退款
+                                {{ else }}
+                                    取消订单
+                                {{ /if }}
+                            {{ else }}
+                                {{ if $user_data.user_type == 2 && $order.status == "wait_for_pay" }}
+                                    取消订单
+                                {{ /if }}
+                            {{ /if }}
+                            </span>
+                        {{ /if }}
+
+                        {{ * 设置了申诉url的订单 * }}
+                        {{ if isset($order.use_plat_ensure) && $order.use_plat_ensure && isset($order.order_url.appeal_url) && $order.order_url.appeal_url }}
+                            {{ * 其他课程类型，开启了平台支付保障的 才会有退款或申诉 * }}
+                            <span class="btn-link tiny btn-block appeal-order" data-url="{{ $order.order_url.appeal_url }}">
+                                {{ if $user_data.user_type == 2 && $order.price > 0 }}
+                                    申请退款
+                                {{ else }}
+                                    我要申诉
+                                {{ /if }}
+                            </span>
+                        {{ /if }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    {{ /if }}
+
+</div>
+
+{{ /strip }}

@@ -1,0 +1,1 @@
+define("cc/function/disableSelection",["require","exports","module"],function(){"use strict";if(document.selection)return function(){document.body.onselectstart=function(){return!1}};else return $.noop});

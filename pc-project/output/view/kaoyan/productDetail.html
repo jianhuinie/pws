@@ -1,0 +1,204 @@
+{{ *
+
+@file 考研专区打包课/组合课 - 提交订单
+@author wangyujie
+
+* }}
+
+{{ extends file="common/main/base.html" }}
+
+{{ block name="data" }}
+    {{ $need_im = false }}
+    {{ $smarty.block.parent }}
+    {{ $script_path = "kaoyan/productDetail_e52483ec21" }}
+
+    {{ $script_data.courseNumber = $smarty.get.course_number }}
+    {{ $script_data.courseType = $smarty.get.type }}
+    {{ $script_data.price = $tpl_data.product.price }}
+
+{{ /block }}
+
+{{ block name="title" prepend }}
+提交订单 -
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/kaoyan/productDetail_33d9ae7983.css">
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+
+<div id="main" class="card">
+
+    <div class="section">
+
+        <div class="section-header">
+            联系方式
+        </div>
+
+        <div class="section-body">
+            <div class="form form-student">
+
+                {{ if !empty($tpl_data.student_profile.display_name) }}
+                    {{ $name = $tpl_data.student_profile.display_name }}
+                {{ else }}
+                    {{ $name = "" }}
+                {{ /if }}
+
+                {{ if isset($tpl_data.student_profile.mobile) }}
+                    {{ $mobile = $tpl_data.student_profile.mobile }}
+                {{ else }}
+                    {{ $mobile = "" }}
+                {{ /if }}
+
+                {{ if isset($tpl_data.student_profile.is_self) }}
+                    {{ $is_self = $tpl_data.student_profile.is_self }}
+                {{ else }}
+                    {{ $is_self = "" }}
+                {{ /if }}
+
+                {{ if isset($tpl_data.student_profile.student_name) }}
+                    {{ $student_name = $tpl_data.student_profile.student_name }}
+                {{ else }}
+                    {{ $student_name = "" }}
+                {{ /if }}
+
+                {{ if isset($tpl_data.student_profile.note) }}
+                    {{ $note = $tpl_data.student_profile.note }}
+                {{ else }}
+                    {{ $note = "" }}
+                {{ /if }}
+
+                <div class="form-group">
+                    <label class="form-label">
+                        手机号：
+                    </label>
+                    <div class="form-controls">
+                        <span class="form-static">{{ $mobile }}</span>
+                        <input type="hidden" name="mobile" value="{{ $mobile }}" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        姓名：
+                    </label>
+                    <div class="form-controls">
+                        <span class="form-static user-name-text">{{ $name }}</span>
+                        <input type="hidden" name="name" value="{{ $name }}" />
+                    </div>
+                </div>
+
+                <div class="form-group is-self">
+                    <label class="form-label">是否本人上课：</label>
+                    <div class="form-controls">
+                        {{ if $is_self === '1' }}
+                            <span class="form-static">是</span>
+                        {{ else if $is_self === '0' }}
+                            <span class="form-static">否</span>
+                        {{ else }}
+                            {{ include file="common/component/radio.html" name="self" value="1" text="是" checked=true }}
+                            {{ include file="common/component/radio.html" name="self" value="0" text="否" checked=false }}
+                        {{ /if }}
+                    </div>
+                </div>
+
+                <div class="form-group student-name" {{ if $is_self === '0' }}style="display: block;" {{ /if }}>
+                    <label class="form-label">
+                        <i class="form-required"></i>上课人姓名：
+                    </label>
+                    <div class="form-controls">
+                        {{ if $student_name && $is_self === '0' }}
+                            <span class="form-static">{{ $student_name }}</span>
+                        {{ else }}
+                            <input class="form-text student-name-input" type="text" name="student_name" required />
+                            <span class="error"></span>
+                        {{ /if }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">给老师留言：</label>
+                    <div class="form-controls">
+                        {{ if $note }}
+                            <span class="form-static">{{ $note }}</span>
+                        {{ else }}
+                            <div class="form-editor note">
+                                <textarea class="form-text" name="note"></textarea>
+                                <div class="form-hint">还可以输入 <strong>200</strong> 个字</div>
+                            </div>
+                        {{ /if }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            确认课程信息
+        </div>
+        <table class="table course">
+            <thead>
+                <tr>
+                    <th class="left">课程名称</th>
+                    <th>单价</th>
+                    <th class="right">合计</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td class="left">
+                        <div class="avatar">
+                            {{ include file="common/component/avatar.html" url=$tpl_data.product.detail_url target="_blank" type="small" img=$tpl_data.product.cover }}
+                        </div>
+                        <div class="base-info left">
+                            <div class="name">
+                                {{ $tpl_data.product.name|cn_truncate: 35 }}
+                            </div>
+                            <div class="course">
+                                {{ $tpl_data.product.total|default: 1 }}门联报
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        ¥{{ $tpl_data.product.price }}
+                    </td>
+                    <td class="right">
+                        <span class="text-error">
+                        ￥
+                            <span class="pay-money" data-pay-money="{{ $tpl_data.product.price|number_format:2 }}">
+                                {{ $tpl_data.product.price|number_format:2 }}
+                            </span>
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section">
+        <div class="order-money">
+            <div class="pay-amount">
+                应付总额：
+                <span class="text-error">
+                    ￥
+                    <strong class="pay-amount-value">
+                    {{ $tpl_data.product.price|number_format:2 }}
+                    </strong>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <button id="btn-submit" class="btn btn-primary">提交订单</button>
+        <p class="text-error"></p>
+    </div>
+
+</div>
+
+{{ /strip }}
+{{ /block }}

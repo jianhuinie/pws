@@ -1,0 +1,149 @@
+{{ *
+
+@file 机构班课页
+@author jixiaohui
+
+* }}
+{{ extends file="./common/base.html" }}
+
+{{ block name="data" }}
+
+    {{ $need_im = false }}
+    {{ $smarty.block.parent }}
+
+    {{ $script_path = "org/course" }}
+    {{ $script_data.orgnumber = $tpl_data.base_info.number }}
+    {{ if $tpl_data.base_info.domain }}
+    {{ $script_data.domain = $tpl_data.base_info.domain }}
+    {{ else }}
+    {{ $script_data.domain = $tpl_data.base_info.number }}
+    {{ /if }}
+    {{ $script_data.q = $tpl_data.q }}
+    {{ $script_data.course_type = $tpl_data.course_type }}
+    {{ if not empty($tpl_data.base_info.support_tianxiao) }}
+        {{ $script_data.isTianxiaoOrg = $tpl_data.base_info.support_tianxiao }}
+    {{ /if }}
+
+    {{ $active = $tpl_data.pages.type }}
+    {{ $flotage_config.hidden = 1 }}
+    {{ $need_mobile_seo = true }}
+    {{ $need_location_seo = true }}
+{{ /block }}
+
+
+{{ block name="title" }}
+{{ strip }}
+    {{ $tpl_data.title }}
+{{ /strip }}
+{{ /block }}
+
+{{ block name="keywords" }}
+{{ strip }}
+    {{ $tpl_data.keywords }}
+{{ /strip }}
+{{ /block }}
+
+{{ block name="description" }}
+{{ strip }}
+    {{ $tpl_data.description }}
+{{ /strip }}
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/org/course.less">
+<style>
+    #site-nav .status-info li:nth-child(3){
+        display: none
+    }
+
+    .user-info li {
+        display: none
+    }
+    .user-info .my-course,
+    .user-info .custom-service {
+        display: inline-block;
+    }
+    #site-nav .course-menu {
+        left: -100px;
+    }
+    #site-nav .course-menu:before, #site-nav .course-menu:after {
+        left: 13em;
+    }
+</style>
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+{{ if $tpl_data.base_info.domain }}
+    {{ $domain = $tpl_data.base_info.domain }}
+{{ else }}
+    {{ $domain = $tpl_data.base_info.number }}
+{{ /if }}
+
+{{ $url_course = "/i/course/"|cat:$domain }}
+{{ $url_video_course = "/i/course/"|cat:$domain|cat:"?type=2" }}
+
+{{ if isset($tpl_data.abtest) && $tpl_data.abtest == 1 }}
+    {{ $url_course = "/i/course/"|cat:$domain }}
+    {{ $url_video_course = "/i/course/"|cat:$domain|cat:"?type=2" }}
+{{ /if }}
+
+{{ $org_id = $tpl_data.base_info.id }}
+    <div id="org-course" class="concentration-wrapper">
+        <ul class="list list">
+        {{ foreach $tpl_data.courses as $val }}
+            <li class="item">
+                <a class="course-photo" target="_blank" href="{{ $val.course_url }}">
+                    <img src="{{ $val.course_cover }}@1e_227w_128h_1c_0i_1o_90Q_1x" alt="{{ $val.course_name }}">
+                </a>
+                <ul class="course-info">
+                    <li class="title">
+                        <a class="name" href="{{ $val.course_url }}" target="_blank">{{ $val.course_name|escape }}</a>
+                    </li>
+                    <li>
+                        主讲老师：
+                        <span>{{ $val.teacher_name }}</span>
+                    </li>
+                    <!-- <li>
+                        课节数：
+                        <span>{{ $val.play_count }}</span>
+                    </li> -->
+                    <!-- <li>
+                        课程类别：
+                        {{ $subjectinfo = '' }}
+                        {{ foreach $val.subject_info as $v }}
+                            {{ if !$v@last }}
+                                {{ $subjectinfo = $subjectinfo|cat:$v.name|cat:'/' }}
+                            {{ else }}
+                                {{ $subjectinfo = $subjectinfo|cat:$v.name }}
+                            {{ /if }}
+                        {{ /foreach }}
+                        <span>{{ $subjectinfo }}</span>
+                    </li> -->
+                    {{ if $val.course_type == 3 }}
+                    <li>
+                        播放次数：
+                        <span>{{ $val.play_count }} 次播放</span>
+                    </li>
+                    {{ /if }}
+                    {{ if isset($val.begin_time) && $val.begin_time != '' }}
+                    <li>
+                        开始时间：
+                        <span>{{ $val.begin_time }}</span>
+                    </li>
+                    {{ /if }}
+                </ul>
+                {{ /foreach }}
+            </ul>
+        {{ **没有课程** }}
+        {{ if empty($tpl_data.courses) }}
+            <div class="no-course">
+            </div>
+        {{ /if }}
+        {{ $url = '/i/huike_courses/'|cat:$domain|cat:'?course_type='|cat:$tpl_data.pages.type|cat:'&cpage='|cat:$tpl_data.pages.page }}
+        {{ include file="common/component/pager.html" page=$tpl_data.pages.page url=$url count=$tpl_data.pages.count }}
+    </div>
+{{ include file="common/component/baiduMap.html" }}
+{{ include file="common/component/loginDialog.html" onlyShowStudent=1 }}
+{{ /strip }}
+{{ /block }}

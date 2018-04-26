@@ -1,0 +1,152 @@
+{{ *
+    @file 个人中心的列表tabs组件
+    @author peilonghui
+    @params tabs 传入的tabs数组
+            tab.title tab的文本
+            tab.key 用于映射总数中的key
+            tab_count tab中的每个tab的数量以tab中的key为key
+
+* }}
+
+{{ strip }}
+
+{{ if not isset($tab_count) }}
+{{ $tab_count = [] }}
+{{ /if }}
+
+{{ if !isset($type) }}
+    {{ $type = 'info' }}
+{{ /if }}
+
+<div class="tab-nav tab-nav-{{ $type }}">
+
+    {{ * tab头部右侧内容 * }}
+    {{ if isset($tab_right) && $tab_right.category == 'quickLesson' }}
+
+        {{ if isset($user_data) && $user_data.qreserve_global_sign == 1 }}
+            {{ $opened = 1 }}
+        {{ else }}
+            {{ $opened = 0 }}
+        {{ /if }}
+
+        <div class='nav-right {{ if $opened == 1 }}opened{{ /if }} quick-lesson-box
+        {{ if isset($tab_right.class) && $tab_right.class }}
+            {{ $tab_right.class }}
+        {{ /if }}'>
+
+            <label class="form-checkbox {{ if $opened }} checked {{ /if }}">
+                <input type="checkbox" name="quick-lesson" {{ if $opened }} checked="checked" {{ /if }} />
+                <i class="icon icon-lightning"></i>
+                全部老师开启闪电约课
+                <i class="icon icon-question-circle" data-title="什么是闪电约课？<br />开启闪电约课后，该老师发起的约课以及时间修改系统将为你自动确认" data-width="19em"></i>
+            </label>
+
+        </div>
+    {{ /if }}
+
+
+    {{ if not isset($smarty.get.status) }}
+        {{ $active_tab = 1 }}
+    {{ else }}
+        {{ $active_tab = $smarty.get.status }}
+    {{ /if }}
+
+    {{ $statusUrl = $smarty.server.REQUEST_URI }}
+
+    {{ * 判断当前url中是否有？参数，如果没有，补全 * }}
+    {{ if not $statusUrl|strpos: '?' }}
+    {{ $statusUrl = $statusUrl|cat:"?" }}
+    {{ /if }}
+
+    {{ * 判断当前url中有没有status参数，有的话保留，没有默认值 * }}
+    {{ if not $statusUrl|strpos: 'status=' }}
+    {{ $statusUrl = $statusUrl|cat:"&status=1" }}
+    {{ /if }}
+
+    {{ * 判断当前url中是否包含page参数，如果有的话就去掉 * }}
+    {{ if $statusUrl|strpos: 'page=' }}
+
+    {{ $statusUrl = $statusUrl|regex_replace:'/&?page=\d+/': '' }}
+    {{ /if }}
+
+    {{ * 拆分url $path 和 $search * }}
+    {{ $url_parts = explode('?', $statusUrl) }}
+    {{ $path = $url_parts[0] }}
+    {{ $search = '?' }}
+
+    {{ if isset($url_parts[1]) }}
+        {{ $search = $search|cat:$url_parts[1] }}
+
+        {{ * 转义参数 * }}
+        {{ $search_safe = '' }}
+
+        {{ * 判断$search中有没有page参数，有的话去除 * }}
+        {{ $params = explode('&', $search) }}
+        {{ foreach $params as $item }}
+
+            {{ * 特殊情况处理 -> ?&a=111 * }}
+            {{ if $item@index == 0 && $item == '?' }}
+                {{ $search_safe = $search_safe|cat: '?' }}
+            {{ /if }}
+
+            {{ $tokens = explode('=', $item) }}
+            {{ if $tokens[0] != 'page' && $tokens[0] != '?page' && isset($tokens[1]) }}
+                {{ $key = $tokens[0]|escape }}
+                {{ $value = $tokens[1]|escape }}
+                {{ if $item@index != 0 }}
+                    {{ $search_safe = $search_safe|cat: '&'|cat: $key|cat: '='|cat: $value }}
+                {{ else }}
+                    {{ $search_safe = $search_safe|cat: $key|cat: '='|cat: $value }}
+                {{ /if }}
+
+            {{ /if }}
+
+        {{ /foreach }}
+
+        {{ $search = $search_safe }}
+
+        {{ if $search == '' }}
+            {{ $search = '?' }}
+        {{ else if $search !== '?' }}
+            {{ $search = $search|cat:'&' }}
+        {{ /if }}
+
+    {{ /if }}
+
+
+    {{ $replace_src = "status="|cat:$active_tab }}
+
+    {{ foreach $tabs as $tab }}
+
+        {{ if ($tab@index == ($active_tab - 1)) }}
+        <span class="nav-item active">
+            {{ $tab.title }}
+            <i class="text-primary">
+                {{ if isset($tab_count[$tab.key]) }}
+                    {{ $tab_count[$tab.key] }}
+                    {{ if isset($tab.prize_star) && $tab.prize_star }}
+                    <i class="icon icon-prize-tip"></i>
+                    {{ /if }}
+                {{ /if }}
+            </i>
+        </span>
+        {{ else }}
+
+        {{ $replace_to = "status="|cat:($tab@index+1) }}
+        <a class="nav-item" href='{{ $statusUrl|replace: $replace_src : $replace_to }}'>
+            {{ $tab.title }}
+            <i class="text-primary">
+            {{ if isset($tab_count[$tab.key]) }}
+                {{ $tab_count[$tab.key] }}
+                {{ if isset($tab.prize_star) && $tab.prize_star }}
+                <i class="icon icon-prize-tip"></i>
+                {{ /if }}
+            {{ /if }}
+            </i>
+        </a>
+        {{ /if }}
+    {{ /foreach }}
+
+</div>
+
+{{ /strip }}

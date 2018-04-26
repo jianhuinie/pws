@@ -1,0 +1,69 @@
+{{ $courseTop['dxzc']['cls'] = 'course-dxzc-top' }}
+{{ $courseTop['dxzc']['source'] = 'gsx_daxue_pc' }}
+{{ $courseTop['dxzc']['img'] = 'http://img.gsxservice.com/0cms/d/file/content/2015/05/555e9c0641949.jpg' }}
+{{ $courseTop['xcgzc']['cls'] = 'course-xcgzc-top' }}
+{{ $courseTop['xcgzc']['source'] = 'gsx_zhongxiao_pc' }}
+{{ $courseTop['xcgzc']['img'] = 'http://img.gsxservice.com/0cms/d/file/content/2015/05/555e9c068f3c0.jpg' }}
+{{ $courseTop['lxzc']['cls'] = 'course-lxzc-top' }}
+{{ $courseTop['lxzc']['source'] = 'gsx_chuguo_pc' }}
+{{ $courseTop['lxzc']['img'] = 'http://img.gsxservice.com/0cms/d/file/content/2015/05/555e9c0666907.jpg' }}
+{{ $courseTop['ysxqzc']['cls'] = 'course-ysxqzc-top' }}
+{{ $courseTop['ysxqzc']['source'] = 'gsx_yishu_pc' }}
+{{ $courseTop['ysxqzc']['img'] = 'http://img.gsxservice.com/0cms/d/file/content/2015/05/555e9c06af5a3.jpg' }}
+{{ strip }}
+{{ foreach $tpl_data.subject as $subject }}
+<div class="course-wrapper {{ $courseTop[$subject.info.subject]['cls'] }}" id="{{ $subject.info.subject }}">
+    <div class="course-rave-top">
+        <img src="{{ $courseTop[$subject.info.subject]['img'] }}" width="1100px" height="190px"/>
+        <a class="more-course" href="http://www.genshuixue.com/track/source?id={{ $courseTop[$subject.info.subject]['source'] }}&url={{ $tpl_data.info.url.sub }}subject={{ $subject.info.subject }}" target="_blank">
+            更多<span class="icon icon-plus"></span>
+        </a>
+    </div>
+    <div class="course-list-wrapper">
+        <div class="course-category">
+            <div class="course-body">
+                <ul class="course-list">
+                    {{ foreach $subject.courses as $course }}
+                    <li class="course-item" data-number="{{ $course.number }}">
+                        <div class="img-wrapper">
+                            <img src="{{ $course.cover.url }}@256w_1c_1e|0-0-256-176a" width="100%" height="176px"/>
+                            <div class="img-tip" title="{{ $course.name }}">
+                                {{ $course.name|truncate:13 }}
+                            </div>
+                        </div>
+                        <div class="course-info">
+                            <div>{{ $course.arrangement }}</div>
+                            <div title="{{ $course.teacher_name }}">
+                                主讲老师：{{ $course.teacher_name }}
+                            </div>
+                        </div>
+                        <div class="course-price">
+                            <div class="course-sec-price">
+                                <span class="label">616价：</span>
+                                <span class="price">
+                                    ￥{{ $course.price }}
+                                </span>
+                            </div>
+                            <div class="course-price-other">
+                                <span class="origin-price">
+                                    原价：{{ $course.original_price }}元
+                                </span>
+                            </div>
+                            <div class="course-sec-btn {{ if $course.total_pay < $course.max_student }}active{{ /if }}">
+                                {{ if $course.total_pay >= $course.max_student }}
+                                你来晚了
+                                {{ else }}
+                                我要抢购
+                                <span class="icon icon-lightning"></span>
+                                {{ /if }}
+                            </div>
+                        </div>
+                    </li>
+                    {{ /foreach }}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{{ /foreach }}
+{{ /strip }}

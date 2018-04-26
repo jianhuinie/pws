@@ -1,0 +1,41 @@
+{{ *
+
+@file 输入框组，输入框前后可带文字
+
+      参数：
+      prefix 输入框前面的文字
+      suffix 输入框后面的文字
+      input 输入框模板，这个定制性太强，还是传进来比较好
+
+@author zhujialu
+
+* }}
+{{ strip }}
+
+{{ if !isset($prefix) }}
+    {{ $prefix = "" }}
+{{ /if }}
+
+{{ if !isset($suffix) }}
+    {{ $suffix = "" }}
+{{ /if }}
+
+<div class="input-group">
+
+    {{ if $prefix }}
+    <span class="input-group-addon">
+        {{ $prefix }}
+    </span>
+    {{ /if }}
+
+    {{ $input }}
+
+    {{ if $suffix }}
+    <span class="input-group-addon">
+        {{ $suffix }}
+    </span>
+    {{ /if }}
+
+</div>
+
+{{ /strip }}

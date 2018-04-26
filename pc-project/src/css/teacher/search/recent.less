@@ -1,0 +1,71 @@
+/**
+ * @file 最近浏览
+ * @author jixiaohui
+ */
+#recent-visit {
+    background: #f7f7f7;
+
+    .card-header {
+        color: #3d3d3d;
+        font-size: 16px;
+        background: #f7f7f7;
+        border: none;
+        border-top: 1px solid #e6e6e6;
+        padding-bottom: 0;
+        font-weight: 500;
+    }
+
+    .card-body {
+        padding-top: 0;
+    }
+
+    li {
+        border-bottom: 1px dashed @brand-gray;
+        padding: 10px 0;
+        .clearfix();
+
+        .avatar-small {
+            float: left;
+            margin-right: 10px;
+            border-radius: 0;
+
+            &:after {
+                border-radius: 2px;
+            }
+        }
+
+        img {
+            border-radius: 2px;
+        }
+
+        .detail {
+            float:left;
+            font-size: @font-size-tiny ;
+
+            .name {
+                color: #3d3d3d;
+                display: block;
+                width: 130px;
+                .text-overflow();
+            }
+
+            .score {
+                color: @brand-primary;
+            }
+
+            .price {
+                color: @brand-text;
+            }
+
+            .course {
+                display: block;
+                width: 130px;
+                color: #6d6d6d;
+            }
+        }
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+}

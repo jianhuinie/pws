@@ -1,0 +1,328 @@
+{
+    "code": 0,
+    "data": {
+        "one_on_one_teacher_mobile" : 1232323,
+        "profile": {
+            "is_one_on_one_teacher": true,
+            "name": "黄龙",
+            "name_cut": "黄龙",
+            "sex": "1",
+            "avatar": "http://img.gsxservice.com/4165601_8p0x8jr2.jpg",
+            "user_id": "1454537",
+            "user_number": "875545058",
+            "vip_level": 2,
+            "template_level": 1,
+            "user_home": "http://beta.genshuixue.com/875545058",
+            "slogan": "主讲四六级阅读，考研阅读，专四阅读以及词...",
+            "area": "湖北-武汉-江夏",
+            "address": "武重路-道路",
+            "student_count": 5,
+            "teach_time": 9,
+            "certification": [
+                "idcard"
+            ],
+            "organization": {
+                "id": "41189",
+                "name": "测试机构-002",
+                "domain": "testgexing112",
+                "number": "706594729",
+                "url": "http://beta.genshuixue.com/i/testgexing112",
+                "m_url": "http://beta-m.genshuixue.com/org/index/testgexing112",
+                "description": "本机构主要做跟谁学的线上问题测试所用",
+                "avatar": "http://img.gsxservice.com/4344409_0yszot9b.jpg",
+                "area_id": "201588736",
+                "qualifications": "公司",
+                "membership_level": 3,
+                "support_tianxiao": true
+            },
+            "offline_poi": {
+                "lng": "114.445093",
+                "lat": "30.449031"
+            },
+            "has_activity_auth": true,
+            "audio": null,
+            "audio_length": null,
+            "medal": [],
+            "can_order": true,
+            "usabletime_desc": "",
+            "domain": "875545058",
+            "subject_name": "销售管理",
+            "self_introduce": "主讲四六级阅读，考研阅读，专四阅读以及词...",
+            "response_time": "小于10分钟",
+            "response_rate": "高于30%",
+            "org_type": "",
+            "total_courses": 10,
+            "online_count": 2,
+            "offline_count": 4,
+            "video_count": 2,
+            "can_order_count": 10,
+            "org_address": "",
+            "flag_course": 1,
+            "comment_count": 5
+        },
+        "success": [
+            {
+                "date": "2015-02-01",
+                "title": "优秀教学案例展示",
+                "content": "2009年5月9日 再次登上快乐大本营的舞台，与蔡依林互飚英语，并教大家发音。\n2010年4月17日 时隔快一年，再次登上快乐大本营，跳舞、教大家单词，三位时尚大师帮思思改变造型。\n2010年9月11日，登上快乐大本营，与黄晓明对话英语。\n2010年9月18日，登上快乐大本营，作为评委出场\n2012年1月26日，登上快乐大本营，与Jolin同台。",
+                "content_cut": "2009年5月9日 再次登上快乐大本营的舞台，与蔡依林互飚英语，并教大家发音。\n2010年...",
+                "content_new_cut": "2009年5月9日 再次登上快乐大本营的舞台，与蔡依林互飚英语，并教大家发音。\n2010年4月17日 时隔快一年，再次登上快乐大本营，跳舞、教大家单词，三位时尚大师帮思思改变造型。\n2010年9月11日，登上快乐大本营，与黄晓明对话英语。\n..."
+            }
+        ],
+        "experience": [
+            {
+                "start_date": "2013-01-01",
+                "end_date": "2015-06-01",
+                "content": "2012年参加江苏卫视《非常了得》2012年6月27日期节目,在无求助情况下，连续答对三题，获得了普吉岛浪漫双人游；然而，却在回答第四题的时候，出现了失误；最后在“孟郭接招”的环节中，\n因答对郭德纲的“我每年自己在家腌咸菜”的表述获得了一人港澳游。",
+                "content_cut": "2012年参加江苏卫视《非常了得》2012年6月27日期节目,在无求助情况下，连续答对三题...",
+                "content_new_cut": "2012年参加江苏卫视《非常了得》2012年6月27日期节目,在无求助情况下，连续答对三题，获得了普吉岛浪漫双人游；然而，却在回答第四题的时候，出现了失误；最后在“孟郭接招”的环节中，\n因答对郭德纲的“我每年自己在家腌咸菜”的表述获得了一人港澳游。"
+            },
+            {
+                "start_date": "2010-01-01",
+                "end_date": "2013-01-01",
+                "content": "2006年参加超级女声长沙赛区海选，通过第一轮，后由于第二周在北京参加英语辩论赛不能及时返回，又协调未果而抱憾未能参加第二轮。其实也未必遗憾，对于性格凶猛，是非分明的姑娘，\n也许在娱乐圈还真走不了多远。知识分子，学术至上。",
+                "content_cut": "2006年参加超级女声长沙赛区海选，通过第一轮，后由于第二周在北京参加英语辩论赛不能及时返...",
+                "content_new_cut": "2006年参加超级女声长沙赛区海选，通过第一轮，后由于第二周在北京参加英语辩论赛不能及时返回，又协调未果而抱憾未能参加第二轮。其实也未必遗憾，对于性格凶猛，是非分明的姑娘，\n也许在娱乐圈还真走不了多远。知识分子，学术至上。"
+            }
+        ],
+        "declare_tpl": "skin101",
+        "title": "【黄龙个人资料】黄龙老师个人资料_教学成果_简历_简介-跟谁学",
+        "keywords": "黄龙个人资料,黄龙教学成果,黄龙简历",
+        "description": "跟谁学为您提供黄龙老师销售管理课程的在线直播、线下班课、1对1课程，黄龙相册视频，个人资料，学生评价，黄龙课程数量，学生数量，教学时长，好评率，方便学生和家长全方位了解黄龙。找好老师，上跟谁学！",
+        "teach": {
+            "subject": [
+                {
+                    "name": "销售管理-被滴滴用“流氓”手段打败之启示录",
+                    "path": [
+                        {
+                            "id": "455",
+                            "name": "管理",
+                            "level": "1",
+                            "subnodes": "2",
+                            "display_order": "497",
+                            "hidden": "0",
+                            "parent_id": "0",
+                            "remark_name": "管理",
+                            "subject_type": "0",
+                            "verify_status": "1",
+                            "tag": null,
+                            "image": "http://img.gsxservice.com/87571_g57d2sls.jpeg",
+                            "teacher_count": "1",
+                            "is_deleted": "2",
+                            "remark": null
+                        },
+                        {
+                            "id": "461",
+                            "name": "企业运营",
+                            "level": "2",
+                            "subnodes": "10",
+                            "display_order": "1",
+                            "hidden": "0",
+                            "parent_id": "455",
+                            "remark_name": "企业运营",
+                            "subject_type": "0",
+                            "verify_status": "1",
+                            "tag": null,
+                            "image": "http://img.gsxservice.com/87644_d9b4qoq7.png",
+                            "teacher_count": "1",
+                            "is_deleted": "2",
+                            "remark": null
+                        },
+                        {
+                            "id": "464",
+                            "name": "销售管理",
+                            "level": "3",
+                            "subnodes": "0",
+                            "display_order": "1",
+                            "hidden": "0",
+                            "parent_id": "461",
+                            "remark_name": "销售管理",
+                            "subject_type": "0",
+                            "verify_status": "1",
+                            "tag": null,
+                            "image": "http://img.gsxservice.com/87881_ae6ty9kg.jpeg",
+                            "teacher_count": "1",
+                            "is_deleted": "2",
+                            "remark": null
+                        }
+                    ],
+                    "id": "397581",
+                    "price": {
+                        "teacher": "100",
+                        "student": "50",
+                        "discuss": "80",
+                        "online": "40"
+                    }
+                },
+                {
+                    "name": "销售管理-企业微商会存活多久",
+                    "path": [
+                        {
+                            "id": "455",
+                            "name": "管理",
+                            "level": "1",
+                            "subnodes": "2",
+                            "display_order": "497",
+                            "hidden": "0",
+                            "parent_id": "0",
+                            "remark_name": "管理",
+                            "subject_type": "0",
+                            "verify_status": "1",
+                            "tag": null,
+                            "image": "http://img.gsxservice.com/87571_g57d2sls.jpeg",
+                            "teacher_count": "1",
+                            "is_deleted": "2",
+                            "remark": null
+                        },
+                        {
+                            "id": "461",
+                            "name": "企业运营",
+                            "level": "2",
+                            "subnodes": "10",
+                            "display_order": "1",
+                            "hidden": "0",
+                            "parent_id": "455",
+                            "remark_name": "企业运营",
+                            "subject_type": "0",
+                            "verify_status": "1",
+                            "tag": null,
+                            "image": "http://img.gsxservice.com/87644_d9b4qoq7.png",
+                            "teacher_count": "1",
+                            "is_deleted": "2",
+                            "remark": null
+                        },
+                        {
+                            "id": "464",
+                            "name": "销售管理",
+                            "level": "3",
+                            "subnodes": "0",
+                            "display_order": "1",
+                            "hidden": "0",
+                            "parent_id": "461",
+                            "remark_name": "销售管理",
+                            "subject_type": "0",
+                            "verify_status": "1",
+                            "tag": null,
+                            "image": "http://img.gsxservice.com/87881_ae6ty9kg.jpeg",
+                            "teacher_count": "1",
+                            "is_deleted": "2",
+                            "remark": null
+                        }
+                    ],
+                    "id": "404173",
+                    "price": {
+                        "teacher": "1",
+                        "student": "1",
+                        "discuss": "1",
+                        "online": "1"
+                    }
+                }
+            ],
+            "school_age": "3",
+            "approach": {
+                "1": "discuss",
+                "2": "online",
+                "4": "student",
+                "8": "teacher"
+            },
+            "access_area": [
+                "湖北-武汉"
+            ],
+            "skill": [
+                "受学生喜欢",
+                "名校毕业",
+                "培养高分学员",
+                "认真负责",
+                "考证达人"
+            ],
+            "min_price": "1",
+            "max_price": "100"
+        },
+        "is_favored": 0,
+        "crumb": {
+            "list": {
+                "1": {
+                    "id": "455",
+                    "name": "管理",
+                    "level": "1",
+                    "subnodes": "2",
+                    "display_order": "497",
+                    "hidden": "0",
+                    "parent_id": "0",
+                    "remark_name": "管理",
+                    "subject_type": "0",
+                    "verify_status": "1",
+                    "tag": null,
+                    "image": "http://img.gsxservice.com/87571_g57d2sls.jpeg",
+                    "teacher_count": "1",
+                    "is_deleted": "2",
+                    "remark": null
+                },
+                "2": {
+                    "id": "461",
+                    "name": "企业运营",
+                    "level": "2",
+                    "subnodes": "10",
+                    "display_order": "1",
+                    "hidden": "0",
+                    "parent_id": "455",
+                    "remark_name": "企业运营",
+                    "subject_type": "0",
+                    "verify_status": "1",
+                    "tag": null,
+                    "image": "http://img.gsxservice.com/87644_d9b4qoq7.png",
+                    "teacher_count": "1",
+                    "is_deleted": "2",
+                    "remark": null
+                },
+                "3": {
+                    "id": "464",
+                    "name": "销售管理",
+                    "level": "3",
+                    "subnodes": "0",
+                    "display_order": "1",
+                    "hidden": "0",
+                    "parent_id": "461",
+                    "remark_name": "销售管理",
+                    "subject_type": "0",
+                    "verify_status": "1",
+                    "tag": null,
+                    "image": "http://img.gsxservice.com/87881_ae6ty9kg.jpeg",
+                    "teacher_count": "1",
+                    "is_deleted": "2",
+                    "remark": null
+                }
+            },
+            "city": {
+                "id": "201588736",
+                "name": "武汉",
+                "display_order": "1",
+                "level": "2",
+                "hidden": "0",
+                "bid": "218",
+                "bname": "武汉市",
+                "tid": "420100"
+            },
+            "host": ""
+        },
+        "trial_course": {
+            "type": 5,
+            "status": -1,
+            "data": {
+                "id": "2024",
+                "user_id": "1454537",
+                "user_number": "875545058",
+                "number": "151120476571",
+                "length": "30",
+                "lesson_way": "6",
+                "price_online": "0.01",
+                "price_offline": "0.02",
+                "switch_flag": "1",
+                "create_time": "2015-11-20 11:37:29",
+                "update_time": "2015-11-20 11:37:29"
+            }
+        }
+    },
+    "ts": 1453531057,
+    "msg": "succ"
+}

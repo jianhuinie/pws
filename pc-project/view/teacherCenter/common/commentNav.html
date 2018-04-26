@@ -1,0 +1,108 @@
+{{ *
+
+@file 评价导航栏
+@author wuhongjie
+
+* }}
+
+{{ strip }}
+
+{{ $additional = $tpl_data.comment_data.additional }}
+{{ $comment_nav = $additional.comment_nav }}
+{{ $comment_type = $additional.comment_type }}
+{{ $count = $additional.face_type }}
+
+{{ *全部评价0 一对一评价1 邀请评价2 班课评价3 视频课评价4 * }}
+
+{{ $item_all_html = '<li class="nav-item list-source" data-comment="0">全部评价（'|cat:$comment_type.total.total_count|cat:'）</li>' }}
+
+{{ if $comment_type.normal.total_count }}
+{{ $item_order_html = '<li class="nav-item list-source" data-comment="1">一对一评价（'|cat:$comment_type.normal.total_count|cat:'）</li>' }}
+{{ else }}
+{{ $item_order_html = '' }}
+{{ /if }}
+
+{{ if $comment_type.invite.total_count }}
+{{ $item_invite_html = '<li class="nav-item list-source" data-comment="2">邀请评价（'|cat:$comment_type.invite.total_count|cat:'）</li>' }}
+{{ else }}
+{{ $item_invite_html = '' }}
+{{ /if }}
+
+{{ if $comment_type.class.total_count }}
+{{ $item_course_html = '<li class="nav-item list-source" data-comment="3">班课评价（'|cat:$comment_type.class.total_count|cat:'）</li>' }}
+{{ else }}
+{{ $item_course_html = '' }}
+{{ /if }}
+
+{{ if $comment_type.video.total_count }}
+{{ $item_video_html = '<li class="nav-item list-source" data-comment="4">视频课评价（'|cat:$comment_type.video.total_count|cat:'）</li>' }}
+{{ else }}
+{{ $item_video_html = '' }}
+{{ /if }}
+
+{{ if $comment_nav.comment_type == 0 }}
+{{ $comment_source = '全部评价（'|cat:$comment_type.total.total_count|cat:'）' }}
+{{ $comment_value = 0 }}
+{{ $other_comment_source = $item_order_html|cat:$item_course_html|cat:$item_video_html|cat:$item_invite_html }}
+{{ elseif $comment_nav.comment_type == 1 }}
+{{ $comment_source = '一对一评价（'|cat:$comment_type.normal.total_count|cat:'）' }}
+{{ $comment_value = 1 }}
+{{ $other_comment_source = $item_all_html|cat:$item_course_html|cat:$item_video_html|cat:$item_invite_html }}
+{{ elseif $comment_nav.comment_type == 2 }}
+{{ $comment_source = '邀请评价（'|cat:$comment_type.invite.total_count|cat:'）' }}
+{{ $comment_value = 2 }}
+{{ $other_comment_source = $item_all_html|cat:$item_order_html|cat:$item_course_html|cat:$item_video_html }}
+{{ elseif $comment_nav.comment_type == 3 }}
+{{ $comment_source = '班课评价（'|cat:$comment_type.class.total_count|cat:'）' }}
+{{ $comment_value = 3 }}
+{{ $other_comment_source = $item_all_html|cat:$item_order_html|cat:$item_video_html|cat:$item_invite_html }}
+{{ elseif $comment_nav.comment_type == 4 }}
+{{ $comment_source = '视频课评价（'|cat:$comment_type.video.total_count|cat:'）' }}
+{{ $comment_value = 4 }}
+{{ $other_comment_source = $item_all_html|cat:$item_order_html|cat:$item_course_html|cat:$item_invite_html }}
+{{ /if }}
+
+<div class="top-nav">
+    {{ include file="common/ui/dropdown.html" class="sort-select" default_text="默认排序" }}
+    <b class="item{{ if $comment_nav.comment_type == 0 }} nav-active{{ /if }}" data-type="{{ $comment_nav.comment_type }}">
+        <span data-comment="0" data-type="1">
+            全部评价
+        </span>
+    </b>
+    <b class="item{{ if $comment_nav.comment_type == 1 }} nav-active{{ /if }}" data-type="{{ $comment_nav.comment_type }}">
+        <span data-comment="1" data-type="2">
+            1对1评价
+        </span>
+    </b>
+    <b class="item{{ if $comment_nav.comment_type == 3 }} nav-active{{ /if }}" data-type="{{ $comment_nav.comment_type }}">
+        <span data-comment="3" data-type="3">
+            班课评价
+        </span>
+    </b>
+    <b class="item{{ if $comment_nav.comment_type == 4 }} nav-active{{ /if }}" data-type="{{ $comment_nav.comment_type }}">
+        <span data-comment="4" data-type="4">
+            视频课评价
+        </span>
+    </b>
+    <b class="item{{ if $comment_nav.comment_type == 2 }} nav-active{{ /if }}">
+        <span data-comment="2">
+            邀请评价
+        </span>
+    </b>
+</div>
+
+{{ if isset($additional.comment_tag) && $additional.comment_tag }}
+<ul class="comment-label">
+
+    {{ foreach $additional.comment_tag as $tag }}
+    <li class="{{ if $tag.type==2 }} negative {{ else }} positive {{ /if }} {{ if $tag.selected }} selected {{ /if }}" data-value="{{ $tag.value }}" data-name="{{ $tag.name }}" data-count="{{ $tag.count }}">
+        {{ $tag.name }}
+        {{ if $tag.count > 0 }}
+        <em>{{ $tag.count }}</em>
+        {{ /if }}
+    </li>
+    {{ /foreach }}
+</ul>
+{{ /if }}
+
+{{ /strip }}

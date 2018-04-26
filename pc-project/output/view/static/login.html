@@ -1,0 +1,105 @@
+{{ extends file="common/pc/base.html" }}
+
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+    {{ $flotage_config.hidden = 1 }}
+    {{ $flotage_config.hideChatToKF = true }}
+
+    {{ $script_path = "static/login_12f593010c" }}
+
+    {{ *
+        一个临时的活动需要复用注册页并增加几个字段
+        考虑到以后会下线，就不提取公共组件继承了
+        下线后会删除相关代码
+        query 参数activity为"art"
+     * }}
+    {{ if !empty($smarty.get.activity) }}
+        {{ $is_art_activity = ($smarty.get.activity == "art") }}
+    {{ else }}
+        {{ $is_art_activity = false }}
+    {{ /if }}
+
+    {{ $script_data = [] }}
+    {{ $script_data.staticOrigin = $static_origin }}
+    {{ $script_data.show_findTeacher = true }}
+
+{{ /block }}
+
+{{ block name="title" }}
+登录
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/static/login_931cad79e2.css">
+{{ /block }}
+
+{{ block name="body" }}
+
+{{ $smarty.block.parent }}
+
+{{ strip }}
+<div class="login-header">
+
+    <div class="wrapper">
+        <h1>
+            <a title="去跟谁学首页" {{ if isset($tpl_data.is_www) && $tpl_data.is_www }}
+                href="{{ $origin_http }}"
+            {{ else }}
+                href="{{ $origin_http }}/{{ $curr_city.domain }}/"
+            {{ /if }}>
+                <img alt="跟谁学"  src="{{ $static_origin }}/asset/img/logo-release_ff8029b320.png"/>
+            </a>
+            找好老师，上跟谁学
+        </h1>
+
+        <h2>
+            hi，欢迎来到跟谁学！
+            {{ if $is_art_activity }}
+                <a class="signup" href="{{ $origin_https }}/static/register?activity=art&user_type=2&next=/jiangzuo">
+                    免费注册
+                </a>
+            {{ else }}
+                <a class="signup" href="{{ $origin_https }}/static/register">
+                    免费注册
+                </a>
+            {{ /if }}
+            <b>|</b>
+            <i class="icon icon-phone"></i>
+            4000-910-910
+        </h2>
+    </div>
+</div>
+<div id="main" >
+
+    {{ if $is_art_activity }}
+        {{ include file="common/component/loginForm.html" onlyShowStudent=1 }}
+    {{ else }}
+        {{ include file="common/component/loginForm.html" }}
+    {{ /if }}
+
+    {{ if $is_art_activity }}
+        <div class="login-banner-art-activity">
+        </div>
+    {{ else }}
+        <div class="login-banner-student">
+        </div>
+        <div class="login-banner-teacher">
+        </div>
+    {{ /if }}
+
+</div>
+
+{{ if !$is_art_activity }}
+<p class="copyright">
+    Copyright © 2014 - 2017 北京百家互联科技有限公司版权所有.京公网安备11010802015210号 | 京ICP备14027590号-1
+</p>
+{{ /if }}
+
+{{ /strip }}
+
+{{ include file="common/script.html" }}
+
+
+{{ /block }}

@@ -1,0 +1,25 @@
+{{ *
+
+@file 搜狗分页活动变量
+@author jixiaohui
+
+* }}
+{{ strip }}
+
+{{ $activitys = [] }}
+
+{{ **中小学** }}
+{{ $activitys[1] = [] }}
+    {{ $activitys[1]['photo'] = 'http://cdn.gsxservice.com/asset/img/guide/recruit/6.png' }}
+    {{ $activitys[1]['url'] = 'http://123.sogou.com/' }}
+{{ $activitys[2] = [] }}
+    {{ $activitys[2]['photo'] = '{{ $static_origin }}/src/img/org/logo.jpg' }}
+    {{ $activitys[2]['url'] = 'http://123.sogou.com/' }}
+{{ $activitys[3] = [] }}
+    {{ $activitys[3]['photo'] = '{{ $static_origin }}/src/img/org/logo.jpg' }}
+    {{ $activitys[3]['url'] = 'http://123.sogou.com/' }}
+{{ $activitys[4] = [] }}
+    {{ $activitys[4]['photo'] = '{{ $static_origin }}/src/img/org/logo.jpg' }}
+    {{ $activitys[4]['url'] = 'http://123.sogou.com/' }}
+
+{{ /strip }}

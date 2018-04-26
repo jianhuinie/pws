@@ -1,0 +1,32 @@
+{{ *
+
+@file 评价导航栏
+@author wuhongjie
+
+* }}
+
+{{ strip }}
+
+{{ if isset($tpl_data.comment_nav) }}
+    {{ $comment_nav = $tpl_data.comment_nav }}
+
+    {{ $count = $comment_nav.score.face_type }}
+
+    <b class="nav-item nav-item-all {{ if !$comment_nav.face_type }} active{{ /if }}" data-face="" data-name="全部评价" data-num="{{ $count.great + $count.middle + $count.lower }}">
+        全部评价
+        （{{ $count.great + $count.middle + $count.lower }}）
+    </b>
+    <b class="nav-item {{ if $comment_nav.face_type == 1 }} active{{ /if }}" data-face="1" data-name="好评" data-num="{{ $count.great }}">
+        好评
+        （{{ $count.great }}）
+    </b>
+    <b class="nav-item {{ if $comment_nav.face_type == 2 }} active{{ /if }}" data-face="2" data-name="中评" data-num="{{ $count.middle }}">
+        中评
+        （{{ $count.middle }}）
+    </b>
+    <b class="nav-item {{ if $comment_nav.face_type == 3 }} active{{ /if }}" data-face="3" data-name="差评" data-num="{{ $count.lower }}">
+        差评
+        （{{ $count.lower }}）
+    </b>
+{{ /if }}
+{{ /strip }}

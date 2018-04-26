@@ -1,0 +1,59 @@
+@import "../../../resource/css/default.styl";
+
+.purse-table {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    .course-date-picker {
+        display: inline-block;
+        .ant-input {
+            font-size: 12px;
+            bpurse-radius: 2px;
+        }
+    }
+    &-operation {
+        height: 66px;
+        display: flex;
+        justify-content: space-between;
+        padding: 17px 20px;
+        &-canlender {
+            display: flex;    
+        }
+        &-btn {
+            margin-left: 20px;
+            padding: 4px 18px;
+        }    
+    }
+    &-list {
+        flex-grow: 1;
+        padding: 0 20px;
+        .ant-table-content {
+            .ant-table-tbody {
+                .ant-table-row {
+                    td {
+                        padding: 24px 10px;
+                    }
+                    .purse-table-list-remark {
+                        padding-left: 150px;
+                        > span {
+                            display: block;
+                            width: 300px;
+                            overflow: hidden;
+                            text-overflow:ellipsis;
+                            white-space: nowrap;
+                        }
+                    }
+                }
+            }
+            .purse-table-list-type {
+                text-align: center;    
+            }
+            .purse-table-list-num {
+                text-align: right;
+            }
+            .purse-table-list-remark {
+                padding-left: 150px;
+            }
+        }
+    }
+}

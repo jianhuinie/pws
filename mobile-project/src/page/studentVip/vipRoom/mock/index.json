@@ -1,0 +1,17 @@
+{
+    "tpl_data": {
+        "card": {
+            "no": "WH2016000001",
+            "code": "F2A1A1A1",
+            "status": "1-已生效，2-已失效",
+            "start_date": "2016年06月30日",
+            "remain_days": "2332"
+        },
+        "coupon_count": 10,
+        "acvitity_url":"专属活动url",
+        "group_url":"专属活动",
+        "bigshot_url":"分享有礼",
+        "recommend_url":"推荐老师",
+        "kefu_tel":"4000-910-910"
+    }
+}

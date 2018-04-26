@@ -1,0 +1,47 @@
+{{ *
+
+@file 个人中心母版
+@author zhujialu
+
+* }}
+
+{{ extends file="common/pc/base.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $amd_more = [ 'common/main/component/overview' ] }}
+
+    {{ if $user_data.user_type == 0 }}
+        {{ $identity = "teacher" }}
+    {{ else }}
+        {{ $identity = "student" }}
+    {{ /if }}
+
+    {{ $page_class = $identity|cat: '-center' }}
+
+{{ /block }}
+
+
+{{ block name="body" }}
+{{ strip }}
+    {{ include file="common/siteNav.html" }}
+    {{ include file="common/center/common/header.html" }}
+    {{ include file="common/center/common/nav.html" }}
+
+    {{ $smarty.block.parent }}
+
+    <div id="main">
+    {{ block name="main" }}{{ /block }}
+    </div>
+
+    {{ include file="common/script.html" }}
+
+    {{ block name="script" }}{{ /block }}
+
+    {{ include file="common/footer.html" }}
+
+
+{{ /strip }}
+{{ /block }}

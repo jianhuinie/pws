@@ -1,0 +1,40 @@
+<!--学习头条-->
+<div id="study-main">
+    <span class="category">学习头条</span>
+    <ul class="list">
+        <li class="item">
+            <div class="box" style="display:block;">
+                <a class="title" href="{{ $tpl_data.news.withImg.url }}" target="_blank" title="{{ $tpl_data.news.withImg.headline }}">{{ $tpl_data.news.withImg.headline|cn_truncate: 15 }}</a>
+                <a class="cover" href="{{ $tpl_data.news.withImg.url }}" target="_blank">
+                    <img src="{{ $tpl_data.news.withImg.cover }}@1e_60w_60h_1c_0i_1o_90Q_1x">
+                </a>
+                <a class="detail" href="{{ $tpl_data.news.withImg.url }}" target="_blank">{{ $tpl_data.news.withImg.content|cn_truncate: 31 }}</a>
+            </div>
+            <a href="{{ $tpl_data.news.withImg.url }}" target="_blank" class="link" style="display:none;"><i class="point"></i>{{ $tpl_data.news.withImg.headline }}</a>
+        </li>
+        {{ foreach $tpl_data.news.normal as $val }}
+        <li class="item">
+            {{ if false }}
+            <div class="box">
+                <span class="title">跟谁学陈向东向央视《对话》..</span>
+                <a class="cover" href="" target="_blank">
+                    <img src="http://img.gsxservice.com/0cms/d/file/content/2015/09/55f280788d2a5.jpg">
+                </a>
+                <p>好声音课程：一个技巧，挑战N个爱上了肯定一个技巧，挑战N个爱上了肯定</p>
+            </div>
+            {{ /if }}
+            <a href="{{ $val.url }}" target="_blank" class="link" title="{{ $val.headline }}"><i class="point"></i>{{ $val.headline|cn_truncate: 16 }}</a>
+        </li>
+        {{ /foreach }}
+    </ul>
+    <div class="link-box">
+        <div class="join-box">
+            <a href="http://www.genshuixue.com/static/teacher" class="join" target="_blank"></a>
+            <span>老师入驻</span>
+        </div>
+        <div class="download-box">
+            <a href="http://www.genshuixue.com/static/app" class="download" target="_blank"></a>
+            <span>APP下载</span>
+        </div>
+    </div>
+</div>

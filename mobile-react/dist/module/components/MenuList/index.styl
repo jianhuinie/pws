@@ -1,0 +1,30 @@
+@import "module/index.styl";
+.menu-list {
+    font-family: PingFangSC-Regular;
+    margin-top: rem(10);
+    background: #fff;
+    &-item {
+        background: #fff;
+        display: flex;
+        height: rem(48);
+        align-items: center;
+        padding-left: rem(15);
+        border-bottom: rem(1) solid #f6f6f6;
+        &-title {
+            font-size: rem(15);
+            color: #3D3D3E;
+            line-height: rem(14);
+        }
+        &-content {
+            flex: 1;
+            text-align: right;
+            color: #9f9fa0;
+            font-size: rem(13);
+        }
+        &-next {
+            width: rem(22);
+            text-align: left;
+            padding-left: rem(12);
+        }
+    }
+}

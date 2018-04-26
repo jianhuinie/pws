@@ -1,0 +1,715 @@
+{{ extends file="common/main/base.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $script_path = "guide/join" }}
+
+{{ /block }}
+
+{{ block name="title" }}
+社会招聘 - 关于跟谁学 - 跟谁学
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/guide/join.less">
+{{ /block }}
+
+{{ block name="main" }}
+
+{{ strip }}
+
+
+<div id="main">
+
+    {{ include file="./common/sidebar.html" }}
+
+    <!--右-->
+    <div class="btright joinus">
+        <h2>
+            <a name="top">社会招聘</a>
+        </h2>
+
+        <ul class="tab-nav">
+            <li class="dibian"></li>
+            <li data-no="a" class="nav-item active"><a class="aleft" id="jishu" >技术</a></li>
+            <li data-no="b" class="nav-item"><a id="chanpin">产品</a></li>
+            <li data-no="c" class="nav-item"><a id="sheji">设计</a></li>
+            <li data-no="d" class="nav-item"><a id="yunying">运营</a></li>
+            <li data-no="e" class="nav-item"><a id="fengongsi">分公司运营中心</a></li>
+            <li data-no="g" class="nav-item"><a id="shangxueyuan">商学院</a></li>
+            <li class="dibian"></li>
+        </ul>
+
+        <div class="tab-content">
+            <!--技术-->
+            <div id="a" class="tab-panel active">
+
+                <div class="ajob">
+                    <h3>java高级开发工程师(北京、武汉)</h3>
+
+                    <p>&gt;&nbsp;工作职责：</p>
+                    <ul>
+                        <li>负责公司相关产品基础架构平台设计研发工作</li>
+                        <li>负责服务高可用性、高可扩展性方向的优化调整</li>
+                    </ul>
+                    <p>&gt;&nbsp;职位要求：</p>
+                    <ul>
+                        <li>计算机或相关专业本科以上学历，3年以上Java语言为主的大中型软件开发经验</li>
+                        <li>数据结构和算法基础扎实，了解常用设计模式，熟悉J2EE相关编程，熟练使用Spring、Mybatis等</li>
+                        <li>熟悉MySQL数据库设计和优化，有NoSQL 数据库使用经验者优先</li>
+                        <li>对OOA\OOD\OOP等思想有深入的理解以及很强的应用能力，具有较强的业务需求分析能力</li>
+                        <li>有Linux 环境开发经验者优先</li>
+                        <li>有过大规模互联网系统架构设计经验者优先</li>
+                        <li>熟悉Linux操作系统和Shell脚本编程</li>
+                        <li>良好的沟通能力和团队协作精神，严谨的工作态度与高质量意识，良好的抗压能力</li>
+                    </ul>
+                    <ul class="jianli"><li><strong>简历投递：<a href="mailto:zhaopin@genshuixue.com">zhaopin@genshuixue.com</a></strong></li></ul>
+                </div>
+
+                <div class="ajob">
+                    <h3>Android高级开发工程师(北京、武汉)</h3>
+
+                    <p>&gt;&nbsp;工作职责：</p>
+                    <ul>
+                        <li>负责跟谁学Android端产品研发 </li>
+                        <li>负责产品架构的改进及性能优化 </li>
+                        <li>负责新技术的学习、研究和应用</li>
+                        <li>参与产品的设计和改进</li>
+                    </ul>
+                    <p>&gt;&nbsp;职位要求：</p>
+                    <ul>
+                        <li>计算机或相关专业本科以上学历，3年以上Android系统开发经验
+                        </li>
+                        <li>
+                            有扎实的Java语言基础，Android开发技能
+                         </li>
+                        <li>
+                            熟悉PHP，JSP等server端开发技术；
+                        </li>
+                        <li>
+                            精通多线程和网络编程，对高性能程序设计、架构有较多的工程经验
+                        </li>
+                        <li>
+                          热爱互联网，对移动产品研发有浓厚兴趣 </li>
+                        <li>
+                            具备强烈的进取心和责任感, 极强的学习能力及良好的团队合作精神
+                        </li>
+                        <li>
+                            具有较强逻辑思维能力和表达能力
+                        </li>
+                    </ul>
+                    <ul class="jianli"><li><strong>简历投递：<a href="mailto:zhaopin@genshuixue.com">zhaopin@genshuixue.com</a></strong></li></ul>
+                </div>
+
+                <div class="ajob">
+                    <h3>Ios高级开发工程师(北京、武汉)</h3>
+                    <p>&gt;&nbsp;工作职责：</p>
+                    <ul>
+                        <li>
+                            负责跟谁学iOS平台客户端产品的设计和研发
+                        </li>
+                        <li>
+                             负责iOS平台客户端软件的开发和优化
+                        </li>
+                        <li>  研究新兴技术，满足产品需求</li>
+                        <li>根据研发过程中的体验对产品提出建议</li>
+
+                    </ul>
+                    <p>&gt;&nbsp;职位要求：</p>
+                    <ul>
+                        <li>计算机或相关专业本科以上学历，3年以上iOS平台研发经验 </li>
+                        <li>
+                             有扎实的Object C/SWIFT语言基础
+                        </li>
+                        <li>熟悉iOS开发技术，包括UI、网络、安全等方面</li>
+                        <li>熟悉iOS开发工具和相关开发测试工具的使用</li>
+                        <li>熟悉各个不同版本iOS特点</li>
+                        <li>对移动产品有浓厚兴趣，对移动产品有较好的个人理解有强烈的上进心和求知欲，善于学习新事物，对技术充满激情</li>
+                        <li>具有良好的分析问题和解决问题的能力，勇于面对挑战性问题</li>
+                        <li>学习能力强，有创造性思维能力</li>
+                        <li>善于沟通，具备较强的团队协作意识和能力</li>
+                    </ul>
+                    <ul class="jianli"><li><strong>简历投递：<a href="mailto:zhaopin@genshuixue.com">zhaopin@genshuixue.com</a></strong></li></ul>
+                </div>
+
+                <div class="ajob">
+                    <h3>web前端开发工程师(北京、武汉)</h3>
+                    <p>&gt;&nbsp;工作职责：</p>
+                    <ul>
+                        <li>依据产品需求完成Web前端开发和优化，维护等工作</li>
+                        <li>参与前端架构建设，做技术决策；</li>
+                        <li>学习、理解业务，持续优化前端系统的体验、性能</li>
+                    </ul>
+                    <p>&gt;&nbsp;职位要求：</p>
+                    <ul>
+                        <li> 计算机以相关专业本科以上学历，3年以上js开发经验</li>
+                        <li> 掌握良好的前端技能，包括XHTML/XML/CSS/JavaScript，熟悉W3C网页标准、了解WEB标准化、性能优化方法，了解可用性、可访问性和安全性。精通 HTML、CSS、JavaScript、Ajax等页面技术</li>
+                        <li>熟悉掌握一种常见JS框架，如Jquery，YUI，ExtJS等，并有一定的前端框架设计能力</li>
+                        <li> 有大型门户网站、商城、论坛、社区制作经验</li>
+                        <li> 熟悉各种Web客户端，尤其是主流Web浏览器的开发模式和特性</li>
+                        <li> 熟练使用html5、css3，熟悉canvas、smarty3</li>
+                        <li>了解前端前沿技术( 如 less、Node.js 等 )，对前端性能优化有一定了解 </li>
+                        <li>熟悉手机端HTML5页面开发者优先 </li>
+                        <li> 有一定架构能力和算法能力,有良好编码规范 </li>
+                        <li>良好的学习能力、沟通能力,追求完美,有工作激情,能在较大强度下工作</li>
+                        <li>热爱前端，热爱设计，对新鲜事物充满好奇心，有折腾的想法和精力，喜欢捣鼓各种互联网应用</li>
+                        <li>自我管理能力强良好，崇尚团队合作，快速的学习能力，乐于分享与沟通</li>
+                    </ul>
+                    <ul class="jianli"><li><strong>简历投递：<a href="mailto:zhaopin@genshuixue.com">zhaopin@genshuixue.com</a></strong></li></ul>
+                </div>
+
+                <div class="ajob">
+                    <h3>测试工程师(北京、武汉)</h3>
+                    <p>&gt;&nbsp;工作职责：</p>
+                    <ul>
+                        <li>依据需求文档及设计文档，编写测试用例</li>
+                        <li> 完成产品的集成测试与系统测试；</li>
+                        <li> 依据测试用例执行手工测试，反馈跟踪产品BUG及用例缺陷</li>
+                        <li> 测试工具/系统的研究和应用 </li>
+                    </ul>
+                    <p>&gt;&nbsp;职位要求：</p>
+                    <ul>
+                        <li>计算机及相关专业专科以上学历，1年以上测试工作经验</li>
+                        <li>掌握基本的软件测试理论，熟悉软件测试的基本方法、流程和规范</li>
+                        <li>熟练运用各种黑盒测试用例设计方法</li>
+                        <li> 熟悉bugzilla等测试管理工具 </li>
+                        <li> 能够熟练使用loadrunner进行压力测试者优先</li>
+                        <li>具备互联网教育软件测试经验者优先</li>
+                    </ul>
+                    <ul class="jianli"><li><strong>简历投递：<a href="mailto:zhaopin@genshuixue.com">zhaopin@genshuixue.com</a></strong></li></ul>
+                </div>
+
+                <div class="ajob">
+                    <h3> 运维工程师(北京)</h3>
+                    <p>&gt;&nbsp;工作职责：</p>
+                    <ul>
+                        <li> 负责集团公司核心平台的业务稳定性，保证服务质量</li>
+                        <li> 负责系统监控、上线管理、系统运维、故障处理</li>
+                        <li> 运维自动化的实施和改进</li>
+                        <li>  PHP、JAVA、C等生产自动环境发布系统的构建与维护</li>
+                        <li> 编写系统运维手册、部署文档、性能参数说明、故障报告、操作日志等技术文档</li>
+                        <li> 工作认真负责，有团队精神，服务于公司战略目标；</li>
+                        <li>乐于开源软件的学习和研究，乐于分享</li>
+                    </ul>
+                    <p>&gt;&nbsp;职位要求：</p>
+                    <ul>
+                        <li>3年及以上工作经验，本科及以上学历 </li>
+                        <li> 三年以上Linux系统运维经验</li>
+                        <li> 熟悉LNMP、redis、Lvs、iptables、vpn、nginx、tomcat</li>
+                        <li> 熟悉shell、php、python</li>
+                        <li> 熟悉监控技术snmp协议，zabbix等监控报警工具</li>
+                        <li> 熟悉虚拟化kvm等技术</li>
+                        <li> 熟悉saltstack、ansible等自动化部署工作</li>
+                        <li> 熟悉阿里云、亚马逊等主流云计算平台的操作与维护</li>
+                        <li> 熟悉jenkins、git/svn等代码管理持续集成工具</li>
+                    </ul>
+                    <ul class="jianli"><li><strong>简历投递：<a href="mailto:zhaopin@genshuixue.com">zhaopin@genshuixue.com</a></strong></li></ul>
+                </div>
+
+                <div class="ajob">
+                    <h3>IT工程师(北京)</h3>
+                    <p>&gt;&nbsp;工作职责：</p>
+                    <ul>
+                        <li> 负责处理电脑的日常各种问题，包括硬件故障、软件、电子邮件、网络、和附属设备等，并在需要时可以进行基本的维修 </li>
+                        <li> 负责计算机软硬件的安装、配置、测试和升级</li>
+                        <li> 协助部门内其他同事完成相关工作</li>
+                    </ul>
+                    <p>&gt;&nbsp;职位要求：</p>
+                    <ul>
+                        <li>本科以上学历，计算机相关专业，1年以上工作经验 </li>
+                        <li> 熟悉Windows XP, Microsoft Office 等常用软件。具有基本的网络相关知识 </li>
+                        <li> 安装和配置计算机、显示器、网络设施、和电脑附属硬件等设备的能力</li>
+                        <li> 具有良好的计算机系统硬件、软件、电子邮件、网络、和相关设备的问题解决能力</li>
+                        <li>具有良好的服务意识和沟通能力，具有良好的团队合作和人际沟通技巧</li>
+                        <li>具有CCNA、MSCE、MCDST认证者优先考虑 </li>
+                    </ul>
+                    <ul class="jianli"><li><strong>简历投递：<a href="mailto:zhaopin@genshuixue.com">zhaopin@genshuixue.com</a></strong></li></ul>
+                </div>
+
+
+                <p class="goTop"><a href="#top">返回顶部</a></p>
+            </div>
+            <!--产品-->
+            <div id="b" class="tab-panel">
+
+                <div class="ajob">
+                    <h3>高级产品经理（北京、武汉）</h3>
+                    <p>&gt;&nbsp;工作职责：</p>
+                    <ul>
+                        <li>能够深入理解、梳理一线业务部门的业务流程，并通过基础运营平台（CRM等）优化整个业务体系，支持多条业务线的快速发展</li>
+                        <li>对教育行业有自己的理解，能够根据行业大背景持续不断的优化产品（web和mobile）和SOP策略，助力更好的链接学生和老师并达成阶段性业绩目标</li>
+                        <li>负责产品规划及产品发展方向的整体把握和工作部署，结合公司发展战略，全面制定及统筹产品的发展路线，明晰定位、目标、策略并落实实施</li>
+                        <li>分析已有产品的运营数据，定期组织分析、撰写产品运营分析报告，提出产品改进意见，不断完善在线产品、持续改善用户体验</li>
+                        <li>协调业务、运营、研发团队高质量完成产品开发</li>
+                    </ul>
+                    <p>&gt;&nbsp;职位要求：</p>
+                    <ul>
+                        <li>5年以上产品规划、分析、设计、实施工作经验，并成功策划和运营一款互联网产品 </li>
+                        <li>知识范围广阔，具备很强的学习、思考和总结能力，善于发现和分析整个业务运营体系的优化方向</li>
+                        <li>具备很强的抽象思维能力，善于从多条业务线中抽取共性的需求，搭建平台级的产品 </li>
+                        <li>有较强的数据分析能力、逻辑思维、沟通协作及抗压能力</li>
+                    </ul>
+                    <ul class="jianli"><li><strong>简历投递：<a href="mailto:zhaopin@genshuixue.com">zhaopin@genshuixue.com</a></strong></li></ul>
+                </div>
+
+
+                <p class="goTop"><a href="#top">返回顶部</a></p>
+            </div>
+            <!--设计-->
+            <div id="c" class="tab-panel">
+
+                <div class="ajob">
+                    <h3>UI设计师（北京、武汉）</h3>
+                    <p>&gt;&nbsp;工作职责：</p>
+                    <ul>
+                        <li>负责公司产品的视觉设计工作，包含PC及移动端方向</li>
+                        <li>把控产品的整体视觉风格，对外传递符合产品定位的设计理念</li>
+                        <li>在平衡产品目标、实现成本与用户体验的基础上，能够灵活提供视觉解决方案; </li>
+                        <li>根据设计流行趋势及交互问题，对现有的设计进行改进，提高用户满意度 </li>
+                    </ul>
+                    <p>&gt;&nbsp;职位要求：</p>
+                    <ul>
+                        <li>美术相关专业，具有良好的审美及创意能力，同时具备一定的创意能力，能够独立输出符合流行趋势与规范、并且满足产品目标的视觉解决方案</li>
+                        <li>2年以上视觉设计，两年以上移动端视觉设计经验；具有网页、手机软件UI设计（包括界面、图标风格与统一规范等）经验</li>
+                        <li>能熟练使用photoshop、illustrator等制图工具制作PC端或者移动端界面。了解iOS、android等平台的设计规范与异同点</li>
+                        <li>优秀的理解能力及逻辑能力，有丰富的设计理论知识和对流行趋势敏锐的洞察力 </li>
+                        <li>良好的表达能力、沟通能力和自驱力 </li>
+                    </ul>
+                    <ul class="jianli"><li><strong>简历投递：<a href="mailto:zhaopin@genshuixue.com">zhaopin@genshuixue.com</a></strong></li></ul>
+                </div>
+
+                <p class="goTop"><a href="#top">返回顶部</a></p>
+            </div>
+            <!--运营-->
+            <div id="d" class="tab-panel">
+
+                <div class="ajob">
+                    <h3>新媒体运营专员(北京)</h3>
+                    <p>&gt;&nbsp;工作职责：</p>
+                    <ul>
+                        <li>负责公司新媒体渠道（微信、社群）的内容发布、维护、管理、粉丝互动、话题制造，提高影响力</li>
+                        <li>策划并执行微信（公众号、社群）营销线上活动，通过有效运营手段提升粉丝活跃度</li>
+                        <li>快速响应社会、行业热点话题</li>
+                        <li>跟踪微信推广、营销效果，分析数据并反馈，总结经验</li>
+                        <li>粉丝重要反馈、重要舆情，及时同步，做好用户关系</li>
+                        <li>积极与微信、微博等其他自媒体社群的名人、大号建立良好关系</li>
+                    </ul>
+                    <p>&gt;&nbsp;职位要求：</p>
+                    <ul>
+                        <li>本科以上学历，3年以上媒体或互联网社区工作经验，有微信、自媒体运营经验、媒体采编经验和市场工作经验者优先，有教育行业、互联网行业工作经验、新媒体工作背景者优先</li>
+                        <li>热爱互联网，熟悉论坛、微博、微信、微社区、自媒体、QQ空间等产品有浓厚兴趣和认识</li>
+                        <li>熟练使用Photoshop、PPT等编辑工具，具备良好的图片创意和审美能力</li>
+                        <li>富有创意，具备良好的数据分析能力、语言及文字表达能力、跨团队协作能力</li>
+                        <li>注重团队合作，有非常好的服务精神，表达、沟通能力强，能承担工作压力，有向复合型人才转型人士加分</li>
+                    </ul>
+                    <ul class="jianli"><li><strong>简历投递：<a href="mailto:zhaopin@genshuixue.com">zhaopin@genshuixue.com</a></strong></li></ul>
+                </div>
+
+                <div class="ajob">
+                    <h3>产品运营专员(北京)</h3>
+                    <p>&gt;&nbsp;工作职责：</p>
+                    <ul>
+                        <li>承担产品设计与运营的桥梁，制定有效的产品推广计划</li>
+                        <li>负责收集和整理用户对产品的需求及使用中的问题并反馈，对运营数据进行统计与分析</li>
+                        <li>为产品和运营策略制定提供有效的数据支持，并提出有效的应对策略，形成产品优化方案</li>
+                        <li>基于对用户和产品的了解，提出活动策划及运营的方案，并达成产品核心指标</li>
+                    </ul>
+                    <p>&gt;&nbsp;职位要求：</p>
+                    <ul>
+                        <li>本科以上学历，互联网、电子商务、市场营销专业优先，2年以上产品运营工作经验</li>
+                        <li>熟悉产品运营流程与方法（线上、线下）</li>
+                        <li>具备用户体验知识和一定的数据分析能力</li>
+                        <li>具备良好的文案撰写及语言表达能力；具备较强的团队协作、组织协调能力及较强的问题分析与应对解决的能力</li>
+                    </ul>
+                    <ul class="jianli"><li><strong>简历投递：<a href="mailto:zhaopin@genshuixue.com">zhaopin@genshuixue.com</a></strong></li></ul>
+                </div>
+
+                <p class="goTop"><a href="#top">返回顶部</a></p>
+            </div>
+            <!-- 分公司招聘 -->
+            <div id="e" class="tab-panel">
+
+                <div class="ajob">
+                    <h3>渠道拓展经理(北京)</h3>
+                    <p>&gt;&nbsp;所属部门：</p>
+                    <ul>
+                        <li>分公司运营中心</li>
+                    </ul>
+                    <p>&gt;&nbsp;招聘人数：</p>
+                    <ul>
+                        <li>若干</li>
+                    </ul>
+                    <p>&gt;&nbsp;工作职责：</p>
+                    <ul>
+                    <p>&gt;&nbsp;工作职责：</p>
+                    <ul>
+                        <li>根据公司渠道发展政策，制定出区域代理商发展计划，并负责按照公司目标，在辖区内开发出优质代理商</li>
+                        <li>维护与代理商的合作关系，根据公司销售目标，协调相关资源,支持代理商完成公司销售任务
+                        </li>
+                        <li>
+                            结合公司产品与服务项目，制定适合代理商现状的销售与市场运营方案，落实公司在代理商所在城市的品牌提升与业务发展
+                        </li>
+                    </ul>
+                    <p>&gt;&nbsp;职位要求：</p>
+                    <ul>
+                        <li>
+                            大学本科及以上学历，2年以上渠道拓展或相关工作经验
+                        </li>
+                        <li>
+                            具有良好的沟通技巧和语言表达能力及独立谈判能力，良好的市场判断力和开拓能力
+                        </li>
+                        <li>
+                            结果导向型，能够自我驱动，工作中承压能力强
+                        </li>
+                        <li>
+                            在教育类、互联网类公司从事过渠道拓展、招商加盟业务工作者优先考虑
+                        </li>
+                    </ul>
+                    <ul class="jianli">
+                        <li>
+                            <strong>
+                                简历投递：
+                                <a href="mailto:zhaopin@genshuixue.com">zhaopin@genshuixue.com
+                                </a>
+                            </strong>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="ajob">
+                    <h3>渠道市场活动主管(北京)</h3>
+                    <p>&gt;&nbsp;所属部门：</p>
+                    <ul>
+                        <li>分公司运营中心</li>
+                    </ul>
+                    <p>&gt;&nbsp;招聘人数：</p>
+                    <ul>
+                        <li>若干</li>
+                    </ul>
+                    <p>&gt;&nbsp;工作职责：</p>
+                    <ul>
+                    <p>&gt;&nbsp;工作职责：</p>
+                    <ul>
+                        <li>组织策划可在全国各分公司落地执行的可复制、可规模化的市场活动方案</li>
+                        <li>建立有效的活动成果追踪和效果评估机制，及时收集分析相关活动数据，并能针对区域情况给分公司提出有效改善意见</li>
+                        <li>配合分公司进行活动筹备、执行及成本控制和质量控制</li>
+                        <li>整合公司内外部资源，负责市场活动相关的宣传品印制、礼品管理与兑换、相关嘉宾邀请等工作</li>
+                        <li>活动内容包括参加行业展会与论坛、校园代理发展与管理、社区商超活动组织、重要社会事件营销统筹与执行等</li>
+                        <li>统计全国非品牌类市场活动的成本收益情况，定期为决策层提供决策参考</li>
+                    </ul>
+                    <p>&gt;&nbsp;职位要求：</p>
+                    <ul>
+                        <li>国家统招大学本科及以上学历，2年以上市场工作经验，具备移动互联网行业市场活动经验或校园市场活动经验者优先</li>
+                        <li>对校园市场及新兴媒体传播策略有一定了解，掌握产品宣传、市场营销相关知识和技能</li>
+                        <li> 有较强的创意策划能力、善于沟通协调，有团队合作精神和组织协调能力，能独立撰写各类市场推广方案</li>
+                        <li>结果导向，且注重细节；有工作热情，抗压力强</li>
+                    </ul>
+                    <ul class="jianli"><li><strong>简历投递：<a href="mailto:zhaopin@genshuixue.com">zhaopin@genshuixue.com</a></strong></li></ul>
+                </div>
+
+                <div class="ajob">
+                    <h3>分公司运营中心-业务分析专员(北京)</h3>
+                    <p>&gt;&nbsp;所属部门：</p>
+                    <ul>
+                        <li>分公司运营中心</li>
+                    </ul>
+                    <p>&gt;&nbsp;招聘人数：</p>
+                    <ul>
+                        <li>1</li>
+                    </ul>
+                    <p>&gt;&nbsp;工作职责：</p>
+                    <ul>
+                        <li>按照团队leader的要求，定期对公司的运营业绩进行分析、梳理</li>
+                        <li>负责组织常规的会议沟通</li>
+                        <li>完成团队需要的其他工作</li>
+                    </ul>
+                    <p>&gt;&nbsp;职位要求：</p>
+                    <ul>
+                        <li>数据分析相关工作经验1年</li>
+                        <li>熟练掌握excel，对SQL有一定理解；学习能力和抗压能力强</li>
+                    </ul>
+                    <ul class="jianli"><li><strong>简历投递：<a href="mailto:zhaopin@genshuixue.com">zhaopin@genshuixue.com</a></strong></li></ul>
+                </div>
+
+                <div class="ajob">
+                    <h3>分公司运营中心-销售商务主管(北京)</h3>
+                    <p>&gt;&nbsp;所属部门：</p>
+                    <ul>
+                        <li>分公司运营中心</li>
+                    </ul>
+                    <p>&gt;&nbsp;招聘人数：</p>
+                    <ul>
+                        <li>1</li>
+                    </ul>
+                    <p>&gt;&nbsp;工作职责：</p>
+                    <ul>
+                        <li>根据年度预算，完成机构产品线的月度工作目标制定与沟通，组织月度的总体复盘</li>
+                        <li>完成销售素材的各类准备和制作，及时发布到相关渠道</li>
+                        <li>对销售团队进行日常服务和管理，参与重点客户的销售工作</li>
+                        <li>完成团队需要的各项其他工作</li>
+                    </ul>
+                    <p>&gt;&nbsp;职位要求：</p>
+                    <ul>
+                        <li>销售岗位工作经验3年，销售管理岗位1年以上</li>
+                        <li>中大型教育培训行业工作背景，教育互联网公司产品运营销售工作经验优先</li>
+                        <li>男性优先，涉及到大量出差</li>
+                    </ul>
+                    <ul class="jianli"><li><strong>简历投递：<a href="mailto:zhaopin@genshuixue.com">zhaopin@genshuixue.com</a></strong></li></ul>
+                </div>
+
+                <p class="goTop"><a href="#top">返回顶部</a></p>
+            </div>
+
+            <!--商学院招聘-->
+            <div id="g" class="tab-panel">
+                <!--商学院销售总监-->
+                <div class="ajob">
+                    <h3>商学院销售总监</h3>
+                    <p>&gt;&nbsp;所属部门：</p>
+                    <ul>
+                        <li>跟谁学商学院</li>
+                    </ul>
+                    <p>&gt;&nbsp;工作职责：</p>
+                    <ul>
+                        <li>负责商学院全国销售团队的搭建</li>
+                        <li>根据业务目标制定商学院全年的销售目标</li>
+                        <li>制定销售策略</li>
+                        <li>开拓新市场,发展新客户,增加产品销售范围</li>
+                        <li>负责市场信息的收集及竞争对手的分析</li>
+                    </ul>
+
+                    <p>&gt;&nbsp;职位要求：</p>
+                    <ul>
+                        <li>大专及以上学历，专业不限</li>
+                        <li>5年以上销售及销售管理工作经验，有教育行业相关从业经验或教育行业资源者优先</li>
+                        <li>反应敏捷、表达能力强，具有较强的沟通能力及交际技巧，具有亲和力</li>
+                        <li>具备一定的市场分析及判断能力，良好的客户服务意识</li>
+                        <li>有责任心，能承受较大的工作压力，接受一定程度的出差和加班</li>
+                        <li>有团队协作精神，善于应对挑战</li>
+                    </ul>
+                    <ul class="jianli">
+                        <li>
+                            <strong>简历投递：
+                                <a href="mailto:zhaopin@genshuixue.com">zhaopin@genshuixue.com</a>
+                            </strong>
+                        </li>
+                    </ul>
+                </div>
+                <!--商学院客户服务总监-->
+                <div class="ajob">
+                    <h3>商学院客户服务总监</h3>
+                    <p>&gt;&nbsp;所属部门：</p>
+                    <ul>
+                        <li>跟谁学商学院</li>
+                    </ul>
+                    <p>&gt;&nbsp;工作职责：</p>
+                    <ul>
+                        <li>负责商学院总部客户服务团队的搭建和培训</li>
+                        <li>收集、整理、维护客户资料</li>
+                        <li>通过电话、微信等解答商学院学员的问题</li>
+                        <li>及时向学员推送商学院的各项服务</li>
+                        <li>收集、整理学员问题向教学研发部分反馈</li>
+                        <li>发掘学员的深层次需求，对客户进行二次开发</li>
+                    </ul>
+
+                    <p>&gt;&nbsp;职位要求：</p>
+                    <ul>
+                        <li>大专及以上学历，专业不限</li>
+                        <li>5年以上教育培训行业相关从业经验，市场、销售、教务岗位优先</li>
+                        <li>反应敏捷、表达能力强，具有较强的沟通能力及交际技巧，具有亲和力</li>
+                        <li>具备一定的市场分析及判断能力，卓越的客户服务意识</li>
+                        <li>有责任心，能承受较大的工作压力，接受一定程度的加班</li>
+                        <li>有团队协作精神，善于应对挑战</li>
+                    </ul>
+                    <ul class="jianli">
+                        <li>
+                            <strong>简历投递：
+                                <a href="mailto:zhaopin@genshuixue.com">zhaopin@genshuixue.com</a>
+                            </strong>
+                        </li>
+                    </ul>
+                </div>
+
+                <!--商学院新媒体运营-->
+                <div class="ajob">
+                    <h3>商学院新媒体运营</h3>
+                    <p>&gt;&nbsp;所属部门：</p>
+                    <ul>
+                        <li>跟谁学商学院</li>
+                    </ul>
+                    <p>&gt;&nbsp;工作职责：</p>
+                    <ul>
+                        <li>负责跟谁学商学院社群日常运营、活动组织，提高社群活跃度、互动度</li>
+                        <li>根据社会热点、流行话题策划推广微信公众平台</li>
+                        <li>收集资讯，以进行新媒体端日常内容的发布、更新和管理</li>
+                        <li>通过微信公众平台进行公司产品的推广；有效运营手段、策划活动提升粉丝活跃度</li>
+                    </ul>
+
+                    <p>&gt;&nbsp;职位要求：</p>
+                    <ul>
+                        <li>国家统招全日制专科及以上学历，大三或研二在校生，新闻学和中文系等相关专业优先</li>
+                        <li>保证平均每周出勤至少3-4天，每天工作时间8小时，请假需提前安排好工作</li>
+                        <li>了解微博、微信平台特点和属性，快速上手，有网感，能及时抓住新闻热点进行二次创作</li>
+                        <li>优秀的文字表达能力和总结归纳能力，需要提供写过的文章作品</li>
+                        <li>有过微信运营经验者优先</li>
+                    </ul>
+                    <ul class="jianli">
+                        <li>
+                            <strong>简历投递：
+                                <a href="mailto:zhaopin@genshuixue.com">zhaopin@genshuixue.com</a>
+                            </strong>
+                        </li>
+                    </ul>
+                </div>
+
+                <!--商学院会务行政专员-->
+                <div class="ajob">
+                    <h3>商学院会务行政专员</h3>
+                    <p>&gt;&nbsp;所属部门：</p>
+                    <ul>
+                        <li>跟谁学商学院</li>
+                    </ul>
+                    <p>&gt;&nbsp;工作职责：</p>
+                    <ul>
+                        <li>支持全国分公司商学院、会议销售的组织相关安排工作（包括与分公司的需求对接、课程排期、讲师排期、物料制作对接等）</li>
+                        <li>支持全国分公司商学院、会议销售的日常行政管理的运作（包括讲师的差旅预定、财务报销等）</li>
+                        <li>负责部门内会务、培训的相关安排工作</li>
+                        <li>完成上级交给的其它事务性工作</li>
+                    </ul>
+
+                    <p>&gt;&nbsp;职位要求：</p>
+                    <ul>
+                        <li>大专以上学历，一年以上会议管理/行政相关工作经验</li>
+                        <li>具备一定的行政管理知识</li>
+                        <li>工作细致、认真、有责任心，较强的沟通协调以及语言表达能力</li>
+                        <li>有较强的抗压能力，能接受公务出差</li>
+                        <li>熟练使用office办公软件及自动化设备，具备基本的网络知识</li>
+                    </ul>
+                    <ul class="jianli">
+                        <li>
+                            <strong>简历投递：
+                                <a href="mailto:zhaopin@genshuixue.com">zhaopin@genshuixue.com</a>
+                            </strong>
+                        </li>
+                    </ul>
+                </div>
+
+                <!--商学院销售专员-->
+                <div class="ajob">
+                    <h3>商学院销售专员</h3>
+                    <p>&gt;&nbsp;所属部门：</p>
+                    <ul>
+                        <li>跟谁学商学院</li>
+                    </ul>
+                    <p>&gt;&nbsp;工作职责：</p>
+                    <ul>
+                        <li>负责跟谁学商学院会员产品的销售及推广</li>
+                        <li>根据市场营销计划，完成部门销售指标</li>
+                        <li>开拓新市场,发展新客户,增加产品销售范围</li>
+                        <li>负责辖区市场信息的收集及竞争对手的分析</li>
+                        <li>负责销售区域内销售活动的策划和执行，完成销售任务</li>
+                        <li>管理维护客户关系以及客户间的长期战略合作计划</li>
+                    </ul>
+
+                    <p>&gt;&nbsp;职位要求：</p>
+                    <ul>
+                        <li>大专及以上学历，市场营销等相关专业</li>
+                        <li>1-2年以上销售行业工作经验，有教育行业相关从业经验或教育行业资源者优先</li>
+                        <li>反应敏捷、表达能力强，具有较强的沟通能力及交际技巧，具有亲和力</li>
+                        <li>具备一定的市场分析及判断能力，良好的客户服务意识</li>
+                        <li>有责任心，能承受较大的工作压力，接受一定程度的出差和加班</li>
+                        <li>有团队协作精神，善于应对挑战</li>
+                    </ul>
+                    <ul class="jianli">
+                        <li>
+                            <strong>简历投递：
+                                <a href="mailto:zhaopin@genshuixue.com">zhaopin@genshuixue.com</a>
+                            </strong>
+                        </li>
+                    </ul>
+                </div>
+
+                <!--商学院专职讲师-->
+                <div class="ajob">
+                    <h3>商学院专职讲师</h3>
+                    <p>&gt;&nbsp;所属部门：</p>
+                    <ul>
+                        <li>跟谁学商学院</li>
+                    </ul>
+                    <p>&gt;&nbsp;工作职责：</p>
+                    <ul>
+                        <li>负责讲授教育培训行业内机构运营、管理、客户服务、销售技巧等课程</li>
+                        <li>协助课程研发完成课程的开发与优化</li>
+                        <li>研发与课程相关的课件、习题、现场互动、视频课程等</li>
+                        <li>进行相关辅导资料的编写与整理，记录课程笔记</li>
+                        <li>建立培训档案，根据不同的培训内容及目的设计培训效果评估方式</li>
+                        <li>完成上级交付的各项工作内容</li>
+                    </ul>
+
+                    <p>&gt;&nbsp;职位要求：</p>
+                    <ul>
+                        <li>教育、互联网等相关专业3年以上工作经验，有教学经验/培训经验者优先</li>
+                        <li> 对教育培训行业/互联网行业/互联网+有较深认识与自己的见解，在互联网上发布过自己见解总结文章/课程者优先</li>
+                        <li>具有较强的协调组织能力、沟通能力、分析能力、执行力、语言和文字表述能力</li>
+                        <li>具有良好的职业操守和服务意识，性格开朗、乐观，工作细致</li>
+                        <li>熟练使用办公软件</li>
+                    </ul>
+                    <ul class="jianli">
+                        <li>
+                            <strong>简历投递：
+                                <a href="mailto:zhaopin@genshuixue.com">zhaopin@genshuixue.com</a>
+                            </strong>
+                        </li>
+                    </ul>
+                </div>
+                <!--商学院教学设计师-->
+                <div class="ajob">
+                    <h3>商学院教学设计师</h3>
+                    <p>&gt;&nbsp;所属部门：</p>
+                    <ul>
+                        <li>跟谁学商学院</li>
+                    </ul>
+                    <p>&gt;&nbsp;工作职责：</p>
+                    <ul>
+                        <li>负责关于课程的市场调研、需求分析、用户分析等调研和分析工作，确保课程开发符合用户需求</li>
+                        <li>负责课程产品的架构设计、内容策划研发及审核等，确保课程的开发质量</li>
+                        <li>负责课程后期制作的需求、沟通和审核</li>
+                        <li>负责对销售和市场人员进行所开发的课程产品培训</li>
+                        <li>其他部门所需支持的事项，以及其他部门领导安排的工作和任务</li>
+                    </ul>
+
+                    <p>&gt;&nbsp;职位要求：</p>
+                    <ul>
+                        <li>对网络教育的理论与实践有较深的理解，对从事网络教育相关的工作具有浓厚的兴趣，对网络课程开发有较深的认识和理解</li>
+                        <li>具备网络课程/课件的设计与制作经验，熟悉网络课程的开发流程</li>
+                        <li>教育、互联网等相关专业3年以上工作经验，有教学经验/培训经验者优先</li>
+                        <li>能够独立开展工作，有较强的目标分解和计划保障能力</li>
+                        <li>优秀的文案撰写能力</li>
+                        <li>良好的逻辑思维、沟通能力和团队精神</li>
+                        <li>有过网络课程开发经验的，优先考虑，待遇从优</li>
+                        <li>在线教育类企业，课程开发或课程开发管理背景的，优先考虑，待遇从优</li>
+                        <li>有一定讲师资源者优先考虑</li>
+                    </ul>
+                    <ul class="jianli">
+                        <li>
+                            <strong>简历投递：
+                                <a href="mailto:zhaopin@genshuixue.com">zhaopin@genshuixue.com</a>
+                            </strong>
+                        </li>
+                    </ul>
+                </div>
+
+                <p class="goTop"><a href="#top">返回顶部</a></p>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+{{ /strip }}
+{{ /block }}

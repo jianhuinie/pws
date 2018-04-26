@@ -1,0 +1,63 @@
+{{ *
+
+@file 显示地址
+      参数
+
+      address: 格式如下
+
+        [
+            "province" => [
+                "id" => "570425344",
+                "name" => "台湾",
+                "display_order" => "460",
+                "level" => "1",
+                "hidden" => "0"
+            ],
+            "city" => [
+                "id" => "570687488",
+                "name" => "台湾",
+                "display_order" => "0",
+                "level" => "2",
+                "hidden" => "0"
+            ],
+            "area" => [
+                "id" => "570703872",
+                "name" => "澎湖县",
+                "display_order" => "0",
+                "level" => "3",
+                "hidden" => "0"
+            ],
+            "country" => [ ],
+            "location_addr" => "中关村新东方大厦"
+      ]
+
+@author zhujialu
+
+* }}
+{{ strip }}
+
+    {{ $list = [] }}
+
+    {{ if isset($address.province.name) && $address.province.name }}
+        {{ $list[] = $address.province.name }}
+    {{ /if }}
+
+    {{ if isset($address.city.name) && $address.city.name }}
+        {{ $list[] = $address.city.name }}
+    {{ /if }}
+
+    {{ if isset($address.area.name) && $address.area.name }}
+        {{ $list[] = $address.area.name }}
+    {{ /if }}
+
+    {{ if isset($address.country.name) && $address.country.name }}
+        {{ $list[] = $address.country.name }}
+    {{ /if }}
+
+    {{ $list[] = $address.location_addr }}
+
+    {{ $result = array_unique($list) }}
+
+    {{ $real_address = implode(" ", $result) scope=parent }}
+
+{{ /strip }}

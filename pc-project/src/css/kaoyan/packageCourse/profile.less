@@ -1,0 +1,75 @@
+/**
+ * @file 考研专区 - 联报课详情页 － 课程头信息
+ * @author wangyujie
+ */
+#course-profile {
+    .clearfix();
+    background-color: #fff;
+    border: 1px solid #eee;
+    padding: 20px;
+    margin-bottom: 15px;
+    position: relative;
+
+    .course-cover {
+        float: left;
+        margin-right: 40px;
+    }
+
+    .baseinfo {
+        float: right;
+        min-width: 535px;
+
+        h1 {
+            font-size: @font-size-large;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .info {
+            li {
+                .label {
+                    color: @brand-text-lighter;
+                    font-size: 14px;
+                    padding-left: @gap-horizontal-medium;
+                    margin-right: @gap-vertical-small;
+                }
+            }
+            .item-price {
+                background-color: #f9f9f9;
+                line-height: 50px;
+                margin-top: 15px;
+                .content {
+                    .price {
+                        color: #f95710;
+                        font-size: 26px;
+                    }
+                }
+            }
+            .item-people,
+            .item-course {
+                line-height: 35px;
+                .text-info {
+                    margin-left: 30px;
+                }
+            }
+            .item-promise {
+                margin: 15px auto 20px;
+            }
+            .item-enroll {
+                .enroll-action,
+                .phone {
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+                .phone {
+                    font-size: 12px;
+                    margin-left: 15px;
+                }
+                button {
+                    width: 135px;
+                }
+            }
+        }
+    }
+}

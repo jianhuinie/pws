@@ -1,0 +1,74 @@
+{{ extends file="./base.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $script_path = "activity/uk/upload_a07c97b8ee" }}
+
+    {{ $menu = "profile" }}
+
+    {{ $script_data.has_pay = $tpl_data.has_pay }}
+
+{{ /block }}
+
+{{ block name="content" }}
+
+
+    <div class="uk-main">
+
+        <div class="member-header edit">
+
+            <div class="sub-nav">
+                <a href="/uk/profile" class="active">个人中心</a>
+                &gt;
+                上传视频
+            </div>
+
+        </div>
+
+        <div class="upload-wrapper">
+            <div class="upload-select">
+                <div>
+                    <div id="upload-btn" class="uk-btn blue">
+                        上传视频<input type="file" id="upload-input">
+                    </div>
+                </div>
+            </div>
+
+            <div class="upload-progress-wrapper">
+                <div class="file-name">
+                    当前上传：<span id="file-name"></span>
+                </div>
+                <div>
+                    <div class="upload-tip">
+                        上传中，请勿关闭页面
+                    </div>
+                    <div class="upload-progress-box">
+                        <div class="upload-progress">
+                            <div class="progress">
+                                <div class="badge">0%</div>
+                            </div>
+                        </div>
+                        <a href="javascript:" id="upload-cancel">取消本次上传</a>
+                    </div>
+                </div>
+                <div>已上传：<span class="upload-stat"></span></div>
+            </div>
+        </div>
+
+        <div class="upload-warn">
+            <div>
+                提示：在投票开始前，参赛者可以上传或修改才艺视频
+            </div>
+
+            <div class="error">请勿上传色情及反动等违法视频</div>
+        </div>
+
+
+
+    </div>
+
+
+
+{{ /block }}

@@ -1,0 +1,133 @@
+/**
+ * @file 老师过往经历
+ * @author zhujialu
+ */
+
+.experience {
+
+    .experience-item {
+        border: 1px solid #e6e6e6;
+        margin: 10px 0;
+        // overflow: hidden;
+        font-size: @font-size-small;
+
+        .action {
+            float: right;
+            display: none;
+
+            .icon {
+                color: #fff;
+                cursor: pointer;
+                font-size: 10px;
+                line-height: 18px;
+                margin-left: @gap-horizontal-medium;
+                background-color: @brand-info-light;
+                padding: 3px @gap-horizontal-small;
+                border-radius: 2px;
+                &:hover {
+                    background-color: #688cd7;
+                }
+            }
+        }
+
+        &:hover {
+            background-color: @brand-info-lighter;
+            border: 1px solid @brand-info-light;
+            .action {
+                display: block;
+            }
+        }
+
+        .form-trigger {
+            padding: 20px;
+            .date {
+                font-weight: bold;
+                line-height: 32px;
+                padding-bottom: @gap-vertical-medium;
+            }
+
+            .content {
+                .word-break();
+            }
+        }
+
+    }
+
+    .form {
+
+        textarea {
+            overflow-y: auto;
+        }
+
+        .start-date {
+            display: inline-block;
+            .form-group {
+                margin-left: 0;
+                margin-right: @gap-horizontal-medium;
+            }
+        }
+        .end-date {
+            display: inline-block;
+            margin-left: @gap-horizontal-medium;
+            .form-group {
+                display: inline-block;
+                margin-right: @gap-horizontal-medium;
+            }
+        }
+
+        .date {
+            display: none;
+        }
+
+    }
+
+    .form-editor {
+        width: 100%;
+        margin-top: @gap-vertical-tiny;
+    }
+    .placeholder-wrapper {
+        width: 100%;
+    }
+    textarea {
+        width: 100%;
+        height: 100px;
+        overflow: hidden;
+    }
+    .mock-placeholder {
+        color: @brand-gray;
+    }
+
+    .dropdown .btn-default {
+        width: 80px;
+    }
+    // ueditor 太高了
+    .dropdown-menu {
+        z-index: 1000;
+    }
+
+    .reasons {
+        color: @brand-error;
+        display: none;
+        .icon {
+            padding-right: @gap-horizontal-tiny;
+        }
+    }
+
+    .form-error {
+        border: 1px solid @brand-error;
+    }
+
+    .message {
+        font-weight: normal;
+        line-height: 1.5em;
+        display: inline-block;
+        margin-left: @gap-horizontal-large;
+    }
+
+}
+
+.sensitive {
+    em {
+        color: @brand-primary;
+    }
+}

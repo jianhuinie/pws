@@ -1,0 +1,689 @@
+{{ *
+
+@file 支付完成页
+@author wangyujie
+
+* }}
+
+{{ extends file="common/main/base.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $script_path = "pay/result_3d5c4506d5" }}
+    {{ $script_data.courseType = $tpl_data.course_type }}
+    {{ $script_data.lessonWay = $tpl_data.lesson_way }}
+    {{ $script_data.purchaseType = $tpl_data.purchase_type }}
+    {{ $script_data.purchaseId = $tpl_data.purchase_id }}
+
+{{ /block }}
+
+{{ block name="title" prepend }}
+支付 -
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/pay/result_a326e3649a.css">
+{{ /block }}
+
+{{ block name="main" }}
+
+{{ strip }}
+<div id="main" class="card">
+
+    {{ if $tpl_data.pay_status == '1' }}
+
+        {{ if isset($tpl_data.purchase_type) && $tpl_data.purchase_type == 22 }}
+            <div class="wrapper">
+                <div class="pay-result">
+                    <i class="icon icon-check-circle"></i>
+                    <div class="pay-info">
+                        <div class="pay-status">
+                            支付成功
+                        </div>
+                        <div class="pay-money">
+                            恭喜您已开通会员功能
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lesson-notice">
+                    <p class="notice">
+                        <em>温馨提示：</em>
+                        会员拥有多套精美装扮及功能特权，接下来您可以
+                    </p>
+                    <div class="links">
+                        <a href="{{ $root_http }}/teacher_center/index_decorate">
+                            装扮主页
+                        </a>
+                        <a href="{{ $root_http }}/teacher_center/set_course">
+                            装扮课程
+                        </a>
+
+                        <a href="{{ $root_http }}/teacher_center/vip_center">
+                            会员中心
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {{ else if isset($tpl_data.purchase_type) && $tpl_data.purchase_type == 25 }}
+            <div class="wrapper">
+                <div class="pay-result">
+                    <i class="icon icon-check-circle"></i>
+                    <div class="pay-info">
+                        <div class="pay-status">
+                            支付成功
+                        </div>
+                        <div class="pay-money">
+                            实际支付：<span>¥{{ $tpl_data.pay_money }}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lesson-notice">
+                    <div class="notice">
+                        <em>上课须知：</em>
+                        <ul>
+                            <li>
+                                1、录播课，打开<span class="text-primary">个人中心 &gt; 我的视频课</span>，找到该课程，通过点击学习入口进行学习
+                            </li>
+                            <li>
+                                2、直播课，在第一堂课开始前，在<span class="text-primary">我的课表 &gt; 待上课</span>中找到该课程并<span class="text-primary">进入教室</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                {{ if isset($tpl_data.buttons) && $tpl_data.buttons }}
+                <div class="buttons">
+                    {{ foreach $tpl_data.buttons as $button }}
+                        {{ if $button.stype == 'EnterClass' }}
+                            <span class="btn enter-class {{ $button.class_name }}" data-online='{{ json_encode($button.online_data, 77) }}' data-stype="{{ $button.stype }}">
+                                {{ $button.name }}
+                            </span>
+                        {{ else }}
+                            <a class="btn {{ $button.class_name }}" href="{{ $button.url }}" data-stype="{{ $button.stype }}">
+                                {{ $button.name }}
+                            </a>
+                        {{ /if }}
+                    {{ /foreach }}
+                </div>
+                {{ /if }}
+
+                <div class="client-wechat">
+                    <div class="the-title">
+                        下载考研APP，随时随地学习
+                    </div>
+                    <ul>
+                        <li class="kaoyan">
+                            <div class="title">
+                                下载跟谁学APP
+                            </div>
+                            <div class="description">
+                                随时随地学习
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        {{ else if isset($tpl_data.purchase_type) && $tpl_data.purchase_type == 27 }}
+            <div class="wrapper">
+                <div class="pay-result">
+                    <i class="icon icon-check-circle"></i>
+                    <div class="pay-info">
+                        <div class="pay-status">
+                            购买成功
+                        </div>
+                        <div class="pay-money">
+                            您已扩容资料库存储空间
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lesson-notice">
+                    <div class="notice">
+                        <em>现在您可以：</em>
+                        <ul>
+                            <li>1、保存更多直播回放</li>
+                            <li>2、上传更多的视频课视频</li>
+                            <li>3、在资料库中添加更多资料</li>
+                        </ul>
+                    </div>
+                </div>
+
+                {{ if isset($tpl_data.buttons) && $tpl_data.buttons }}
+                <div class="buttons">
+                    {{ foreach $tpl_data.buttons as $button }}
+                        {{ if $button.stype == 'EnterClass' }}
+                            <span class="btn enter-class {{ $button.class_name }}" data-online='{{ json_encode($button.online_data, 77) }}' data-stype="{{ $button.stype }}">
+                                {{ $button.name }}
+                            </span>
+                        {{ else }}
+                            <a class="btn {{ $button.class_name }}" href="{{ $button.url }}" data-stype="{{ $button.stype }}">
+                                {{ $button.name }}
+                            </a>
+                        {{ /if }}
+                    {{ /foreach }}
+                </div>
+                {{ /if }}
+            </div>
+        {{ else if isset($tpl_data.purchase_type) && $tpl_data.purchase_type == 28 }}
+            <div class="wrapper">
+                <div class="pay-result">
+                    <i class="icon icon-check-circle"></i>
+                    <div class="pay-info">
+                        <div class="pay-status">
+                            购买成功
+                        </div>
+                        <div class="pay-money">
+                            您已成功购买短信
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lesson-notice">
+                    <p class="notice">
+                        <em>温馨提示：</em>
+                        您可以在短信中心开启到课短信，接下来您可以
+                    </p>
+                </div>
+
+                {{ if isset($tpl_data.buttons) && $tpl_data.buttons }}
+                <div class="buttons">
+                    {{ foreach $tpl_data.buttons as $button }}
+                        {{ if $button.stype == 'EnterClass' }}
+                            <span class="btn enter-class {{ $button.class_name }}" data-online='{{ json_encode($button.online_data, 77) }}' data-stype="{{ $button.stype }}">
+                                {{ $button.name }}
+                            </span>
+                        {{ else }}
+                            <a class="btn {{ $button.class_name }}" href="{{ $button.url }}" data-stype="{{ $button.stype }}">
+                                {{ $button.name }}
+                            </a>
+                        {{ /if }}
+                    {{ /foreach }}
+                </div>
+                {{ /if }}
+            </div>
+        {{ else if isset($tpl_data.purchase_type) && $tpl_data.purchase_type == 29 }}
+            <div class="wrapper">
+                <div class="pay-result">
+                    <i class="icon icon-check-circle"></i>
+                    <div class="pay-info">
+                        <div class="pay-status">
+                            支付成功
+                        </div>
+                        <div class="pay-money">
+                            实际支付：<span>¥{{ $tpl_data.pay_money }}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lesson-notice">
+                    <div class="notice">
+                        <em>上课须知：</em>
+                        <ul>
+                            <li>
+                                1、录播课，打开<span class="text-primary">个人中心 &gt; 我的视频课</span>，找到该课程，通过点击学习入口进行学习
+                            </li>
+                            <li>
+                                2、直播课，在第一堂课开始前，在<span class="text-primary">我的课表 &gt; 待上课</span>中找到该课程并<span class="text-primary">进入教室</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                {{ if isset($tpl_data.buttons) && $tpl_data.buttons }}
+                <div class="buttons">
+                    {{ foreach $tpl_data.buttons as $button }}
+                        {{ if $button.stype == 'EnterClass' }}
+                            <span class="btn enter-class {{ $button.class_name }}" data-online='{{ json_encode($button.online_data, 77) }}' data-stype="{{ $button.stype }}">
+                                {{ $button.name }}
+                            </span>
+                        {{ else }}
+                            <a class="btn {{ $button.class_name }}" href="{{ $button.url }}" data-stype="{{ $button.stype }}">
+                                {{ $button.name }}
+                            </a>
+                        {{ /if }}
+                    {{ /foreach }}
+                </div>
+                {{ /if }}
+
+                {{ include file="pay/common/qqClientWechat.html" idkey=$tpl_data.community_idkey }}
+        {{ else if isset($tpl_data.course_type) && $tpl_data.course_type == 1 }}
+            <div class="wrapper">
+                <div class="pay-result">
+                    <i class="icon icon-check-circle"></i>
+                    <div class="pay-info">
+                        <div class="pay-status">
+                            报名成功
+                        </div>
+                        <div class="pay-money">
+                            {{ if isset($tpl_data.fenqi_data) && !empty($tpl_data.fenqi_data) }}
+                                应还总额：<span>¥{{ $tpl_data.fenqi_data.repayment_total }}</span>
+                                <span class="text-info">({{ $tpl_data.fenqi_data.fenqi_msg }})</span>
+                            {{ else }}
+                                实际支付：<span>¥{{ $tpl_data.pay_money }}</span>
+                            {{ /if }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lesson-notice">
+                    <p class="notice">
+                        <em>上课须知：</em>
+                        一对一课程需要与老师约定上课时间，记得请老师给你安排上课时间哦~
+                    </p>
+
+                    <div class="guide lesson">
+                        <div class="guide-student">
+                            <ol>
+                                <li>
+                                    联系老师
+                                    {{ if isset($tpl_data.organization) && isset($tpl_data.organization.city_filter) && $tpl_data.organization.city_filter && isset($tpl_data.organization.extension) && $tpl_data.organization.extension }}
+                                        <span class="four-hundred">
+                                            <i class="icon icon-big-phone-o"></i>
+                                            <span>{{ $tpl_data.organization.extension }}</span>
+                                        </span>
+                                    {{ else }}
+                                        <span data-mobile data-number="{{ $tpl_data.teacher_number }}" data-name="{{ $tpl_data.teacher_name }}">
+                                            <i class="icon icon-call"></i>
+                                        </span>
+                                    {{ /if }}
+
+                                    商定 <span class="text-primary">上课时间</span>
+                                </li>
+                                <li>
+                                    通过跟谁学平台向老师
+                                    <a class="text-error" href="{{ $root_http }}/lesson/studentReserveLesson?purchase_id={{ $tpl_data.purchase_id }}">
+                                        在线发起约课
+                                    </a>
+                                </li>
+                                <li>
+                                    老师收到约课通知，在系统中确认约课
+                                </li>
+                                <li>
+                                    双方按照约课时间上课，课程结束后在
+                                    <span class="text-primary">我的课表 &gt; 待确认上课</span>
+                                    中找到该课程，确认支付该课程课酬
+                                </li>
+                            </ol>
+
+                            <a class="btn-primary" href="{{ $root_http }}/lesson/studentReserveLesson?purchase_id={{ $tpl_data.purchase_id }}">
+                                我已联系过老师，立即发起约课
+                            </a>
+                        </div>
+
+                        <div class="guide-teacher">
+
+                            {{ if isset($tpl_data.qreserve_sign) && $tpl_data.qreserve_sign == 1 }}
+                                {{ $opened = 1 }}
+                            {{ else }}
+                                {{ $opened = 0 }}
+                            {{ /if }}
+
+                            <div class="quick-lesson-box" data-user-num="{{ $tpl_data.teacher_number }}">
+
+                                <ol>
+                                    {{ if $opened }}
+                                        <li>系统已经为你<span class="text-primary">默认开启“闪电约课”</span>，该老师向你发起的所有约课请求将被自动确认。</li>
+                                    {{ else }}
+                                        <li>你已为该老师关闭“闪电约课”，该老师向你发起的所有约课请求需要你手动确认。</li>
+                                    {{ /if }}
+                                    <li>课程结束24小时后，课酬将自动支付给老师。</li>
+                                </ol>
+
+                                <label class="form-checkbox {{ if $opened }} checked {{ /if }}">
+                                    <input type="checkbox" name="quick-lesson" {{ if $opened }} checked="checked" {{ /if }} />为该老师开启闪电约课，自动确认该老师发起的所有约课
+                                </label>
+
+                                <span class="question text-primary" data-title="什么是闪电约课？<br />开启闪电约课后，该老师发起的约课以及时间修改系统将为你自动确认" data-width="19em">
+                                    什么是<i class="icon icon-lightning"></i>闪电约课<i class="icon icon-question-circle"></i>
+                                </span>
+
+                            </div>
+
+                            <a class="btn-info invite-reserve">
+                                请老师为我排课
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                {{ include file="pay/common/qqClientWechat.html" idkey=$tpl_data.community_idkey }}
+            </div>
+        {{ else if isset($tpl_data.course_type) && ($tpl_data.course_type == 2 || $tpl_data.course_type == 4 ) }}
+            <div class="wrapper">
+                <div class="pay-result">
+                    <i class="icon icon-check-circle"></i>
+                    <div class="pay-info">
+                        <div class="pay-status">
+                            报名成功
+                        </div>
+                        <div class="pay-money">
+                            {{ if isset($tpl_data.fenqi_data) && !empty($tpl_data.fenqi_data) }}
+                                应还总额：<span>¥{{ $tpl_data.fenqi_data.repayment_total }}</span>
+                                <span class="text-info">({{ $tpl_data.fenqi_data.fenqi_msg }})</span>
+                            {{ else }}
+                                实际支付：<span>¥{{ $tpl_data.pay_money }}</span>
+                            {{ /if }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lesson-notice">
+                    {{ if $tpl_data.lesson_way == 2 }}
+                        <div class="notice">
+                            <em>上课须知：</em>
+                            <ul>
+                                <li>
+                                    1、网页版上课：上课前在<a href="{{ $root_http }}/lesson/studentLessons?&status=3">我的课表&gt;待上课</a>，找到该课程并进入课堂
+                                </li>
+                                <li>
+                                    2、直播助手上课：使用直播助手观看直播效果最流畅，建议您下载跟谁学直播助手，<a href="{{ $root_http }}/static/liveclient">点击下载</a>
+                                </li>
+                                <li>
+                                    3、手机上课：您也可以<a href="{{ $root_http }}/static/app">下载跟谁学客户端</a>，在我的课程中进入教室学习哦~
+                                </li>
+                            </ul>
+                        </div>
+                    {{ else }}
+                        <p class="notice">
+                            <em>上课须知：</em>
+                            {{ if $tpl_data.schedule }}
+                                班课第一节课在{{ $tpl_data.schedule.time }}，地点在{{ $tpl_data.schedule.address }}，不要忘记去上课哦~
+                            {{ else }}
+                                请按约定时间准时上课，不要迟到哦~
+                            {{ /if }}
+                        </p>
+                    {{ /if }}
+                </div>
+
+                {{ if isset($tpl_data.buttons) && $tpl_data.buttons }}
+                <div class="buttons">
+                    {{ foreach $tpl_data.buttons as $button }}
+                        {{ if $button.stype == 'EnterClass' }}
+                            <span class="btn enter-class {{ $button.class_name }}" data-online='{{ json_encode($button.online_data, 77) }}' data-stype="{{ $button.stype }}">
+                                {{ $button.name }}
+                            </span>
+                        {{ else }}
+                            <a class="btn {{ $button.class_name }}" href="{{ $button.url }}" data-stype="{{ $button.stype }}">
+                                {{ $button.name }}
+                            </a>
+                        {{ /if }}
+                    {{ /foreach }}
+                </div>
+                {{ /if }}
+
+                {{ include file="pay/common/qqClientWechat.html" idkey=$tpl_data.community_idkey }}
+            </div>
+        {{ else if isset($tpl_data.course_type) && $tpl_data.course_type == 3 }}
+            <div class="wrapper">
+                <div class="pay-result">
+                    <i class="icon icon-check-circle"></i>
+                    <div class="pay-info">
+                        <div class="pay-status">
+                            报名成功
+                        </div>
+                        <div class="pay-money">
+                            {{ if isset($tpl_data.fenqi_data) && !empty($tpl_data.fenqi_data) }}
+                                应还总额：<span>¥{{ $tpl_data.fenqi_data.repayment_total }}</span>
+                                <span class="text-info">({{ $tpl_data.fenqi_data.fenqi_msg }})</span>
+                            {{ else }}
+                                实际支付：<span>¥{{ $tpl_data.pay_money }}</span>
+                            {{ /if }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lesson-notice">
+                    <div class="notice">
+                        <em>上课须知：</em>
+                        <ul>
+                            <li>
+                                1、您可以打开<a href="{{ $root_http }}/student_center/videoLessons">个人中心&gt;我的视频课</a>，找到该课程进行学习
+                            </li>
+                            <li>
+                                2、您也可以下载跟谁学客户端，还可以下载视频到手机随时观看哦
+                            </li>
+                            <li>
+                                3、您也可以关注微信公众号，把好课程装进口袋，随时随地学习
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                {{ if isset($tpl_data.buttons) && $tpl_data.buttons }}
+                <div class="buttons">
+                    {{ foreach $tpl_data.buttons as $button }}
+                        {{ if $button.stype == 'EnterClass' }}
+                            <span class="btn enter-class {{ $button.class_name }}" data-online='{{ json_encode($button.online_data, 77) }}' data-stype="{{ $button.stype }}">
+                                {{ $button.name }}
+                            </span>
+                        {{ else }}
+                            <a class="btn {{ $button.class_name }}" href="{{ $button.url }}" data-stype="{{ $button.stype }}">
+                                {{ $button.name }}
+                            </a>
+                        {{ /if }}
+                    {{ /foreach }}
+                </div>
+                {{ /if }}
+
+                {{ include file="pay/common/qqClientWechat.html" idkey=$tpl_data.community_idkey }}
+            </div>
+        {{ else if isset($tpl_data.course_type) && $tpl_data.course_type == 5 }}
+            <div class="wrapper">
+                <div class="pay-result">
+                    <i class="icon icon-check-circle"></i>
+                    <div class="pay-info">
+                        <div class="pay-status">
+                            报名成功
+                        </div>
+                        <div class="pay-money">
+                            {{ if isset($tpl_data.fenqi_data) && !empty($tpl_data.fenqi_data) }}
+                                应还总额：<span>¥{{ $tpl_data.fenqi_data.repayment_total }}</span>
+                                <span class="text-info">({{ $tpl_data.fenqi_data.fenqi_msg }})</span>
+                            {{ else }}
+                                实际支付：<span>¥{{ $tpl_data.pay_money }}</span>
+                            {{ /if }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lesson-notice">
+                    <p class="notice">
+                        <em>上课须知：</em>
+                        我们已经通知老师尽快联系您安排试听，您也可以拨打电话联系老师
+                    </p>
+                </div>
+
+                {{ if isset($tpl_data.buttons) && $tpl_data.buttons }}
+                <div class="buttons">
+                    {{ foreach $tpl_data.buttons as $button }}
+                        {{ if $button.stype == 'EnterClass' }}
+                            <span class="btn enter-class {{ $button.class_name }}" data-online='{{ json_encode($button.online_data, 77) }}' data-stype="{{ $button.stype }}">
+                                {{ $button.name }}
+                            </span>
+                        {{ else }}
+                            <a class="btn {{ $button.class_name }}" href="{{ $button.url }}" data-stype="{{ $button.stype }}">
+                                {{ $button.name }}
+                            </a>
+                        {{ /if }}
+                    {{ /foreach }}
+
+                    {{ if isset($tpl_data.organization) && isset($tpl_data.organization.city_filter) && $tpl_data.organization.city_filter && isset($tpl_data.organization.extension) && $tpl_data.organization.extension }}
+                        <span class="four-hundred">
+                            <i class="icon icon-big-phone-o"></i>
+                            <span>{{ $tpl_data.organization.extension }}</span>
+                        </span>
+                    {{ else }}
+                        <button class="btn-success" data-mobile="{{ $tpl_data.teacher_mobile }}" data-number="{{ $tpl_data.teacher_number }}" data-name="{{ $tpl_data.teacher_name }}">
+                            免费拨打电话
+                        </button>
+                    {{ /if }}
+                </div>
+                {{ /if }}
+            </div>
+        {{ else if isset($tpl_data.course_type) && $tpl_data.course_type == 11 }}
+            <div class="wrapper">
+                <div class="pay-result">
+                    <i class="icon icon-check-circle"></i>
+                    <div class="pay-info">
+                        <div class="pay-status">
+                            支付成功
+                        </div>
+                        <div class="pay-money">
+                            {{ if isset($tpl_data.fenqi_data) && !empty($tpl_data.fenqi_data) }}
+                                应还总额：<span>¥{{ $tpl_data.fenqi_data.repayment_total }}</span>
+                                <span class="text-info">
+                                    ({{ $tpl_data.fenqi_data.fenqi_msg }})
+                                </span>
+                            {{ else }}
+                                实际支付：<span>¥{{ $tpl_data.pay_money }}</span>
+                            {{ /if }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lesson-notice">
+                    <p class="notice">
+                        <em>上课须知：</em>
+                        一对一课程需要与老师约定上课时间，记得请老师给你安排上课时间哦~
+                    </p>
+                </div>
+
+                {{ if isset($tpl_data.buttons) && $tpl_data.buttons }}
+                <div class="buttons">
+                    {{ foreach $tpl_data.buttons as $button }}
+                        {{ if $button.stype == 'TeacherReserve' }}
+                            <span class="btn teacher-reserve {{ $button.class_name }}" data-stype="{{ $button.stype }}">
+                                {{ $button.name }}
+                            </span>
+                        {{ else }}
+                            <a class="btn {{ $button.class_name }}" href="{{ $button.url }}" data-stype="{{ $button.stype }}">
+                                {{ $button.name }}
+                            </a>
+                        {{ /if }}
+                    {{ /foreach }}
+                </div>
+                {{ /if }}
+
+                {{ include file="pay/common/qqClientWechat.html" idkey=$tpl_data.community_idkey }}
+            </div>
+        {{ else if isset($tpl_data.course_type) && $tpl_data.course_type == 12 }}
+            <div class="wrapper">
+                <div class="pay-result">
+                    <i class="icon icon-check-circle"></i>
+                    <div class="pay-info">
+                        <div class="pay-status">
+                            报名成功
+                        </div>
+                        <div class="pay-money">
+                            {{ if isset($tpl_data.fenqi_data) && !empty($tpl_data.fenqi_data) }}
+                                应还总额：<span>¥{{ $tpl_data.fenqi_data.repayment_total }}</span>
+                                <span class="text-info">({{ $tpl_data.fenqi_data.fenqi_msg }})</span>
+                            {{ else }}
+                                实际支付：<span>¥{{ $tpl_data.pay_money }}</span>
+                            {{ /if }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lesson-notice">
+                    {{ if $tpl_data.lesson_way == 2 }}
+                        <div class="notice">
+                            <em>上课须知：</em>
+
+                            <ul>
+                                {{ if isset($tpl_data.schedule.time) && $tpl_data.schedule.time }}
+                                    <li>
+                                        1、网页版上课：上课前在<a href="{{ $root_http }}/lesson/studentLessons?&status=3">我的课表&gt;待上课</a>，找到该课程并进入课堂
+                                    </li>
+                                    <li>
+                                        2、直播助手上课：使用直播助手观看直播效果最流畅，建议您下载跟谁学直播助手，<a href="{{ $root_http }}/static/liveclient">点击下载</a>
+                                    </li>
+                                    <li>
+                                        3、手机上课：您也可以<a href="{{ $root_http }}/static/app">下载跟谁学客户端</a>，在我的课程中进入教室学习哦~
+                                    </li>
+                                {{ else }}
+                                    <li>
+                                        老师暂未排课，记得与老师协商排课。排课后可以在手机客户端 - 我的课程中进入教室学习。
+                                    </li>
+                                {{ /if }}
+                            </ul>
+                        </div>
+                    {{ else }}
+                        <p class="notice">
+                            <em>上课须知：</em>
+                            {{ if isset($tpl_data.schedule.time) && $tpl_data.schedule.time }}
+                                班课第一节课在{{ $tpl_data.schedule.time }}，
+                                {{ if $tpl_data.schedule.address }}
+                                    地点在{{ $tpl_data.schedule.address }}，
+                                {{ /if }}
+                                不要忘记去上课哦~
+                            {{ else }}
+                                老师暂未排课，
+                                {{ if $tpl_data.schedule.address }}
+                                    上课地点在{{ $tpl_data.schedule.address }}，
+                                {{ /if }}
+                                记得跟老师协商排课哦~
+                            {{ /if }}
+                        </p>
+                    {{ /if }}
+                </div>
+
+                {{ if isset($tpl_data.buttons) && $tpl_data.buttons }}
+                <div class="buttons">
+                    {{ foreach $tpl_data.buttons as $button }}
+                        {{ if $button.stype == 'EnterClass' }}
+                            <span class="btn enter-class {{ $button.class_name }}" data-online='{{ json_encode($button.online_data, 77) }}' data-stype="{{ $button.stype }}">
+                                {{ $button.name }}
+                            </span>
+                        {{ else }}
+                            <a class="btn {{ $button.class_name }}" href="{{ $button.url }}" data-stype="{{ $button.stype }}">
+                                {{ $button.name }}
+                            </a>
+                        {{ /if }}
+                    {{ /foreach }}
+                </div>
+                {{ /if }}
+
+                {{ include file="pay/common/qqClientWechat.html" idkey=$tpl_data.community_idkey }}
+            </div>
+        {{ /if }}
+    {{ else }}
+        <div class="failure">
+            <h3>
+                <i class="icon icon-info-circle text-info"></i>
+                {{ if $tpl_data.pay_status == '3' }}
+                    订单已取消，付款失败
+                {{ else if $tpl_data.pay_status == '2' }}
+                    应付金额不一致，付款失败
+                {{ /if }}
+            </h3>
+
+            <h4>
+                {{ if $tpl_data.pay_status == '3' }}
+                    你已取消订单，故付款失败，支付的金额￥{{ $tpl_data.pay_money|number_format:2 }}已充值到账户余额，请重新下单。
+                {{ else if $tpl_data.pay_status == '2' }}
+                    订单应付金额已修改，故付款失败。支付的金额￥{{ $tpl_data.pay_money|number_format:2 }}已充值到账户余额，请重新下单。
+                {{ /if }}
+            </h4>
+
+            <div class="re-pay-order">
+                <a href="{{ $root_http }}/order/studentOrderDetail?purchase_id={{ $tpl_data.purchase_id }}" class="btn-default">
+                    订单详情
+                </a>
+                <a href="/pay/productDetail?course_id={{ $tpl_data.course_id }}&lesson_way={{ $tpl_data.lesson_way }}&hours={{ $tpl_data.hours }}&type={{ $tpl_data.course_type }}" class="btn-primary">
+                    再次支付
+                </a>
+            </div>
+        </div>
+    {{ /if }}
+
+</div>
+
+
+{{ /strip }}
+    {{ include file="common/center/component/enterClassroom.html" }}
+{{ /block }}

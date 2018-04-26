@@ -1,0 +1,221 @@
+{{ *
+
+@file 订单信息 - 机构X课
+@author wangyujie
+
+* }}
+{{ strip }}
+
+{{ include file="common/variable/orderStatus.html" scope=parent }}
+
+{{ $is_wait_for_pay = $tpl_data.status == 'wait_for_pay' }}
+
+<div class="order">
+
+    <h2>
+        <i class="icon icon-circle"></i>
+        订单信息
+    </h2>
+
+    <small>
+        订单编号：{{ $tpl_data.purchase_id }}
+    </small>
+
+    {{ if !$tpl_data.is_self }}
+    <small>
+        上课人：{{ $tpl_data.real_student }}
+    </small>
+    {{ /if }}
+
+    {{ include file="common/component/safeguardIcon.html" use_plat_ensure=($tpl_data.use_plat_ensure|default:1) user_type=$user_data.user_type course_type=$tpl_data.course_type retire_flag=false }}
+
+    <div class="content">
+
+        <table class="table">
+            <colgroup>
+                <col class="col1"></col>
+                <col class="col2"></col>
+                <col class="col3"></col>
+                <col class="col4"></col>
+                <col class="col5"></col>
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>课程名称</th>
+                    <th>订单时长</th>
+                    <th>订单价格</th>
+                    <th class="order-status">订单状态</th>
+                    <th class="order-action">订单操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        {{ $course_name = $tpl_data.course_name|cn_truncate: 18 }}
+
+                        <h4 class="course-name" {{ if $course_name != $tpl_data.course_name }} data-title="{{ $tpl_data.course_name }}"{{ /if }}>
+                            {{ $course_name }}
+                        </h4>
+
+                        {{ include file="common/variable/lesson.html" scope=parent }}
+
+                        <div class="class-course-icon">
+                            {{ if !$is_x_one_course }}
+                                <div class="label class-course">班课</div>
+                            {{ /if }}
+
+                            {{ if $tpl_data.lesson_way == 2 }}
+                                <div class="label online">在线直播</div>
+                            {{ else if $tpl_data.lesson_way == 4 }}
+                                <div class="label offline">线下课程</div>
+                            {{ /if }}
+
+                            {{ if $tpl_data.retire_flag == 0 }}
+                                <a href="http://www.genshuixue.com/guide/guarantee?a=guarantee" target="_blank" rel="nofollow">
+                                    <i class="icon icon-anytime-quitclass"></i>
+                                </a>
+                            {{ else if $tpl_data.retire_flag == 100 }}
+                                <i class="icon icon-cannot-quitclass"></i>
+                            {{ /if }}
+                        </div>
+
+                        {{ if $tpl_data.course_code }}
+                        <div>
+                            课程编号：{{ $tpl_data.course_code }}
+                        </div>
+                        {{ /if }}
+                    </td>
+
+                    <td>
+                        <ul>
+                            <li class="lesson-count">
+                                <label class="label-default small">
+                                    {{ $tpl_data.hours }}课时
+                                </label>
+                            </li>
+                        </ul>
+                    </td>
+
+                    <td>
+                        <ul>
+                            <li>
+                                总价：
+                                {{ $total_price = $tpl_data.total_prices|number_format: 2 }}
+                                {{ $pay_price = $pay.real_money|number_format: 2 }}
+
+                                {{ if $total_price != $pay_price }}
+                                    <del>
+                                    ￥{{ $total_price }}
+                                    </del>
+                                {{ else }}
+                                    ￥{{ $total_price }}
+                                {{ /if }}
+                            </li>
+                            {{ if $total_price != $pay_price }}
+                            <li class="text-success">
+                                折后：
+                                ￥{{ $pay_price }}
+                            </li>
+                            {{ /if }}
+                        </ul>
+                    </td>
+
+                    <td class="order-status">
+                        {{ $orderStatus[$tpl_data.status][1] }}
+                        <span class="refund-time">{{ $tpl_data.canceld_at|truncate:10:"" }}</span>
+                    </td>
+
+                    <td class="order-action" data-status="{{ $tpl_data.status }}">
+
+                        {{ $order_action = [] }}
+
+                        {{ $order_action[] = ['confirm_pay_url', 'confirm-pay', '确认支付'] }}
+
+                        {{ $order_action[] = ['reserve_lesson_url', 'reserve-lesson', '发起约课'] }}
+
+                        {{ $order_action[] = ['comment_url', 'comment-order', '评价'] }}
+
+                        {{ $order_action[] = ['pay_again_url', 'pay-again', '再次购买'] }}
+
+                        {{ $order_action[] = ['cancel_order_url', 'cancel-order', '取消订单'] }}
+
+                        {{ $order_action[] = ['refund_order_url', 'refund-order', '申请退款'] }}
+
+                        {{ $ajax_url['cancel_order_url'] = 1 }}
+                        {{ $ajax_url['appeal_url'] = 1 }}
+
+                        {{ $primary_button['confirm_pay_url'] = 1 }}
+                        {{ $primary_button['reserve_lesson_url'] = 1 }}
+
+                        {{ $info_button['pay_again_url'] = 1 }}
+
+                        {{ $default_button['comment_url'] = 1 }}
+
+                        {{ foreach $order_action as $item }}
+
+                            {{ $key = $item[0] }}
+
+                            {{ if isset($tpl_data.order_url[$key]) }}
+
+                                {{ $url = $tpl_data.order_url[$key] }}
+
+                                {{ if isset($primary_button[$key]) }}
+                                    {{ $btn_class = 'btn-primary' }}
+                                {{ else if isset($info_button[$key]) }}
+                                    {{ $btn_class = 'btn-info' }}
+                                {{ else if isset($default_button[$key]) }}
+                                    {{ $btn_class = 'btn-default' }}
+                                {{ else }}
+                                    {{ $btn_class = 'btn-link' }}
+                                {{ /if }}
+
+                                {{ if $item[0] == 'confirm_pay_url' && $tpl_data.course_type == '4' }}
+                                    <button class="{{ $btn_class }} small confirm-nosuccess-pay" data-pid="{{ $tpl_data.purchase_id }}" data-url="{{ $url }}">
+                                        确认支付
+                                    </button>
+                                {{ else if isset($ajax_url[$key]) }}
+                                    <b class="{{ $btn_class }} small {{ $item[1] }}" data-url="{{ $url }}">
+                                        {{ $item[2] }}
+                                    </b>
+                                {{ else }}
+                                    <a class="{{ $btn_class }} small" href="{{ $url }}">
+                                        {{ $item[2] }}
+                                    </a>
+                                {{ /if }}
+                            {{ /if }}
+                        {{ /foreach }}
+                    </td>
+
+                </tr>
+
+                {{ if $tpl_data.location }}
+                    <tr>
+                        <td colspan="5">
+                            <label>上课地址：</label>
+                            {{ if !$tpl_data.country }}
+                                {{ $tpl_data.location }}
+                                {{ if isset($tpl_data.offline_poi) && $tpl_data.offline_poi.lng }}
+                                <a class="link search-map" data-offline='{{ json_encode($tpl_data.offline_poi, 77) }}' data-map="{{ $tpl_data.location|escape }}">查看地图位置</a>
+                                {{ /if }}
+                            {{ else }}
+                                {{ $tpl_data.country }}-{{ $tpl_data.location }}
+                            {{ /if }}
+                        </td>
+                    </tr>
+                {{ /if }}
+
+                {{ if $tpl_data.note }}
+                    <tr>
+                        <td colspan="5">
+                            <label>订单备注：</label>
+                            {{ $tpl_data.note }}
+                        </td>
+                    </tr>
+                {{ /if }}
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{{ /strip }}

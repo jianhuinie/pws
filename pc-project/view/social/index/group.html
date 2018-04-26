@@ -1,0 +1,50 @@
+{{ strip }}
+<div class="group">
+
+    <h3 class="group-title">话题小组</h3>
+
+    <div class="group-list-wrapper">
+        <ul class="group-pager-list">
+            {{ foreach $data as $item }}
+            <li class="group-pager{{ if $item@first }} active{{ /if }}" data-index="{{ $item@index }}">{{ $item@index + 1 }}</li>
+            {{ /foreach }}
+        </ul>
+
+        {{ foreach $data as $groupPager }}
+        <ul class="group-list{{ if $groupPager@first }} show{{ else }} hide{{ /if }}" data-index="{{ $groupPager@index }}">
+            {{ foreach $groupPager as $item }}
+            <li class="group-item" data-id="{{ $item.group_id }}">
+                <div class="group-avatar">
+                    {{ if $item.is_flag != '0' }}
+                        {{ if $item.is_flag == '1' }}
+                            <span class="new-label">NEW</span>
+                        {{ /if }}
+                        {{ if $item.is_flag == '2' }}
+                            <span class="hot-label">HOT</span>
+                        {{ /if }}
+
+                    {{ /if }}
+                    <a class="img-wrapper" href="{{ $item.group_info_url }}" target="_blank">
+                        {{ include file="common/component/image.html" url=$item.avatar width=70 height=70 }}
+                    </a>
+                </div>
+                <div class="group-info">
+                    <div class="group-title">
+                        <a href="{{ $item.group_info_url }}" target="_blank">   {{ $item.name|escape:'html' }}
+                        </a>
+                        {{ if $item.is_join }}
+                            <span class="group-btn joined-btn">已加入</span>
+                        {{ else }}
+                            <span class="group-btn join-btn"><i class="icon icon-plus"></i>加入</span>
+                        {{ /if }}
+                    </div>
+                    <p class="group-des">{{ $item.brief }}</p>
+                </div>
+            </li>
+            {{ /foreach }}
+        </ul>
+        {{ /foreach }}
+    </div>
+
+</div>
+{{ /strip }}

@@ -1,0 +1,109 @@
+{{ *
+@file 班课详情 - 通知栏
+@author liucong
+
+参数
+    $course_info 课程信息
+    $other_courses 其他课程
+* }}
+
+{{ strip }}
+<div id="notification">
+
+        {{ if !isset($course_info.total_pay) }}
+            {{ $total_pay = 0 }}
+        {{ else }}
+            {{ $total_pay = $course_info.total_pay }}
+        {{ /if }}
+
+        {{ * $course_info.open_status 1：已确认开班   2：未确认开班   3：关闭开班 * }}
+        {{ * $course_info.auto_status 1：手动开班 10：自动开班 3：手动关闭  30：自动关闭* }}
+        {{ * $course_info.over_close_time 1：三天以内 0：不在三天以内 * }}
+
+    {{ if $course_info.min_student > 1 }}
+        {{ * 未进行过操作，肯定是在三天外，未到保底人数 * }}
+        {{ if ($course_info.open_status == 2) && ($course_info.min_student > $total_pay) }}
+    <div class="broadcast">
+        <i class="icon icon-speaker"></i>
+        <span>报班须知：距离最低开班人数还差<span class="text-primary-dark">{{ $course_info.min_student - $course_info.total_pay }}</span>人，如未到最低开班人数，开课前1天自动关班，付费学生全额退款。</span>
+    </div>
+        {{ * 已经开班，肯定是老师手动开，并且未到保底人数 * }}
+        {{ else if ($course_info.open_status == 1) && ($course_info.min_student > $total_pay) }}
+    <div class="broadcast">
+        <i class="icon icon-speaker"></i>
+        <span>报班须知：老师已手动确认开班，班课将会如期进行，请放心报班。</span>
+    </div>
+        {{ * 已经关班，人数未到保底人数 * }}
+        {{ else if ($course_info.open_status == 3) && ($course_info.min_student > $total_pay) }}
+            {{ if $course_info.auto_status == 30 }}
+    <div class="broadcast">
+        <i class="icon icon-speaker"></i>
+        <span>报班须知：距离开班已不足1天，班课未到最低开班人数自动关闭，付费学生已全额退款。</span>
+    </div>
+            {{ else }}
+    <div class="broadcast">
+        <i class="icon icon-speaker"></i>
+        <span>报班须知：由于未到保底开班人数，老师已手动关闭班级，付费学生全额退款。</span>
+    </div>
+            {{ /if }}
+        {{ else if $course_info.min_student <= $total_pay }}
+    <div class="broadcast">
+        <i class="icon icon-speaker"></i>
+        <span>报班须知：报班人数已超过最低开班人数，班课将会如期进行，请放心报班。</span>
+    </div>
+        {{ /if }}
+    {{ /if }}
+
+    {{ if !empty($other_courses) }}
+    {{ include file="teacher_center/course/variable/displayStatus2.html" scope=parent }}
+    <div class="other-courses">
+        {{ **3810改老师为机构** }}
+        {{ if $course_type == 4 }}
+            <h3><span>该机构的其他课程</span></h3>
+        {{ else }}
+            <h3><span>该老师的其他课程</span></h3>
+        {{ /if }}
+        <table class="table">
+            <colgroup>
+                <col width="55%">
+                <col width="15%">
+                <col width="15%">
+                <col width="15%">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>价格</th>
+                    <th>课时</th>
+                    <th>状态</th>
+                </tr>
+            </thead>
+            <tbody>
+            {{ foreach $other_courses as $other_course }}
+            {{ if $other_course@index > 2 }}
+            <tr class="trhide">
+            {{ else }}
+            <tr>
+            {{ /if }}
+                <td style="text-align:left"><a href="{{ if $other_course.type == 4 }}/org_class_course/detail/{{ $other_course.number }}{{ else }}/teacher/classCourseDetail/{{ $other_course.number }}{{ /if }}" target="_blank">{{ $other_course.name }}</a></td>
+                <td class="text-primary-dark">￥{{ $other_course.price }}</td>
+                <td>{{ $other_course.course_length }}{{ if $other_course.type == 4 }}次课{{ else }}小时{{ /if }}</td>
+                <td>
+                {{ if $other_course.type == 2 }}
+                    {{ $display_status3_map[$other_course.display_status_search] }}
+                {{ else }}
+                    {{ $display_status2_map[$other_course.display_status_search] }}
+                {{ /if }}
+                </td>
+            </tr>
+            {{ /foreach }}
+            </tbody>
+        </table>
+        {{ if count($other_courses) > 3 }}
+        <div class="morecourse">更多课程</div>
+        {{ /if }}
+    </div>
+    {{ /if }}
+</div>
+{{ /strip }}
+

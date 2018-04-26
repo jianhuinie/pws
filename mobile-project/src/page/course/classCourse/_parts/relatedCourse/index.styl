@@ -1,0 +1,129 @@
+//相关课程
+.related-course {
+    margin: rem(9) 0;
+    margin-top: rem(15);
+    background-color: #fff;
+    padding-top: rem(25);
+    .course-list {
+        background-color: #fff;
+        margin: 0;
+    }
+    li {
+        overflow: hidden;
+        height: rem(92);
+    }
+    li:not(:last-child) {
+        border-bottom: 1px solid #f7f9fa;
+    }
+    li:not(:first-child) {
+        padding: rem(12) 0;
+    }
+    li:first-child {
+        height: rem(80);
+        padding-bottom: rem(12);
+    }
+    .item {
+        padding-left: rem(100);
+        position: relative;
+        .left-col {
+            position: absolute;
+            left: 0;
+            top: 0
+            width: rem(100);
+            height: rem(64);
+            margin-right: rem(12);
+            display: inline-block;
+            .icon-play {
+                position: absolute;
+                bottom: rem(5);
+                right: rem(5);
+                width: rem(25);
+                height: rem(25);
+            }
+        }
+        .right-col {
+            width: 100%;
+            display: inline-block;
+            margin-left: rem(5);
+            position: relative;
+            height: rem(64);
+            //width: 67%;
+            .top-line {
+                position: absolute;
+                top: 0;
+                ellipsis();
+                width: 100%;
+                display: inline-block;
+            }
+            .bottom-line {
+                position: absolute;
+                bottom: 0;
+            }
+            .type {
+                font-size: rem(12);
+                color: #fff;
+                background-color: #3fa5f2;
+                margin-right: rem(5);
+                display: inline-block;
+                border-radius: rem(2);
+                line-height: rem(22);
+                width: rem(52);
+                height: rem(22);
+                text-align: center;
+            }
+            .rc-title {
+                font-size: rem(15);
+                color: #3c3d3d;
+                line-height: 1.3;
+            }
+            .rc-price {
+                color: #ff6c00;
+                font-size: rem(15);
+                margin-right: rem(10);
+                .delete-price {
+                    margin-left: rem(3);
+                    text-decoration: line-through;
+                    color: #9d9e9e;
+                }
+            }
+            .rc-price-free {
+                color: #41b14b;
+                .delete-price {
+                    color: #9d9e9e;
+                }
+            }
+        }
+    }
+    
+    .all-rc {
+        font-size: rem(16);
+        color: #6d6d6e;
+        height: rem(40);
+        line-height: rem(40);
+        width: rem(120);
+        text-align: center;
+        margin: rem(15) auto;
+        margin-bottom: 0;
+        border: 1px solid #f4f4f5;
+        border-radius: rem(2);
+    }
+    .app-download, .ky-download {
+        font-size: rem(13);
+        color: #fff;
+        width: rem(210);
+        height: rem(35);
+        line-height: rem(35);
+        margin: 0 auto;
+        margin-top: rem(15);
+        text-align: center;
+        background-color: #ff6c00;
+        border-radius: rem(2);
+        a {
+            color: white;
+        }
+    }
+    .ky-download {
+        width: rem(235);
+    }
+
+}

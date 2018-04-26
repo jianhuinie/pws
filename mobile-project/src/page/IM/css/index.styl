@@ -1,0 +1,109 @@
+@import "page/_base/base.styl";
+@import "page/_common/nav_bar/nav_bar.styl";
+@import "./message.styl";
+
+
+.container{
+  position : absolute;
+  left: rem(0);
+  bottom: rem(30);
+  top: rem(45);
+  right: rem(0);
+  overflow : hidden;
+}
+
+.bottom{
+  position: fixed;
+  background-color:#eee;
+  z-index : 1000;
+  left: rem(0);
+  right: rem(0);
+  bottom : rem(0);
+  text-align: center;
+  border-top:1px solid #ccc;
+
+    .input{
+      margin-left:rem(6);
+      margin-right: rem(95);
+      padding: rem(6) rem(0);
+      font-size: 0;
+      position :relative;
+
+      .sendMes{
+        font-size:rem(14);
+        width: 100%;
+        outline :none;
+        border:1px solid #ccc;
+        height:rem(20);
+        padding:rem(5) rem(5);
+        border-radius : rem(5);
+      }
+
+
+    }
+  .btn{
+    position :absolute;
+    right:rem(10);
+    bottom: rem(6);
+    font-size: rem(0);
+    img{
+      width:100%;
+      height:100%;
+    }
+    .btn-item{
+      width:rem(30);
+      height:rem(30);
+      display: inline-block;
+    }
+    .sendMesBtn{
+      display:none;
+      font-size: rem(14);
+      width:rem(60);
+      color:#fff;
+      height:rem(30);
+      line-height : rem(30);
+      background-color : #59b5f8;
+      border-radius : rem(5);
+    }
+
+      .upload{
+        margin-right: rem(14);
+      }
+  }
+
+  .sendImage{
+    position: absolute;
+    left: rem(0);
+    right: rem(0);
+    top: rem(0);
+    bottom: rem(0);
+    z-index: 100;
+    width:rem(30);
+    height:rem(30);
+    overflow : hidden;
+    opacity :0;
+    font-size:rem(14);
+  }
+
+}
+.loginNotice{
+  text-align:center;
+
+  background-color:#eb5534;
+  font-size:rem(12);
+  display:none;
+  a{
+    color:#fff;
+    height: rem(34);
+    line-height:rem(34);
+    display :inline-block;
+  }
+  img{
+    height: rem(25);
+    width: rem(25);
+    vertical-align :middle;
+    margin-left: rem(5);
+    margin-top:rem(-2);
+  }
+
+}

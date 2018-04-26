@@ -1,0 +1,148 @@
+/**
+ * @file 老师用户中心优惠券
+ * @author wangyujie
+ */
+
+@import '../common/center/common/layout.less';
+@import '../common/component/couponUseDirection.less';
+@import '../common/component/addCouponsDialog.less';
+
+#content {
+
+    .org {
+        text-align: center;
+        margin-top: 13 * @gap-vertical-medium;
+        img {
+            width: 100px;
+        }
+        .hint {
+            font-size: 12px;
+            margin-top: @gap-vertical-small;
+            color: @brand-text-lighter;
+        }
+    }
+
+    .coupon-title {
+        h3 {
+            color: @brand-text;
+            font-weight: bold;
+            margin: @gap-vertical-medium 0;
+            overflow: hidden;
+            span {
+                font-size: 12px;
+                font-weight: normal;
+                color: @brand-text-lighter;
+            }
+        }
+        .icon-plus {
+            font-size: 12px;
+            margin-right: @gap-horizontal-tiny;
+        }
+        .coupon-direction{
+            float: right;
+            cursor: pointer;
+            color: #6287d5;
+            .direction-text{
+                color: #6287d5;
+            }
+            .icon-direction{
+                font-size: 14px;
+                margin-right: 1px;
+                vertical-align: text-top;
+            }
+            &:hover{
+                .direction-text{
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    .coupon-body {
+        .no-data {
+            .wrapper {
+                img {
+                    width: 90px;
+                }
+            }
+        }
+
+        .coupon-list {
+
+            tbody {
+                font-size: 12px;
+            }
+            tr {
+                border-bottom: 1px solid #eee;
+            }
+            .th-cond,
+            .th-time {
+                width: 110px;
+            }
+            .th-recv {
+                width: 100px;
+            }
+            .th-sync {
+                width: 130px;
+            }
+            .th-option {
+                width: 110px;
+            }
+
+            td {
+                vertical-align: middle;
+            }
+            .progress {
+                height: 10px;
+                border-radius: 5px;
+                border: 1px solid @brand-primary;
+                background-color: #fff;
+                box-shadow: none;
+                -webkit-box-shadow: none;
+                .progress-bar-primary {
+                    box-shadow: none;
+                    -webkit-box-shadow: none;
+                }
+            }
+            .icon-question-circle {
+                margin-left: @gap-horizontal-tiny;
+            }
+            .balance {
+                font-weight: bold;
+                font-size: 14px;
+            }
+
+            .more-switch {
+                cursor: pointer;
+                display: inline-block;
+                position: relative;
+                margin-left: @gap-horizontal-tiny;
+                .more-action {
+                    display: none;
+                    background-color: #fff;
+                    border: 1px solid #dedede;
+                    width: 66px;
+                    z-index: 3;
+
+                    position: absolute;
+                    left: -20px;
+                    top: 16px;
+
+                    .btn-link {
+                        color: @brand-text-lighter;
+                        &:hover {
+                            color: @brand-primary;
+                        }
+                    }
+
+                }
+                &:hover {
+                    .more-action {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+
+}

@@ -1,0 +1,107 @@
+#ceiling {
+    height: 68px;
+    padding-top: 10px;
+    background-color: #ffffff;
+    width: 100%;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+    z-index: 4;
+    display: none;
+    .lists {
+        .clearfix();
+        width: 1100px;
+        margin: 0 auto;
+        & > div {
+            display: inline-block;
+        }
+        .courseInfo {
+            float: left;
+            .title {
+                color: #333333;
+            }
+            .info {
+                color: #6d6d6e;
+                .icon {
+                    margin-right: 5px;
+                }
+            }
+        }
+        .right {
+            & > div {
+                display: inline-block;
+                margin-right: 10px;
+            }
+            float: right;
+            .priceNow {
+                font-size: 22px;
+                color: #f95710;
+            }
+
+            .btn-primary,
+            .btn-default,
+            .btn-success {
+                width: 135px;
+                height: 40px;
+                line-height: 40px;
+                padding: 0;
+                font-size: 15px;
+            }
+            .btn-primary {
+                background: #ff6c00;
+            }
+            .btn-default {
+                background: #ededee;
+            }
+            .primary-enter-room {
+                background-color: #5fb41b;
+                &:hover {
+                    cursor: pointer;
+                    background-color: #56a118;
+                }
+            }
+
+            .chat-wrapper {
+                cursor: pointer;
+                text-align: center;
+                font-size: 15px;
+                color: #ffffff;
+                margin-right: 10px;
+                .chat-label {
+                    width: 135px;
+                    height: 40px;
+                    line-height: 40px;
+                    b {
+                        margin-left: 0;
+                    }
+                }
+                .online {
+                    color: #ff6c00;
+                    background: #ffffff;
+                    border: 1px solid #ff6c00;
+                    &:hover {
+                        background: #ff6c00;
+                        color: #fff;
+                    }
+                }
+                .offline {
+                    background: #ccc;
+                    &:hover {
+                        background: #ff6c00;
+                        color: #fff;
+                    }
+                }
+            }
+            .hugeBtn {
+                width: 230px;
+            }
+            .phone {
+                width: 155px;
+                font-size: 12px;
+                color: #333333;
+                position: relative;
+                top: 8px;
+                margin-left: 10px;
+                margin-right: 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,83 @@
+/**
+ * @file 老师教学信息
+ * @author zhujialu
+ */
+@import '../../common/component/allprice.less';
+
+.teacher-info {
+
+    .clearfix();
+
+    dt {
+        float: left;
+        margin-right: @gap-horizontal-huge;
+    }
+
+    dd {
+        margin-left: 100px;
+    }
+
+    .name {
+
+        margin-bottom: @gap-vertical-large;
+
+        a {
+            color: @brand-text;
+            font-size: @font-size-medium;
+
+            &:hover {
+                color: @brand-primary;
+            }
+        }
+
+    }
+
+    .form {
+        margin-left: 200px;
+        width: 410px;
+        position: relative;
+        .form(130px);
+    }
+
+
+    .form-controls {
+        line-height: 0;
+    }
+    .all-price {
+        float: right;
+    }
+    .header {
+        color: @brand-text;
+        font-size: 15px;
+        padding-left: 22px;
+        margin-bottom: 10px;
+    }
+
+    .icon-info-circle {
+        color: @brand-error;
+        margin-right: @gap-horizontal-tiny;
+    }
+
+
+    .price {
+
+        display: none;
+        position: absolute;
+        left: -200px;
+        top: 0;
+
+        span {
+            color: @brand-primary;
+            margin-right: @gap-horizontal-small;
+        }
+    }
+
+    .course,
+    .lesson-way {
+
+        .btn-default {
+            width: 20em;
+        }
+    }
+
+}

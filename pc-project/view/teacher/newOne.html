@@ -1,0 +1,330 @@
+{{ *
+
+@file 新版老师详情页 - 1对1 2015.5.12
+@author jixiaohui
+
+* }}
+
+{{ extends file="common/main/base.html" }}
+
+{{ block name="data" }}
+{{ strip }}
+    {{ $smarty.block.parent }}
+    {{ $script_path = "teacher/newOne" }}
+    {{ $script_data.teacherId = $tpl_data.profile.user_id }}
+    {{ $script_data.teacherNum = $tpl_data.profile.user_number }}
+    {{ $script_data.userId = $user_data.user_id }}
+    {{ $script_data.teacherName = $tpl_data.profile.name }}
+    {{ $script_data.isFavored = $tpl_data.is_favored }}
+    {{ $script_data.audio = $tpl_data.profile.audio }}
+    {{ $script_data.audio_length = $tpl_data.profile.audio_length }}
+    {{ $script_data.domain = $tpl_data.profile.domain }}
+    {{ if !empty($tpl_data.profile.org_type) }}
+        {{ $script_data.org_type = $tpl_data.profile.org_type }}
+    {{ /if }}
+    {{ if !empty($tpl_data.profile.organization) }}
+        {{ $script_data.org_id = $tpl_data.profile.organization.id }}
+    {{ /if }}
+
+    {{ $nav_config.hidden = 1 }}
+    {{ $nav_config.active = '' }}
+
+    {{ $baidu_share_text = "#跟谁学# 分享一位老师给你哦~"|cat: $tpl_data.profile.name }}
+    {{ $baidu_share_text = $baidu_share_text|cat: "，"|cat: $tpl_data.profile.slogan|regex_replace:"/[\r\t\n]/":" " }}
+    {{ $baidu_share_text = $baidu_share_text|cat: "，还在等什么？找好老师，上跟谁学，快来开启寻师之旅吧！" }}
+
+    {{ $baidu_share_image = $static_origin|cat:"/asset/img/share.jpg" }}
+
+    {{ **顶部搜索去掉placeholder支持空query** }}
+    {{ $current_page = 'detail' }}
+{{ /strip }}
+{{ /block }}
+
+{{ block name="title" }}
+    {{ $tpl_data.title }}
+{{ /block }}
+
+{{ block name="keywords" }}
+    {{ $tpl_data.keywords }}
+{{ /block }}
+
+{{ block name="description" }}
+    {{ $tpl_data.description }}
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/teacher/newOne.less">
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+
+{{ include file="./newDetail/crumb.html" profile=$tpl_data.profile crumb=$tpl_data.crumb }}
+{{ include file="./common/banner.html" }}
+
+{{ **李杜老师特殊处理,329108828** }}
+{{ $hidden = true }}
+
+<div id="main" class="course-active">
+
+    {{ include "teacher/newDetail/profile.html" tpl_data=$tpl_data.profile is_favored=$tpl_data.is_favored active="course" }}
+
+    <div id="teacher-content">
+        {{ $online_course = $tpl_data.online }}
+        {{ $offline_course = $tpl_data.offline }}
+        {{ $video_course = $tpl_data.video }}
+        {{ $one_course = $tpl_data.one2one }}
+        {{ $profile = $tpl_data.profile }}
+
+        <div id="teacher-course">
+
+            {{ $counter = 0 }}
+            <ul class="course-nav">
+                {{ * 如果不是班主任 * }}
+                {{ if $tpl_data.profile.user_number !== "685738818" }}
+                    {{ if $online_course.count > 0 }}
+                        <li data-nav="online-course-box" style="border-left:none;">
+                            <a href="/{{ $tpl_data.profile.domain }}/online">
+                                在线直播
+                            </a>
+                        </li>
+                        {{ $counter = $counter + 1 }}
+                    {{ /if }}
+
+                    {{ if $offline_course.count > 0 }}
+                        <li data-nav="offline-course-box" {{ if $counter < 1 }}style="border-left:none;"{{ /if }} >
+                            <a href="/{{ $tpl_data.profile.domain }}/offline">
+                                线下班课
+                            </a>
+                        </li>
+                        {{ $counter = $counter + 1 }}
+                    {{ /if }}
+                {{ else }}
+                    {{ if $offline_course.count > 0 }}
+                        <li data-nav="offline-course-box" style="border-left:none;">
+                            <a href="/{{ $tpl_data.profile.domain }}/offline">
+                                线下班课
+                            </a>
+                        </li>
+                        {{ $counter = $counter + 1 }}
+                    {{ /if }}
+
+                    {{ if $online_course.count > 0 }}
+                        <li data-nav="online-course-box" {{ if $counter < 1 }}style="border-left:none;"{{ /if }} >
+                            <a href="/{{ $tpl_data.profile.domain }}/online">
+                                在线直播
+                            </a>
+                        </li>
+                        {{ $counter = $counter + 1 }}
+                    {{ /if }}
+                {{ /if }}
+
+                {{ if $video_course.count > 0 }}
+                    <li data-nav="video-course-box"{{ if $counter < 1 }}style="border-left:none;"{{ /if }}>
+                        <a href="/{{ $tpl_data.profile.domain }}/video">
+                            视频课程
+                        </a>
+                    </li>
+                    {{ $counter = $counter + 1 }}
+                {{ /if }}
+
+                {{ if $one_course.count > 0 }}
+                    <li data-nav="one-course-box" class="active" {{ if $counter < 1 }}style="border-left:none;"{{ /if }}>
+                        <a href="/{{ $tpl_data.profile.domain }}/one2one">
+                            1对1课程
+                        </a>
+                    </li>
+                    {{ $counter = $counter + 1 }}
+                {{ /if }}
+            </ul>
+
+            {{ $content_counter = 0 }}
+            <div class="course-content">
+                {{ if $one_course.count > 0 }}
+                    <div class="one-course-box list" {{ if $content_counter > 0 }}style="display:none;"{{ /if }}>
+                        <ul class="one-course-list">
+                            {{ foreach $one_course.course.subject as $key => $val }}
+                            <li class="item">
+                                {{ if count($val.price) > 1 }}
+                                    {{ $min_price = 99999999 }}
+                                    {{ $max_price = 0 }}
+                                    {{ foreach $val.price as $v }}
+                                        {{ if $v && $v > $max_price }}
+                                            {{ $max_price = $v }}
+                                        {{ /if }}
+                                    {{ /foreach }}
+
+                                    {{ foreach $val.price as $v }}
+                                        {{ if $v && $v < $min_price }}
+                                            {{ $min_price = $v }}
+                                        {{ /if }}
+                                    {{ /foreach }}
+
+                                    {{ if $min_price != $max_price }}
+                                        {{ $final_price = "￥"|cat:$min_price|cat:" - ￥"|cat:$max_price|cat:"/小时" }}
+                                    {{ else }}
+                                        {{ $final_price = "￥"|cat:$min_price|cat:"/小时" }}
+                                    {{ /if }}
+                                {{ else }}
+                                    {{ foreach $val.price as $v }}
+                                        {{ if $v }}
+                                            {{ $final_price = "￥"|cat:$v|cat:"/小时" }}
+                                        {{ /if }}
+                                    {{ /foreach }}
+                                {{ /if }}
+                                <div class="base-info" {{ if count($one_course) == 1 }}style="display:none;"{{ /if }}>
+                                    <img src="{{ $static_origin }}/src/img/teacher/course_icon.png">
+
+                                    {{ $final_name = $val.name|cn_truncate:10 }}
+                                    <div class="sub-new-title" {{ if $final_name != $val.name }}data-title="{{ $val.name }}"{{ /if }}>
+                                        <a href="{{ $val.detail_url }}" target="_blank">
+                                            {{ $final_name }}
+                                        </a>
+                                    </div>
+
+                                    {{ if $val.course_type == 13 }}
+                                        <div class="item-course-type betterOne" data-title="平台精选课程">
+                                            优选
+                                        </div>
+                                    {{ /if }}
+
+                                    <a>购买课程</a>
+
+                                    <span>{{ $final_price }}</span>
+                                </div>
+                                {{ include file="common/variable/lesson.html" scope=parent }}
+                                {{ $subjectLessonWay = [] }}
+                                {{ if !empty($val.price.teacher) }}
+                                    {{ $subjectLessonWay[] = [ 'teacher-'|cat:$val.price.teacher, $lessonMap.teacher|cat:'- ￥'|cat:$val.price.teacher|cat:'/小时', 'teacher', $val.price.teacher ] }}
+                                {{ /if }}
+                                {{ if !empty($val.price.student) }}
+                                    {{ $subjectLessonWay[] = [ 'student-'|cat:$val.price.student, $lessonMap.student|cat:'- ￥'|cat:$val.price.student|cat:'/小时', 'student', $val.price.student ] }}
+                                {{ /if }}
+                                {{ if !empty($val.price.discuss) }}
+                                    {{ $subjectLessonWay[] = [ 'discuss-'|cat:$val.price.discuss, $lessonMap.discuss|cat:'- ￥'|cat:$val.price.discuss|cat:'/小时', 'discuss', $val.price.discuss ] }}
+                                {{ /if }}
+                                {{ if !empty($val.price.online) }}
+                                    {{ $subjectLessonWay[] = [ 'online-'|cat:$val.price.online, $lessonMap.online|cat:'- ￥'|cat:$val.price.online|cat:'/小时', 'online', $val.price.online ] }}
+                                {{ /if }}
+                                <div class="detail-info form" data-number="{{ $val.number }}" data-index="{{ $key+1 }}" data-course="{{ $val.id }}"  data-lessonway="{{ $subjectLessonWay[0][2] }}" data-lessonvalue="{{ $subjectLessonWay[0][3] }}" {{ if count($one_course) > 1 }}style="display:none;"{{ /if }}>
+
+                                    <div class="new-title">
+                                        <span {{ if $final_name != $val.name }}data-title="{{ $val.name }}"{{ /if }}>
+                                            <a href="{{ $val.detail_url }}" target="_blank">
+                                                {{ $final_name }}
+                                            </a>
+                                        </span>
+
+                                        {{ $final_price }}
+
+                                        {{ if $val.course_type == 13 }}
+                                            <div class="item-course-type betterOne" data-title="平台精选课程">
+                                                优选
+                                            </div>
+                                        {{ /if }}
+
+                                        <a class="packup"{{ if count($one_course) == 1 }}style="display:none;"{{ /if }}>
+                                            收起购买
+                                        </a>
+                                    </div>
+
+                                    <div class="professional-intro">
+                                        <span class="professional-intro-text">专业背景介绍：</span>
+                                        <div class="professional-intro-detail">
+                                            {{ $val.remark|regex_replace: "/\\n/": '<br/>' }}
+                                        </div>
+                                    </div>
+
+                                    <div class="lesson-way">
+
+                                        <span class="lesson-way-text">选择上课方式：</span>
+                                        <div class="dropdown">
+                                            <span class="btn-default">
+                                                <i class="caret"></i>
+                                                <span>{{ $subjectLessonWay[0][1] }}</span>
+                                            </span>
+                                            <ul class="dropdown-menu">
+                                                {{ foreach $subjectLessonWay as $way }}
+                                                    <li data-value="{{ $way[0] }}">
+                                                        {{ $way[1] }}
+                                                    </li>
+                                                {{ /foreach }}
+                                            </ul>
+                                        </div>
+                                        <span class="error" style="display:none;">
+                                            <i class="icon icon-times-circle"></i>
+                                            &nbsp;请选择上课方式
+                                        </span>
+                                    </div>
+
+                                    <div class="course-time">
+                                        <span class="course-time-text">设置课程时长：</span>
+                                        <a class="set-time custom active">自定义时长</a>
+                                        <a class="set-time combo">课时优惠包</a>
+                                    </div>
+
+                                    <div class="custom-box form-group">
+                                        <div class="custom-box-text">填写购买课时：</div>
+                                        {{ if $val.course_type == 1 }}
+                                            <input name="hours" class="form-text hours" type="int" required min="1" max="999" >
+                                            <span>小时</span>
+                                            <span class="form-hint">
+                                                <i class="icon icon-info-circle"></i>
+                                                请填写整数（1-999）
+                                            </span>
+                                        {{ else if $val.course_type == 13 }}
+                                            <input name="hours" class="form-text hours" type="int" required min="10" step="5" max="1000" value="10">
+                                            <span>小时</span>
+                                            <span class="form-hint">
+                                                <i class="icon icon-info-circle"></i>
+                                                请填写5的倍数（10小时起）
+                                            </span>
+                                        {{ /if }}
+                                        <span class="error"></span>
+                                    </div>
+
+                                    <div class="course-list-box form-group">
+                                        <span class="error" style="display:none;">
+                                            <i class="icon icon-times-circle"></i>
+                                            &nbsp;请选择课时优惠包
+                                        </span>
+                                        <ul class="course-list">
+                                        </ul>
+                                    </div>
+                                    <div class="button-box" >
+                                        <div class="price">总价：<span class="total-price">￥0</span></div>
+                                        <div class="stage-pay">分期购买</div>
+                                        <button class="btn btn-primary {{ if !$profile.can_order }}disabled-order{{ /if }}" {{ if !$profile.can_order }}disabled{{ /if }}>
+                                            购买课时
+                                        </button>
+                                    </div>
+                                </div>
+                            </li>
+                            {{ /foreach }}
+                        </ul>
+                        {{ include "teacher/newDetail/calendar.html" }}
+                    </div>
+                {{ /if }}
+            </div>
+        </div>
+
+        {{ include file="teacher/newDetail/newComment.html" tpl_data=$tpl_data }}
+
+        {{ if $one_course.count > 0 }}
+            {{ include file="teacher/detail/orderForm.html" tpl_data=$tpl_data.teach.subject min_price=$tpl_data.teach.min_price hidden=$hidden can_order=$tpl_data.profile.can_order }}
+        {{ /if }}
+    </div>
+
+</div>
+{{ /strip }}
+{{ /block }}
+
+{{ block name="inner_link" }}
+    {{ include file="./newDetail/innerLink.html" profile=$tpl_data.profile }}
+{{ /block }}
+
+{{ block name="script" }}
+{{ strip }}
+    {{ include file="common/component/loginDialog.html" onlyShowStudent=1 }}
+{{ /strip }}
+{{ /block }}

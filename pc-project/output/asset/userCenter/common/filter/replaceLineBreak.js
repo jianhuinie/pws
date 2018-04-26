@@ -1,0 +1,1 @@
+define("userCenter/common/filter/replaceLineBreak",["require","exports","module"],function(){"use strict";return function(e){return"string"===$.type(e)?e.replace(/\n/g,"<br/>"):""}});

@@ -1,0 +1,192 @@
+/**
+ * @file 基本信息
+ * @author zhujialu
+ */
+
+@import '../../teacherCenter/component/form-address.less';
+@import '../../common/component/moreSubjectForm.less';
+
+.baseinfo {
+
+    &.no-data {
+        .form {
+            display: block !important;
+            .btn-cancel {
+                display: none;
+            }
+        }
+    }
+
+    .info {
+
+        .woman {
+            .icon-user {
+                color: @brand-error-light;
+                padding-left: @gap-horizontal-tiny;
+            }
+        }
+
+        .man {
+            .icon-user {
+                color: @brand-info-light;
+                padding-left: @gap-horizontal-tiny;
+            }
+        }
+
+        ul {
+            width: 100%;
+            .clearfix();
+            padding-top: @gap-horizontal-medium;
+            padding-bottom: 2 * @gap-horizontal-medium;
+        }
+
+        .title {
+            color: #999;
+            width: 85px;
+            display: inline-block;
+            font-size: 12px !important;
+            text-align: right;
+        }
+        .cont {
+            color: #333;
+            display: inline-block;
+            font-size: 12px !important;
+        }
+    }
+
+}
+
+
+.form-baseinfo {
+
+    position: relative;
+    background-color: #fff;
+    padding: 0;
+    font-size: 12px;
+    input {
+        height: 23px;
+        padding: 2px @gap-horizontal-small;
+        vertical-align: top;
+    }
+    textarea {
+        padding: 2px @gap-horizontal-small;
+        vertical-align: top;
+    }
+    .form-static,
+    .form-radio,
+    .form-label {
+        padding: 2px !important;
+    }
+    .dropdown {
+        .btn-default {
+            height: 23px;
+            padding: 1px @gap-horizontal-tiny;
+        }
+        li {
+            padding: 2px @gap-horizontal-tiny;
+        }
+        .caret {
+            margin-top: 7px;
+        }
+    }
+
+    .placeholder-wrapper {
+        float: left;
+    }
+
+    h2 {
+        margin-bottom: 15px;
+    }
+
+    .avatar {
+        margin-right: 2 * @gap-vertical-huge;
+        margin-top: @gap-vertical-huge;
+        position: absolute;
+        right: 0;
+        .image-preview {
+            height: 150px;
+        }
+        .image-uploader {
+            img {
+                height: 150px;
+            }
+        }
+    }
+
+    .form-label {
+        width: 85px;
+    }
+
+    .form-static {
+        font-size: 12px;
+        color: @brand-text-lighter;
+    }
+
+    .year,
+    .month,
+    .date {
+        .btn-default {
+            width: 70px;
+        }
+    }
+
+    .birthday {
+        display: inline-block;
+        .form-group {
+            padding-top: 0;
+            margin-left: 0;
+            margin-right: 5px;
+        }
+    }
+
+    .introduce {
+        textarea {
+            width: 350px;
+            height: 23px;
+            margin-right: @gap-horizontal-small;
+            overflow-y: hidden;
+            vertical-align: top;
+        }
+        .form-hint {
+            display: inline-block;
+        }
+    }
+
+    .constellation {
+        margin-left: @gap-horizontal-small;
+        .btn-default {
+            width: 90px;
+        }
+    }
+
+    .form-domain {
+        .hint {
+            margin-left: 87px;
+        }
+    }
+
+    .form-address {
+        .map {
+            width: 300px;
+            height: 205px;
+        }
+        .form-action {
+            display: none;
+        }
+    }
+
+    .form-action {
+        margin-left: 85px;
+    }
+
+    .area-hint {
+        top: 6px;
+    }
+
+}
+
+.sensitive {
+    em {
+        color: @brand-primary;
+    }
+}

@@ -1,0 +1,30 @@
+
+{{ strip }}
+
+{{ if !isset($title) }}
+    {{ $title = '鐩稿叧璇剧▼' }}
+{{ /if }}
+
+{{ if isset($relatedcourse) && count($relatedcourse) }}
+<div id="relatedcourse" class="card">
+
+    <h1 class="title">{{ $title }}</h1>
+    <div class="card-body">
+        <ul>
+            {{ foreach $relatedcourse as $val }}
+            <li>
+
+                <a href="/teacher/classCourseDetail/{{ $val.coursenumber }}" target="_blank">
+                {{ include file="common/component/image.html" url=$val.pic width="200" height=120 }}
+                </a>
+                <div class="detail"> 
+                    <div class="course_name"><a href="/teacher/classCourseDetail/{{ $val.coursenumber }}" class="name">{{ $val.name }}</a></div>
+                    <p class="price">{{ if $val.price == '0' }}鍏嶈垂{{ else }}楼{{ $val.price }} {{ /if }}</p>
+                </div>
+            </li>
+            {{ /foreach }}
+        </ul>
+    </div>
+</div>
+{{ /if }}
+{{ /strip }}

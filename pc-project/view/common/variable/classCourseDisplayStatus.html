@@ -1,0 +1,22 @@
+{{ *
+@file 班课状态
+@author liucong
+* }}
+
+{{ strip }}
+{{ $display_status_map = [] }}
+{{ $display_status_map["1"] = "初始" }}
+{{ $display_status_map["2"] = "正在招生" }}
+{{ $display_status_map["3"] = "停止招生" }}
+{{ $display_status_map["4"] = "已满班" }}
+{{ $display_status_map["5"] = "上课中" }}
+{{ $display_status_map["6"] = "课程结束" }}
+{{ $display_status_map["7"] = "课程删除" }}
+{{ $display_status_map["8"] = "审核中" }}
+{{ $display_status_map["11"] = "课程过期" }}
+{{ $display_status_map["12"] = "已失效" }}
+{{ $display_status_map["13"] = "课程终止" }}
+{{ $display_status_map["14"] = "关闭班课" }}
+{{ $display_status_map["10000"] = "课程终止" }}
+{{ $display_status_map["1000"] = "未知状态" }}
+{{ /strip }}

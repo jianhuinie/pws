@@ -1,0 +1,116 @@
+ <div class="main-banner">
+    <div class="main-banner-promotion loading">
+        <div class="promotion-slider-container"></div>
+        <div class="promotion-right-banner"></div>
+        <div class="bottom-slider-container"></div>
+        <div class="bottom-right-banner"></div>
+    </div>
+
+    <div class="main-banner-helper">
+        <ul class="main-banner-helper-news">
+
+            {{ if $tpl_data.board }}
+                {{ $helper_news = $tpl_data.board }}
+            {{ else }}
+                {{ $helper_news = $page_data.helper.news }}
+            {{ /if }}
+            {{ $helper_news_item_width = (226 / ($helper_news|count))|string_format:"%d" }}
+            {{ foreach $helper_news as $item }}
+
+                <li class="main-banner-helper-news-item{{ if $item@index === 0 }} active {{ /if }}" style="width:{{ $helper_news_item_width }}px">
+                    <strong>{{ $item.catname }}</strong>
+                    <ol>
+                        {{ foreach $item.data as $con }}
+                        <li>
+                            <a href="{{ if !empty($con.link) }}{{ $con.link }}{{ else }}javascript:void(0);{{ /if }}" target="_blank">
+                                {{ $con.title }}
+                            </a>
+                        </li>
+                        {{ /foreach }}
+                        {{ if isset($item.more) }}
+                        <a href="{{ $item.more }}" class="more" target="_blank">更多</a>
+                        {{ /if }}
+                    </ol>
+                </li>
+            {{ /foreach }}
+        </ul>
+
+        {{ $isLogin = isset($user_data.user_name) }}
+        <div class="main-banner-helper-login">
+
+            {{ $userName = '，' }}
+            {{ $userPhoto = $static_origin|cat:'/asset/img/headori.png' }}
+            {{ $userUrl = '/static/login?next=/' }}
+
+            {{ if $isLogin }}
+                {{ $userName = '，'|cat:$user_data.user_name }}
+                {{ $userPhoto = $user_data.avatar }}
+                {{ if $user_data.user_type == 0 }}
+                    {{ $userUrl = '/teacher_center/index' }}
+                {{ else }}
+                    {{ $userUrl = '/student_center/index' }}
+                {{ /if }}
+            {{ /if }}
+
+            <div class="main-banner-helper-userinfo">
+                {{ $raw = $userPhoto == $static_origin|cat:'/asset/img/headori.png' }}
+                {{ include file="common/component/avatar.html" img=$userPhoto type="small" raw=$raw url=$userUrl target="_blank" }}
+
+                <h4 class="user-name">hi</h4>
+                <p>欢迎来到跟谁学</p>
+            </div>
+
+            <div class="main-banner-helper-operation">
+                <table class="main-banner-helper-loglink">
+                    <tbody>
+                    <tr>
+                        <td>
+                            <a rel="nofollow" class="btn-success" href="{{ $root_https }}/static/login" target="_blank" data-stype="SignUp">
+                                登录
+                            </a>
+                        </td>
+                        <td>
+                            <a rel="nofollow" class="btn-primary" href="{{ $root_https }}/static/register?user_type=2&next=/" target="_blank" data-stype="Register">
+                                学生注册
+                            </a>
+                        </td>
+                        <td>
+                            <a rel="nofollow" class="btn-primary" href="{{ $root_https }}/static/register?user_type=0&next=/teacher_center/index" target="_blank" data-stype="SettleIn">
+                                老师入驻
+                            </a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <table class="main-banner-helper-schedule">
+                    <tbody>
+                    <tr>
+                        <td>
+                            <a id="main-banner-helper-status1" href="####">
+                                <span>1</span>
+                                待上课
+                            </a>
+                        </td>
+                        <td>
+                            <a id="main-banner-helper-status2" href="####">
+                                <span>2</span>
+                                待确认
+                            </a>
+                        </td>
+                        <td>
+                            <a id="main-banner-helper-status3" href="####">
+                                <span>4</span>
+                                待评价
+                            </a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        {{ include file="main/wechat.html" }}
+    </div>
+</div>
+{{ include file="./bannerTpl.html" }}

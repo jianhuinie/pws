@@ -1,0 +1,38 @@
+{
+    "tpl_data": {
+        "list": [
+            {
+                "course_name": "aaa",
+                "img": "bb",
+                "teacher_name": "ccc",
+                "price": "1",
+                "img_desc": "ddd",
+                "address": "fff",
+                "time_desc": "hh",
+                "schedule_count": 5,
+                "url": "dasdasd"
+            },
+            {
+                "course_name": "aaa",
+                "img": "bb",
+                "teacher_name": "ccc",
+                "price": "1",
+                "img_desc": "ddd",
+                "address": "fff",
+                "time_desc": "hh",
+                "schedule_count": 5,
+                "url": "dasdasd"
+            }
+        ],
+        "lbs": {
+            "province": "\u5317\u4eac",
+            "city": "\u5317\u4eac",
+            "coord": {"lng": 116.39564503788, "lat": 39.92998577808}
+        },
+        "page": {
+            "curr_page" : 0,
+            "has_more": 1
+        }
+    }
+
+}

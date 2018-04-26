@@ -1,0 +1,210 @@
+/**
+ * @file 促销活动 班课列表
+ * @author wangyujie
+ */
+
+@import '../../common/center/common/layout.less';
+
+#content {
+
+    .tab-nav-block-primary {
+        border-bottom: 3px solid @brand-primary;
+        .clearfix();
+        .nav-item {
+            cursor: pointer;
+            display: inline-block;
+            padding: @gap-vertical-small
+                     2 * @gap-horizontal-huge;
+        }
+        .active {
+            background-color: @brand-primary;
+            color: #fff;
+        }
+    }
+
+    .tab-content {
+        .course-title {
+            margin-bottom: @gap-vertical-medium;
+        }
+        .tab-panel {
+            &.active {
+                display: block;
+            }
+        }
+    }
+
+    .table {
+        color: @brand-text;
+        thead {
+            border-bottom: 1px solid @brand-gray-light;
+        }
+        tbody.active {
+            background-color: @brand-gray-lighter;
+        }
+        td {
+            border: 1px solid #eee;
+            vertical-align: middle;
+        }
+        .col {
+            width: 60%;
+
+        }
+        .col1 {
+            width: 3%;
+            border-right: none;
+            &:hover {
+                background-color: #eee;
+            }
+        }
+        .col2 {
+            width: 56%;
+            border-left: none;
+            text-align: left;
+            .class-course-icon {
+                display: inline-block;
+            }
+            .course-price {
+                .question-icon {
+                    padding: 0 10px;
+                    font-size: 14px;
+                }
+            }
+        }
+        .col3 {
+            width: 16%;
+        }
+        .col4 {
+            width: 25%;
+            .discount-group {
+                margin-left: 10px;
+            }
+            input {
+                float: none;
+            }
+            .icon-check-o {
+                margin-right: @gap-horizontal-tiny;
+            }
+        }
+        .message {
+            display: none;
+        }
+    }
+
+    .course-item {
+        font-size: 12px;
+        .header {
+            .course-number {
+                color: @brand-text-lighter;
+            }
+        }
+
+        .table {
+            margin: @gap-vertical-medium 0;
+            input[name="discount"],
+            input[name="derate"] {
+                width: 88px;
+                font-size: 14px;
+                margin: 0 @gap-horizontal-tiny;
+            }
+            .course-title {
+                color: @brand-text;
+                font-size: 14px;
+                font-weight: bold;
+                a {
+                    vertical-align: -webkit-baseline-middle;
+                }
+                label {
+                    vertical-align: -webkit-baseline-middle;
+                    background-color: #6287D5;
+                    color: #fff;
+                    display: inline-block;
+                    padding: 1px 5px;
+                    border-radius: 2px;
+                    font-size: 12px;
+                    line-height: 1.5em;
+                    margin-left: 5px;
+                }
+            }
+            .course-info {
+                .clearfix();
+                line-height: 1.8em;
+                img {
+                    float: left;
+                    margin-right: @gap-horizontal-medium;
+                }
+            }
+            .course-len {
+                span {
+                    color: @brand-text-lighter;
+                }
+            }
+            .curr-price {
+                span {
+                    color: @brand-primary;
+                    padding: 0 @gap-vertical-tiny;
+                }
+            }
+
+        }
+    }
+
+    .course-action {
+        border: 1px solid @brand-gray-light;
+        background-color: @brand-gray-lighter;
+        margin-top: @gap-vertical-huge;
+        padding: @gap-vertical-medium;
+        .clearfix();
+        button {
+            float: right;
+        }
+        div {
+            float: left;
+            margin-right: @gap-horizontal-small;
+        }
+        .selected-course {
+            line-height: 36px;
+            span {
+                color: @brand-primary;
+                margin: 0 @gap-horizontal-tiny;
+            }
+        }
+        .master-option {
+            input {
+                width: 88px;
+                margin: 0 @gap-horizontal-tiny;
+            }
+        }
+        .btn-del {
+            margin-right: @gap-horizontal-small;
+        }
+    }
+
+    .checked-flag {
+        cursor: pointer;
+    }
+
+    table.checked {
+        tbody {
+            background-color: @brand-gray-lighter;
+        }
+    }
+
+    table.showonly {
+        tbody {
+            background-color: @brand-primary-lighter;
+        }
+    }
+    .question-dialog {
+        .dialog-body {
+            text-align: left;
+        }
+    }
+}
+.limit-dialog {
+    .section {
+        padding-buttom: 10px;
+    }
+    .dialog-action {
+        margin-top: 0;
+    }
+}

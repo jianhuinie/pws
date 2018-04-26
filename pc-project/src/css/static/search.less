@@ -1,0 +1,103 @@
+/**
+ * @file 搜索老师首页
+ * @author tangrongyan zhujialu
+ */
+
+@import '../main/base.less';
+
+#main {
+
+    background: url(../../img/static/bg.jpg);
+    margin: 0;
+    width: 100%;
+    text-align: center;
+
+    .wrapper {
+        .inline-block();
+        margin: 0 auto;
+        padding: 140px 0 220px;
+        width: 631px;
+    }
+
+    h1 {
+        background: url(../../img/static/search/title.png) no-repeat;
+        height: 48px;
+        margin: 0 auto;
+        width: 398px;
+    }
+
+    .icon-search {
+
+        font-size: @font-size-medium;
+
+        position: absolute;
+        top: 21px;
+        left: 15px;
+        z-index: 1000;
+    }
+
+    form {
+        margin: 45px 0 15px 0;
+        position: relative;
+    }
+
+    .btn-primary {
+        border: none;
+        border-radius: 0;
+        font-size: 18px;
+        font-family: @font-family-title;
+
+        letter-spacing: 6px;
+        padding: 0;
+
+        width: 120px;
+        height: 57px;
+        line-height: 57px;
+        text-align: center;
+    }
+
+    .search-box {
+        .inline-block();
+        border: 6px solid @brand-primary;
+        vertical-align: top;
+    }
+
+    .form-text {
+        border: none;
+        height: 25px;
+        width: 456px;
+        padding-left: 32px;
+    }
+
+    .placeholder {
+        padding-top: 16px;
+        padding-left: 39px;
+    }
+
+    .hot-query {
+
+        font-size: @font-size-small;
+        text-align: left;
+
+        label {
+            color: @brand-text-lighter;
+        }
+
+        a {
+            color: @brand-text;
+            margin-right: @gap-horizontal-large;
+
+            &:hover {
+                color: @brand-primary;
+            }
+        }
+
+        .text-primary {
+            color: @brand-primary;
+        }
+    }
+}
+
+.ie8 .search-box .form-text {
+    line-height: 25px;
+}

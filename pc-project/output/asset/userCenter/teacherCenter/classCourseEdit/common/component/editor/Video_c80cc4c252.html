@@ -1,0 +1,39 @@
+<div class="editor-video editor-content">
+    <div class="wrapper">
+        <div class="edit-button fluid">
+            <i class="draggable-icon icon icon-live-o"></i>
+            <div class="button button-remove icon-close" on-click="remove()"></div>
+
+            {{#if options.video_id || status >= STATUS_IMAGE_UPLOADING }}
+                <div class="view-video">
+                    <div class="thumbnail-video video">
+                        <img src="{{options.cover}}" data-id={{options.video_id}} />
+                        {{#if status === STATUS_IMAGE_UPLOAD_SUCCESS && options.video_id}}
+                            <div class="button video-player" data-video="/video/view/{{options.video_id}}" on-click="playVideo(this)">
+                                <img src="{{sourceDir}}/userCenter/teacherCenter/classCourseEdit/common/img/play.png" class="icon play">
+                            </div>
+                        {{/if}}
+                    </div>
+                </div>
+            {{/if}}
+
+            <span class="button upload-wrapper {{#if status === STATUS_IMAGE_UPLOADING}}button-ing-video{{elseif options.video_id}}button-has-video{{else}}button-no-video video{{/if}}">
+                <input type="file" />
+                {{#if status === STATUS_IMAGE_UPLOADING}}
+                    上传中...{{progress}}
+                {{elseif options.video_id}}
+                    重新上传
+                {{else}}
+                    <i class="icon-plus"></i>
+                    上传视频
+                {{/if}}
+            </span>
+
+        </div>
+    </div>
+
+    <style>
+        {{style}}
+    </style>
+
+</div>

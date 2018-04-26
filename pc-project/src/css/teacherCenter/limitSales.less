@@ -1,0 +1,464 @@
+/**
+ * @file 营销中心-促销活动
+ * @author caoying
+ */
+
+@import '../common/center/common/layout.less';
+
+.list-sale {
+    display: inline;
+    #content {
+
+        .card-body {
+            .search {
+                .icon-plus {
+                    margin-right:5px;
+                }
+            }
+            .result-list {
+                margin-top: 20px;
+
+                .title {
+                    border-bottom: 2px solid #ff9a00;
+                    font-size: 14px;
+                    a {
+                        display: inline-block;
+                        width: 135px;
+                        height: 37px;
+                        text-align: center;
+                        line-height: 37px;
+                           font-size: 16px;
+                    }
+                    .move{
+                        background: #ff9a00;
+                        color: white;
+                        cursor: pointer;
+                    }
+                }
+
+                .result {
+                    font-size: 12px;
+                    .oper-title{
+                        text-align: center;
+                    }
+
+                    table {
+                        margin: auto;
+                        thead {
+                            background: #fbfbfb;
+                            border-bottom: 1px solid #dddddd;
+                            th {
+                                text-align: left;
+                                color: #6C6A6A;
+                                padding: 10px 5px;
+                            }
+                        }
+                        tbody {
+                            .no-data-tr {
+                                border-bottom:none;
+
+                                .no-data-td {
+                                    text-align: center;
+                                    border-bottom: none;
+
+                                    .no-data-list {
+                                        background-image: url(../../img/teacher/noresult.png);
+                                        width: 126px;
+                                        height: 153px;
+                                        margin: 120px auto 20px;
+                                        background-repeat: no-repeat;
+                                    }
+
+                                    .wrapper {
+                                        font-size: 14px;
+                                        .create {
+                                            color: #ff9a00;
+                                            &:hover {
+                                                cursor: pointer;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            td {
+                                text-align: left;
+                                color: #6C6A6A;
+                                line-height: 1.8;
+                                padding: 10px 5px;
+                                border-bottom: 1px solid #eeeeee;
+
+                                .sale-content {
+                                    .sale-title {
+                                        display: inline-block;
+                                        float: left;
+                                        margin-right:10px;
+                                        font-size: 14px;
+                                    }
+
+                                    .sale-class {
+                                        display: inline-block;
+                                        background: #ff9a00;
+                                        color: white;
+                                        width: 70px;
+                                        text-align: center;
+                                    }
+                                    .acitivity_id {
+                                        display: none;
+                                    }
+                                }
+
+                                .sale-summary {
+                                    margin-top: 5px;
+                                }
+
+                                .sale-date {
+                                    display: inline-block;
+                                    color:#a7a7a7;
+                                }
+                                .sale-duration {
+                                    margin-top: 5px;
+                                }
+                            }
+                            .sale-total,
+                            .sale-oper,
+                            .stop-notopen {
+                                vertical-align: middle;
+                            }
+
+                            .sale-total {
+                                .icon-pencil {
+                                    margin-left: 3px;
+                                }
+                            }
+
+                            .sale-click {
+                                &:hover {
+                                    .icon-pencil {
+                                        color:#ff9a00;
+                                    }
+                                    cursor: pointer;
+
+                                }
+                            }
+
+                            .sale-oper {
+                                text-align: right;
+                                position: relative;
+                                .insert-course,
+                                .restart-acitivity,
+                                .delete,
+                                .more-oper {
+                                    display: inline-block;
+                                    margin-right: 10px;
+                                    color: #6187dc;
+                                }
+                                .delete {
+                                    margin-right: 15px;
+                                }
+                                .more-oper {
+                                    margin-right: 0px;
+                                }
+                                &:hover{
+                                    cursor: pointer;
+                                }
+
+                                a:hover {
+                                    color: #ff9a00;
+                                    .icon {
+                                        color: #ff9a00;
+                                    }
+                                }
+
+                                .icon {
+                                    color: #6187dc;
+                                    font-size: 14px;
+                                }
+
+                                ul{
+                                    width: 80px;
+                                    left: auto;
+                                    text-align: center;
+                                    position: absolute;
+
+                                    li {
+                                        float: left;
+                                        width: 80px;
+                                        display: block;
+                                        a{
+                                            display: block;
+                                        }
+                                    }
+                                    li:hover {
+                                        background: #ffffff;
+                                    }
+                                }
+                                .block {
+                                    display: block;
+                                }
+                            }
+
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+.add-sale {
+    display: none;
+
+    #content {
+        .card-header {
+            h1{
+                color: #6d6d6d;
+                font-size: 14px;
+            }
+
+        }
+        .card-body {
+            padding: 38px 25px;
+
+            .activiy-tag {
+                padding: 8px;
+                .tag-name {
+                    display: inline-block;
+                    padding: 8px 0px;
+                    float: left;
+                    margin-right: 10px;
+                }
+
+                .tag-detail {
+                    .dropdown {
+                        float: left;
+
+                        .btn-default{
+                            width: 130px;
+                            text-align: center;
+
+                            span {
+                                color: #6d6d6d;
+                            }
+                        }
+                        .dropdown-menu {
+                            text-align: center;
+                        }
+                    }
+                    .activity-id {
+                        display: none;
+                    }
+                }
+
+                .tag-summary {
+                    font-size: 12px;
+                    color: #b5b5b5;
+                    display: inline-block;
+                    padding: 8px;
+                }
+            }
+
+            .activiy-time {
+                padding: 18px 8px;
+                height: 90px;
+
+                .tag-time {
+                    padding: 12px 0px;
+                    float: left;
+                }
+
+                .tag-end {
+                    float: left;
+                    padding: 12px 0px;
+                    margin-left: 10px;
+                }
+
+                .form-group-inline {
+                    display: inline-block;
+                    float: left;
+                    margin-left: 10px;
+
+                    .form-label {
+                        float: none;
+                        text-align: left;
+                    }
+                    .dropdown-menu {
+                        max-height: 370px;
+                    }
+                }
+                .start-date,.end-date {
+                    position: relative;
+                    input[name="start_date"] {
+                        width: 130px;
+                    }
+                    input[name="end_date"] {
+                        width: 130px;
+                    }
+                    .calendar {
+                        z-index: @zindex-small;
+                        display: none;
+                    }
+                }
+
+                .start-time,.end-time {
+
+                    input[name="start_time"] {
+                        width: 74px;
+                        text-align: center;
+                    }
+
+                    input[name="end_time"] {
+                        width: 74px;
+                        text-align: center;
+                    }
+                    .trigger {
+                        cursor: pointer;
+                        padding: 5px 10px;
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                    }
+                }
+                .icon-hide {
+                    display: none;
+                }
+                .border-hide {
+                    border-color: #ccc;
+                }
+
+                .tag-long {
+                    font-size: 12px;
+                    color: #b5b5b5;
+                    display: inline-block;
+                    padding: 12px 8px;
+
+
+                }
+                .error-long {
+                    color: red;
+                }
+            }
+
+            .activiy-remark {
+                padding: 0px 8px;
+                .form-text {
+                    width: 320px;
+                    height: 60px;
+                }
+                .form-label {
+                    padding: 0px;
+                }
+                .form-hint {
+                    color:#b5b5b5;
+                    strong {
+                        color: #ff9a00;
+                    }
+                }
+                .form-editor {
+                    float: left;
+                }
+                .remark-summary {
+                    font-size: 12px;
+                    color: #b5b5b5;
+                    display: inline-block;
+                    padding: 20px 8px;
+                }
+            }
+
+            .next-domain {
+                padding: 10px 75px;
+                .btn-primary {
+                    width:130px;
+                }
+                .btn-default {
+                    width:90px;
+                    margin-left: 10px;
+                }
+            }
+
+
+        }
+    }
+}
+
+.dialog {
+
+    //height: 300px;
+
+    .dialog-body {
+        width: 400px;
+        text-align: center;
+
+        .activiy-time {
+            padding: 18px 8px;
+
+            .tag-time {
+                padding: 12px 0px;
+                display: inline-block;
+            }
+
+            .form-group-inline {
+                display: inline-block;
+                margin-left: 10px;
+                .form-label {
+                    float: none;
+                    text-align: left;
+                }
+            }
+
+            .start-date,.end-date {
+                position: relative;
+                input[name="start_date"] {
+                    width: 130px;
+                }
+                input[name="end_date"] {
+                    width: 130px;
+                }
+                .calendar {
+                    z-index: @zindex-small;
+                    display: none;
+                }
+            }
+
+            .start-time,.end-time {
+
+                input[name="start_time"] {
+                    width: 74px;
+                    text-align: center;
+                }
+
+                input[name="end_time"] {
+                    width: 74px;
+                    text-align: center;
+                }
+                .trigger {
+                    cursor: pointer;
+                    padding: 5px 10px;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                }
+            }
+
+            .activiy-long {
+                text-align: left;
+                margin-left: 28px;
+                .tag-long {
+                    margin-left: 8px;
+                    display: inline-block;
+                }
+                .error-long {
+                    color: red;
+                }
+            }
+            .action {
+                .btn-default {
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+
+
+}

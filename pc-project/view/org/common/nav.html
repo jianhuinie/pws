@@ -1,0 +1,168 @@
+{{ *
+
+@file 机构导航模块
+@author jixiaohui
+
+* }}
+
+{{ strip }}
+
+{{ $class_index = '' }}
+{{ $class_blackboard = '' }}
+{{ $class_course = '' }}
+{{ $class_teacher = '' }}
+{{ $class_video = '' }}
+{{ $class_photo = '' }}
+{{ $class_area = '' }}
+{{ $class_comment = '' }}
+{{ $class_intro = '' }}
+{{ $path_text = '' }}
+{{ $path_link = '' }}
+
+{{ $org_id = $tpl_data.base_info.id }}
+{{ if $tpl_data.base_info.domain }}
+{{ $org_serial = $tpl_data.base_info.domain }}
+{{ else }}
+{{ $org_serial = $tpl_data.base_info.number }}
+{{ /if }}
+
+{{ $header = $tpl_data.base_info }}
+
+
+{{ $url_index = "/i/"|cat:$org_serial }}
+{{ $url_black = "/i/black/"|cat:$org_serial }}
+{{ $url_course = "/i/course/"|cat:$org_serial }}
+{{ $url_teacher = "/i/teacher/"|cat:$org_serial }}
+{{ $url_video = "/i/video/"|cat:$org_serial }}
+{{ $url_photo = "/i/photo/"|cat:$org_serial }}
+{{ $url_area = "/i/area/"|cat:$org_serial }}
+{{ $url_comment = "/i/comment/"|cat:$org_serial }}
+{{ $url_intro = "/i/intro/"|cat:$org_serial }}
+
+{{ if $tpl_data.abtest }}
+    {{ $url_index = "/i/"|cat:$org_serial }}
+    {{ $url_black = "/i/black/"|cat:$org_serial }}
+    {{ $url_course = "/i/course/"|cat:$org_serial }}
+    {{ $url_teacher = "/i/teacher/"|cat:$org_serial }}
+    {{ $url_video = "/i/video/"|cat:$org_serial }}
+    {{ $url_photo = "/i/photo/"|cat:$org_serial }}
+    {{ $url_area = "/i/area/"|cat:$org_serial }}
+    {{ $url_comment = "/i/comment/"|cat:$org_serial }}
+    {{ $url_intro = "/i/intro/"|cat:$org_serial }}
+{{ /if }}
+
+{{ if $active == 'index' }}
+    {{ $class_index = 'class="active"' }}
+{{ else if $active == 'blackboard' }}
+    {{ $class_blackboard = 'class="active"' }}
+    {{ $path_text = '黑板报' }}
+    {{ $path_link = $url_black }}
+{{ else if $active == 'course' }}
+    {{ $class_course = 'class="active"' }}
+    {{ $path_text = '课程' }}
+    {{ $path_link = $url_course }}
+{{ else if $active == 'teacher' }}
+    {{ $class_teacher = 'class="active"' }}
+    {{ $path_text = '老师' }}
+    {{ $path_link = $url_teacher }}
+{{ else if $active == 'video' }}
+    {{ $class_video = 'class="active"' }}
+    {{ $path_text = '视频' }}
+    {{ $path_link = $url_video }}
+{{ else if $active == 'photo' }}
+    {{ $class_photo = 'class="active"' }}
+    {{ $path_text = '照片' }}
+    {{ $path_link = $url_photo }}
+{{ else if $active == 'area' }}
+    {{ $class_area = 'class="active"' }}
+    {{ $path_text = '校区' }}
+    {{ $path_link = $url_area }}
+{{ else if $active == 'comment' }}
+    {{ $class_comment = 'class="active"' }}
+    {{ $path_text = '评价' }}
+    {{ $path_link = $url_comment }}
+{{ else if $active == 'intro' }}
+    {{ $class_intro = 'class="active"' }}
+    {{ $path_text = '简介' }}
+    {{ $path_link = $url_intro }}
+{{ /if }}
+
+<div class="org-nav{{ if $tpl_data.base_info.is_gold_certification && $tpl_data.base_info.template_id == 2 }} goldorg-nav{{ /if }}">
+    <div class="inner">
+        <ul>
+            <li {{ $class_index }}><a href="{{ $url_index }}" > 主页</a></li>
+            <li {{ $class_blackboard }}><a href="{{ $url_black }}" >黑板报</a></li>
+            <li {{ $class_course }}><a href="{{ $url_course }}" >课程</a></li>
+            <li {{ $class_teacher }}><a href="{{ $url_teacher }}" >老师</a></li>
+            <li {{ $class_video }}><a href="{{ $url_video }}" >视频</a></li>
+            <li {{ $class_photo }}><a href="{{ $url_photo }}" >相册</a></li>
+            <li {{ $class_area }}><a href="{{ $url_area }}" >校区</a></li>
+            <li {{ $class_comment }}><a href="{{ $url_comment }}" >评价</a></li>
+            <li {{ $class_intro }}><a href="{{ $url_intro }}" >简介</a></li>
+        </ul>
+        {{ if $tpl_data.base_info.is_gold_certification 
+              && $tpl_data.base_info.template_id == 2 }}
+            <div class="action">
+                <span data-click="share" data-sku="org|{{ $header.number }}" class="social-share">
+                    <i class="share-icon"></i>
+                    <span class="share-action">分享</span>
+                    {{ include file="common/component/baiduShare.html" }}
+                </span>
+                <span class="favor" {{ if $tpl_data.is_favored }} data-favor="1" {{ else }} data-favor="0" {{ /if }} data-id='{{ $header.id }}'>
+                    <i class="icon icon-star-o"></i>
+                    <span>收藏</span>
+                </span>
+            </div>
+        {{ /if }}
+        <div class="clearfix"></div>
+        <!-- 
+            {{ $extension = $tpl_data.base_info.extension|default:'4000－910－910' }}
+            <button data-click="advisory" data-sku="org|{{ $tpl_data.base_info.number }}"  class="small btn-primary btn-trial" data-mobile="{{ $extension }}">
+                <i class="icon icon-clock-o"></i>
+                预约试听
+            </button>
+
+            {{ if isset($tpl_data.base_info.city_filter) && $tpl_data.base_info.city_filter && isset($tpl_data.base_info.extension) && $tpl_data.base_info.extension }}
+                <div class="four-hundred">
+                    <i class="icon icon-icon-phone-o"></i>
+                    <span>{{ $tpl_data.base_info.extension }}</span>
+                </div>
+            {{ else }}
+                <div class="four-hundred">
+                    <i class="icon icon-icon-phone-o"></i>
+                    <span>4000-910-910</span>
+                </div>
+            {{ /if }} -->
+            <!-- <div class="mobile" data-org-number="{{ $tpl_data.base_info.number }}" data-name="{{ $tpl_data.base_info.name }}">
+                    <i class="icon icon-phone"></i>
+                    <span>免费通话</span>
+            </div> -->
+
+    </div>
+</div>
+
+{{ if $active != 'index' || $path_text }}
+<div id="crumb">
+    <ul>
+        {{ foreach $tpl_data.crumb as $xie }}
+        <li>
+            {{ if !$xie@first }} > {{ /if }}
+            <a href="{{ $xie.url }}" target="_blank"> {{ $xie.name }}</a>
+        </li>
+        {{ /foreach }}
+    </ul>
+</div>
+{{ /if }}
+
+
+{{ include file="common/component/callingDialog.html" }}
+
+{{ if isset($user_data) && isset($user_data.mobile) }}
+{{ $mobile = $user_data.mobile }}
+{{ else }}
+{{ $mobile = '' }}
+{{ /if }}
+
+{{ include file="common/component/advisoryDialog.html" object_name=$tpl_data.base_info.name mobile=$mobile }}
+
+{{ /strip }}

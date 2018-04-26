@@ -1,0 +1,63 @@
+{{ *
+
+@file 老师中心 - 课程管理 - 直播回放
+@author wangyujie
+
+* }}
+
+{{ extends file="common/center/base.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $script_path = "teacherCenter/cloudPlayback" }}
+    {{ $script_data.userNumber = $user_data.user_number }}
+
+{{ /block }}
+
+{{ block name="title" prepend }}
+课程管理 - 直播回放 -
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/teacherCenter/cloudPlayback.less">
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+
+    {{ include file="teacher_center/common/sidebar.html" active="cloudPlayback" }}
+
+    <div id="content" class="card">
+
+        <div class="card-header">
+            <h2>直播回放</h2>
+        </div>
+
+        <div class="tab card-body">
+
+            <div class="tab-nav tab-nav-info">
+                <b class="nav-item active-tab" data-type="classcourse">
+                    班课
+                </b>
+                <b class="nav-item" data-type="onevone">
+                    一对一
+                </b>
+            </div>
+
+            <div class="tab-content">
+                <div class="tab-panel active-tab" id="classcourse">
+                    {{ include file="teacher_center/playback/classCourseList.html" courseInfo=$tpl_data.class_course }}
+                </div>
+                <div class="tab-panel" id="onevone">
+                    {{ include file="teacher_center/playback/one2oneList.html" courseInfo=$tpl_data.onevone }}
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{{ /strip }}
+{{ /block }}
+

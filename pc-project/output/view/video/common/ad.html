@@ -1,0 +1,21 @@
+{{ strip }}
+
+{{ if isset($tpl_data.is_juhuixue) && $tpl_data.is_juhuixue }}
+    <a href="http://ju.genshuixue.com/?zn=zn_juhuixue_huiliu_pc" target="_blank">
+        <img class="activity-photo" data-value="1" src="{{ $static_origin }}/asset/img/classCourse/juhuixuePc_a8dd641193.png" />
+    </a>
+{{ /if }}
+
+{{ if isset($tpl_data.video_store_url) && $tpl_data.video_store_url }}
+    <a href="{{ $tpl_data.video_store_url }}" target="_blank">
+        <img class="activity-photo" data-value="2" src="{{ $static_origin }}/asset/img/video/zhishikuPc_c180ecc172.png" />
+    </a>
+{{ /if }}
+
+{{ if isset($tpl_data.zhenti_store_url) && $tpl_data.zhenti_store_url }}
+    <a href="{{ $tpl_data.zhenti_store_url }}" target="_blank">
+        <img class="activity-photo" data-value="3" src="{{ $static_origin }}/asset/img/video/zhentikuPc_15fb87b041.png" />
+    </a>
+{{ /if }}
+
+{{ /strip }}

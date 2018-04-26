@@ -1,0 +1,160 @@
+.container {
+    .commentTags {
+        margin-bottom: rem(10);
+        padding: rem(4) rem(15) rem(4) rem(15);
+        span {
+            display: inline-block;
+            margin: rem(10) rem(15) 0 0;
+            padding: 0 rem(8);
+            color: #6d6d6e;
+            font-size: rem(12);
+            background: white;
+            border-radius: rem(3);
+            height: rem(30);
+            line-height: rem(30);
+            &.on {
+                background: #ffb74d;
+                color: #fff;
+            }
+        }
+    }
+    .comment-list {
+        .comment-item {
+            padding: rem(10) rem(10) 0 rem(15);
+            border-bottom: 1px solid #ededed;
+            margin-bottom: rem(10);
+            background: white;
+            .first-nav {
+                position: relative;
+                padding: rem(10) rem(10) rem(10) rem(50);
+                .avatar {
+                    width: rem(44);
+                    height: rem(44);
+                    border-radius: 50%;
+                    position: absolute;
+                    left: 0;
+                    top: rem(10);
+                }
+                .name {
+                    color: #3c3d3d;
+                    margin-bottom: rem(5);
+                    width: 80%;
+                }
+                .user-score {
+                    font-size: rem(12);
+                    color: #9d9e9e;
+                    .name {
+                        font-size: rem(12);
+                        color: #9d9e9e;
+                    }
+                    .itme-score {
+                        color: #ff9100
+                    }
+                }
+                .trump {
+                    position: absolute;
+                    right: rem(-6);
+                    top: 0;
+                    padding: rem(10);
+                    .icon-like {
+                        font-size: rem(14);
+                        &.active {
+                            color: #ff9100;
+                        }
+                    }
+                    .number {
+                        font-size: rem(12);
+                        color: #9d9e9e;
+                        &.active {
+                            color: #ff9100;
+                        }
+                    }
+                }
+            }
+            .info {
+                color: #3c3d3d;
+                margin: 0;
+                word-break: break-all;
+                font-size: rem(14);
+                line-height: rem(24);
+            }
+            .comment-photos {
+                img {
+                    width: 30%;
+                    margin-bottom: rem(6);
+                }
+            }
+            .last-nav {
+                font-size: rem(13);
+                color: #9d9e9e;
+                height: rem(30);
+                line-height: rem(30);
+                .time {
+                    margin-right: rem(10);
+                }
+            }
+            .teacher-additional {
+                font-size: rem(14);
+                color: #3c3d3d;
+                background-color: #ebeced;
+                margin-top: rem(10);
+                border-radius: rem(2);
+                position: relative;
+                line-height: 1.2;
+                margin-bottom: rem(10);
+                padding: rem(10);
+                word-wrap: break-word;
+            }
+            .triangle {
+                position: absolute;
+                width: rem(0);
+                height: rem(0);
+                top: rem(-19);
+                left: rem(20);
+                border: 10px solid transparent;
+                border-bottom-color: #ebeced;
+                border-radius: rem(2);
+                border-bottom-width: 10px;
+            }
+            .other-comment-title {
+                width: 100%;
+                height: rem(36);
+                line-height: rem(36);
+                background-color: #fff;
+                font-size: rem(12);
+                color: #9d9e9e;
+                text-align: center;
+                border-top: 1px solid #ebeced;
+            }
+            .other-comment-box {
+                .other-first-nav {
+                    position: relative;
+                    .name {
+                        font-size: rem(12);
+                        color: #9d9e9e;
+                    }
+                    .itme-score {
+                        color: #ff9100;
+                        font-size: rem(12);
+                    }
+                    .trump {
+                        position: absolute;
+                        right: rem(-6);
+                        top: rem(-10);
+                        padding: rem(10);
+                        .icon-like{
+                            font-size: rem(14);
+                        }
+                        .number {
+                            font-size: rem(12);
+                            color: #9d9e9e;
+                        }
+                    }
+                }
+                .last-nav {
+                    border-bottom: 1px solid #ebeced;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,72 @@
+{
+    "code": 0,
+    "msg": "succ",
+    "tpl_data": {
+        "is_login": true,
+        "source_user_avatar": "https://imgs.genshuixue.com/headpic_woman_07.jpg",
+        "source_user_name": "小倩老师",
+        "result_code": 5,
+        "coupon": {
+            "serial_num": "19459643687448",
+            "source_user_role": "teacher",
+            "source_user_id": 347019,
+            "effect_time": "2017-06-05",
+            "expire_time": "2017-06-29",
+            "discount": null,
+            "value": "300.00",
+            "max_discount_money": null,
+            "cond_is_common": null,
+            "cond_threshold": 400,
+            "cond_plat_limit": null,
+            "max_recv_count": 1,
+            "status": 1,
+            "total_count": 3000,
+            "bid": 4175,
+            "id": "19459643687448",
+            "url": "https://test-m.genshuixue.com/org/couponList?coupon_id=19459643687448",
+            "balance": 300,
+            "effect_time_true": "2017-06-05 00:00:00",
+            "expire_time_true": "2017-06-29 23:59:59",
+            "cond_class": [],
+            "cond_video": [],
+            "cond_org_xcourse": [],
+            "cond_class_list": [],
+            "cond_video_list": [],
+            "cond_org_xcourse_list": [],
+            "type": "cash",
+            "cond_course_type": 0,
+            "threshold": 0,
+            "status_type": "has_get",
+            "status_name": "已领取",
+            "user_get_count": "1",
+            "total_send_count": "10",
+            "rules": [
+                "不限"
+            ],
+            "source_user_name": "小倩老师",
+            "cond_source": "小倩老师",
+            "course_list": [
+                {
+                    "number": 17032298419,
+                    "name": "视频课历史订单文案",
+                    "url": "https://test-m.genshuixue.com/video_course/getcourseshowdetail?number=17032298419",
+                    "logo_url": "https://test-imgs.genshuixue.com/876479_5ps3xqle.jpeg"
+                },
+                {
+                    "number": 170425804882,
+                    "name": "验证非1v1课同科目不分成",
+                    "url": "https://test-m.genshuixue.com/teacher/classCourseDetail/170425804882",
+                    "logo_url": "https://test-imgs.genshuixue.com/747307_nvke8x7k.png"
+                }
+            ]
+        },
+        "course_url": "https://test-m.genshuixue.com/415444278w",
+        "user_number": "415444278",
+        "mobile": 18746069058,
+        "share_url": "https://test-m.genshuixue.com/coupon/landpage?coupon_id=19459643687448"
+    },
+    "ts": 1497405913,
+    "declare_config": {
+        "declareTpl": "v2/resources/page/getCoupon/index"
+    }
+}

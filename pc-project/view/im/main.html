@@ -1,0 +1,45 @@
+{{ extends file="common/base.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $need_im = true }}
+
+    {{ if isset($smarty.get.im_user_number) }}
+        {{ $script_data.im_user_number = $smarty.get.im_user_number }}
+    {{ /if }}
+
+    {{ if isset($smarty.get.im_user_role) }}
+        {{ $script_data.im_user_role = $smarty.get.im_user_role }}
+    {{ /if }}
+
+    {{ if isset($smarty.get.im_child_url) }}
+        {{ $script_data.im_child_url = $smarty.get.im_child_url }}
+    {{ /if }}
+
+    {{ if isset($smarty.get.auth_token) }}
+        {{ $script_data.auth_token = $smarty.get.auth_token }}
+    {{ /if }}
+
+    {{ if isset($smarty.get.custom_service_id) }}
+        {{ $script_data.custom_service_id = $smarty.get.custom_service_id }}
+    {{ /if }}
+
+    {{ if isset($smarty.get.url) }}
+        {{ $script_data.im_url = $smarty.get.url }}
+    {{ /if }}
+
+
+{{ /block }}
+
+{{ block name="title" }}
+跟谁学 - 找好老师，上跟谁学
+{{ /block }}
+
+
+{{ block name="body" }}
+    {{ include file="common/script.html" }}
+
+{{ /block }}
+

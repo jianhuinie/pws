@@ -1,0 +1,129 @@
+/**
+ * @file 推荐课程
+ * @author wangtianhua
+ */
+
+h2 {
+	display: block;
+	padding-left: 10px;
+	font-size: 18px;
+	color: #000;
+	font-weight: bold;
+	margin: 10px 0 5px 20px;
+}
+.detail-recommend {
+    width: 100%;
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: 20px;
+    padding-top: 10px;
+    overflow: hidden;  
+
+	.recommend-course {
+	    width: 100%;
+	    overflow: hidden;
+		border: 1px solid #ccc;
+		background: #fff;
+		box-shadow: 1px 1px 1px #ccc;
+		margin-top: 10px; 
+	    .course-detail {
+	    	display: block;
+	    	float: left;
+	    	width: 59%;
+
+	    	.pic {
+	    		display: block;
+	    		float: left;
+	    		padding: 5px 5px 10px 5px;
+	        	margin-left: 20px;
+	    	}
+	    	
+	    	.detail {
+	    		display: block;
+	    		float: left;
+	    		margin: 0px 0 12px 15px;
+		    	span {
+		    		display: block;
+		    		margin-top: 10px;
+		    		color: #9d9d9d;
+		    		strong {
+		    			color: #6d6d6d;
+		    			overflow: hidden;
+		    		}
+		    	}
+		    	.course-name {
+	    			font-size: 18px;
+	    			margin-top: 5px;
+	    			color: #3d3d3d;
+	    		}
+    		}
+	    }
+	    .teacher-detail {
+	    	display: block;
+	    	float: left;
+	    	width: 16%;
+	    	span {
+				display:  inline-block;		
+	    	}
+	    	.teacher-name {
+				font-size: 18px;
+				margin-bottom: 10px;
+				margin-top: 5px;
+				color: #3d3d3d;
+				display: block;
+			}
+				
+	    	.comment {
+    			display: block;
+				margin-top: 4px;
+				display: block;
+				font-size: 12px;
+				color: #9d9d9d;
+			}
+			.school-age {
+				display: block;
+				margin-top: 4px;
+			    font-size: 12px;
+				color: #9d9d9d;
+				display: block;
+			}
+			.avatar-small {
+				display: block;
+				float: left;
+				margin-right: 10px;
+				border: none;
+			}
+
+	    }
+	    .btn-message {
+	    	display: block;
+	    	float: right;
+	    	margin-right: 20px;
+	    	.new-price {
+	    		display: block;
+	    	    color: #ff7f00;
+	    	    margin: 7px 0;
+	    	    vertical-align: sub;
+	    	    text-align: center;
+	    		strong {
+	    		    font-size: 26px;
+	    		}
+	    	}
+	    	.old-price {
+	    		display: block;
+    		    text-decoration: line-through;
+    		    text-align: center;
+    		    margin: 7px 0;
+				color: #9d9d9d;
+				margin-left: 5px;	
+				vertical-align: sub; 
+				font-size: 18px;   	
+			}
+	    	a {
+    		    width: 150px;
+			    margin-left: 10px;
+			    font-size: 18px;
+    			
+	    	}
+	    }
+	}
+}

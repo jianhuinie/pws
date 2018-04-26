@@ -1,0 +1,111 @@
+.file-upload-dialog {
+    table {
+        table-layout: fixed;
+    }
+    .left {
+        text-align: left;
+    }
+    .right {
+        text-align: right;
+    }
+    .dialog-body {
+        padding: 0;
+        font-size: @font-size-tiny;
+        min-height: 410px;
+    }
+
+    thead {
+        background-color: #fff;
+        border-bottom: 1px solid @brand-gray;
+    }
+
+    .icon-upload-cancel {
+        background: url(../../../img/teacher-center/netdisk/cancel.png) no-repeat;
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+    }
+
+    .icon-clock {
+        color: @brand-primary;
+    }
+
+    .icon-info-circle {
+        color: @brand-error;
+    }
+
+    .icon-check-circle {
+        color: @brand-success;
+    }
+
+    .table-container {
+        height: 291px;
+        overflow-y: auto;
+
+        .wrapper {
+            position: relative;
+        }
+    }
+
+    tbody {
+
+        .icon {
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        td, .name {
+            & > * {
+                vertical-align: middle;
+            }
+            position: relative;
+            z-index: @zindex-small;
+
+            word-break: keep-all;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+
+
+    }
+
+    .progress {
+        position: absolute;
+        width: 0%;
+        height: 42px;
+        top: 0;
+        left: 0;
+        background-color: #D5E9FE;
+        z-index: @zindex-tiny;
+        display: none;
+    }
+
+    .action {
+        position: absolute;
+        padding: 10px 15px;
+        background-color: #FAFAFA;
+        bottom: 0;
+        width: 100%;
+        .icon {
+            margin-right: 5px;
+        }
+        .icon-info-circle {
+            color: @brand-info;
+        }
+        .hint {
+            vertical-align: middle;
+        }
+        button {
+            float: right;
+        }
+        input[type="file"], object {
+            .opacity(0);
+            width: 83px;
+            height: 26px;
+            position: absolute;
+            right: 15px;
+
+        }
+    }
+}

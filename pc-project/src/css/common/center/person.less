@@ -1,0 +1,155 @@
+/**
+ * @file 我的订单（我的老师、我的学生）
+ * @author zhangjiayi
+ */
+
+@import './common/layout.less';
+@import '../component/cancelOrderDialog.less';
+@import '../component/quickLessonDialog.less';
+@import "../component/makePhoneCallDialog.less";
+@import "./component/order.less";
+@import './component/enterClassroom.less';
+
+#content {
+
+    .card-body {
+
+        .message {
+            border: none;
+            background: #fff;
+            margin-top: -10px;
+        }
+
+        .send-coupon {
+            color: #f90;
+            float: right;
+            margin-right: @gap-horizontal-small;
+        }
+
+        .quick-lesson-box {
+            float: right;
+            .icon {
+                color: #6e6e6e;
+                margin-right: 2px;
+            }
+            .icon-question-circle {
+                margin-left: @gap-horizontal-tiny;
+            }
+            span {
+                cursor: pointer;
+            }
+        }
+
+        .opened {
+            color: @brand-primary;
+            .icon {
+                color: @brand-primary;
+            }
+        }
+
+        .person-body {
+
+            .person-list {
+
+                .person {
+
+                    border-bottom: 1px solid @brand-gray-light;
+                    padding: 15px 20px;
+
+                    .person-detail {
+
+                        .clearfix();
+
+                        .avatar-small {
+                            float: left;
+                            margin-right: 10px;
+                        }
+
+                        .person-phone {
+                            margin-left: @gap-horizontal-large;
+                        }
+
+                        .icon-user {
+                            margin-left: @gap-horizontal-tiny;
+                            &.female {
+                                color: #FF6699;
+                            }
+                            &.male {
+                                color: #0099FF;
+                            }
+                        }
+
+                        .check-order {
+                            margin-left: @gap-horizontal-large;
+                            &:hover {
+                                color: @brand-primary;
+                                .transition(color 0.2s);
+                            }
+                        }
+                        .action {
+                            float: right;
+                        }
+                        .person-control {
+
+                            margin-top: 18px;
+
+                            span {
+                                cursor: pointer;
+                            }
+                            .chat-label {
+                                margin-right: @gap-horizontal-large;
+                            }
+                            .person-phone {
+                                margin-left: 0;
+                                background: #67b700;
+                                border-radius: 2px;
+                                display: inline-block;
+                                width: 93px;
+                                height: 24px;
+                                line-height: 24px;
+                                font-size: 14px;
+                                text-align: center;
+                                color: #fff;
+                                .icon {
+                                    margin-right: 5px;
+                                }
+                            }
+
+                        }
+                    }
+                }
+            }
+
+            .order-list {
+
+                margin-top: 10px;
+
+            }
+
+        }
+
+    }
+
+    .more {
+
+        cursor: pointer;
+        padding-top: 20px;
+        text-align: center;
+
+        &:hover {
+            color: @brand-primary;
+        }
+    }
+
+    .no-data {
+        text-align: center;
+        width: 100%;
+        .vertical-middle(330px);
+    }
+
+    .use-plat-ensure {
+        color: #ff9900;
+    }
+
+}
+

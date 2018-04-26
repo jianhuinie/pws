@@ -1,0 +1,834 @@
+{{ *
+
+@file 新版搜索结果页
+@author wuhongjie
+
+* }}
+
+
+{{ extends file="common/main/base.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+    {{ $tpl_data.q = $tpl_data.q|escape }}
+
+    {{ $script_path = "teacher/search" }}
+
+    {{ $condition = $tpl_data.condition }}
+    {{ * 封装condition * }}
+    {{ $condition['q'] = $tpl_data.q }}
+    {{ $condition['suggest'] = $tpl_data.suggest }}
+    {{ $condition['page'] = $tpl_data.pager.page }}
+
+    {{ $script_data.condition = $condition }}
+    {{ $script_data.abtest = $tpl_data.abtest }}
+    {{ $script_data.city_pinyin = $tpl_data.city_pinyin }}
+    {{ $script_data.cityDomain = $curr_city.domain }}
+    {{ $script_data.name = $user_data.name }}
+    {{ $script_data.mobile = $user_data.mobile }}
+    {{ $script_data.show_findTeacher = true }}
+
+{{ **支持广告系统定向科目** }}
+{{ if !empty($tpl_data.hit_tag) }}
+    {{ if !empty($tpl_data.hit_tag.course1) }}
+        {{ $script_data.sj = $tpl_data.hit_tag.course1.id }}
+    {{ /if }}
+
+    {{ if !empty($tpl_data.hit_tag.course2) }}
+        {{ $script_data.sj = $tpl_data.hit_tag.course2.id }}
+    {{ /if }}
+
+    {{ if !empty($tpl_data.hit_tag.course3) }}
+        {{ $script_data.sj = $tpl_data.hit_tag.course3.id }}
+    {{ /if }}
+{{ /if }}
+
+{{ if !empty($tpl_data.hit_nav) }}
+    {{ foreach $tpl_data.hit_nav as $val }}
+        {{ if $val@last && isset($val.id) }}
+            {{ $script_data.sj = $val.id }}
+        {{ /if }}
+    {{ /foreach }}
+{{ /if }}
+
+{{ $nav_config.active = '' }}
+{{ $current_page = 'search' }}
+{{ $need_mobile_seo = true }}
+{{ $need_location_seo = true }}
+
+{{ if isset($smarty.cookies.CITY_NAME) }}
+    {{ $recommend_city = $smarty.cookies.CITY_NAME }}
+{{ else }}
+    {{ $recommend_city = "北京" }}
+{{ /if }}
+
+{{ *友情链接* }}
+{{ if empty($condition.q) }}
+    {{ $show_friend_links = true }}
+{{ /if }}
+
+{{ if isset($condition.sd) && $condition.sd }}
+<script defer src="http://lab.baijiahulian.com/debug/static/js/iframe_handle.js"></script>
+{{ /if }}
+{{ /block }}
+
+{{ block name="title" }}{{ if !empty($tpl_data.title) }}{{ $tpl_data.title }}{{ /if }}{{ /block }}
+
+{{ block name="description" }}{{ if !empty($tpl_data.description) }}{{ $tpl_data.description }}{{ /if }}{{ /block }}
+
+{{ block name="keywords" }}{{ if !empty($tpl_data.keywords) }}{{ $tpl_data.keywords }}{{ /if }}{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/teacher/search.less">
+{{ /block }}
+
+{{ block name="main" }}
+
+{{ strip }}
+
+{{ * 定义变量 * }}
+
+{{ $filter = $tpl_data.filter }}
+{{ $page_url = 'http://'|cat:$smarty.server.HTTP_HOST|cat:$smarty.server.REQUEST_URI|regex_replace:"/&page=[0-9]*/":""|regex_replace:"/&page_size=[0-9]*/":"" }}
+
+
+{{ * 筛选项变量初始化 结束 * }}
+
+{{ *城市英雄数据是否为空* }}
+{{ $unmatch_famous_teacher = false }}
+{{ if empty($tpl_data.famous_teachers.single_famous_teachers)
+    && empty($tpl_data.famous_teachers.aggregation_famous_teachers)
+    && empty($tpl_data.famous_teachers.general_famous_teachers) }}
+    {{ $unmatch_famous_teacher = true }}
+{{ /if }}
+
+{{ *query未命中老师 条件:has_filter为false 干掉筛选框* }}
+{{ $query_unmatch_teacher = false }}
+{{ if !$tpl_data.has_filter && empty($condition.city)
+    && empty($tpl_data.teachers) && $unmatch_famous_teacher }}
+    {{ $query_unmatch_teacher = true }}
+{{ /if }}
+
+{{ *筛选无老师 条件:has_filter为true无老师* }}
+{{ $filter_unmatch_teacher = false }}
+{{ if $tpl_data.has_filter && empty($tpl_data.teachers) && $unmatch_famous_teacher }}
+    {{ $filter_unmatch_teacher = true }}
+{{ /if }}
+
+
+<div id="main">
+    {{ if !empty($tpl_data.suggests) }}
+    <div id="suggestion-tip">
+        <span>以下为您显示</span>
+        {{ foreach $tpl_data.suggests as $val }}
+        <a data-source="search" href="{{ include file='teacher/search/url.html' condition=$condition key='q' value=$val }}">“{{ $val }}”</a>
+        {{ /foreach }}
+        <span>的搜索结果</span>
+    </div>
+    {{ /if }}
+
+    {{ if !$query_unmatch_teacher }}
+    <div id="search-box" class="card">
+        <div class="card-header">
+            {{ if $condition.source != "search" || empty($condition.q) }}
+                <span class="category">
+                    {{ if isset($tpl_data.is_www) && $tpl_data.is_www }}
+                        <a href="http://www.genshuixue.com" target="_blank">
+                            跟谁学{{ $curr_city.name }}站
+                        </a>
+                        &nbsp;&gt;&nbsp;
+                        <a href="http://www.genshuixue.com/st/-.html" target="_blank">
+                            {{ $curr_city.name }}老师
+                        </a>
+                    {{ else }}
+                        <a href="http://www.genshuixue.com/{{ $curr_city.domain }}/" target="_blank">
+                            跟谁学{{ $curr_city.name }}站
+                        </a>
+                        &nbsp;&gt;&nbsp;
+                        <a href="http://www.genshuixue.com/{{ $curr_city.domain }}/st-.html" target="_blank">
+                            {{ $curr_city.name }}老师
+                        </a>
+                    {{ /if }}
+
+                    {{ if !empty($tpl_data.hit_tag.course1) }}
+                        &nbsp;&gt;&nbsp;
+                        <a href="{{ include file='teacher/search/url.html' condition=$condition key='course_level1' value=$tpl_data.hit_tag.course1.id }}">
+                            {{ $tpl_data.hit_tag.course1.name }}培训
+                        </a>
+                    {{ /if }}
+
+                    {{ if !empty($tpl_data.hit_tag.course2) }}
+                        &nbsp;&gt;&nbsp;
+                        <a href="{{ include file='teacher/search/url.html' condition=$condition key='course_level2' value=$tpl_data.hit_tag.course2.id }}">
+                            {{ $tpl_data.hit_tag.course2.name }}培训
+                        </a>
+                    {{ /if }}
+
+                    {{ if !empty($tpl_data.hit_tag.course3) }}
+                        &nbsp;&gt;&nbsp;
+
+                        <div class="related-a">
+                            <a href="{{ include file='teacher/search/url.html' condition=$condition key='course_level3' value=$tpl_data.hit_tag.course3.id }}">
+                                {{ $tpl_data.hit_tag.course3.name }}培训
+                            </a>
+
+                            {{ if isset($tpl_data.course_related) }}
+                                <ul class="related">
+                                {{ foreach $tpl_data.course_related as $related }}
+                                    <li>
+                                        <a href="{{ include file='teacher/search/url.html' condition=$condition key='course_level3' value=$related.id }}" target="_blank">
+                                            {{ $related.name }}
+                                        </a>
+                                    </li>
+                                {{ /foreach }}
+                                </ul>
+                            {{ /if }}
+                        </div>
+
+                    {{ /if }}
+
+                </span>
+            {{ else }}
+                <span class="result-tip">
+                    {{ if $tpl_data.pager.result_total >= 1000 }}
+                            超过1000位<font color='#f90'>{{ $tpl_data.seoCategory }}</font>老师，仅显示前1000位
+                    {{ elseif $tpl_data.suggest }}
+                        以下为你展示
+                        <font color='#f90'>{{ $tpl_data.suggest }}</font>的搜索结果，共
+                        <font color='#3d3d3d'>
+                            {{ if $tpl_data.pager }}
+                                {{ $tpl_data.pager.result_total }}
+                            {{ else }}
+                                0
+                            {{ /if }}
+                        </font>位
+                    {{ elseif $tpl_data.pager.result_total > 0 }}
+                        {{ if !empty($condition.q) }}
+                        关键词<font color="#f90">{{ $condition.q }}</font>共搜索到
+                        {{ else }}共
+                        {{ /if }}
+                        <font color='#f90'>
+                            {{ if $tpl_data.pager }}
+                            {{ $tpl_data.pager.result_total }}
+                            {{ else }}
+                            0
+                            {{ /if }}
+                        </font>位{{ $tpl_data.seoCategory }}老师
+                    {{ elseif $tpl_data.pager.result_total == 0 }}
+                        {{ if !empty($condition.q) }}
+                        关键词<font color="#f90">{{ $condition.q }}</font>共搜索到
+                        {{ else }}共
+                        {{ /if }}
+                        <font color='#f90'>0</font>位{{ $tpl_data.seoCategory }}老师
+                    {{ /if }}
+                </span>
+            {{ /if }}
+        </div>
+
+        <ul class="card-body">
+            {{ if $filter }}
+                {{ *老师科目* }}
+
+                {{ if !empty($filter.course_level1) }}
+                    {{ $courses = $filter.course_level1 }}
+                    {{ $active_course_level = 'course_level1' }}
+                    {{ $course_key = 'course_level1' }}
+                    {{ if !empty($condition.course_level1) }}
+                        {{ $is_all = 0 }}
+                    {{ else }}
+                        {{ $is_all = 1 }}
+                    {{ /if }}
+                {{ else if !empty($filter.course_level2) }}
+                    {{ $courses = $filter.course_level2 }}
+                    {{ $active_course_level = 'course_level2' }}
+                    {{ $course_key = 'course_level2' }}
+                    {{ if !empty($condition.course_level2) }}
+                        {{ $is_all = 0 }}
+                    {{ else }}
+                        {{ $is_all = 1 }}
+                    {{ /if }}
+                {{ else if !empty($filter.course_level3) }}
+                    {{ $courses = $filter.course_level3 }}
+                    {{ $active_course_level = 'course_level3' }}
+                    {{ $course_key = 'course_level3' }}
+                    {{ if !empty($condition.course_level3) }}
+                        {{ $is_all = 0 }}
+                    {{ else }}
+                        {{ $is_all = 1 }}
+                    {{ /if }}
+                {{ /if }}
+
+                {{ if !empty($courses) }}
+                <li class="section" id="main-course">
+                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;科目:</span>
+                    <ul class="course-level1">
+                        {{ $class_name = 'btn-link' }}
+                        {{ if $is_all == 1 }}
+                        <li class="item">
+                            <a class="tiny btn-selected">不限</a>
+                        </li>
+                        {{ else }}
+                        <li class="item">
+                            <a data-source="search" href="{{ include file='teacher/search/url.html' condition=$condition key=$course_key value='' }}"  class="tiny">不限</a>
+                        </li>
+                        {{ /if }}
+
+                        {{ foreach $courses as $val }}
+                            {{ if $val.style == 'active' }}
+                                {{ $class_name = 'btn-selected' }}
+                            {{ else }}
+                                {{ $class_name = 'btn-link' }}
+                            {{ /if }}
+                            <li class="item">
+                                <a data-source="search" href="{{ include file='teacher/search/url.html' condition=$condition key=$course_key value=$val.id }}" class="tiny {{ $class_name }}">{{ $val.name }}</a>
+                            </li>
+                        {{ /foreach }}
+                    </ul>
+
+                    {{ if $active_course_level == 'course_level1' }}
+                        {{ if !empty($filter.course_level2) }}
+                            {{ $sub_courses = $filter.course_level2 }}
+                            {{ $active_course_level = 'course_level2' }}
+                            {{ $sub_course_key = 'course_level2' }}
+                            {{ if !empty($condition.course_level2) }}
+                                {{ $sub_is_all = 0 }}
+                            {{ else }}
+                                {{ $sub_is_all = 1 }}
+                            {{ /if }}
+                        {{ else if !empty($filter.course_level3) }}
+                            {{ $sub_courses = $filter.course_level3 }}
+                            {{ $active_course_level = 'course_level3' }}
+                            {{ $sub_course_key = 'course_level3' }}
+                            {{ if !empty($condition.course_level3) }}
+                                {{ $sub_is_all = 0 }}
+                            {{ else }}
+                                {{ $sub_is_all = 1 }}
+                            {{ /if }}
+                        {{ /if }}
+                    {{ else if $active_course_level == 'course_level2' }}
+                        {{ if !empty($filter.course_level3) }}
+                            {{ $sub_courses = $filter.course_level3 }}
+                            {{ $active_course_level = 'course_level3' }}
+                            {{ $sub_course_key = 'course_level3' }}
+                            {{ if !empty($condition.course_level3) }}
+                                {{ $sub_is_all = 0 }}
+                            {{ else }}
+                                {{ $sub_is_all = 1 }}
+                            {{ /if }}
+                        {{ /if }}
+                    {{ /if }}
+
+
+                    {{ if !empty($sub_courses) }}
+                    <div class="subs">
+                        <ul class="sub-course">
+                            {{ if $sub_is_all == 1 }}
+                            <li class="item">
+                                <a class="tiny btn-selected">不限</a>
+                            </li>
+                            {{ else }}
+                            <li class="item">
+                                <a data-source="search" href="{{ include file='teacher/search/url.html' condition=$condition key=$sub_course_key value='' }}" class="tiny">不限</a>
+                            </li>
+                            {{ /if }}
+
+                            {{ $active_index = -1 }}
+                            {{ foreach $sub_courses as $va }}
+                            {{ if $va.style == 'active' }}
+                            {{ $active_index = $va@index }}
+                            {{ /if }}
+                            {{ /foreach }}
+
+                            {{ foreach $sub_courses as $val }}
+                            {{ if $val.style == 'active' }}
+                            {{ $class_name = 'btn-selected' }}
+                            {{ else }}
+                            {{ $class_name = 'btn-link' }}
+                            {{ /if }}
+
+                            {{ if $active_course_level != 'course_level3' }}
+                                <li class="item">
+                                    <a data-source="search" href="{{ include file='teacher/search/url.html' condition=$condition key=$sub_course_key value=($val.id) }}" class="tiny {{ $class_name }}">{{ $val.name }}</a>
+                                </li>
+                            {{ else }}
+                                {{ if $val@index > 14 }}
+                                {{ if $val@index == 15 }}
+                                    {{ if $active_index < 15 }}
+                                    <li class="item more" data-show="1">
+                                        <div class="open"><a class="tiny">更多<i class="icon icon-caret-down"></i></a></div>
+                                        <div class="close" style="display: none;"><a class="tiny">收起<i class="icon icon-caret-up"></i></a></div>
+                                    </li>
+                                    {{ else }}
+                                    <li class="item more" data-show="2">
+                                        <div class="open" style="display: none;"><a class="tiny">更多<i class="icon icon-caret-down"></i></a></div>
+                                        <div class="close"><a class="tiny">收起<i class="icon icon-caret-up"></i></a></div>
+                                    </li>
+                                    {{ /if }}
+                                {{ /if }}
+                                <li class="item  {{ if $active_index < 15 }} hide{{ /if }}  more-item">
+                                    <a  data-source="search" href="{{ include file='teacher/search/url.html' condition=$condition key='course_level3' value=$val.id }}" class="tiny {{ $class_name }}">{{ $val.name }}</a>
+                                </li>
+                                {{ else }}
+                                <li class="item">
+                                    <a data-source="search" href="{{ include file='teacher/search/url.html' condition=$condition key='course_level3' value=$val.id }}" class="tiny {{ $class_name }}">{{ $val.name }}</a>
+                                </li>
+                                {{ /if }}
+                            {{ /if }}
+
+                            {{ /foreach }}
+                        </ul>
+
+                        {{ $course_level3 = $filter.course_level3 }}
+                        {{ if $active_course_level != 'course_level3' && !empty($course_level3) }}
+                        <ul class="subs-course">
+                            {{ if empty($condition.course_level3) }}
+                            <li class="item">
+                                <a class="tiny btn-selected">不限</a>
+                            </li>
+                            {{ else }}
+                            <li class="item">
+                                <a data-source="search" href="{{ include file='teacher/search/url.html' condition=$condition key='course_level3' value='' }}" class="tiny">不限</a>
+                            </li>
+                            {{ /if }}
+
+                            {{ $active_index3 = -1 }}
+                            {{ foreach $course_level3 as $va }}
+                            {{ if $va.style == 'active' }}
+                            {{ $active_index3 = $va@index }}
+                            {{ /if }}
+                            {{ /foreach }}
+
+                            {{ foreach $course_level3 as $val }}
+                            {{ if $val.style == 'active' }}
+                            {{ $class_name = 'btn-selected' }}
+                            {{ else }}
+                            {{ $class_name = 'btn-link' }}
+                            {{ /if }}
+
+                            {{ if $val@index > 14 }}
+                                {{ if $val@index == 15 }}
+                                    {{ if $active_index3 < 15 }}
+                                    <li class="item more" data-show="1">
+                                        <div class="open"><a class="tiny">更多<i class="icon icon-caret-down"></i></a></div>
+                                        <div class="close" style="display: none;"><a class="tiny">收起<i class="icon icon-caret-up"></i></a></div>
+                                    </li>
+                                    {{ else }}
+                                    <li class="item more" data-show="2">
+                                        <div class="open" style="display: none;"><a class="tiny">更多<i class="icon icon-caret-down"></i></a></div>
+                                        <div class="close"><a class="tiny">收起<i class="icon icon-caret-up"></i></a></div>
+                                    </li>
+                                    {{ /if }}
+                                {{ /if }}
+                                <li class="item {{ if $active_index3 < 15 }} hide{{ /if }} more-item">
+                                    <a data-source="search" href="{{ include file='teacher/search/url.html' condition=$condition key='course_level3' value=$val.id }}" class="tiny {{ $class_name }}">{{ $val.name }}</a>
+                                </li>
+                            {{ else }}
+                            <li class="item">
+                                <a data-source="search" href="{{ include file='teacher/search/url.html' condition=$condition key='course_level3' value=$val.id }}" class="tiny {{ $class_name }}">{{ $val.name }}</a>
+                            </li>
+                            {{ /if }}
+
+                            {{ /foreach }}
+                        </ul>
+                        {{ /if }}
+                    </div>
+                    {{ /if }}
+                </li>
+                {{ /if }}
+
+
+                {{ *商区 直播课和视频课不显示授课区域 * }}
+                {{ if !empty($filter.area_level1) }}
+                <li class="section" id="filter-area">
+                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;区域:</span>
+                    <ul class="area-list">
+                        {{ if empty($condition.area_level1) }}
+                        <li class="item">
+                            <a class="tiny btn-selected">不限</a>
+                        </li>
+                        {{ else }}
+                        <li class="item">
+                            <a data-source="search" href="{{ include file='teacher/search/url.html' condition=$condition key='area_level1' value='' }}" class="tiny">不限</a>
+                        </li>
+                        {{ /if }}
+                        {{ foreach $filter.area_level1 as $val }}
+                        {{ if $val.style == 'active' }}
+                        {{ $class_name = 'btn-selected' }}
+                        {{ else }}
+                        {{ $class_name = '' }}
+                        {{ /if }}
+                        <li class="item">
+                            <a data-source="search" href="{{ include file='teacher/search/url.html' condition=$condition key='area_level1' value=$val.id }}" class="tiny {{ $class_name }}">{{ $val.name }}</a>
+                        </li>
+                        {{ /foreach }}
+                    </ul>
+                    {{ if !empty($filter.area_level2) }}
+                    <ul class="sub-area">
+                        {{ if empty($condition.area_level2) }}
+                        <li class="item">
+                            <a class="tiny btn-selected">不限</a>
+                        </li>
+                        {{ else }}
+                        <li class="item">
+                            <a data-source="search" href="{{ include file='teacher/search/url.html' condition=$condition key='area_level2' value='' }}" class="tiny">不限</a>
+                        </li>
+                        {{ /if }}
+
+                        {{ $active_area_index = -1 }}
+                        {{ foreach $filter.area_level2 as $va }}
+                        {{ if $va.style == 'active' }}
+                        {{ $active_area_index = $va@index }}
+                        {{ /if }}
+                        {{ /foreach }}
+
+                        {{ foreach $filter.area_level2 as $val }}
+                        {{ if $val.style == 'active' }}
+                        {{ $class_name = 'btn-selected' }}
+                        {{ else }}
+                        {{ $class_name = '' }}
+                        {{ /if }}
+
+                        {{ if $val@index > 14 }}
+                            {{ if $val@index == 15 }}
+                            {{ if $active_area_index < 15 }}
+                            <li class="item more" data-show="1">
+                                <div class="open"><a class="tiny">更多<i class="icon icon-caret-down"></i></a></div>
+                                <div class="close" style="display: none;"><a class="tiny">收起<i class="icon icon-caret-up"></i></a></div>
+                            </li>
+                            {{ else }}
+                            <li class="item more" data-show="2">
+                                <div class="open" style="display: none;"><a class="tiny">更多<i class="icon icon-caret-down"></i></a></div>
+                                <div class="close"><a class="tiny">收起<i class="icon icon-caret-up"></i></a></div>
+                            </li>
+                            {{ /if }}
+                            {{ /if }}
+                            <li class="item {{ if $active_area_index < 15 }} hide{{ /if }} more-item">
+                                <a data-source="search" href="{{ include file='teacher/search/url.html' condition=$condition key='area_level2' value=$val.id }}" class="tiny {{ $class_name }}">{{ $val.name }}</a>
+                            </li>
+                        {{ else }}
+                            <li class="item">
+                                <a data-source="search" href="{{ include file='teacher/search/url.html' condition=$condition key='area_level2' value=$val.id }}" class="tiny {{ $class_name }}">{{ $val.name }}</a>
+                            </li>
+                        {{ /if }}
+                        {{ /foreach }}
+                    </ul>
+                    {{ /if }}
+                </li>
+                {{ /if }}
+
+                <li class="section" id="orther-select">
+                    <span>其他筛选:</span>
+                    <div class="form">
+                        <ul class="otherul">
+                            <li class="item teacher-age">
+                                <div class="title">
+                                    <span>教龄范围</span>
+                                    {{ foreach $filter.school_age as $val }}
+                                    {{ if $val.style == 'active' }}
+                                    <span class="dunhao">:</span>
+                                    <a class="active">{{ $val.name }}</a>
+                                    {{ /if }}
+                                    {{ /foreach }}
+                                    <i class="icon icon-caret-down"></i>
+                                </div>
+                                <div class="content">
+                                    <ul  style="display: none;">
+                                        {{ if !isset($condition.school_age) }}
+                                        <li class="item">
+                                            <a data-source="search"  class="tiny active">不限</a>
+                                        </li>
+                                        {{ else }}
+                                        <li class="item">
+                                            <a rel="nofollow" data-source="search" href="{{ include file='teacher/search/url.html' condition=$condition key='school_age' value='' }}#search-box" class="tiny">不限</a>
+                                        </li>
+                                        {{ /if }}
+                                        {{ foreach $filter.school_age as $val }}
+                                        {{ if $val.style == 'active' }}
+                                        {{ $class_name ='active' }}
+                                        {{ else }}
+                                        {{ $class_name = '' }}
+                                        {{ /if }}
+                                        <li class="item">
+                                            <a rel="nofollow" data-source="search" href="{{ include file='teacher/search/url.html' condition=$condition key='school_age' value=$val.id }}#search-box" class="tiny {{ $class_name }}">{{ $val.name }}</a>
+                                        </li>
+                                        {{ /foreach }}
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="item teacher-sex">
+                                <div class="title">
+                                    <span>老师性别</span>
+                                    {{ foreach $filter.sex as $val }}
+                                    {{ if $val.style == 'active' }}
+                                    <span class="dunhao">:</span>
+                                    <a class="active">{{ $val.name }}</a>
+                                    {{ /if }}
+                                    {{ /foreach }}
+                                    <i class="icon icon-caret-down"></i>
+                                </div>
+                                <div class="content">
+                                    <ul  style="display: none;">
+                                        {{ if !isset($condition.sex) }}
+                                        <li class="item">
+                                            <a data-source="search"  class="tiny active">不限</a>
+                                        </li>
+                                        {{ else }}
+                                        <li class="item">
+                                            <a rel="nofollow" data-source="search" href="{{ include file='teacher/search/url.html' condition=$condition key='sex' value='' }}#search-box" class="tiny">不限</a>
+                                        </li>
+                                        {{ /if }}
+                                        {{ foreach $filter.sex as $val }}
+                                        {{ if $val.style == 'active' }}
+                                        {{ $class_name ='active' }}
+                                        {{ else }}
+                                        {{ $class_name = '' }}
+                                        {{ /if }}
+                                        <li class="item">
+                                            <a rel="nofollow" data-source="search" href="{{ include file='teacher/search/url.html' condition=$condition key='sex' value=$val.id }}#search-box" class="tiny {{ $class_name }}">{{ $val.name }}</a>
+                                        </li>
+                                        {{ /foreach }}
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="item teacher-type">
+                                <div class="title">
+                                    <span>老师身份</span>
+                                    {{ foreach $filter.teacher_type as $val }}
+                                    {{ if $val.style == 'active' }}
+                                    <span class="dunhao">:</span>
+                                    <a class="active">{{ $val.name }}</a>
+                                    {{ /if }}
+                                    {{ /foreach }}
+                                    <i class="icon icon-caret-down"></i>
+                                </div>
+                                <div class="content">
+                                    <ul  style="display: none;">
+                                        {{ if !isset($condition.teacher_type) }}
+                                        <li class="item">
+                                            <a data-source="search"  class="tiny active">不限</a>
+                                        </li>
+                                        {{ else }}
+                                        <li class="item">
+                                            <a rel="nofollow" data-source="search" href="{{ include file='teacher/search/url.html' condition=$condition key='teacher_type' value='' }}#search-box" class="tiny">不限</a>
+                                        </li>
+                                        {{ /if }}
+                                        {{ foreach $filter.teacher_type as $val }}
+                                        {{ if $val.style == 'active' }}
+                                        {{ $class_name ='active' }}
+                                        {{ else }}
+                                        {{ $class_name = '' }}
+                                        {{ /if }}
+                                        <li class="item">
+                                            <a rel="nofollow" data-source="search" href="{{ include file='teacher/search/url.html' condition=$condition key='teacher_type' value=$val.id }}#search-box" class="tiny {{ $class_name }}">{{ $val.name }}</a>
+                                        </li>
+                                        {{ /foreach }}
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="item teacher-zizhi">
+                                <div class="title">
+                                    <span>老师资质</span>
+                                    {{ if !empty($condition.teacher_qualification) }}
+                                    <span class="dunhao">:</span>
+                                    {{ /if }}
+                                    {{ foreach $filter.teacher_qualification as $val }}
+                                    {{ if $val.style=='active' }}
+                                    <a class="active">
+                                        {{ $val.name }}
+                                    </a>
+                                    {{ /if }}
+                                    {{ /foreach }}
+                                    <i class="icon icon-caret-down"></i>
+                                </div>
+                                <div class="content">
+                                    <ul  style="display: none;">
+                                        {{ foreach $filter.teacher_qualification as $val }}
+                                        {{ $check = '' }}
+                                        {{ if $val.style == 'active' }}
+                                        {{ $check ="checked='checked'" }}
+                                        {{ /if }}
+                                        <li class="item">
+                                            <input data-value="{{ $val.id }}" type="checkbox" {{ $check }} />
+                                            {{ $val.name }}
+                                        </li>
+                                        {{ /foreach }}
+                                        <li class="item" style="float: left">
+                                            <button class="small btn-primary teach-zizhi-confirm"> 确定</button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                </li>
+            {{ /if }}
+        </ul>
+    </div>
+    {{ /if }}
+
+    <div id="sidebar">
+        <div class="ad card">
+            <div class="ad-header">猜你喜欢</div>
+            <div class="ad-wrappers"></div>
+        </div>
+
+        {{ include file="teacher/seekTeacher.html" title="选择太困难，不会挑？<br/>15分钟帮您推荐好老师" }}
+
+        {{ **include file="teacher/search/recommend.html" currCity=$recommend_city** }}
+
+        {{ include file="teacher/search/relatedcourse.html" relatedcourse=$tpl_data.relatedcourse }}
+
+        {{ include file="teacher/search/recent.html" recent=$tpl_data.recent }}
+
+        {{ include file="teacher/search/faq.html" }}
+    </div>
+
+    <div id="content" class="card" data-activetab='{{ $condition.sort }}' >
+
+        {{ if !$query_unmatch_teacher }}
+        <div class="card-header">
+            <div class="tab-nav tab-nav-default" id="tab-nav">
+
+                {{ if $condition.sort == 'all' }}
+                <h1 class="nav-item active">
+                    <a id="all-sort">{{ $tpl_data.category|default:'智能排序' }}</a>
+                </h1>
+                {{ else }}
+                <h1 class="nav-item">
+                    <a rel="nofollow" rel="nofollow" data-source="search" href="{{ include file='teacher/search/url.html' condition=$condition key='sort' value='all' }}" id="all-sort">{{ $tpl_data.category|default:'智能排序' }}</a>
+                </h1>
+                {{ /if }}
+
+                {{ if $condition.sort == 'popular' }}
+                <b class="nav-item active">
+                    <a id="popular-sort">人气最高</a>
+                </b>
+                {{ else }}
+                <b class="nav-item">
+                    <a rel="nofollow" rel="nofollow" data-source="search" href="{{ include file='teacher/search/url.html' condition=$condition key='sort' value='popular' }}" id="popular-sort">人气最高</a>
+                </b>
+                {{ /if }}
+
+
+                {{ if $condition.sort == 'comment' }}
+                <b class="nav-item active">
+                    <a id="comment-sort">评价最高</a>
+                </b>
+                {{ else }}
+                <b class="nav-item">
+                    <a rel="nofollow" rel="nofollow" data-source="search" href="{{ include file='teacher/search/url.html' condition=$condition key='sort' value='comment' }}" id="comment-sort">评价数</a>
+                </b>
+                {{ /if }}
+
+
+                {{ *可线上授课* }}
+                <b class="nav-item">
+                    {{ if empty($condition.course_lesson_ways) }}
+                    <a rel="nofollow" data-source="search" href="{{ include file='teacher/search/url.html' condition=$condition key='course_lesson_ways' value='1' }}" onclick="location.href = this.href;" class="form-checkbox checked">
+                    {{ else }}
+                    <a rel="nofollow" data-source="search" href="{{ include file='teacher/search/url.html' condition=$condition key='course_lesson_ways' value='' }}" onclick="location.href = this.href;" class="form-checkbox">
+                    {{ /if }}
+                    <input type="checkbox" {{ if !empty($condition.course_lesson_ways) }}checked="checked"{{ /if }} />
+                        可线上授课
+                    </a>
+                </b>
+
+
+                <b class="nav-item top-pager">
+
+                    <ul class="items">
+                        <li>
+                            {{ if $tpl_data.pager.page - 1 > 0 }}
+                            <a rel="nofollow" data-source="search" href="{{ include file='teacher/search/url.html' condition=$condition key='page' value=($tpl_data.pager.page-1) }}">
+                                <i class="icon icon-chevron-left"></i>
+                            </a>
+                            {{ else }}
+                            <i class="icon icon-chevron-left disabled"></i>
+                            {{ /if }}
+                        </li>
+
+                        <li>
+                            <span>
+                                <strong>{{ $tpl_data.pager.page }}</strong>
+                                /
+                                {{ if $tpl_data.pager.result_total == 0 }}
+                                1
+                                {{ else }}
+                                    {{ ceil($tpl_data.pager.result_total/20) }}
+                                {{ /if }}
+                            </span>
+                        </li>
+
+                        <li>
+                            {{ if $tpl_data.pager.page + 1 <= ceil($tpl_data.pager.result_total/20) }}
+                            <a rel="nofollow" data-source="search" href="{{ include file='teacher/search/url.html' condition=$condition key='page' value=($tpl_data.pager.page+1) }}">
+                                <i class="icon icon-chevron-right"></i>
+                            </a>
+                            {{ else }}
+                            <i class="icon icon-chevron-right disabled"></i>
+                            {{ /if }}
+                        </li>
+                    </ul>
+                </b>
+                <!--<b class="nav-item top-pager top-map">
+                    <a class="to-map" target="_blank"></a>
+                </b>-->
+            </div>
+        </div>
+        {{ /if }}
+
+        {{ *没有搜到老师* }}
+        {{ if empty($tpl_data.teachers) }}
+            {{ if $query_unmatch_teacher }}
+                <div class="match-no-result">
+                    <div class="pic">
+                        <img src="{{ $static_origin }}/src/img/teacher/noresult.png">
+                        <h1> 暂无<span class="key">{{ $condition.q }}</span>相关结果</h1>
+                    </div>
+                    <div class="txt">
+                        <h1>建议：</h1>
+                        <p>1.请检查输入是否正确</p>
+                        <p>2.如果你想学习该科目，请在右侧“快速帮你找老师”告诉我们，我们会尽力帮你找到合适的老师</p>
+                        <p>3.如果你是该科目老师，请<a href="/static/teacher" target="_blank" class="signup"><span>立即入驻</span></a></p>
+                    </div>
+                </div>
+            {{ else if $filter_unmatch_teacher }}
+                <div class="match-no-result lower">
+                    <div class="pic">
+                        <img src="{{ $static_origin }}/src/img/teacher/noresult.png">
+                        <h1> 暂无<span class="key">{{ $condition.q }}</span>相关结果</h1>
+                    </div>
+                    <div class="txt">
+                        <h1>建议：</h1>
+                        <p>1.请尝试去除上面的已选条件，再看看其他分类</p>
+                        <p>2.如果你想学习该科目，请在右侧“快速帮你找老师”告诉我们，我们会尽力帮你找到合适的老师</p>
+                        <p>3.如果你是该科目老师，请<a href="/static/teacher" target="_blank" class="signup"><span>立即入驻</span></a></p>
+                    </div>
+                </div>
+            {{ /if }}
+        {{ /if }}
+
+        {{ if !$query_unmatch_teacher && !$filter_unmatch_teacher }}
+        <div class="card-body">
+            {{ include file="common/component/searchList.html" teachers=$tpl_data.teachers pager=$tpl_data.pager famousTeachers=$tpl_data.famous_teachers }}
+
+            {{ **include file='teacher/search/url.html' condition=$condition key='' value='' pager="true"** }}
+
+            {{ include file="teacher/search/pager.html" page=$tpl_data.pager.page page_size=$tpl_data.pager.page_size count=$tpl_data.pager.result_total url=$url  }}
+
+            <div class="seek-in">
+                <a class="btn btn-info seek-teacher">立即预约</a>
+            </div>
+        </div>
+        {{ /if }}
+    </div>
+</div>
+
+{{ /strip }}
+{{ /block }}
+
+{{ block name="inner_link" }}
+    {{ include file="common/innerlink/searchList.html" data=$tpl_data.pageInnerLinks mod="老师" inner_type="teacher" }}
+{{ /block }}

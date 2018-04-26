@@ -1,0 +1,95 @@
+.article-list {
+    background: #fff;
+    border: solid 1px #ddd;
+    overflow: hidden;
+    .article {
+        display: block;
+        padding: 15px 0;
+        margin: 0 20px;
+        min-height: 155px;
+        margin-bottom: -1px;
+        border-bottom: solid 1px #eee;
+        position: relative;
+        cursor: pointer;
+        .article-author {
+            height: 22px;
+            position: absolute;
+            bottom: 15px;
+            left: 0;
+        }
+        .article-title {
+            line-height: 30px;
+            font-size: 20px;
+            color: #333;
+            max-width: 100%;
+            font-weight: bold;
+            a{
+                color: inherit;
+                display: block;
+            }
+            .icon-picture {
+                margin-left: 5px;
+                color: #ccc;
+            }
+            &:hover {
+                color: #f90;
+            }
+        }
+        .article-content {
+            margin-top: 9px;
+            font-size: 14px;
+            line-height: 26px;
+            color: #666;
+        }
+        .cover {
+            position: absolute;
+            top: 20px;
+            right: 0;
+        }
+        &.with-cover {
+            padding-right: 225px;
+        }
+    }
+    .article-author-img {
+        width: 30px;
+        height: 22px;
+        border-radius: 50%;
+        margin-right: 10px;
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+        &:after {
+            background-color: transparent;
+            content: ' ';
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            .opacity(0.4);
+            .transition(background 0.3s);
+        }
+        &:hover {
+            &:after {
+                background: #000;
+            }
+        }
+        img {
+            display: block;
+        }
+    }
+    .article-author-name,
+    .article-update-time {
+        line-height: 22px;
+        margin-right: 10px;
+        font-size: 12px;
+        color: #999;
+        vertical-align: top;
+        display: inline-block;
+    }
+
+    .article-author-name {
+        max-width: 200px;
+    }
+}

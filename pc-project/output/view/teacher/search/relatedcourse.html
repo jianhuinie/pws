@@ -1,0 +1,30 @@
+
+{{ strip }}
+
+{{ if !isset($title) }}
+    {{ $title = '相关课程' }}
+{{ /if }}
+
+{{ if isset($relatedcourse) && count($relatedcourse) }}
+<div id="relatedcourse" class="card">
+
+    <h1 class="title">{{ $title }}</h1>
+    <div class="card-body">
+        <ul>
+            {{ foreach $relatedcourse as $val }}
+            <li class="course-item" data-number="{{ $val.coursenumber }}">
+
+                <a href="{{ $val.detail_url }}" rel="nofollow" class="pic" target="_blank">
+                    {{ include file="common/component/image.html" url=$val.pic width="200" height=120 }}
+                </a>
+                <div class="detail">
+                    <div class="course_name"><a href="{{ $val.detail_url }}" class="name">{{ $val.name }}</a></div>
+                    <p class="price">{{ if $val.price == '0' }}免费{{ else }}¥{{ $val.price }} {{ /if }}</p>
+                </div>
+            </li>
+            {{ /foreach }}
+        </ul>
+    </div>
+</div>
+{{ /if }}
+{{ /strip }}

@@ -1,0 +1,115 @@
+/**
+ * @file 试听课模块
+ * @author wangyujie
+ */
+
+.dialog {
+
+    #trial-course {
+        width: 100%;
+
+        .trial-content {
+            border: none;
+            padding: 10px 15px;
+
+            .form-action {
+                margin-left: -252px;
+            }
+            .form {
+                padding: 15px;
+            }
+        }
+
+    }
+}
+
+#trial-course {
+    width: 750px;
+    position: relative;
+    margin-bottom: @gap-vertical-medium;
+
+    .trial-nav {
+        border: 1px solid #E6E6E6;
+        background: #f7f7f7;
+        width: 100%;
+        padding: @gap-vertical-medium
+                 2 * @gap-horizontal-medium;
+        font-size: 12px;
+        color: #6d6d6d;
+        .text-info {
+            float: right;
+            .icon {
+                margin-right: @gap-horizontal-tiny;
+            }
+        }
+        h3 {
+            color: @brand-text;
+            font-weight: bold;
+            font-size: 14px;
+            img {
+                vertical-align: top;
+                margin-left: @gap-horizontal-tiny;
+            }
+        }
+    }
+
+    .trial-content {
+        width: 100%;
+        height: 100%;
+        padding: 2 * @gap-vertical-medium
+                 3 * @gap-horizontal-medium;
+        position: relative;
+
+        .course-length {
+            font-size: 16px;
+            .text-primary {
+                padding: 0 2px;
+            }
+        }
+
+        .form-label {
+            color: #888;
+            font-size: 12px;
+            width: 102px;
+            text-align: right;
+        }
+
+        .form-controls {
+            display: inline-block;
+            .lesson-way {
+                border: 1px solid #ccc;
+                color: #888;
+                cursor: pointer;
+                display: inline-block;
+                height: 36px;
+                padding: 6px 12px;
+                margin-right: @gap-horizontal-medium;
+                &:hover {
+                    background-color: #f0f0f0;
+                }
+                em {
+                    padding-left: 3px;
+                }
+            }
+            .active {
+                background: url(../../../img/teacher/checked.png) right bottom no-repeat;
+                border: 1px solid @brand-primary;
+            }
+            textarea {
+                width: 400px;
+                height: 80px;
+            }
+        }
+
+        .form-action {
+            margin-left: 102px;
+            margin-top: 0;
+        }
+
+        .words-error {
+            left: 352px !important;
+        }
+
+    }
+
+}

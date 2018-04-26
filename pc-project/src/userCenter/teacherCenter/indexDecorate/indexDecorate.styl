@@ -1,0 +1,153 @@
+/*
+ * @file 老师个人中心 － 主页装修
+ * @author wangyujie
+ */
+@import '../../common/layout.styl';
+
+
+.index-decorate {
+
+    padding: 20px;
+    .header {
+        margin-bottom: 10px;
+    }
+
+    .card-title {
+        color: $brand-header;
+        font-size: 20px;
+    }
+    .hint {
+        color: $brand-desc;
+        margin-top 10px;
+        font-size: 12px;
+    }
+    .templates {
+        overflow: auto;
+        li {
+            color: $brand-title;
+            cursor: pointer;
+            float: left;
+            font-size: 12px;
+            text-align: center;
+            margin: $vertical-medium $horizontal-medium;
+            position: relative;
+            .button {
+                display: none;
+            }
+            img {
+                width: 200px;
+                height: 125px;
+                border: 1px solid $brand-border;
+                display: block;
+                padding: $vertical-tiny;
+                margin-bottom: $vertical-medium;
+            }
+
+            &:hover {
+
+                .button {
+                    display: block;
+                    z-index: 2;
+                    position: absolute;
+                    left: 56px;
+                    top: 55px;
+                }
+                &:after {
+                    content: ' ';
+                    background-color: #000;
+                    opacity(0.3);
+                    width: 200px;
+                    height: 125px;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                }
+            }
+
+            &.active {
+                img {
+                    border: 5px solid #ffbf5f;
+                    padding: 0;
+                }
+            }
+        }
+    }
+    .decorate-action {
+        padding-left: 265px;
+        button {
+            width: 100px;
+        }
+    }
+}
+
+.preview-mask {
+    opacity(0.6);
+    background-color: #000;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: $zindex-large;
+}
+
+.preview-phone {
+    transform: scale(0.7);
+    position: fixed;
+    left: 35%;
+    top: -75px;
+    z-index: $zindex-large;
+    .view {
+        float: left;
+        background: url('./img/preview-phone.png');
+        width: 382px;
+        height: 790px;
+        padding: 95px 23px 100px;
+        .view-content-img,
+        .view-content-iframe {
+            width: 100%;
+            height: 100%;
+        }
+        .view-content-img {
+            overflow-y: auto;
+        }
+        iframe {
+            border: none;
+            width: 100%;
+            height: 100%;
+        }
+        .priview-img {
+            width: 320px;
+        }
+    }
+    .actions {
+        color: #fff;
+        text-align: center;
+        float: left;
+        margin-left: 130px;
+        .prev-temp,
+        .next-temp,
+        .exit-preview {
+            border: 1px solid #fff;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 22px;
+            padding: 9px 26px 8px;
+            &:hover {
+                background: #fff;
+                color: #555;
+            }
+        }
+        .prev-temp {
+            margin-top: 100px;
+        }
+        .next-temp {
+            margin-top: 100px;
+        }
+        .exit-preview {
+            margin-top: 280px;
+        }
+    }
+
+}
+

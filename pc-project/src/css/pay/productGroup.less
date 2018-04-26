@@ -1,0 +1,236 @@
+/**
+ * @file 提交订单 - 联报优惠课程订单
+ * @author wangyujie
+ */
+@import './common/layout.less';
+@import '../common/component/loginDialog.less';
+
+@import './course/hours.less';
+@import './order/student.less';
+@import '../teacherCenter/component/form-address.less';
+
+
+#main {
+
+    .section-header {
+        border-bottom: 1px solid @brand-gray-light;
+        color: @brand-text;
+        font-size: @font-size-medium;
+        padding: @gap-vertical-small 0;
+    }
+
+    .section-body {
+        padding: @gap-vertical-huge 0;
+    }
+
+    .course {
+
+        .avatar {
+            float: left;
+        }
+        td {
+            vertical-align: middle;
+        }
+        .base-info {
+            margin-left: 15px;
+            line-height: 1.8em;
+            .name {
+                font-size: @font-size-medium;
+            }
+            .chat-label {
+                margin-left: @gap-horizontal-small;
+            }
+            .course {
+                margin-top: 10px;
+            }
+        }
+        .rebuy {
+            margin-top: 40px;
+            .icon {
+                margin-right: @gap-horizontal-tiny;
+            }
+        }
+        .avatar {
+            a,img, a:after {
+                border-radius: 0;
+            }
+        }
+        .left {
+            text-align: left;
+            float: left;
+        }
+        .right {
+            text-align: right;
+        }
+        span + span {
+            margin-left: @gap-horizontal-tiny;
+        }
+        .course-time, .course-area, .teacher-name {
+            font-size: @font-size-tiny;
+        }
+        .course-area {
+            .icon {
+                vertical-align: middle;
+                margin-left: 5px;
+            }
+        }
+        .portrait {
+            float: left;
+            margin-right: @gap-horizontal-small;
+        }
+        .video-base-info {
+
+            .name {
+                font-size: 18px;
+                margin-bottom: 7px;
+                color: @brand-text;
+            }
+        }
+        .tag {
+            .inline-block();
+            vertical-align: middle;
+            margin: 0 0 5px 5px;
+            background: url(../../img/video/icon.png) no-repeat;
+            width: 48px;
+            height: 18px;
+            background-position: -4px -131px;
+        }
+        .watch {
+            background: url(../../img/video/icon.png) no-repeat;
+            width: 16px;
+            height: 16px;
+            .inline-block();
+            vertical-align: middle;
+            background-position: -4px -107px;
+            margin-right: 5px;
+        }
+
+        .discount-dropdown {
+            font-size: @font-size-tiny;
+            width: 150px;
+            .btn-default {
+                width: 150px;
+                height: 30px;
+
+                .discount {
+                    margin-right: 5px;
+                }
+            }
+
+            .discount {
+                float: right;
+                color: @brand-primary;
+            }
+
+            .active .discount {
+                color: #fff;
+            }
+        }
+    }
+
+    .real-total-price {
+        text-align: right;
+        padding: 2 * @gap-vertical-medium;
+        span {
+            color: @brand-primary;
+        }
+        em {
+            font-size: 34px;
+        }
+    }
+
+    .footer {
+
+        border-top: 1px solid @brand-gray-light;
+        padding: @gap-vertical-huge 0;
+        text-align: right;
+
+        .limitime-hint {
+            display: none;
+            color: @brand-text-lighter;
+            .icon {
+                font-size: 20px;
+                vertical-align: middle;
+            }
+        }
+
+        .footer-ensure {
+            padding-bottom: 10px;
+
+            .wrapper {
+                .inline-block();
+                text-align: left;
+            }
+            .form-hint {
+                color: @brand-primary;
+            }
+
+            .form-group {
+                padding: 0;
+
+                &.text-right {
+                    text-align: right;
+                }
+            }
+
+            .on {
+                display: block;
+            }
+
+            .off {
+                display: none;
+            }
+
+            &.ensure-off {
+                .on {
+                    display: none;
+                }
+
+                .off {
+                    display: block;
+                }
+            }
+
+            .icon {
+                margin-left: 5px;
+            }
+        }
+
+        .footer-watch {
+            line-height: 16px;
+            & > div {
+                background: url(../../img/video/icon.png) no-repeat;
+                width: 16px;
+                height: 16px;
+                background-position: -4px -107px;
+                margin-right: 5px;
+                .inline-block();
+                vertical-align: top;
+            }
+            margin-bottom: 30px;
+        }
+    }
+    .btn-primary {
+        margin-left: @gap-horizontal-huge;
+    }
+
+}
+
+.hidden {
+    display: none;
+}
+
+.voice-code-link {
+    margin-left: 110px;
+
+    .btn-link {
+        font-size: @font-size-tiny;
+        color: @brand-info;
+        &:hover {
+            color: @brand-primary;
+        }
+    }
+    span {
+        padding-top: 0;
+    }
+}

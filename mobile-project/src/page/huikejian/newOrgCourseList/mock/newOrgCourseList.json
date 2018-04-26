@@ -1,0 +1,59 @@
+{
+  "code": 0,
+  "msg": "succ",
+  "tpl_data": {
+    "courses": [
+      {
+        "course_type": 1,
+        "course_cover": "http://test-img.gsxservice.com/736855_5fi2bmxj.jpeg",
+        "course_name": "CPS返奖学金-付费视频课02",
+        "course_number": "16070195197",
+        "course_url": "http://test-m.genshuixue.com/video_course/getcourseshowdetail?number=16070195197",
+        "begin_time": "",
+        "teacher_name": "水水",
+        "play_count": 1
+      },
+      {
+        "course_type": 2,
+        "course_cover": "http://test-img.gsxservice.com/736856_j2k0zdgf.jpeg",
+        "course_name": "CPS返奖学金-付费视频课03",
+        "course_number": "16070154341",
+        "course_url": "http://test-m.genshuixue.com/video_course/getcourseshowdetail?number=16070154341",
+        "begin_time": "",
+        "teacher_name": "水水",
+        "play_count": 0
+      },
+      {
+        "course_type": 3,
+        "course_cover": "http://test-img.gsxservice.com/774602_kcoics6g.jpeg",
+        "course_name": "招生中-直播课@#￥%…&*（）j—最大名称长度",
+        "course_number": "160922490509",
+        "course_url": "http://test-m.genshuixue.com/teacher/classCourseDetail/160922490509",
+        "begin_time": "12月14日 12:00",
+        "teacher_name": "水水",
+        "play_count": 0
+      },
+      {
+        "course_type": 4,
+        "course_cover": "http://test-img.gsxservice.com/774605_pwztdzwg.jpeg",
+        "course_name": "审核失败-直播课@#￥%……&*（）—jhjjhjj—",
+        "course_number": "160922491529",
+        "course_url": "http://test-m.genshuixue.com/teacher/classCourseDetail/160922491529",
+        "begin_time": "11月25日 12:00",
+        "teacher_name": "水水",
+        "play_count": 0
+      }
+    ],
+    "pages": {
+      "number": "374214409",
+      "page": 1,
+      "has_more": true,
+      "type": "famous",
+      "course_class": "名校精选"
+    }
+  },
+  "ts": 1476493559,
+  "declare_config": {
+    "declareTpl": "org/school_index"
+  }
+}

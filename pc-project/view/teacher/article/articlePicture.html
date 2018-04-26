@@ -1,0 +1,11 @@
+{{ foreach $tpl_data.support_users as $users }}
+{{ if $users@index < 9 }}
+    <div class="thumbs-users" data-uid="{{ $users.user_id }}">
+        <a data-title="{{ $users.display_name }}赞过这篇文章" href="{{ $users.url }}">
+            <img src="{{ $users.user_avatar }}" alt="头像">
+        </a>
+        <!-- <span class="thumbs-up-user" data-title="{{ $users.display_name }}赞过这篇文章"></span> -->
+    </div>
+{{ /if }}
+    
+{{ /foreach }}

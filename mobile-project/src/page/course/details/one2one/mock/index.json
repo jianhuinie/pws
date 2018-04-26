@@ -1,0 +1,586 @@
+{
+    "tpl_data": {
+        "is_staging": 1,
+        "org_info": {
+            "id": 1,
+            "name": "应用宝机构",
+            "number": "772705298",
+            "course_count": 11,
+            "student_count": 10,
+            "comment_rate": "99%",
+            "comment_count": 1300,
+            "photo_url": "https://img.genshuixue.com/3754831_t06236di.jpeg",
+            "short_intro": "专业英语教学10年，专业英语最高8级",
+            "is_authentication": 1,
+            "extension": "400-33333333",
+            "home_url": "http://baidu.com"
+        },
+        "course_info": {
+            "is_valid": true,
+            "course_type": 11,
+            "status": 14,
+            "number": "160112883986",
+            "name": "小学五年级上册英语课本讲解",
+            "cover": "https://img.genshuixue.com/3754831_t06236di.jpeg",
+            "price": "1.00",
+            "lesson_type_number": 3,
+            "buy_way":1,
+            "retire_flag": 0,
+            "buy_way": 1,
+            "lesson_way": "4",
+            "address": "北京市海淀区中关村软件园",
+            "increment_service": [
+                "助教管理",
+                "课后答疑",
+                "无限次回放",
+                "助教管理1",
+                "课后答疑1",
+                "无限次回放1"
+            ],
+            "relative_course": [
+                {
+                    "type": 2,
+                    "number": "160830978586",
+                    "name": "初中英语语法——名词的格和修饰语",
+                    "price": "10.00",
+                    "photo_url": "https://img.genshuixue.com/18581122_izuw3605.jpeg",
+                    "detail_url": "http://www.genshuixue.com/teacher/classCourseDetail/160830978586"
+                },
+                {
+                    "type": 3,
+                    "number": "160830978586",
+                    "name": "初中英语语法——名词的格和修饰语",
+                    "price": "10.00",
+                    "photo_url": "https://img.genshuixue.com/18581122_izuw3605.jpeg",
+                    "detail_url": "http://www.genshuixue.com/teacher/classCourseDetail/160830978586"
+                }
+            ],
+            "type_info": [
+                {
+                    "name": "高三数学基础班",
+                    "code": "abcdef",
+                    "class_time_desc": "12点到下午2点",
+                    "address": "北京海淀",
+                    "class_hour": 40,
+                    "price": "101",
+                    "detail_url": "http://baidu.com",
+                    "detail_m_url": "http://baidu.com"
+                },
+                {
+                    "name": "高三语文基础班",
+                    "code": "abcdef",
+                    "class_time_desc": "12点到下午2点",
+                    "address": "北京海淀",
+                    "class_hour": 40,
+                    "price": "102",
+                    "detail_url": "http://baidu.com",
+                    "detail_m_url": "http://baidu.com"
+                },
+                {
+                    "name": "高三数学基础班",
+                    "code": "abcdef",
+                    "class_time_desc": "12点到下午2点",
+                    "address": "北京海淀",
+                    "class_hour": 40,
+                    "price": "103",
+                    "detail_url": "http://baidu.com",
+                    "detail_m_url": "http://baidu.com"
+                },
+                {
+                    "name": "高三语文基础班",
+                    "code": "abcdef",
+                    "class_time_desc": "12点到下午2点",
+                    "address": "北京海淀",
+                    "class_hour": 40,
+                    "price": "104",
+                    "detail_url": "http://baidu.com",
+                    "detail_m_url": "http://baidu.com"
+                },
+                {
+                    "name": "高三数学基础班",
+                    "code": "abcdef",
+                    "class_time_desc": "12点到下午2点",
+                    "address": "北京海淀",
+                    "class_hour": 40,
+                    "price": "105",
+                    "detail_url": "http://baidu.com",
+                    "detail_m_url": "http://baidu.com"
+                },
+                {
+                    "name": "高三语文基础班",
+                    "code": "abcdef",
+                    "class_time_desc": "12点到下午2点",
+                    "address": "北京海淀",
+                    "class_hour": 40,
+                    "price": "106",
+                    "detail_url": "http://baidu.com",
+                    "detail_m_url": "http://baidu.com"
+                }
+            ],
+            "template_m": "default",
+            "chaban_price": null,
+            "original_price": "10.00",
+            "is_mobile": true,
+            "easemob": null,
+            "display_status": "2",
+            "subject_name": "二胡",
+            "can_chaban": false,
+            "coupon": {},
+            "photos": [{
+                "id": "270890",
+                "title": null,
+                "url": "https://img.genshuixue.com/1814078_kr60pbas.jpeg",
+                "width": 636,
+                "height": 636,
+                "storage_id": "3140262",
+                "create_time": 1452864439
+            }, {
+                "id": "270890",
+                "title": null,
+                "url": "https://img.genshuixue.com/1814078_kr60pbas.jpeg",
+                "width": 636,
+                "height": 636,
+                "storage_id": "3140262",
+                "create_time": 1452864439
+            }],
+            "tags": {
+                "name": [
+                    "随时退",
+                    "师资认证",
+                    "支付安全"
+                ],
+                "url": "/teacher/refundProcess?id=refund"
+            },
+            "create_time": 1472542832,
+            "update_time": 1477482081,
+            "information": "information",
+            "introduction": "<p><img width=\"100%\" height=\"auto\" whs=\"0.1617365396893\" clip=\"0\" data-src=\"https://img.genshuixue.com/6191719_s2rhwef1.jpeg\" title=\"\" alt=\"336231277812666202.jpg\" /></p>",
+            "introduction1": "<p>运用多种趣味性，有效性的手指练习，协调性练习，达到更有效的学琴状态！</p><p style=\"margin-top:0px;margin-bottom:0px;padding:0px;border:0px;font-family:PingHei, 'Hiragino Sans GB', 'Microsoft YaHei', arial, sans-serif;line-height:21px;vertical-align:baseline;color:rgb(61,61,61);white-space:normal;background-color:rgb(255,255,255);text-align:center;\"><span style=\"margin:0px;padding:0px;border:0px;font-family:'楷体', '楷体_GB2312', SimKai;font-size:inherit;font-style:inherit;font-variant:inherit;font-weight:inherit;line-height:inherit;vertical-align:baseline;\"><span style=\"margin:0px;padding:0px;border:0px;font-family:inherit;font-size:36px;font-style:inherit;font-variant:inherit;font-weight:inherit;line-height:inherit;vertical-align:baseline;\">阿里教育带你学习---直播答疑</span></span></p><p style=\"margin-top:0px;margin-bottom:0px;padding:0px;border:0px;font-family:PingHei, 'Hiragino Sans GB', 'Microsoft YaHei', arial, sans-serif;line-height:21px;vertical-align:baseline;color:rgb(61,61,61);white-space:normal;background-color:rgb(255,255,255);text-align:center;\"><span style=\"margin:0px;padding:0px;border:0px;font-family:'楷体', '楷体_GB2312', SimKai;font-size:36px;font-style:inherit;font-variant:inherit;font-weight:inherit;line-height:inherit;vertical-align:baseline;color:rgb(255,0,0);\">九年级</span></p><p style=\"margin-top:0px;margin-bottom:0px;padding:0px;border:0px;font-family:PingHei, 'Hiragino Sans GB', 'Microsoft YaHei', arial, sans-serif;line-height:21px;vertical-align:baseline;color:rgb(61,61,61);white-space:normal;background-color:rgb(255,255,255);\"><span style=\"margin:0px;padding:0px;border:0px;font-family:'楷体', '楷体_GB2312', SimKai;font-size:inherit;font-style:inherit;font-variant:inherit;font-weight:inherit;line-height:inherit;vertical-align:baseline;\"><span style=\"margin:0px;padding:0px;border:0px;font-family:inherit;font-size:20px;font-style:inherit;font-variant:inherit;font-weight:inherit;line-height:inherit;vertical-align:baseline;\">   为了帮助更多的学生学好数学，不再为数学的学习而苦恼，学生可线上对老师进行提问或者通过QQ拍照发给我，我将在每周五对每个学生的疑难进行解答。</span></span></p><p style=\"margin-top:0px;margin-bottom:0px;padding:0px;border:0px;font-family:PingHei, 'Hiragino Sans GB', 'Microsoft YaHei', arial, sans-serif;line-height:21px;vertical-align:baseline;color:rgb(61,61,61);white-space:normal;background-color:rgb(255,255,255);\"><span style=\"margin:0px;padding:0px;border:0px;font-family:'楷体', '楷体_GB2312', SimKai;font-size:inherit;font-style:inherit;font-variant:inherit;font-weight:inherit;line-height:inherit;vertical-align:baseline;\"><span style=\"margin:0px;padding:0px;border:0px;font-family:inherit;font-size:20px;font-style:inherit;font-variant:inherit;font-weight:inherit;line-height:inherit;vertical-align:baseline;\">   直播答疑课安排如下：</span></span></p><p style=\"margin-top:0px;margin-bottom:0px;padding:0px;border:0px;font-family:PingHei, 'Hiragino Sans GB', 'Microsoft YaHei', arial, sans-serif;line-height:21px;vertical-align:baseline;color:rgb(61,61,61);white-space:normal;background-color:rgb(255,255,255);\"><span style=\"margin:0px;padding:0px;border:0px;font-family:'楷体', '楷体_GB2312', SimKai;font-size:inherit;font-style:inherit;font-variant:inherit;font-weight:inherit;line-height:inherit;vertical-align:baseline;\"><span style=\"margin:0px;padding:0px;border:0px;font-family:inherit;font-size:20px;font-style:inherit;font-variant:inherit;font-weight:inherit;line-height:inherit;vertical-align:baseline;\">   1、学生于上课前将一周遇到的问题拍照发给我（通过qq）</span></span></p><p style=\"margin-top:0px;margin-bottom:0px;padding:0px;border:0px;font-family:PingHei, 'Hiragino Sans GB', 'Microsoft YaHei', arial, sans-serif;line-height:21px;vertical-align:baseline;color:rgb(61,61,61);white-space:normal;background-color:rgb(255,255,255);\"><span style=\"margin:0px;padding:0px;border:0px;font-family:'楷体', '楷体_GB2312', SimKai;font-size:inherit;font-style:inherit;font-variant:inherit;font-weight:inherit;line-height:inherit;vertical-align:baseline;\"><span style=\"margin:0px;padding:0px;border:0px;font-family:inherit;font-size:20px;font-style:inherit;font-variant:inherit;font-weight:inherit;line-height:inherit;vertical-align:baseline;\">   2、直播课前对学生提问情况进行汇总</span></span></p><p style=\"margin-top:0px;margin-bottom:0px;padding:0px;border:0px;font-family:PingHei, 'Hiragino Sans GB', 'Microsoft YaHei', arial, sans-serif;line-height:21px;vertical-align:baseline;color:rgb(61,61,61);white-space:normal;background-color:rgb(255,255,255);\"><span style=\"margin:0px;padding:0px;border:0px;font-family:'楷体', '楷体_GB2312', SimKai;font-size:inherit;font-style:inherit;font-variant:inherit;font-weight:inherit;line-height:inherit;vertical-align:baseline;\"><span style=\"margin:0px;padding:0px;border:0px;font-family:inherit;font-size:20px;font-style:inherit;font-variant:inherit;font-weight:inherit;line-height:inherit;vertical-align:baseline;\">   3、直播课答疑，<span style=\"margin:0px;padding:0px;border:0px;font-style:inherit;font-variant:inherit;font-weight:inherit;line-height:inherit;vertical-align:baseline;\">对重点习题和知识点进行分析讲解</span></span></span></p><p style=\"margin-top:0px;margin-bottom:0px;padding:0px;border:0px;font-family:PingHei, 'Hiragino Sans GB', 'Microsoft YaHei', arial, sans-serif;line-height:21px;vertical-align:baseline;color:rgb(61,61,61);white-space:normal;background-color:rgb(255,255,255);\"><span style=\"margin:0px;padding:0px;border:0px;font-family:'楷体', '楷体_GB2312', SimKai;font-size:inherit;font-style:inherit;font-variant:inherit;font-weight:inherit;line-height:inherit;vertical-align:baseline;\"><span style=\"margin:0px;padding:0px;border:0px;font-family:inherit;font-size:20px;font-style:inherit;font-variant:inherit;font-weight:inherit;line-height:inherit;vertical-align:baseline;\">   4、学生也可在直播课时直接进行提问</span></span></p><p style=\"margin-top:0px;margin-bottom:0px;padding:0px;border:0px;font-family:PingHei, 'Hiragino Sans GB', 'Microsoft YaHei', arial, sans-serif;line-height:21px;vertical-align:baseline;color:rgb(61,61,61);white-space:normal;background-color:rgb(255,255,255);\"><span style=\"margin:0px;padding:0px;border:0px;font-family:'楷体', '楷体_GB2312', SimKai;font-size:inherit;font-style:inherit;font-variant:inherit;font-weight:inherit;line-height:inherit;vertical-align:baseline;\"><span style=\"margin:0px;padding:0px;border:0px;font-family:inherit;font-size:20px;font-style:inherit;font-variant:inherit;font-weight:inherit;line-height:inherit;vertical-align:baseline;\">   5、学生也可以提问和沟通学习方法</span></span></p>",
+            "retire_text": "随时可退",
+            "chaban_text": "随时可插班",
+            "course_summary": {
+                "org_info": {
+                    "number": "541998419",
+                    "logo": "https://img.genshuixue.com/4837622_rbupqb6f.jpg",
+                    "name": "北京三动减肥营",
+                    "subject": "中国第一 中国第一种最安全最有效持久保持健康的三动减肥法心动 手动 脚动 运用多极同一方法论的三动减肥法",
+                    "intro": "(5种课程， 2名老师)",
+                    "url": "http://jianfei.m.genshuixue.com",
+                    "extension": "4000122166,131452",
+                    "city_filter": 1,
+                    "membership_level": 1,
+                    "support_tianxiao": false
+                },
+                "fit_people": null,
+                "option": null,
+                "img_text_url": "/teacher/detailTextInfo?number=160112883986"
+            },
+            "course_detail": {
+                "course_items": [{
+                    "name": "我是课程名字",
+                    "url": "链接地址",
+                    "course_type": "课程类型(直播课)",
+                    "sub_info": ["3月28号", "共20节"],
+                    "plan": [{
+                        "title": "2016年01月16日 08:00-10:00",
+                        "content": "我是第二行"
+                    }]
+                }, {
+                    "name": "我是课程名字",
+                    "url": "链接地址",
+                    "course_type": "课程类型(视频课)",
+                    "sub_info": ["365天随时看", "共20节"],
+                    "plan": [{
+                        "title": "2016年01月16日 08:00-10:00"
+                    }]
+                }, {
+                    "name": "我是课程名字",
+                    "url": "链接地址",
+                    "course_type": "课程类型(班课)",
+                    "sub_info": ["365天随时看", "共20节"],
+                    "plan": [{
+                        "title": "2016年01月16日 08:00-10:00",
+                        "content": "我是第二行"
+                    }]
+                }, {
+                    "name": "我是课程名字",
+                    "url": "链接地址",
+                    "course_type": "课程类型(一对一)",
+                    "sub_info": ["365天随时看", "共20节"]
+                }],
+                "document_download": [
+                    "我是第一行资料",
+                    "我是第一行资料",
+                    "我是第一行资料"
+                ],
+                "main_teacher": [{
+                    "avatar": "https://img.genshuixue.com/33664_vl7xmtc7.jpeg",
+                    "name": "卢璟",
+                    "number": "668000488",
+                    "url": "/668000488",
+                    "gender": "0",
+                    "intro": "公务员考试申论和面试教师，方法简明有效",
+                    "teach_age": "21",
+                    "cert_number": 4,
+                    "teacher_type": "机构老师",
+                    "audio": null,
+                    "vip_level": 0
+                }, {
+                    "avatar": "https://img.genshuixue.com/5693253_0fl6i00o.jpeg",
+                    "name": "赖彦刚",
+                    "number": "563020788",
+                    "intro": "主讲申论、面试，因过关率高被尊为圆梦大师",
+                    "url": "/563020788",
+                    "gender": "1",
+                    "teach_age": "22",
+                    "cert_number": 1,
+                    "teacher_type": "机构老师",
+                    "audio": null,
+                    "vip_level": 0
+                }, {
+                    "avatar": "https://img.genshuixue.com/headpic_woman_07.jpg",
+                    "name": "大新",
+                    "number": "333613768",
+                    "intro": "四年半判断经验，成公案例多，选我不会错！",
+                    "url": "/333613768",
+                    "gender": "0",
+                    "teach_age": "4",
+                    "cert_number": 1,
+                    "teacher_type": "机构老师",
+                    "audio": null,
+                    "vip_level": 0
+                }, {
+                    "avatar": "https://img.genshuixue.com/2992121_qe155a1l.jpeg",
+                    "name": "高楠",
+                    "number": "330993538",
+                    "intro": "学习其实是一种领悟",
+                    "url": "/330993538",
+                    "gender": "0",
+                    "teach_age": "9",
+                    "cert_number": 2,
+                    "teacher_type": "机构老师",
+                    "audio": null,
+                    "vip_level": 0
+                }, {
+                    "avatar": "https://img.genshuixue.com/3031900_8ab933iw.jpeg",
+                    "name": "王萌",
+                    "number": "959474818",
+                    "intro": "主讲数量关系、资料分析、面试等科目",
+                    "url": "/959474818",
+                    "gender": "0",
+                    "teach_age": "7",
+                    "cert_number": 1,
+                    "teacher_type": "机构老师",
+                    "audio": null,
+                    "vip_level": 0
+                }, {
+                    "avatar": "https://img.genshuixue.com/headpic_woman_07.jpg",
+                    "name": "谢昭言",
+                    "number": "960208008",
+                    "intro": "资深公考培训师",
+                    "url": "/960208008",
+                    "gender": "0",
+                    "teach_age": "5",
+                    "cert_number": 1,
+                    "teacher_type": "机构老师",
+                    "audio": null,
+                    "vip_level": 0
+                }],
+                "course_plan": {
+                    "arrangement": "周末上课",
+                    "course_long": 2,
+                    "content": [{
+                        "title_name": "第1节",
+                        "title": "2016年01月16日 08:00-10:00",
+                        "content_name": "课程内容",
+                        "content": null,
+                        "is_finish": false
+                    }, {
+                        "title_name": "第1节",
+                        "title": "2016年01月16日 08:00-10:00",
+                        "content_name": "课程内容",
+                        "content": null,
+                        "is_finish": false
+                    }, {
+                        "title_name": "第1节",
+                        "title": "2016年01月16日 08:00-10:00",
+                        "content_name": "课程内容",
+                        "content": null,
+                        "is_finish": false
+                    }, {
+                        "title_name": "第1节",
+                        "title": "2016年01月16日 08:00-10:00",
+                        "content_name": "课程内容",
+                        "content": null,
+                        "is_finish": false
+                    }, {
+                        "title_name": "第1节",
+                        "title": "2016年01月16日 08:00-10:00",
+                        "content_name": "课程内容",
+                        "content": null,
+                        "is_finish": false
+                    }],
+                    "begin_time": "2016-01-16"
+                },
+                "student": {
+                    "max": "50",
+                    "now": 0,
+                    "least": "1"
+                }
+            },
+            "button_info": {
+                "name": "立即报名",
+                "type": "enrolling",
+                "url": "/pay/productDetail?course_number=160112883986&type=2"
+            },
+            "status_name": "",
+            "status_type": "enrolling"
+        },
+        "course": {
+            "name": "阅读",
+            "id": "2949",
+            "template_m": "default",
+            "is_valid": true,
+            "number": "398872358607",
+            "subject_name": "托福",
+            "price": {
+                "teacher": null,
+                "student": "0.01",
+                "online": "6.01",
+                "discuss": "6"
+            },
+            "remark": "",
+            "is_online": 2,
+            "course_combo": [{
+                "id": "5901",
+                "hours": "10",
+                "discount": "9.8",
+                "desc": "短期课程，适合短期冲刺与突击",
+                "desc_cut": "短期课程，适合短期冲刺与突击"
+            }, {
+                "id": "5902",
+                "hours": "20",
+                "discount": "9.5",
+                "desc": "中期课程，适合对学生专项辅导",
+                "desc_cut": "中期课程，适合对学生专项辅导"
+            }, {
+                "id": "5903",
+                "hours": "30",
+                "discount": "9",
+                "desc": "长期课程，适合循序渐进的学习",
+                "desc_cut": "长期课程，适合循序渐进的学习"
+            }],
+            "course_type": 1,
+            "preface": "http://test-img.gsxservice.com/358097_pv70ibzh.jpeg",
+            "scale_count": 0,
+            "max_price": "6.01",
+            "min_price": "0.01",
+            "min_cashback": 0,
+            "max_cashback": 0.27
+        },
+        "teacher": {
+            "name": "乔轶维",
+            "number": "329650248",
+            "avatar": "http://test-img.gsxservice.com/8486_wyx0gei8.mpeg",
+            "private_domain": "qiaoyiwei",
+            "sex": "0",
+            "audio": null,
+            "video": null,
+            "introduce": null,
+            "short_introduce": "简单、直接、粗暴有效",
+            "org": {
+                "name": "串session",
+                "number": "328931849",
+                "url": "http://test-m.genshuixue.com/i/328931849",
+                "membership_level": 1
+            },
+            "course_count": 5,
+            "student_count": 0,
+            "course_length": 0,
+            "great_rate": 1,
+            "detail_url": "/329650248/other_info",
+            "preface": "http://test-img.gsxservice.com/358209_pbfipy9l.jpeg",
+            "history_course_url": "",
+            "vip_level": 0,
+            "location": "北京市海淀区",
+            "position": {
+                "lng": "116.31270547828",
+                "lat": "39.98173"
+            },
+            "location_url": "http://test-m.genshuixue.com/teacher/area/329650248",
+            "certs": [
+                "身份认证"
+            ],
+            "skill": [
+                "简单",
+                "粗暴",
+                "直接",
+                "有效"
+            ],
+            "school_age": "6",
+            "teacher_url": "http://test-m.genshuixue.com/329650248",
+            "photo": {
+                "list": [],
+                "total": 0
+            },
+            "experiences": {
+                "list": [{
+                    "start_date": "2013-08-01",
+                    "end_date": "2014-12-01",
+                    "content": "北京乐闻携尔教育咨询有限公司\n我教授托福阅读，SAT填空，SAT数学课程；\n我喜欢用最简单的方法，最直接的过程来帮助学生在最短的时间内提高阅读成绩；"
+                }],
+                "more_url": "http://test-m.genshuixue.com/qiaoyiwei/experience"
+            },
+            "cases": {
+                "list": [{
+                    "date": "2014-02-01",
+                    "title": "19分到28分",
+                    "content": "学员在入学时，成绩并不是很高，但是处于稳定，由于学员为男生，我在了解状况之后把他的最终成绩估计在25分左右；在学习过程中我发现，这个学员由于是理科的，对于我提出的用逻辑的方法处理阅读接受能力极好，自己也能够很好的使用教学方法来解题，课后作业完成的很好，与他同班的一个女生，（该班共2人），两人课下对于问题分析讨论，使得他们可以更好的理解学习到的内容，最终在考试之后两人成绩都十分明显，该男生达到了28分的成绩，提高9分，同班同学达到27分的最终成绩，提高5分，由此可明确得出，能进行主动思考的学员提分会比较快一些。"
+                }, {
+                    "date": "2013-07-01",
+                    "title": "15分到27分",
+                    "content": "学员在来的时候阅读只有15分，说明有一定的阅读基础，但是阅读方法及解题方法明显有缺陷；开始对于文章分析，长难句分析，解题思路改革，7月份一个月的课程，9月学生考试达到26分，10月份考试27分；学生成绩稳定在26-27分。"
+                }],
+                "more_url": "http://test-m.genshuixue.com/qiaoyiwei/successCase"
+            },
+            "vip": 0
+        },
+        "comment": {
+            "comment_point": "5.0",
+            "comment_number": 339,
+            "great_percent": 100,
+            "comment_list": [
+                {
+                    "user_name": "159****0092",
+                    "user_avatar": "https://img.genshuixue.com/17316057_knd92hqt.jpeg",
+                    "number": "603583188",
+                    "content": "特喜欢郭老师的课，铁杆粉丝☺哦！",
+                    "fr": "0",
+                    "face_type": "1",
+                    "date": "2016-09-29 21:01"
+                }
+            ],
+            "invite_comment_number": 0,
+            "user_comment_number": 339,
+            "comment_url": "http://m.genshuixue.com/comment/getCourseComments?course_number=160830913682&comment_type=3"
+        },
+        "course_id": "160112883986",
+        "qrcode_url": "http://beta-m.genshuixue.com/teacher/classCourseDetail/160112883986",
+        "favorite_info": {
+            "type": 3,
+            "number": "160112883986",
+            "favorite_status": true,
+            "popularity": "1"
+        },
+        "share_info": {
+            "short_url": "http://gensx.cn/SPnCme",
+            "share_url": "http://test-m.genshuixue.com/org_course/one2oneDetail/48436278451011?render=json",
+            "url": "http://beta-m.genshuixue.com/teacher/classCourseDetail/160112883986?render=json&sf=1",
+            "img": "https://img.genshuixue.com/5653595_nwrpk6kt.jpeg@400w",
+            "share_name": "乐理",
+            "course_name": "乐理",
+            "org_class": false,
+            "teacher_name": "王倩倩",
+            "org_name": null,
+            "content": "王倩倩老师在跟谁学开讲二胡课《乐理》啦",
+            "share_content": "小倩个人工作室工作室将在跟谁学开讲音乐理论课【底导相关-一对一线下1】，感兴趣的可以点击注册报名。",
+            "title": "乐理",
+            "share_weixin": {
+                "short_url": "http://gensx.cn/SPnCme",
+                "url": "http://beta-m.genshuixue.com/teacher/classCourseDetail/160112883986?render=json&sf=1",
+                "img": "https://img.genshuixue.com/5653595_nwrpk6kt.jpeg@400w",
+                "share_name": "乐理",
+                "course_name": "乐理",
+                "org_class": false,
+                "teacher_name": "王倩倩",
+                "org_name": null,
+                "content": "王倩倩老师在跟谁学开讲二胡课《乐理》啦，感兴趣的伙伴可以点击报名哦。",
+                "title": "乐理"
+            },
+            "share_pyq": {
+                "short_url": "http://gensx.cn/SPnCme",
+                "url": "http://beta-m.genshuixue.com/teacher/classCourseDetail/160112883986?render=json&sf=1",
+                "img": "https://img.genshuixue.com/5653595_nwrpk6kt.jpeg@400w",
+                "share_name": "乐理",
+                "course_name": "乐理",
+                "org_class": false,
+                "teacher_name": "王倩倩",
+                "org_name": null,
+                "content": "王倩倩老师在跟谁学开讲二胡课《乐理》啦",
+                "title": "王倩倩老师在跟谁学开讲二胡课《乐理》啦"
+            },
+            "share_qq": {
+                "short_url": "http://gensx.cn/SPnCme",
+                "url": "http://beta-m.genshuixue.com/teacher/classCourseDetail/160112883986?render=json&sf=1",
+                "img": "https://img.genshuixue.com/5653595_nwrpk6kt.jpeg@400w",
+                "share_name": "乐理",
+                "course_name": "乐理",
+                "org_class": false,
+                "teacher_name": "王倩倩",
+                "org_name": null,
+                "content": "王倩倩老师在跟谁学开讲二胡课《乐理》啦，感兴趣的伙伴可以点击报名哦。",
+                "title": "乐理"
+            },
+            "share_qzone": {
+                "short_url": "http://gensx.cn/SPnCme",
+                "url": "http://beta-m.genshuixue.com/teacher/classCourseDetail/160112883986?render=json&sf=1",
+                "img": "https://img.genshuixue.com/5653595_nwrpk6kt.jpeg@400w",
+                "share_name": "乐理",
+                "course_name": "乐理",
+                "org_class": false,
+                "teacher_name": "王倩倩",
+                "org_name": null,
+                "content": "王倩倩老师在跟谁学开讲二胡课《乐理》啦，感兴趣的伙伴可以点击报名哦。",
+                "title": "乐理"
+            },
+            "share_weibo": {
+                "short_url": "http://gensx.cn/SPnCme",
+                "url": "http://gensx.cn/SPnCme",
+                "img": "https://img.genshuixue.com/5653595_nwrpk6kt.jpeg@400w",
+                "share_name": "乐理",
+                "course_name": "乐理",
+                "org_class": false,
+                "teacher_name": "王倩倩",
+                "org_name": null,
+                "content": "王倩倩老师在跟谁学开讲二胡课《乐理》啦，感兴趣的伙伴可以点击报名哦。",
+                "title": ""
+            },
+            "share_sms": {
+                "short_url": "http://gensx.cn/SPnCme",
+                "url": "http://gensx.cn/SPnCme",
+                "img": "https://img.genshuixue.com/5653595_nwrpk6kt.jpeg@400w",
+                "share_name": "乐理",
+                "course_name": "乐理",
+                "org_class": false,
+                "teacher_name": "王倩倩",
+                "org_name": null,
+                "content": "王倩倩老师在跟谁学开讲二胡课《乐理》啦，感兴趣的伙伴可以点击报名哦。",
+                "title": ""
+            },
+            "share_reward": null
+        },
+        "trial_course_info": {
+            "type": 5,
+            "status": 1,
+            "data": {
+                "id": 1,
+                "number": 123
+            }
+        },
+        "im_data": {
+            "c_id": "729387948",
+            "c_role": 0,
+            "group_id": 0
+        },
+        "limited_discount": {},
+        "support_student_advisory": true,
+        "support_tianxiao": false,
+        "page_title": "乐理_二胡_王倩倩-跟谁学",
+        "page_keywords": "乐理",
+        "description": "跟谁学为您提供王倩倩乐理课程。找好老师，上跟谁学！"
+    },
+    "ext_data": {
+        "is_app": true,
+        "app_version": "3.0.2"
+    }
+}

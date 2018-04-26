@@ -1,0 +1,152 @@
+{{ *
+
+@file 地址管理
+@author wangyujie
+
+* }}
+{{ extends "common/center/base.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $nav_active_tab = 'index' }}
+
+    {{ $script_path = "teacherCenter/address" }}
+    {{ $script_data.addressNum = count($tpl_data.address_list) }}
+
+{{ /block }}
+
+{{ block name="title" prepend }}
+地址管理 -
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/teacherCenter/address.less">
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+
+    {{ $count = count($tpl_data.address_list) }}
+
+    {{ include file="teacher_center/common/sidebar.html" active="address" }}
+
+    <div id="content" class="card">
+
+        <div class="card-header">
+            <h2>地址管理</h2>
+        </div>
+
+        <div class="card-body address-edit" {{ if $count >= $tpl_data.max }}style="display: none" {{ /if }}>
+
+            <div class="form form-address">
+                <div class="form-group">
+                    <div class="form-controls">
+                        {{ include file="common/component/radio.html" name="country" value="1" text="国内地址" checked=1 }}
+                        {{ include file="common/component/radio.html" name="country" value="2" text="海外地址" }}
+                    </div>
+                </div>
+                <div class="inland-address">
+                    {{ include file="teacher_center/component/addressForm.html" addressList=$tpl_data.address_list action=1 }}
+                </div>
+                <div class="foreign-address">
+                    {{ include file="teacher_center/component/foreignAddressForm.html" addressList=$tpl_data.address_list action=1 }}
+                </div>
+            </div>
+
+        </div>
+
+        <div class="card-body address-list">
+
+            <div class="summary text-info">
+            {{ if $count < $tpl_data.max }}
+                已保存了 {{ $count }} 条地址，还能保存 {{ $tpl_data.max - $count }} 条地址
+            {{ else }}
+                最多保存 {{ $count }} 条地址，请删除某条地址后再添加新地址
+            {{ /if }}
+            </div>
+
+            {{ if isset($tpl_data.address_list) && $count > 0 }}
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>所在地区</th>
+                            <th>详细地址</th>
+                            <th class="op">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{ foreach $tpl_data.address_list as $address }}
+
+                        <tr data-address='{{ json_encode($address, 77) }}'>
+                            <td class="pca">
+
+                                {{ if isset($address.regular_address.country.name) }}
+                                <span class="country-name">
+                                    {{ $address.regular_address.country.name }}
+                                </span>
+                                {{ /if }}
+
+                                <span class="province">
+                                    {{ $address.regular_address.province.name }}
+                                </span>
+
+                                {{ if $address.regular_address.province.name != $address.regular_address.city.name }}
+                                <span class="city">
+                                    {{ $address.regular_address.city.name }}
+                                </span>
+                                {{ /if }}
+
+                                <span class="area">
+                                    {{ $address.regular_address.area.name }}
+                                </span>
+
+                            </td>
+
+                            <td>
+                                {{ $address.location_addr }} {{ $address.detailed_address }}
+                            </td>
+
+                            <td class="operation">
+                                <button class="btn-link tiny btn-modify"
+                                {{ if isset($address.regular_address.country) && $address.regular_address.country }}
+                                    data-country="foreign"
+                                {{ else }}
+                                    data-country="inland"
+                                {{ /if }}>
+                                    修改
+                                </button>
+                                <span class="line">|</span>
+                                <button class="btn-link tiny btn-del">
+                                    删除
+                                </button>
+                                {{ if $address.status == 1 }}
+                                    <label class="label label-primary small">
+                                        常用地址
+                                    </label>
+                                {{ else }}
+                                    <button class="btn-link tiny btn-regular">
+                                        设为常用地址
+                                    </button>
+                                {{ /if }}
+                            </td>
+                        </tr>
+                        {{ /foreach }}
+                    </tbody>
+                </table>
+            {{ else }}
+                <div class="no-data">
+                    <div class="wrapper">
+                        设置准确的地址，学生才能搜索到你，快来设置吧~
+                    </div>
+                </div>
+            {{ /if }}
+
+        </div>
+    </div>
+
+    {{ include file="common/component/baiduMap.html" }}
+
+{{ /strip }}
+{{ /block }}

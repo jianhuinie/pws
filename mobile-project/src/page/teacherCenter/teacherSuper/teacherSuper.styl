@@ -1,0 +1,431 @@
+/*
+* file 老师主页
+* author caoying
+* date 2016-03-03
+*/
+
+$C600 = #0097A7;
+$C500 = #00BCD4;
+$C400 = #B2EBF2;
+$W500 = #FFFFFF;
+$R500 = #FF5252;
+$G500 = #212121;
+$G400 = #727272;
+$G300 = #B6B6B6;
+
+$g600 = #3c3d3d;
+$g500 = #6d6d6e;
+$g400 = #9d9e9e;
+$g300 = #dcddde;
+$g200 = #ebeced;
+$g100 = #f2f4f5;
+
+@import "page/_base/base.styl";
+@import "page/_common/nav_bar/nav_bar.styl";
+@import "./detail/super-head.styl";
+@import "./detail/super-course.styl";
+//@import "./detail/bottom.styl";
+@import "page/bottom/teacherBottom.styl";
+@import "./main/teacher-intro.styl";
+@import "./main/teacher-comment.styl";
+@import "page/teacherCenter/teacherMain/main/teacher-photo.styl";
+@import "page/teacherCenter/teacherMain/main/teacher-article.styl";
+@import "common/staySingle/staySingle.styl";
+@import "common/appoint/appoint.styl";
+@import "common/component/interactLayer/index.styl";
+@import "page/teacherCenter/_part/question.styl";
+@import "page/teacherCenter/_part/topBanner.styl";
+
+
+body {
+  margin: 0;
+  background: $C600;
+}
+
+.other-info {
+  margin: 0 rem(15);
+  background: $W500;
+  border-radius: rem(3);
+  .change-tab {
+    height: rem(43);
+  }
+  .main-tab-title {
+    padding: rem(15);
+    padding-bottom: 0;
+    color: $G500;
+    li {
+      font-size: rem(15);
+      display: inline-block;
+      width: 25%;
+      text-align: center;
+      span {
+        display: block;
+        margin: 0 auto;
+        padding-bottom: rem(7);
+      }
+      .active {
+        color: $C500;
+        border-bottom: 1px solid $C500;
+      }
+    }
+  }
+  .tab_fixed {
+    margin-top: 0;
+    position: fixed;
+    top: 0;
+    z-index: 30;
+    width: 92%;
+    border-bottom: 1px solid #dcddde ;
+    background: #ffffff;
+  }
+
+  .tab-container {
+    min-height: rem(560);
+    background: #ffffff;
+    padding: rem(5) rem(15) rem(15) rem(15);
+    border-radius: rem(3);
+    .photo-panel {
+      margin-top: rem(10);
+      .main-content {
+        padding: 0;
+        .video-style,.photo-style {
+          width: 32%;
+        }
+      }
+    }
+    .teacher-article {
+      .home-news {
+        padding: 0;
+      }
+      .child-content {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        text-overflow: ellipsis;
+        white-space: normal !important;
+        max-height: rem(45);
+      }
+    }
+  }
+
+  .fix-top {
+    padding-top: rem(45);
+  }
+  .no-article,.none-content {
+    background: #ffffff;
+    margin: 0 auto;
+    text-align: center;
+    line-height: rem(560);
+    height: rem(560);
+    color: #9d9d9e;
+
+  }
+  .ajax-loading {
+    margin: 0 auto;
+    text-align: center;
+    padding-top: rem(200);
+  }
+  .ajax-comment-loading {
+    margin: 0 auto;
+    text-align: center;
+    padding-top: rem(120);
+  }
+
+}
+.question {
+    margin: rem(10) rem(15);
+    .question-list {
+        .ask-img {
+            width: rem(225);
+            .ask-img-item {
+            width: rem(70);
+            height: rem(70);
+            }
+        }
+    }
+}
+.share-info {
+  height: rem(190);
+  font-size: 0;
+  position: relative
+  .bottom-banner {
+    width: 100%;
+    height: 100%;
+    vertical-align: inherit;
+  }
+  .share-qrCode{
+    position: absolute;
+    top: rem(20);
+    left: 50%;
+    width: 100%;
+    transform: translateX(-50%);
+    color: $C400;
+    font-size: rem(13);
+    padding-top: rem(10);
+    padding-bottom: rem(20);
+    .app-qrCode {
+      display: none;
+      ul {
+        width: 100%;
+        // display: flex;
+        // justify-content: center;
+        height: rem(50);
+        line-height: rem(50);
+        text-align: center;
+      }
+      li {
+        //flex: 1;
+        text-align: center;
+        display: inline-block;
+        margin: 0 rem(5);
+        img {
+          width: rem(18);
+          height: rem(18);
+        }
+
+      }
+      .friends, .weixin, .qrcode, .m-qrcode {
+        border: 1px solid $C400;
+        text-align: center;
+        border-radius: rem(30);
+        margin-top: rem(10);
+        padding: 0 rem(10);
+        height: rem(32);
+        line-height: rem(32);
+      }
+      .friends {
+        img {
+          margin-top: rem(-3);
+        }
+
+      }
+      img {
+        padding-right: rem(3);
+      }
+      img {
+        vertical-align: middle;
+      }
+      .tip, .course-id {
+        font-size: rem(13);
+        color: $C400;
+        width: 100%;
+        text-align: center;
+        border: 0;
+      }
+      .tip {
+        margin-top: rem(8);
+      }
+    }
+    .m-qrCode {
+      display: none;
+      .qrCode {
+        margin: rem(10) auto;
+        width: rem(80);
+        height: rem(32.5);
+        line-height: rem(32.5);
+        text-align: center;
+        border: 1px solid $C400;
+        border-radius: rem(30);
+        color: $C400;
+        img {
+          width: rem(18);
+          height: rem(18);
+          vertical-align: sub;
+        }
+      }
+      .qrCode-desc {
+        font-size: rem(12);
+        color: $C400;
+        width: 100%;
+        text-align: center;
+        border: 0;
+      }
+    }
+
+  }
+}
+.listen-content {
+
+  .listen-action {
+    background: $C400;
+    &.action-able {
+      background: $C600;
+    }
+  }
+}
+
+.try-container {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 5;
+  .mask {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+    opacity: 0.5;
+  }
+  .front {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: rem(250);
+    -webkit-transform: translate3d(-50%, -50%, 0);
+    transform: translate3d(-50%, -50%, 0);
+    background-color: #fff;
+    border-radius: rem(3.008);
+    text-align: center;
+    .cancel {
+      font-size: rem(22);
+      font-weight: bold;
+      position: absolute;
+      right: rem(9.008);
+      top: rem(9.008);
+      color: #9d9d9d;
+      z-index: 1;
+    }
+    > h3 {
+      font-size: rem(16);
+      line-height: rem(34);
+      margin-top: rem(10);
+    }
+    > p {
+      font-size: rem(13);
+      line-height: rem(34);
+      margin-top: rem(10);
+    }
+    .btn {
+      overflow: hidden;
+      clearfix();
+      margin-top: rem(10);
+      > div {
+        width: 50%;
+        font-size: rem(13);
+        line-height: rem(36);
+        border-left: 1px solid #ccc;
+        border-top: 1px solid #ccc;
+        margin-left: rem(-1);
+        float: left;
+      }
+      .pay {
+        > a {
+          color: #ff9100;
+        }
+      }
+    }
+  }
+}
+
+
+.page-mask {
+  display: none;
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.1);
+  z-index:2;
+}
+.back-top-component {
+  z-index: 3 !important;
+}
+
+.qrcode-container {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 5;
+  .mask {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+    opacity: 0.5;
+  }
+  .front {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    padding: rem(30);
+    transform: translate3d(-50%, -50%, 0);
+    background-color: #FFF;
+    border-radius: rem(3);
+  }
+  .label-group {
+    font-size: rem(13);
+    margin: 0 auto;
+    text-align: center;
+    .label-name {
+      float:left;
+    }
+    .org-name {
+      margin-left: rem(60);
+      text-align: left;
+    }
+  }
+  #qrcode {
+    margin: 0 auto;
+    text-align: center;
+    padding: rem(10);
+    img {
+        width: rem(124);
+        height: rem(124);
+    }
+    canvas {
+      width: 100%;
+    }
+  }
+  .hint {
+    text-align: center;
+    color: #9D9D9D;
+    font-size: rem(12);
+  }
+  .cancel {
+    font-size: rem(15);
+    font-weight: bold;
+    position: absolute;
+    right: rem(-10);
+    top: rem(-10);
+    color: #9D9D9D;
+    padding: rem(20);
+  }
+  .label-group {
+    .teacher-name {
+      text-align: center;
+    }
+  }
+}
+
+.share-mask {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  .content {
+    position: absolute;
+    top: rem(10);
+    right: rem(33.008);
+    width: rem(205.008);
+    height: rem(142);
+  }
+}
+
+.more-comment {
+    padding: rem(15) 0;
+    font-size: rem(14);
+    color: $g400;
+    text-align: center;
+}

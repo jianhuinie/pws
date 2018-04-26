@@ -1,0 +1,125 @@
+/**
+ * @file 学生信用中心页
+ * @author jixiaohui
+ */
+
+@import '../main/base.less';
+@import '../common/card.less';
+@import '../common/component/comment-list.less';
+
+#main {
+
+    #content {
+        font-family: @font-family-title;
+        width: 100%;
+        margin-top: 55px;
+
+        .profile {
+            width: 100%;
+            height: 120px;
+            position: relative;
+            top: 0;
+            left: 0;
+
+            .avatar-large {
+                border: 4px solid #FFF;
+                position: absolute;
+                top: -60px;
+                left: 0px;
+            }
+
+            .name {
+                float: left;
+                margin-top: 25px;
+                margin-left: 185px;
+                margin-right: 10px;
+
+                span {
+                    font-size: 30px;
+                    color: #333;
+                    margin-right: 5px;
+                }
+
+                .icon {
+                    color: #9ED2FF;
+                }
+            }
+
+            .favorable-rate {
+                font-size: 24px;
+                float: left;
+                margin-top: 30px;
+
+                .txt {
+                    color: #999;
+                }
+
+                .num {
+                    color: @brand-text;
+                }
+            }
+
+            .judge-result {
+                position: absolute;
+                right: 0;
+                top: 10px;
+
+                .icon-smile-o {
+                    color: #F66;
+                }
+
+                .icon-neutral-o {
+                    color: #F0C000;
+                }
+
+                .icon-frown-o {
+                    color: #666;
+                }
+
+                li {
+                    float: left;
+                    border-left: 1px solid #ccc;
+                    padding: 0 30px;
+                    color: #666;
+                    margin: 20px 0;
+
+                    &:nth-child(1) {
+                        border-left: none;
+                    }
+
+                    &:nth-child(3) {
+                        padding-right: 0;
+                    }
+
+                    .icon {
+                        margin-right: 5px;
+                    }
+
+                    span {
+                        margin-left: 5px;
+                        font-size: 24px;
+                        color: #333;
+                    }
+                }
+            }
+        }
+
+        #comment-list {
+
+            ul {
+
+                li {
+
+                    .content {
+                        width: 680px;
+
+                        .container {
+                            width: 640px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}

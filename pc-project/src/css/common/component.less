@@ -1,0 +1,238 @@
+@import './component/dialog.less';
+@import './component/image.less';
+@import './component/avatar.less';
+@import './component/orgLabel.less';
+@import './component/classCourseIcon.less';
+// @import './component/chatLabel.less';
+@import './component/chatLabel4.less';
+
+@import './component/star-score.less';
+@import './component/progress.less';
+@import './component/image-uploader.less';
+
+
+
+.dialog-mask,
+.dialog-primary,
+.dialog-info,
+.dialog-success,
+.dialog-error {
+    z-index: @zindex-huge;
+}
+
+.dialog {
+    display: none;
+    .form-action,
+    .dialog-action {
+        text-align: center;
+    }
+}
+
+.image-browse,
+.btn {
+    position: relative;
+    object,
+    input[type="file"] {
+        .opacity(0);
+        cursor: pointer;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+    }
+}
+
+.dialog-alert,
+.dialog-confirm {
+    min-width: 300px;
+
+    .dialog-body {
+        text-align: center;
+    }
+}
+
+.dialog {
+    .dialog-action {
+        margin-top: @gap-vertical-large * 2;
+    }
+}
+
+.video-dialog,
+.image-dialog {
+
+     .dialog-body {
+        background: url(../../img/teacher/loading.gif) no-repeat 50% 50%;
+        padding: 0;
+        font-size: 0;
+        text-align: center;
+    }
+}
+
+.image-dialog {
+    .dialog-body {
+        background-color: #000;
+    }
+    .icon-chevron-left,
+    .icon-chevron-right {
+
+        @size: 60px;
+
+        background-color: #CCC;
+        background-color: rgba(0,0,0,0.2);
+
+        color: @brand-gray-lighter;
+        cursor: pointer;
+        font-size: 20px;
+
+        width: @size;
+        height: @size;
+        line-height: @size;
+        border-radius: 0.5 * @size;
+        text-align: center;
+
+        position: absolute;
+        top: 50%;
+        margin-top: -0.5 * @size;
+
+        &:hover {
+
+            background-color: #BBB;
+            background-color: rgba(0,0,0,0.3);
+
+            .transition(background-color 0.2s);
+        }
+    }
+    .icon-chevron-left {
+        left: 30px;
+    }
+    .icon-chevron-right {
+        right: 30px;
+    }
+}
+
+
+// 百度分享
+.baidu-share {
+    background-color: #FFF;
+    border: 1px solid @brand-gray;
+    display: none;
+    width: 233px;
+    padding: 10px;
+
+    position: absolute;
+    top: 25px;
+    right: 0;
+    z-index: @zindex-small;
+
+    &:before,
+    &:after {
+        content: ' ' !important;
+        border: 7px solid transparent;
+        position: absolute;
+        right: 14px;
+        visibility: visible !important;
+    }
+    &:before {
+        border-bottom-color: @brand-gray;
+        top: -14px;
+    }
+    &:after {
+        border-bottom-color: #FFF;
+        top: -13px;
+    }
+
+    a {
+        margin: 0 0 0 6px !important;
+
+        &:first-child {
+            margin-left: 0 !important;
+        }
+    }
+}
+
+// 百度地图
+.BMap_bubble_title a,
+.BMap_cpyCtrl {
+    display: none;
+}
+
+// 微信
+.bd_weixin_popup {
+    .box-sizing(content-box);
+}
+
+// 富文本区域
+.rich-text {
+
+    .word-break();
+    .clearfix();
+
+    img {
+        max-width: 740px;
+        height: auto!important;
+    }
+
+    position: relative;
+
+    strong,
+    b {
+        font-weight: bold;
+    }
+
+    ul,
+    ol {
+        list-style-position: inside;
+    }
+
+    ul {
+        list-style-type: disc;
+    }
+    ol {
+        list-style-type: decimal
+    }
+
+    li {
+        p {
+            display: inline-block;
+        }
+    }
+
+    i,
+    em,
+    var,
+    cite,
+    address {
+        font-style: italic;
+    }
+    sup {
+        vertical-align: super;
+    }
+    sub {
+        vertical-align: sub;
+    }
+}
+
+// 文字截断后，为了 seo 新加的全局缩进隐藏样式
+.text-indent-seo {
+
+    position: absolute;
+    left: -5000px;
+
+    width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.btn-primary.new {
+    background-color: @brand-primary-new;
+    &:hover {
+        background-color: #E97520;
+    }
+    &.disabled, &[disabled] {
+        background-color: @brand-gray;
+        border-color: @brand-gray;
+    }
+}

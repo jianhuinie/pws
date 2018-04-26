@@ -1,0 +1,49 @@
+{{ strip }}
+<div class="reply-list">
+    <ul>
+        {{ foreach $data.list as $item }}
+        <li class="reply-item-wrapper" data-user="{{ $item.user_name }}" data-user-id="{{ $item.user_id }}" data-comment-id="{{ $item.comment_id }}">
+            <div class="reply-item">
+                <a class="reply-user-avatar" href="{{ $item.homepage }}" target="_blank">
+                    {{ include file="common/component/image.html" url=$item.avatar width=30 height=30 }}
+                </a>
+                <div class="reply-content">
+                    <p>
+                        <a class="user-name" href="{{ $item.homepage }}" target="_blank">
+                            {{ $item.user_name|escape:'html' }}
+                        </a>
+                        {{ if isset($item.commented_user) && $item.commented_user.user_name }}
+                            <span class="action-label">回复</span>
+                            <a class="user-name" href="{{ $item.commented_user.homepage }}" target="_blank">
+                                {{ $item.commented_user.user_name|escape:'html' }}
+                            </a>
+                        {{ /if }}：
+                        {{ $item.content|escape:'html'|regex_replace: "/\\n/": '<br/>' }}
+                    </p>
+                    <div class="reply-actions">
+                        <span class="action reply-to-action" data-need-login="1" data-action="reply-to-action">回复</span>
+                        <span class="action">{{ $item.time_tip }}</span>
+                        {{ if (isset($permission) && $permission.is_admin == '1') || (isset($login_user) && $login_user.id == $item.user_id) }}
+                        <span class="action delete-reply-action" data-need-login="1" data-action="delete-reply-action">
+                            删除
+                        </span>
+                        {{ /if }}
+                    </div>
+                </div>
+            </div>
+        </li>
+        {{ /foreach }}
+    </ul>
+    <div class="reply-form" data-to-comment-id="">
+        
+        <textarea class="hide" data-init=""></textarea>
+        <div class="reply-form-actions">
+            <div class="form-hint"></div>
+            <button class="btn btn-primary btn-reply" data-need-login="1" data-action="btn-reply">回复</button>
+        </div>
+    </div>
+    {{ if $data.has_more == '1' }}
+    <span class="more-reply" data-page="1">查看更多回复</span>
+    {{ /if }}
+</div>
+{{ /strip }}

@@ -1,0 +1,153 @@
+{{ *
+
+@file 关联帐号
+@author zhujialu
+
+* }}
+{{ extends file="common/pc/base.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $script_path = "static/account_c007b054f2" }}
+    {{ $script_data.type = $tpl_data.type }}
+    {{ $script_data.user_type = $tpl_data.user_type }}
+
+    {{ $type = $tpl_data.type|lower }}
+
+{{ /block }}
+
+{{ block name="title" prepend }}
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/static/account_d0def4997a.css">
+{{ /block }}
+
+{{ block name="body" }}
+
+    {{ $smarty.block.parent }}
+
+    {{ include file="static/common/header.html" }}
+
+{{ strip }}
+    <div id="main">
+
+
+        <h1>
+            <i class="icon icon-check-circle"></i>
+            你已经成功关联
+
+        {{ $map = [] }}
+        {{ $map['qq'] = 'QQ' }}
+        {{ $map['sina'] = '微博' }}
+        {{ $map['wechat'] = '微信' }}
+        {{ $map['renren'] = '人人' }}
+        {{ $map['alipay'] = '支付宝' }}
+        {{ $map['baidu'] = '百度' }}
+        {{ $map[$type] }}
+
+        账号：{{ $tpl_data.nick }}，请输入手机号完成绑定</h1>
+
+
+        <div class="form">
+
+            <p>请输入手机号完成账户绑定，体验跟谁学的完整功能</p>
+
+            {{ include file="common/component/mobileInput.html" is_international=1 show_label=true }}
+
+            <div id="captcha">
+                <div class="form-group">
+
+                    <div class="form-label">
+                        <i class="form-required"></i>
+                        验证码：
+                    </div>
+
+                    <div class="form-controls">
+
+                        <input type="int" class="form-text" name="captcha" required />
+
+                        <span class="error"></span>
+
+                        <div class="form-block">
+                            <img class="captcha-image" src="/captcha?captcha_name=sms_account&1427272006" />
+                            <span>
+                                看不清？
+                                <b class="btn-link btn-change-captcha">换一张</b>
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="form-group">
+
+                <div class="form-label">
+                    <i class="form-required"></i>
+                    校验码：
+                </div>
+
+                <div class="form-controls">
+
+                    <input type="int" class="form-text" name="code" required />
+
+                    <button class="btn-info btn-send-code">
+                        获取校验码
+                    </button>
+
+                    <span class="error"></span>
+
+                    <div class="form-block resend-tip">
+                        <b class="text-info resend-code">
+                            没有收到校验码？
+                        </b>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="form-group password">
+
+                <div class="form-label">
+                    <i class="form-required"></i>
+                    设置密码：
+                </div>
+
+                <div class="form-controls">
+
+                    <input type="password" class="form-text" name="password" required minlength="7" />
+
+                    <span class="error"></span>
+
+                    <div class="form-block text-info">
+                        <i class="icon icon-info-circle"></i>
+                        <small>
+                            为保证帐号安全，请设置包含数字及字母、最低 7 位的密码
+                        </small>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="form-action">
+
+                <button class="btn-primary btn-submit">确认绑定</button>
+                <button class="btn-default btn-quit">放弃绑定</button>
+
+            </div>
+        </div>
+
+    </div>
+{{ /strip }}
+
+    {{ include file="static/common/footer.html" }}
+    {{ include file="common/script.html" }}
+
+
+{{ /block }}

@@ -1,0 +1,151 @@
+<div class="module-content-header">
+    报班退班设置
+</div>
+<div class="module-content-form">
+    <div class="form-group retire-group">
+        <label class="form-label">退班规则</label>
+        {{ if !isset($quitInfo.retire_flag) }}
+            {{ $quitInfo.retire_flag = 0 }}
+        {{ /if }}
+        {{ if $quitInfo.retire_flag != '2' }}
+            {{ $quitInfo.retire_length = '' }}
+        {{ /if }}
+        <div class="form-controls">
+            <div class="radiobox">
+                {{ include file="common/component/radio.html" name="retire_flag" value="0" text="随时可退" checked=($quitInfo.retire_flag == 0) disabled=($tpl_data.total_pay > 0) }}
+                <div class="input-tip-container">
+                    <span class="icon icon-check-circle"></span>
+                    <span class="icon icon-info-circle"></span>
+                </div>
+            </div>
+            {{ if $fromShizi || $quitInfo.retire_flag == 100 }}
+            <div class="radiobox">
+                {{ include file="common/component/radio.html" name="retire_flag" value="100" text="报名后不可退" checked=($quitInfo.retire_flag == 100) }}
+                <div class="input-tip-container">
+                    <span class="icon icon-check-circle"></span>
+                    <span class="icon icon-info-circle"></span>
+                </div>
+            </div>
+            {{ /if }}
+            <div class="radiobox">
+                {{ include file="common/component/radio.html" name="retire_flag" value="1" text="开班前1小时不可退" checked=($quitInfo.retire_flag == 1) disabled=($tpl_data.total_pay > 0) }}
+                <div class="input-tip-container">
+                    <span class="icon icon-check-circle"></span>
+                    <span class="icon icon-info-circle"></span>
+                </div>
+            </div>
+            <div class="radiobox">
+                <label>
+                    {{ include file="common/component/radio.html" name="retire_flag" value="2" text="第" checked=($quitInfo.retire_flag == 2) disabled=($tpl_data.total_pay > 0) }}
+                    <input type="text" class="form-text short-text" maxlength="30" data-validate-name="retireLength" data-validate-trigger="blur" value="{{ $quitInfo.retire_length|default:'' }}" {{ if $tpl_data.total_pay > 0 }} disabled="disabled" {{ /if }}>节课开始后不可退
+                </label>
+                <div class="input-tip-container">
+                    <span class="icon icon-check-circle"></span>
+                    <span class="icon icon-info-circle"></span>
+                </div>
+            </div>
+            <div class="input-desc">
+                课时费将会按照课节结算到你的跟谁学账户，学生在可退期间申请退款将退还未开课部分的课费
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group chaban-group">
+        <label class="form-label">插班规则</label>
+        {{ if !isset($quitInfo.chaban_flag) }}
+        {{ $quitInfo.chaban_flag = 3 }}
+        {{ /if }}
+
+        <div class="form-controls">
+            <div class="radiobox">
+                {{ include file="common/component/radio.html" name="chaban_flag" value="3" text="随时可插班" checked=($quitInfo.chaban_flag == 3) }}
+                <div class="input-tip-container">
+                    <span class="icon icon-check-circle"></span>
+                    <span class="icon icon-info-circle"></span>
+                </div>
+            </div>
+            <div class="radiobox">
+                <label>{{ include file="common/component/radio.html" name="chaban_flag" value="2" text="第" checked=($quitInfo.chaban_flag == 2) }}
+                <input type="text" class="form-text short-text" maxlength="30" data-validate-name="chabanQuota" data-validate-trigger="blur" value="{{ $quitInfo.chaban_quota|default:'' }}">节课开始前可插班</label>
+                <div class="input-tip-container">
+                    <span class="icon icon-check-circle"></span>
+                    <span class="icon icon-info-circle"></span>
+                </div>
+            </div>
+            <div class="radiobox">
+                {{ include file="common/component/radio.html" name="chaban_flag" value="1" text="不可插班" checked=($quitInfo.chaban_flag == 1) }}
+                <div class="input-tip-container">
+                    <span class="icon icon-check-circle"></span>
+                    <span class="icon icon-info-circle"></span>
+                </div>
+            </div>
+            <div class="input-desc">插班指班课已到设置的开始时间后学生再报名</div>
+        </div>
+    </div>
+
+    <div class="form-group chaban-price-group"{{ if $quitInfo.chaban_flag == 1 }}style="display:none;"{{ /if }}>
+        <label class="form-label">插班价格</label>
+        {{ if !isset($quitInfo.chaban_price_flag) }}
+        {{ $quitInfo.chaban_price_flag = 1 }}
+        {{ /if }}
+        {{ if $quitInfo.chaban_price_flag != '2' }}
+        {{ $quitInfo.chaban_price = '' }}
+        {{ /if }}
+        <div class="form-controls">
+
+            {{ include file="common/component/radio.html" name="chaban_price_flag" value="1" text="未结束课程的总价" checked=($quitInfo.chaban_price_flag != 2) }}
+            <label>{{ include file="common/component/radio.html" name="chaban_price_flag" value="2" text="自定义插班价" checked=($quitInfo.chaban_price_flag == 2) }}
+            <input type="text" class="form-text short-text" maxlength="30" data-validate-name="chabanPrice" data-validate-trigger="blur" value="{{ $quitInfo.chaban_price|default:'' }}">元/人</label>
+            <div class="input-tip-container">
+                <span class="icon icon-check-circle"></span>
+                <span class="icon icon-info-circle"></span>
+            </div>
+            <div class="input-desc">
+                如果要允许直播课插班学生观看全部课程的回放视频，请选择自定义插班价，并将价格设为全价
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group open-group">
+        <label class="form-label">保底开班</label>
+        <div class="form-controls">
+            <div class="inline">
+                {{ include file="common/component/radio.html" name="open_status" value="1" text="报名即开班" checked=($tpl_data.basic_info.min_student <= 1) disabled=($tpl_data.total_pay > 0) }}
+                {{ include file="common/component/radio.html" name="open_status" value="2" text="设置保底开班人数" checked=($tpl_data.basic_info.min_student > 1) disabled=($tpl_data.total_pay > 0) }}
+            </div>
+            <div class="input-tip-container">
+                <span class="icon icon-check-circle"></span>
+                <span class="icon icon-info-circle"></span>
+            </div>
+            <div class="input-tip">报名未到保底开班人数，如果希望开班，请在开课3天前在“我的订单-班课订单”中选择确认开班，否则班课将自动关闭</div>
+        </div>
+    </div>
+
+    <div class="form-group open-rule-group" {{ if $tpl_data.basic_info.min_student <= 1 }}style="display:none"{{ /if }}>
+        <label class="form-label">开班规则</label>
+        <div class="form-controls">
+            <div class="inline">
+            报名不足<input type="text" class="form-text short-text" maxlength="30" data-validate-name="minStudent" data-validate-trigger="blur" value="{{ $quitInfo.min_student|default:'' }}"
+            {{ if !$tpl_data.min_student_modifyable }}
+                disabled="disabled"
+            {{ /if }}
+            />人，开班前3天自动关班，已报学生退款
+            </div>
+            <div class="input-tip-container">
+                <span class="icon icon-check-circle"></span>
+                <span class="icon icon-info-circle"></span>
+
+            </div>
+            <div class="input-tip">开课3天前可在我的订单-班课订单中选择确认开班或者关闭该班</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">电话联系</label>
+        <div class="form-controls">
+            {{ include file="common/component/checkBox.html" name="bs_switch" value="4" text="该班学生可以通过电话联系您" checked=($tpl_data.bs_switch != "0") }}
+            <div class="input-desc">开启后，学生可以通过跟谁学的服务拨打您的手机</div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,96 @@
+.liudan{
+    position: fixed;
+    top: rem(200);
+    right: rem(10);
+}
+
+.tanchuang-mask{
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: black;
+    opacity: 0.5;
+    z-index:1;
+}
+
+.tanchuang{
+    position: fixed;
+    top: rem(55);
+    width: 80%;
+    left: 10%;
+    background: #e8cf80;
+    padding: rem(40) rem(10) rem(20) rem(10);
+    text-align: center;
+    border-radius: rem(4);
+    z-index:10;
+    textarea{
+        height: rem(70);
+    }
+    .m-item{
+        width: 90%;
+        margin-left: 5%;
+        background: #fff;
+        -webkit-box-shadow: inset rem(1) rem(1) rem(2) rem(0) rgba(76,52,29,0.57);
+        box-shadow: inset rem(1) rem(1) rem(2) rem(0) rgba(76,52,29,0.57);
+        overflow: hidden;
+        position: relative;
+        margin-bottom:rem(10);
+        .form-element{
+            border: none;
+            margin-top: rem(6);
+            text-align: left;
+            font-family: MicrosoftYaHei;
+            font-size: rem(12);
+            color: #9d9e9e;
+            letter-spacing: rem(0);
+            width: 80%;
+            padding: rem(8) 0;
+            outline: none;
+        }
+        .form-element-item{
+            margin-left:rem(40);
+        }
+        .tanchuang-icon{
+            position: absolute;
+            top: rem(10);
+            left: rem(10);
+            width: rem(20);
+            height: rem(20);
+        }
+    }
+    .confirm-pay{
+        width: 70%;
+        margin-left: 15%;
+        border-radius: rem(5);
+        height: rem(35);
+        background: #ffd764;
+        -moz-box-shadow:0 0 rem(10) #8B7E66;
+        -webkit-box-shadow:0 0 rem(10) #8B7E66;
+        box-shadow:0 0 rem(10) #8B7E66;
+        margin-top:rem(20);
+        .confirm-text{
+            font-family:MicrosoftYaHei-Bold;
+            font-weight:bold;
+            font-size:rem(18);
+            color:#3c3c3c;
+            letter-spacing:rem(0);
+            text-align:center;
+            line-height: rem(35);
+        }
+    }
+    .cancel-icon{
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: rem(40);
+        width: rem(40);
+        font-size: rem(24);
+        opacity: 0.5;
+    }
+}
+.error{
+      border: 1px solid red;
+}

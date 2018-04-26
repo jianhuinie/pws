@@ -1,0 +1,173 @@
+{{ *
+
+@file 老师会员中心
+@author zhujialu
+
+* }}
+
+{{ extends file="common/pc/base.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $script_path = 'pay/vip_4cbdccd9bf' }}
+
+    {{ $vip_type_map = [] }}
+    {{ foreach $tpl_data.vip_type_list as $item }}
+        {{ $vip_type_map[$item.vip_type] = $item }}
+    {{ /foreach }}
+
+    {{ $vip_type = 0 }}
+    {{ if isset($tpl_data.vip_type) }}
+        {{ $vip_type = $tpl_data.vip_type }}
+    {{ /if }}
+
+    {{ $op_type = 1 }}
+    {{ if isset($tpl_data.op_type) }}
+        {{ $op_type = $tpl_data.op_type }}
+    {{ /if }}
+
+    {{ $vip_level = $user_data.vip_level }}
+    {{ $is_renew = $op_type == 1 && $vip_level > 0 }}
+    {{ $is_upgrade = $op_type == 2 }}
+
+    {{ $script_data.vipTypeMap = $vip_type_map }}
+    {{ $script_data.vipType = $vip_type }}
+    {{ $script_data.opType = $op_type }}
+
+    {{ $identity = 'teacher' }}
+
+
+
+{{ /block }}
+
+{{ block name="title" prepend }}
+会员中心 -
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/pay/vip_3ac72a9f1e.css">
+{{ /block }}
+
+{{ block name="body" }}
+{{ strip }}
+
+    {{ $smarty.block.parent }}
+
+    {{ include file="common/siteNav.html" }}
+
+    <div id="header">
+        <div class="wrapper">
+            <a class="logo" href="{{ $origin_http }}"></a>
+            <h1>
+                会员中心
+            </h1>
+        </div>
+    </div>
+
+    <div id="main" class="card">
+
+        <div class="form">
+            <div class="form-group">
+                <div class="form-label">
+                    开通会员：
+                </div>
+                <div class="form-controls">
+                    <div class="vip-types">
+                    {{ $is_renew }}-{{ $vip_level }}
+                        <!-- <button class="vip-type" data-type="1"
+                        {{ if $is_renew || $vip_level >= 1 }} disabled{{ /if }}
+                        >
+                            会员
+                        </button> -->
+                        <button class="vip-type" data-type="2"
+                        {{ if $is_renew || $vip_level >= 2 }} disabled{{ /if }}
+                        >
+                            高级会员
+                        </button>
+                        <button class="vip-type" data-type="3"
+                        {{ if $is_renew || $vip_level >= 3 }} disabled{{ /if }}
+                        >
+                            超级会员
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-label">
+                    开通对象：
+                </div>
+                <div class="form-controls">
+                    <div class="form-static">
+
+                        {{ $mobile_start = substr($user_data.mobile, 0, 3) }}
+                        {{ $mobile_end = substr($user_data.mobile, 7, 4) }}
+
+                        {{ $mobile_mask = $mobile_start|cat: '****'|cat: $mobile_end }}
+
+                        {{ if $user_data.display_name }}
+                            {{ $user_data.display_name }}
+                            （{{ $mobile_mask }}）
+                        {{ else }}
+                            {{ $mobile_mask }}
+                        {{ /if }}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-label">
+                    付费模式：
+                </div>
+                <div class="form-controls">
+                    <div class="form-static vip-duration">
+
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-label">
+                    应付金额：
+                </div>
+                <div class="form-controls">
+                    <div class="form-static">
+                        <span class="pay-money"></span>
+                        元
+                         
+                    </div>
+                    <div class="form-block">
+                        <label class="form-checkbox">
+                            <input type="checkbox" class="invite-code-switcher" />
+                            邀请码（选填）
+                        </label>
+                        <input type="text" class="form-text" name="inviteCode" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-action">
+                <button class="btn-primary btn-submit">
+                {{ if $is_upgrade }}
+                    升级
+                {{ else if $is_renew }}
+                    续费
+                {{ else }}
+                    立即开通
+                {{ /if }}
+                </button>
+                <label>
+                    <input type="checkbox" class="agree-clause" checked />
+                    接受并同意
+                    <a href="{{ $root_http }}/guide/service_layout?a=service&op=vip" target="_blank">
+                        跟谁学老师会员服务协议
+                    </a>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    {{ include file="common/footer.html" }}
+    {{ include file="common/script.html" }}
+
+{{ /strip }}
+{{ /block }}

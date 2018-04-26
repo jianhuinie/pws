@@ -1,0 +1,16 @@
+/**
+ *
+ * 简写顺序：property duration type delay
+ * 多个用 , 分隔
+ */
+.transition(@value1, @value2:X, ...) {
+
+    @props: ~`"@{arguments}".replace(/[\[\]]|\,\sX/g, '')`;
+
+    -webkit-transition: @props;
+       -moz-transition: @props;
+        -ms-transition: @props;
+         -o-transition: @props;
+            transition: @props;
+
+}

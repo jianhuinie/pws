@@ -1,0 +1,153 @@
+/**
+ * @file 一对一课程订单 选课弹窗
+ * @author  wangyujie
+ */
+.purchase-course-dialog{
+
+    .course-name {
+        font-size: 16px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: @gap-vertical-small;
+    }
+
+    .form-label {
+        width: 80px;
+        text-align: right;
+    }
+
+    .high-label {
+        line-height: 34px;
+    }
+
+    .form-static {
+        em {
+            font-size: 22px;
+        }
+    }
+
+    .lesson-way-group,
+    .combo-group {
+        .form-static {
+            position: relative;
+        }
+        .error {
+            display: none;
+            position: absolute;
+            right: -80px;
+            top: -37px;
+            color: @brand-error;
+            .icon {
+                margin-right: @gap-horizontal-tiny;
+            }
+        }
+    }
+
+    .form {
+        position: relative;
+    }
+
+    .custom-combo-error {
+        display: none;
+        position: absolute;
+        left: 133px;
+        top: -19px;
+        color: @brand-error;
+        .icon {
+            margin-right: @gap-horizontal-tiny;
+        }
+    }
+
+    .lesson-way {
+        border: 1px solid #ccc;
+        cursor: pointer;
+        height: 36px;
+        padding: 6px 32px;
+        margin-right: 10px;
+        &.active {
+            background: url(../../../img/teacher/checked.png) right bottom no-repeat;
+            border: 1px solid @brand-primary;
+        }
+    }
+
+    .combo-list {
+        max-width: 540px;
+        li {
+            cursor: pointer;
+            float: left;
+            margin-right: @gap-horizontal-medium;
+            border: 1px solid #e6e6e6;
+            margin-bottom: @gap-vertical-medium;
+            width: 258px;
+            height: 64px;
+            background: #fff;
+            &.active {
+                border: 1px solid @brand-primary;
+                color: @brand-primary;
+            }
+            .combo-icon {
+                width: 36px;
+                height: 36px;
+                float: left;
+                background: url(../../../img/icon/combo_tiny.png);
+                margin-left: 2 * @gap-horizontal-medium;
+                margin-top: 12px;
+                margin-right: 10px;
+            }
+            .detail {
+                float: left;
+                width: 180px;
+            }
+            .combo-title {
+                font-size: 12px;
+                margin-top: 6px;
+                b {
+                    font-weight: bold;
+                    font-size: 18px;
+                }
+                span {
+                    color: @brand-primary;
+                }
+            }
+            .combo-info {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+
+        }
+    }
+
+    .input-group {
+        .input-group-addon {
+            cursor: pointer;
+        }
+        .form-text {
+            width: 60px;
+        }
+    }
+
+    .dialog-action {
+        text-align: right;
+        border-top: 1px solid #eee;
+        margin-top: @gap-vertical-medium;
+        padding-top: @gap-vertical-medium;
+        .count-price {
+            display: inline-block;
+            margin-right: 2 * @gap-horizontal-medium;
+        }
+        .total-price {
+            color: @brand-error;
+            font-size: 22px;
+            font-weight: bold;
+        }
+        .btn-purchase {
+            width: 120px;
+            background-color: #f95710;
+            border-color: #f95710;
+        }
+    }
+
+
+
+
+}

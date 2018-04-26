@@ -1,0 +1,5 @@
+[{
+    "tpl": "./download.tpl",
+    "router": "/kaoyan_download",
+    "mock_data": "./mock/download.json"
+}]

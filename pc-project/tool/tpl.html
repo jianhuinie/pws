@@ -1,0 +1,209 @@
+<div class="form">
+    <input type="hidden" name="lesson_id" value="${lessonId}">
+    <input type="hidden" name="purchase_id" value="${purchaseId}">
+    <div class="info">
+        <img src="${avatar}" class="thumbnail">
+        <div class="lesson-info">
+            <p>课程名称：${courseName}</p>
+            <p>
+            <!-- if: ${userType} == 2 -->
+                老师：
+            <!-- elif: ${userType} == 0 -->
+                学生：
+            <!-- /if -->
+                ${userName}
+            </p>
+            <p>最大修改时长：${maxHours}小时</p>
+        </div>
+        <div class="available">
+            <p>约课时段：</p>
+            <p>上午 (06:00-13:00)</p>
+            <p>下午 (13:00-19:00)</p>
+            <p>晚上 (19:00-24:00)</p>
+        </div>
+    </div>
+    <div class="select">
+        <div class="date">
+            <div class="form-group">
+                <label class="form-label">请输入上课时间：</label>
+                <div class="form-date">
+                    <input type="text" name="course_date" class="form-text course-date" required readonly />
+                    <div class="calendar"></div>
+                    <span class="day-of-week"></span>
+                    <span class="trigger">
+                        <i class="icon icon-calendar"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="time">
+            <div class="form-group">
+                <label class="form-label">设置开始时间：</label>
+                <div class="dropdown daytime-select start-time">
+                    <input class="form-text" name="start_time" required readonly />
+                    <span class="trigger">
+                        <i class="caret"></i>
+                    </span>
+                    <ul class="dropdown-menu"></ul>
+                </div>
+            </div>
+            <span class="to">
+                至
+            </span>
+            <div class="form-group">
+                <label class="form-label">设置结束时间：</label>
+                <div class="dropdown daytime-select end-time">
+                    <button class="btn-default">
+                        <i class="caret"></i>
+                        <span></span>
+                    </button>
+                    <ul class="dropdown-menu"></ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div>
+        <div class="form-group result">
+            <label class="form-label">本次约课总计小时数：</label>
+            <div class="form-controls">
+                <span class="form-static total-hours">
+                    <span>0</span>
+                        小时
+                </span>
+                <span class="error-msg">
+                    <i class="icon icon-info-circle"></i>
+                    <span class="text"></span>
+                </span>
+            </div>
+        </div>
+        <div class="form-action">
+            <button class="btn-primary confirm">提交修改</button>
+            <button class="btn-default cancel">取消</button>
+        </div>
+    </div>
+    <div class="prompt">
+        注意：修改约课时间提交后，请联系对方在系统中重新确认约课哦~
+    </div>
+</div>
+
+<table class="table fix-header">
+    <thead>
+        <tr>
+            <th class="left" width="50%">名称</th>
+            <th width="15%">大小</th>
+            <th width="15%">状态</th>
+<!--             <th width="10%">操作</th> -->
+        </tr>
+    </thead>
+</table>
+<div class="table-container">
+    <div class="wrapper">
+        <table class="table">
+            <colgroup>
+                <col width="50%"></col>
+                <col width="15%"></col>
+                <col width="15%"></col>
+                <!-- <col width="10%"></col> -->
+            </colgroup>
+
+            <tbody>
+            <!-- for: ${files} as ${file} -->
+                <tr data-path=${file.path}>
+                    <td class="left">
+                        <div class="name">
+                            <i class="icon icon-file-${file.type} tiny"></i>${file.name}
+                        </div>
+                    </td>
+                    <td>${file.size}</td>
+                    <td class="status">
+                        <i class="icon icon-clock"></i>
+                        <span>等待上传</span>
+                    </td>
+                    <!-- <td><i class="icon icon-upload-cancel"></i></td> -->
+                </tr>
+            <!-- /for -->
+            </tbody>
+        </table>
+        <div class="progress"></div>
+    </div>
+</div>
+<div class="action">
+    <input type="file" name="files" disabled="true" multiple>
+    <button class="btn-primary new small add" disabled><i class="icon icon-plus"></i>添加资料</button>
+    <span class="hint text-info"><i class="icon icon-info-circle"></i>严禁存储、处理、传输、发布任何涉密、色情、暴力、侵权等违法违规内容</span>
+</div>
+
+<div class="header">
+    <i class="icon icon-file-${file.type} small"></i>
+    <div>
+    <!-- if: ${count} > 1 -->
+        <div class="name">${file.name}等${count}个文件</div>
+    <!-- else -->
+        <div class="name">${file.name}</div>
+    <!-- /if -->
+        <div class="size">${file.size}</div>
+    </div>
+</div>
+<div class="dest">
+    <div class="header">移动到：<span class="path-name"></span></div>
+    <div class="tree-container">
+        <div class="tree">
+            <ul class="root"></ul>
+        </div>
+    </div>
+</div>
+<div class="action">
+    <button class="btn-primary new confirm">确认</button>
+    <button class="btn-default cancel">取消</button>
+</div>
+
+<!-- for: ${folders} as ${folder} -->
+<li>
+    <div class="node" data-path="${folder.path}" data-name="${folder.name}" style="padding-left:${left}px" }>
+        <i class="trigger icon icon-caret-down"></i>
+        <i class="trigger icon icon-caret-right"></i>
+        <i class="icon icon-file-folder tiny"></i>
+        <!-- if: ${folder.alias} -->
+        <span class="name">${folder.alias}</span>
+        <!-- else -->
+        <span class="name">${folder.name}</span>
+        <!-- /if -->
+    </div>
+    <ul></ul>
+</li>
+<!-- /for -->
+
+
+<div class="top-reminder">
+    <div>
+        <i class="icon icon-info-circle"></i>请选择文件
+    </div>
+</div>
+
+
+<tr data-path="${file.path}">
+    <td class="left">
+        <label>
+            <input type="checkbox">
+            <i class="icon icon-file-folder small"></i>
+            <span class="name"></span>
+        </label>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+</tr>
+
+<div>
+    <i class="icon icon-info-circle"></i>
+    <div class="message">
+        资料删除后不可恢复</br>
+        确认需要删除吗？
+    </div>
+</div>
+<div class="action">
+    <button class="btn-info confirm">确认</button>
+    <button class="btn-default cancel">取消</button>
+</div>

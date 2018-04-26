@@ -1,0 +1,166 @@
+@import "page/_base/base.styl";
+@import "page/_common/nav_bar/nav_bar.styl";
+$g6=#3c3c3d;
+$g5=#6d6d6e;
+
+body {
+  background-color: #F2F4F5;
+}
+.double-line {
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  white-space: inherit
+}
+.main-content {
+  #switch-onoff{
+    display: none;
+  }
+  .single-item {
+    margin-top: rem(10);
+    padding: rem(15);
+    font-size: rem(15);
+    color: $g6;
+    background-color: #fff;
+    position: relative;
+  }
+  /* 底部确认报名条 */
+  .bottom-fixed-bar{
+    position: fixed;
+    bottom: 0;
+    height: rem(45);
+    width: 100%;
+    background-color: #fff;
+    color: $g6;
+    padding-right: rem(133);
+    line-height: rem(45);
+    i {
+        font-size: rem(12);
+        font-style: normal;
+      }
+      .price{
+        font-size: rem(17);
+      }
+    .content{
+      text-align: center;
+      font-size: rem(15);
+    }
+
+    .btn{
+      position: absolute;
+      width: rem(133);
+      height: rem(45);
+      background-color: #245BD2;
+      color: #fff;
+      font-size: rem(17);
+      right: 0;
+      top: 0;
+      text-align: center;
+
+
+    }
+
+  }
+
+  /* 短信提醒 */
+  .switch {
+    position: absolute;
+    display: inline-block;
+    right: rem(15);
+    border-radius: rem(16);
+    border: 1px solid #eee;
+    width: rem(55);
+    height: rem(30);
+    padding: rem(1);
+    transition: all 0.2s ease;
+    top: rem(10);
+
+    i {
+      transition: all 0.2s ease;
+      display: inline-block;
+      border: 1px solid #fff;
+      box-shadow: rem(1) rem(1) rem(1) #ccc;
+      top: rem(0);
+      height: rem(28);
+      width: rem(28);
+      background-color: #fff;
+      border-radius: 50%;
+      left: rem(0);
+      position: absolute;
+    }
+
+    &.on {
+      background-color: #44DB5E;
+      border: 1px solid #44DB5E;
+      i {
+        border: 1px solid #fff;
+        box-shadow: none;        
+        left: rem(25);
+      }
+    }
+  }
+
+  /* 课程总价 */
+  .total-price {
+    .price {
+      display: inline-block;
+      position: absolute;
+      right: rem(15);
+
+      i {
+        font-size: rem(10);
+        font-style: normal;
+      }
+    }
+  }
+
+  /* 课程列表 */
+  .class-list {
+    margin-top: rem(10);
+    background-color: #fff;
+
+    .item {
+      padding: rem(15);
+    }
+    .type {
+      font-size: rem(13);
+      line-height: 1;
+
+      .c-t {
+        color: $g6;
+      }
+      .c-e {
+        font-size: $g5;
+        display: inline-block;
+        padding-left: rem(8);
+      }
+    }
+    .main {
+      position: relative;
+      padding-left: rem(90);
+      min-height: rem(51);
+      margin-top: rem(20);
+
+      .title {
+        font-size: rem(15);
+        color: $g6;
+        line-height: 1.3;
+      }
+      .img {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: rem(51);
+        width: rem(80);
+        overflow: hidden;
+        border-radius: rem(5);
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+}

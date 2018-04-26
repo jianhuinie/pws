@@ -1,0 +1,132 @@
+{{ *
+
+@file 背景资料
+@author wangyujie
+
+* }}
+
+{{ strip }}
+<div class="background">
+    <a name="background"></a>
+
+    {{ function getBackgroundShowcase data=null }}
+
+    <div class="form-trigger" data-background='{{ json_encode($data, 77) }}'>
+
+        <div class="info-header">
+            <i class="icon icon-profile-rect"></i>
+            <h3>背景资料</h3>
+
+            {{ if isset($tpl_data.verify_group.background) }}
+
+                {{ $background = $tpl_data.verify_group.background }}
+
+                {{ if $background == 0 }}
+                <div class="message message-primary">
+                    <i class="icon icon-clock"></i>
+                    排队审核中，审核之后个人主页才会更新哦~
+                </div>
+                {{ elseif $background == 2 }}
+                <div class="message message-error">
+                    <i class="icon icon-info-circle"></i>
+                    背景资料设置有问题哦，
+                    <a class="background-audit">点击查看拒绝原因</a>
+                </div>
+                {{ /if }}
+
+            {{ /if }}
+
+            <div class="edit">
+                <i class="icon icon-pencil"></i>
+                编辑
+            </div>
+        </div>
+
+        <div class="info-body">
+
+            <div class="info">
+                <ul>
+                    <li class="half-line">
+                        <div class="title">
+                            <em>教</em>龄：
+                        </div>
+                        <div class="cont">
+                            <span class="school-age">
+                                <strong>
+                                    {{ if $data.school_age > 0 }}
+                                        {{ $data.school_age }} 年
+                                    {{ else }}
+                                        30 年以上
+                                    {{ /if }}
+                                </strong> 教龄
+                            </span>
+                        </div>
+                    </li>
+                    <li class="half-line">
+                        <div class="title">单位/机构/学校：</div>
+                        <div class="cont">
+                            <span class="institution">
+                                {{ $data.institution }}
+                            </span>
+                        </div>
+                    </li>
+                    <li class="half-line">
+                        <div class="title">教学科目：</div>
+                        <div class="cont">
+                            <span class="institution">
+                            {{ if !empty($data.subjects) && $data.subjects[0] }}
+                                {{ $data.subjects[0].name }}
+                            {{ /if }}
+                            {{ if !empty($data.subjects) && $data.subjects[1] }}
+                                /{{ $data.subjects[1].name }}
+                            {{ /if }}
+                            {{ if !empty($data.subjects) && $data.subjects[2] }}
+                                /{{ $data.subjects[2].name }}
+                            {{ /if }}
+                            </span>
+                        </div>
+                    </li>
+                    <li class="full-line">
+                        <div class="title">个人标签：</div>
+                        <div class="cont tags">
+                            {{ foreach $data.tags as $item }}
+                                <em>{{ $item.title }}</em>
+                            {{ /foreach }}
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    {{ /function }}
+
+    <script type="text/plain">
+    {{ getBackgroundShowcase }}
+    </script>
+
+    {{ if isset($tpl_data.background) }}
+
+    {{ getBackgroundShowcase data=$tpl_data.background }}
+
+    {{ else }}
+
+    <div class="noinfo form-trigger edit">
+
+        <span class="desc">你的教龄和教学特点</span>
+
+        <i class="icon icon-round-edit"></i>
+        <h3>
+            背景资料
+            <span class="text-error">（必填）</span>
+        </h3>
+
+    </div>
+
+    {{ /if }}
+
+    {{ include file="./backgroundForm.html" audits=$tpl_data.audits background=$tpl_data.background }}
+
+</div>
+{{ /strip }}

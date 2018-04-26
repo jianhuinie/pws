@@ -1,0 +1,1 @@
+.suggestion{position:absolute;border:1rpx solid #f3f4f5;background-color:#fff;z-index:1;max-height:400rpx}.suggestion view{height:80rpx;padding-left:20rpx;line-height:80rpx}.suggestion view:not(last-child){border-bottom:1rpx solid #f3f4f5}

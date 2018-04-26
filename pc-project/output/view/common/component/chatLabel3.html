@@ -1,0 +1,20 @@
+{{ *
+
+@file 马上交谈 标签
+      参数
+      user_number
+      user_type
+      no_text 是否不需要文字
+      text 添加自己需要的问题
+
+@author zhengjunxin
+
+* }}
+{{ strip }}
+<span class="chat-label" data-user-number="{{ $user_number }}" data-user-type="{{ $user_type }}">
+    <i class="icon icon-chat"></i>
+    {{ if !isset($no_text) || !$no_text }}
+    <b>{{ $text }}</b>
+    {{ /if }}
+</span>
+{{ /strip }}

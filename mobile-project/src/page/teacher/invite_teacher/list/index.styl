@@ -1,0 +1,131 @@
+@import "page/_base/base.styl";
+@import "page/_common/nav_bar/nav_bar.styl";
+
+
+.top-banner {
+    height: rem(160);
+    font-size: rem(14);
+    color: #bbdefe;
+    position: relative;
+
+    .background{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    .top-banner-info{
+        margin: 0 rem(15) 0 rem(60);
+        position: relative;
+        padding-top: rem(27);
+
+        .avatar{
+            height: rem(41);
+            width rem(41);
+            position: absolute;
+            border: 2px solid #fff;
+            border-radius: rem(100);
+            overflow: hidden;
+        }
+
+        .vip, .text{
+            height: rem(45);
+
+            img{
+                position: absolute;
+                height: rem(45);
+                width: rem(45);
+            }
+
+            .inline{
+                padding: rem(5) 0 0 rem(55);
+            }
+
+            .info-top{
+                padding-top: rem(8);
+            }
+        }
+        .vip{
+            margin-top: rem(15);
+        }
+
+
+    }
+
+    .top-banner-none-text{
+        width: rem(80);
+        height: rem(80);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: rem(-40);
+        margin-left: rem(-40);
+    }
+}
+
+.clearfix:after {
+  content: " ";
+  display: block;
+  clear: both;
+  height: 0;
+}
+
+.clearfix {
+  zoom: 1;
+}
+
+.active{
+    color: #64b5f6;
+    font-size: rem(12);
+}
+
+.no-active{
+    color: #9d9e9e;
+}
+
+.no-data{
+    font-size: rem(14);
+    color: #9d9e9e;
+}
+
+.g-list{
+    position: relative;
+
+    .g-list-header{
+        padding: 0 rem(15);
+        background-color: #f2f4f5;
+        color: #6d6d6e;
+        font-size: rem(13);
+    }
+    .item{
+        padding: 0 rem(15);
+        border-bottom: 1px solid #ccc;
+        color: #3c3d3d;
+        font-size: rem(14);
+    }
+    .set{
+        float:left;
+        width: 33%;
+        margin: rem(8) rem(0);
+        .inline{
+           margin-bottom: rem(8);
+        }
+    }
+
+    .g-list-header .set{
+        margin: rem(15) 0;
+    }
+
+    .g-list-none-item{
+        padding-top: rem(90);
+        width: rem(200);
+        margin: auto;
+        text-align: center;
+
+        img{
+            width: rem(65);
+            height: rem(65);
+            margin-bottom: rem(30);
+        }
+    }
+}

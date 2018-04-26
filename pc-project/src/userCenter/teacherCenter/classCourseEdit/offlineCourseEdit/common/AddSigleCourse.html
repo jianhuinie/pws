@@ -1,0 +1,82 @@
+<div class="add-sigle-course">
+
+    <div class="wrapper">
+
+        {{#if options.orgTeachers.length > 0 && !options.isEdit}}
+        <div class="group fluid">
+            <label class="label">
+                授课老师
+            </label>
+            <div class="controls">
+                <Select options="{{orgTeachersSelectOptions}}" />
+            </div>
+        </div>
+        {{/if}}
+
+        <div class="group begin">
+            <label class="label">
+                课程日期
+            </label>
+            <div class="controls">
+                <DatePicker options="{{timeDatePickerOptions}}" />
+            </div>
+        </div>
+
+        <div class="group center">
+            <label class="label">
+                开始时间
+            </label>
+            <div class="controls">
+                <div class="dropdowns">
+                    <Select options="{{hourSelectOptions}}" />
+                    <Select options="{{minuteSelectOptions}}" />
+                </div>
+            </div>
+        </div>
+
+        <div class="group">
+            <label class="label">
+                课程时长
+            </label>
+            <div class="controls">
+                <Select options="{{durationSelectOptions}}" />
+            </div>
+        </div>
+        {{#if !options.isEdit}}
+        <div class="group fluid">
+            <label class="label">
+                课节内容
+            </label>
+            <div class="controls">
+                <Input options="{{lessonNameInputOptions}}" />
+            </div>
+        </div>
+        {{else}}
+        <div class="fluid">
+            <span class="muted">
+                请修改最近一节课的上课时间，后续课节会随之自动调整
+            </span>
+        </div>
+        {{/if}}
+
+        <div class="footer">
+            <div class="buttons">
+                <div class="button primary" on-click="save()">
+                    {{#if options.isEdit}}
+                    确认
+                    {{else}}
+                    保存
+                    {{/if}}
+                </div>
+                <div class="button secondary" on-click="close()">
+                    取消
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <style>
+        {{style}}
+    </style>
+</div>

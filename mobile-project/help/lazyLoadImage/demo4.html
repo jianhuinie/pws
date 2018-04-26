@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LazyLoadImage Demo Page</title>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1, maximum-scale=1">
+    <style>
+        html, body {
+            margin: 0;
+        }
+
+        body {
+            padding-bottom: 40px;
+        }
+
+        ul, ol {
+            margin: 0;
+            padding: 0;
+        }
+
+        #example1 {
+            position: relative;
+            margin: 5px;
+        }
+
+        #example1 ul {
+            overflow: hidden;
+        }
+
+        #example1 li {
+            display: inline-block;
+            float: left;
+            width: 50%;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+
+        .img-wrap-16-9 {
+            position: relative;
+            padding-bottom: 56.25%;
+        }
+
+        .img-wrap-16-9 img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .text-wrap {
+            position: relative;
+            padding-bottom: 56.25%;
+            text-align: center;
+            background: #0b97c4;
+            color: #fff;
+        }
+
+        .text-wrap span {
+            position: absolute;
+            top: 38%;
+            left: 0;
+            width: 100%;
+        }
+
+        .img-preview {
+            background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAhCAMAAACY2smqAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADBQTFRF2tra39/f5OTk5ubm6enp5eXl6Ojo6 + vr5 + fn6urq8/Pz1NTU7e3t8vLy7Ozs////RtUAMgAAAk5JREFUeNp0lAGSIyEIRREFwSB9/9vux05nMrW7VKViwxMFAdo7Xm2stfb/BcbYm/ZqrVHTWP/GSz2ZyBZQkpgCmjOO4ZfsGI3gSajQxmNGzI6tUEqP6XPiF11wHhFrRHIrVNqw4RnAlbmMjzTuevRDGxeaNMxGlu6R/PnCssw0Cp00dAYUvauX6ZFIh2SZlOL2OjO7jFzbTT5weGeFdEsEQu9khXNct6zebzaMYx1NsoeXVzjNyev6iMu5KvtHs2REQwYWtzjkwFPMsqhFhhxy + /G8xOGWNpni9PU6QmXhTO/4TypVg2pxkBGCEqxJBj1s2DknX/TZnoqE9 + bjuhrwfQxcPqbV7vVWtbqC1dPrxvH + 3IFwcjd8NhBXOzq4Fa8ntgWK1rrVpZ8SRUF/XwHHKtCXHvRHgI4bpXaTLwU6gZrmddGHrAuIxnP2EXxpYh87YrCPOuvF3CsBX7srWwjrZOZxW7E4knV9ucW + 6FnJCsMjvYMqBB6Q2euJ6VWvwdNbPUFUFCgLy/crVgnUcqLOz8J74Ak2Wis + hXXIquhfFQRf0QatTnAidltWoEYNouNnuzKqGz7XJlQoKpZHpLElSzfrxt7F0bKhYijKdtrQaFSBzrs70KfVV4LYUoW5D3RMyumCvZj8q6NQRGIs + bQi/qeSrkLRMjTmr + 6b87sdQfI6Xg/bZ/5PXA75RpdSM/j6m5uOQrUzzOg9xPapXK8RdO84i1HFL/see/SZeLuDbghJdUCQXa6R1fczIOl7OkZZn6GFVRuxfybpHwEGADm2M4cHNA97AAAAAElFTkSuQmCC");
+            background-size: 42px;
+            background-color: #f2f2f2;
+            background-repeat: no-repeat;
+            background-position: 50%;
+            overflow: hidden;
+        }
+
+        .rich-info-container img {
+            max-width: 100%;
+        }
+
+        .tab-panels {
+
+        }
+
+    </style>
+    <script src="../../lib/requirejs/require.debug.js"></script>
+    <script src="../help.js"></script>
+</head>
+<body>
+<h1>Demo Page</h1>
+
+
+<div>
+    <div style="position:relative;height: 300px;background: linear-gradient(#333333,#cccccc);color:#ffffff;">
+        <h2>
+            方式四:
+        </h2>
+        <p>控制局部图片懒加载,例如tab切换时</p>
+        <p>使用方式: </p>
+        <p>1. 如果没有新tab的内容没有变动, 激活新tab时重新调用lazyLoadImage.refresh()即可</p>
+        <p>2. 如果tab内容为动态创建, 插入dom节点后需要调用lazyLoadImage.init传入局部容器重新查找需要懒加载的图片</p>
+    </div>
+    <div style="overflow: hidden">
+        <style>
+            ul.tabs {
+                margin: 0;
+                padding: 0;
+                float: left;
+                list-style: none;
+                height: 32px;
+                border-bottom: 1px solid #999;
+                border-left: 1px solid #999;
+                width: 100%;
+            }
+
+            ul.tabs li {
+                float: left;
+                margin: 0;
+                padding: 0 20px;
+                height: 31px;
+                line-height: 31px;
+                border: 1px solid #999;
+                border-left: none;
+                margin-bottom: -1px;
+                background: #e0e0e0;
+                overflow: hidden;
+                position: relative;
+            }
+
+            ul.tabs li.active, ul.tabs li.active a:hover {
+                background: #fff;
+                border-bottom: 1px solid #fff;
+            }
+
+            .tab_container {
+                border: 1px solid #999;
+                border-top: none;
+                clear: both;
+                float: left;
+                width: 100%;
+                background: #fff;
+                -moz-border-radius-bottomright: 5px;
+                -khtml-border-radius-bottomright: 5px;
+                -webkit-border-bottom-right-radius: 5px;
+                -moz-border-radius-bottomleft: 5px;
+                -khtml-border-radius-bottomleft: 5px;
+                -webkit-border-bottom-left-radius: 5px;
+            }
+        </style>
+        <div>
+            <ul class="tabs">
+                <li class="active">tab1</li>
+                <li>tab2</li>
+                <li>tab3</li>
+            </ul>
+        </div>
+        <div class="tab_container">
+            <ul>
+                <li id="tab1" class="tab_content">
+                    <h2>内容一:</h2>
+                    <div class="img-wrap-16-9 img-preview">
+                        <img data-src="https://imgs.genshuixue.com/5069385_fxj985q8.jpeg"/>
+                    </div>
+                    <div class="img-wrap-16-9 img-preview">
+                        <img data-src="https://imgs.genshuixue.com/0cms/d/file/content/2016/01/5688ac9561619.jpg"/>
+                    </div>
+                </li>
+                <li id="tab2" class="tab_content" style="display: none;">
+                    <h2>内容二:</h2>
+                    <div class="img-wrap-16-9 img-preview">
+                        <img data-src="https://imgs.genshuixue.com/0cms/d/file/content/2016/01/5688aca8ee262.jpg"/>
+                    </div>
+                    <div class="img-wrap-16-9 img-preview">
+                        <img data-src="https://imgs.genshuixue.com/0cms/d/file/content/2015/12/567dfbc8e8908.jpg"/>
+                    </div>
+                </li>
+                <li id="tab3" class="tab_content" style="display: none;min-height: 350px;">
+                    loading……
+                </li>
+            </ul>
+        </div>
+        <script>
+            require(['zepto', 'common/lazyLoadImage'], function ($, lazyLoadImage) {
+                $("ul.tabs li").click(function () {
+                    $("ul.tabs li").removeClass("active");
+                    $(this).addClass("active");
+                    $(".tab_content").hide();
+                    var activeTab = $(this).html();
+                    var $tabContent = $('#' + activeTab);
+
+                    if (activeTab == 'tab3' && !$tabContent.attr('data-init')) {
+                        $tabContent.show();
+                        setTimeout(function () {
+                            $tabContent.html(
+                                    '<h2>内容三: (动态创建内容)</h2>' +
+                                    '<div class="img-wrap-16-9 img-preview">' +
+                                    '<img data-src="https://imgs.genshuixue.com/0cms/d/file/content/2015/12/567e70c7e291c.jpg"/>' +
+                                    '</div>' +
+                                    '<div class="img-wrap-16-9 img-preview">' +
+                                    '<img data-src="https://imgs.genshuixue.com/0cms/d/file/content/2015/08/55d7dc9b34ca8.jpg"/>' +
+                                    '</div>'
+                            );
+                            lazyLoadImage.init($tabContent);
+                        }, 2000);
+                    } else {
+                        $tabContent.show();
+                        lazyLoadImage.refresh();
+                    }
+                    return false;
+                });
+            });
+        </script>
+    </div>
+</div>
+
+<script>
+    require(['common/lazyLoadImage'], function (lazyLoadImage) {
+        lazyLoadImage.init();
+    });
+</script>
+</body>
+</html>

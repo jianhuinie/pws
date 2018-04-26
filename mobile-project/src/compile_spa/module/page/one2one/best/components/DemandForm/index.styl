@@ -1,0 +1,116 @@
+.liudan-form {
+    /*width: rem(335);
+    margin: auto;
+    margin-top: rem(15);
+    padding-bottom: rem(18);*/
+    padding: 0 rem(15) rem(18) rem(15);
+    input {
+        -webkit-tap-highlight-color:rgba(0,0,0,0);
+    }
+    /*input:focus {
+        color: #FF6C00;
+    }*/
+    .input-border {
+        border: rem(1) solid #DDDDDE;
+        height: rem(42);
+        padding: rem(10) 0;
+        border-radius: rem(3);
+    }
+    .gray {
+        background-color: #f8f8f8;
+        border-color: #ddddde;
+    }
+    .orange {
+        border-color: #ff6c00;
+    }
+    .input-box {
+        display: flex;
+        width: 100%;
+        margin-bottom: rem(10);
+        input {
+            font-size: rem(16);
+            padding: 0 rem(10);
+            background: #FFFFFF;
+            border-radius: rem(3);
+            color: #3d3d3e;
+            outline: none;
+            -webkit-appearance: none;
+            border: 0;
+            width: 85%;
+            height: 100%;
+        }
+        .gray {
+            background-color: #f8f8f8;
+            border-color: #ddddde;
+        }
+        .name-border {
+            width: 39%;
+            margin-right: 3%;
+            padding: rem(8) 0;
+            box-sizing: border-box;
+            .name {
+                width: 90%;
+                overflow: hidden;
+            }
+        }
+        .subject-border {
+            width: 58%;
+            margin-right: 0;
+            box-sizing: border-box;
+            position: relative;
+        }
+        .subject-box {
+            position: relative;
+            flex: 1;
+            .subject {
+                width: 100%;
+            }
+            .search-suggestion {
+                position: absolute;
+                background: #fff;
+                top: rem(45);
+                left: 0;
+                right: 0;
+                max-height: rem(150);
+                overflow-x: hidden;
+                overflow-y: auto;
+                z-index: 5;
+                li {
+                    padding: 0 rem(20);
+                    height: rem(38);
+                    line-height: rem(38);
+                    font-size: rem(13);
+                    color: #9D9E9E;
+                    border-bottom: 1px solid #f3f4f5;
+                }
+            }
+        }
+        .number {
+            flex: 1;
+        }
+        .get-code {
+            color: #FF6C00;
+            font-size: rem(15);
+            height: rem(20);
+            line-height: rem(20);
+            padding-right: rem(5);
+        }
+        .sending-code {
+            color: #CDCDCE;
+        }
+    }
+    .hide {
+        display: none;
+    }
+    .submit {
+        margin-top: rem(10);
+        width: 100%;
+        height: rem(45);
+        background: #FF6C00;
+        border-radius: rem(4);
+        font-size: rem(17);
+        color: #FFFFFF;
+        line-height: rem(45);
+        text-align: center;
+    }
+}

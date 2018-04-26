@@ -1,0 +1,31 @@
+{{ if isset($length) }}
+    {{ $length = $length }}
+{{ else }}
+    {{ $length = count($course_list) }}
+{{ /if }}
+
+{{ *
+    course_type:
+        1 一对一;
+        2 班课
+        3 视频课
+        4 3810课
+        5 试听课
+        13 优选一对一
+* }}
+
+{{ foreach $course_list as $va }}
+    {{ if $va@index < $length }}
+        {{ if $va.course_type == 1 || $va.course_type == 13 }}
+            {{ include file = "teacherCenter/common/one2one.html" val=$va }}
+        {{ else if $va.course_type == 3 }}
+            {{ include file = "teacherCenter/common/video.html" val=$va }}
+        {{ else }}
+            {{ if $va.lesson_way == 2 }}
+                {{ include file = "teacherCenter/common/online.html" val=$va }}
+            {{ else if $va.lesson_way == 4 }}
+                {{ include file = "teacherCenter/common/offline.html" val=$va }}
+            {{ /if }}
+        {{ /if }}
+    {{ /if }}
+{{ /foreach }}

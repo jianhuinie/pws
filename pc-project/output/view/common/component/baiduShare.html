@@ -1,0 +1,77 @@
+{{ *
+
+@file 百度分享
+      需要在 data block 定义如下变量：
+
+      $baidu_share_text
+      $baidu_share_image
+      $baidu_share_url
+      $style
+
+@author zhujialu, zhangshaolong
+
+* }}
+
+{{ strip }}
+
+{{ if empty($baidu_share_url) }}
+    {{ $baidu_share_url = 'http://'|cat:$smarty.server.HTTP_HOST|cat:$smarty.server.REQUEST_URI }}
+{{ /if }}
+
+<div class="baidu-share bdsharebuttonbox show-controller" {{ if !empty($style) }}style="{{ $style }}"{{ /if }}>
+    <a href="javascript:;" class="bds_more" data-cmd="more"></a>
+    <a href="javascript:;" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a >
+    <a href="javascript:;" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博" ></a>
+    <a href="javascript:;" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="javascript:;" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+    <a href="javascript:;" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+    <a href="javascript:;" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+</div>
+
+<script src="{{ $static_origin }}/dep/base/0.0.12/asset/base.js"></script>
+
+<script>
+(function () {
+    var shortUrl = null;
+    var originalUrl = '{{ $baidu_share_url }}'.replace(/script/g, '').replace(/javascript:/g, '');
+
+    window._bd_share_config = {
+        common: {
+            bdSnsKey: {},
+            bdText: '{{ $baidu_share_text }}',
+            bdMini: 1,
+            bdMiniList: false,
+            bdPic: '{{ $baidu_share_image }}',
+            bdStyle: 0,
+            bdSize: 24,
+            bdUrl: '{{ if isset($baidu_share_url) }}{{ $baidu_share_url }}{{ /if }}',
+            onBeforeClick: function (cmd, config) {
+                if (cmd === 'weixin' && shortUrl) {
+                    config.bdUrl = shortUrl;
+                } else {
+                    config.bdUrl = originalUrl;
+                }
+                return config;
+            }
+        },
+        share: []
+    };
+
+    /** 请求服务器，把长URL转换为短URL **/
+    $.post('/short_url/get',
+        {
+            long_url: '{{ $baidu_share_url }}',
+            q: '{{ md5("f7c1657c6effb51e5a2dea1ad02d3392"|cat:$baidu_share_url) }}'
+        },
+        function (response) {
+            shortUrl = response.data.short_url;
+        },
+        'json'
+    );
+
+    var head = document.getElementsByTagName('head')[0];
+    var script = head.appendChild(document.createElement('script'));
+    script.src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5);
+})();
+</script>
+{{ strip }}

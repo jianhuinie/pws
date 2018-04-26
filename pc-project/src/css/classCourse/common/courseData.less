@@ -1,0 +1,113 @@
+#course-material {
+    padding: 40px 20px;
+    margin-top: 14px;
+    .title {
+        margin-bottom: 40px;
+        font-size: 20px;
+        text-align: center;
+        line-height: 24px;
+        color: #333333;
+    }
+    .data-list {
+        .list-item {
+            position: relative;
+            font-size: 15px;
+            color: #000;
+            padding-left: 9px;
+            border-bottom: 1px solid #d2d2d2;
+            line-height: 42px;
+            .item-name {
+                display: inline-block;
+                cursor: pointer;
+                &:hover {
+                    color: #f90;
+                }
+                width: 90%;
+            }
+            &:hover {
+                border: 1px solid #d2d2d2;
+                background-color: #f7f7f7;
+                border-top: none;
+            }
+            &:first-child:hover {
+                border: 1px solid #d2d2d2;
+                background-color: #f7f7f7;
+            }
+            .icon-new {
+                width: 31px;
+                height: 13px;
+                display: inline-block;
+                margin-left: 10px;
+                background: url(../../../img/classCourse/ic_new.png) no-repeat;
+            }
+            span {
+                position: absolute;
+                right: 15px;
+                bottom: 8px;
+                font-size: 13px;
+                color: #6d6d6e;
+                border: 1px solid #9d9d9e;
+                border-radius: 2px;
+                width: 40px;
+                line-height: 23px;
+                text-align: center;
+                display: none;
+                cursor: pointer;
+                &:hover {
+                    background-color: #ff9100;
+                    border: 1px solid #ff9100;
+                    a {
+                        color: #fff;
+                    }
+                }
+            }
+            &:hover > span {
+                display: inline-block;
+            }
+        }
+    }
+}
+.preview-dialog {
+    .dialog-header {
+        text-align: center;
+    }
+    .dialog-body {
+        .frame-box {
+            & > div {
+                position: relative;
+                width: 100%;
+                height: 32px;
+            }
+            .set-position {
+                position: absolute;
+                right: 6px;
+            }
+            .picture-box {
+                width: 760px;
+                height: 520px;
+                overflow: scroll;
+            }
+            .download-btn {
+                a {
+                    color: #fff;
+                    display: block;
+                    background: #ff9100;
+                    border-radius: 4px;
+                    width: 60px;
+                    line-height: 32px;
+                    text-align: center;
+                    font-size: 16px;
+                }
+            }
+            .text-info {
+                background: #cdcdce;
+                border-radius: 4px;
+                width: 152px;
+                line-height: 32px;
+                text-align: center;
+                color: #fff;
+                font-size: 16px;
+            }
+        }
+    }
+}

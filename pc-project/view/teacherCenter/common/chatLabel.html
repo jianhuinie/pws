@@ -1,0 +1,21 @@
+{{ *
+
+@file 马上交谈 标签
+参数
+user_number
+user_type
+no_text 是否不需要文字
+
+@author zhujialu
+
+* }}
+{{ strip }}
+<span class="chat-label {{ if !empty($class) }} {{ $class }} {{ /if }}" data-user-number="{{ $user_number }}" data-user-type="{{ $user_type }}">
+    <i class="icon-chat-new"></i>
+    {{ if !empty($text) }}
+    <b>{{ $text }}</b>
+    {{ else }}
+    <b>咨询老师</b>
+    {{ /if }}
+</span>
+{{ /strip }}

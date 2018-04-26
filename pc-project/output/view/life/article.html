@@ -1,0 +1,69 @@
+{{ *
+
+@file 本周话题
+@author wangtianhua
+
+* }}
+
+{{ strip }}
+{{ if isset($data) }}
+<div class="hot-topic">
+    {{ foreach $data as $val }}
+        <h2>
+            <span>
+                <i class="icon-symbolt"></i>
+                    {{ $val.chief_title|cn_truncate:26 }}
+                <i class="icon-symbolb"></i>
+            </span>
+        </h2>
+        <p class="recommendation">{{ $val.vice_title|cn_truncate:70 }}</p>
+        <ul class="card-body" data-click="topic-study-{{ $val@index+1 }}">
+            {{ foreach $val.classes as $item }}
+                <li class="card {{ if ($item@index+1)%3 == '0' }} right {{ /if }}{{ if ($item@index)%3 == '0' }} first {{ /if }}" data-sku="{{ $item.item_type }}|{{ $item.item_id }}">
+
+                    <a href="{{ $item.detail_url }}" class="pic" target="_blank">
+                        {{ include file="common/component/image.html" url=$item.cover width="370" height=210 }}
+                        <div class="hidedesc">
+                            <div class="hidedesc_words">
+                            {{ $item.description|cn_truncate:70 }}
+                            </div>
+                        </div>
+                        <div class="hide-mode"></div>
+                    </a>
+                    <div class="detail">
+                        <div class="course_name">
+                            <a href="{{ $item.detail_url }}" target="_blank" class="name" data-sku="{{ $item.item_type }}|{{ $item.item_id }}" >{{ $item.name|cn_truncate:20 }}</a>
+                        </div>
+                        <p class="describe">
+                        {{ if isset($item.recommend) }}
+                            {{ $item.recommend|cn_truncate:24 }}
+                        {{ /if }}
+                        </p>
+                        <p class="information">
+                        {{ if $item.price == '0' }}
+                            <span class="price free">免费</span>
+                        {{ else }}
+                        <span class="price"><b>¥</b>{{ $item.price }}元</span>
+                        {{ /if }}
+
+                        <span class="time">
+                            {{ if isset($item.course_date) && $item.course_date != "" }}
+                                <i class="icon icon-timenew"></i>
+                                    {{ $item.course_date }}
+                            {{ /if }}
+                        </span>
+
+                            <span class="people">
+                                <i class="icon icon-peoplenew"></i>
+                                {{ $item.applied }}人在学习
+                            </span>
+                        </p>
+                    </div>
+                </li>
+
+            {{ /foreach }}
+        </ul>
+    </div>
+    {{ /foreach }}
+{{ /if }}
+{{ /strip }}

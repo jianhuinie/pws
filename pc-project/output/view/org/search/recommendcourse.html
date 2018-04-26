@@ -1,0 +1,98 @@
+{{ *
+
+@file 推荐课程
+@author wangtianhua
+
+* }}
+
+{{ strip }}
+{{ if isset($recommendcourse) && count($recommendcourse) }}
+<div class="detail-recommend">
+	<div class="recommend-course">
+    <h2>推荐课程</h2>
+        <div class="course-detail">
+        <a href="{{ $recommendcourse.pc_url }}" class="pic" target="_blank">
+    	{{ include file="common/component/image.html" url=$recommendcourse.preface width="200" height="120" }}
+        </a>
+        	<div class="detail">
+                <a href="{{ $recommendcourse.pc_url }}" title="{{ $recommendcourse.name }}" target="_blank" class="course-name">
+                    {{ $recommendcourse.name|cn_truncate:18 }}
+                </a>
+                <span class="arrange" title='{{ $recommendcourse.arrangement }}'>
+                    课程安排:
+                    <strong>
+                        {{ $recommendcourse.arrangement|cn_truncate:18 }}
+                    </strong>
+                </span>
+
+                {{ if isset($recommendcourse.student_desc) }}
+                <span class="fit" title='{{ $recommendcourse.student_desc }}'>
+                    适用人群:
+                    <strong>
+                        {{ $recommendcourse.student_desc|cn_truncate:18 }}
+                    </strong>
+                </span>
+                {{ /if }}
+
+                {{ if isset($recommendcourse.address) }}
+                <span class="address" title='{{ $recommendcourse.address }}'>
+                    上课地点:
+                    <strong>
+                        {{ $recommendcourse.address|cn_truncate:20 }}
+                    </strong>
+                </span>
+                {{ /if }}
+            </div>
+        </div>
+        <div class="teacher-detail">
+            <a href="{{ $recommendcourse.teacher_url }}" target="_blank" class="teacher-name">主讲老师: {{ $recommendcourse.teacher_name|cn_truncate:10 }}</a>
+
+            {{ include file="common/component/avatar.html" type="small" img=$recommendcourse.teacher_avatar url=$root|cat:'/'|cat:$recommendcourse.teacher_number target="_blank" }}
+
+
+            {{ if $recommendcourse.teacher_score }}
+                {{ include file="common/component/starScore.html" score=$recommendcourse.teacher_score }}
+            {{ else }}
+                暂无评分
+            {{ /if }}
+
+            {{ if $recommendcourse.order_comment_count ==0 && $recommendcourse.invite_comment_count ==0 }}
+                <span class="comment">0 条评论</span>
+            {{ else }}
+                <a href="{{ $recommendcourse.comment_url }}" target="_blank">
+                    <span class="comment">
+                        {{ $recommendcourse.order_comment_count
+                        + $recommendcourse.invite_comment_count }} 条评论
+                    </span>
+                </a>
+            {{ /if }}
+
+            <span class="school-age">{{ $recommendcourse.school_age }} 年教龄</span>
+        </div>
+        <div class="btn-message">
+            <span class="new-price">
+               ¥&nbsp;
+                <strong>
+                {{ if $recommendcourse.price }}
+                    {{ $recommendcourse.price }}
+                {{ else }}
+                    0
+                {{ /if }}
+                </strong>
+            </span>
+            <span class="old-price">¥&nbsp;
+                <strong>
+                {{ if $recommendcourse.original_price }}
+                    {{ $recommendcourse.original_price }}
+                {{ else }}
+                    0
+                {{ /if }}
+                </strong>
+            </span>
+
+            <a href="{{ $recommendcourse.pc_url }}" class="btn-primary reserve-course" target="_blank">立即报名</a>
+        </div>
+    </div>
+</div>
+{{ /if }}
+{{ /strip }}

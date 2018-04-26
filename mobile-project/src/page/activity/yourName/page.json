@@ -1,0 +1,10 @@
+[
+    {
+        "tpl": "./index.tpl",
+        "router": "/yourName/index"
+    },
+    {
+        "tpl": "./result.tpl",
+        "router": "/yourName/result"
+    }
+]

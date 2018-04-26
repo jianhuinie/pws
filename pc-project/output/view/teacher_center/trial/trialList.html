@@ -1,0 +1,62 @@
+{{ *
+@file 预约试听课 － 列表页
+@author wangyujie
+* }}
+
+{{ strip }}
+
+{{ block name="trial_type_nav" }}{{ /block }}
+
+{{ $tabs = [] }}
+
+{{ $tab0 = [] }}
+{{ $tab0.title = '全部' }}
+{{ $tab0.key = 1 }}
+{{ $tabs[] = $tab0 }}
+
+{{ $tab1 = [] }}
+{{ $tab1.title = '待支付' }}
+{{ $tab1.key = 2 }}
+{{ $tabs[] = $tab1 }}
+
+{{ $tab2 = [] }}
+{{ $tab2.title = '待排课' }}
+{{ $tab2.key = 3 }}
+{{ $tabs[] = $tab2 }}
+
+{{ $tab3 = [] }}
+{{ $tab3.title = '已排课' }}
+{{ $tab3.key = 4 }}
+{{ $tabs[] = $tab3 }}
+
+{{ $tab4 = [] }}
+{{ $tab4.title = '已完成' }}
+{{ $tab4.key = 5 }}
+{{ $tabs[] = $tab4 }}
+
+{{ if $tpl_data.all_count > 0 }}
+    {{ include file="common/center/component/listTabs.html" tabs=$tabs tab_count=$tpl_data.pay_count type="default" }}
+{{ /if }}
+
+{{ if count($tpl_data.order_list) }}
+<div class="trial-list">
+    <div class="hint text-info">
+        <i class="icon icon-info-circle"></i>
+        学生支付并预约后，请尽快给学生拨打电话确认课程时间及内容，然后再点击“为学生排课”
+    </div>
+    {{ foreach $tpl_data.order_list as $item }}
+        {{ include file="./trialItem.html" item=$item }}
+    {{ /foreach }}
+
+    {{ include file="common/component/pager.html" page=$tpl_data.pagination.page page_size=$tpl_data.pagination.page_size count=$tpl_data.pagination.count nofollow=true }}
+</div>
+{{ else }}
+<div class="no-trial">
+    <img src="{{ $static_origin }}/asset/img/teacher-center/no-course_252575d49d.png">
+    <p>
+        暂时还没有学生预约您的试听课哦
+    </p>
+</div>
+{{ /if }}
+
+{{ /strip }}

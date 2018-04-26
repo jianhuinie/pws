@@ -1,0 +1,22 @@
+{{ *
+
+@file 订单状态
+@author zhujialu
+
+* }}
+{{ strip }}
+
+{{ $orderStatus['wait_for_pay'] = [ "wait-for-pay", "待支付" ] }}
+{{ $orderStatus['canceled'] = [ "canceled", "已取消" ] }}
+{{ $orderStatus['refunded'] = [ "refunded", "申请退款成功" ] }}
+{{ $orderStatus['closed'] = [ "closed", "已关闭" ] }}
+{{ $orderStatus['pay_failed'] = [ "pay-failed", "待支付" ] }}
+{{ $orderStatus['pay_success'] = [ "pay-success", "进行中" ] }}
+{{ $orderStatus['refunding'] = [ "refunding", "退款中" ] }}
+{{ $orderStatus['refund_success'] = [ "refund-success", "退款成功" ] }}
+{{ $orderStatus['wait_for_comment'] = [ "wait-for-comment", "待评价" ] }}
+{{ $orderStatus['appealing'] = [ "appealing", "申诉中" ] }}
+{{ $orderStatus['normal_over'] = [ "normal-over", "已完成" ] }}
+{{ $orderStatus['appeal_over'] = [ "appeal-over", "申诉完成" ] }}
+
+{{ /strip }}

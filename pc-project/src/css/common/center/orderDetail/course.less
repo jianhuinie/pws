@@ -1,0 +1,109 @@
+/*
+ * @file 约课详情
+ * @author zhujialu
+ */
+#main {
+    .course {
+        .content {
+            border: none;
+            .course-date {
+                min-width: 145px;
+            }
+            .course-time {
+                min-width: 130px;
+            }
+            .course-duration {
+                min-width: 100px;
+            }
+            .course-number {
+                min-width: 150px;
+            }
+            .course-status {
+                min-width: 110px;
+            }
+            .course-teacher {
+                min-width: 130px;
+            }
+            .no-lesson {
+                padding: 10px 20px;
+            }
+        }
+
+        caption {
+            border-bottom: 3px solid #ff9100;
+            color: #ff6c00;
+            text-align: left;
+            padding: 10px 35px 5px;
+            margin: 0 20px;
+            position: relative;
+            .icon {
+                font-size: 22px;
+                position: absolute;
+                left: 52px;
+                bottom: -8px;
+            }
+        }
+
+        th,
+        td {
+            border-left: none;
+            padding: 10px 20px;
+            vertical-align: middle;
+
+            &:first-child {
+                padding-left: 40px;
+            }
+        }
+
+        tr {
+            // border-top: 1px solid #ededed;
+            &.canceled {
+                background-color: lighten(@brand-gray-lighter, 5%);
+            }
+        }
+
+        td {
+            color: @brand-text;
+            max-width: 250px;
+        }
+
+        .small + .small {
+            margin-left: 5px;
+        }
+
+        .enter_comment {
+            color: #6287d5;
+            font-size: 13px;
+        }
+
+        .enter_classroom {
+            background: #ddddde;
+            border-radius: 4px;
+            width: 70px;
+            height: 28px;
+            font-size: 13px;
+            color: #9d9d9e;
+        }
+
+        .action-enter_classroom {
+            background: #ff9100;
+            border-radius:4px;
+            width: 70px;
+            height: 28px;
+            font-size: 13px;
+            color: #ffffff;
+        }
+    }
+
+    .latest-lesson {
+        tr {
+            border: none;
+        }
+        .action-enter_classroom {
+            vertical-align: middle;
+        }
+        .action-pay {
+            float: right;
+        }
+    }
+}

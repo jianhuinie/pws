@@ -1,0 +1,91 @@
+/**
+ * @file 添加视频课水印
+ * @author wangtianhua
+ */
+
+@import '../../common/layout.styl';
+
+.hard {
+    padding-left: 30px;
+    border: 1px solid #DDDDDD;
+    height: 40px;
+    line-height: 40px;
+}
+.watermark-edit {
+    padding: 30px 60px;
+    .group {
+        > .controls {
+            display: inline;
+        }
+    }
+    .button {
+        margin-left: 12px;
+        margin-bottom: 10px;
+    }
+    .watermark-guide {
+        .one-tips {
+            margin-left: -10px;
+            float: left;
+            margin-right: 6px;
+            height: 40px;
+        }
+        .text {
+            line-height: 20px;
+        }
+    }
+    .switch-wrapper {
+        position: relative;
+        display: inline;
+        .switch {
+            background: url("../../../img/userCenter/switch.png") no-repeat;
+            height: 22px;
+            width: 44px;
+            position: absolute;
+            top: -5px;
+            left: 0;
+        }
+    }
+}
+
+.preview {
+    width: 581px;
+    height: 296px;
+    margin-top: 30px;
+    background: url('../../../img/userCenter/preview.png') no-repeat;
+    position: relative;
+    .image-preview {
+        width: 55px;
+        height: 55px;
+        position: absolute;
+        bottom: 17px;
+        right: 46px;
+        > img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+.watermark-upload {
+    .dialog-header {
+        height: 40px;
+        line-height: 40px;
+        background: #F5F5F5;
+        border: 1px solid #DDDDDD;
+        h1 {
+            font-size: 16px;
+            margin: 0 10px;
+        }
+    }
+    .dialog-close {
+        float: right;
+        font-size: 30px;
+        margin-right: 10px;
+    }
+}
+.descibe {
+    width: 581px;
+    text-align: center;
+    color: #7f7c7e;
+    line-height: 40px;
+}

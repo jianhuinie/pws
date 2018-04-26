@@ -1,0 +1,146 @@
+<!--课程信息分页面-->
+{{ foreach $tpl_data.courses as $val }}
+<div class="lessons">
+    <div class="course-nav">
+        <span class="category">{{ $val.title }}</span>
+        <ul >
+            {{ foreach $val.tab as $v }}
+            <li {{ if $v@first }}class="active"{{ /if }} data-cat="{{ $v.subject_id }}">{{ $v.name }}</li>
+            {{ /foreach }}
+        </ul>
+        <a href="{{ $val.more_url }}" class="more" target="_blank">更多></a>
+    </div>
+    <div class="course-content">
+        <ul class="list catlist{{ $val.tab[0].subject_id }}">
+            {{ foreach $val.list as $v }}
+                {{ **一对一课程** }}
+                {{ if $v.is1to1 == 1 }}
+                    <li class="item {{ if ($v@index+1)%4 == 0 }}last{{ /if }}">
+                        <a class="cover" href="{{ $v.teacher_url }}" target="_blank" title="{{ $v.name }}">
+                            <img src="{{ $v.cover }}@1e_225w_127h_1c_0i_1o_90Q_1x">
+                            <span class="name">{{ $v.name|cn_truncate:17 }}</span>
+                        </a>
+                        <div class="button-box">
+                            <div class="price-box">
+                                <span class="price">
+                                {{ if $v.price == 0 }}
+                                    免费
+                                {{ else }}
+                                    {{ if !empty($v.chaban_price) }}
+                                        ￥{{ $v.chaban_price }}
+                                    {{ else }}
+                                        ￥{{ $v.price }}
+                                    {{ /if }}
+                                {{ /if }}
+                                </span>
+                                {{ if !empty($v.original_price) }}
+                                <span class="origin-price">￥{{ $v.original_price }}</span>
+                                {{ /if }}
+                            </div>
+                            <a class="btn" href="{{ $v.teacher_url }}" target="_blank">咨询报名</a>
+                            <div class="date-box">
+                                {{ if empty($v.org_url) }}
+                                    <a class="org" href="{{ $v.teacher_url }}" title="{{ $v.teacher_name }}" target="_blank">{{ $v.teacher_name|cn_truncate:5 }}</a>
+                                {{ else }}
+                                    <a class="org" href="{{ $v.org_url }}" title="{{ $v.org_name }}" target="_blank">{{ $v.org_name|cn_truncate:5 }}</a>
+                                {{ /if }}
+                            </div>
+                        </div>
+                    </li>
+                {{ **班课** }}
+                {{ else if $v.is1to1 == 0 }}
+                    <li class="item {{ if ($v@index+1)%4 == 0 }}last{{ /if }}">
+                        <a class="cover" href="{{ $v.course_url }}" target="_blank" title="{{ $v.name }}">
+                            <img src="{{ $v.cover }}@1e_225w_127h_1c_0i_1o_90Q_1x">
+                            <span class="name">{{ $v.name|cn_truncate:17 }}</span>
+                        </a>
+                        <div class="button-box">
+                            <div class="price-box">
+                                <span class="price">
+                                {{ if $v.price == 0 }}
+                                    免费
+                                {{ else }}
+                                    {{ if !empty($v.chaban_price) }}
+                                        ￥{{ $v.chaban_price }}
+                                    {{ else }}
+                                        ￥{{ $v.price }}
+                                    {{ /if }}
+                                {{ /if }}
+                                </span>
+                                {{ if !empty($v.original_price) }}
+                                <span class="origin-price">￥{{ $v.original_price }}</span>
+                                {{ /if }}
+                            </div>
+                            <a class="btn" href="{{ $v.course_url }}" target="_blank">查看详情</a>
+                            <div class="date-box">
+                                <span class="date">{{ $v.begin_time }}</span>
+                                {{ if empty($v.org_url) }}
+                                    <a class="org" href="{{ $v.teacher_url }}" title="{{ $v.teacher_name }}" target="_blank">{{ $v.teacher_name|cn_truncate:5 }}</a>
+                                {{ else }}
+                                    <a class="org" href="{{ $v.org_url }}" title="{{ $v.org_name }}" target="_blank">{{ $v.org_name|cn_truncate:5 }}</a>
+                                {{ /if }}
+                            </div>
+                        </div>
+                    </li>
+                {{ /if }}
+            {{ /foreach }}
+        </ul>
+        {{ foreach $val.tab as $v }}
+            {{ if !$v@first }}
+            <ul class="list catlist{{ $v.subject_id }}" style="display:none;">
+                <div class="loading"></div>
+            </ul>
+            {{ /if }}
+        {{ /foreach }}
+    </div>
+</div>
+<!--热门文章-->
+{{ if isset($val.hot_news)&&!empty($val.hot_news) }}
+<div class="hotarticle">
+    <span class="category">热门文章</span>
+    <ul class="list">
+        {{ foreach $val.hot_news as $v }}
+        <li class="item">
+            <a href="{{ $v.url }}" title="{{ $v.subject }}" target="_blank" class="link"><i class="point"></i>{{ $v.subject|cn_truncate:23 }}</a>
+        </li>
+        {{ /foreach }}
+    </ul>
+</div>
+<div class="right-ad">
+    <a href="http://ju.genshuixue.com/" target="_blank">
+        <img src="../../../asset/img/navigation/360/banner-right_60af56df07.png">
+    </a>
+</div>
+{{ /if }}
+<!--精品机构-->
+{{ if isset($val.hot_orgs)&&!empty($val.hot_orgs) }}
+<div class="bestorg">
+    <span class="category">精品教育机构</span>
+    <ul class="list">
+        {{ foreach $val.hot_orgs as $v }}
+        <li class="item {{ if $v@last }}last{{ /if }}">
+            <div class="info">
+                <a class="avatar" href="{{ $v.org_url }}" target="_blank">
+                    {{ if empty($v.logo) }}
+                    <img src="{{ $static_origin }}/asset/img/org/logo_35c5eacab8.jpg">
+                    {{ else }}
+                    <img src="{{ $v.logo }}@1e_64w_64h_1c_0i_1o_90Q_1x">
+                    {{ /if }}
+                </a>
+                <div class="detail">
+                    <a class="name" href="{{ $v.org_url }}" target="_blank">{{ $v.title }}</a>
+                    <span class="address">地点：{{ $v.address }}</span>
+                    <span class="tel">电话：{{ $v.phone }}</span>
+                </div>
+                <div class="action">
+                    <a href="{{ $v.org_url }}" target="_blank" class="btn sign">咨询报名</a>
+                    <a data-name="{{ $v.title }}" data-org-number="{{ $v.org_number }}" class="btn communicate">免费通话</a>
+                </div>
+            </div>
+            <p class="introduce">{{ $v.desc }}</p>
+        </li>
+        {{ /foreach }}
+    </ul>
+</div>
+{{ /if }}
+{{ /foreach }}

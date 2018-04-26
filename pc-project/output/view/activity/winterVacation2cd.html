@@ -1,0 +1,321 @@
+{{ extends file="common/pc/base.html" }}
+{{ block name="data" }}
+
+{{ $need_im = false }}
+
+{{ $smarty.block.parent }}
+{{ $flotage_config.hidden = 1 }}
+{{ $script_path = "activity/winterVacation2_b68c1034f0" }}
+{{ if isset($smarty.get.teacherId) }}
+{{ $script_data.teacherId = $smarty.get.teacherId }}
+{{ /if }}
+{{ $amd_more = [ 'common/main/component/header_40e06bdd81' ] }}
+{{ $baidu_share_text = "父母若不在意谁还会在意？这份礼物你得收下！知道你要选寒假班，我们精选了顶级老师，不仅仅为高分而学，更是让孩子收获方法、习惯和品德这些能够伴随他/她一生的东西！时间宝贵，不来报名师难道随意将就？" }}
+
+{{ $baidu_share_image = "http://img.gsxservice.com/0cms/d/file/content/2015/12/566e9928e2bee.jpg" }}
+
+{{ /block }}
+
+{{ block name="title" prepend }}
+父母若不在意谁还会在意？这份礼物你得收下！
+{{ /block }}
+
+{{ block name="description" }}
+
+{{ /block }}
+
+{{ block name="keywords"  }}
+
+{{ $smarty.block.parent }}
+
+{{ /block }}
+
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/activity/winterVacation2_080be3da98.css" />
+{{ /block }}
+{{ strip }}
+{{ block name="body" }}
+
+{{ $smarty.block.parent }}
+{{ include file="common/siteNav.html" }}
+{{ include file="common/main/common/header.html" }}
+<script>
+var teacherData = [
+    {
+        "name": "杜敏",
+        "tid": "372436108",
+        "curl": "http://www.genshuixue.com/activity/one2oneWinterDetail?number=372436108",
+        "title": "老杜数学七年级寒假衔接班",
+        "stitle": "初一数学基础班",
+        "des": "曾任教重点中学，16年资深课外辅导老师，善于捕捉学生心理动态，授课极具吸引力。2015年，所带实体班学员初三学员34名，重点线通过率85.2%，数学单科成绩均在130以上。仅15年参加初中数学联赛1位同学获全国一等奖，三位同学获二等奖。",
+        "price": "1350",
+        "video_url": "/video/view/81738",
+        "video_name": "围观大白老杜包子老师啦",
+        "photo": "http://img.gsxservice.com/0cms/d/file/content/2015/12/566f796463435.jpg",
+        "pre_price": "2700"
+    },
+    {
+        "name": "冯丽",
+        "tid": "790438798",
+        "curl": "http://www.genshuixue.com/activity/one2oneWinterDetail?number=790438798",
+        "title": "初中语法SO EASY!",
+        "stitle": "初一数学基础班",
+        "des": "专业八级、翻译二级，教学经验丰富，课堂活跃、幽默，善于激发学生的英语学习兴趣。所教多名学生获得CCTV中小学英语大赛优秀奖，及一名成都赛区的二等奖。刘静波刚开始来的时候高二，英语考65分，跟着冯老师学了一年后英语高考分数128，考入理想得大学。",
+        "price": "1580",
+        "video_url": "/video/view/110092",
+        "video_name": "自我介绍",
+        "photo": "http://img.gsxservice.com/0cms/d/file/content/2015/12/566f796484ee7.jpg",
+        "pre_price": "1880"
+    },
+    {
+        "name": "王绍洪",
+        "tid": "960896828",
+        "curl": "http://www.genshuixue.com/activity/one2oneWinterDetail?number=960896828",
+        "title": "美英教育2016寒假高效集训营",
+        "stitle": "中学生寒假英语集训",
+        "des": "博士，成都外国语学校创建者之一，先后担任过英语教研组长，主管英语教学的副校长和学校董事等职。连续数届执教高三毕业班，所教班级英语高考平均136分以上，重点率100%。教学风格轻松幽默，善于激励学生，桃李满天下，数十名弟子先后考入哈佛、清华、北大等名校，其中包括99级哈佛女孩刘亦婷，哈佛男孩肖祎等优秀学生。",
+        "price": "4980",
+        "video_url": "/video/view/20662",
+        "video_name": "美英教育王老师",
+        "photo": "http://img.gsxservice.com/0cms/d/file/content/2015/12/566f79760752a.jpg",
+        "pre_price": "6980"
+    },
+    {
+        "name": "王广通",
+        "tid": "751049708",
+        "curl": "http://www.genshuixue.com/activity/one2oneWinterDetail?number=751049708",
+        "title": "初二数学培优班",
+        "stitle": "初二数学基础班",
+        "des": "初中数学联赛优秀教练员，极客数学帮青年骨干教师。课堂轻松幽默，擅长通过题目讲解引导学生自主思考，夯实基础。所带基础班学生，超过20名学生中考成绩在135分以上，超过40名学生中考考入四七九等重点高中。",
+        "price": "2660",
+        "video_url": "/video/view/110265",
+        "video_name": "自我介绍",
+        "photo": "http://img.gsxservice.com/0cms/d/file/content/2015/12/566f7977bc04a.jpg",
+        "pre_price": "2760"
+    },
+    {
+        "name": "陈明静",
+        "tid": "497343398",
+        "curl": "http://www.genshuixue.com/activity/one2oneWinterDetail?number=497343398",
+        "title": "寒假轻松搞定初中英语语法",
+        "stitle": "中考语法冲刺基础班",
+        "des": "毕业于四川大学，cctv希望之星英语风采大赛获得泸州赛区冠军。课堂幽默又不失严谨，善于激发学生的学习兴趣。",
+        "price": "1990",
+        "video_url": "/video/view/109975",
+        "video_name": "寒假课程介绍",
+        "photo": "http://img.gsxservice.com/0cms/d/file/content/2015/12/566f79643cf8e.jpg",
+        "pre_price": "2500"
+    },
+    {
+        "name": "曾二虎",
+        "tid": "332198808",
+        "curl": "http://www.genshuixue.com/activity/one2oneWinterDetail?number=332198808",
+        "title": "中考英语语法强化班",
+        "stitle": "中考语法冲刺基础班",
+        "des": "融解英语学法创始人，英语教育学硕士，十七年一线教学经验，系统梳理初中全部语法知识，结合中考考点强化应试应用知识重难点，有效提高中考应试成绩。2名学生获中学生英语口语大赛一等奖1名获得二等奖。",
+        "price": "1200",
+        "video_url": "/video/view/61714",
+        "video_name": "讲课短片",
+        "photo": "http://img.gsxservice.com/0cms/d/file/content/2015/12/566f79779d768.jpg",
+        "pre_price": "1500"
+    },
+    {
+        "name": "林丹",
+        "tid": "853858648",
+        "curl": "http://www.genshuixue.com/activity/one2oneWinterDetail?number=853858648",
+        "title": "中考英语专题公式化快速复习班",
+        "stitle": "中考英语专项基础班",
+        "des": "雨泠泠教育工作室创始人，专注研究并解决中小学英语学习难题。参与并负责编撰某培训学校内部语音单词教材。善于引导学生进行举一反三，重点教授方法和解题技巧。学生于艺丹从初一下期补习成绩40分，到中考成绩122分。",
+        "price": "1600",
+        "video_url": "/video/view/83811",
+        "video_name": "正常版林老",
+        "photo": "http://img.gsxservice.com/0cms/d/file/content/2015/12/566f79655353e.jpg",
+        "pre_price": "2000"
+    },
+    {
+        "name": "易小草",
+        "tid": "688810838",
+        "curl": "http://www.genshuixue.com/activity/one2oneWinterDetail?number=688810838",
+        "title": "《十二选十》、《任务型阅读》双杀课程",
+        "stitle": "中考英语突破基础班",
+        "des": "任教重点中学，经验丰富，站在中考高度讲方法：规律 + 频率，能够正确掌握该题型的解题方法，培养英语B卷思维。陈丹林同学中考英语136分，考取四中北湖，所带学生获得全国英语竞赛二等奖。",
+        "price": "999",
+        "video_url": "/video/view/110166",
+        "video_name": "自我介绍",
+        "photo": "http://img.gsxservice.com/0cms/d/file/content/2015/12/566f79772ad10.jpg",
+        "pre_price": "1200"
+    },
+    {
+        "name": "贺奕鑫",
+        "tid": "561750328",
+        "curl": "http://www.genshuixue.com/activity/one2oneWinterDetail?number=561750328",
+        "title": "寒假中考冲刺班",
+        "stitle": "中考英语冲刺基础班",
+        "des": "教学经验丰富，专业八级、BBC中级，课堂活跃、幽默，善于激发学生的英语学习兴趣，中考可中考提高10~20分所教1名学生获得国际中学生英语竞赛金奖，且另外5名获全国一等奖。",
+        "price": "3280",
+        "video_url": "/video/view/110130",
+        "video_name": "课程介绍",
+        "photo": "http://img.gsxservice.com/0cms/d/file/content/2015/12/566f7964e594e.jpg",
+        "pre_price": "3500"
+    },
+    {
+        "name": "冯小敏",
+        "tid": "751047148",
+        "curl": "http://www.genshuixue.com/activity/one2oneWinterDetail?number=751047148",
+        "title": "初三数学首席班",
+        "stitle": "中考数学冲刺尖子班",
+        "des": "曾获全国初中联赛一等奖，教学经验丰富，初中数学“秒题女王”；极客数学帮金牌教师。互动式教学，温柔又不失严谨的教学风格带领学生攻克难题，get高分。所教初三学生中超过120人考入四七九等重点中学。",
+        "price": "3660",
+        "video_url": "/video/view/110116",
+        "video_name": "自我介绍",
+        "photo": "http://img.gsxservice.com/0cms/d/file/content/2015/12/566f7964b570a.jpg",
+        "pre_price": "3760"
+    },
+    {
+        "name": "毛河西",
+        "tid": "331823758",
+        "curl": "http://www.genshuixue.com/activity/one2oneWinterDetail?number=331823758",
+        "title": "中考前的最后一场硬仗，寒假突围中考数学",
+        "stitle": "中考数学冲刺基础班",
+        "des": "步步高升教育创始人，思源教育数学组组长，步步高升教研组长。引导学生举一反三，能够反复强化中考，让学生触类旁通。罗石林同学获得成都市中学生数学竞赛1等奖。",
+        "price": "999",
+        "video_url": "/video/view/110285",
+        "video_name": "课程介绍",
+        "photo": "http://img.gsxservice.com/0cms/d/file/content/2015/12/566f7963b5d86.jpg",
+        "pre_price": "1500"
+    },
+    {
+        "name": "杨若无",
+        "tid": " ",
+        "curl": "http://www.genshuixue.com/activity/one2oneWinterDetail?number=687476978",
+        "title": "初三数学B卷强化班",
+        "stitle": "初三数学B卷基础班",
+        "des": "教学经验丰富，独创一套数学学习方法，荣获启航教育优秀人员称号，善于用总结法启发学生对常见题目的解题，所教数名学生获得数奥赛、华赛等数学竞赛奖，且另外若干名获全市不同层次等奖。",
+        "price": "3280",
+        "video_url": "/video/view/110184",
+        "video_name": "自我介绍",
+        "photo": "http://img.gsxservice.com/0cms/d/file/content/2015/12/566f7976edd22.jpg",
+        "pre_price": "3500"
+    },
+    {
+        "name": "魏作伟",
+        "tid": "622567078",
+        "curl": "http://www.genshuixue.com/activity/one2oneWinterDetail?number=6225670780",
+        "title": "初三数学突破难题思维寒假冲刺班",
+        "stitle": "初三数学突破提升班",
+        "des": "致力于数学思维提升多年，独创魏氏数学学习兵法，临考300道经典难题剖析，迅速提升数学思维，直升20分！众多学生考入名牌大学，如北京大学，武汉大学等。",
+        "price": "1500",
+        "video_url": "/video/view/110197",
+        "video_name": "寒假课程介绍",
+        "photo": "http://img.gsxservice.com/0cms/d/file/content/2015/12/566f7977dd402.jpg",
+        "pre_price": "3800"
+    },
+    {
+        "name": "杨明溪",
+        "tid": "560929768",
+        "curl": "http://www.genshuixue.com/activity/one2oneWinterDetail?number=560929768",
+        "title": "初三物理提分班——12节课解决整个初中物理问题",
+        "stitle": "中考物理冲刺基础班",
+        "des": "专攻物理力学电学板块研究，攻克中学生物理学习中的障碍，老师教学严谨，耐心，注重解题思路讲解，引发学生自主思考。所教1名学生获得全省中学生物理竞赛，且另外5名获全市一等奖。",
+        "price": "3280",
+        "video_url": "/video/view/110191",
+        "video_name": "自我介绍",
+        "photo": "http://img.gsxservice.com/0cms/d/file/content/2015/12/566f79769d375.jpg",
+        "pre_price": "3500"
+    },
+    {
+        "name": "廖重灵",
+        "tid": "476596658",
+        "curl": "http://www.genshuixue.com/activity/one2oneWinterDetail?number=476596658",
+        "title": "初升高物理冲刺提高班",
+        "stitle": "中考物理冲刺提高班",
+        "des": "四川奥林匹克物理竞赛一等奖，电子科技大学数学建模比赛二等奖，教学功底扎实，善于用生活中的例子启发，引导学生学习，上课诙谐幽默。所带学生12人次获得中考物理满分，4人次获得高考物理满分。",
+        "price": "2400",
+        "video_url": "/video/view/110267",
+        "video_name": "自我介绍",
+        "photo": "http://img.gsxservice.com/0cms/d/file/content/2015/12/566f796515f30.jpg",
+        "pre_price": "3200"
+    },
+    {
+        "name": "佐起兵",
+        "tid": "393402988",
+        "curl": "http://www.genshuixue.com/activity/one2oneWinterDetail?number=393402988",
+        "title": "中考物理 力学 专项复习寒假班 培优课 满分课",
+        "stitle": "中考物理冲刺基础班",
+        "des": "多年教学经验，完美总结知识点，课堂轻松灵活，富有激情，有感染力。吴同学，美视国际学校初三学生，物理成绩一直只能考40分左右，对直升美视国际学校很有压力。从寒假开始，就一直在我这里补习物理直到中考，物理成绩提升到了65分（满分70分），最终直升美视国际高中部。",
+        "price": "2100",
+        "video_url": "/video/view/110147",
+        "video_name": "自我介绍",
+        "photo": "http://img.gsxservice.com/0cms/d/file/content/2015/12/566f79776f088.jpg",
+        "pre_price": "2800"
+    },
+    {
+        "name": "申超",
+        "tid": "374439628",
+        "curl": "http://www.genshuixue.com/activity/one2oneWinterDetail?number=374439628",
+        "title": "高考阅读其实很简单，高一就能突破高考阅读题",
+        "stitle": "高一英语阅读基础班",
+        "des": "新加坡NTUC国际认证讲师，大学生职场在线特聘讲师，UNWord词汇记忆法/UNskill阅读法首席研究员，心理学博士，Inverse Attribution教育体系首席。罗婧怡同学，初中英语只有60分，暑期课程结束后，高一英语成绩达到113分（满分120）提升了近60分。",
+        "price": "1800",
+        "video_url": "/video/view/110023",
+        "video_name": "寒假课程介绍",
+        "photo": "http://img.gsxservice.com/0cms/d/file/content/2015/12/566f796584d45.jpg",
+        "pre_price": "2000"
+    },
+    {
+        "name": "谢义娜",
+        "tid": "373766358",
+        "curl": "http://www.genshuixue.com/activity/one2oneWinterDetail?number=373766358",
+        "title": "10天熟背完高考单词，脑洞大开背单词",
+        "stitle": "高考单词专项突破班",
+        "des": "UNWord词汇记忆法金牌讲师UNskill阅读法联合作者。教学语言生动有趣，动漫，电影均可融入单词讲解。陈宇同学从一诊英语60分，最终高考115分。",
+        "price": "1800",
+        "video_url": "/video/view/110310",
+        "video_name": "自我介绍",
+        "photo": "http://img.gsxservice.com/0cms/d/file/content/2015/12/566f79766c0d5.jpg",
+        "pre_price": "2000"
+    }
+];
+</script>
+<div class="intro-box">
+    <div class="content chengdu">
+        <div class="intro-chengdu">
+            <a href="https://eco-api.meiqia.com/dist/standalone.html?eid=3781" target="_blank">
+                <div class="to-consult"></div>
+            </a>
+        </div>
+        <div class="title-bar"></div>
+        <div class="time-table"></div>
+        <div class="teacher-list"></div>
+        <div class="bottom01 "></div>
+        <div class="bottom02 "></div>
+        <div class="content-bottom"></div>
+        <div class="fixed-box">
+            <a href="https://eco-api.meiqia.com/dist/standalone.html?eid=3781" target="_blank">
+                <div class="consult"></div>
+            </a>
+            <div class="get-phoneNumber">
+                <input class="input-number" placeholder="请输入手机号">
+                <div class="submit-number">30秒回拨给您</div>
+            </div>
+            <div class="sharebox">
+                <div class="share-btn">分享</div>
+                <div id="share">{{ include file="common/component/baiduShare.html" }}</div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<div class="footer">Copyright © 2014 - 2017 北京百家互联科技有限公司版权所有. 京公网安备11010802015210号 </div>
+
+
+{{ include file="common/script.html" }}
+
+{{ block name="script" }}{{ /block }}
+
+
+
+{{ /block }}
+{{ /strip }}

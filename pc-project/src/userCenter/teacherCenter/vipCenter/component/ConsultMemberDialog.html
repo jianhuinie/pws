@@ -1,0 +1,80 @@
+<div class="dialog consult-member-dialog">
+    <div class="header">
+        <div class="title">
+            老师会员咨询
+        </div>
+    </div>
+
+    <div class="close">
+        ×
+    </div>
+
+    <div class="body">
+
+        <div class="block">
+            开通会员可享受更多优质服务噢，了解更多详情，请致电跟谁学客服4000-910-910，或填写以下咨询信息，我们的工作人员会第一时间联系您。
+        </div>
+
+        <div class="form">
+            <div class="group">
+                <label class="label">
+                    所在城市：
+                </label>
+                <div class="controls">
+                    <AddressSelect options="{{addressSelectOptions}}" />
+                </div>
+            </div>
+
+            <div class="group">
+                <label class="label">
+                    联系方式：
+                </label>
+                <div class="controls">
+                    <Input options="{{mobileInputOptions}}" />
+                </div>
+            </div>
+
+            <div class="group">
+                <label class="label">
+                    留言（选填）：
+                </label>
+                <div class="controls">
+                    <Input options="{{messageInputOptions}}" />
+                    <div class="small hint">
+                        {{#if 100 - messageInputOptions.value.length >= 0}}
+                            还可以输入
+                            <strong class="info">
+                                {{100 - messageInputOptions.value.length}}
+                            </strong>
+                            个字
+                        {{else}}
+                            已超出
+                            <strong class="error">
+                                {{messageInputOptions.value.length-100}}
+                            </strong>
+                            个字
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="group footer">
+                <div class="controls">
+                    <div class="buttons">
+                        <div class="button link" on-click="close()">
+                            以后再说
+                        </div>
+                        <div class="button primary" on-click='save()'>
+                            立即咨询
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <style>
+        {{style}}
+    </style>
+</div>

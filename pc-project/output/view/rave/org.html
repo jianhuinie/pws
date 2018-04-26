@@ -1,0 +1,48 @@
+{{ strip }}
+<div class="org-wrapper">
+    <div class="org-rave-top"></div>
+    <div class="org-rave-content">
+        <ul class="org-category-list">
+            {{ foreach $tpl_data.coupon as $org }}
+            <li class="org-category-item {{ if $org@index eq 0 }}active{{ /if }}" data-key="{{ $org.info.category }}">
+                <div class="coupon-tag {{ if $org.info.type == 1 }}teacher-tag{{ else }}org-tag{{ /if }}"></div>
+                {{ $org.info.title }}
+            </li>
+            {{ /foreach }}
+        </ul>
+        <div class="org-info-list-wrapper">
+            <ul class="org-info-list">
+                {{ foreach $tpl_data.coupon[0].coupons as $coupon }}
+                {{ if $coupon@index < 12 }}
+                <li class="org-item" data-index="{{ $coupon@index }}">
+                    <div class="img-wrapper">
+                        <img src="{{ $coupon.avatar }}@100w_100h_1c_1e" width="100px" height="100px"/>
+                    </div>
+                    <div class="org-info">
+                        <div class="org-name" title="{{ $coupon.display_name|escape:'html' }}">
+                            {{ $coupon.display_name|escape:'html' }}
+                        </div>
+                        <div class="org-coupon">
+                            {{ $coupon.value }}元
+                            <span class="org-coupon-tip">优惠券</span>
+                        </div>
+                        <div class="org-info-action">
+                            <div class="get-coupon action {{ if $coupon.available }}active{{ /if }}"
+                                type="button">
+                                {{ if !$coupon.available }}
+                                    已领完
+                                {{ else }}
+                                    领取
+                                {{ /if }}
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                {{ /if }}
+                {{ /foreach }}
+            </ul>
+            <ul class="org-info-pager"></ul>
+        </div>
+    </div>
+</div>
+{{ /strip }}

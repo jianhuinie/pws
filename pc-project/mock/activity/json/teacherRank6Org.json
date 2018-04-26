@@ -1,0 +1,44 @@
+{
+    "tpl_data": {
+        "org_list": [
+            {
+                "org_id": "3115",
+                "name": "花鸟虫鱼",
+                "avatar": "http://test-img.gsxservice.com/345735_jq9kdmmf.jpg",
+                "city": "北京",
+                "url": "http://test.genshuixue.com/i/liumeiyu001",
+                "m_url": "http://caiyili-m.test.genshuixue.com/org/index?dm=liumeiyu001",
+                "student_count": "9"
+            },
+            {},{},{},{},{},{},{},{},{}
+        ],
+        "city_org_list": [
+            {
+                "org_id": "3115",
+                "name": "花鸟虫鱼",
+                "avatar": "http://test-img.gsxservice.com/345735_jq9kdmmf.jpg",
+                "city": "北京",
+                "url": "http://test.genshuixue.com/i/liumeiyu001",
+                "m_url": "http://caiyili-m.test.genshuixue.com/org/index?dm=liumeiyu001",
+                "student_count": "9"
+            },
+            {},{},{},{},{},{},{},{},{}
+        ],
+        "rules": {
+            "time": "2014年12月1日至2014年12月31日",
+            "desc": [
+                "活动期间, 产生订单并且实际支付课酬大于等于50元的学生，方可计入学生数排行榜。",
+                "活动期间, 打入老师账户的课酬计入课酬排行榜。单次课酬最高计入2000元，单个学生支付的课酬最高计入10000元。",
+                "学生数相同的老师，最先达到此学生数的，排名靠前；课酬相同的老师，最先达到此课酬的，排名靠前。",
+                "单一老师同时进入两个榜单前六, 奖金只发一份，取高发放, 奖章同时发放。",
+                "本活动规则在实施过程中的未尽事宜, 跟谁学在法律规定范围内享有解释权"
+            ],
+            "important": "这里是注",
+            "way": "本活动结束后7个工作日内，奖金划入获取老师的跟谁学账户。注：机构老师的奖金划入所在机构的跟谁学账户。"
+        },
+        "expired_time": 1438358399000,
+        "current_time": 1432362120000,
+        "carnival_start_time": 1434470399000,
+        "carnival_end_time": 1432362125000
+    }
+}

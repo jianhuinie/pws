@@ -1,0 +1,153 @@
+/**
+ * @file 订单列表
+ * @author zhangjiayi
+ */
+
+@import './common/layout.less';
+@import '../component/cancelOrderDialog.less';
+@import '../component/cancelOrderPromptDialog.less';
+@import '../component/quickLessonDialog.less';
+@import "../component/makePhoneCallDialog.less";
+@import './component/order.less';
+
+#content {
+    .card-header {
+        .text-error {
+            display: inline;
+            font-size: 14px;
+            .icon {
+                margin: 0 15px;
+            }
+            .intro {
+                margin-right: 25px;
+            }
+        }
+    }
+
+    .search-order {
+        margin: 27px 0 7px 30px ;
+        border: 1px solid #CDCDCE;
+        height: 37px;
+        display: inline-block;
+        font-family: PingFang-SC-Regular;
+        font-size: 15px;
+        letter-spacing: 0;
+        line-height: 35px;
+        text-align: center;
+        .search-input {
+            display: inline-block;
+            background: #FFFFFF;
+            width: 275px;
+            padding-left: 15px;
+            height: 35px;
+            border: none;
+        }
+        .search-button {
+            border: none;
+            border-left: 1px solid #CDCDCE;
+            display: inline-block;
+            background: #EDEDEE;
+            width: 100px;
+            height: 35px;
+            color: #6D6D6E;
+            cursor: pointer;
+        }
+        input:-moz-placeholder {
+            color: #CDCDCE;
+            text-align: left;
+        }
+        input:-ms-input-placeholder {
+            color: #CDCDCE;
+            text-align: left;
+        }
+        input::-webkit-input-placeholder {
+            color: #CDCDCE;
+            text-align: left;
+        }
+    }
+    .card-body {
+
+        min-height: 485px;
+
+        .order-item {
+
+            &:hover {
+                background-color: @brand-primary-lighter;
+                border-color: @brand-primary-light;
+            }
+
+            .use-plat-ensure {
+                color: #ff9900;
+            }
+
+        }
+
+        .tab-nav-info {
+            .nav-item {
+                text-align: center;
+                width: 25%;
+            }
+        }
+
+        .tab-nav-default {
+            .nav-item {
+                text-align: center;
+                width: 25%;
+            }
+        }
+
+
+
+    }
+
+    .tab-nav-info + .tab-nav-default {
+        border-top: none;
+    }
+
+    .tab-nav {
+        .nav-item > i {
+            position: relative;
+
+            .icon-prize-tip {
+                position: absolute;
+                top: -25px;
+                right: -25px;
+            }
+        }
+    }
+}
+.dialog-body {
+    padding: 10px;
+}
+.dialog-confirm {
+    width: 380px;
+    height: 178px;
+    font-size: 15px;
+    .make-sure {
+        margin: 10px auto;
+        color: #3D3D3E;
+    }
+    .no-renew {
+        color: #FF9100;
+    }
+    .btn-default {
+        margin-right: 19px;
+    }
+}
+
+.no-data {
+    .wrapper {
+        .no-data-img {
+            width: 79px;
+            height: 83px;
+        }
+        .no-data-text {
+            font-family: PingFangSC-Regular;
+            font-size: 14px;
+            color: #9D9D9E;
+            line-height: 15px;
+        }
+    }
+}
+
+

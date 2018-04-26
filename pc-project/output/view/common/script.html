@@ -1,0 +1,256 @@
+{{ *
+
+@file 加载脚本
+@author zhujialu
+
+* }}
+
+{{ strip }}
+
+<script src="{{ $static_origin }}/dep/base/0.0.12/asset/base.js"></script>
+<script>
+
+require.config({
+    "baseUrl": "{{ $static_origin }}/asset",
+    "packages": [
+        {
+            "name": "cobble",
+            "main": "main",
+            "location": "../dep/cobble/0.3.28/asset"
+        },
+        {
+            "name": "webIM",
+            "main": "sdk",
+            "location": "../dep/webIM/0.0.1/asset"
+        },
+        {
+            "name": "moment",
+            "main": "moment",
+            "location": "../dep/moment/2.7.0/asset"
+        },
+        {
+            "name": "imageCrop",
+            "main": "imageCrop",
+            "location": "../dep/image-crop/0.0.3/asset"
+        },
+        {
+            "name": "underscore",
+            "main": "underscore",
+            "location": "../dep/underscore/1.6.0/asset"
+        },
+        {
+            "name": "audioPlayer",
+            "main": "audioPlayer",
+            "location": "../dep/audioPlayer/0.0.2/asset"
+        },
+        {
+            "name": "TextClipboard",
+            "main": "TextClipboard",
+            "location": "../dep/TextClipboard/0.0.3/asset"
+        },
+        {
+            "name": "echarts",
+            "main": "echarts",
+            "location": "../dep/echarts/2.1.10/asset"
+        },
+        {
+            "name": "cc",
+            "main": "main",
+            "location": "../dep/cc/1.1.1/asset"
+        },
+        {
+            "name": "custom",
+            "location": "../dep/cc/1.1.1/custom"
+        },
+        {
+            "name": "moment",
+            "main": "moment",
+            "location": "../dep/moment/2.7.0/asset"
+        },
+        {
+            "name": "SwfStore",
+            "main": "SwfStore",
+            "location": "../dep/SwfStore/0.0.1/asset"
+        }
+    ],
+    "urlArgs": {
+        "hermes/dispatcher": "{edp-variable:{version}}"
+    }
+});
+
+{{ *
+
+js 初始化，通常只有两步：
+
+1. 模块需要用到的数据（可选）
+2. 模块路径
+
+所以在 data block 中定义 $script_path $script_data 即可
+
+* }}
+
+{{ $amd_modules = [ 'common/store_a1a35b3dfc', 'common/service_9c322508d3', 'common/eventEmitter_8bcc038860', 'common/combine/site_70250d8df8' ] }}
+
+{{ if isset($amd_more) }}
+    {{ if is_array($amd_more) }}
+        {{ foreach $amd_more as $path }}
+            {{ $amd_modules[] = $path }}
+        {{ /foreach }}
+    {{ else if is_string($amd_more) }}
+        {{ $amd_modules[] = $amd_more }}
+    {{ /if }}
+{{ /if }}
+
+{{ if isset($script_path) }}
+    {{ $amd_modules[] = $script_path }}
+{{ /if }}
+
+{{ *
+    html文件中通过定义static_more引入的js可提前加载
+* }}
+
+{{ if isset($static_more) }}
+    require({{ json_encode($static_more, 77) }}, function () {
+        for (var i = 0, len = arguments.length; i < len; i++) {
+            var module = arguments[i];
+            if (module && $.isFunction(module.init)) {
+                module.init();
+            }
+        }
+    });
+{{ /if }}
+
+
+require(
+    {{ * 77 表示 PHP 常量 - 不转义 * }}
+    {{ json_encode($amd_modules, 77) }},
+    function () {
+
+        var args = arguments;
+        var store = args[0];
+        var service = args[1];
+        var events = args[2];
+
+        var user = {
+            id: 0,
+            type: -1,
+            avatar: '',
+            source_sys_id: 0,
+            classCourse: '',
+            globalDistrict: '',
+            name: '',
+            number: '',
+            mobile: '',
+            qreserve_remind: 1,
+            qreserve_global_sign: 1,
+            vip_level : 0
+        };
+
+        {{ if isset($user_data.avatar) }}
+
+            user.id = {{ $user_data.user_id }};
+            user.type = {{ $user_data.user_type }};
+
+            user.number = '{{ $user_data.user_number|escape:'quotes' }}';
+
+            {{ if isset($user_data.user_name) }}
+            user.name = '{{ $user_data.user_name|replace:"\\":"\\\\"|escape:'quotes' }}';
+            {{ /if }}
+
+            {{ if isset($user_data.mobile) }}
+            user.mobile = '{{ $user_data.mobile }}';
+            {{ /if }}
+
+            {{ if isset($user_data.avatar) }}
+            user.avatar = '{{ $user_data.avatar }}';
+            {{ /if }}
+
+            {{ if isset($user_data.permission) }}
+            user.classCourse = '{{ $user_data.permission.class_course }}';
+            user.globalDistrict = '{{ $user_data.permission.global_district }}';
+            {{ /if }}
+
+            {{ if isset($user_data.source_sys_id) }}
+            user.source_sys_id = {{ $user_data.source_sys_id }};
+            {{ /if }}
+
+            {{ if isset($user_data.vip_level) }}
+            user.vip_level = {{ $user_data.vip_level }};
+            {{ /if }}
+
+            {{ if isset($user_data.qreserve_remind) }}
+            user.qreserve_remind = {{ $user_data.qreserve_remind }};
+            {{ /if }}
+
+            {{ if isset($user_data.qreserve_global_sign) }}
+            user.qreserve_global_sign = {{ $user_data.qreserve_global_sign }};
+            {{ /if }}
+
+        {{ /if }}
+
+        store.set({
+            user: user,
+            monkey: {
+                '{{ $site_config.csrfTokenName }}': '{{ $site_config.csrfTokenValue }}'
+            },
+            serverTime: new Date({{ $ts * 1000 }}),
+            cityId: '{{ $city }}',
+            env: '{{ $env }}'
+        });
+
+        {{ if isset($script_data) }}
+
+        var data = {{ json_encode($script_data) }};
+        if (data.user || data.env || data.cityId) {
+            alert('store 已占用 user、env、serverTime、cityId！');
+            return;
+        }
+
+        store.set(data);
+
+        {{ /if }}
+
+
+        var init = function () {
+            var body = $('body');
+            for (var i = 3, len = args.length; i < len; i++) {
+                var module = args[i];
+                if (module && $.isFunction(module.init)) {
+                    module.init.call(body, events);
+                }
+            }
+        };
+
+        if (user.avatar) {
+            init();
+        }
+        else {
+            service
+            .getUserBasicInfo()
+            .done(function (response) {
+
+                if (response.code === 0) {
+                    var data = response.data;
+                    if (data.avatar) {
+                        user.avatar = data.avatar;
+                        user.name = data.display_name;
+                        user.mobile = data.mobile;
+                        user.id = + data.user_id;
+                        user.type = + data.user_type;
+                        user.number = data.user_number;
+                        user.source_sys_id = data.source_sys_id;
+                        user.source_sys_id = + data.source_sys_id;
+                    }
+                }
+
+                init();
+
+            });
+        }
+
+    }
+);
+
+</script>
+
+{{ /strip }}

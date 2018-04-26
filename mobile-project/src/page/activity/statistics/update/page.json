@@ -1,0 +1,7 @@
+[
+    {
+        "tpl": "./index.tpl",
+        "router": "/staic/update/index",
+        "mock_data": "./mock/index.json"
+    }
+]

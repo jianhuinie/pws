@@ -1,0 +1,75 @@
+{{ extends file="common/main/base.html" }}
+
+{{ block name="data" }}
+
+{{ $smarty.block.parent }}
+
+{{ $script_path = "guide/service_layout_1d8276b963" }}
+
+{{ /block }}
+
+{{ block name="title" }}
+服务规则- 帮助中心 - 跟谁学
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/guide/service_layout_27407ed7ef.css">
+{{ /block }}
+
+{{ block name="main" }}
+
+{{ strip }}
+
+
+
+<div id="main">
+
+    {{ include file="./sidebar.html" }}
+
+    <!--右-->
+
+    <div class="btright" id="item">
+        <div class="crumb">
+            <a id="back"  href="/guide/service?a=service">服务规则</a> &gt;
+            <span id="current"></span>
+        </div>
+
+        {{ if isset($smarty.get.op) }}
+            {{ $_GET['op'] = $smarty.get.op }}
+        {{ else }}
+            {{ $_GET['op'] = 'fast-payment' }}
+        {{ /if }}
+
+        {{ **服务协议（快捷支付服务协议,录播课（视频课）服务协议,平台服务费细则）** }}
+        {{ if $_GET['op'] == 'fast-payment' }}
+            {{ include file="../service/fast-payment.html" }}
+
+        {{ else if $_GET['op'] == 'video' }}
+            {{ include file="../service/video.html" }}
+
+        {{ else if $_GET['op'] == 'service-fee' }}
+            {{ include file="../service/service-fee.html" }}
+
+        {{ else if $_GET['op'] == 'vip' }}
+        {{ include file="../service/service-vip.html" }}
+
+        {{ /if }}
+
+    </div>
+    <!--右 over-->
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+{{ /strip }}
+{{ /block }}

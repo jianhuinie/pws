@@ -1,0 +1,551 @@
+{
+    "code": 0,
+    "msg": "succ",
+    "tpl_data": {
+        "photo": {
+            "list": [
+                {
+                    "type": "photo",
+                    "name": "机构图片",
+                    "img": "https://imgs.genshuixue.com/1256435_9qro8k7d.jpg",
+                    "url": "https://imgs.genshuixue.com/1256435_9qro8k7d.jpg",
+                    "create_time": "2015-06-14 00:22:39"
+                },
+                {
+                    "type": "photo",
+                    "name": "机构图片",
+                    "img": "https://imgs.genshuixue.com/34709438_naz1e2xp.jpg",
+                    "url": "https://imgs.genshuixue.com/34709438_naz1e2xp.jpg",
+                    "create_time": "2017-05-20 18:05:44"
+                },
+                {
+                    "type": "photo",
+                    "name": "机构图片",
+                    "img": "https://imgs.genshuixue.com/34709449_6xh188p4.jpg",
+                    "url": "https://imgs.genshuixue.com/34709449_6xh188p4.jpg",
+                    "create_time": "2017-05-20 18:05:44"
+                },
+                {
+                    "type": "photo",
+                    "name": "机构图片",
+                    "img": "https://imgs.genshuixue.com/34709453_94lltmq1.jpg",
+                    "url": "https://imgs.genshuixue.com/34709453_94lltmq1.jpg",
+                    "create_time": "2017-05-20 18:05:44"
+                },
+                {
+                    "type": "photo",
+                    "name": "机构图片",
+                    "img": "https://imgs.genshuixue.com/34717771_hb5wgk7w.jpg",
+                    "url": "https://imgs.genshuixue.com/34717771_hb5wgk7w.jpg",
+                    "create_time": "2017-05-20 19:31:01"
+                },
+                {
+                    "type": "photo",
+                    "name": "机构图片",
+                    "img": "https://imgs.genshuixue.com/34709456_k67q1ou4.jpg",
+                    "url": "https://imgs.genshuixue.com/34709456_k67q1ou4.jpg",
+                    "create_time": "2017-05-20 18:05:44"
+                },
+                {
+                    "type": "photo",
+                    "name": "机构图片",
+                    "img": "https://imgs.genshuixue.com/34717772_tblkjybn.jpg",
+                    "url": "https://imgs.genshuixue.com/34717772_tblkjybn.jpg",
+                    "create_time": "2017-05-20 19:31:01"
+                },
+                {
+                    "type": "photo",
+                    "name": "机构图片",
+                    "img": "https://imgs.genshuixue.com/37053452_ls4v7k89.jpeg",
+                    "url": "https://imgs.genshuixue.com/37053452_ls4v7k89.jpeg",
+                    "create_time": "2017-07-01 21:59:59"
+                },
+                {
+                    "type": "photo",
+                    "name": null,
+                    "img": "https://imgs.genshuixue.com/34757767_j1yxej2v.jpeg",
+                    "url": "https://imgs.genshuixue.com/34757767_j1yxej2v.jpeg",
+                    "create_time": "2017-05-21 13:44:37"
+                }
+            ],
+            "total_photos": 59,
+            "more_url": "https://m.genshuixue.com/i/photo/zgexjy"
+        },
+        "location": {
+            "location": "重庆市南岸区江南大道12号亿象城众创空间宜人宜课",
+            "distance": "",
+            "index": 0,
+            "more_url": "https://m.genshuixue.com/i/area/zgexjy"
+        },
+        "comment": {
+            "addition": {
+                "face_type": {
+                    "total": 88,
+                    "great": 88,
+                    "middle": 0,
+                    "lower": 0
+                },
+                "comment_type": {
+                    "total": 88,
+                    "normal": 48,
+                    "invite": 2,
+                    "class": 38,
+                    "video": 0,
+                    "xnormal": 0,
+                    "xclass": 0
+                },
+                "total": "88",
+                "total_score": "5.0",
+                "_total_score": "5.0",
+                "greate_rate": "100%",
+                "score": {
+                    "normal": {
+                        "total": 48,
+                        "lower": 0,
+                        "great": 48,
+                        "middle": 0,
+                        "has_photo": 0
+                    },
+                    "class": {
+                        "total": 38,
+                        "lower": 0,
+                        "great": 38,
+                        "middle": 0,
+                        "has_photo": 0
+                    },
+                    "invite": {
+                        "total": 2,
+                        "lower": 0,
+                        "great": 2,
+                        "middle": 0,
+                        "has_photo": 0
+                    },
+                    "trial": {
+                        "total": 0,
+                        "lower": 0,
+                        "great": 0,
+                        "middle": 0,
+                        "has_photo": 0
+                    },
+                    "video": {
+                        "total": 0,
+                        "lower": 0,
+                        "great": 0,
+                        "middle": 0,
+                        "has_photo": 0
+                    },
+                    "xnormal": {
+                        "total": 0,
+                        "lower": 0,
+                        "great": 0,
+                        "middle": 0,
+                        "has_photo": 0
+                    },
+                    "xclass": {
+                        "total": 0,
+                        "lower": 0,
+                        "great": 0,
+                        "middle": 0,
+                        "has_photo": 0
+                    },
+                    "total": {
+                        "total": 88,
+                        "lower": 0,
+                        "great": 88,
+                        "middle": 0,
+                        "has_photo": 0
+                    },
+                    "total_score": {
+                        "total": 86,
+                        "one": 0,
+                        "two": 0,
+                        "three": 0,
+                        "four": 0,
+                        "five": 86,
+                        "total_rate": "1.00",
+                        "one_rate": "0.00",
+                        "two_rate": "0.00",
+                        "three_rate": "0.00",
+                        "four_rate": "0.00",
+                        "five_rate": "1.00"
+                    },
+                    "invite_comment": 2,
+                    "user_comment": 86
+                }
+            },
+            "navigation": [
+                {
+                    "type": 0,
+                    "name": "全部"
+                },
+                {
+                    "type": 1,
+                    "name": "好评(88)"
+                },
+                {
+                    "type": 2,
+                    "name": "中评(0)"
+                },
+                {
+                    "type": 3,
+                    "name": "差评(0)"
+                },
+                {
+                    "type": 4,
+                    "name": "未回应(88)"
+                },
+                {
+                    "type": 5,
+                    "name": "邀请评价(2)"
+                }
+            ],
+            "current_total": 88,
+            "has_more": true,
+            "next_cursor": 2,
+            "comment_list": [
+                {
+                    "purchase_id": "1115121275099748",
+                    "face_type": "1",
+                    "info": "感谢张老师",
+                    "create_time": "12月13日 17:04",
+                    "fr": "0",
+                    "course_type": "1",
+                    "course_number": "0",
+                    "total_score": "5.0",
+                    "comment_id": "741730",
+                    "course": "一对一：高一数学    课节1-1",
+                    "course_info": {
+                        "name": "高一数学",
+                        "url": "https://m.genshuixue.com/teacher/one2oneCourseDetail/442063196487"
+                    },
+                    "total_score_desc": "好评",
+                    "user": {
+                        "display_name": "匿名用户",
+                        "avatar_url": "https://imgs.genshuixue.com/0common/ic_anonymous_user_n.png",
+                        "detail_url": "",
+                        "number": "812126838"
+                    },
+                    "if_can_delete": false,
+                    "if_can_addition": true,
+                    "if_can_reply": true,
+                    "photo_list": [],
+                    "additional": []
+                },
+                {
+                    "purchase_id": "1115121275099748",
+                    "face_type": "1",
+                    "info": "很满意很实在",
+                    "create_time": "12月13日 17:03",
+                    "fr": "0",
+                    "course_type": "1",
+                    "course_number": "0",
+                    "total_score": "5.0",
+                    "comment_id": "741723",
+                    "course": "一对一：高一数学    总课程",
+                    "course_info": {
+                        "name": "高一数学",
+                        "url": "https://m.genshuixue.com/teacher/one2oneCourseDetail/442063196487"
+                    },
+                    "total_score_desc": "好评",
+                    "user": {
+                        "display_name": "匿名用户",
+                        "avatar_url": "https://imgs.genshuixue.com/0common/ic_anonymous_user_n.png",
+                        "detail_url": "",
+                        "number": "812126838"
+                    },
+                    "if_can_delete": false,
+                    "if_can_addition": true,
+                    "if_can_reply": true,
+                    "photo_list": [],
+                    "additional": []
+                },
+                {
+                    "purchase_id": "1115120296157967",
+                    "face_type": "1",
+                    "info": "谢谢张老师",
+                    "create_time": "12月02日 21:59",
+                    "fr": "0",
+                    "course_type": "1",
+                    "course_number": "0",
+                    "total_score": "5.0",
+                    "comment_id": "681954",
+                    "course": "一对一：高一数学    总课程",
+                    "course_info": {
+                        "name": "高一数学",
+                        "url": "https://m.genshuixue.com/teacher/one2oneCourseDetail/442063196487"
+                    },
+                    "total_score_desc": "好评",
+                    "user": {
+                        "display_name": "匿名用户",
+                        "avatar_url": "https://imgs.genshuixue.com/0common/ic_anonymous_user_n.png",
+                        "detail_url": "",
+                        "number": "479966088"
+                    },
+                    "if_can_delete": false,
+                    "if_can_addition": true,
+                    "if_can_reply": true,
+                    "photo_list": [],
+                    "additional": []
+                }
+            ],
+            "more_url": "https://m.genshuixue.com/i/comment/zgexjy"
+        },
+        "area": {
+            "count": 8,
+            "position": [],
+            "more_url": "https://m.genshuixue.com/i/area/zgexjy"
+        },
+        "org_info": {
+            "content": "<p><style type=\"text/css\">p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px 'PingFang SC'}\np.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px 'Helvetica Neue'; min-height: 16.0px}\nspan.s1 {font: 14.0px 'Helvetica Neue'}</style></p><p class=\"p1\"><style type=\"text/css\">p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px 'PingFang SC'}\np.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px 'Helvetica Neue'; min-height: 16.0px}\nspan.s1 {font: 14.0px 'Helvetica Neue'}</style></p><p class=\"p1\"><span style=\"font-size:16px\"><span class=\"s1\">“</span>跟谁学商学院<span class=\"s1\">”</span>是跟谁学专为教培行业从业者开办的商学院。学院依托跟谁学平台强大的产品与行业内最豪华导师团队，致力于把最先进、最科学、最实用的教培理念和方法呈现给广大教培人。跟谁学商学院是有观点的商学院，我们坚信一个学校是否富有和健康，不取决于其总收入，而取决于其人均产能！</span></p><p class=\"p2\"><span style=\"font-size:16px\"><br/></span></p><p class=\"p1\"><span style=\"font-size:16px\">我们的课程围绕提高人均产能，涵盖产品研发、市场营销、运营管理、人力资源等内容，采用线上线下结合的模式，为教培行业从业者开发高质量的理论及实操课程、落地运营指导，帮助教培行业从业者提升互联网营销能力、机构管理能力、产品研发能力等，为教育培训机构培养卓越的校长、中层管理者、基层管理者、优秀教师和骨干员工，从而提高机构自转能力，提高续班满班率，提高人均产能，让机构做到三年十倍、利润倍增！</span></p><p class=\"p2\"><span style=\"font-size:16px\"><br/></span></p><p class=\"p1\"><span style=\"font-size:16px\">我们的导师队伍建设一贯秉承高标准严要求的规则，专业优秀经验丰富是底线，卓越才是我们的合格线。跟谁学商学院的所有导师，均在教培行业深耕多年并且成绩斐然，个个都是教培行业的翘楚，管理领域的精英。他们既能高屋建瓴纵观整个教培行业，把握行业趋势，又能深入基层、深耕细节，超越想象的细致入微。学习不能盲目学习，重要的是跟谁学！我们深知只有经历过，才能减少您试错的成本；只有达到十亿高度的人才有可能带您完成到一亿的目标！学习，一定要跟有结果的人学习！学习，要向有行业地位的人学习！</span></p><p class=\"p2\"><span style=\"font-size:16px\">&nbsp;</span></p><p class=\"p1\"><span style=\"font-size:16px\">过去的一年里，商学院开设课程近七十场，线下私享会四十余场，累计培训付费学员近两万人次，机构学员遍布全国<span class=\"s1\">30</span>个省市及自治区。同时我们的导师义务为学员提供一对一咨询服务高达千余小时。我们导师的专业精神和敬业精神为教培行业培训树立了标杆！</span></p><p class=\"p2\"><span style=\"font-size:16px\"><br/></span></p><p class=\"p1\"><span style=\"font-size:16px\">无论校长还是老师，<span class=\"s1\"> </span>背后都是无数热切期待的学子。教育无他，唯用心耳！唯有用心，才不负学子们的信任，才不负学子们的前途！跟谁学商学院，用我们极致的专业和用心，让您和您的学生都学有所成，让您的机构真正的三年十倍、利润倍增！</span></p><p class=\"p2\"><span style=\"font-size:16px\"><br/></span></p><p class=\"p1\"><span style=\"font-size:16px\">跟谁学商学院，做有观点的商学院；跟谁学商学院，用心做高端品质教育，做中国教培行业利润倍增专家！</span></p><p class=\"p2\"><span style=\"font-size:16px\"><br/></span></p><p class=\"p2\"><br/></p>",
+            "url": "https://m.genshuixue.com/i/intro/zgexjy"
+        },
+        "next": "/i/zgexjy",
+        "favorite_info": {
+            "favorite_status": 0,
+            "type": 2,
+            "number": "875074649"
+        },
+        "base_info": {
+            "id": "13682",
+            "number": "875074649",
+            "name": "宜人宜课",
+            "domain": "zgexjy",
+            "tags": [
+                {
+                    "name": "小升初"
+                },
+                {
+                    "name": "中考"
+                },
+                {
+                    "name": "高考"
+                }
+            ],
+            "brief": "小学、初中、高中 各科文化辅导，辅导方式有面授一对一、在线直播，在线视频课，找好老师就到宜人宜课",
+            "logo": "https://imgs.genshuixue.com/34091982_xtoj8vie.jpg",
+            "location": "重庆",
+            "org_type": {
+                "type": "2",
+                "name": "公司",
+                "certify": "营业执照"
+            },
+            "area_id": 520355840,
+            "preface": "",
+            "score": "5.0",
+            "address": "重庆",
+            "total_views": 13574,
+            "total_comments": "88",
+            "total_students": "",
+            "url": "https://m.genshuixue.com/i/zgexjy",
+            "audio": null,
+            "video": {
+                "url": "https://m.genshuixue.com/org/photo?number=875074649",
+                "count": 1
+            },
+            "extension": "4000122166,112938",
+            "city_filter": 1,
+            "template_id": 1,
+            "membership_level": 3,
+            "support_tianxiao": false
+        },
+        "coupon": {
+            "list": [],
+            "total": 0,
+            "url": ""
+        },
+        "course": {
+            "more_url": "https://m.genshuixue.com/i/course/zgexjy",
+            "list": [
+                {
+                    "course_type": 2,
+                    "number": "170606572726",
+                    "name": "新初三数学预科班",
+                    "price": "880.00",
+                    "original_price": "1880.00",
+                    "photo_url": "http://img.gsxservice.com/17675753_i7ci90x4.png",
+                    "detail_url": "https://m.genshuixue.com/teacher/classCourseDetail/170606572726",
+                    "fenqi": {
+                        "tag_name": "分期",
+                        "tiexi_info": "",
+                        "desc": "可享3期分期付学费"
+                    },
+                    "preface": "http://img.gsxservice.com/17675753_i7ci90x4.png",
+                    "url": "https://m.genshuixue.com/teacher/classCourseDetail/170606572726"
+                },
+                {
+                    "course_type": 2,
+                    "number": "170607572727",
+                    "name": "新初一数学预科班",
+                    "price": "880.00",
+                    "original_price": "1880.00",
+                    "photo_url": "https://imgs.genshuixue.com/17675762_erahjr7v.png",
+                    "detail_url": "https://m.genshuixue.com/teacher/classCourseDetail/170607572727",
+                    "fenqi": {
+                        "tag_name": "分期",
+                        "tiexi_info": "",
+                        "desc": "可享3期分期付学费"
+                    },
+                    "preface": "https://imgs.genshuixue.com/17675762_erahjr7v.png",
+                    "url": "https://m.genshuixue.com/teacher/classCourseDetail/170607572727"
+                }
+            ],
+            "total": 20
+        },
+        "video": {
+            "list": [
+                {
+                    "type": "video",
+                    "name": "关于我们的简介",
+                    "img": "https://imgs.genshuixue.com/00-x-upload/image/6406765_b3061c28f2f65bfe09c94d88be994386_UxUEd9To.jpg",
+                    "url": "https://m.genshuixue.com/video/view/vu6406765",
+                    "create_time": "2017-05-18 03:24:02"
+                }
+            ],
+            "total_videos": 1,
+            "more_url": "https://m.genshuixue.com/i/video/zgexjy"
+        },
+        "hot_teacher": {
+            "list": [
+                {
+                    "number": "814791698",
+                    "avatar": "https://img.genshuixue.com/34451916_e1wol5wc.jpeg",
+                    "name": "张礼军",
+                    "course": "初一数学\\初二数学\\初三数学\\高一数学\\高二数学\\高三数学\\小升初英语\\夏令营\\小升初数学\\五年级数学\\初中数学\\高中数学\\中考数学",
+                    "short_introduce": "专业数学教学6年",
+                    "price": "150",
+                    "is_online": true,
+                    "url": "https://m.genshuixue.com/zhanglijun528"
+                },
+                {
+                    "number": "396752728",
+                    "avatar": "https://imgs.genshuixue.com/34731499_gfnpr90z.jpeg",
+                    "name": "孙琼",
+                    "course": "",
+                    "short_introduce": "中学英语辅导专家",
+                    "price": 0,
+                    "is_online": false,
+                    "url": "https://m.genshuixue.com/396752728"
+                },
+                {
+                    "number": "772666748",
+                    "avatar": "https://imgs.genshuixue.com/2393734_xicsurbb.jpeg",
+                    "name": "彭明利",
+                    "course": "初中数学\\小升初数学",
+                    "short_introduce": "现任教于晨光学校初二数学老师",
+                    "price": "60",
+                    "is_online": true,
+                    "url": "https://m.genshuixue.com/772666748"
+                },
+                {
+                    "number": "981684748",
+                    "avatar": "https://imgs.genshuixue.com/1486660_l00xqaaa.jpeg",
+                    "name": "罗嘉欣",
+                    "course": "小学英语\\初中英语",
+                    "short_introduce": "英语专业毕业生（翻译方向）",
+                    "price": "70",
+                    "is_online": true,
+                    "url": "https://m.genshuixue.com/981684748"
+                },
+                {
+                    "number": "814566508",
+                    "avatar": "https://imgs.genshuixue.com/1453262_8odr43fa.jpeg",
+                    "name": "张利",
+                    "course": "幼儿园英语\\幼升小英语\\小学英语\\小升初英语\\初中英语",
+                    "short_introduce": "4-15岁英语趣味教学",
+                    "price": "120",
+                    "is_online": false,
+                    "url": "https://m.genshuixue.com/814566508"
+                },
+                {
+                    "number": "709278508",
+                    "avatar": "https://imgs.genshuixue.com/23975529_6b612n39.jpeg",
+                    "name": "简兴莉",
+                    "course": "初中英语\\中考英语\\小学英语\\高中英语\\高考英语\\会考英语",
+                    "short_introduce": "只要你相信自己行，那你一定行！",
+                    "price": "90",
+                    "is_online": true,
+                    "url": "https://m.genshuixue.com/709278508"
+                }
+            ],
+            "total": 6,
+            "more_url": "https://m.genshuixue.com/i/teacher/zgexjy"
+        },
+        "qrcode_url": "https://m.genshuixue.com/i/zgexjy",
+        "page_url": {
+            "index": "https://m.genshuixue.com/i/zgexjy",
+            "course": "https://m.genshuixue.com/i/course/zgexjy",
+            "course_search": "https://m.genshuixue.com/i/course_search/zgexjy",
+            "teacher": "https://m.genshuixue.com/i/teacher/zgexjy",
+            "news": "https://m.genshuixue.com/i/black/zgexjy",
+            "photo": "https://m.genshuixue.com/i/photo/zgexjy",
+            "summary": "https://m.genshuixue.com/i/intro/zgexjy",
+            "comment": "https://m.genshuixue.com/i/comment/zgexjy",
+            "school": "https://m.genshuixue.com/i/area/zgexjy",
+            "coupon": "https://m.genshuixue.com/org/couponList?number=875074649"
+        },
+        "share_info": {
+            "url": "https://m.genshuixue.com/i/zgexjy",
+            "img": "https://imgs.genshuixue.com/34091982_xtoj8vie.jpg",
+            "title": "宜人宜课在跟谁学开课啦",
+            "content": "宜人宜课在跟谁学开课啦，小伙伴们快来围观吧！推荐理由：小升初 中考 高考",
+            "share_pyq": {
+                "url": "https://m.genshuixue.com/i/zgexjy",
+                "img": "https://imgs.genshuixue.com/34091982_xtoj8vie.jpg",
+                "title": "宜人宜课在跟谁学开课啦，小伙伴们快来围观吧！推荐理由：小升初 中考 高考",
+                "content": "宜人宜课在跟谁学开课啦，小伙伴们快来围观吧！推荐理由：小升初 中考 高考"
+            },
+            "share_weixin": {
+                "url": "https://m.genshuixue.com/i/zgexjy",
+                "img": "https://imgs.genshuixue.com/34091982_xtoj8vie.jpg",
+                "title": "宜人宜课在跟谁学开课啦",
+                "content": "宜人宜课在跟谁学开课啦，小伙伴们快来围观吧！推荐理由：小升初 中考 高考"
+            },
+            "share_qq": {
+                "url": "https://m.genshuixue.com/i/zgexjy",
+                "img": "https://imgs.genshuixue.com/34091982_xtoj8vie.jpg",
+                "title": "宜人宜课在跟谁学开课啦",
+                "content": "宜人宜课在跟谁学开课啦，小伙伴们快来围观吧！推荐理由：小升初 中考 高考"
+            },
+            "share_qzone": {
+                "url": "https://m.genshuixue.com/i/zgexjy",
+                "img": "https://imgs.genshuixue.com/34091982_xtoj8vie.jpg",
+                "title": "宜人宜课在跟谁学开课啦",
+                "content": "宜人宜课在跟谁学开课啦，小伙伴们快来围观吧！推荐理由：小升初 中考 高考"
+            },
+            "share_weibo": {
+                "url": "http://gensx.cn/28a56c",
+                "img": "https://imgs.genshuixue.com/34091982_xtoj8vie.jpg",
+                "title": "",
+                "content": "宜人宜课在跟谁学开课啦，小伙伴们快来围观吧！推荐理由：小升初 中考 高考"
+            },
+            "share_sms": {
+                "url": "http://gensx.cn/28a56c",
+                "img": "https://imgs.genshuixue.com/34091982_xtoj8vie.jpg",
+                "title": "",
+                "content": "宜人宜课在跟谁学开课啦，小伙伴们快来围观吧！推荐理由：小升初 中考 高考"
+            }
+        },
+        "org_brief": ["<p><style type=\"text/css\">p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px 'PingFang SC'}\np.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px 'Helvetica Neue'; min-height: 16.0px}\nspan.s1 {font: 14.0px 'Helvetica Neue'}</style></p><p class=\"p1\"><style type=\"text/css\">p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px 'PingFang SC'}\np.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px 'Helvetica Neue'; min-height: 16.0px}\nspan.s1 {font: 14.0px 'Helvetica Neue'}</style></p><p class=\"p1\"><span style=\"font-size:16px\"><span class=\"s1\">“</span>跟谁学商学院<span class=\"s1\">”</span>是跟谁学专为教培行业从业者开办的商学院。学院依托跟谁学平台强大的产品与行业内最豪华导师团队，致力于把最先进、最科学、最实用的教培理念和方法呈现给广大教培人。跟谁学商学院是有观点的商学院，我们坚信一个学校是否富有和健康，不取决于其总收入，而取决于其人均产能！</span></p><p class=\"p2\"><span style=\"font-size:16px\"><br/></span></p><p class=\"p1\"><span style=\"font-size:16px\">我们的课程围绕提高人均产能，涵盖产品研发、市场营销、运营管理、人力资源等内容，采用线上线下结合的模式，为教培行业从业者开发高质量的理论及实操课程、落地运营指导，帮助教培行业从业者提升互联网营销能力、机构管理能力、产品研发能力等，为教育培训机构培养卓越的校长、中层管理者、基层管理者、优秀教师和骨干员工，从而提高机构自转能力，提高续班满班率，提高人均产能，让机构做到三年十倍、利润倍增！</span></p><p class=\"p2\"><span style=\"font-size:16px\"><br/></span></p><p class=\"p1\"><span style=\"font-size:16px\">我们的导师队伍建设一贯秉承高标准严要求的规则，专业优秀经验丰富是底线，卓越才是我们的合格线。跟谁学商学院的所有导师，均在教培行业深耕多年并且成绩斐然，个个都是教培行业的翘楚，管理领域的精英。他们既能高屋建瓴纵观整个教培行业，把握行业趋势，又能深入基层、深耕细节，超越想象的细致入微。学习不能盲目学习，重要的是跟谁学！我们深知只有经历过，才能减少您试错的成本；只有达到十亿高度的人才有可能带您完成到一亿的目标！学习，一定要跟有结果的人学习！学习，要向有行业地位的人学习！</span></p><p class=\"p2\"><span style=\"font-size:16px\">&nbsp;</span></p><p class=\"p1\"><span style=\"font-size:16px\">过去的一年里，商学院开设课程近七十场，线下私享会四十余场，累计培训付费学员近两万人次，机构学员遍布全国<span class=\"s1\">30</span>个省市及自治区。同时我们的导师义务为学员提供一对一咨询服务高达千余小时。我们导师的专业精神和敬业精神为教培行业培训树立了标杆！</span></p><p class=\"p2\"><span style=\"font-size:16px\"><br/></span></p><p class=\"p1\"><span style=\"font-size:16px\">无论校长还是老师，<span class=\"s1\"> </span>背后都是无数热切期待的学子。教育无他，唯用心耳！唯有用心，才不负学子们的信任，才不负学子们的前途！跟谁学商学院，用我们极致的专业和用心，让您和您的学生都学有所成，让您的机构真正的三年十倍、利润倍增！</span></p><p class=\"p2\"><span style=\"font-size:16px\"><br/></span></p><p class=\"p1\"><span style=\"font-size:16px\">跟谁学商学院，做有观点的商学院；跟谁学商学院，用心做高端品质教育，做中国教培行业利润倍增专家！</span></p><p class=\"p2\"><span style=\"font-size:16px\"><br/></span></p><p class=\"p2\"><br/></p>"],
+        "support_student_advisory": true,
+        "is_custom_template_usable": false,
+        "fans_count": "145",
+        "is_focused": 0,
+        "page_title": "【宜人宜课】宜人宜课,小学、初中、高中 各科文化辅导，辅导方式有面授一对一、在线直播，在线视频课，找好老师就到宜人宜课-跟谁学官网",
+        "page_keywords": "宜人宜课,宜人宜课网站,宜人宜课官网,宜人宜课课程,宜人宜课老师",
+        "description": "宜人宜课,小学、初中、高中 各科文化辅导，辅导方式有面授一对一、在线直播，在线视频课，找好老师就到宜人宜课。宜人宜课提供小升初、中考、高考的课程、老师、视频、相册、评价怎么样,方便学生和家长全方位了解宜人宜课。找好老师,上跟谁学！",
+        "is_sem": 0,
+        "im_online_status": 0,
+        "lbs": {
+            "province": "重庆",
+            "city": "重庆",
+            "coord": {
+                "lng": 106.53063501341,
+                "lat": 29.544606108886
+            }
+        }
+    },
+    "ts": 1499425354,
+    "declare_config": {
+        "declareTpl": "v2/resources/page/orgDetail/index"
+    }
+}

@@ -1,0 +1,48 @@
+@import "../../../resource/css/default.styl";
+
+.course-radio {
+    &-item {
+        display: inline-block;
+        position: relative;
+        .icon-type-select {
+            position: absolute;
+            right: 0;
+            top: 5px;
+            z-index: 1;
+        }
+    }
+    .ant-radio-group {
+        .course-radio-item:first-child {
+            .ant-radio-button-wrapper {
+                border: 1px solid $grey_100;
+                border-radius: 2px 0 0 2px;
+            }   
+        }
+        .course-radio-item:last-child {
+            .ant-radio-button-wrapper {
+                border: 1px solid $grey_100;
+                border-radius: 0 2px 2px 0;
+                border-left: 0;
+            }
+        }
+        .course-radio-item {
+            .ant-radio-button-wrapper {
+                font-size: 12px;
+                min-width: 80px;
+                text-align: center;
+                line-height: 32px;
+                &:hover {
+                    color: $pink;
+                }
+                &.ant-radio-button-wrapper-checked {
+                    border: 1px solid $pink;
+                    color: $pink;
+                    box-shadow: none;
+                    &:before {
+                        background-color: $pink !important;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,183 @@
+{
+    "render": "v2/resources/page/one2oneTeacherDetail/index",
+    "tpl_data": {
+        "one_on_one_teacher_mobile": 888888888,
+        "comment_summary": {
+            "count": "9",
+            "favorable_count": "4",
+            "score": "3.6"
+        },
+        "comment_paged": {
+            "items": [
+                {
+                    "id": "39007",
+                    "content": "优选1对1早教益智评价，三颗星好评",
+                    "score": 3,
+                    "thumb_count": 2,
+                    "create_time": "2017-04-27 10:08:10",
+                    "user": {
+                        "number": 835036828,
+                        "avatar_url": "https://test-imgs.genshuixue.com/179641_8m4g0gh7.jpeg",
+                        "display_name": "何宣朗"
+                    }
+                }
+            ]
+        },
+        "share_course": {
+            "course_number": 17062599425,
+            "course_type": 1
+        },
+        "query_one_on_one_course": {
+            "number": "17042747693210",
+            "link_numbers": "441654418297,318341819257,355922767697,361291389817,361291471737,355922788177,361291497297,312973253497,312973192017,398872537977,447190899577,362465961297,362465815417,362465820537,400046779217,405415631737,405415657337,442996677497,442996697937,448365412177,319683919737,362633592657,314315348817,314315451257,319684165457,319684078457,319684165497,357265021817,357328018287,357327956847,357328043887",
+            "name": "器乐·钢琴",
+            "lesson_ways": [
+                "ONLINE",
+                "STUDENT"
+            ],
+            "teach_length_hours": 17,
+            "student_count": 33,
+            "categories": [
+                {
+                    "name": "全部"
+                }
+            ],
+            "price_range": {
+                "max": "110.00",
+                "min": "12.00"
+            },
+            "address": {
+                "area_path_str": "澳门-澳门-路氹城",
+                "lng": 113.573078,
+                "lat": 22.151156
+            },
+            "videos": [
+                {
+                    "title": "2222222222",
+                    "play_url_m": "https://masixun-m.test.genshuixue.com/video/play_view/16521",
+                    "cover_url": "http://test-img.gsxservice.com/00-upload/image-test/104287_a85cb99737033e3a773a7ccf7d5f8a60_xl4V3bAy.jpg"
+                }
+            ],
+            "photos": [
+                {
+                    "title": "八最多十二个字的相片描述",
+                    "image_url": "https://test-imgs.genshuixue.com/817651_0hl4t7al.jpeg"
+                },
+                {
+                    "title": "七最多十二个字的相片描述",
+                    "image_url": "https://test-imgs.genshuixue.com/817650_fvwo67dl.jpeg"
+                }
+            ],
+            "honors": [
+                {
+                    "title": "七最多十二个字的相片描述",
+                    "image_url": "https://test-imgs.genshuixue.com/817650_fvwo67dl.jpeg"
+                }
+            ],
+            "success_cases": [
+                {
+                    "title": "帮助张同学取得进步帮助张同学取得进步帮助张同学取得进步三十字",
+                    "date": "2014-06-01",
+                    "content": "刚刚学习钢琴的张同学对一切都不适应，通过与他谈论\n\n一些感兴趣的话题，张同学逐渐成为开朗大方起来，学习兴趣也有了很大提升，进步非常快"
+                }
+            ],
+            "support_hotline": "4000-910-910",
+            "teacher": {
+                "number": "415444278",
+                "avatar_url": "https://test-imgs.genshuixue.com/938834_mgbtudm0.jpeg",
+                "display_name": "王倩倩",
+                "short_introduce": "我是一个好老师",
+                "introduce": "我是一个好老师，有着丰富的教学经验，从教十余载，在教学岗位兢兢业业，培养了无数名校学生，学生现在工作岗位发挥着贡献着自己的力量。教师作为人类灵魂的工程师，承担着重要使命。",
+                "sex": "FEMALE",
+                "display_school_age": "30+",
+                "audio": null,
+                "display_skills": [
+                    {
+                        "title": "激发兴趣"
+                    },
+                    {
+                        "title": "效果明显"
+                    },
+                    {
+                        "title": "免费试听"
+                    },
+                    {
+                        "title": "名校海归"
+                    },
+                    {
+                        "title": "高分得主"
+                    },
+                    {
+                        "title": "海外关系丰富"
+                    },
+                    {
+                        "title": "名校保录取专家"
+                    },
+                    {
+                        "title": "招生代表"
+                    },
+                    {
+                        "title": "中学留学专家"
+                    },
+                    {
+                        "title": "本科留学专家"
+                    },
+                    {
+                        "title": "研究生留学专家"
+                    },
+                    {
+                        "title": "博士留学专家"
+                    },
+                    {
+                        "title": "奖学金申请专家"
+                    },
+                    {
+                        "title": "托福保分专家"
+                    },
+                    {
+                        "title": "雅思保分专家"
+                    },
+                    {
+                        "title": "GRE保分专家"
+                    },
+                    {
+                        "title": "GMAT保分专家"
+                    },
+                    {
+                        "title": "全程指导"
+                    },
+                    {
+                        "title": "常青藤毕业"
+                    },
+                    {
+                        "title": "高端申请专家"
+                    },
+                    {
+                        "title": "澳洲留学专家"
+                    },
+                    {
+                        "title": "全奖专家"
+                    },
+                    {
+                        "title": "出题机构培训师"
+                    },
+                    {
+                        "title": "文艺青年"
+                    }
+                ],
+                "bios": [
+                    {
+                        "start_date": "2011-09-01",
+                        "end_date": "2015-03-01",
+                        "content": "大学专业英语教育，从教以来一直专\n注英语教育，教龄三年，其中包括补习班一对一教学\n和一对多辅导以及学校的英语教育工作。在此期间，本人积累了很多经验能根据不同学生的学习特点和学习习惯因材施教，积累了很多关于\n如何提高孩子学习英语的兴趣，如何提高孩子的英语成绩，提高孩子课堂注意力，改善孩子不愿说英语的习惯以及家庭教育英语的学习，重视并培养孩子英语学习能力的提升。"
+                    },
+                    {
+                        "start_date": "2012-05-01",
+                        "end_date": "2014-03-01",
+                        "content": "在北京钢琴培训班担任钢琴老师，\n态度认真负责，深受学生喜爱，\n致力于帮助学生\n培养对钢琴和音乐的兴趣以及技能的提高"
+                    }
+                ]
+            }
+        }
+    }
+}

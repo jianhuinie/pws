@@ -1,0 +1,1 @@
+define("cobble/function/timer",["require","exports","module"],function(){"use strict";return function(t,e,n){n="number"===$.type(n)?n:0;var u,i=function(){u=setTimeout(i,e),t()},o={start:function(){o.stop(),setTimeout(i,n)},stop:function(){if(u)clearTimeout(u),u=null}};return o}});

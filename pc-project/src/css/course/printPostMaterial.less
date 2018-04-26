@@ -1,0 +1,87 @@
+/**
+ * @file 邮寄资料信息 - 打印版
+ * @author wanglu
+ */
+@import '../common/center/common/layout.less';
+@import '../common/card.less';
+
+#flotage-top,
+#flotage-middle,
+#flotage-bottom,
+#site-nav,
+#nav,
+#header,
+#footer,
+.im-toggle-bar {
+    display: none;
+}
+
+#main {
+
+    .card,
+    .card-header {
+        border: none;
+        box-shadow: none;
+    }
+
+    .card-header {
+        border-top: 1px solid #ccc;
+        span {
+            float: right;
+        }
+    }
+
+    .post-card {
+        width: 810px;
+        height: 1056px;
+        margin: 0 auto;
+        background: #FFFFFF;
+        display: inline-block;
+        font-family: PingFang-SC-Regular;
+
+        .course-name {
+            margin-left: 45px;
+            margin-top: 30px;
+            span {
+                font-size: 15px;
+            }
+            .course-name-info {
+                color: #6D6D6E;
+            }
+            .course-name-text {
+                color: #3D3D3E;
+                margin-left: 5px;
+            }
+            a {
+                width: 42px;
+                height: 25px;
+                display: inline-block;
+                border-radius: 2px;
+                font-size: 13px;
+                line-height: 25px;
+                vertical-align: middle;
+                padding-left: 7px;
+            }
+        }
+        .post-list {
+            margin-left: 24px;
+            margin-top: 37px;
+            .table {
+                width: 737px;
+                color: #3D3D3E;
+                font-size: 13px;
+                .thead {
+                    height: 45px;
+                    background: #F7F7F7;
+                }
+                tbody {
+                        width: 737px;
+                    tr {
+                        border-bottom: 1px solid #CCCCCC;
+                    }
+                } 
+            }
+        }
+    }
+
+}

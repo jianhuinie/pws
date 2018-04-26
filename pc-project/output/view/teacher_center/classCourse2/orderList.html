@@ -1,0 +1,15 @@
+{{ *
+
+@file 班课订单列表
+@author zhujialu
+
+* }}
+{{ strip }}
+
+{{ foreach $tpl_data.object_list as $item }}
+    {{ include file="./orderItem.html" order=$item }}
+{{ /foreach }}
+
+{{ include file="common/component/pager.html" count=$tpl_data.pager.count page=$tpl_data.pager.page page_size=$tpl_data.pager.page_size }}
+
+{{ /strip }}

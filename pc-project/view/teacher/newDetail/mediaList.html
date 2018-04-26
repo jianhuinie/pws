@@ -1,0 +1,43 @@
+{{ *
+
+@file 照片/视频模块
+@author jixiaohui
+
+* }}
+
+{{ strip }}
+{{ if !empty($tpl_data.video_list) || !empty($tpl_data.photo_list) }}
+{{ $counter = 1 }}
+<ul id="media-list">
+    {{ if count($tpl_data.video_list) > 0 }}
+        {{ foreach $tpl_data.video_list as $val }}
+            <li class="video {{ if $counter%5 == 0 }}last{{ /if }}" data-type="video" data-image="{{ $val.preface_url_prefix }}/1_160_120.jpg" data-video="{{ $val.video }}" data-name="{{ $val.name }}">
+                <div class="portrait" data-video="{{ $val.video }}" data-name="{{ $val.name }}" data-vid="{{ $val@index+1 }}">
+                    <img src="{{ $val.preface_url_prefix }}/1_160_120.jpg">
+                    <i class="icon icon-play-o"></i>
+                    <div class="media-mask"></div>
+                </div>
+                {{ $final_name = $val.name|cn_truncate:11 }}
+                <span class="caption"{{ if $final_name != $val.name }} data-title="{{ $val.name }}"{{ /if }}>{{ $final_name }}</span>
+            </li>
+            {{ $counter = $counter + 1 }}
+        {{ /foreach }}
+    {{ /if }}
+    {{ if count($tpl_data.photo_list) > 0 }}
+        {{ foreach $tpl_data.photo_list as $val }}
+            <li class="photo  {{ if $counter%5 == 0 }}last{{ /if }}" data-type="photo" data-image="{{ $val.img }}" data-name="{{ $val.name }}">
+                <div class="portrait" data-image="{{ $val.img }}" data-name="{{ $val.name }}">
+                    {{ include file="common/variable/photo.html" url=$val.img raw_width=$val.width raw_height=$val.height width=180 height=134 }}
+                    <img src="{{ $photo }}">
+                    <div class="media-mask"></div>
+                </div>
+                {{ $final_name = $val.name|cn_truncate:11 }}
+                <span class="caption"{{ if $final_name != $val.name }} data-title="{{ $val.name }}"{{ /if }}>{{ $final_name }}</span>
+            </li>
+            {{ $counter = $counter + 1 }}
+        {{ /foreach }}
+    {{ /if }}
+</ul>
+{{ include file="common/component/pager.html" page=$tpl_data.pager.page page_size=$tpl_data.pager.page_size count=$tpl_data.pager.count }}
+{{ /if }}
+{{ /strip }}

@@ -1,0 +1,5 @@
+[{
+    "tpl": "./list.tpl",
+    "router": "/data_list",
+    "mock_data": "./mock/list.json"
+}]

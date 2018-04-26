@@ -1,0 +1,373 @@
+/**
+ * @file 支付
+ * @author zhujialu
+ */
+@import './common/layout.less';
+@import './common/pay-approach.less';
+@import './component/bankList.less';
+@import './component/waitPayDialog.less';
+@import './component/ebankDialog.less';
+@import './component/bindCardDialog.less';
+@import './component/bankInfo.less';
+@import './component/wechatPayDialog.less';
+@import './order/internalPay.less';
+
+body {
+    overflow-y: scroll;
+}
+
+#main {
+
+    padding-bottom: 0;
+
+    .pay-notice {
+        + .pay-tip {
+            margin-top: 20px;
+        }
+    }
+
+    .pay-tip {
+
+        background-color: @brand-primary-lighter;
+        border: 1px solid @brand-primary-light;
+        padding: @gap-vertical-small @gap-horizontal-large;
+        font-size: @font-size-tiny;
+        .wrapper {
+            .clearfix();
+            & > div {
+                float: left;
+            }
+        }
+        .pay-money {
+            border-right: 1px solid @brand-gray;
+            padding-right: 20px;
+        }
+        .money {
+            text-align: center;
+            font-size: @font-size-large;
+        }
+        .purchase-info {
+            margin-left: @gap-horizontal-large;
+        }
+        .result {
+            font-size: @font-size-medium;
+        }
+        .purchase-id {
+            margin-right: @gap-horizontal-large;
+            line-height: 34px;
+        }
+        strong {
+            color: @brand-primary;
+        }
+    }
+
+    .footer {
+        margin-top: 20px;
+        text-align: center;
+
+        > span {
+            background: url(../../img/im/expression-50.png) no-repeat 0 0;
+            display: inline-block;
+            margin-right: 15px;
+            width: 104px;
+            height: 123px;
+            vertical-align: middle;
+        }
+
+        a {
+            margin-left: 5px;
+            margin-right: 10px;
+            color: @brand-info;
+            &:hover {
+                color: @brand-primary;
+            }
+        }
+    }
+
+}
+
+.bank-card {
+
+    border: 1px solid #e4e4e4;
+    border-radius: 4px;
+    padding: 10px 15px 3px;
+    width: 165px;
+
+    margin-left: 15px;
+
+    &:first-child {
+        margin-left: 0;
+    }
+
+    input {
+        display: none;
+    }
+
+    .icon-ebank {
+        position: relative;
+        top: -5px;
+        left: -3px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #111;
+
+        &:before {
+            font-size: 32px;
+            color: #ff9900;
+        }
+
+        & > span {
+            position: relative;
+            top: -9px;
+        }
+    }
+
+    &:hover,
+    &.active {
+        background-color: #FAFAFA;
+        border-color: @brand-info-light;
+        box-shadow: 0px 0px 2px @brand-info-light;
+    }
+
+    cursor: pointer;
+}
+
+.pay-way {
+
+    margin-top: 20px;
+
+    h4 {
+        font-size: 1.2em;
+    }
+
+    .normal-pay,
+    .other-pay {
+        border: 1px solid #D7D7D7;
+        padding: 15px 30px;
+        position: relative;
+    }
+
+    .normal-pay {
+        margin-top: 10px;
+        padding-top: 0;
+
+        > .pay-row {
+            padding: 15px 0;
+            border-bottom: 1px solid #DDD;
+        }
+    }
+
+    .other-pay {
+        margin-top: 30px;
+    }
+
+    .pay-selector {
+        > label {
+            color: @brand-text;
+            margin-right: 10px;
+        }
+        input {
+            margin-right: 10px;
+        }
+        small {
+            color: @brand-text-lighter;
+        }
+    }
+    .balance-help-info {
+        margin-left: 10px;
+    }
+    table {
+        width: 100%;
+
+    }
+
+    td {
+        text-align: left;
+        vertical-align: middle;
+        position: relative;
+
+        &:first-child {
+            width: 210px;
+            vertical-align: middle;
+        }
+
+
+    }
+
+    .other-pay  {
+
+        .bank-card {
+            text-align: center;
+        }
+
+        .header {
+            h5 {
+                color: @brand-text;
+                display: inline-block;
+                font-weight: bold;
+                vertical-align: top;
+            }
+        }
+
+        .body {
+            margin-top: 8px;
+        }
+
+    }
+
+    .pay-form {
+
+        .form(90px);
+
+        margin-top: 15px;
+
+        .form-text {
+            width: 205px;
+        }
+
+        .form-action {
+            padding-left: 0;
+        }
+
+        .btn-send-code {
+            margin-left: 10px;
+            margin-right: 20px;
+        }
+
+        .one-key-pay-container,
+        .quick-pay-container,
+        .balance-pay-container {
+            display: none;
+        }
+
+        .no-setting-password-container {
+            .notice-tip {
+                font-size: 12px;
+                color: #999;
+            }
+        }
+        .platform-password-container {
+            a {
+                margin-left: 5px;
+                color: #6287d5;
+            }
+            .card-tip {
+                margin-left: 90px;
+                font-size: 12px;
+                margin-top: 5px;
+                display: none;
+            }
+        }
+
+        .icon-info-circle {
+            margin-left: 5px;
+            color: #6287d5;
+            cursor: pointer;
+        }
+
+    }
+
+    .bank-card {
+        vertical-align: top;
+        height: 42px;
+        .inline-block();
+
+        .wechat {
+            position: relative;
+            top: -3px;
+        }
+
+        .huabei {
+            position: relative;
+            font-size: 15px;
+            font-weight: 500;
+            color: #000;
+
+            .icon {
+                position: absolute;
+                left: 20px;
+                top: 50%;
+                margin-top: -13px;
+            }
+
+            .text {
+                margin-left: 26px;
+            }
+
+        }
+    }
+
+}
+.select-bank {
+
+
+    input[name="card_no"] {
+
+        width: 20em;
+        margin-right: 10px;
+    }
+
+    .nav-tab {
+        .clearfix();
+    }
+
+    .nav-item {
+        border-bottom: 2px solid #CCC;
+        padding: 15px 25px;
+
+
+        &.active {
+            color: @brand-text;
+            font-weight: bold;
+            border-color: @brand-info;
+
+            &:before {
+
+                content: ' ';
+
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                margin-left: -5px;
+
+                border: 5px solid transparent;
+                border-bottom-color: @brand-info;
+            }
+        }
+    }
+
+    .tab-panel {
+
+        padding: 20px 0;
+
+        > div {
+            margin-top: 15px;
+
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+    }
+
+}
+
+.pay-dialog-for-tip {
+
+    .free-secret-title {
+        font-size: 18px;
+        color: #ff9900;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .free-secret-section {
+
+        font-size: 14px;
+        margin-bottom: 10px;
+
+        &-title {
+            color: #ff9900;
+            margin-bottom: 10px;
+        }
+    }
+}

@@ -1,0 +1,13 @@
+<?php /* Smarty version Smarty-3.1.19, created on 2016-07-07 14:14:40 compiled from "/Users/bjhl/workspace/web-fe/view/classCourse/common/commentNav.html" */ ?>
+<?php /*%%SmartyHeaderCode:119440034577dd0b58585c0-01601786%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array ( 'file_dependency' => array ( 'f855697e553fbb21981168e2a311048fa07c03fe' => array ( 0 => '/Users/bjhl/workspace/web-fe/view/classCourse/common/commentNav.html', 1 => 1467871814, 2 => 'file', ), ), 'nocache_hash' => '119440034577dd0b58585c0-01601786', 'function' => array ( ), 'version' => 'Smarty-3.1.19', 'unifunc' => 'content_577dd0b58734f2_85549878', 'variables' => array ( 'tpl_data' => 0, 'comment_nav' => 0, 'count' => 0, ), 'has_nocache_code' => false,
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_577dd0b58734f2_85549878')) {function content_577dd0b58734f2_85549878($_smarty_tpl) {?> <?php if (isset($_smarty_tpl->tpl_vars['tpl_data']->value['comment_nav'])) {?><?php $_smarty_tpl->tpl_vars['comment_nav'] = new Smarty_variable($_smarty_tpl->tpl_vars['tpl_data']->value['comment_nav'], null, 0);?><?php $_smarty_tpl->tpl_vars['count'] = new Smarty_variable($_smarty_tpl->tpl_vars['comment_nav']->value['score']['face_type'], null, 0);?><b class="nav-item nav-item-all <?php if (!$_smarty_tpl->tpl_vars['comment_nav']->value['face_type']) {?> active<?php }?>" data-face="" data-name="全部评价" data-num="<?php echo $_smarty_tpl->tpl_vars['count']->value['great']+$_smarty_tpl->tpl_vars['count']->value['middle']+$_smarty_tpl->tpl_vars['count']->value['lower'];?>
+">全部评价（<?php echo $_smarty_tpl->tpl_vars['count']->value['great']+$_smarty_tpl->tpl_vars['count']->value['middle']+$_smarty_tpl->tpl_vars['count']->value['lower'];?>
+）</b><b class="nav-item <?php if ($_smarty_tpl->tpl_vars['comment_nav']->value['face_type']==1) {?> active<?php }?>" data-face="1" data-name="好评" data-num="<?php echo $_smarty_tpl->tpl_vars['count']->value['great'];?>
+">好评（<?php echo $_smarty_tpl->tpl_vars['count']->value['great'];?>
+）</b><b class="nav-item <?php if ($_smarty_tpl->tpl_vars['comment_nav']->value['face_type']==2) {?> active<?php }?>" data-face="2" data-name="中评" data-num="<?php echo $_smarty_tpl->tpl_vars['count']->value['middle'];?>
+">中评（<?php echo $_smarty_tpl->tpl_vars['count']->value['middle'];?>
+）</b><b class="nav-item <?php if ($_smarty_tpl->tpl_vars['comment_nav']->value['face_type']==3) {?> active<?php }?>" data-face="3" data-name="差评" data-num="<?php echo $_smarty_tpl->tpl_vars['count']->value['lower'];?>
+">差评（<?php echo $_smarty_tpl->tpl_vars['count']->value['lower'];?>
+）</b><?php }?><?php }} ?>

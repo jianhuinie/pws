@@ -1,0 +1,18 @@
+<view class="find-teacher-result">
+	<view>
+		<icon type="success" size="80"/>
+	</view>
+	<view>
+		<text class="title">发布成功</text>
+	</view>
+	<view>
+		<text class="sub-title">跟谁学客服会与您电话联系</text>
+	</view>
+	<view class="btn">
+		<!--<button type="primary" bindtap="bindMyPublicTap">查看我的发布</button>-->
+	</view>
+	<view class="bottom">
+		<text class="gsx">跟谁学</text>
+		<text class="copyright">Copyright  ©  2014-2017 genshuixue.com</text>
+	</view>
+</view>

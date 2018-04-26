@@ -1,0 +1,68 @@
+{{ *
+
+@file 经验获取页面
+@author zengcheng
+
+* }}
+{{ extends file="social/common/base.html" }}
+
+{{ block name="data" }}
+
+    {{ * 需要im * }}
+    {{ $need_im = false }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $nav_config.active = '' }}
+    {{ $nav_config.hidden = 1 }}
+    {{ $flotage_config.hidden = true }}
+
+    {{ $script_path = "social/experience" }}
+
+{{ /block }}
+
+{{ block name = "style" }}
+    <link rel="stylesheet" href="{{ $static_origin }}/src/css/social/experience.less">
+{{ /block }}
+
+{{ block name="main" }}
+
+{{ strip }}
+<div id="main">
+    <div class="wrapper">
+        <h4 class="label">如何提升经验</h4>
+        <div class="rules">
+            <table class="rule-table">
+                <thead class="rule-table-header">
+                    <tr>
+                        <th class="width-218 text-left padding-left-10">操作名称
+                        </th>
+                        <th class="width-168 text-center">经验值增加</th>
+                        <th class="text-center">规则</th>
+                    </tr>
+                </thead>
+                <tbody class="rule-table-body">
+                    {{ foreach $tpl_data as $item }}
+                    <tr class="{{ if $item@iteration is even }}even{{ else }}odd{{ /if }}">
+                        <td class="text-left padding-left-10">
+                            {{ $item.display_name|escape:'html' }}
+                        </td>
+                        <td class="text-center">
+                            {{ $item.jifen_display|escape:'html' }}
+                        </td>
+                        <td class="text-center">
+                            {{ $item.rule_display|escape:'html' }}
+                        </td>
+                    </tr>
+                    {{ /foreach }}
+               </tbody>
+            </table>
+            <table class="table">
+
+
+            </table>
+        </div>
+    </div>
+</div>
+{{ /strip }}
+{{ /block }}

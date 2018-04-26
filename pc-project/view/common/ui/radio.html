@@ -1,0 +1,54 @@
+{{ *
+
+@file 单选框
+
+      参数：
+
+      text: 文本
+      name: 名称
+      value: 值
+      checked: 是否选中
+      disabled: 是否可用
+      class: 可选，可为容器元素添加 class
+      size: 可选，值包括 "tiny" "small" "large" "huge"
+      title: 可选，提示浮层信息
+
+@author zhujialu
+
+* }}
+{{ strip }}
+
+{{ if !isset($checked) }}
+    {{ $checked = 0 }}
+{{ /if }}
+
+{{ if !isset($disabled) }}
+    {{ $disabled = 0 }}
+{{ /if }}
+
+{{ if isset($title) }}
+    {{ $title = ' data-title="'|cat: $title|cat: '"' }}
+{{ else }}
+    {{ $title = '' }}
+{{ /if }}
+
+{{ $classes = [] }}
+
+{{ if isset($class) }}
+    {{ $classes[] = $class }}
+{{ /if }}
+
+{{ if isset($size) }}
+    {{ $classes[] = $size }}
+{{ /if }}
+
+{{ $classes = implode(' ', $classes) }}
+
+<label class="form-radio {{ $classes }}"{{ $title }}>
+
+    <input type="radio" name="{{ $name }}" value="{{ $value }}"{{ if $checked }} checked="checked"{{ /if }} {{ if $disabled }} disabled="disabled"{{ /if }} />
+
+    {{ $text }}
+</label>
+
+{{ /strip }}

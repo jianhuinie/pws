@@ -1,0 +1,167 @@
+{{ *
+
+@file 评论列表优化
+@author niejianhui
+
+* }}
+
+{{ strip }}
+
+{{ $comment_list = $tpl_data.comment_list.comment }}
+{{ $comment_type = $tpl_data.comment_nav.comment_type }}
+{{ include file="common/variable/lesson.html" scope=parent }}
+
+
+{{ if count($comment_list) > 0 }}
+    <div class="list">
+        {{ foreach $comment_list as $val }}
+                <div class="item">
+                    <dl>
+                        <dt>
+                            {{ include file="common/component/avatar.html" type="small" img=$val.user_avatar }}
+                        </dt>
+                        <dd {{ if $val.user_name != $val.user_name }} data-title="{{ $val.user_name }}"{{ /if }}>
+                            {{ $val.user_name }}
+                        </dd>
+                    </dl>
+                    <div class="comment">
+
+                        <div class="order-info">
+                        </div>
+
+                        <div class="score-info">
+                            <span class="date">
+                                {{ $val.create_time|date_format:"%Y-%m-%d" }}
+                            </span>
+                            <span class="score-face">
+                                {{ if $val.face_type == 1 }}
+
+                                <i class="icon icon-smile-o"></i>&nbsp;
+                                好评
+
+                                {{ else if $val.face_type == 2 }}
+
+                                <i class="icon icon-neutral-o"></i>&nbsp;
+                                中评
+
+                                {{ else if $val.face_type == 3 }}
+
+                                <i class="icon icon-frown-o"></i>&nbsp;
+                                差评
+
+                                {{ /if }}
+                            </span>
+                            {{ if isset($val.fr)&& $val.fr != 2  }}
+                                <span>{{ include file="common/component/starScore.html" score=$val.total_score }}
+                                </span>
+                            {{ /if }}
+                            <span>
+                                评价课程
+                            </span>
+                            {{ if isset($val.fr) && $val.fr == 2  }}
+                                <span> 邀请评价 </span>
+                            {{ else }}
+                                {{ if isset($val.course_url) }}
+                                    <a href="{{ $val.course_url }}">
+                                        {{ $val.course_name }}
+                                    </a>
+                                {{ else }}
+                                    <span> {{ $val.course_name }} </span>
+                                {{ /if }}
+                            {{ /if }}
+                        </div>
+                        <p class="content">{{ if isset($val.fr) && ($val.fr == 1 || $val.fr == 3) }}该学生未及时做出评价，系统默认好评！{{ else }}{{ $val.info|escape }}{{ /if }}
+                        </p>
+                        {{ if !empty($val.photo_list) }}
+                            <div class="comment-photo-box">
+                                <ul class="comment-photo-list">
+                                    {{ foreach $val.photo_list as $item }}
+                                    <li class="photo-item" data-image="{{ $item.url }}" data-name="{{ $item.title }}" {{ include file="common/variable/zoomPhoto.html" url=$item.url raw_width=$item.width raw_height=$item.height width=400 height=300 }} data-horizontal="{{ $photo }}" data-hheight="{{ $fit_height }}"
+
+                                    {{ include file="common/variable/zoomPhoto.html" url=$item.url raw_width=$item.height raw_height=$item.width width=300 height=400 }} data-vertical="{{ $photo }}" data-vheight="{{ $fit_height }}"
+
+                                    >
+                                        {{ include file="common/variable/photo.html" url=$item.url raw_width=$item.width raw_height=$item.height width=120 height=80 }}
+                                        <img src="{{ $photo }}">
+                                    </li>
+                                    {{ /foreach }}
+                                </ul>
+                            </div>
+                        {{ /if }}
+                    </div>
+                </div>
+
+            <!-- <div class="item">
+                <dl>
+                    <dt>
+                        {{ if $item.anonymous == 1 }}
+                            {{ include file="common/component/avatar.html" type="small" img=$item.user_avatar }}
+                        {{ else }}
+                            <a href="/x/{{ $item.user_number }}" target="_blank">
+                                {{ include file="common/component/avatar.html" type="small" img=$item.user_avatar }}
+                            </a>
+                        {{ /if }}
+                    </dt>
+                    <dd data-title="{{ $item.display_name }}">
+                        {{ $item.display_name|cn_truncate: 4 }}
+                    </dd>
+                </dl>
+                <div class="comment">
+                    <div class="score-info">
+                        {{ include file="common/component/starScore.html" score=$item.total_score fr=$item.fr }}
+                    </div>
+                    <div class="content">
+                        {{ if isset($item.fr) && ($item.fr == 1 || $item.fr == 3) }}
+                            未做出评价，系统默认评价！
+                        {{ else }}
+                            {{ $item.info|escape }}
+                        {{ /if }}
+                    </div>
+
+
+                    <div class="order-info">
+                        <span class="date">
+                            {{ $item.create_time|date_format:"%Y-%m-%d" }}
+                        </span>
+
+                        {{ if isset($item.fr) && $item.fr == 2 }}
+                        <span>邀请评价</span>
+                        {{ else }}
+                            <a href="{{ $item.course_url }}" target="_blank">
+                                {{ $item.course_name|cn_truncate: 33 }}
+                            </a>
+                            {{ if $item.lesson_way == "student" }}
+                                <span>学生上门</span>
+                            {{ else if $item.lesson_way == "discuss" }}
+                                <span>协商地点</span>
+                            {{ else if $item.lesson_way == "teacher" }}
+                                <span>老师上门</span>
+                            {{ else if $item.lesson_way == "online" }}
+                                <span>在线授课</span>
+                            {{ else if $item.lesson_way == "video" }}
+                                <span>视频课程</span>
+                            {{ else if $item.lesson_way == "other" }}
+                                <span>其他</span>
+                            {{ /if }}
+                            <span>{{ $item.display_title }}</span>
+
+                            {{ if $item.teacher_display_name }}
+                                <span>
+                                老师：{{ $item.teacher_display_name }}
+                                </span>
+                            {{ /if }}
+                        {{ /if }}
+                    </div>
+                </div>
+            </div> -->
+        {{ /foreach }}
+
+    </div>
+    {{ include file="common/component/pager.html" page=$tpl_data.comment_list.pager.page page_size=$tpl_data.comment_list.pager.page_size count=$tpl_data.comment_list.pager.count }}
+    {{ else }}
+        <div id="no-comment">
+                <i class="icon icon-info-circle"></i>暂无评价
+        </div>
+{{ /if }}
+
+{{ /strip }}

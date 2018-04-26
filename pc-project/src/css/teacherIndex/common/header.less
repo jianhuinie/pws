@@ -1,0 +1,234 @@
+@import "./modelDialog.less";
+@import '../common/scroll.less';
+@import '../common/crumb.less';
+@import '../../common/component/recoverDialog.less';
+@import "../../common/component/advisoryDialog.less";
+@import "../../common/component/avatarPendant.less";
+
+#content{
+    width: 100%;
+    padding: 0 0 20px 0;
+    .gradient-vertical(#a4be5c, #c9d797);
+    .no-content{
+        text-align: center;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        a{
+            color: #f95;
+        }
+    }
+    .teacher-header{
+        width: 100%;
+        height: 348px;
+        position: relative;
+        background: url("/src/img/teacherIndex/model/header1.png");
+        background-position: center 0;
+        margin-bottom: 6px;
+        .visit-count{
+            font-size: 12px;
+        }
+        &>img{
+          position: absolute;
+          top: -20px;
+        }
+        .teacher-info-content{
+            width: 1020px;
+            margin: 0 auto;
+            height: 348px;
+            padding-top: 200px;
+            position: relative;
+        }
+        .teacher-info{
+            position: absolute;
+            top: 40px;
+            left: 400px;
+            text-align: center;
+            .teacher-info-avatar{
+                position: relative;
+                width: 104px;
+                margin: auto;
+                height: 104px;
+                background: #fff;
+                border-radius: 52px;
+                .avatar-big{
+                    padding: 2px;
+                }
+            }
+            .teacher-info-name{
+                font-size: 20px;
+                margin-top: 10px;
+                color: #FFFFFF;
+                font-family: '微软雅黑';
+                .icon-recommend {
+                    position: relative;
+                    top: 3px;
+                    background: url(../../../img/teacher/recommend.png) no-repeat;
+                    width: 33px;
+                    height: 20px;
+                }
+                .icon-vip-vip{
+                    display: inline-block;
+                    width: 18px;
+                    height: 17px;
+                }
+                .vip-level1{
+                    background: url("../../../img/teacherIndex/small-vip.png") no-repeat;
+                }
+                .vip-level2{
+                    background: url("../../../img/teacherIndex/small-gvip.png") no-repeat;
+                }
+                .vip-level3{
+                    background: url("../../../img/teacherIndex/small-cvip.png") no-repeat;
+                }
+                .medal{
+                    width: 18px;
+                    height: 18px;
+                    display: inline-block;
+                }
+            }
+            .teacher-info-tips{
+                font-size: 12px;
+                color: #FFFFFF;
+                height: 25px;
+                margin-top: 5px;
+                .teacher-info-tips-item{
+                    display: inline-block;
+                    padding:0 3px;
+                    span{
+                        border-right: 1px solid #FFFFFF;
+                        padding-right: 10px;
+                    }
+                }
+            }
+            .teacher-info-button{
+                height: 35px;
+                margin-top: 5px;
+                &>div{
+                    float: left;
+                    margin: 0 5px;
+                }
+                .teacher-info-button-ask{
+                    width: 100px;
+                    height: 35px;
+                    background: #f95;
+                    border: 1px solid #f95;
+                    border-radius: 2px;
+                    color: #fff;
+                    font-size: 14px;
+                    padding-top: 5px;
+                    cursor: pointer;
+                    display: inline-block;
+                    line-height: 20px;
+                }
+                .teacher-info-button-listen{
+                    width: 100px;
+                    height: 35px;
+                    background: #6187dc;
+                    border: 1px solid #6187dc;
+                    border-radius: 2px;
+                    color: #fff;
+                    font-size: 14px;
+                    padding-top: 5px;
+                    cursor: pointer;
+                }
+                .teacher-info-button-more{
+                    background: #686d77;
+                    width: 35px;
+                    height: 35px;
+                    cursor: pointer;
+                    .teacher-info-button-more-content{
+                        width: 95px;
+                        display: none;
+                        text-align: center;
+                        position: relative;
+                        top:0px;
+                        left: 0px;
+                        z-index: 2;
+                        border: 1px solid #eee;
+                        &>div{
+                            height: 35px;
+                            font-size: 14px;
+                            background: #FFFFFF;
+                            padding-top: 5px;
+                            &:hover{
+                                background: #eeeeee;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .teacher-link{
+            width: 100%;
+            height: 48px;
+            background: #FFFFFF;
+            display: inline-block;
+            position: absolute;
+            left: 0;
+            bottom: -1px;
+            text-align: center;
+            .teacher-link-item{
+                display: inline-block;
+                margin: 17px  25px 0px 25px;
+                font-size: 14px;
+                cursor: pointer;
+                a{
+                    padding: 0 5px 12px 5px;
+                }
+                .active{
+                    border-bottom: 2px solid #f95;
+                    font-weight: bold;
+                }
+            }
+        }
+        .teacher-info-model-share{
+            position: absolute;
+            top: 15px;
+            right: 0px;
+            height: 30px;
+            padding: 5px 5px 5px 12px;
+            border: 1px solid #8c867d;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 15px;
+            color: #FFFFFF;
+            font-size: 12px;
+            .teacher-info-use-model{
+                cursor: pointer;
+            }
+            .teacher-info-share li{
+                display: inline-block;
+                cursor: pointer;
+                margin-right: 5px;
+                &:hover{
+                    color: #eee;
+                }
+                .qrcode-container {
+                    display: none;
+                    width: 103px;
+                    height: 127px;
+                    position: absolute;
+                    background: #FFFFFF;
+                    top: 40px;
+                    right: 0;
+                    padding-top: 10px;
+                    text-align: center;
+                    span{
+                        text-align: center;
+                        color: #555;
+                        font-size: 12px;
+                    }
+                    &:before{
+                        content: ' ';
+                        position: absolute;
+                        top: -15px;
+                        margin-left: -8px;
+                        border: 8px solid transparent;
+                        border-bottom-color: #f8f8f8;
+                    }
+                }
+            }
+
+        }
+    }
+
+}

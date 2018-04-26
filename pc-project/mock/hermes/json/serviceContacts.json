@@ -1,0 +1,33 @@
+{
+    "code": 0,
+    "data": [
+        {
+            "avatar": "http://test-img.gsxservice.com/7055_n2nu2ua5.jpeg",
+            "user_number": "user_1",
+            "user_name": "用户1",
+            "user_role": 0,
+            "time": 1436441537855,
+            "origin_page": "",
+            "order_num": 123
+        },
+        {
+            "avatar": "http://test-img.gsxservice.com/7055_n2nu2ua5.jpeg",
+            "user_number": "user_2",
+            "user_name": "用户2",
+            "user_role": 2,
+            "time": 1436441537855,
+            "origin_page": "",
+            "order_num": 123
+        },
+        {
+            "avatar": "http://test-img.gsxservice.com/7055_n2nu2ua5.jpeg",
+            "user_number": "user_3",
+            "user_name": "用户3",
+            "user_role": 0,
+            "time": 1436441537855,
+            "origin_page": "",
+            "order_num": 123
+        }
+
+    ]
+}

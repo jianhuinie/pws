@@ -1,0 +1,43 @@
+.list-bar {
+    display: flex;
+    background: #ffffff;
+    width: 100%;
+    height: rem(40);
+    line-height: rem(40);
+    border-bottom: rem(1) solid #DEDEDE;
+    .item {
+        flex: 1;
+        text-align: center;
+        margin: 0 rem(10);
+        position: relative;
+        &.normal {
+            font-family: PingFang-SC-Regular;
+            font-size: rem(15);
+            color: #3d3d3e;
+        }
+        &.active {
+            font-family: PingFang-SC-Regular;
+            font-size: rem(15);
+            color: #37a4f5;
+            height: rem(39);
+            border-bottom: rem(2) solid #37a4f5;
+        }
+        .warn {
+            position: absolute;
+            right: rem(-12);
+            top: rem(4);
+            background: #ff5850;
+            border: rem(1) solid #ffffff;
+            border-radius: rem(15);
+            width: rem(22);
+            height: rem(22);
+            display: inline-block;
+            line-height: rem(22);
+            font-size: rem(10);
+            color: white;
+            &.hide {
+                display: none;
+            }
+        }
+    }
+}

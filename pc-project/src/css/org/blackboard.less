@@ -1,0 +1,94 @@
+
+/**
+ * @file 机构黑板报列表页
+ * @author zhangliyuan
+ */
+
+@import '../main/base.less';
+@import '../common/card.less';
+@import '../common/component/searchList2.less';
+@import '../common/component/loginDialog.less';
+@import '../common/main/common/nav.less';
+@import './common/profile.less';
+@import './common/goldProfile.less';
+@import './common/nav.less';
+
+@headPaper-height: 210px;
+
+@paper-header-height: 180px;
+@paper-height: 170px;
+
+@img-header-height: 160px;
+@img-header-width: 250px;
+
+@img-height: 150px;
+@img-width: 150px;
+
+@content-width: 630px;
+
+
+.blackboard-info {
+    height: @paper-height;
+    background-color: white;
+    margin: 10px 20px;
+    padding: 10px;
+    color: #999;
+    overflow: hidden;
+}
+
+.blackboard-info:hover {
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    background-color: #f5f5f5;
+}
+
+.blackboard-icon {
+    float: left;
+}
+
+.blackboard-main {
+    float: left;
+    overflow: hidden;
+    width: @content-width;
+    padding: 1px 35px;
+}
+
+.blackboard-time {
+    float: right;
+}
+
+.blackboard-img {
+    width: @img-width;
+    height: @img-height;
+}
+
+.blackboard-header {
+    font-size: 110%;
+    font-weight: bold;
+    color: #000;
+    &:hover {
+        color: #f90;
+    }
+}
+
+.blackboard-content {
+    margin-top: 10px;
+    height: 100px;
+}
+
+.blackboard-header-info {
+    height: @paper-header-height;
+    .blackboard-img {
+
+    }
+
+    .blackboard-icon {
+
+    }
+    .blackboard-main {
+        float: left;
+        width: 530px;
+    }
+}
+
+

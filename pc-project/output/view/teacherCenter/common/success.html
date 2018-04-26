@@ -1,0 +1,57 @@
+{{ if isset($length) }}
+    {{ $length = $length }}
+{{ else }}
+    {{ $length = count($success) }}
+{{ /if }}
+{{ if !empty($success) }}
+<div id="teacher-success-list">
+
+        <div class="success-list-left success-list-item">
+            {{ foreach $success as $val }}
+            {{ if $val@index <$length && $val@index % 2 == 0 }}
+            <div class="teacher-success-item">
+                <h1 class="success-title">
+                    {{ $val.title }}
+                </h1>
+                <div class="success-time">
+                    {{ $val.date|date_format:"%Y年%m月" }}
+                </div>
+                {{ $content_cut = addslashes($val.content_cut)|escape|nl2br }}
+                {{ $content = addslashes($val.content)|escape|nl2br }}
+                {{ $content_new_cut = addslashes($val.content_new_cut)|escape|nl2br }}
+                <div class="success-content">
+                    {{ $content }}
+                </div>
+            </div>
+            {{ /if }}
+            {{ /foreach }}
+        </div>
+        <div class="success-list-right success-list-item">
+            {{ foreach $success as $val }}
+            {{ if $val@index <$length && $val@index % 2 == 1 }}
+            <div class="teacher-success-item">
+                <h1 class="success-title">
+                    {{ $val.title }}
+                </h1>
+                <div class="success-time">
+                    {{ $val.date|date_format:"%Y年%m月" }}
+                </div>
+                {{ $content_cut = addslashes($val.content_cut)|escape|nl2br }}
+                {{ $content = addslashes($val.content)|escape|nl2br }}
+                {{ $content_new_cut = addslashes($val.content_new_cut)|escape|nl2br }}
+                <div class="success-content">
+                    {{ $content }}
+                </div>
+            </div>
+            {{ /if }}
+            {{ /foreach }}
+        </div>
+
+</div>
+{{ else }}
+{{ if $profile.user_id == $user_data.user_id }}
+<div class="no-content">您还未设置案例分享,<a href="/teacher_center/profile">去设置</a></div>
+{{ else }}
+<div class="no-content">老师太懒了，还没写下点案例分享</div>
+{{ /if }}
+{{ /if }}

@@ -1,0 +1,39 @@
+/**
+ * @file 下拉菜单
+ * @author zhujl
+ */
+
+@import "../variable/dropdown.styl";
+@import "../mixin/dropdown.styl";
+
+.dropdown {
+    dropdown();
+
+    .btn-default {
+        ellipsis();
+        dropdown-button();
+    }
+
+    .caret {
+        dropdown-caret();
+        dropdown-caret-down();
+    }
+
+    &.open {
+        .caret {
+           dropdown-caret-top();
+        }
+        .dropdown-menu {
+            display: block;
+        }
+    }
+}
+
+.dropdown-menu {
+
+    dropdown-menu();
+
+    li {
+        dropdown-menu-item();
+    }
+}

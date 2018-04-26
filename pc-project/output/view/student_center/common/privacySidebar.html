@@ -1,0 +1,39 @@
+{{ *
+
+@file 学生个人中心侧边栏
+@author zhujialu
+
+* }}
+
+{{ $profile = [] }}
+{{ $profile.name = '个人设置' }}
+{{ $profile.url = '/student_center/account' }}
+{{ $profile.icon = 'icon-profile-o' }}
+{{ if $active === 'profile' }}
+    {{ $profile.active = true }}
+{{ /if }}
+
+{{ $security = [] }}
+{{ $security.name = '安全设置' }}
+{{ $security.url = '/student_center/security' }}
+{{ $security.icon = 'icon-shield-large-o' }}
+{{ if $active === 'security' }}
+    {{ $security.active = true }}
+{{ /if }}
+
+{{ $privacy = [] }}
+{{ $privacy.name = '隐私设置' }}
+{{ $privacy.url = '/student_center/privacy' }}
+{{ $privacy.icon = 'icon-lock' }}
+{{ if $active === 'privacy' }}
+    {{ $privacy.active = true }}
+{{ /if }}
+
+
+
+{{ $menu = [] }}
+{{ $menu[] = $profile }}
+{{ $menu[] = $security }}
+{{ $menu[] = $privacy }}
+
+{{ include file="common/center/common/sidebar.html" menu=$menu }}

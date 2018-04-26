@@ -1,0 +1,2306 @@
+{
+    "ext_data": {
+        "page": "你猜"
+    },
+    "log_data": {
+        "page_type": "wo shi log"
+    },
+    "tpl_data": {
+        "tdk": {
+            "title": "fgfgg",
+            "description": "2048",
+            "keywords": "2053"
+        },
+        "condition": {
+            "key": "",
+            "kemu": "2048",
+            "kaodian": "2053",
+            "kaodian_display": "高中",
+            "zhishidian": true,
+            "redu": false
+        },
+        "kemu": [
+            {
+                "name": "数学",
+                "id": "2048"
+            },
+            {
+                "name": "物理",
+                "id": "2049"
+            },
+            {
+                "name": "英语",
+                "id": "2528"
+            },
+            {
+                "name": "语文",
+                "id": "2641"
+            },
+            {
+                "name": "物理",
+                "id": "2049"
+            },
+            {
+                "name": "英语",
+                "id": "2528"
+            },
+            {
+                "name": "语文",
+                "id": "2641"
+            }
+        ],
+        "qq": {
+                "name": "高中",
+                "number": "327606205",
+                "url": "http://jq.qq.com/?_wv=1027&k=2Fugmy8",
+                "android_key": "Xnw379Ju6fmIh4kY8E2CzbBYPcqDk8Uo"
+            },
+        "drop_items": [
+            {
+                "id": "2053",
+                "name": "高中"
+            },
+            {
+                "id": "2054",
+                "name": "初中"
+            }
+        ],
+        "courses": {
+            "0": {
+                "id": "2081",
+                "name": "集合",
+                "nianji": "集合与函数概念",
+                "courses": [
+                    {
+                        "name": "15分钟快速掌握集合",
+                        "number": "16033187964",
+                        "url": "/video_course/getcourseshowdetail?number=16033187964",
+                        "desc": "高三数学顶级名师，最佳人气金奖",
+                        "teacher_name": "宋利峰",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/04/56fe5ac9c1ffd.jpg",
+                        "price": 199.99,
+                        "play_num": "58324"
+                    }
+                ]
+            },
+            "1": {
+                "id": "2082",
+                "name": "函数及其表示",
+                "nianji": "集合与函数概念",
+                "courses": [
+                    {
+                        "name": "15分钟搞懂函数定义域和值域",
+                        "number": "16031552292",
+                        "url": "/video_course/getcourseshowdetail?number=16031552292",
+                        "desc": "专题讲解，一个专题一个得分点",
+                        "teacher_name": "张向荣",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/03/56f0edb372de1.jpg",
+                        "price": 199.99,
+                        "play_num": "2087"
+                    },
+                    {
+                        "name": "15分钟搞懂函数解析式命题思路",
+                        "number": "16031593148",
+                        "url": "/video_course/getcourseshowdetail?number=16031593148",
+                        "desc": "专题讲解，一个专题一个得分点",
+                        "teacher_name": "张向荣",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/03/56f0eda7ddcff.jpg",
+                        "price": 199.99,
+                        "play_num": "746"
+                    }
+                ]
+            },
+            "3": {
+                "id": "2083",
+                "name": "函数的基本性质",
+                "nianji": "集合与函数概念",
+                "courses": [
+                    {
+                        "name": "15分钟学会函数单调性解题方法",
+                        "number": "16031552308",
+                        "url": "/video_course/getcourseshowdetail?number=16031552308",
+                        "desc": "专题讲解，一个专题一个得分点",
+                        "teacher_name": "张向荣",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/04/5708ae839691f.jpg",
+                        "price": 199.99,
+                        "play_num": "746"
+                    }
+                ]
+            },
+            "4": {
+                "id": "2085",
+                "name": "指数函数",
+                "nianji": "基本初等函数",
+                "courses": [
+                    {
+                        "name": "10分钟搞懂指数函数",
+                        "number": "16031384800",
+                        "url": "/video_course/getcourseshowdetail?number=16031384800",
+                        "desc": "授人以渔，让数学不再有难题！",
+                        "teacher_name": "田翼飞",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/03/56e932c05ba4d.jpg",
+                        "price": 199.99,
+                        "play_num": "767"
+                    }
+                ]
+            },
+            "5": {
+                "id": "2086",
+                "name": "对数函数",
+                "nianji": "基本初等函数",
+                "courses": [
+                    {
+                        "name": "10分钟学会对数函数",
+                        "number": "16022684026",
+                        "url": "/video_course/getcourseshowdetail?number=16022684026",
+                        "desc": "高三数学顶级名师，最佳人气金奖",
+                        "teacher_name": "宋利峰",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/04/5708aec45c7de.jpg",
+                        "price": 199.99,
+                        "play_num": "84588"
+                    }
+                ]
+            },
+            "6": {
+                "id": "2087",
+                "name": "幂函数",
+                "nianji": "基本初等函数",
+                "courses": [
+                    {
+                        "name": "10分钟学会幂函数",
+                        "number": "16022551234",
+                        "url": "/video_course/getcourseshowdetail?number=16022551234",
+                        "desc": "高三数学顶级名师，最佳人气金奖",
+                        "teacher_name": "宋利峰",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/03/56e933427ddfd.jpg",
+                        "price": 199.99,
+                        "play_num": "50090"
+                    }
+                ]
+            },
+            "7": {
+                "id": "2122",
+                "name": "函数与方程",
+                "nianji": "函数的应用",
+                "courses": [
+                    {
+                        "name": "10分钟学会函数与方程",
+                        "number": "16031384808",
+                        "url": "/video_course/getcourseshowdetail?number=16031384808",
+                        "desc": "授人以渔，让数学不再有难题！",
+                        "teacher_name": "田翼飞",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/03/56f0ee068974d.jpg",
+                        "price": 199.99,
+                        "play_num": "411"
+                    }
+                ]
+            },
+            "8": {
+                "id": "2123",
+                "name": "函数模型及其应用",
+                "nianji": "函数的应用",
+                "courses": [
+                    {
+                        "name": "10分钟学会函数模型及其应用",
+                        "number": "16031584956",
+                        "url": "/video_course/getcourseshowdetail?number=16031584956",
+                        "desc": "高考状元得主，15年资深教龄",
+                        "teacher_name": "王澍秋",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/03/56ea659bcdd14.jpg",
+                        "price": 199.99,
+                        "play_num": "519"
+                    }
+                ]
+            },
+            "9": {
+                "id": "2124",
+                "name": "任意角和弧度制",
+                "nianji": "三角函数",
+                "courses": [
+                    {
+                        "name": "10分钟速学任意角和弧度制",
+                        "number": "16021882973",
+                        "url": "/video_course/getcourseshowdetail?number=16021882973",
+                        "desc": "运筹帷幄助高考",
+                        "teacher_name": "刘鑫",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/03/56e933b286166.jpg",
+                        "price": 199.99,
+                        "play_num": "706"
+                    }
+                ]
+            },
+            "10": {
+                "id": "2125",
+                "name": "任意角的三角函数",
+                "nianji": "三角函数",
+                "courses": [
+                    {
+                        "name": "10分钟弄懂任意角的三角函数",
+                        "number": "16021850333",
+                        "url": "/video_course/getcourseshowdetail?number=16021850333",
+                        "desc": "运筹帷幄助高考",
+                        "teacher_name": "刘鑫",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/04/5708aee60d374.jpg",
+                        "price": 199.99,
+                        "play_num": "2654"
+                    }
+                ]
+            },
+            "11": {
+                "id": "2126",
+                "name": "三角函数的诱导公式",
+                "nianji": "三角函数",
+                "courses": [
+                    {
+                        "name": "10分钟学会三角函数的诱导公式",
+                        "number": "16021874893",
+                        "url": "/video_course/getcourseshowdetail?number=16021874893",
+                        "desc": "运筹帷幄助高考",
+                        "teacher_name": "刘鑫",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/03/56e9343b5f69f.jpg",
+                        "price": 199.99,
+                        "play_num": "1012"
+                    }
+                ]
+            },
+            "12": {
+                "id": "2127",
+                "name": "三角函数的图像与性质",
+                "nianji": "三角函数",
+                "courses": [
+                    {
+                        "name": "10分钟学会三角函数的图像与性质",
+                        "number": "16031159078",
+                        "url": "/video_course/getcourseshowdetail?number=16031159078",
+                        "desc": "数学中高考提分专家",
+                        "teacher_name": "曹炜",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/03/56e93454c0bde.jpg",
+                        "price": 199.99,
+                        "play_num": "64176"
+                    }
+                ]
+            },
+            "13": {
+                "id": "2128",
+                "name": "函数y=Asin(wx+φ)的图像",
+                "nianji": "三角函数",
+                "courses": [
+                    {
+                        "name": "15分钟学会y=sin(wx+p)的图像",
+                        "number": "16031192306",
+                        "url": "/video_course/getcourseshowdetail?number=16031192306",
+                        "desc": "数学中高考提分专家",
+                        "teacher_name": "曹炜",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/03/56e9348b1dc52.jpg",
+                        "price": 199.99,
+                        "play_num": "62627"
+                    }
+                ]
+            },
+            "14": {
+                "id": "2129",
+                "name": "三角函数模型的简单应用",
+                "nianji": "三角函数",
+                "courses": [
+                    {
+                        "name": "15分钟学会三角函数模型的应用",
+                        "number": "16031150910",
+                        "url": "/video_course/getcourseshowdetail?number=16031150910",
+                        "desc": "数学中高考提分专家",
+                        "teacher_name": "曹炜",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/03/56ea5b4eec13e.jpg",
+                        "price": 199.99,
+                        "play_num": "60810"
+                    }
+                ]
+            },
+            "15": {
+                "id": "2131",
+                "name": "平面向量的线性运算",
+                "nianji": "平面向量",
+                "courses": [
+                    {
+                        "name": "15分钟学会五种方法解决平面向量的线性运算题",
+                        "number": "16031352184",
+                        "url": "/video_course/getcourseshowdetail?number=16031352184",
+                        "desc": "方法精辟，简单易懂; 精益求精,快速提分",
+                        "teacher_name": "童老师高中数学",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/03/56e935ab575a1.jpg",
+                        "price": 199.99,
+                        "play_num": "878"
+                    }
+                ]
+            },
+            "16": {
+                "id": "2135",
+                "name": "两角和与差的正弦、余弦和正切公式",
+                "nianji": "三角恒等变换",
+                "courses": [
+                    {
+                        "name": "15分钟搞懂两角和与差的正弦公式",
+                        "number": "16031552044",
+                        "url": "/video_course/getcourseshowdetail?number=16031552044",
+                        "desc": "学高为师，身正为范！",
+                        "teacher_name": "蔡伟",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/03/56e9733fabe90.jpg",
+                        "price": 199.99,
+                        "play_num": "317"
+                    },
+                    {
+                        "name": "15分钟搞懂两角和与差的余弦公式",
+                        "number": "16031560244",
+                        "url": "/video_course/getcourseshowdetail?number=16031560244",
+                        "desc": "学高为师，身正为范！",
+                        "teacher_name": "蔡伟",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/03/56e9732796d66.jpg",
+                        "price": 199.99,
+                        "play_num": "250"
+                    },
+                    {
+                        "name": "15分钟搞懂两角和与差的正切公式",
+                        "number": "16031560236",
+                        "url": "/video_course/getcourseshowdetail?number=16031560236",
+                        "desc": "学高为师，身正为范！",
+                        "teacher_name": "蔡伟",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/03/56e97357e7738.jpg",
+                        "price": 199.99,
+                        "play_num": "226"
+                    }
+                ]
+            },
+            "19": {
+                "id": "2136",
+                "name": "简单的三角恒等变换",
+                "nianji": "三角恒等变换",
+                "courses": [
+                    {
+                        "name": "15分钟学会三角形恒等变换",
+                        "number": "16031560252",
+                        "url": "/video_course/getcourseshowdetail?number=16031560252",
+                        "desc": "学高为师，身正为范！",
+                        "teacher_name": "蔡伟",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/04/5708af2e0adf8.jpg",
+                        "price": 199.99,
+                        "play_num": "320"
+                    }
+                ]
+            },
+            "20": {
+                "id": "2137",
+                "name": "正弦定理和余弦定理",
+                "nianji": "解三角形",
+                "courses": [
+                    {
+                        "name": "15分钟搞懂正弦定理和余弦定理",
+                        "number": "16031592940",
+                        "url": "/video_course/getcourseshowdetail?number=16031592940",
+                        "desc": "网络名师，人称“牛人数学吴”",
+                        "teacher_name": "吴玉会",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/03/56e9373344b13.jpg",
+                        "price": 199.99,
+                        "play_num": "543"
+                    }
+                ]
+            },
+            "21": {
+                "id": "2140",
+                "name": "等差数列",
+                "nianji": "数列",
+                "courses": [
+                    {
+                        "name": "10分钟深刻解读等差数列",
+                        "number": "16021181735",
+                        "url": "/video_course/getcourseshowdetail?number=16021181735",
+                        "desc": "高三数学顶级名师，最佳人气金奖",
+                        "teacher_name": "宋利峰",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/03/56e937529faac.jpg",
+                        "price": 199.99,
+                        "play_num": "64020"
+                    }
+                ]
+            },
+            "22": {
+                "id": "2141",
+                "name": "等差数列的前n项和",
+                "nianji": "数列",
+                "courses": [
+                    {
+                        "name": "15分钟搞懂等差数列的前n项和",
+                        "number": "16040851109",
+                        "url": "/video_course/getcourseshowdetail?number=16040851109",
+                        "desc": "题型化模板教学，提分迅速",
+                        "teacher_name": "岳吉庆",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/04/570797df34d88.jpg",
+                        "price": 199.99,
+                        "play_num": "138"
+                    }
+                ]
+            },
+            "23": {
+                "id": "2142",
+                "name": "等比数列",
+                "nianji": "数列",
+                "courses": [
+                    {
+                        "name": "等比数列小题巧解与通解",
+                        "number": "16040656406",
+                        "url": "/video_course/getcourseshowdetail?number=16040656406",
+                        "desc": "只教理科干货：知识点-题型解法-解题艺术",
+                        "teacher_name": "肖斌",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/04/5705c8ff46c46.jpg",
+                        "price": 199.99,
+                        "play_num": "191"
+                    }
+                ]
+            },
+            "24": {
+                "id": "2143",
+                "name": "等比数列的前n项和",
+                "nianji": "数列",
+                "courses": [
+                    {
+                        "name": "10分钟学会等比数列的前n项和",
+                        "number": "16031593004",
+                        "url": "/video_course/getcourseshowdetail?number=16031593004",
+                        "desc": "河冰结合,非一日寒；积土成山,非斯须之作",
+                        "teacher_name": "杜曰洲",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/03/56e93768c8af3.jpg",
+                        "price": 199.99,
+                        "play_num": "465"
+                    }
+                ]
+            },
+            "25": {
+                "id": "2145",
+                "name": "一元二次不等式及其解法",
+                "nianji": "不等式",
+                "courses": [
+                    {
+                        "name": "15分钟掌握一元二次不等式",
+                        "number": "16033088208",
+                        "url": "/video_course/getcourseshowdetail?number=16033088208",
+                        "desc": "知识点-题型解法-解题艺术",
+                        "teacher_name": "肖斌",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/03/56fb9fe9638de.jpg",
+                        "price": 199.99,
+                        "play_num": "174"
+                    }
+                ]
+            },
+            "26": {
+                "id": "2146",
+                "name": "二元一次不等式（组）与简单的线性规划",
+                "nianji": "不等式",
+                "courses": [
+                    {
+                        "name": "15分钟搞懂二元一次不等式组与简单的线性规划",
+                        "number": "16031760382",
+                        "url": "/video_course/getcourseshowdetail?number=16031760382",
+                        "desc": "数学中高考提分专家",
+                        "teacher_name": "曹炜",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/03/56ea8f5ad057e.jpg",
+                        "price": 199.99,
+                        "play_num": "66253"
+                    }
+                ]
+            },
+            "27": {
+                "id": "2147",
+                "name": "基本不等式√ab≪(a+b)/2",
+                "nianji": "不等式",
+                "courses": [
+                    {
+                        "name": "10分钟搞懂基本不等式",
+                        "number": "16033096384",
+                        "url": "/video_course/getcourseshowdetail?number=16033096384",
+                        "desc": "数学竞赛辅导，数形结合",
+                        "teacher_name": "乐嘉文",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/03/56fba03f42f67.jpg",
+                        "price": 199.99,
+                        "play_num": "209"
+                    }
+                ]
+            },
+            "28": {
+                "id": "2149",
+                "name": "空间几何体的三视图和直观图",
+                "nianji": "空间几何体",
+                "courses": [
+                    {
+                        "name": "10分钟搞懂空间几何体的三视图和直观图",
+                        "number": "16031793314",
+                        "url": "/video_course/getcourseshowdetail?number=16031793314",
+                        "desc": "高考预测专题教师【华罗庚徒孙】",
+                        "teacher_name": "王建华",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/03/56ea5d2577938.jpg",
+                        "price": 199.99,
+                        "play_num": "453"
+                    }
+                ]
+            },
+            "29": {
+                "id": "2150",
+                "name": "空间几何体的表面积与体积",
+                "nianji": "空间几何体",
+                "courses": [
+                    {
+                        "name": "10秒钟速解几何体外接球问题",
+                        "number": "16022784082",
+                        "url": "/video_course/getcourseshowdetail?number=16022784082",
+                        "desc": "秒杀解题方法，数学轻松突破140分",
+                        "teacher_name": "高考数学杨老师",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/03/56ea1adccb5dd.jpg",
+                        "price": 199.99,
+                        "play_num": "2104"
+                    }
+                ]
+            },
+            "30": {
+                "id": "2153",
+                "name": "空间点、直线、平面之间的位置关系",
+                "nianji": "点、直线、平面之间的位置关系",
+                "courses": [
+                    {
+                        "name": "10分钟搞懂空间点、线和面之间位置关系",
+                        "number": "16032396166",
+                        "url": "/video_course/getcourseshowdetail?number=16032396166",
+                        "desc": "市高考预测专题教师【华罗庚徒孙】",
+                        "teacher_name": "王建华",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/03/56f2a03a13a01.jpg",
+                        "price": 199.99,
+                        "play_num": "354"
+                    }
+                ]
+            },
+            "31": {
+                "id": "2154",
+                "name": "直线、平面平行的判定及其性质",
+                "nianji": "点、直线、平面之间的位置关系",
+                "courses": [
+                    {
+                        "name": "10秒秒杀立体几何证明线面平行",
+                        "number": "16031560356",
+                        "url": "/video_course/getcourseshowdetail?number=16031560356",
+                        "desc": "方法精辟，简单易懂; 精益求精,快速提分",
+                        "teacher_name": "童老师高中数学",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/03/56e93ade59de3.jpg",
+                        "price": 199.99,
+                        "play_num": "581"
+                    }
+                ]
+            },
+            "32": {
+                "id": "2155",
+                "name": "直线、平面垂直的判定及其性质",
+                "nianji": "点、直线、平面之间的位置关系",
+                "courses": [
+                    {
+                        "name": "15分钟搞懂直线、平面垂直的判定及其性质",
+                        "number": "16031896032",
+                        "url": "/video_course/getcourseshowdetail?number=16031896032",
+                        "desc": "让数学成为一种乐趣",
+                        "teacher_name": "艾国",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/03/56ebd538490ec.jpg",
+                        "price": 199.99,
+                        "play_num": "325"
+                    }
+                ]
+            },
+            "33": {
+                "id": "2156",
+                "name": "直线的斜角与斜率",
+                "nianji": "直线与方程",
+                "courses": [
+                    {
+                        "name": "10分钟搞懂直线的斜角与斜率",
+                        "number": "16031592996",
+                        "url": "/video_course/getcourseshowdetail?number=16031592996",
+                        "desc": "河冰结合,非一日寒；积土成山,非斯须之作",
+                        "teacher_name": "杜曰洲",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/03/56e93af5b60dd.jpg",
+                        "price": 199.99,
+                        "play_num": "256"
+                    }
+                ]
+            },
+            "34": {
+                "id": "2157",
+                "name": "直线的方程",
+                "nianji": "直线与方程",
+                "courses": [
+                    {
+                        "name": "15分钟搞懂直线的方程",
+                        "number": "16040891941",
+                        "url": "/video_course/getcourseshowdetail?number=16040891941",
+                        "desc": "题型化模板教学，提分迅速",
+                        "teacher_name": "岳吉庆",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/04/570797a289e46.jpg",
+                        "price": 199.99,
+                        "play_num": "50"
+                    }
+                ]
+            },
+            "35": {
+                "id": "2158",
+                "name": "直线的交点坐标与距离公式",
+                "nianji": "直线与方程",
+                "courses": [
+                    {
+                        "name": "5分钟搞懂直线的交点坐标与距离公式",
+                        "number": "16042260423",
+                        "url": "/video_course/getcourseshowdetail?number=16042260423",
+                        "desc": "让数学成为一种乐趣",
+                        "teacher_name": "艾国",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/04/5719e65303939.jpg",
+                        "price": 199.99,
+                        "play_num": "32"
+                    }
+                ]
+            },
+            "36": {
+                "id": "2159",
+                "name": "圆的方程",
+                "nianji": "圆与方程",
+                "courses": [
+                    {
+                        "name": "10分钟学会圆的方程",
+                        "number": "16031593124",
+                        "url": "/video_course/getcourseshowdetail?number=16031593124",
+                        "desc": "高考数学满分得主助您快速提分如愿升学",
+                        "teacher_name": "王澍秋",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/03/56e93b2288b6c.jpg",
+                        "price": 199.99,
+                        "play_num": "424"
+                    }
+                ]
+            },
+            "37": {
+                "id": "2160",
+                "name": "直线、圆的位置关系",
+                "nianji": "圆与方程",
+                "courses": [
+                    {
+                        "name": "10分钟学会直线和圆的位置关系",
+                        "number": "16031593012",
+                        "url": "/video_course/getcourseshowdetail?number=16031593012",
+                        "desc": "河冰结合,非一日寒；积土成山,非斯须之作",
+                        "teacher_name": "杜曰洲",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/03/56ea64c0819a6.jpg",
+                        "price": 199.99,
+                        "play_num": "216"
+                    }
+                ]
+            },
+            "38": {
+                "id": "2161",
+                "name": "空间直角坐标系",
+                "nianji": "圆与方程",
+                "courses": [
+                    {
+                        "name": "10分钟搞定空间直角坐标系",
+                        "number": "16031896048",
+                        "url": "/video_course/getcourseshowdetail?number=16031896048",
+                        "desc": "让数学成为一种乐趣",
+                        "teacher_name": "艾国",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/03/56ebd582e654c.jpg",
+                        "price": 199.99,
+                        "play_num": "260"
+                    }
+                ]
+            },
+            "39": {
+                "id": "2163",
+                "name": "基本算法语句",
+                "nianji": "算法初步",
+                "courses": [
+                    {
+                        "name": "10分钟搞定基本算法语句",
+                        "number": "16031896056",
+                        "url": "/video_course/getcourseshowdetail?number=16031896056",
+                        "desc": "让数学成为一种乐趣",
+                        "teacher_name": "艾国",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/03/56ebd5ac0a30b.jpg",
+                        "price": 199.99,
+                        "play_num": "267"
+                    }
+                ]
+            },
+            "40": {
+                "id": "2172",
+                "name": "随机抽样",
+                "nianji": "统计",
+                "courses": [
+                    {
+                        "name": "15分钟搞懂随机抽样",
+                        "number": "16031584820",
+                        "url": "/video_course/getcourseshowdetail?number=16031584820",
+                        "desc": "数学中高考提分专家",
+                        "teacher_name": "曹炜",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/03/56f0ec2f8b9c3.jpg",
+                        "price": 199.99,
+                        "play_num": "63911"
+                    }
+                ]
+            },
+            "41": {
+                "id": "2176",
+                "name": "古典概型",
+                "nianji": "概率",
+                "courses": [
+                    {
+                        "name": "古典概型，时尚而实用",
+                        "number": "16031855200",
+                        "url": "/video_course/getcourseshowdetail?number=16031855200",
+                        "desc": "只教理科干货：知识点-题型解法-解题艺术",
+                        "teacher_name": "肖斌",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/03/56ebd6fae5bfb.jpg",
+                        "price": 199.99,
+                        "play_num": "264"
+                    }
+                ]
+            },
+            "42": {
+                "id": "2177",
+                "name": "几何概型",
+                "nianji": "概率",
+                "courses": [
+                    {
+                        "name": "10分钟掌握几何概型知识点与题型",
+                        "number": "16031855216",
+                        "url": "/video_course/getcourseshowdetail?number=16031855216",
+                        "desc": "只教理科干货：知识点-题型解法-解题艺术",
+                        "teacher_name": "肖斌",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/03/56ebd7283230e.jpg",
+                        "price": 199.99,
+                        "play_num": "266"
+                    }
+                ]
+            },
+            "43": {
+                "id": "2178",
+                "name": "命题及其关系",
+                "nianji": "常用逻辑用语",
+                "courses": [
+                    {
+                        "name": "10分钟搞懂命题及其关系",
+                        "number": "16031855208",
+                        "url": "/video_course/getcourseshowdetail?number=16031855208",
+                        "desc": "选择我就选择了高分数学",
+                        "teacher_name": "涂虎",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/03/56ebd77a3584e.jpg",
+                        "price": 199.99,
+                        "play_num": "183"
+                    }
+                ]
+            },
+            "44": {
+                "id": "2179",
+                "name": "充分条件与必要条件",
+                "nianji": "常用逻辑用语",
+                "courses": [
+                    {
+                        "name": "10分钟搞懂充分条件与必要条件",
+                        "number": "16031784678",
+                        "url": "/video_course/getcourseshowdetail?number=16031784678",
+                        "desc": "网络名师，人称“牛人数学吴”",
+                        "teacher_name": "吴玉会",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/03/56ea5dc14896e.jpg",
+                        "price": 199.99,
+                        "play_num": "300"
+                    }
+                ]
+            },
+            "45": {
+                "id": "2180",
+                "name": "简单的逻辑联结词",
+                "nianji": "常用逻辑用语",
+                "courses": [
+                    {
+                        "name": "10分钟搞懂逻辑联结词",
+                        "number": "16031863392",
+                        "url": "/video_course/getcourseshowdetail?number=16031863392",
+                        "desc": "选择我就选择了高分数学",
+                        "teacher_name": "涂虎",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/03/56ebd7a0c9028.jpg",
+                        "price": 199.99,
+                        "play_num": "162"
+                    }
+                ]
+            },
+            "46": {
+                "id": "2181",
+                "name": "全称量词与存在量词",
+                "nianji": "常用逻辑用语",
+                "courses": [
+                    {
+                        "name": "10分钟搞懂全称量词与存在量词",
+                        "number": "16031863400",
+                        "url": "/video_course/getcourseshowdetail?number=16031863400",
+                        "desc": "选择我就选择了高分数学",
+                        "teacher_name": "涂虎",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/03/56ebd7dd2d80c.jpg",
+                        "price": 199.99,
+                        "play_num": "170"
+                    }
+                ]
+            },
+            "47": {
+                "id": "2184",
+                "name": "双曲线",
+                "nianji": "圆锥曲线与方程",
+                "courses": [
+                    {
+                        "name": "10分钟学会双曲线的标准方程",
+                        "number": "16031863416",
+                        "url": "/video_course/getcourseshowdetail?number=16031863416",
+                        "desc": "有耐心，有亲和力，教学严谨认真",
+                        "teacher_name": "张典坤",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/03/56ebd80716a96.jpg",
+                        "price": 199.99,
+                        "play_num": "383"
+                    }
+                ]
+            },
+            "48": {
+                "id": "2186",
+                "name": "空间向量及其运算",
+                "nianji": "空间向量与立体几何",
+                "courses": [
+                    {
+                        "name": "10分钟搞懂空间向量及其运算",
+                        "number": "16031652306",
+                        "url": "/video_course/getcourseshowdetail?number=16031652306",
+                        "desc": "一线高中数学名师，做良师益友，助圆大学梦",
+                        "teacher_name": "刘鑫",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/03/56ea1cac7aa15.jpg",
+                        "price": 199.99,
+                        "play_num": "552"
+                    }
+                ]
+            },
+            "49": {
+                "id": "2188",
+                "name": "变化率与导数",
+                "nianji": "导数及其应用",
+                "courses": [
+                    {
+                        "name": "变化率与导数",
+                        "number": "16031660564",
+                        "url": "/video_course/getcourseshowdetail?number=16031660564",
+                        "desc": "认真，幽默，有责任心",
+                        "teacher_name": "范富旺",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/03/56f0ecc7c0b55.jpg",
+                        "price": 199.99,
+                        "play_num": "304"
+                    }
+                ]
+            },
+            "50": {
+                "id": "2190",
+                "name": "导数在研究函数中的应用",
+                "nianji": "导数及其应用",
+                "courses": [
+                    {
+                        "name": "5秒钟速解抽象函数下的导数问题",
+                        "number": "16022784074",
+                        "url": "/video_course/getcourseshowdetail?number=16022784074",
+                        "desc": "秒杀解题方法，数学轻松突破140分",
+                        "teacher_name": "高考数学杨老师",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/03/56ea1b0a59ef1.jpg",
+                        "price": 199.99,
+                        "play_num": "4126"
+                    }
+                ]
+            },
+            "51": {
+                "id": "2197",
+                "name": "数学归纳法",
+                "nianji": "推理与证明",
+                "courses": [
+                    {
+                        "name": "10分钟学会数学归纳法",
+                        "number": "16032556380",
+                        "url": "/video_course/getcourseshowdetail?number=16032556380",
+                        "desc": "专注于高中数学提优",
+                        "teacher_name": "李峰",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/03/56f6169813579.jpg",
+                        "price": 199.99,
+                        "play_num": "240"
+                    }
+                ]
+            },
+            "52": {
+                "id": "2199",
+                "name": "复数代数形式的四则运算",
+                "nianji": "数系的扩充与复数的引入",
+                "courses": [
+                    {
+                        "name": "10分钟搞懂复数代数形式的四则运算",
+                        "number": "16031784694",
+                        "url": "/video_course/getcourseshowdetail?number=16031784694",
+                        "desc": "网络名师，人称“牛人数学吴”",
+                        "teacher_name": "吴玉会",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/03/56ea5dfe54ee9.jpg",
+                        "price": 199.99,
+                        "play_num": "269"
+                    }
+                ]
+            },
+            "53": {
+                "id": "2200",
+                "name": "分类加法计数原理与分步乘法计数原理",
+                "nianji": "计数原理",
+                "courses": [
+                    {
+                        "name": "10分钟搞懂分类加法计数原理与分步乘法计数原理",
+                        "number": "16031660490",
+                        "url": "/video_course/getcourseshowdetail?number=16031660490",
+                        "desc": "一线高中数学名师，做良师益友，助圆大学梦",
+                        "teacher_name": "刘鑫",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/03/56ea1d2b78bbf.jpg",
+                        "price": 199.99,
+                        "play_num": "816"
+                    }
+                ]
+            },
+            "54": {
+                "id": "2201",
+                "name": "排列与组合",
+                "nianji": "计数原理",
+                "courses": [
+                    {
+                        "name": "10分钟搞懂排列与组合",
+                        "number": "16032564564",
+                        "url": "/video_course/getcourseshowdetail?number=16032564564",
+                        "desc": "数学竞赛辅导，数形结合",
+                        "teacher_name": "乐嘉文",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/03/56f61a8466a9d.jpg",
+                        "price": 199.99,
+                        "play_num": "259"
+                    }
+                ]
+            },
+            "55": {
+                "id": "2203",
+                "name": "离散型随机变量及其分布列",
+                "nianji": "随机变量及其分布",
+                "courses": [
+                    {
+                        "name": "15分钟学会离散型随机变量及其分布列",
+                        "number": "16032396174",
+                        "url": "/video_course/getcourseshowdetail?number=16032396174",
+                        "desc": "有耐心，有亲和力，教学严谨认真",
+                        "teacher_name": "张典坤",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/03/56f2a0705efd3.jpg",
+                        "price": 199.99,
+                        "play_num": "909"
+                    }
+                ]
+            },
+            "56": {
+                "id": "2204",
+                "name": "二项分布及其应用",
+                "nianji": "随机变量及其分布",
+                "courses": [
+                    {
+                        "name": "10分钟学会二项分布",
+                        "number": "16032564556",
+                        "url": "/video_course/getcourseshowdetail?number=16032564556",
+                        "desc": "数学界的奇葩，教师界的怪咖",
+                        "teacher_name": "周瑞",
+                        "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/03/56f61ba3e85ee.jpg",
+                        "price": 199.99,
+                        "play_num": "277"
+                    }
+                ]
+            }
+        },
+        "filter": {
+            "key": "数学",
+            "kaodian": [
+                {
+                    "name": "高中",
+                    "id": "2053",
+                    "children": [
+                        {
+                            "name": "全部",
+                            "id": "2053"
+                        },
+                        {
+                            "name": "集合与函数概念",
+                            "id": "2080",
+                            "children": [
+                                {
+                                    "name": "全部",
+                                    "id": "2080"
+                                },
+                                {
+                                    "name": "集合",
+                                    "id": "2081"
+                                },
+                                {
+                                    "name": "函数及其表示",
+                                    "id": "2082"
+                                },
+                                {
+                                    "name": "函数的基本性质",
+                                    "id": "2083"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "基本初等函数",
+                            "id": "2084",
+                            "children": [
+                                {
+                                    "name": "全部",
+                                    "id": "2084"
+                                },
+                                {
+                                    "name": "指数函数",
+                                    "id": "2085"
+                                },
+                                {
+                                    "name": "对数函数",
+                                    "id": "2086"
+                                },
+                                {
+                                    "name": "幂函数",
+                                    "id": "2087"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "函数的应用",
+                            "id": "2088",
+                            "children": [
+                                {
+                                    "name": "全部",
+                                    "id": "2088"
+                                },
+                                {
+                                    "name": "函数与方程",
+                                    "id": "2122"
+                                },
+                                {
+                                    "name": "函数模型及其应用",
+                                    "id": "2123"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "三角函数",
+                            "id": "2089",
+                            "children": [
+                                {
+                                    "name": "全部",
+                                    "id": "2089"
+                                },
+                                {
+                                    "name": "任意角和弧度制",
+                                    "id": "2124"
+                                },
+                                {
+                                    "name": "任意角的三角函数",
+                                    "id": "2125"
+                                },
+                                {
+                                    "name": "三角函数的诱导公式",
+                                    "id": "2126"
+                                },
+                                {
+                                    "name": "三角函数的图像与性质",
+                                    "id": "2127"
+                                },
+                                {
+                                    "name": "函数y=Asin(wx+φ)的图像",
+                                    "id": "2128"
+                                },
+                                {
+                                    "name": "三角函数模型的简单应用",
+                                    "id": "2129"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "平面向量",
+                            "id": "2090",
+                            "children": [
+                                {
+                                    "name": "全部",
+                                    "id": "2090"
+                                },
+                                {
+                                    "name": "平面向量的实际背景及基本概念",
+                                    "id": "2130"
+                                },
+                                {
+                                    "name": "平面向量的线性运算",
+                                    "id": "2131"
+                                },
+                                {
+                                    "name": "平面向量的基本定理及坐标表示",
+                                    "id": "2132"
+                                },
+                                {
+                                    "name": "平面向量的数量积",
+                                    "id": "2133"
+                                },
+                                {
+                                    "name": "平面向量应用举例",
+                                    "id": "2134"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "三角恒等变换",
+                            "id": "2091",
+                            "children": [
+                                {
+                                    "name": "全部",
+                                    "id": "2091"
+                                },
+                                {
+                                    "name": "两角和与差的正弦、余弦和正切公式",
+                                    "id": "2135"
+                                },
+                                {
+                                    "name": "简单的三角恒等变换",
+                                    "id": "2136"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "解三角形",
+                            "id": "2092",
+                            "children": [
+                                {
+                                    "name": "全部",
+                                    "id": "2092"
+                                },
+                                {
+                                    "name": "正弦定理和余弦定理",
+                                    "id": "2137"
+                                },
+                                {
+                                    "name": "应用举例",
+                                    "id": "2138"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "数列",
+                            "id": "2093",
+                            "children": [
+                                {
+                                    "name": "全部",
+                                    "id": "2093"
+                                },
+                                {
+                                    "name": "数列的概念与简单表示法",
+                                    "id": "2139"
+                                },
+                                {
+                                    "name": "等差数列",
+                                    "id": "2140"
+                                },
+                                {
+                                    "name": "等差数列的前n项和",
+                                    "id": "2141"
+                                },
+                                {
+                                    "name": "等比数列",
+                                    "id": "2142"
+                                },
+                                {
+                                    "name": "等比数列的前n项和",
+                                    "id": "2143"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "不等式",
+                            "id": "2094",
+                            "children": [
+                                {
+                                    "name": "全部",
+                                    "id": "2094"
+                                },
+                                {
+                                    "name": "不等关系与不等式",
+                                    "id": "2144"
+                                },
+                                {
+                                    "name": "一元二次不等式及其解法",
+                                    "id": "2145"
+                                },
+                                {
+                                    "name": "二元一次不等式（组）与简单的线性规划",
+                                    "id": "2146"
+                                },
+                                {
+                                    "name": "基本不等式√ab≪(a+b)/2",
+                                    "id": "2147"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "空间几何体",
+                            "id": "2095",
+                            "children": [
+                                {
+                                    "name": "全部",
+                                    "id": "2095"
+                                },
+                                {
+                                    "name": "空间几何体的结构",
+                                    "id": "2148"
+                                },
+                                {
+                                    "name": "空间几何体的三视图和直观图",
+                                    "id": "2149"
+                                },
+                                {
+                                    "name": "空间几何体的表面积与体积",
+                                    "id": "2150"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "点、直线、平面之间的位置关系",
+                            "id": "2096",
+                            "children": [
+                                {
+                                    "name": "全部",
+                                    "id": "2096"
+                                },
+                                {
+                                    "name": "空间点、直线、平面之间的位置关系",
+                                    "id": "2153"
+                                },
+                                {
+                                    "name": "直线、平面平行的判定及其性质",
+                                    "id": "2154"
+                                },
+                                {
+                                    "name": "直线、平面垂直的判定及其性质",
+                                    "id": "2155"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "直线与方程",
+                            "id": "2097",
+                            "children": [
+                                {
+                                    "name": "全部",
+                                    "id": "2097"
+                                },
+                                {
+                                    "name": "直线的斜角与斜率",
+                                    "id": "2156"
+                                },
+                                {
+                                    "name": "直线的方程",
+                                    "id": "2157"
+                                },
+                                {
+                                    "name": "直线的交点坐标与距离公式",
+                                    "id": "2158"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "圆与方程",
+                            "id": "2098",
+                            "children": [
+                                {
+                                    "name": "全部",
+                                    "id": "2098"
+                                },
+                                {
+                                    "name": "圆的方程",
+                                    "id": "2159"
+                                },
+                                {
+                                    "name": "直线、圆的位置关系",
+                                    "id": "2160"
+                                },
+                                {
+                                    "name": "空间直角坐标系",
+                                    "id": "2161"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "算法初步",
+                            "id": "2099",
+                            "children": [
+                                {
+                                    "name": "全部",
+                                    "id": "2099"
+                                },
+                                {
+                                    "name": "算法与程序框图",
+                                    "id": "2162"
+                                },
+                                {
+                                    "name": "基本算法语句",
+                                    "id": "2163"
+                                },
+                                {
+                                    "name": "算法案例",
+                                    "id": "2164"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "统计",
+                            "id": "2100",
+                            "children": [
+                                {
+                                    "name": "全部",
+                                    "id": "2100"
+                                },
+                                {
+                                    "name": "随机抽样",
+                                    "id": "2172"
+                                },
+                                {
+                                    "name": "用样本估计总体",
+                                    "id": "2173"
+                                },
+                                {
+                                    "name": "变量间的相关关系",
+                                    "id": "2174"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "概率",
+                            "id": "2101",
+                            "children": [
+                                {
+                                    "name": "全部",
+                                    "id": "2101"
+                                },
+                                {
+                                    "name": "随机事件的概率",
+                                    "id": "2175"
+                                },
+                                {
+                                    "name": "古典概型",
+                                    "id": "2176"
+                                },
+                                {
+                                    "name": "几何概型",
+                                    "id": "2177"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "常用逻辑用语",
+                            "id": "2102",
+                            "children": [
+                                {
+                                    "name": "全部",
+                                    "id": "2102"
+                                },
+                                {
+                                    "name": "命题及其关系",
+                                    "id": "2178"
+                                },
+                                {
+                                    "name": "充分条件与必要条件",
+                                    "id": "2179"
+                                },
+                                {
+                                    "name": "简单的逻辑联结词",
+                                    "id": "2180"
+                                },
+                                {
+                                    "name": "全称量词与存在量词",
+                                    "id": "2181"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "圆锥曲线与方程",
+                            "id": "2103",
+                            "children": [
+                                {
+                                    "name": "全部",
+                                    "id": "2103"
+                                },
+                                {
+                                    "name": "曲线与方程",
+                                    "id": "2182"
+                                },
+                                {
+                                    "name": "椭圆",
+                                    "id": "2183"
+                                },
+                                {
+                                    "name": "双曲线",
+                                    "id": "2184"
+                                },
+                                {
+                                    "name": "抛物线",
+                                    "id": "2185"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "空间向量与立体几何",
+                            "id": "2104",
+                            "children": [
+                                {
+                                    "name": "全部",
+                                    "id": "2104"
+                                },
+                                {
+                                    "name": "空间向量及其运算",
+                                    "id": "2186"
+                                },
+                                {
+                                    "name": "立体几何中的向量方法",
+                                    "id": "2187"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "导数及其应用",
+                            "id": "2105",
+                            "children": [
+                                {
+                                    "name": "全部",
+                                    "id": "2105"
+                                },
+                                {
+                                    "name": "变化率与导数",
+                                    "id": "2188"
+                                },
+                                {
+                                    "name": "导数的计算",
+                                    "id": "2189"
+                                },
+                                {
+                                    "name": "导数在研究函数中的应用",
+                                    "id": "2190"
+                                },
+                                {
+                                    "name": "生活中的优化问题举例",
+                                    "id": "2191"
+                                },
+                                {
+                                    "name": "定积分的概念",
+                                    "id": "2192"
+                                },
+                                {
+                                    "name": "微积分基本定理",
+                                    "id": "2193"
+                                },
+                                {
+                                    "name": "定积分的简单应用",
+                                    "id": "2194"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "推理与证明",
+                            "id": "2106",
+                            "children": [
+                                {
+                                    "name": "全部",
+                                    "id": "2106"
+                                },
+                                {
+                                    "name": "合情推理与演绎推理",
+                                    "id": "2195"
+                                },
+                                {
+                                    "name": "直接证明与间接证明",
+                                    "id": "2196"
+                                },
+                                {
+                                    "name": "数学归纳法",
+                                    "id": "2197"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "数系的扩充与复数的引入",
+                            "id": "2107",
+                            "children": [
+                                {
+                                    "name": "全部",
+                                    "id": "2107"
+                                },
+                                {
+                                    "name": "数系的扩充和复数的概念",
+                                    "id": "2198"
+                                },
+                                {
+                                    "name": "复数代数形式的四则运算",
+                                    "id": "2199"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "计数原理",
+                            "id": "2108",
+                            "children": [
+                                {
+                                    "name": "全部",
+                                    "id": "2108"
+                                },
+                                {
+                                    "name": "分类加法计数原理与分步乘法计数原理",
+                                    "id": "2200"
+                                },
+                                {
+                                    "name": "排列与组合",
+                                    "id": "2201"
+                                },
+                                {
+                                    "name": "二项式定理",
+                                    "id": "2202"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "随机变量及其分布",
+                            "id": "2109",
+                            "children": [
+                                {
+                                    "name": "全部",
+                                    "id": "2109"
+                                },
+                                {
+                                    "name": "离散型随机变量及其分布列",
+                                    "id": "2203"
+                                },
+                                {
+                                    "name": "二项分布及其应用",
+                                    "id": "2204"
+                                },
+                                {
+                                    "name": "离散型随机变量的均值与方差",
+                                    "id": "2205"
+                                },
+                                {
+                                    "name": "正态分布",
+                                    "id": "2206"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "统计案例",
+                            "id": "2110",
+                            "children": [
+                                {
+                                    "name": "全部",
+                                    "id": "2110"
+                                },
+                                {
+                                    "name": "回归分析的基本思想及其初步应用",
+                                    "id": "2207"
+                                },
+                                {
+                                    "name": "独立性检验的基本思想及其初步应用",
+                                    "id": "2208"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "初中",
+                    "id": "2054",
+                    "children": [
+                        {
+                            "name": "全部",
+                            "id": "2054"
+                        },
+                        {
+                            "name": "初三",
+                            "id": "2074",
+                            "children": [
+                                {
+                                    "name": "全部",
+                                    "id": "2074"
+                                },
+                                {
+                                    "name": " 一元二次方程",
+                                    "id": "2289",
+                                    "children": [
+                                        {
+                                            "name": "全部",
+                                            "id": "2289"
+                                        },
+                                        {
+                                            "name": "一元二次方程",
+                                            "id": "2356"
+                                        },
+                                        {
+                                            "name": "解一元二次方程",
+                                            "id": "2357"
+                                        },
+                                        {
+                                            "name": "实际问题与一元二次方程",
+                                            "id": "2358"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "二次函数",
+                                    "id": "2290",
+                                    "children": [
+                                        {
+                                            "name": "全部",
+                                            "id": "2290"
+                                        },
+                                        {
+                                            "name": "二次函数的图象和性质",
+                                            "id": "2359"
+                                        },
+                                        {
+                                            "name": "二次函数与一元二次方程",
+                                            "id": "2360"
+                                        },
+                                        {
+                                            "name": "实际问题与二次函数",
+                                            "id": "2361"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "旋转",
+                                    "id": "2291",
+                                    "children": [
+                                        {
+                                            "name": "全部",
+                                            "id": "2291"
+                                        },
+                                        {
+                                            "name": "图形的旋转",
+                                            "id": "2362"
+                                        },
+                                        {
+                                            "name": "中心对称",
+                                            "id": "2363"
+                                        },
+                                        {
+                                            "name": "课题学习　图案设计",
+                                            "id": "2364"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "圆",
+                                    "id": "2292",
+                                    "children": [
+                                        {
+                                            "name": "全部",
+                                            "id": "2292"
+                                        },
+                                        {
+                                            "name": "圆的有关性质",
+                                            "id": "2365"
+                                        },
+                                        {
+                                            "name": "点和圆、直线和圆的位置关系",
+                                            "id": "2366"
+                                        },
+                                        {
+                                            "name": "正多边形和圆",
+                                            "id": "2367"
+                                        },
+                                        {
+                                            "name": "弧长和扇形面积",
+                                            "id": "2368"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "概率初步",
+                                    "id": "2293",
+                                    "children": [
+                                        {
+                                            "name": "全部",
+                                            "id": "2293"
+                                        },
+                                        {
+                                            "name": "随机事件与概率",
+                                            "id": "2369"
+                                        },
+                                        {
+                                            "name": "用列举法求概率",
+                                            "id": "2370"
+                                        },
+                                        {
+                                            "name": "用频率估计概率",
+                                            "id": "2371"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "反比例函数",
+                                    "id": "2294",
+                                    "children": [
+                                        {
+                                            "name": "全部",
+                                            "id": "2294"
+                                        },
+                                        {
+                                            "name": "反比例函数",
+                                            "id": "2372"
+                                        },
+                                        {
+                                            "name": "实际问题与反比例函数",
+                                            "id": "2373"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "相似",
+                                    "id": "2295",
+                                    "children": [
+                                        {
+                                            "name": "全部",
+                                            "id": "2295"
+                                        },
+                                        {
+                                            "name": "图形的相似",
+                                            "id": "2374"
+                                        },
+                                        {
+                                            "name": "相似三角形",
+                                            "id": "2375"
+                                        },
+                                        {
+                                            "name": "位似",
+                                            "id": "2376"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "锐角三角函数",
+                                    "id": "2296",
+                                    "children": [
+                                        {
+                                            "name": "全部",
+                                            "id": "2296"
+                                        },
+                                        {
+                                            "name": "锐角三角函数",
+                                            "id": "2377"
+                                        },
+                                        {
+                                            "name": "解直角三角形及其应用",
+                                            "id": "2378"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "投影与视图",
+                                    "id": "2297",
+                                    "children": [
+                                        {
+                                            "name": "全部",
+                                            "id": "2297"
+                                        },
+                                        {
+                                            "name": "投影",
+                                            "id": "2379"
+                                        },
+                                        {
+                                            "name": "三视图",
+                                            "id": "2380"
+                                        },
+                                        {
+                                            "name": "课题学习　制作立体模型",
+                                            "id": "2381"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "初二",
+                            "id": "2075",
+                            "children": [
+                                {
+                                    "name": "全部",
+                                    "id": "2075"
+                                },
+                                {
+                                    "name": "分式",
+                                    "id": "2298",
+                                    "children": [
+                                        {
+                                            "name": "全部",
+                                            "id": "2298"
+                                        },
+                                        {
+                                            "name": "分式",
+                                            "id": "2395"
+                                        },
+                                        {
+                                            "name": "分式的运算",
+                                            "id": "2396"
+                                        },
+                                        {
+                                            "name": "分式方程",
+                                            "id": "2397"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "  二次根式",
+                                    "id": "2299",
+                                    "children": [
+                                        {
+                                            "name": "全部",
+                                            "id": "2299"
+                                        },
+                                        {
+                                            "name": "二次根式",
+                                            "id": "2398"
+                                        },
+                                        {
+                                            "name": "二次根式的乘除",
+                                            "id": "2399"
+                                        },
+                                        {
+                                            "name": "二次根式的加减",
+                                            "id": "2400"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "勾股定理",
+                                    "id": "2300",
+                                    "children": [
+                                        {
+                                            "name": "全部",
+                                            "id": "2300"
+                                        },
+                                        {
+                                            "name": "勾股定理",
+                                            "id": "2401"
+                                        },
+                                        {
+                                            "name": "勾股定理的逆定理",
+                                            "id": "2402"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "平行四边形 ",
+                                    "id": "2301",
+                                    "children": [
+                                        {
+                                            "name": "全部",
+                                            "id": "2301"
+                                        },
+                                        {
+                                            "name": "平行四边形",
+                                            "id": "2403"
+                                        },
+                                        {
+                                            "name": "特殊的平行四边形",
+                                            "id": "2404"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "一次函数",
+                                    "id": "2302",
+                                    "children": [
+                                        {
+                                            "name": "全部",
+                                            "id": "2302"
+                                        },
+                                        {
+                                            "name": "函数",
+                                            "id": "2405"
+                                        },
+                                        {
+                                            "name": "一次函数",
+                                            "id": "2406"
+                                        },
+                                        {
+                                            "name": "课题学习  选择方案",
+                                            "id": "2407"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "数据的分析",
+                                    "id": "2303",
+                                    "children": [
+                                        {
+                                            "name": "全部",
+                                            "id": "2303"
+                                        },
+                                        {
+                                            "name": "数据的集中趋势",
+                                            "id": "2408"
+                                        },
+                                        {
+                                            "name": "数据的波动程度",
+                                            "id": "2409"
+                                        },
+                                        {
+                                            "name": "课题学习  体质健康测试中的数据分析",
+                                            "id": "2410"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "三角形",
+                                    "id": "2352",
+                                    "children": [
+                                        {
+                                            "name": "全部",
+                                            "id": "2352"
+                                        },
+                                        {
+                                            "name": "与三角形有关的线段",
+                                            "id": "2382"
+                                        },
+                                        {
+                                            "name": "与三角形有关的角",
+                                            "id": "2383"
+                                        },
+                                        {
+                                            "name": "多边形及其内角和",
+                                            "id": "2384"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "全等三角形",
+                                    "id": "2353",
+                                    "children": [
+                                        {
+                                            "name": "全部",
+                                            "id": "2353"
+                                        },
+                                        {
+                                            "name": "全等三角形",
+                                            "id": "2385"
+                                        },
+                                        {
+                                            "name": "三角形全等的判定",
+                                            "id": "2386"
+                                        },
+                                        {
+                                            "name": "角的平分线的性质",
+                                            "id": "2387"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "轴对称",
+                                    "id": "2354",
+                                    "children": [
+                                        {
+                                            "name": "全部",
+                                            "id": "2354"
+                                        },
+                                        {
+                                            "name": "轴对称",
+                                            "id": "2388"
+                                        },
+                                        {
+                                            "name": "画轴对称图形",
+                                            "id": "2389"
+                                        },
+                                        {
+                                            "name": "等腰三角形",
+                                            "id": "2390"
+                                        },
+                                        {
+                                            "name": "课题学习　最短路径问题",
+                                            "id": "2391"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "整式的乘法与因式分解",
+                                    "id": "2355",
+                                    "children": [
+                                        {
+                                            "name": "全部",
+                                            "id": "2355"
+                                        },
+                                        {
+                                            "name": "整式的乘法",
+                                            "id": "2392"
+                                        },
+                                        {
+                                            "name": "乘法公式",
+                                            "id": "2393"
+                                        },
+                                        {
+                                            "name": "因式分解",
+                                            "id": "2394"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "初一",
+                            "id": "2076",
+                            "children": [
+                                {
+                                    "name": "全部",
+                                    "id": "2076"
+                                },
+                                {
+                                    "name": "有理数",
+                                    "id": "2308",
+                                    "children": [
+                                        {
+                                            "name": "全部",
+                                            "id": "2308"
+                                        },
+                                        {
+                                            "name": "正数和负数",
+                                            "id": "2318"
+                                        },
+                                        {
+                                            "name": "有理数",
+                                            "id": "2319"
+                                        },
+                                        {
+                                            "name": "有理数的加减法",
+                                            "id": "2320"
+                                        },
+                                        {
+                                            "name": "有理数的乘除法",
+                                            "id": "2321"
+                                        },
+                                        {
+                                            "name": "有理数的乘方",
+                                            "id": "2322"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "整式的加减",
+                                    "id": "2309",
+                                    "children": [
+                                        {
+                                            "name": "全部",
+                                            "id": "2309"
+                                        },
+                                        {
+                                            "name": "整式",
+                                            "id": "2323"
+                                        },
+                                        {
+                                            "name": "整式的加减",
+                                            "id": "2324"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": " 一元一次方程",
+                                    "id": "2310",
+                                    "children": [
+                                        {
+                                            "name": "全部",
+                                            "id": "2310"
+                                        },
+                                        {
+                                            "name": "从算式到方程",
+                                            "id": "2325"
+                                        },
+                                        {
+                                            "name": "解一元一次方程（一）——合并同类项与移项",
+                                            "id": "2326"
+                                        },
+                                        {
+                                            "name": "解一元一次方程（二）——去括号与去分母",
+                                            "id": "2327"
+                                        },
+                                        {
+                                            "name": "实际问题与一元一次方程",
+                                            "id": "2328"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "几何图形初步 ",
+                                    "id": "2311",
+                                    "children": [
+                                        {
+                                            "name": "全部",
+                                            "id": "2311"
+                                        },
+                                        {
+                                            "name": "几何图形",
+                                            "id": "2329"
+                                        },
+                                        {
+                                            "name": " 直线、射线、线段",
+                                            "id": "2330"
+                                        },
+                                        {
+                                            "name": "角",
+                                            "id": "2331"
+                                        },
+                                        {
+                                            "name": "课题学习　 设计制作长方体形状的包装纸盒",
+                                            "id": "2332"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "相交线与平行线",
+                                    "id": "2312",
+                                    "children": [
+                                        {
+                                            "name": "全部",
+                                            "id": "2312"
+                                        },
+                                        {
+                                            "name": "相交线",
+                                            "id": "2333"
+                                        },
+                                        {
+                                            "name": "平行线及其判定",
+                                            "id": "2334"
+                                        },
+                                        {
+                                            "name": "平行线的性质",
+                                            "id": "2335"
+                                        },
+                                        {
+                                            "name": "平移",
+                                            "id": "2336"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "实数 ",
+                                    "id": "2313",
+                                    "children": [
+                                        {
+                                            "name": "全部",
+                                            "id": "2313"
+                                        },
+                                        {
+                                            "name": "平方根",
+                                            "id": "2337"
+                                        },
+                                        {
+                                            "name": "立方根",
+                                            "id": "2338"
+                                        },
+                                        {
+                                            "name": "实数",
+                                            "id": "2339"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "平面直角坐标系",
+                                    "id": "2314",
+                                    "children": [
+                                        {
+                                            "name": "全部",
+                                            "id": "2314"
+                                        },
+                                        {
+                                            "name": "平面直角坐标系",
+                                            "id": "2340"
+                                        },
+                                        {
+                                            "name": "坐标方法的简单应用",
+                                            "id": "2341"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "二元一次方程组",
+                                    "id": "2315",
+                                    "children": [
+                                        {
+                                            "name": "全部",
+                                            "id": "2315"
+                                        },
+                                        {
+                                            "name": "二元一次方程组",
+                                            "id": "2342"
+                                        },
+                                        {
+                                            "name": "消元——解二元一次方程组",
+                                            "id": "2343"
+                                        },
+                                        {
+                                            "name": "实际问题与二元一次方程组",
+                                            "id": "2344"
+                                        },
+                                        {
+                                            "name": "三元一次方程组的解法",
+                                            "id": "2345"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "不等式与不等式组",
+                                    "id": "2316",
+                                    "children": [
+                                        {
+                                            "name": "全部",
+                                            "id": "2316"
+                                        },
+                                        {
+                                            "name": "不等式",
+                                            "id": "2346"
+                                        },
+                                        {
+                                            "name": "一元一次不等式",
+                                            "id": "2347"
+                                        },
+                                        {
+                                            "name": "一元一次不等式组",
+                                            "id": "2348"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "数据的收集、整理与描述",
+                                    "id": "2317",
+                                    "children": [
+                                        {
+                                            "name": "全部",
+                                            "id": "2317"
+                                        },
+                                        {
+                                            "name": "统计调查",
+                                            "id": "2349"
+                                        },
+                                        {
+                                            "name": "直方图",
+                                            "id": "2350"
+                                        },
+                                        {
+                                            "name": "课题学习  从数据谈节水",
+                                            "id": "2351"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

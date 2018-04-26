@@ -1,0 +1,60 @@
+{{ *
+
+@file 老师主页评价总评
+@author wuhongjie,wth
+
+* }}
+
+{{ strip }}
+
+
+{{ if isset($tpl_data.comment_data.additional) }}
+{{ $additional = $tpl_data.comment_data.additional }}
+{{ /if }}
+
+<div class="action">
+    {{ * 老师主页 和 评价页 只有老师本人能看到"邀请好友给我评价"的按钮，1表示一致，0表示不一致 * }}
+    {{ if $additional.user_diff != 1 }}
+        {{ * 除老师之外，均可看到写评价按钮 * }}
+        <button class="btn btn-primary" id="comment-more">
+            写评价
+        </button>
+    {{ /if }}
+</div>
+
+<div class="score">
+    {{ if $additional.user_total_number > 0 }}
+        <strong>{{ $additional.average|number_format: 1 }}</strong>
+        {{ include file="common/component/starScore.html" score=$additional.average }}
+    {{ else }}
+    <strong class="no-comment">暂无评分</strong>
+    {{ /if }}
+</div>
+
+<div class="detail single">
+    <div class="star-comment">主动评价星级分布</div>
+    <ul>
+        <li>
+            <span class="text">5星</span>
+            {{ include file="common/component/progress.html" rate=$progress.five_rate }}
+        </li>
+        <li>
+            <span class="text">4星</span>
+            {{ include file="common/component/progress.html" rate=$progress.four_rate }}
+        </li>
+        <li>
+            <span class="text">3星</span>
+            {{ include file="common/component/progress.html" rate=$progress.three_rate }}
+        </li>
+        <li>
+            <span class="text">2星</span>
+            {{ include file="common/component/progress.html" rate=$progress.two_rate }}
+        </li>
+        <li>
+            <span class="text">1星</span>
+            {{ include file="common/component/progress.html" rate=$progress.one_rate }}
+        </li>
+    </ul>
+</div>
+
+{{ /strip }}

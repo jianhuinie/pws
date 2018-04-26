@@ -1,0 +1,5 @@
+[{
+    "tpl": "./login.tpl",
+    "router": "/huikejian/login",
+    "mock_data": "./mock/login.json"
+}]

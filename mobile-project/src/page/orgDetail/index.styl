@@ -1,0 +1,136 @@
+@import "page/_base/base.styl";
+@import "page/_common/nav_bar/nav_bar.styl";
+@import "page/orgDetail/board/board.styl";
+@import "page/orgDetail/render/home.styl";
+@import "page/orgDetail/render/course.styl";
+@import "page/orgDetail/render/commentNav.styl";
+@import "page/orgDetail/render/dynamic.styl";
+@import "page/orgDetail/render/record.styl";
+@import "page/orgDetail/render/init.styl";
+@import "page/orgDetail/gold/header.styl";
+@import "page/orgDetail/render/goldCoupon.styl";
+@import "page/orgDetail/homeGold.styl";
+@import "page/orgDetail/bottom.styl";
+@import "common/appoint/appoint.styl";
+@import "common/component/wxMask/weixinMask.styl";
+.quart {
+    width: 100%;
+    background: white;
+    display: flex;
+    text-align: center;
+    padding: 0 rem(20) 0 rem(20);
+    height: rem(45);
+    line-height: rem(45);
+    border-bottom: 1px solid #F2F2F2;
+    background: #FFFFFF;
+    box-shadow: 0 rem(-1) 0 0 #EDEDEE;
+    .item {
+        flex: 1;
+        font-size: rem(16);
+        color: #3D3D3E;
+        letter-spacing: rem(0);
+        padding-bottom: rem(10);
+        &.active {
+            border-bottom: 2px solid #ff6c00;
+            color: #ff6c00;
+            font-weight: 600;
+        }
+        &.gold-item {
+            border-bottom: none;
+        }
+    }
+    &.fix_tab {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 3;
+    }
+    &.hide {
+        display: none;
+    }
+}
+
+.container {
+    position: relative;
+    .tab-container-box {
+        &.hide {
+            display: none;
+        }
+    }
+    .container-mask {
+        position: absolute;
+        top: rem(40);
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0,0,0,.5);
+        z-index: 2;
+        &.hide {
+            display: none;
+        }
+    }
+}
+
+.first-nav {
+    margin-bottom: rem(10);
+    .name {
+        font-family: PingFang-SC-Semibold;
+        font-size: rem(15);
+        color: #3D3D3E;
+        letter-spacing: rem(-0.37);
+        line-height: rem(15);
+    }
+    .intoNext {
+        float: right;
+        font-family: PingFang-SC-Regular;
+        font-size: rem(13);
+        color: #9d9d9e;
+        letter-spacing: rem(-0.32);
+        line-height: rem(13);
+        margin-top: rem(5);
+        .intoIcon {
+            height: rem(20);
+            width: rem(20);
+            img {
+                height: rem(12);
+                width: rem(8);
+                margin-left: rem(5);
+            }
+        }
+    }
+}
+
+.has-more {
+    text-align: center;
+    background: white;
+    height: rem(35);
+    line-height: rem(35);
+    font-size: rem(14);
+    &.hide {
+        display: none;
+    }
+}
+
+.weixinMask {
+    background: black;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0.9;
+    text-align: right;
+    img {
+        width: 60%;
+        margin-top: rem(20);
+        margin-right: rem(20);
+    }
+    &.hide {
+        display: none;
+    }
+}
+.padding-box {
+    margin-bottom: rem(80);
+}

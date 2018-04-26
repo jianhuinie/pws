@@ -1,0 +1,306 @@
+{{ *
+
+@file 绑定银行卡
+@author zhujialu
+
+* }}
+
+{{ extends file="common/center/base.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $script_path = "common/center/bindCard_7c4b05d0de" }}
+
+    {{ include file="common/variable/bankIcon.html" scope=parent }}
+    {{ $script_data.bankIcon = $bank_icon }}
+
+    {{ $user_info = $tpl_data.user_info }}
+    {{ $is_pass_verify = $user_info.is_pass_verify }}
+
+    {{ $script_data.isPassVerify = $is_pass_verify }}
+    {{ $script_data.isPassport = $user_info.is_passport }}
+
+    {{ if isset($tpl_data.card_list) && count($tpl_data.card_list) > 0 }}
+        {{ $script_data.cardList = $tpl_data.card_list }}
+    {{ else }}
+        {{ $script_data.cardList = [] }}
+    {{ /if }}
+
+{{ /block }}
+
+{{ block name="title" prepend }}
+绑定银行卡 -
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/common/center/bindCard_25173bf13e.css">
+{{ $smarty.block.parent }}
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+
+    {{ block name="sidebar" }}{{ /block }}
+
+    <div id="content" class="card">
+
+        <div class="card-header">
+            <a href="{{ $origin_https }}{{ $cash_page }}">
+                <i class="icon icon-chevron-left"></i>返回
+            </a>
+            <h2>绑定银行卡</h2>
+        </div>
+
+        <div class="card-body bind-card">
+
+            <div class="message-info">
+                <i class="icon icon-info-circle"></i>
+                {{ if $is_pass_verify }}
+                {{ $user_info.name }}，你好，为保证你的账户资金安全，只能提现到本人的储蓄卡
+                {{ else }}
+                你好，为保证你的账户资金安全，只能提现到本人的储蓄卡
+                {{ /if }}
+            </div>
+
+            {{ if isset($tpl_data.notice) && $tpl_data.notice }}
+                <div class="message-primary">
+                {{ $tpl_data.notice|escape }}
+                </div>
+            {{ /if }}
+
+            <div class="form form-bind-card">
+
+                {{ if $is_pass_verify }}
+                <div class="form-group">
+                    <label class="form-label">姓名：</label>
+                    <div class="form-static">{{ $user_info.name }}</div>
+                    <input type="hidden" name="owner_name" value="{{ $user_info.name }}"/>
+                    <i class="icon icon-question-circle text-info" data-title="为保证你的账户资金安全，只能提现到本人的储蓄卡"></i>
+                </div>
+                {{ else }}
+                <div class="form-group">
+                    <label class="form-label">
+                        <i class="form-required"></i>姓名：
+                    </label>
+                    <div class="form-controls">
+                        <input type="text" class="form-text" name="owner_name" required />
+                        <span class="error"></span>
+                    </div>
+                    <div class="form-static propmpt text-info">
+                        <i class="icon icon-info-circle"></i>后续只能提现到该持卡人的银行卡
+                    </div>
+                </div>
+                {{ /if }}
+
+                {{ if $is_pass_verify }}
+                <div class="form-group">
+                    <label class="form-label">{{ if $user_info.is_passport }}护照：{{ else }}身份证：{{ /if }}</label>
+                    <div class="form-static">{{ if $user_info.is_passport }}{{ substr($user_info.id_number, 0, 1) }}******{{ substr($user_info.id_number, -1, 1) }}{{ else }}{{ substr($user_info.id_number, 0, 4) }}******{{ substr($user_info.id_number, -4, 4) }}{{ /if }}</div>
+                    <input type="hidden" name="id_number" value="{{ $user_info.id_number }}"/>
+                </div>
+                {{ else }}
+                <div class="form-group">
+                    <label class="form-label">
+                        <i class="form-required"></i>身份证：
+                    </label>
+                    <div class="form-controls">
+                        <input type="text" class="form-text" required name="id_number">
+                        <span class="error"></span>
+                    </div>
+                </div>
+                {{ /if }}
+
+                {{ if count($script_data.cardList) > 0 }}
+
+                <div class="form-group card-select">
+                    <label class="form-label">
+                        已绑银行卡：
+                    </label>
+                    <div class="form-controls">
+                        <div class="dropdown">
+                            <b class="btn-default bank-trigger">
+                                <i class="caret"></i>
+                                <span>请选择</span>
+                            </b>
+                            <ul class="dropdown-menu">
+                                {{ $has_active_card = false }}
+                                {{ foreach $script_data.cardList as $card }}
+
+                                <li data-value="{{ $card.card_id }}"
+                                {{ if $card.pay_fast && !$has_active_card }}
+                                    class="active"
+                                    {{ $has_active_card = true }}
+                                {{ /if }}
+                                >
+
+                                    <span class="card-remark">
+                                        <i class="icon {{ $bank_icon[$card.bank_no] }}"></i>
+                                        <span class="card-type">
+                                            {{ if $card.card_type == 'C' }}
+                                                信用卡
+                                            {{ else }}
+                                                储蓄卡
+                                            {{ /if }}
+                                        </span>
+                                    </span>
+
+                                    <span class="card-no">
+                                        {{ $card.card_no_mask_mid }}
+                                    </span>
+
+                                </li>
+
+                                {{ /foreach }}
+
+                            </ul>
+                        </div>
+
+                        <a href="/{{ $identity }}_center/bindCard" class="bind-new-card">
+                            <i class="icon icon-plus"></i>
+                            添加银行卡
+                        </a>
+
+                        <span class="error"></span>
+                    </div>
+                </div>
+
+                {{ else }}
+
+                <div class="form-group card-input">
+                    <label class="form-label">
+                        <i class="form-required"></i>银行卡号：
+                    </label>
+                    <div class="form-controls">
+                        <div class="input-wrapper">
+                            <input class="form-text" type="text" name="card_num" required pattern="^\d{10,20}$" maxlength="20" />
+                            <div class="floated">
+                                <img class="bank-logo" />
+                                <span class="card-type"></span>
+                            </div>
+                        </div>
+                        <span class="error"></span>
+                    </div>
+                </div>
+
+                <div class="form-group bank-select">
+                    <label class="form-label">
+                        <i class="form-required"></i>所在银行：
+                    </label>
+                    <div class="form-controls">
+                        <div class="dropdown" required>
+                            <b class="btn-default bank-trigger">
+                                <i class="caret"></i>
+                                <span class="bank-icon">- 银行 -</span>
+                                <span class="badge badge-info small">储蓄卡</span>
+                            </b>
+                            <ul class="dropdown-menu">
+
+                                {{ foreach $tpl_data.bank_list as $bank }}
+
+                                <li data-value="{{ $bank.code }}" data-text="{{ $bank.name }}" data-pay-fast="{{ $bank.pay_fast }}">
+                                    <i class="icon {{ $bank_icon[$bank.code] }}"></i>
+                                </li>
+
+                                {{ /foreach }}
+
+                            </ul>
+                        </div>
+                        <span class="error"></span>
+                    </div>
+                </div>
+
+                {{ /if }}
+
+                <div class="form-group bank-region">
+                    <label class="form-label">
+                        <i class="form-required"></i>开户行地区：
+                    </label>
+                    <div class="form-controls">
+                        {{ include file="common/component/regionSelect.html" province_required=1 city_required=1 }}
+                        <span class="error"></span>
+                        <span class="error"></span>
+                        <i class="icon icon-question-circle text-info" data-title="请填写银行卡开户行所在地区"></i>
+                    </div>
+                </div>
+
+                {{ if count($script_data.cardList) > 0 }}
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            手机号：
+                        </label>
+                        <div class="form-controls">
+                            <div class="form-static">
+                                {{ $user_info.mobile }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            <i class="form-required"></i>支付密码：
+                        </label>
+                        <div class="form-controls">
+                            <input class="form-text" type="password" name="password" required />
+                            <span class="error"></span>
+                        </div>
+                    </div>
+
+                {{ else }}
+
+                    {{ * 实名验证过且是护照验证的不做手机短信验证 * }}
+                    <div id="mobile-verify"{{ if $is_pass_verify && $user_info.is_passport }} class="hidden"{{ /if }}>
+                        <div class="form-group" id="mobile">
+                            <label class="form-label">
+                                <i class="form-required"></i>手机号：
+                            </label>
+                            <div class="form-controls">
+                                <input class="form-text" type="mobile" name="mobile" required />
+                                <span class="error"></span>
+                                <i class="icon icon-question-circle text-info" data-width="20em" data-title="银行预留的手机号是办理该银行卡时所填写的手机号码。没有预留、手机号忘记或者已停用，请联系银行客服更新处理"></i>
+                            </div>
+                        </div>
+
+                        <div class="form-group" id="verify-code">
+                            <label class="form-label">
+                                <i class="form-required"></i>手机验证码：
+                            </label>
+                            <div class="form-controls">
+                                <input class="form-text sms-code-text" type="text" name="sms_code" required autocomplete="off" pattern="^\d*$">
+                                <button class="btn btn-info btn-verify" id="verifycodebutton" >获取验证码</button>
+                                <span class="error"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                {{ /if }}
+
+                <div class="form-action">
+                    <button class="btn btn-primary btn-save">绑定</button>
+                </div>
+
+            </div>
+
+            <div class="bind-success">
+                <h3>
+                    <i class="icon icon-check-circle"></i>
+                    银行卡绑定成功！
+                </h3>
+                <a href="{{ $cash_page }}" class="btn btn-primary">返回钱包管理</a>
+            </div>
+
+            <div class="footer">
+                <span></span>
+                绑卡有问题？<a href="/guide/pay?a=pay" target="_blank">查看帮助</a>请拨打客服热线 4000-910-910，010-86448910
+                {{ *
+                <a class="text-info" href="/guide/process?a=process" target="_blank">查看帮助</a>
+                * }}
+            </div>
+
+        </div>
+    </div>
+
+{{ /strip }}
+{{ /block }}

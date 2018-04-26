@@ -1,0 +1,1 @@
+define("common/function/scale",function(){"use strict";return function(t,i){var h=t.width,e=t.height,n=i.width/h;if(h=i.width,e*=n,e>i.height)n=i.height/e,e=i.height,h*=n;return h/t.width}});

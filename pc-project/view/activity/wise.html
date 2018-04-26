@@ -1,0 +1,117 @@
+{{ extends file="common/main/base.html" }}
+
+{{ block name="data" }}
+
+{{ $smarty.block.parent }}
+
+{{ $script_path = "activity/wise" }}
+
+
+
+{{ $nav_config.active = '' }}
+{{ $nav_config.hidden = 1 }}
+
+
+{{ /block }}
+
+{{ block name="title" }}
+跟状元学- 活动中心 - 跟谁学
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/activity/wise.less">
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+
+{{ include file="./common/wised.html" }}
+
+<div id="main">
+
+    <div class="banner"></div>
+
+    <div id="video-show">
+        <div class="wrapper">
+            <ul class="videoShow" id="videoShow">
+
+                <li data-id="443">
+                    <div class="video-thumbnail" data-name="张殿炎" data-video="http://www.genshuixue.com/video/view/2394">
+                        <img src="{{ $static_origin }}/src/img/activity/wise/zhang.png" alt="张殿炎" title="张殿炎" />
+                        <i class="icon"></i>
+                        <div class="info">
+                            <span>张殿炎 - 自我介绍</span>
+                            2013年辽宁省理科状元
+                        </div>
+                    </div>
+                </li>
+
+                <li data-id="208">
+                    <div class="video-thumbnail" data-name="陈诚" data-video="http://www.genshuixue.com/video/view/2410">
+                        <img src="{{ $static_origin }}/src/img/activity/wise/cheng.png" alt="陈诚" title="陈诚" />
+                        <i class="icon"></i>
+                        <div class="info">
+                            <div class="vname">陈诚-自我介绍</div>
+                            <div class="detail">2009年重庆巫山县文科状元</div>
+                        </div>
+                    </div>
+                </li>
+                <li data-id="429">
+                    <div class="video-thumbnail" data-name="翁善根" data-video="http://www.genshuixue.com/video/view/2252">
+                        <img src="{{ $static_origin }}/src/img/activity/wise/gen.png" alt="翁善根" title="翁善根"/>
+                        <i class="icon"></i>
+                        <div class="info">
+                            <div class="vname">翁善根-自我介绍</div>
+                            <div class="detail">2013年云南省景洪市理科状元</div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="scholar">
+        <img src="{{ $static_origin }}/src/img/activity/wise/wise.png" />
+    </div>
+
+    <div class="example">
+        <ul class="hotpoints">
+            {{ foreach $page_data.wise as $wise }}
+
+            <li>
+                <a href="{{ $wise.url }}">
+                    <img src="{{ $static_origin }}/asset/{{ $wise.img }}" alt="{{ $wise.alt }}"/>
+                </a>
+                <div>
+                    <em>{{ $wise.name }}</em>
+                    <span class="mark">{{ $wise.mark }}</span>
+                    <span class="sorce">总分：{{ $wise.sorce }} </span>
+                    <span class="school" title="毕业学校：辽宁省庄河市高级中学 d">毕业学校：{{ $wise.school }}</span>
+                    <span class="institution">考入学府：{{ $wise.institution }}</span>
+                    <a href="{{ $wise.url }}" target="_blank"><button class="btn btn-primary">查看详情</button></a>
+                </div>
+            </li>
+            {{ /foreach }}
+
+        </ul>
+    </div>
+
+
+
+
+    <div class="footer">
+        <img src="{{ $static_origin }}/src/img/activity/wise/perpon.png" />
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+{{ /strip }}
+{{ /block }}

@@ -1,0 +1,188 @@
+@import '../common/layout.less';
+@import '../common/component/mobileInput.less';
+
+.hidden {
+    display: none;
+}
+
+#header {
+    padding: @padding-vertical-content 0;
+
+    .wrapper {
+        width: 900px;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    h1 {
+        img, .title {
+            vertical-align: middle;
+        }
+
+        font-size: @font-size-medium;
+
+        .huike-logo {
+            width: 176px;
+            height: 50px;
+            margin-right: 16px;
+        }
+
+    }
+
+    h2 {
+        .icon-phone {
+
+            margin-right: @gap-horizontal-tiny;
+            position: relative;
+            top: 1px;
+        }
+
+        a {
+            color: @brand-primary;
+        }
+
+        b {
+            position: relative;
+            bottom: 2px;
+            color: @brand-gray-light;
+            margin: 0 @gap-vertical-small;
+        }
+
+        position: absolute;
+        right: 0;
+        top: 18px;
+    }
+
+    .title {
+        font-size: @font-size-large;
+        color: @brand-text;
+        border-left: 2px solid @brand-text;
+        padding-left: @gap-horizontal-medium;
+    }
+}
+
+#main {
+    padding: 78px 0;
+    width: 500px;
+    margin: 0 auto;
+
+    h3 {
+        text-align: center;
+        color: @brand-text;
+        font-size: 28px;
+        margin-bottom: 1em;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .form-text {
+        width: 260px;
+    }
+
+    .form-sms {
+        .form-text {
+            width: 160px;
+            margin-right: @gap-horizontal-medium;
+        }
+
+        .btn-info {
+            font-size: @font-size-tiny;
+        }
+    }
+
+    .form-label {
+        width: 9em;
+    }
+
+    .form-action {
+        padding-left: 9em;
+        .btn-primary {
+
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+    }
+
+    #captcha {
+        display: none;
+        .form-block {
+            margin-top: 25px;
+            margin-left: 9em;
+        }
+    }
+    .captcha-image + span {
+        float: right;
+        margin-right: 100px;
+    }
+    .prompt {
+        margin-top: @gap-horizontal-medium;
+        margin-left: 126px;
+    }
+    .form-identity {
+        .form-text {
+            width: 350px;
+        }
+    }
+    #forget-mobile {
+        position: relative;
+    }
+
+    .mobile-input {
+        .tel-code {
+            left: 190px;
+        }
+        .enable-international {
+            input[name="mobile"] {
+                width: 203px;
+            }
+        }
+    }
+
+    .switch-international {
+        position: absolute;
+
+        top: 10px;
+        right: -100px;
+        cursor: pointer;
+        &:hover {
+            color: @brand-primary;
+        }
+    }
+
+    .btn-change-captcha {
+        color: @brand-info;
+        &:hover {
+            color: @brand-primary;
+        }
+    }
+
+    .voice-code-link {
+        margin-left: 120px;
+
+        .btn-link {
+            font-size: @font-size-tiny;
+            color: @brand-info;
+            &:hover {
+                color: @brand-primary;
+            }
+        }
+        span {
+            padding-top: 0;
+        }
+    }
+
+    .tel-code-select {
+        .dropdown-menu {
+            width: 258px;
+        }
+    }
+}
+
+#footer {
+    margin-top: 85px;
+    text-align: center;
+    color: @brand-text-lighter;
+    font-size: @font-size-tiny;
+}

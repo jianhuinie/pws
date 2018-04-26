@@ -1,0 +1,27 @@
+
+<div class="course-list">
+    {{ if !empty($tpl_data.all) && !empty($tpl_data.all.course) }}
+        {{ include file="teacherCenter/common/course.html" course_list=$tpl_data.all.course }}
+    {{ else if !empty($tpl_data.history) && !empty($tpl_data.history.course) }}
+        {{ include file="teacherCenter/common/course.html" course_list=$tpl_data.history.course }}
+    {{ else if !empty($tpl_data.online) && !empty($tpl_data.online.course) }}
+        {{ foreach $tpl_data.online.course as $item }}
+            {{ include file="teacherCenter/common/online.html" val=$item }}
+        {{ /foreach }}
+    {{ else if !empty($tpl_data.offline) && !empty($tpl_data.offline.course) }}
+        {{ foreach $tpl_data.offline.course as $item }}
+            {{ include file="teacherCenter/common/offline.html" val=$item }}
+        {{ /foreach }}
+    {{ else if !empty($tpl_data.video) && !empty($tpl_data.video.course) }}
+        {{ foreach $tpl_data.video.course as $item }}
+            {{ include file="teacherCenter/common/video.html" val=$item }}
+        {{ /foreach }}
+    {{ else if !empty($tpl_data.one2one) && !empty($tpl_data.one2one.course) }}
+        {{ foreach $tpl_data.one2one.course as $item }}
+            {{ include file="teacherCenter/common/one2one.html" val=$item }}
+        {{ /foreach }}
+    {{ /if }}
+</div>
+
+{{ $pager = $tpl_data.pager }}
+{{ include file="teacherCenter/common/pager.html" page=$pager.current_page count=$pager.total hide_jump=1 }}

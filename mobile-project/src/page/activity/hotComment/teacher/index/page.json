@@ -1,0 +1,7 @@
+[
+    {
+        "tpl": "./index.tpl",
+        "router": "/hotComment/teacher/index",
+        "mock_data": "./mock/index.json"
+    }
+]

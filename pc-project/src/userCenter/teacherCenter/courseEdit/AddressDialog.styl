@@ -1,0 +1,115 @@
+/**
+ * @file 设置地址
+ * @author wangtianhua
+ */
+.address-dialog {
+    width: 835px;
+    .header {
+        background-color: #fff;
+        padding: 12px;
+    }
+    .close {
+        top: 4px;
+        right: 21px;
+    }
+    .body {
+        padding: 20px;
+        position: relative;
+        .form {
+            margin-top: 20px;
+            .input {
+                width: 345px;
+                height: 76px;
+            }
+            .map-position {
+                background: #fff;
+                border: 1px solid #cdcdce;
+                border-radius: 2px;
+                width: 136px;
+                float: right;
+                &:hover {
+                    color: #f90;
+                }
+            }
+            .approve {
+                margin-top: 15px;
+                margin-bottom: 15px;
+                > .label {
+                    padding-left: 0;
+                }
+            }
+            .group {
+                .controls {
+                    .inline {
+                        cursor: pointer;
+                        float: right;
+                        position: relative;
+                        line-height: 36px;
+                        left: 15px;
+                    }
+                    .normal-box {
+                        float: left;
+                        left: -2px;
+                    }
+                }
+            }
+            .footer {
+                padding-left: 115px;
+                .button {
+                    width: 120px;
+                    &.link {
+                        border: 1px solid #cdcdce;
+                        margin-left: 20px;
+                    }
+                }
+            }
+        }
+        .dropdown > .button {
+            width: 116px;
+        }
+        .baidu-map {
+            width: 360px;
+            height: 215px;
+        }
+
+    }
+
+    .dropdowns {
+        display: inline-block;
+    }
+
+    .address-input + .menu {
+        top: 75px;
+        .address-choose {
+            display: block;
+            width: 100%;
+            font-size: 12px;
+            padding: 8px 10px;
+            .item {
+                display: inline;
+            }
+
+            .icon,
+            .city {
+                font-size: 12px;
+                padding: 0 5px;
+            }
+        }
+    }
+
+    .map {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        > .buttons {
+            background-color: #333;
+            background-color: rgba(0,0,0,0.15);
+            text-align: center;
+            padding: 5px 0;
+        }
+    }
+
+    .message {
+        display: none !important;
+    }
+}

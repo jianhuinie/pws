@@ -1,0 +1,107 @@
+{{ *
+@file 预约试听课 － 预约项
+@author wangyujie
+* }}
+
+{{ strip }}
+
+{{ include file="common/variable/trialStep.html" scope=parent }}
+
+<div class="trial-item">
+
+    <div class="header">
+        <span class="purchase-id">
+            订单编号：{{ $item.purchase_id }}
+        </span>
+        <span class="course-date">
+            下单时间：{{ $item.create_time|date_format: '%Y-%m-%d %H:%M' }}
+        </span>
+    </div>
+
+    <table>
+        <tbody>
+            <tr data-purchaseid="{{ $item.purchase_id }}">
+                <td class="col1">
+                    <div class="avatar">
+                    {{ include file="common/component/avatar.html" type="small" img=$item.avatar }}
+                    </div>
+
+                    <div class="user-info">
+
+                        {{ $name = $item.display_name }}
+                        {{ $name_cut = $name|cn_truncate: 5 }}
+
+                        <h5 class="user-name"{{ if $name != $name_cut }} data-title="{{ $name }}"{{ /if }}>
+                            {{ $name_cut }}
+                            <!-- <span>
+                                （电话：{{ $item.mobile }}）
+                            </span> -->
+                        </h5>
+
+                        {{ include file="common/component/chatLabel4.html" user_number=$item.student_user_number user_type='student' chat_to_student=true online_status=$item.im_online_status size="tiny" }}
+                    </div>
+                </td>
+
+                <td class="col2">
+                    <span class="lesson-range">
+                        试听课{{ $item.hours }}小时
+                    </span>
+
+                    <span class="lesson-way">
+                        {{ if $item.lesson_way==2 }}
+                            在线试听
+                        {{ else if $item.lesson_way==4 }}
+                            线下试听
+                        {{ /if }}
+
+                        <em class="price">
+                            {{ if $item.total_prices == 0 }}
+                                免费
+                            {{ else }}
+                                ¥{{ $item.total_prices }}
+                            {{ /if }}
+                        </em>
+
+                    </span>
+                </td>
+
+                <td class="col3">
+                    {{ $trialStep[$item.trial_step] }}
+                    <a href="/order/teacherOrderDetail?purchase_id={{ $item.purchase_id }}" class="text-info">
+                        查看详情
+                    </a>
+                </td>
+
+                <td class="col4"
+                {{ if isset($item.online_data) }}
+                    data-online='{{ json_encode($item.online_data, 77) }}'
+                {{ /if }}>
+                    {{ include file="./trialActions.html" purchase_id=$item.purchase_id step=$item.trial_step lesson_way=$item.lesson_way modify_time=$item.modify_time|default:'' }}
+                </td>
+            </tr>
+            {{ if $item.trial_step==4 || $item.trial_step==5 }}
+            <tr class="across-line">
+                <td colspan="4" class="across-cont">
+                    <span class="trial-time">
+                        试听时间：{{ $item.trial_time }}
+                    </span>
+                    {{ if $item.location }}
+                    <span class="trial-address">
+                        试听地点：{{ $item.location }}
+                    </span>
+                    {{ /if }}
+                </td>
+            </tr>
+            {{ else if isset($item.note) && $item.note }}
+            <tr class="across-line">
+                <td colspan="4" class="across-cont">
+                    学生留言：{{ $item.note }}
+                </td>
+            </tr>
+            {{ /if }}
+        </tbody>
+    </table>
+
+</div>
+
+{{ /strip }}

@@ -1,0 +1,147 @@
+{
+    "code": 0,
+    "message": "直播人数排行获取成功",
+    "tpl_data": {
+        "items": [
+            {
+                "name": "孙立军",
+                "id": "877452438",
+                "city": "未知",
+                "student_count": "12"
+            },
+            {
+                "name": "我是高级",
+                "id": "457528268",
+                "city": "北京",
+                "student_count": "9"
+            },
+            {
+                "name": "果果",
+                "id": "415521948",
+                "city": "北京",
+                "student_count": "4"
+            },
+            {
+                "name": "韩炀",
+                "id": "416180118",
+                "city": "北京",
+                "student_count": "3"
+            },
+            {
+                "name": "你哈",
+                "id": "458288108",
+                "city": "亳州",
+                "student_count": "1"
+            },
+            {
+                "name": "我是高级",
+                "id": "457528268",
+                "city": "北京",
+                "student_count": "9"
+            },
+            {
+                "name": "果果",
+                "id": "415521948",
+                "city": "北京",
+                "student_count": "4"
+            },
+            {
+                "name": "韩炀",
+                "id": "416180118",
+                "city": "北京",
+                "student_count": "3"
+            },
+            {
+                "name": "你哈",
+                "id": "458288108",
+                "city": "亳州",
+                "student_count": "1"
+            },
+            {
+                "name": "我是高级",
+                "id": "457528268",
+                "city": "北京",
+                "student_count": "9"
+            },
+            {
+                "name": "果果",
+                "id": "415521948",
+                "city": "北京",
+                "student_count": "4"
+            },
+            {
+                "name": "韩炀",
+                "id": "416180118",
+                "city": "北京",
+                "student_count": "3"
+            },
+            {
+                "name": "你哈",
+                "id": "458288108",
+                "city": "亳州",
+                "student_count": "1"
+            },
+            {
+                "name": "我是高级",
+                "id": "457528268",
+                "city": "北京",
+                "student_count": "9"
+            },
+            {
+                "name": "果果",
+                "id": "415521948",
+                "city": "北京",
+                "student_count": "4"
+            },
+            {
+                "name": "韩炀",
+                "id": "416180118",
+                "city": "北京",
+                "student_count": "3"
+            },
+            {
+                "name": "你哈",
+                "id": "458288108",
+                "city": "亳州",
+                "student_count": "1"
+            },
+            {
+                "name": "我是高级",
+                "id": "457528268",
+                "city": "北京",
+                "student_count": "9"
+            },
+            {
+                "name": "果果",
+                "id": "415521948",
+                "city": "北京",
+                "student_count": "4"
+            },
+            {
+                "name": "韩炀",
+                "id": "416180118",
+                "city": "北京",
+                "student_count": "3"
+            },
+            {
+                "name": "你哈",
+                "id": "458288108",
+                "city": "亳州",
+                "student_count": "1"
+            },
+            {
+                "name": "Jeremy",
+                "id": "330368468",
+                "city": "北京",
+                "student_count": "1"
+            }
+        ],
+        "pager": {
+            "has_more": false,
+            "next_page": 2,
+            "current_page": 1,
+            "total": 6
+        }
+    },
+    "render": null
+}

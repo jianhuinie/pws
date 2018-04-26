@@ -1,0 +1,117 @@
+{{ *
+
+@file 学生中心 - 我的评价 - 中差评改好评
+@author wangyujie
+
+* }}
+
+{{ extends file="common/center/base.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+    {{ $script_path = "studentCenter/modifyComment_624f15cd9f" }}
+    {{ $script_data.commentId = $tpl_data.comment_id }}
+    {{ $script_data.totalScore = $tpl_data.total_score }}
+
+{{ /block }}
+
+{{ block name="title" prepend }}
+我的评价 - 改为好评
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/studentCenter/modifyComment_b0c1181a67.css">
+{{ $smarty.block.parent }}
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+
+    {{ include file="student_center/common/sidebar.html" active="credit" }}
+
+    <div id="content" class="card">
+
+        <div class="card-header">
+            <a href="/student_center/commentTeacher">
+                我的评价
+            </a>
+            &nbsp;&gt;&nbsp;
+            <a>改为好评</a>
+        </div>
+
+        <div class="card-body">
+
+            <div class="intro">
+                <h3>修改须知：</h3>
+                <p>1. 修改评价的机会只有一次且无法恢复</p>
+                <p>2. 只有中评和差评能修改为好评</p>
+            </div>
+
+            <div class="form">
+
+                <div class="form-group">
+                    <label class="form-label">
+                        被评价人：
+                    </label>
+                    <div class="form-controls">
+                        <div class="form-static">
+                            {{ $tpl_data.teacher_user_name }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        相关课程：
+                    </label>
+                    <div class="form-controls">
+                        <div class="form-static">
+                            {{ $tpl_data.course_name }} {{ $tpl_data.display_title }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        <i class="form-required"></i>总体评分：
+                    </label>
+                    <div class="score">
+                        {{ include file="common/component/starScore2.html" score=$tpl_data.total_score }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        <i class="form-required"></i>评价内容：
+                    </label>
+                    <div class="form-editor">
+                        <textarea class="form-text" name="info" placeholder="修改为好评的同时别忘了修改评语内容哦">
+                           {{ $tpl_data.info }}
+                        </textarea>
+                        <div class="form-hint">
+                            还可以输入 <strong>500</strong> 个字
+                        </div>
+                    </div>
+
+                    <span class="error"></span>
+                </div>
+
+                {{ include file="common/component/moreImageUploader.html" }}
+
+                <div class="form-action">
+                    <button class="btn btn-primary btn-save">
+                        确认修改
+                    </button>
+                    <a class="btn btn-default">
+                        取消
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{{ /strip }}
+{{ /block }}
+

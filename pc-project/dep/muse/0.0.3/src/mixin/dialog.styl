@@ -1,0 +1,55 @@
+/**
+ * @file 对话框
+ * @author zhujl
+ */
+
+dialog() {
+    position: fixed;
+    ui-type($type-hash['dialog']);
+}
+
+dialog-mask() {
+
+    ui-type($type-hash['dialog-mask']);
+
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+dialog-close() {
+
+    text-align: center;
+
+    position: absolute;
+    top: $dialog-close-top;
+    right: $dialog-close-right;
+
+    if ($support-mouse == true) {
+        cursor: pointer;
+    }
+
+    ui-size('dialog-close');
+    ui-type($type-hash['dialog-close']);
+
+}
+
+dialog-header() {
+
+    if ($support-mouse == true) {
+        cursor: move;
+        user-select: none;
+    }
+
+    ui-size('dialog-header');
+    ui-type($type-hash['dialog-header']);
+
+}
+
+dialog-title() {
+    display: inline-block;
+}
+
+dialog-body() {
+    ui-size('dialog-body');
+}

@@ -1,0 +1,31 @@
+{{ *
+
+@file 生活照片裁剪算法
+
+      参数：
+      url: 图片 url
+      raw_width： 原始图宽度
+      raw_height： 原始图高度
+      width: 显示宽度
+      height: 显示高度
+
+@author zhujialu
+
+* }}
+{{ strip }}
+
+{{ $factor = 0.05 }}
+
+{{ if ($raw_height / $raw_width) / ($height / $width) > $factor }}
+
+    {{ $suffix = "@1e_"|cat: $width|cat: "w_1c_0i_1o_90Q_1x.jpeg%7C0-"|cat: $factor*$raw_height|cat: "-"|cat: $width|cat: "-"|cat: $height|cat: "a.jpeg" }}
+
+{{ else }}
+
+    {{ $suffix = "@1e_"|cat: $width|cat: "w_"|cat: $height|cat: "h_1c_0i_1o_90Q_1x.jpeg" }}
+
+{{ /if }}
+
+{{ $url = $url|cat: $suffix }}
+
+{{ /strip }}

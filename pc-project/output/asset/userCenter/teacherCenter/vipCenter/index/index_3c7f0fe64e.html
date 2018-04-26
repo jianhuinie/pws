@@ -1,0 +1,212 @@
+<div id="content">
+    <div class="tab-nav tab-nav-primary">
+        <a class="nav-item active-tab">老师会员中心</a>
+        <a class="nav-item" href="http://i.genshuixue.com/vip_center.html" target="_blank">机构会员中心</a>
+        <a class="nav-item" href="/org/gold" target="_blank">金牌认证机构</a>
+    </div>
+
+    <div class="vip-header">
+        <div class="header-left">
+            {{#if name}}
+                <a class="header-left-photo" href="/{{url}}" target="_blank">
+                    <img class="image huge round" data-src="{{avatar}}" data-width="100" data-height="100">
+                </a>
+                <a class="header-left-name"  href="/{{url}}" target="_blank">
+                    {{{cutString(name, 22)}}}
+
+                    <i class="icon {{#if isVip }}vip-icon-level{{level}}{{/if}}"
+                    data-title="
+                        {{#if level == 0}}
+                            您还未开通会员
+                        {{elseif level == 1}}
+                            跟谁学会员
+                        {{elseif level == 2}}
+                            跟谁学高级会员
+                        {{elseif level == 3}}
+                            跟谁学超级会员
+                        {{/if}}"></i>
+                </a>
+                <div class="header-left-tip">
+                    {{#if isVip}}
+                        {{#if isOrg}}机构{{/if}}
+                        {{#if vipLevel == 2}}
+                            高级
+                        {{elseif vipLevel == 3}}
+                            超级
+                        {{/if}}
+                        会员还剩{{ydate}}天
+                    {{else}}
+                        您还未开通会员
+                    {{/if}}
+                </div>
+                <div class="header-left-button">
+                    <button class="button {{#if isVip}}primary{{else}}error{{/if}}"
+                    {{#if isVip && !renewSupport}} disabled{{/if}}
+                    on-click="buyVip()"
+                    >
+                        {{#if isVip}}
+                            {{#if vipLevel == 1}}
+                                升级会员
+                            {{else}}
+                                续费
+                            {{/if }}
+                            
+                        {{else}}
+                            立即开通
+                        {{/if}}
+                    </button>
+                    {{#if !isVip}}
+                        <button class="button info" on-click="consult()">
+                            留言咨询
+                        </button>
+                    {{/if}}
+                </div>
+            {{else}}
+                <div class="header-left-photo">
+                    <img class="image huge round" src="{{imgUrl}}/headori.png" />
+                </div>
+                <div class="header-left-button">
+                    <a class="button error" href="{{siteData.rootHttps}}/static/login?next=/teacher_center/vip_center">
+                        立即登录
+                    </a>
+                    <button class="button info" on-click="consult()">
+                        留言咨询
+                    </button>
+                </div>
+            {{/if}}
+        </div>
+        <a class="header-right"></a>
+    </div>
+
+    <div class="vip-title">
+        <i class="icon vip-red"></i>
+        <span>会员等级</span>
+    </div>
+
+    <div class="vip-level">
+        <!-- <a class="level-link"  href="/teacher_center/vip_detail?type=all">
+            <i class="icon icon-level1"></i>会员
+        </a> -->
+        <a class="level-link"  href="/teacher_center/vip_detail?type=all">
+            <i class="icon icon-level2"></i>高级会员
+        </a>
+        <a class="level-link"  href="/teacher_center/vip_detail?type=all">
+            <i class="icon icon-level3"></i>超级会员
+        </a>
+    </div>
+
+    <div class="vip-title">
+        <i class="icon vip-red"></i>
+        <span>会员特权</span>
+        <span class="hint">
+            注：所有会员免费享受最新会员特权
+        </span>
+    </div>
+
+    <div class="vip-center">
+        <a class="vip-item item-biao" href="/teacher_center/vip_detail?type=vipLogo">
+            <div class="vip-descript">
+                <div class="vip-descript-title">会员形象</div>
+                <div class="vip-descript-content">
+                    会员皇冠标识＋会员专属页面模板
+                </div>
+            </div>
+        </a>
+        <a class="vip-item item-you" href="/teacher_center/vip_detail?type=sortFirst">
+            <div class="vip-descript">
+                <div class="vip-descript-title">
+                    更多流量
+                    <i class="icon icon-new"></i>
+                </div>
+                <div class="vip-descript-content">
+                    会员排序绝对优先
+                </div>
+            </div>
+        </a>
+        <a class="vip-item item-ke" href="/teacher_center/vip_detail?type=imAsk">
+            <div class="vip-descript">
+                <div class="vip-descript-title">生源大厅</div>
+                <div class="vip-descript-content">
+                    优先进入生源大厅获取优质生源
+                </div>
+            </div>
+        </a>
+        <a class="vip-item item-tui" href="/teacher_center/vip_detail?type=studentRecommend">
+            <div class="vip-descript">
+                <div class="vip-descript-title">推广特权</div>
+                <div class="vip-descript-content">
+                    高效推广工具“分享有奖”使用权
+                </div>
+            </div>
+        </a>
+        <a class="vip-item item-gu"  href="/teacher_center/vip_detail?type=videoPrivilege">
+            <div class="vip-descript">
+                <div class="vip-descript-title">视频特权</div>
+                <div class="vip-descript-content">
+                    视频课优先转码＋联系方式展示
+                </div>
+            </div>
+        </a>
+        <a class="vip-item item-hua" href="/teacher_center/vip_detail?type=seeRoster">
+            <div class="vip-descript">
+                <div class="vip-descript-title">查看花名册</div>
+                <div class="vip-descript-content">
+                    学生名单一手掌握
+                </div>
+            </div>
+        </a>
+        <a class="vip-item item-fen" href="/teacher_center/vip_detail?type=cloudSave">
+            <div class="vip-descript">
+                <div class="vip-descript-title">云存储空间</div>
+                <div class="vip-descript-content">
+                    更大的云存储空间让视频课安心安放
+                </div>
+            </div>
+        </a>
+        <a class="vip-item item-zhui" href="/teacher_center/vip_detail?type=customerManager">
+            <div class="vip-descript">
+                <div class="vip-descript-title">专属客户经理</div>
+                <div class="vip-descript-content">
+                    VIP的专属客户经理一键联系
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="vip-title">
+        <i class="icon vip-red"></i>
+        <span>其他会员功能</span>
+    </div>
+
+    <div class="vip-other">
+        <a class="other-item" href="/teacher_center/vip_detail?type=liveTool">
+            直播工具
+            <i class="icon icon-hot"></i>
+        </a>
+        <a class="other-item" href="/teacher_center/vip_detail?type=firstCheck">
+            优先审核
+            <i class="icon icon-hot"></i>
+        </a>
+        <a class="other-item" href="/teacher_center/vip_detail?type=freeContact">
+            免费短信和免费通话
+        </a>
+        <a class="other-item" href="/teacher_center/vip_detail?type=freeLive">
+            免费直播课人数
+        </a>
+        <a class="other-item" href="/teacher_center/vip_detail?type=oneLimit">
+            一对一课程上限
+        </a>
+        <a class="other-item" href="/teacher_center/vip_detail?type=courseForVip">
+            会员专享培训课程
+            <i class="icon icon-hot"></i>
+        </a>
+        <a class="other-item" href="/teacher_center/vip_detail?type=dataMof">
+            数据魔方
+            <i class="icon icon-hot"></i>
+        </a>
+        <a class="other-item" href="/teacher_center/vip_detail?type=autoReply">
+            自动回复和快捷回复
+            <i class="icon icon-new"></i>
+        </a>
+    </div>
+</div>

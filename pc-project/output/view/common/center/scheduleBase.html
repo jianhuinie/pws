@@ -1,0 +1,95 @@
+
+{{ extends "common/center/base.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $script_path = "common/center/schedule_f5928a2bea" }}
+
+    {{ if !empty($smarty.get.date) }}
+    {{ $script_data.today = strtotime($smarty.get.date) * 1000 }}
+    {{ else }}
+    {{ $script_data.today = $ts * 1000 }}
+    {{ /if }}
+
+    {{ $nav_active_tab = 'lesson' }}
+
+{{ /block }}
+
+{{ block name="title" prepend }}
+我的课表 -
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/common/center/schedule_6fd07f9372.css">
+{{ $smarty.block.parent }}
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+
+    {{ $data = $tpl_data }}
+    {{ $lessons = $data.lessons }}
+
+    {{ block name="sidebar" }}
+    {{ /block }}
+
+    {{ block name="tabs" }}
+    {{ /block }}
+
+    <div id="content" class="card">
+        <div class="card-header" >
+            {{ if $user_data.user_type == 2 }}
+            <button class="schedule-class student">
+                <i class="icon icon-book-open-o"></i>
+                发起约课
+            </button>
+            <p class="online-classroom">
+                <i class="icon icon-screen-o"></i>
+                进入在线教室
+            </p>
+            {{ /if }}
+            <h2 class="my-schedule">我的课表</h2>
+        </div>
+
+        <div class="card-body">
+            {{ if isset($data.stat) }}
+                {{ $tab_count = $data.stat }}
+            {{ else }}
+                {{ $tab_count = [] }}
+            {{ /if }}
+
+            {{ include file="common/center/component/listTabs.html" tabs=$tabs tab_count=$tab_count }}
+
+            {{ if not isset($smarty.get.status) || ($smarty.get.status < 2) }}
+                <div class="schedule-calendar"></div>
+            {{ /if }}
+
+            <div class="schedule-list">
+                {{ if isset($smarty.get.status) && ($smarty.get.status > 1) }}
+                    {{ include file="common/center/component/scheduleList.html" }}
+                {{ else }}
+                    <div class="no-data">
+                        <div class="wrapper">
+                        课表数据正在加载中...
+                        </div>
+                    </div>
+                {{ /if }}
+            </div>
+        </div>
+
+        <script type="plain/text" id="online-course-dialog">
+            {{ include file="common/center/onlineCourse/courseListDialog.html" }}
+        </script>
+
+        <script type="plain/text" id="schedule-class-dialog">
+            {{ include file="common/center/component/scheduleClassDialog.html" }}
+        </script>
+    </div>
+
+    {{ include file="common/component/baiduMap.html" }}
+
+{{ /strip }}
+{{ /block }}
+

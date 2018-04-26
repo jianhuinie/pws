@@ -1,0 +1,98 @@
+/**
+ * @file 懂行频道导航
+ * @author wangtianhua
+ */
+header {
+	background-color: #fff;
+    &.fixed {
+        width: 100%;
+        background: #fff;
+        border-bottom: #93573d solid 1px;
+        position: fixed;
+        z-index: 3;
+        top: 0;
+        left: 0;
+    }
+    .logo {
+        width: 147px;
+        height: 65px;
+        background: url('../../img/life/life-logo.png');
+    }
+    .nav-box {
+	    width: 1190px;
+        height: 85px;
+        overflow: hidden;
+    	margin: 0 auto;
+	    padding: 10px;
+		overflow: hidden;
+    	.logo {
+    		display: block;
+    		float: left;
+            .icon-lifelogonew {
+                font-size: 89px;
+                line-height: 68px;
+                color: #93573d;
+            }
+    	}
+        .icon {
+            font-size: 109px;
+            float: left;
+            line-height: 70px;
+            margin-left: 10px;
+        }
+    	.nav-menu {
+    		list-style: none;
+    		overflow: hidden;
+    		float: left;
+    		margin-left: 25px;
+            margin-top: 6px;
+    		li {
+    			font-size: 18px;
+    			float: left;
+    			height: 55px;
+			    line-height: 55px;
+			    padding: 0 10px;
+			    position: relative;
+
+			    a {
+    				color: #000;
+			    	display: block;
+			    	margin: 0 10px;
+                    font-size: 18px;
+                    span {
+                        padding: 3px 0;
+                    }
+			    	&:hover {
+			    		color: #93573d;
+                        span {
+                            border-bottom: #93573d 1px solid;
+                        }
+			    	}
+			    	&.active {
+			    		color: #93573d;
+                        span {
+                            border-bottom: #93573d 1px solid;
+                        }
+			    	}
+			    }
+
+			    .doc {
+			    	width: 3px;
+			    	height: 3px;
+			    	border-radius: 3px;
+			    	background-color: #93573d;
+			    	position: absolute;
+				    right: 0;
+				    top: 50%;
+				    margin-top: -3px;
+    			}
+    			&:last-child {
+    				.doc {
+    					display: none;
+    				}
+    			}
+    		}
+    	}
+ 	}
+
+}

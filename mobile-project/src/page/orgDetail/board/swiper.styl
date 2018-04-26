@@ -1,0 +1,74 @@
+@import "page/_common/swiper/swiper.styl";
+.photos {
+    .swiper-container {
+        .swiper-wrapper {
+            &.photos-swiper-container {
+                max-height: rem(75);
+            }
+            .swiper-slide {
+                .photo {
+                    position: relative;
+                    img {
+                        width: rem(80);
+                        height: rem(80);
+                    }
+                    .morepic {
+                        .morepicMask {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            right: rem(-2);
+                            bottom: 0;
+                            background: black;
+                            opacity: 0.5;
+                        }
+                        p {
+                            color: #fff;
+                            text-align: center;
+                            height: rem(30);
+                            line-height: rem(30);
+                            position: absolute;
+                            top: rem(22);
+                            left: rem(11);
+                            width: rem(64);
+                            font-size: rem(14);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.hot-teacher {
+    .swiper-container-2 {
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        .swiper-wrapper {
+            max-height: rem(125);
+            .swiper-slide {
+                .photo {
+                    position: relative;
+                    img {
+                        width: rem(65);
+                        height: rem(65);
+                        border-radius: 50%;
+                    }
+                }
+                .name {
+                    text-align: center;
+                    font-family: PingFang-SC-Regular;
+                    font-size: rem(14);
+                    color: #6D6D6E;
+                    letter-spacing: rem(-0.34);
+                    height: rem(30);
+                    line-height: rem(30);
+                    width: rem(65);
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

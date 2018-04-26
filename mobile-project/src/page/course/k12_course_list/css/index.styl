@@ -1,0 +1,128 @@
+@import "page/_base/base.styl";
+@import "page/_common/nav_bar/nav_bar.styl";
+
+body {
+	background-color: #F2F4F5;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+ul,li {
+  margin: rem(0);
+  padding: rem(0);
+}
+
+
+.card {
+    background : #fff;
+    margin: rem(10);
+    overflow : hidden;
+    position: relative;
+    .acard {
+        display: block;
+        position: absolute;
+        border-radius: rem(10);
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.bottom{
+  margin-bottom : rem(15);
+}
+.course-pic {
+    position: relative;
+    > .taga {
+        display: block;
+        position: relative;
+        width: rem(120);
+        height: rem(73);
+        .mold,
+        .report-status {
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            line-height: rem(26);
+            color: #fff;
+            text-align: center;
+        }
+        .mold {
+            opacity: 0.5;
+            background: #000;
+            height: rem(26);
+        }
+    }
+
+    float: left;
+    margin: rem(15);
+    font-size: rem(14);
+}
+.course-detail {
+    .title {
+        font-size: rem(16);
+        padding: rem(10) 0 rem(5) 0;
+    }
+    .course-org {
+        font-size: rem(12);
+        color: #9d9e9e;
+    }
+    .top {
+        margin-left: rem(150);
+        border-bottom: 1px solid #ebeced;
+    }
+    .course-descrition {
+        margin-right: rem(15);
+        line-height: rem(24);
+        .price {
+            color: #f90;
+            font-size: rem(14);
+        }
+        .free {
+            color: #1db954;
+        }
+        .address {
+            float: right;
+            font-size: rem(12);
+            color: #9d9e9e;
+        }
+    }
+    .times {
+        font-size: rem(14);
+        color: #9d9e9e;
+        padding: rem(5) 0;
+        margin-left: rem(150);
+    }
+}
+.more-button {
+  position: relative;
+  height: rem(40);
+  padding: rem(5);
+  line-height: rem(30);
+  border: 1px solid #F3F3F3;
+  text-align: center;
+  background-color: #fff;
+  margin: rem(10) 0;
+
+  .typing_loader {
+    display: none;
+  }
+  &.loading {
+    .typing_loader {
+      display: block;
+    }
+    .text {
+      display: none;
+    }
+  }
+}
+.typing_loader {
+    width: rem(8);
+    height: rem(8);
+    animation: typing 1s linear infinite alternate;
+    margin: rem(10) auto;
+    position: relative;
+    left: rem(-12);
+}

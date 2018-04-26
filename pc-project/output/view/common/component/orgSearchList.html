@@ -1,0 +1,439 @@
+{{ *
+
+@file 机构搜索结果列表组件
+@author jixiaohui
+@description 机构搜索结果页
+
+* }}
+
+{{ strip }}
+<div id="search-list">
+    {{ $unlocal_tips = true }}
+
+    {{ if isset($tpl_data.qid) }}
+        {{ $log_id = $tpl_data.qid }}
+    {{ else }}
+        {{ $log_id = '' }}
+    {{ /if }}
+
+    {{ $log_flag = false }}
+
+    {{ if isset($tpl_data.q) }}
+        {{ $log_flag = true }}
+    {{ /if }}
+
+    <ul>
+    {{ include file="common/variable/vipLevel.html" scope=parent }}
+
+    {{ * 金牌认证机构 * }}
+    {{ foreach $tpl_data.city_hero_orgs as $val }}
+        {{ ** 埋点统计 ** }}
+        {{ if isset($tpl_data.q) }}
+            {{ $log_url = ''|cat:","|cat:$val.org_number|cat:","|cat:$log_id }}
+        {{ /if }}
+
+        {{ ** 地区分割线 ** }}
+        {{ if isset($val.is_local) && !$val.is_local && $unlocal_tips }}
+            {{ $unlocal_tips = false }}
+            <div class="unlocal-tips">
+                <div class="left-line"></div>
+                <div class="right-line"></div>
+                <h1>
+                    以下是其他城市
+                    <span class="text-primary">可线上授课</span>
+                    的机构
+                </h1>
+                <div>
+                    如果你是相关机构，可以
+                    <a rel="nofollow" href="https://i.genshuixue.com/register#/" target="_blank" class="occupancy">
+                        立即入驻
+                    </a>
+                </div>
+            </div>
+        {{ /if }}
+
+        <li class="list-item gold-cert-org{{ if $val@index == 0 }} first-item{{ /if }}">
+            {{ if $val.org_domain }}
+                {{ $domain = $val.org_domain }}
+            {{ else }}
+                {{ $domain = $val.org_number }}
+            {{ /if }}
+
+            {{ if isset($condition.sd) && $condition.sd && $val.debug_info }}
+            <div class="debug_info" style="display: none;">{{ $val.debug_info }}</div>
+            {{ /if }}
+
+            <a class="logo" rel="nofollow" href="{{ $val.detail_url }}" target="_blank" {{ if $log_flag }} log="{{ $log_url }},avatar" data-restype=1 {{ /if }}>
+                {{ if $val.org_avatar }}
+                    {{ include file="common/component/image.html" url=$val.org_avatar width=120 alt=$tpl_data.category|default:'机构logo' }}
+                {{ else }}
+                    <img src="{{ $static_origin }}/asset/img/org/logo_35c5eacab8.jpg" alt="{{ $tpl_data.category|default:'机构logo' }}">
+                {{ /if }}
+            </a>
+
+            <div class="info">
+                <h1 class="title">
+                    <a href="{{ $val.detail_url }}" title="{{ $tpl_data.category|default:'' }}" target="_blank" {{ if $log_flag }} log="{{ $log_url }},name" data-restype=1 {{ /if }}>
+                        {{ $val.org_name }}
+                    </a>
+
+                    {{ include file='common/component/goldCert.html' }}
+
+                    <div class="property">
+                        {{ if $val.org_type == 2 }}
+                            <i class="org-icon company"></i>
+                            公司
+                        {{ else if $val.org_type == 3 }}
+                            <i class="org-icon school"></i>
+                            学校
+                        {{ else }}
+                            <i class="org-icon work"></i>
+                            工作室
+                        {{ /if }}
+                    </div>
+                </h1>
+                {{ $brief = $val.org_brief|cn_truncate:27 }}
+                <p class="slogan" {{ if $brief != $val.org_brief }}data-title="{{ $val.org_brief }}" data-width="20em"{{ /if }}>{{ $val.org_brief }}</p>
+                <div class="score-comment-data">
+                    {{ if $val.comment_count }}
+                        {{ if $val.org_score == 0 }}
+                            {{ $total_score = 5.0 }}
+                        {{ else }}
+                            {{ $total_score = $val.org_score }}
+                        {{ /if }}
+                        {{ include file="common/component/starScore.html" score=$total_score }}
+
+                        <span class="score-text">{{ $total_score }} 分</span>
+                        <a class="comment-text" target="_blank" href="/i/comment/{{ $domain }}">
+                            <span class="comment-num">{{ $val.comment_count }}</span> 条评价
+                        </a>
+                    {{ else }}
+                        {{ if $val.invite_comment_count }}
+                            <a class="comment-text" target="_blank" href="/i/comment/{{ $domain }}">
+                                <span class="comment-num">
+                                    {{ $val.invite_comment_count }}
+                                </span>条邀请评价
+                            </a>
+                        {{ else }}
+                            <a class="comment-text" target="_blank" href="/i/comment/{{ $domain }}">
+                                暂无评分
+                            </a>
+                        {{ /if }}
+                    {{ /if }}
+                    {{ if $val.desc_match || $val.teach_result || $val.service_attitude }}
+                    <div class="score-list">
+                        <span>描述相符：{{ $val.desc_match }}</span>
+                        <span>教学态度：{{ $val.service_attitude }}</span>
+                        <span>响应速度：{{ $val.teach_result }}</span>
+                    </div>
+                    {{ /if }}
+                    <a class="signed-teacher-count" href="/i/teacher/{{ $domain }}" target="_blank" {{ if $log_flag }} log="{{ $log_url }},teacher" data-restype=1 {{ /if }}>已入驻<i class="primary">{{ $val.teacher_count }}</i>位老师</a>
+                </div>
+                {{ if !empty($val.school_area) }}
+                    {{ $area_counter = 0 }}
+                    {{ $area_list = [] }}
+                    {{ foreach $val.school_area as $v }}
+                        {{ if $v.name }}
+                            {{ $area_counter = $area_counter + 1 }}
+                            {{ $area_list[$area_counter] = $v }}
+                        {{ /if }}
+                    {{ /foreach }}
+                    {{ if $area_counter > 0 }}
+                        <div class="area">
+                            <span class="area-title">校区地址：</span>
+                            <ul>
+                                {{ foreach $area_list as $v }}
+                                    {{ if $v@index == 1 }}
+                                        <li class="last">
+                                            <a href="/i/area/{{ $domain }}" target="_blank" data-title="{{ $v.detail }}" data-width="20em">{{ $v.name }}</a>
+                                        </li>
+                                    {{ else }}
+                                        <li {{ if $v@index > 1 }}{{ if $v@last }}class="last hide"{{ else }}class="hide"{{ /if }}{{ else if $v@last }}class="last"{{ /if }}>
+                                            <a href="/i/area/{{ $domain }}" target="_blank" data-title="{{ $v.detail }}" data-width="20em">{{ $v.name }}</a>
+                                        </li>
+                                    {{ /if }}
+                                {{ /foreach }}
+                                {{ if count($area_list) > 2 }}
+                                    <li class="detail"><a class="extend">更多>></a></li>
+                                {{ /if }}
+                            </ul>
+                        </div>
+                    {{ /if }}
+                {{ /if }}
+                <div class="tag-list">
+
+                    {{ foreach $val.org_tags as $v }}
+                        <h1>{{ $v }}</h1>
+                    {{ /foreach }}
+                    {{ *SEO关键词* }}
+                    {{ if !empty($tpl_data.category) && $tpl_data.category != "综合排序" }}
+                        <h1>{{ $tpl_data.category }}</h1>
+                    {{ /if }}
+
+                </div>
+                {{ if !empty($val.course_count) }}
+                <div class="course-list">
+                    <ul class="courses">
+                        {{ foreach $val.courses as $v }}
+                        <li {{ if $v@index > 1 }}class="hide"{{ /if }}>
+
+                            {{ $v_name = $v.name|cn_truncate:19 }}
+
+                            {{ if $v.klass_type == 10 }}
+                                {{ $url = $root|cat: '/org_course/detail/'|cat: $v.number }}
+                            {{ else }}
+                                {{ $url = $root|cat: '/teacher/classCourseDetail/'|cat: $v.number }}
+                            {{ /if }}
+
+                            <a data-number="{{ $v.number }}" data-crank="{{ $v@index+1 }}" href="{{ $url }}" target="_blank" {{ if $log_flag }} log="{{ $log_url }},course" data-restype=1 {{ /if }} {{ if $v_name != $v.name }}data-title="{{ $v.name }}" data-width="20em"{{ /if }}
+                            >
+                                {{ if $v.lesson_way == 2 }}
+                                    <i class="online">直播课：</i>
+                                {{ else }}
+                                    <i class="offline">线下课：</i>
+                                {{ /if }}
+
+                                {{ $v.name }}
+                            </a>
+                            <span class="price">￥{{ $v.price }}</span>
+                        </li>
+                        {{ /foreach }}
+
+                        {{ if $val.course_count > 10 }}
+                        <li class="more hide">
+                            <a target="_blank" href="/i/course/{{ $domain }}">全部课程 >></a>
+                        </li>
+                        {{ /if }}
+                    </ul>
+                    <div class="course-button">
+                        <span class="toggle-up" data-count="{{ count($val.courses) }}">
+                            全部{{ $val.course_count }}个课程{{ if count($val.courses)> 2 }}
+                            <i class="icon icon-caret-down"></i>{{ /if }}
+                        </span>
+                        <span class="toggle-down" style="display:none;">
+                            收起<i class="icon icon-caret-up"></i>
+                        </span>
+                    </div>
+                </div>
+                {{ /if }}
+            </div>
+        </li>
+    {{ /foreach }}
+
+    {{ foreach $orgs as $val }}
+        {{ ** 埋点统计 ** }}
+        {{ if isset($tpl_data.q) }}
+            {{ $log_url = ($val@index+1)|cat:","|cat:$val.org_number|cat:","|cat:$log_id }}
+        {{ /if }}
+
+        {{ ** 地区分割线 ** }}
+        {{ if isset($val.is_local) && !$val.is_local && $unlocal_tips }}
+            {{ $unlocal_tips = false }}
+            <div class="unlocal-tips">
+                <div class="left-line"></div>
+                <div class="right-line"></div>
+                <h1>
+                    以下是其他城市
+                    <span class="text-primary">可线上授课</span>
+                    的机构
+                </h1>
+                <div>
+                    如果你是相关机构，可以
+                    <a rel="nofollow" href="https://i.genshuixue.com/register#/" target="_blank" class="occupancy">
+                        立即入驻
+                    </a>
+                </div>
+            </div>
+        {{ /if }}
+
+        {{ if $val.is_gold_certification }}
+            {{ $resType = 1 }}
+        {{ else }}
+            {{ $resType = 0 }}
+        {{ /if }}
+
+        <li class="list-item">
+            {{ if $val.org_domain }}
+                {{ $domain = $val.org_domain }}
+            {{ else }}
+                {{ $domain = $val.org_number }}
+            {{ /if }}
+
+            {{ if isset($condition.sd) && $condition.sd && $val.debug_info }}
+            <div class="debug_info" style="display: none;">{{ $val.debug_info }}</div>
+            {{ /if }}
+
+            <a class="logo" rel="nofollow" href="{{ $val.detail_url }}" target="_blank" {{ if $log_flag }} log="{{ $log_url }},avatar" data-restype={{ $resType }} {{ /if }}>
+                {{ if $val.org_avatar }}
+                    {{ include file="common/component/image.html" url=$val.org_avatar width=120 alt=$tpl_data.category|default:'机构logo' }}
+                {{ else }}
+                    <img src="{{ $static_origin }}/asset/img/org/logo_35c5eacab8.jpg" alt="{{ $tpl_data.category|default:'机构logo' }}">
+                {{ /if }}
+            </a>
+
+            <div class="info">
+                <h1 class="title">
+                    <a href="{{ $val.detail_url }}" title="{{ $tpl_data.category|default:'' }}" target="_blank" {{ if $log_flag }} log="{{ $log_url }},name" data-restype={{ $resType }} {{ /if }}>
+                        {{ $val.org_name }}
+                    </a>
+
+                    {{ if isset($val.membership_level) 
+                          && $val.membership_level != 1 
+                          && !$val.is_gold_certification }}
+                        <i class="icon-vip-{{ $orgVipLevelMap[$val.membership_level] }}"
+                        data-title="
+                            {{ if $val.membership_level == 2 }}
+                                跟谁学会员
+                            {{ else if $val.membership_level == 3 }}
+                                跟谁学高级会员
+                            {{ else if $val.membership_level == 4 }}
+                                跟谁学超级会员
+                            {{ /if }}
+                        "></i>
+                    {{ /if }}
+                    {{ if $val.is_gold_certification }}
+                        {{ include file='common/component/goldCert.html' }}
+                    {{ /if }}
+                    <div class="property">
+                        {{ if $val.org_type == 2 }}
+                            <i class="org-icon company"></i>
+                            公司
+                        {{ else if $val.org_type == 3 }}
+                            <i class="org-icon school"></i>
+                            学校
+                        {{ else }}
+                            <i class="org-icon work"></i>
+                            工作室
+                        {{ /if }}
+                    </div>
+                </h1>
+                {{ $brief = $val.org_brief|cn_truncate:27 }}
+                <p class="slogan" {{ if $brief != $val.org_brief }}data-title="{{ $val.org_brief }}" data-width="20em"{{ /if }}>{{ $val.org_brief }}</p>
+                <div class="score-comment-data">
+                    {{ if $val.comment_count }}
+                        {{ if $val.org_score == 0 }}
+                            {{ $total_score = 5.0 }}
+                        {{ else }}
+                            {{ $total_score = $val.org_score }}
+                        {{ /if }}
+                        {{ include file="common/component/starScore.html" score=$total_score }}
+
+                        <span class="score-text">{{ $total_score }} 分</span>
+                        <a class="comment-text" target="_blank" href="/i/comment/{{ $domain }}">
+                            <span class="comment-num">{{ $val.comment_count }}</span> 条评价
+                        </a>
+                    {{ else }}
+                        {{ if $val.invite_comment_count }}
+                            <a class="comment-text" target="_blank" href="/i/comment/{{ $domain }}">
+                                <span class="comment-num">
+                                    {{ $val.invite_comment_count }}
+                                </span>条邀请评价
+                            </a>
+                        {{ else }}
+                            <a class="comment-text" target="_blank" href="/i/comment/{{ $domain }}">
+                                暂无评分
+                            </a>
+                        {{ /if }}
+                    {{ /if }}
+                    {{ if $val.desc_match || $val.teach_result || $val.service_attitude }}
+                    <div class="score-list">
+                        <span>描述相符：{{ $val.desc_match }}</span>
+                        <span>教学态度：{{ $val.service_attitude }}</span>
+                        <span>响应速度：{{ $val.teach_result }}</span>
+                    </div>
+                    {{ /if }}
+                </div>
+                {{ if !empty($val.school_area) }}
+                    {{ $area_counter = 0 }}
+                    {{ $area_list = [] }}
+                    {{ foreach $val.school_area as $v }}
+                        {{ if $v.name }}
+                            {{ $area_counter = $area_counter + 1 }}
+                            {{ $area_list[$area_counter] = $v }}
+                        {{ /if }}
+                    {{ /foreach }}
+                    {{ if $area_counter > 0 }}
+                        <div class="area">
+                            <span class="area-title">校区地址：</span>
+                            <ul>
+                                {{ foreach $area_list as $v }}
+                                    {{ if $v@index == 1 }}
+                                        <li class="last">
+                                            <a href="/i/area/{{ $domain }}" target="_blank" data-title="{{ $v.detail }}" data-width="20em">{{ $v.name }}</a>
+                                        </li>
+                                    {{ else }}
+                                        <li {{ if $v@index > 1 }}{{ if $v@last }}class="last hide"{{ else }}class="hide"{{ /if }}{{ else if $v@last }}class="last"{{ /if }}>
+                                            <a href="/i/area/{{ $domain }}" target="_blank" data-title="{{ $v.detail }}" data-width="20em">{{ $v.name }}</a>
+                                        </li>
+                                    {{ /if }}
+                                {{ /foreach }}
+                                {{ if count($area_list) > 2 }}
+                                    <li class="detail"><a class="extend">更多>></a></li>
+                                {{ /if }}
+                            </ul>
+                        </div>
+                    {{ /if }}
+                {{ /if }}
+                <div class="tag-list">
+
+                    {{ foreach $val.org_tags as $v }}
+                        <h1>{{ $v }}</h1>
+                    {{ /foreach }}
+                    {{ *SEO关键词* }}
+                    {{ if !empty($tpl_data.category) && $tpl_data.category != "综合排序" }}
+                        <h1>{{ $tpl_data.category }}</h1>
+                    {{ /if }}
+
+                    <a href="/i/teacher/{{ $domain }}" target="_blank" {{ if $log_flag }} log="{{ $log_url }},teacher" data-restype={{ $resType }} {{ /if }}>已入驻<i>{{ $val.teacher_count }}</i>位老师</a>
+                </div>
+                {{ if !empty($val.course_count) }}
+                <div class="course-list">
+                    <div class="course-button">
+                        <span class="toggle-up" data-count="{{ count($val.courses) }}">
+                            全部{{ $val.course_count }}个课程{{ if count($val.courses)> 2 }}
+                            <i class="icon icon-caret-down"></i>{{ /if }}
+                        </span>
+                        <span class="toggle-down" style="display:none;">
+                            收起<i class="icon icon-caret-up"></i>
+                        </span>
+                    </div>
+                    <ul class="courses">
+                        {{ foreach $val.courses as $v }}
+                        <li {{ if $v@index > 1 }}class="hide"{{ /if }}>
+
+                            {{ $v_name = $v.name|cn_truncate:19 }}
+
+                            {{ if $v.klass_type == 10 }}
+                                {{ $url = $root|cat: '/org_course/detail/'|cat: $v.number }}
+                            {{ else }}
+                                {{ $url = $root|cat: '/teacher/classCourseDetail/'|cat: $v.number }}
+                            {{ /if }}
+
+                            <a data-number="{{ $v.number }}" data-crank="{{ $v@index+1 }}" href="{{ $url }}" target="_blank" {{ if $log_flag }} log="{{ $log_url }},course" data-restype={{ $resType }} {{ /if }} {{ if $v_name != $v.name }}data-title="{{ $v.name }}" data-width="20em"{{ /if }}
+                            >
+                                {{ if $v.lesson_way == 2 }}
+                                    <i class="online">直播课：</i>
+                                {{ else }}
+                                    <i class="offline">线下课：</i>
+                                {{ /if }}
+
+                                {{ $v.name }}
+                            </a>
+                            <span class="price">￥{{ $v.price }}</span>
+                        </li>
+                        {{ /foreach }}
+
+                        {{ if $val.course_count > 10 }}
+                        <li class="more hide">
+                            <a target="_blank" href="/i/course/{{ $domain }}">全部课程 >></a>
+                        </li>
+                        {{ /if }}
+                    </ul>
+                </div>
+                {{ /if }}
+            </div>
+        </li>
+    {{ /foreach }}
+    </ul>
+</div>
+{{ /strip }}

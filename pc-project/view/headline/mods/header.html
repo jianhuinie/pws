@@ -1,0 +1,14 @@
+{{ strip }}
+<div class="header-wrapper">
+    <div class="header">
+        <div class="logo"></div>
+        <ul class="headline-nav-list">
+            {{ foreach array_slice($list, 0, 8)  as $item }}
+            <li class="headline-nav-item {{ if $active.channel_id == $item.channel_id }}active{{ /if }}">
+                <a href="{{ $item.url }}">{{ $item.name }}</a>
+            </li>
+            {{ /foreach }}
+        </ul>
+    </div>
+</div>
+{{ /strip }}

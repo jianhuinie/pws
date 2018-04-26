@@ -1,0 +1,41 @@
+{{ *
+
+@file 教学科目下拉框
+
+      参数：
+
+      subject: 必传，教学科目数据
+      required: 可选，是否必填
+
+@author zhujialu
+
+* }}
+{{ strip }}
+
+{{ if isset($smarty.get.course_id) }}
+    {{ $course_id = $smarty.get.course_id }}
+{{ else }}
+    {{ $course_id = '' }}
+{{ /if }}
+
+{{ if isset($required) && $required }}
+    {{ $required = ' required' }}
+{{ else }}
+    {{ $required = '' }}
+{{ /if }}
+
+<div class="dropdown course" data-value="{{ $course_id }}"{{ $required }}>
+    <span class="btn-default">
+        <i class="caret"></i>
+        <span></span>
+    </span>
+    <ul class="dropdown-menu">
+        {{ foreach $subject as $item }}
+        <li data-value="{{ $item.id }}"{{ if isset($item.subject_id) }} data-subject="{{ $item.subject_id }}"{{ /if }} data-json='{{ json_encode($item.price) }}'>
+            {{ $item.name }}
+        </li>
+        {{ /foreach }}
+    </ul>
+</div>
+
+{{ /strip }}

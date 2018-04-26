@@ -1,0 +1,1 @@
+define("cobble/function/enableSelection",["require","exports","module"],function(){"use strict";var e=$("<i></i>")[0],n="onselectstart"in e,t="MozUserSelect"in e.style;if(e=null,n)return function(e){e=e||document,e.onselectstart=null};if(t)return function(e){e=e||document.body,e.style.MozUserSelect=""};else return $.noop});

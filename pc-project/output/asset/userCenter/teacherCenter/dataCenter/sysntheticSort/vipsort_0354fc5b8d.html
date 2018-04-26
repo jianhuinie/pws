@@ -1,0 +1,30 @@
+<div class="sortanalyse">
+    {{#each table:idx}}
+        <div class="source-item">
+            <div class="source-left" style="line-height: {{factor.sub_factor.length*80}}px">
+                {{name}}
+            </div>
+            {{#each factor.sub_factor:index}}
+                <div class="source-right {{#if index ==0}} first {{/if}}">
+                    <a target="_blank" class="source-right-item">
+                        <span class="right-title">{{name}}</span>
+                        <div class="right-back" data-title="{{content}}">
+                            <div class="progress radius {{#if idx == 0}} one{{elseif idx == 1}} two{{elseif idx == 2}} three{{elseif idx == 3}} four{{elseif idx == 4}} five{{/if}}">
+                            {{#if number != 0}}
+                                <div class="meter" style="width: {{number}}%"></div>
+                            {{/if}}
+                            </div>
+                        </div>
+                        <span class="right-descript">
+                            {{title}}
+                        </span>
+                    </a>
+                    <div class="bottom-descript">
+                        {{{cutString(content, 120)}}}
+                        <!-- <a href="{{url}}" target="_blank" class="detail info">{{url_title}}</a> -->
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    {{/each}}
+</div>

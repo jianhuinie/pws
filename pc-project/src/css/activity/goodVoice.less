@@ -1,0 +1,839 @@
+/**
+ * @file 名师高校团
+ * @author tangrongyan
+ */
+
+@import '../main/base.less';
+@import '../common/component/loginDialog.less';
+@import '../common/layout.less';
+
+
+//layout:
+
+#main {
+    margin: 0px auto;
+    width: 100%;
+    background: #8c0305;
+}
+#main #layout {
+    overflow: hidden;
+    background: #8c0305 url(http://img.gsxservice.com/0cms/d/file/content/2015/07/55b87c3434d76.jpg) 50% 0 no-repeat;
+    height: 803px;
+    margin: 0 auto;
+    position: relative;
+    div {
+        position: absolute;
+        left: 50%;
+        bottom: 18%;
+        margin-left: -451px;
+        a {
+            display: inline-block;
+            width: 210px;
+            height: 82px;
+            /*background: red;*/
+            margin-left: 70px;
+            &:hover {
+                background-color: #fff;
+                opacity: 0.2;
+                filter:alpha(opacity=20);
+            }
+            &.a {
+              margin-left: 67px;
+            }
+            &.b {
+              margin-left: 74px;
+            }
+            &.c {
+              margin-left: 66px;
+            }
+        }
+    }
+}
+// last
+#main #last {
+    background: #8c0305;
+    height: 134px;
+    line-height: 134px;
+    p {
+        color: #fff;
+        text-align: center;
+    }
+}
+
+#container_main {
+    .first-title {
+        margin-top: 15px;
+    }
+    background: #eaeaea;
+    width: 1110px;
+    margin: 0 auto;
+    padding: 0 69px;
+    text-align: center;
+    margin-top: -86px;
+    position: relative;
+    clear: both;
+    /*overflow: hidden;*/
+    padding-bottom: 94px;
+
+    .important_teacher {
+        /*overflow: hidden;*/
+        li.imp {
+            .poster {
+                display: block;
+                margin-left: 15%;
+                background: #abcdef;
+                height: 397px;
+                width: 302px;
+
+            }
+            position: relative;
+            color: #333;
+            width: 50%;
+            float: left;
+            font-size: 16px;
+            padding: 0 10px;
+            height: 526px;
+            // overflow: hidden;
+            .price {
+                position: absolute;
+                top: 370px;
+                /*right: 8px;*/
+                left: 282px;
+                font-size: 16px;
+                font-weight: normal;
+            }
+            .raw_price {
+                text-decoration: line-through;
+            }
+            .now_price {
+                color: #8c0305;
+                margin-left: 6px;
+            }
+            .title {
+                font-size: 20px;
+                font-weight: bold;
+                margin-bottom: 10px;
+                display: inline-block;
+                position: relative;
+            }
+            .teacher_detail {
+
+            }
+
+
+        }
+    }
+
+    .four_tab {
+        padding-top: 60px;
+        clear: both;
+        .tab-head {
+            b {
+                display: inline-block;
+                width: 175px;
+                height: 53px;
+                line-height: 53px;
+                background: #444;
+                border-top-left-radius: 4px;
+                border-top-right-radius: 4px;
+                font-size: 24px;
+                color: #fff;
+                font-weight: bold;
+                margin-left: 10px;
+                cursor: pointer;
+                &.active {
+                    background: url(http://img.gsxservice.com/0cms/d/file/content/2015/07/55b08a3cf3382.png) no-repeat;
+                    height: 62px;
+                    margin-bottom: -14px;
+                    position: relative;
+                    bottom: -2px;
+
+                }
+            }
+            b:hover {
+                background: url(http://img.gsxservice.com/0cms/d/file/content/2015/07/55b08a3cf3382.png) no-repeat;
+                height: 62px;
+                margin-bottom: -14px;
+                position: relative;
+                bottom: -2px;
+            }
+            .bottom-line {
+                width: 100%;
+                height: 3px;
+                background: #444;
+            }
+        }
+        .tab-p {
+            display: none;
+        }
+        ul {
+            .four {
+                float: left;
+                width: 473px;
+                height: 152px;
+                background: #fff;
+                margin-left: 24px;
+                margin-top: 24px;
+                padding: 19px;
+                &.first-item {
+                    margin-left: 0px;
+                }
+                text-align: left;
+            }
+            img {
+                float: left;
+            }
+            .info {
+                float: left;
+                margin-left: 18px;
+                max-width: 314px;
+
+                .title {
+                    font-size: 18px;
+                    line-height: 19px;
+                    font-weight: bold;
+                    /*margin-bottom: 10px;*/
+                    display: inline-block;
+                    position: relative;
+                    width: 100%;
+                    white-space: nowrap;
+                    overflow: hidden;
+                }
+                .price {
+                    display: block;
+                    bottom: 28px;
+                    right: 8px;
+                    font-size: 16px;
+                    font-weight: normal;
+                }
+                .raw_price {
+                    text-decoration: line-through;
+                    margin-left: 6px;
+                }
+                .now_price {
+                    color: #8c0305;
+                }
+
+            }
+        }
+    }
+    .second-title {
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+
+    /*three*/
+
+    .comment_tab {
+        position: relative;
+        .tab-head {
+            width: 865px;
+            height: 44px;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+
+            .wrap-b {
+                width: 100%;
+                position: absolute;
+                left: 0;
+            }
+            b {
+                display: inline-block;
+                width: 134px;
+                height: 32px;
+                line-height: 32px;
+                background: #fff;
+                border-radius: 20px;
+                font-size: 16px;
+                color: #333;
+                font-weight: bold;
+                margin-left: 8px;
+                cursor: pointer;
+                border: 1px solid #dadada;
+                float: left;
+
+
+                &.active {
+                    background: #ab0b0d;
+                    border: 1px solid #ab0b0d;
+                    color: #fff;
+                }
+            }
+            b:hover {
+                background: #ab0b0d;
+                border: 1px solid #ab0b0d;
+                color: #fff;
+            }
+            .weikaichi {
+                background: #c8c8c8;
+                cursor: no-drop;
+                color: #959494;
+                &:hover {
+                    background: #c8c8c8;
+                    border: 1px solid #c8c8c8;
+                    cursor: no-drop;
+                    color: #959494;
+                }
+            }
+        }
+        .tab-content {
+            background: #fff;
+            margin-top: 20px;
+            overflow: hidden;
+            padding-bottom: 24px;
+            ul {
+               display: none;
+            }
+        }
+        li {
+            clear: both;
+            margin-top: 26px;
+            .nick {
+                float: left;
+                min-width: 128px;
+                img {
+                    border-radius: 50%;
+                    border: 1px solid #8c0305;
+                }
+                span {
+                    display: block;
+                }
+            }
+            .tail {
+                background: url(http://img.gsxservice.com/0cms/d/file/content/2015/07/55b0acef89537.png) no-repeat;
+                width: 10px;
+                height: 8px;
+                display: inline-block;
+                position: absolute;
+                left: -10px;
+                top: 16px;
+            }
+            .tail_red {
+                background: url(http://img.gsxservice.com/0cms/d/file/content/2015/07/55b0acef89537.png) 1px -10px no-repeat;
+                width: 10px;
+                height: 8px;
+                display: inline-block;
+                position: absolute;
+                right: -8px;
+                top: 14px;
+            }
+            .word {
+                float: left;
+                max-width: 520px;
+                min-height: 45px;
+                background: #808080;
+                position: relative;
+                border-radius: 10px;
+                padding: 10px;
+                margin-top: 18px;
+                color: #fff;
+                cursor: pointer;
+            }
+
+            &.right-item {
+                float: right;
+                .word {
+                    background: #ab0b0d;
+                }
+            }
+
+        }
+        .controls {
+            position: absolute;
+            color: #000;
+            font-size: 46px;
+            top: -6px;
+            left: 86px;
+            width: 88%;
+            /*background: red;*/
+            /*height: 5%;*/
+            .icon-caret-left {
+                left: -10%;
+                position: absolute;
+                cursor: pointer;
+/*                &:hover {
+                    color: #ab0b0d;
+                }*/
+            }
+            .icon-caret-right {
+                right: -3%;
+                position: absolute;
+                cursor: pointer;
+/*                &:hover {
+                    color: #ab0b0d;
+                }*/
+            }
+            .icon-hover {
+                    color: #ab0b0d;
+            }
+            .icon-ban {
+                color: #d3d2d2;
+                cursor: default;
+                &:hover {
+                    color: #d3d2d2;
+                    cursor: default;
+                }
+            }
+
+        }
+
+
+    }
+
+    .third-title {
+        margin: 0 auto;
+        margin-bottom: 34px;
+    }
+
+    .prize {
+        width: 967px;
+        min-height: 247px;
+        background: #fff;
+        padding-top: 36px;
+        font-size: 16px;
+        position: relative;
+        margin-bottom:  53px;
+        padding-bottom: 30px;
+        right: -18px;
+        top: -24px;
+        em {
+            color: #8c0305;
+        }
+        .prize-img {
+            background: url(http://img.gsxservice.com/0cms/d/file/content/2015/07/55b19d97f3af4.png) no-repeat;
+            width: 136px;
+            height: 112px;
+            position: absolute;
+            right: -10px;
+            bottom: -24px;
+        }
+    }
+    .prize-bottom {
+        position: absolute;
+        left: 0;
+        cursor: pointer;
+        bottom: -6px;
+
+        &.fixed {
+            position: fixed;
+            left: 50%;
+            margin-left: -555px;
+
+        }
+    }
+}
+
+
+//弹窗
+.dialog-body {
+/*    width: 968px;
+    height: 595px;
+    background: #fff;
+    */
+
+}
+
+.dialog-close {
+    width: 20px;
+    height: 20px;
+    line-height: 19px;
+    background-color: #999;
+    font-size: 18px;
+    &:hover {
+        color: #fff;
+    }
+}
+
+
+.dialog-body .apply {
+    width: 85px;
+    height: 32px;
+    line-height: 32px;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    background-color: #ff9900;
+    border-radius: 5px;
+    color: #fffefe;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.dialog-body .apply-close {
+    width: 103px;
+    height: 32px;
+    line-height: 32px;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    border-radius: 5px;
+    color: #000;
+    font-size: 14px;
+    text-align: center;
+    border: 1px solid #004444;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+.dialog-body .apply:hover {
+    background-color: #ed8f02;
+    color: #fff;
+}
+.dialog-body .status3 {
+    color: #fff;
+    border: none;
+    &:hover {
+        color: #fff;
+    }
+}
+.dialog-body {
+    text-align: center;
+}
+
+.dialog-body .title-su {
+    color: #ff9900;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px auto;
+}
+.dialog-body .su_desc {
+    color: #333;
+    margin-bottom: 20px;
+
+}
+.dialog-body .fail-f {
+    background: #ff9900;
+    border: none;
+    color: #fff;
+}
+
+
+
+
+/*公共样式*/
+
+  #main  .action {
+        margin-top: 14px;
+        .url {
+            width: 104px;
+            height: 32px;
+            line-height: 28px;
+            background: #8c0305;
+            display: inline-block;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
+        .coupon-w {
+            width: 148px;
+            height: 32px;
+            line-height: 28px;
+            border: 1px solid #000;
+            display: inline-block;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+            text-align: center;
+            position: relative;
+        }
+        .coupon-w:hover {
+            background: #444;
+            color: #fff;
+            border-color: transparent;
+        }
+    }
+
+
+    /*优惠券*/
+
+    /*#main {*/
+        .coupon {
+            display: none;
+            position: absolute;
+            cursor: default;
+            right: 0;
+            top: 30px;
+            z-index: 1;
+            /*width: 414%;*/
+            .small-arrow,
+            .big-arrow {
+                position: absolute;
+                display: block;
+            }
+            .small-arrow {
+                top: -6px;
+                right: 31px;
+                border-top: none;
+                border-left: solid 7px transparent;
+                border-right: solid 7px transparent;
+                border-bottom: solid 7px @brand-primary-lighter;
+                z-index: 2;
+            }
+            .big-arrow {
+                top: -7px;
+                right: 30px;
+                border-top: none;
+                border-left: solid 8px transparent;
+                border-right: solid 8px transparent;
+                border-bottom: solid 8px @brand-primary-light;
+            }
+        }
+        .coupon-list {
+            font-weight: normal;
+            background-color: @brand-primary-lighter;
+            border: 1px solid @brand-primary-light;
+            padding: 3 * @gap-vertical-medium;
+            box-shadow: 0 3px 3px #eee;
+            white-space: nowrap;
+            .clearfix();
+            li {
+                width: 170px;
+                height: 83px;
+                display: inline-block;
+                margin: 0 @gap-horizontal-tiny;
+                .clearfix();
+            }
+            .coupon-info {
+                width: 130px;
+                float: left;
+                text-align: center;
+            }
+            .balance {
+                font-weight: bold;
+                font-size: 28px;
+                vertical-align: middle;
+                margin-top: 18px;
+                em {
+                    font-size: 40px;
+                    font-family: 'Microsoft YaHei', sans-serif;
+                }
+            }
+            .threshold {
+                /*margin-top: -10px;*/
+            }
+            .status {
+                width: 16px;
+                float: left;
+                font-size: 16px;
+                line-height: 1.1em;
+                margin-left: 11px;
+                white-space: normal;
+            }
+            .coupon-color {
+                cursor: pointer;
+                background: url(http://img.gsxservice.com/0cms/d/file/content/2015/07/55b2632bd89af.png) no-repeat;
+                .status {
+                    color: #fdd978;
+                    margin-top: 7px;
+                }
+                .balance,
+                .threshold {
+                    color: #985004;
+                }
+            }
+            .coupon-gray {
+                background: url(http://img.gsxservice.com/0cms/d/file/content/2015/07/55b2632c26696.png) no-repeat;
+                cursor: not-allowed;
+                .status {
+                    color: #dedede;
+                    margin-top: 16px;
+                }
+                .balance,
+                .threshold {
+                    color: #6b6b6b;
+                }
+            }
+
+        }
+        .doc {
+            color: #444;
+            position: relative;
+            top: 8px;
+            em {
+                color: #ab0b0d !important;
+            }
+
+        }
+
+    /*}*/
+
+/*弹窗优惠券补充*/
+.coupon-f {
+    .coupon-list {
+        background-color: #fff;
+        border: none;
+        box-shadow: none;
+        padding: 16px;
+        .coupon-info {
+            .balance {
+                margin-top: 0;
+            }
+            .threshold {
+                margin-top: -10px;
+            }
+        }
+        .status {
+            margin-top: 14px;
+        }
+    }
+    .title-su {
+        font-size: 24px;
+        font-weight: normal;
+    }
+}
+
+/*注册*/
+.reg-log {
+    width: 437px;
+    height: 278px;
+    padding-top: 30px;
+    background: url(http://img.gsxservice.com/0cms/d/file/content/2015/07/55b237524cd30.jpg) no-repeat;
+    text-align: left;
+    font-size: 16px;
+    padding-left: 48px;
+    display: none;
+
+        .form-required {
+            display: none;
+        }
+        .ma {
+            margin-top: 6px;
+            float: left;
+        }
+        #login-mobile {
+            /*overflow: hidden;*/
+        }
+        .form-text {
+            width: 255px !important;
+            height: 38px;
+        }
+        .form-text.sms {
+            width: 136px !important;
+            height: 38px;
+        }
+        .form-get-smscode {
+            width: 104px;
+            height: 38px;
+            margin-left: 15px;
+            cursor: pointer;
+            font-size: 12px;
+            padding: 0;
+            white-space: nowrap;
+        }
+        .form-group {
+            margin-top: 12px;
+            clear: both;
+        }
+        .apply {
+            width: 126px;
+            height: 38px;
+            background: #ff9900;
+            border: none;
+            color: #fff;
+            line-height: 36px;
+            border-radius: 2px;
+            cursor: pointer;
+            margin-left: 64px;
+            margin-top: 30px;
+        }
+        .phone {
+            margin-top: 6px;
+            float: left;
+        }
+        .input-group {
+
+        }
+
+
+}
+
+
+
+
+
+
+// 文章
+
+        .channel {
+            margin: 46px auto 48px;
+            text-align: left;
+            background: #fff;
+            width: 840px;
+            overflow: hidden;
+            display: none;
+
+        }
+        .channel .title {
+            font-size: 24px;
+            color: #ff9900;
+            text-align: center;
+            margin-bottom: 20px;
+            /*margin-top: 40px;*/
+        }
+        .channel .content {
+            /*max-height: 400px;*/
+            /*overflow-y: scroll;*/
+        }
+        .channel .content p {
+            font-size: 16px;
+            text-indent: 32px;
+            line-height: 1.8;
+        }
+        .channel .news-item {
+            display: none;
+        }
+        .channel .news-item.active {
+            display: block;
+        }
+        .channel .back-to-top {
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .channel .back-to-top:hover {
+            text-decoration: underline;
+            color: #000;
+        }
+        .channel .action  {
+            text-align: center;
+            margin: 0 auto;
+        }
+        .channel .pre-next {
+            color: #515050;
+            font-size: 20px;
+            padding-bottom: 60px;
+            width: 80%;
+            margin: 0 auto;
+            margin-top: 30px;
+        }
+        .channel .pre-next .pre {
+            float: left;
+            cursor: pointer;
+            /*line-height: 0;*/
+        }
+        .channel .pre-next .next {
+            float: right;
+            cursor: pointer;
+            /*line-height: 0;*/
+        }
+        .channel .pre-next span:hover {
+            text-decoration: underline;
+            color: #ff9900;
+        }
+        .channel .action .logo {
+            margin-top: -20px;
+            min-height: 150px;
+            min-width: 150px;
+        }
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,99 @@
+/**
+ * @file 已有课程一览日历
+ * @author zhujialu, wangyujie
+ */
+.course-calendar {
+
+    border: 1px solid @brand-gray-light;
+    line-height: 1;
+    position: relative;
+    text-align: center;
+
+    .user-select(none);
+    .icon-circle {
+        color: @brand-primary;
+    }
+
+    &.pack {
+        .active-date {
+            font-size: @font-size-medium;
+        }
+        .active-day {
+            font-size: @font-size-small;
+        }
+    }
+
+    table {
+        font-size: @font-size-tiny;
+        width: 615px;
+    }
+
+    th {
+        border-bottom: 1px solid @brand-gray-light;
+    }
+
+    th,
+    .header {
+        padding-top: 14px;
+        padding-bottom: 14px;
+    }
+
+    td {
+        cursor: default;
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    th,
+    td {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .header {
+        position: relative;
+        padding-bottom: 25px;
+        background-color: #efefef;
+        .info {
+            position: absolute;
+            left: 10px;
+        }
+        .option {
+            position: absolute;
+            right: 10px;
+        }
+    }
+
+    .prev,
+    .next {
+        color: @brand-text-lighter;
+        cursor: pointer;
+        padding: 0 @gap-vertical-tiny;
+    }
+
+    .adjacency-month {
+        color: @brand-gray;
+    }
+    .active {
+        background-color: @brand-primary;
+        color: #FFF;
+        cursor: text;
+    }
+    .disabled {
+        cursor: text;
+        color: @brand-gray;
+    }
+    .past {
+        color: @brand-gray;
+    }
+    .date {
+        cursor: text;
+        color: #E5B800;
+        &.past {
+            color: @brand-gray;
+        }
+    }
+    td[data-value] {
+        cursor: pointer;
+    }
+}

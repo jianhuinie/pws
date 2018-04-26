@@ -1,0 +1,7 @@
+[
+    {
+        "tpl": "./index.tpl",
+        "router": "/bussiness/rule/index",
+        "mock_data": "./mock/index.json"
+    }
+]

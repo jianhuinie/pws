@@ -1,0 +1,235 @@
+/**
+ * @file 个人信息
+ * @author zhujialu
+ */
+
+@import '../common/center/common/layout.less';
+@import './component/form.less';
+@import './component/imagesUploadDialog.less';
+@import './profile/base.less';
+@import './profile/background.less';
+@import './profile/experience.less';
+@import './profile/success.less';
+@import './profile/photo.less';
+@import './profile/other.less';
+@import '../common/component/defaultAvatarDialog.less';
+@import '../common/center/common/floatHelp.less';
+#content {
+
+    position: relative;
+
+    .examine-time {
+        float: right;
+        font-family: MicrosoftYaHei;
+        font-size: 14px;
+        color: #FF9100;
+    }
+
+    /*无信息*/
+    .noinfo {
+        cursor: pointer;
+
+        line-height: 36px;
+        overflow: hidden;
+        padding: 2 * @gap-horizontal-large;
+        border-bottom: 1px solid @brand-gray-light;
+
+        i {
+            float: left;
+            margin-right: @gap-horizontal-huge;
+        }
+
+        h3 {
+            float: left;
+            font-size: @font-size-medium;
+        }
+
+        .desc {
+            float: right;
+            font-size: @font-size-tiny;
+        }
+
+        &:hover {
+            background: #f90;
+            color: #fff;
+
+            .icon-round-edit {
+                background-position: -180px -144px;
+            }
+
+            .icon-round-add {
+                background-position: -180px -108px;
+            }
+
+        }
+    }
+
+    /*****信息展示*****/
+    .info-header {
+        padding-top: 2 * @gap-horizontal-medium;
+        .clearfix();
+
+        .icon {
+            font-size: 26px;
+            float: left;
+            margin-right: @gap-horizontal-small;
+        }
+
+        .message {
+            display: inline-block;
+            padding: 3px @gap-horizontal-medium;
+            margin-left: 3 * @gap-horizontal-medium;
+            .icon {
+                font-size: 14px;
+                position: absolute;
+                left: @gap-horizontal-medium;
+                top: 5px;
+            }
+        }
+
+        h3 {
+            color: #333;
+            float: left;
+            font-size: 18px;
+            font-family: @font-family-title;
+            line-height: 26px;
+        }
+
+        .edit {
+            color: @brand-info;
+            cursor: pointer;
+            border-radius: 2px;
+            float: right;
+            line-height: 15px;
+            padding: @gap-horizontal-small
+                     @gap-horizontal-medium;
+            .icon {
+                font-size: 14px;
+                display: inline-block;
+            }
+            &:hover {
+                color: #fff;
+                background-color: #6187dc;
+            }
+        }
+    }
+
+    .info-body {
+        position: relative;
+        border-bottom: 1px solid #ccc;
+
+        .avatar {
+            margin-right: 30px;
+            position: absolute;
+            right: 0;
+        }
+
+        /*基本信息+教育背景*/
+        .info {
+            padding: @gap-vertical-medium
+                     3 * @gap-horizontal-medium;
+
+            div {
+                font-size: @font-size-small;
+                overflow: hidden;
+
+                span{
+                    padding-right: @gap-horizontal-medium;
+                }
+
+                span.line:after {
+                    content: "|";
+                    color: #ddd;
+                    margin-left: @gap-horizontal-medium;
+                }
+            }
+
+        }
+    .access-region{
+        overflow: visible!important;
+        .region-list {
+            width: 100%;
+
+            td{
+                border: 1px solid #DAD3D3;
+                height: 30px;
+                padding: 2px;
+                display: table-cell;
+                vertical-align: middle;
+                text-align: left;
+                min-width: 60px;
+            }
+
+        }
+    }
+        .border-bot {
+            border-bottom: 1px solid #f2f2f2;
+            width: 70%;
+        }
+
+    }
+
+    .form-prompt {
+        color: #9d9d9d;
+        font-size: 12px;
+    }
+
+    .form {
+        display: none;
+
+        h2 {
+            cursor: default;
+            color: @brand-text;
+            font-family: @font-family-title;
+            font-weight: bold;
+            border-bottom: 1px solid @brand-gray-light;
+            padding-bottom: @gap-horizontal-medium;
+        }
+
+        .back-label {
+            cursor: default;
+            margin-top: @gap-vertical-huge;
+            margin-bottom: @gap-vertical-tiny;
+        }
+
+        .inline {
+            display: inline-block;
+            margin-top: 0;
+        }
+
+        dl {
+            float: left;
+        }
+
+        .form-label {
+            float: none;
+            display: block;
+            text-align: left;
+        }
+    }
+
+    .no-data {
+        text-align: left;
+    }
+
+    .error-tip {
+        color: #f95710;
+        margin-left: 5px;
+        font-size: 12px;
+        display: none;
+        .icon {
+            margin-right: 3px;
+        }
+    }
+
+}
+
+/**
+ * 临时的通过css打开confirm框的右上角X号
+ * 佳璐桑在升级组件...
+ */
+.dialog {
+    .dialog-close {
+        display: block;
+    }
+}

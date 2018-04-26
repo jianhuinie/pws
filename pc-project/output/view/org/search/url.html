@@ -1,0 +1,274 @@
+{{ *
+
+@file: 单独用一个组件来设置搜索URL
+
+       参数：
+       condition    现有数据
+                    condition.course
+                    condition.org_type
+                    condition.area
+                    condition.sort
+                    condition.city
+                    condition.source
+                    condition.video_intro
+                    condition.can_order
+                    condition.is_local
+                    condition.is_online
+                    condition.q
+                    condition.sd
+
+       key      类型
+                course 科目
+                org_type 机构类型 工作室、学校、公司
+                area 地区
+                sort 排序
+                city 城市
+                source 来源     search  来自搜索
+                                hot 来自首页搜索框下方
+                                cat 来自全部课程中的导航
+                                floor-k12 来自首页中小学
+                                floor-abroad 来自首页出国留学
+                                floor-art 来自首页艺术
+                video_intro  是否有视频介绍 1 有视频介绍
+                                            2 无视频介绍
+                can_order    是否可报名  1 可报名
+                                         0 不可报名
+                is_local 是否是本地      1 是本地机构
+                                         0 不是本地机构
+                is_online 是否是在线课程 1 是在线课程
+                                         0 线下课程
+                q 搜索词
+                page 分页
+
+       value    对应的值
+
+
+
+@author: jixiaohui
+
+* }}
+{{ strip }}
+
+{{ $course_param = '' }}
+{{ $org_type_param = '' }}
+{{ $area_param = '' }}
+{{ $sort_param = '' }}
+{{ $city_param = '' }}
+{{ $source_param = '' }}
+{{ $video_intro_param = '' }}
+{{ $can_order_param = '' }}
+{{ $is_local_param = '' }}
+{{ $is_online_param = '' }}
+{{ $q_param = '' }}
+{{ $page_param = '' }}
+{{ $sd_param = '' }}
+
+
+{{ * 科目参数 * }}
+{{ if $key == 'course_level1' }}
+    {{ if $value }}
+        {{ $course_param = $value }}
+    {{ /if }}
+{{ elseif isset($condition.course_level1) }}
+    {{ $course_param = $condition.course_level1 }}
+
+    {{ * 子科目参数 * }}
+    {{ if $key == 'course_level2' }}
+        {{ if $value }}
+            {{ $course_param = $course_param|cat:'_'|cat:$value }}
+        {{ /if }}
+    {{ elseif isset($condition.course_level2) }}
+        {{ $course_param = $course_param|cat:'_'|cat: $condition.course_level2 }}
+
+        {{ * 子子科目参数 * }}
+        {{ if $key == 'course_level3' }}
+            {{ if $value }}
+                {{ $course_param = $course_param|cat:'_'|cat: $value }}
+            {{ /if }}
+        {{ elseif isset($condition.course_level3) }}
+            {{ $course_param = $course_param|cat:'_'|cat: $condition.course_level3 }}
+        {{ /if }}
+
+    {{ /if }}
+{{ /if }}
+
+{{ * 机构类型参数 * }}
+{{ if $key == 'org_type' }}
+    {{ if $value }}
+        {{ $org_type_param = $value }}
+    {{ /if }}
+{{ elseif isset($condition.org_type) }}
+    {{ $org_type_param = $condition.org_type }}
+{{ /if }}
+
+{{ * 地区参数 * }}
+{{ if $key == 'area_level1' }}
+    {{ if $value }}
+        {{ $area_param = $value }}
+    {{ /if }}
+{{ elseif isset($condition.area_level1) }}
+    {{ $area_param = $condition.area_level1 }}
+
+    {{ * 子地区参数 * }}
+    {{ if $key == 'area_level2' }}
+        {{ if $value }}
+            {{ $area_param = $area_param|cat:'_'|cat:$value }}
+        {{ /if }}
+    {{ elseif isset($condition.area_level2) }}
+        {{ $area_param = $area_param|cat:'_'|cat:$condition.area_level2 }}
+    {{ /if }}
+{{ /if }}
+
+{{ * 排序参数 * }}
+{{ if $key == 'sort' }}
+    {{ $sort_param = $value }}
+{{ elseif isset($condition.sort) }}
+    {{ $sort_param = $condition.sort }}
+{{ /if }}
+
+{{ * 来源 * }
+{{ $source_param = '?source=search' }}
+
+
+{{ * 是否有视频介绍 * }}
+{{ if $key == 'video_intro' }}
+    {{ if $value }}
+        {{ $video_intro_param = $value }}
+    {{ /if }}
+{{ elseif isset($condition.video_intro) }}
+    {{ $video_intro_param = $condition.video_intro }}
+{{ /if }}
+
+{{ * 是否是可报名班课 * }}
+{{ if $key == 'can_order' }}
+    {{ if $value }}
+        {{ $can_order_param = $value }}
+    {{ /if }}
+{{ elseif isset($condition.can_order) }}
+    {{ $can_order_param = $condition.can_order }}
+{{ /if }}
+
+{{ * 是否是本地机构 * }}
+{{ if $key == 'is_local' }}
+    {{ if $value }}
+        {{ $is_local_param = $value }}
+    {{ /if }}
+{{ elseif isset($condition.is_local) }}
+    {{ $is_local_param = $condition.is_local }}
+{{ /if }}
+
+{{ * 是否是在线班课 * }}
+{{ if $key == 'is_online' }}
+    {{ if $value }}
+        {{ $is_online_param = $value }}
+    {{ /if }}
+{{ elseif isset($condition.is_online) }}
+    {{ $is_online_param = $condition.is_online }}
+{{ /if }}
+
+{{ * 城市 * }}
+{{ if $key == 'city' }}
+    {{ $city_param = $value }}
+{{ else }}
+    {{ $city_param = '' }}
+    {{ if !empty($condition.city) }}
+        {{ foreach $condition.city as $val }}
+            {{ if !$val@last }}
+                {{ $city_param = $city_param|cat:$val.id|cat:',' }}
+            {{ else }}
+                {{ $city_param = $city_param|cat:$val.id }}
+            {{ /if }}
+        {{ /foreach }}
+    {{ /if }}
+{{ /if }}
+{{ if $city_param }}
+    {{ $city_param = '?city='|cat:$city_param }}
+{{ /if }}
+
+{{ * 搜索词 * }}
+{{ if $key == 'q' }}
+    {{ $q_param = $value }}
+{{ else }}
+    {{ if isset($condition.q)&&$condition.q }}
+        {{ $q_param = ($condition.q|regex_replace:"/[-]/":""|escape:url) }}
+    {{ /if }}
+{{ /if }}
+
+{{ * 分页 * }}
+{{ if $key == 'page' }}
+    {{ if $city_param }}
+        {{ $page_param = '&page='|cat:$value }}
+    {{ else }}
+        {{ $page_param = '?page='|cat:$value }}
+    {{ /if }}
+{{ /if }}
+
+{{ * search debug * }}
+{{ if isset($condition.sd) && $condition.sd }}
+    {{ if $city_param || $page_param }}
+        {{ $sd_param = '&sd='|cat:$condition.sd }}
+    {{ else }}
+        {{ $sd_param = '?sd='|cat:$condition.sd }}
+    {{ /if }}
+{{ /if }}
+
+
+{{ **去掉默认项** }}
+{{ if !$can_order_param }}
+    {{ $can_order_param = '' }}
+{{ /if }}
+{{ if !$is_local_param }}
+    {{ $is_local_param = '' }}
+{{ /if }}
+{{ if !$is_online_param }}
+    {{ $is_online_param = '' }}
+{{ /if }}
+{{ if !$video_intro_param }}
+    {{ $video_intro_param = '' }}
+{{ /if }}
+{{ if $sort_param == 'all' }}
+    {{ $sort_param = '' }}
+{{ /if }}
+
+{{ if $tpl_data.abtest }}
+    {{ $urlfix = '/'|cat: $tpl_data.city_pinyin|cat: '/so-' }}
+{{ else if isset($tpl_data.is_www) && $tpl_data.is_www }}
+    {{ $urlfix = '/so/' }}
+{{ else }}
+    {{ $urlfix = '/'|cat: $curr_city.domain|cat: '/so-' }}
+{{ /if }}
+
+{{ $url_tmp = $urlfix|cat:
+    $q_param|cat:'-'|cat:
+    $course_param|cat:'-'|cat:
+    $area_param|cat:'-'|cat:
+    $sort_param|cat:'-'|cat:
+    $org_type_param|cat:'-'|cat:
+    $video_intro_param|cat:'-'|cat:
+    $can_order_param|cat:'-'|cat:
+    $is_local_param|cat:'-'|cat:
+    $is_online_param }}
+{{ $url_final = rtrim($url_tmp,'-') }}
+
+
+{{ if $url_final == rtrim($urlfix,'-') }}
+    {{ $url_final = $url_final|cat:'-' }}
+{{ /if }}
+
+
+{{ if isset($pager) }}
+    {{ $url = $url_final|cat:
+        '.html'|cat:
+        $city_param|cat:
+        $page_param|cat:
+        $sd_param scope="parent" }}
+{{ else }}
+    {{ $url = $url_final|cat:
+        '.html'|cat:
+        $city_param|cat:
+        $page_param|cat:
+        $sd_param }}
+    {{ $url }}
+{{ /if }}
+
+{{ /strip }}

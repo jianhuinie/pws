@@ -1,0 +1,71 @@
+/**
+ * @file 添加图片
+ * @author wangtianhua
+ */
+@import './common.styl'
+
+.editor-image {
+    > .wrapper {
+        position: relative;
+    }
+
+    .image {
+        width: 244px;
+        height: 140px;
+        font-size: 16px;
+        margin-left: 45px;
+    }
+
+    .edit-button {
+        background-color: $white;
+        padding-left: 45px;
+        padding: 20px 0;
+
+        .icon {
+            font-size: 22px;
+            color: $muted;
+            position: absolute;
+            top: 20px;
+            left: 15px;
+        }
+
+        .button-no-image {
+            border: 1px solid $muted;
+            line-height: 120px;
+            color: $muted;
+        }
+        .button-has-image {
+            border: 1px solid $muted;
+            margin: 45px;
+            margin-bottom: 75px;
+        }
+
+        .button-remove {
+            float: right;
+            font-size: 22px;
+            color: $muted;
+            margin-right: 10px;
+            margin-top: -10px;
+        }
+
+        .view-image {
+            display: inline-block;
+            vertical-align: top;
+            .thumbnail-image {
+                position: relative;
+                width: 240px;
+                height: 140px;
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+                .upload-progress {
+                    position: absolute;
+                    top: 65px;
+                    left: 95px;
+                    color: $muted;
+                }
+            }
+        }
+    }
+}

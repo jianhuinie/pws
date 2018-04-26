@@ -1,0 +1,279 @@
+{{ *
+
+@file 母版
+@author zhujialu
+
+* }}
+{{ strip }}
+
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:wb="http://open.weibo.com/wb">
+
+    {{ block name="ie" }}{{ /block }}
+
+    <head>
+
+        {{ block name="data" }}
+
+            {{ $origin = rtrim($site_config.baseUri, '/') }}
+            {{ $static_origin = rtrim($site_config.staticBaseUri, '/') }}
+
+            {{ $origin_http = $origin|replace:"https://":"http://" }}
+            {{ $origin_https = $origin|replace:"http://":"https://" }}
+
+            {{ $static_origin_http = $static_origin|replace:"https://":"http://" }}
+            {{ $static_origin_https = $static_origin|replace:"http://":"https://" }}
+
+            {{ $env = $site_config.env }}
+            {{ if $env == "production" }}
+                {{ $env = "www" }}
+            {{ /if }}
+
+            {{ $root_http = 'http://'|cat: $env|cat: '.genshuixue.com' }}
+            {{ $root_https = 'https://'|cat: $env|cat: '.genshuixue.com' }}
+
+            {{ if substr($smarty.server.SERVER_PROTOCOL, 0, 5) === 'HTTPS' }}
+                {{ $root = $root_https }}
+            {{ else }}
+                {{ $root = $root_http }}
+            {{ /if }}
+
+            {{ $is_ios = false }}
+
+            {{ if (preg_match("/iPad|iPhone|Android|BlackBerry|Windows Phone|webOS/i", $smarty.server['HTTP_USER_AGENT'])) }}
+                {{ $is_mobile_platform = true }}
+                {{ if (preg_match("/iPad|iPhone/i", $smarty.server['HTTP_USER_AGENT'])) }}
+                    {{ $is_ios = true }}
+                {{ /if }}
+            {{ else }}
+                {{ $is_mobile_platform = false }}
+            {{ /if }}
+
+            {{ $city = $curr_city.id }}
+
+            {{ $script_data.footerFriendLinks = $friend_links }}
+
+            {{ *616活动页host* }}
+            {{ $rave_activity_host = 'http://616.genshuixue.com' }}
+            {{ *移动端seo适配，之后可能全部开启目前只开启部分页面* }}
+            {{ $need_mobile_seo = false }}
+            {{ *是否显示友情链接* }}
+            {{ $show_friend_links = false }}
+
+            {{ $login_dialog_config = [] }}
+            {{ $login_dialog_config.student_only = false }}
+            {{ $login_dialog_config.teacher_only = false }}
+
+            {{ if !isset($need_im) }}
+                {{ $need_im = true }}
+            {{ /if }}
+
+            {{ $script_data.needIm = $need_im }}
+
+            {{ $upload_origin = rtrim($site_config.uploadBaseUri|default:$site_config.baseUri, '/') }}
+            {{ $upload_origin = $upload_origin|cat:'/user/previewImage' }}
+            {{ $script_data.upload_origin = $upload_origin }}
+
+            {{ if isset($log_data.page) }}
+                {{ $script_data.page_type = $log_data.page }}
+            {{ /if }}
+
+        {{ /block }}
+
+        <meta charset="utf-8" />
+
+
+        <link rel="dns-prefetch" href="http://cdn.bootcss.com" />
+        <link rel="dns-prefetch" href="http://apps.bdimg.com" />
+        <link rel="dns-prefetch" href="http://su.bdimg.com" />
+        <link rel="dns-prefetch" href="http://s1.bdstatic.com" />
+        <link rel="dns-prefetch" href="http://api.map.baidu.com" />
+        <link rel="dns-prefetch" href="http://storage.genshuixue.com" />
+
+        {{ if $need_im }}
+            <link rel="stylesheet" href="{{ $static_origin }}/asset/hermes/css/main.css" />
+        {{ /if }}
+
+        {{ if $need_mobile_seo }}
+            <meta name="mobile-agent" content="format=xhtml;
+            url=http://{{ $smarty.server.HTTP_HOST|replace:'www.genshuixue.com':'m.genshuixue.com' }}{{ $smarty.server.REQUEST_URI|replace:'script':''|replace:'javascript:':'' }}">
+            <meta name="mobile-agent" content="format=html5;url=http://{{ $smarty.server.HTTP_HOST|replace:'www.genshuixue.com':'m.genshuixue.com' }}{{ $smarty.server.REQUEST_URI|replace:'script':''|replace:'javascript:':'' }}">
+            <meta name="mobile-agent" content="format=wml;url=http://{{ $smarty.server.HTTP_HOST|replace:'www.genshuixue.com':'m.genshuixue.com' }}{{ $smarty.server.REQUEST_URI|replace:'script':''|replace:'javascript:':'' }}">
+        {{ /if }}
+
+        {{ if isset($need_location_seo) && isset($tpl_data.lbs) }}
+        <meta name="location" content="province={{ $tpl_data.lbs.province }};city={{ $tpl_data.lbs.city }};coord={{ $tpl_data.lbs.coord.lng }},{{ $tpl_data.lbs.coord.lat }}">
+        {{ /if }}
+
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+        <meta name="keywords" content="{{ block name="keywords" }}跟谁学, {{ /block }}" />
+        <meta name="description" content="{{ block name="description" }}跟谁学, {{ /block }}" />
+
+        <title>
+            {{ block name="title" }}跟谁学{{ /block }}
+        </title>
+        {{ $sku_id ='' }}
+        {{ block name='sku_id' }}{{ /block }}
+        <meta name="gsx_sku" content="{{ $sku_id }}">
+
+        <script src="{{ $static_origin }}/dep/web-analysis/0.0.5/wat.js"></script>
+        <script>
+            (function (global) {
+                var GSX_CONFIG = null;
+                global['GSX_INIT'] = function (config) {
+                    global['GSX_INIT'] = null;
+                    GSX_CONFIG = config;
+                    var cb;
+                    while (cb = cbs.shift()) {
+                        cb(GSX_CONFIG);
+                    }
+                };
+                var cbs = [];
+                global['gsx_ready'] = function (callback) {
+                    if (GSX_CONFIG) {
+                        callback(GSX_CONFIG);
+                    } else if ('function' == typeof callback) {
+                        cbs.push(callback);
+                    }
+                };
+            })(window);
+
+            window.gsx_ready(function(config){
+                var WAT = window.WAT;
+                if (WAT) {
+                    var page_type = "{{ if isset($log_data.page) }}{{ $log_data.page }}{{ /if }}";
+                    var page_str = "{{ if isset($log_data.page_type) }}{{ $log_data.page_type }}{{ /if }}";
+
+                    var referrer = document.referrer;
+                    var encodeReferrer = encodeURI(referrer);
+                    var pre_page_str = localStorage.getItem('pre_page_str');
+                    var pre_page_obj;
+                    try {
+                       pre_page_obj = JSON.parse(pre_page_str) || {};
+                    } catch (e) {
+                        pre_page_obj = {};
+                        var refKey = encodeReferrer + '_pre_page_str';
+                        pre_page_obj[refKey] = pre_page_str;
+                        pre_page_obj[Date.now()] = refKey;
+                    }
+                    WAT.pgv({
+                        "user_number": config.user ? config.user.number : '',
+                        "guid": config.log[0],
+                        "params": {
+                            "page_type": page_type,
+                            "page_str": page_str,
+                            "pre_page_str": encodeReferrer && pre_page_obj[encodeReferrer + '_pre_page_str'],
+                            "user_role": config.user ? config.user.type : '',
+                            "session_id": config.log[1]
+                        }
+                    });
+
+                    setTimeout(function () {
+                        for (var name in pre_page_obj) {
+                            if (pre_page_obj.hasOwnProperty(name)) {
+                                var dt = +name;
+                                if (!isNaN(dt) && Date.now() - dt > 2 * 60 * 60 * 1000) {
+                                    var key = pre_page_obj[name];
+                                    pre_page_obj[key] = null;
+                                    pre_page_obj[name] = null;
+                                    delete pre_page_obj[key];
+                                    delete pre_page_obj[name];
+                                }
+                            }
+                        }
+                        var encodeUrl = encodeURI(location.href);
+                        var key = encodeUrl + '_pre_page_str';
+                        pre_page_obj[key] = page_str;
+                        pre_page_obj[Date.now()] = key;
+                        localStorage.setItem('pre_page_str', JSON.stringify(pre_page_obj));
+                        pre_page_obj = null;
+                    });
+
+                    WAT.initClick({
+                        "type": "pc",
+                        "hot": !!config.hot_click,
+                        "service": page_type
+                    });
+
+                    WAT.watchClick();
+
+                    WAT.timing();
+
+                }
+            });
+
+
+
+        </script>
+
+        {{ if isset($site_config.mainUri) }}
+            {{ $reportUrl = $site_config.mainUri|cat:"static/report" }}
+            {{ if $site_config.protocol == "https" }}
+                {{ $reportUrl = $reportUrl|replace:"http://":"https://" }}
+            {{ /if }}
+        {{ else }}
+            {{ $reportUrl = $root|cat:"/static/report" }}
+        {{ /if }}
+
+        <script>
+            window.gsx_ready(function (config) {
+                var logUrl = WAT.toUrl('pb0.genshuixue.com', '/sku.gif');
+                WAT.send(logUrl, {
+                    'terminal': 'pc',
+                    'page_type': '{{ if isset($log_data.page) }}{{ $log_data.page }}{{ /if }}',
+                    'referrer': document.referrer,
+                    'user_number': config.user ? config.user.number : '',
+                    'user_role': config.user ? config.user.type : '',
+                    'guid': config.log[0],
+                    'city_id': config.city.id,
+                    'sku_id': '{{ $sku_id }}'
+                });
+            });
+        </script>
+
+        <script>
+            var leaveMessPageType = "{{ if isset($log_data.page) }}{{ $log_data.page }}{{ /if }}";
+            var referer = document.referrer;
+            var src = '{{ $reportUrl }}'+'?referer='+referer;
+            var script = document.createElement('script');
+            script.src = src;
+            script.type = 'text/javascript';
+            script.charset = 'utf-8';
+            document.getElementsByTagName('head')[0].appendChild(script);
+        </script>
+
+        {{ block name="meta" }}{{ /block }}
+
+        {{ block name="icon" }}
+        <link rel="shortcut icon" href="{{ $static_origin }}/src/img/logo.ico" />
+        {{ /block }}
+
+        {{ block name="style" }}{{ /block }}
+    </head>
+
+    {{ if isset($page_class) }}
+    <body class="{{ $page_class }}">
+    {{ else }}
+    <body>
+    {{ /if }}
+
+        {{ block name="body" }}{{ /block }}
+
+        {{ if $env == 'test' || $env == 'beta' }}
+            {{ include file="common/component/checkImageSize.html" }}
+        {{ /if }}
+
+        {{ if $env == 'www' }}
+            {{ * 暂时去掉cnzz和ga统计 by xuzheng * }}
+            {{ * include file="common/component/tongji.html" * }}
+        {{ /if }}
+
+        {{ include file="common/component/loginDialog.html" onlyShowStudent=$login_dialog_config.student_only onlyShowTeacher=$login_dialog_config.teacher_only }}
+        {{ include file="common/center/component/enterClassroom.html" }}
+
+    </body>
+
+</html>
+{{ /strip }}

@@ -1,0 +1,1 @@
+define("rave/special",["require","exports"],function(require,exports){var e=$("#excellent-course-wrapper");exports.init=function(){e.on("click",".course-item",function(e){var r=$(this),n=r.data("number"),a=$(e.target);if(a.hasClass("course-sec-btn")&&!a.hasClass("active"))return!1;else return void window.open("/teacher/classCourseDetail?number="+n,"_blank")})}});

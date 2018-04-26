@@ -1,0 +1,71 @@
+{{ *
+
+@file 活动主页
+@author zengcheng
+
+* }}
+{{ extends file="social/common/base.html" }}
+
+{{ block name="data" }}
+
+    {{ * 需要im * }}
+    {{ $need_im = false }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $nav_config.active = '' }}
+    {{ $nav_config.hidden = 1 }}
+    {{ $flotage_config.hidden = true }}
+
+    {{ $script_data.isAdmin = $tpl_data.is_admin }}
+    {{ $script_path = "social/group" }}
+
+{{ /block }}
+
+{{ block name="title" }}
+{{ strip }}{{ $tpl_data.group.name }}小组-跟谁学{{ /strip }}
+{{ /block }}
+
+
+{{ block name="keywords" }}
+{{ strip }}{{ $tpl_data.group.name }}小组{{ /strip }}
+{{ /block }}
+
+{{ block name="description" }}
+{{ strip }}跟谁学社区是全国最大的{{ $tpl_data.group.name }}小组学习论坛，为您提供{{ $tpl_data.group.name }}小组学习、交流的平台。在这里大家可以一起交流学习{{ $tpl_data.group.name }}。{{ /strip }}
+{{ /block }}
+
+{{ block name = "style" }}
+    <link rel="stylesheet" href="{{ $static_origin }}/src/css/social/group.less">
+{{ /block }}
+
+{{ block name="main" }}
+
+{{ strip }}
+<div id="main">
+
+    <div class="group-nav">
+        {{ include file="./common/nav.html" data=[["link" => "", "name" => $tpl_data.group.name ]] }}
+    </div>
+
+    <div class="info-wrapper" data-module-path="social/common/signHeader" data-group-id="{{ $tpl_data.group.id }}" data-is-join="{{ $tpl_data.group.is_join }}">
+        {{ include file="./group/info.html" data=$tpl_data.group checkIn=$tpl_data.check_in }}
+    </div>
+
+    <div class="wrapper">
+        <div class="content" data-module-path="social/group/postList" data-group-id="{{ $tpl_data.group.id }}">
+            {{ include file="./group/postList.html" data=$tpl_data.list type=$tpl_data.type pager=$tpl_data.pager type=$tpl_data.type isAdmin=$tpl_data.is_admin|default:0 }}
+        </div>
+        <div class="slider-bar">
+            <div class="go-writer-wrapper">
+                {{ include file="./group/gowriter.html" group=$tpl_data.group }}
+            </div>
+            <div class="des-wrapper">
+                {{ include file="./group/des.html" group=$tpl_data.group admin=$tpl_data.admin_list user=$tpl_data.user }}
+            </div>
+        </div>
+    </div>
+
+</div>
+{{ /strip }}
+{{ /block }}

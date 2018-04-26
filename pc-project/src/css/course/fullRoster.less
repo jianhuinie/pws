@@ -1,0 +1,55 @@
+/**
+ * @file 班级花名册 - 打印版
+ * @author wangyujie
+ */
+@import '../common/center/common/layout.less';
+@import '../common/card.less';
+
+
+#flotage-top,
+#flotage-middle,
+#flotage-bottom,
+#site-nav,
+#nav,
+#header,
+#footer,
+.im-toggle-bar {
+    display: none;
+}
+
+#main {
+
+    .card,
+    .card-header {
+        border: none;
+        box-shadow: none;
+    }
+
+    .card-header {
+        border-top: 1px solid #ccc;
+        span {
+            float: right;
+        }
+    }
+
+    .card-body {
+
+        .operation {
+            display: none;
+        }
+
+        .course-info {
+            margin: @gap-vertical-medium 0;
+            li {
+                color: @brand-text;
+                padding-bottom: @gap-vertical-tiny;
+                span {
+                    color: @brand-text-lighter;
+                }
+            }
+        }
+
+    }
+
+
+}

@@ -1,0 +1,109 @@
+/**
+ * @file 课程卡片
+ * @author wangyujie
+ */
+
+#course-card {
+    // display: none;
+    border: 1px solid #eee;
+    border-top: 0;
+    padding: 2 * @gap-vertical-medium;
+
+    .hint {
+        color: #999;
+        font-size: 12px;
+        margin-bottom: 5px;
+    }
+
+    .course-card,
+    .course-card-action {
+        display: inline-block;
+    }
+
+    .course-card {
+        background-color: #f7f7f7;
+        overflow: hidden;
+        padding: 20px;
+        position: relative;
+        width: 510px;
+        img {
+            float: left;
+            margin-right: 20px;
+        }
+    }
+
+    .course-type {
+        background-color: #6187dc;
+        color: #fff;
+        font-size: 12px;
+        position: absolute;
+        right: -56px;
+        top: -9px;
+        padding: 15px 50px 0;
+        line-height: 2.2em;
+        z-index: 1;
+        -webkit-transform: rotateZ(45deg) scale(0.8);
+           -moz-transform: rotateZ(45deg) scale(0.8);
+                transform: rotateZ(45deg) scale(0.8);
+                font-size: 12px;
+                *zoom: 0.8;
+    }
+
+    .course-info {
+        .title {
+            color: #333;
+            font-size: 16px;
+        }
+        .teacher {
+            color: #666;
+            margin: 5px 0;
+        }
+        .address {
+            height: 30px;
+            i {
+                color: #999;
+                margin-right: 5px;
+            }
+        }
+        .other {
+            .btn-to-look {
+                float: right;
+                border: 1px solid #f90;
+                border-radius: 2px;
+                color: #f90;
+                font-size: 14px;
+                width: 76px;
+                height: 30px;
+                text-align: center;
+                padding: 4px 6px;
+                line-height: 1.3em;
+            }
+            .price {
+                color: #f90;
+                font-size: 18px;
+                margin-right: 10px;
+                em {
+                    font-size: 14px;
+                }
+            }
+            .date {
+                color: #666;
+                font-size: 12px;
+            }
+        }
+    }
+
+    .course-card-action {
+        margin-left: 5px;
+        .del-course-card,
+        .re-course-card {
+            color: #6187dc;
+            font-size: 12px;
+            &:hover {
+                text-decoration: underline;
+            }
+
+        }
+    }
+
+}

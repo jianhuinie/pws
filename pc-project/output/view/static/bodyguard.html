@@ -1,0 +1,55 @@
+{{ extends file="common/main/base.html" }}
+
+{{ block name="title" }}
+    学费卫士 - 跟谁学
+{{ /block }}
+
+{{ block name="style" }}
+    <link rel="stylesheet" href="{{ $static_origin }}/asset/css/static/bodyguard_896bcf4a66.css">
+{{ /block }}
+
+
+{{ block name="main" }}
+{{ strip }}
+
+<div id="main">
+
+    <div class="bdg-banner"></div>
+
+    <div class="bdg-content">
+
+        <div class="bdg-title"></div>
+
+        <div class="bdg-one">
+            <div class="title">
+                保障一：资金托管
+            </div>
+            <div class="desc">
+                您在平台支付的学费由跟谁学替您保管，不会直接支付给老师或机构，当课程完成后觉得满意再扣款，充分保障您的资金安全。
+            </div>
+            <div class="eg">
+                <img src="{{ $static_origin }}/asset/img/static/bodyguard/jingxia_7073ab43fe.png" />
+                北京一位家长，在某机构为自己孩子支付了40万元学费。该机构突然关门，其董事长失联，这位家长没能追回自己的血汗钱，造成巨额损失。业内人士统计，此事件影响的家庭，损失金额总数超过十几亿元。
+
+            </div>
+        </div>
+
+        <div class="bdg-two">
+            <div class="title">
+                保障二：随时退款
+            </div>
+            <div class="desc">
+                在符合退款条件下申请退款，订单中未使用的课时所对应的学费将全部自动退回，不用担心退费纠纷。
+            </div>
+            <div class="eg">
+                <img src="{{ $static_origin }}/asset/img/static/bodyguard/zan_26978ab722.png" />
+                青岛刘先生通过跟谁学平台选择了一位数学老师给自己的孩子上课，因家庭搬迁更换城市不能继续学习，通过平台轻松退回了剩余课程费用。
+            </div>
+        </div>
+    </div>
+
+    <div class="bdg-footer"></div>
+</div>
+
+{{ /strip }}
+{{ /block }}

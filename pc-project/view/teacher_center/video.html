@@ -1,0 +1,79 @@
+{{ extends file="common/center/base.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $nav_active_tab = 'index' }}
+
+    {{ $script_path = "teacherCenter/video" }}
+    {{ $script_data = [ ] }}
+    {{ $script_data.count = count($tpl_data.video_list) }}
+    {{ $script_data.max = $tpl_data.max }}
+
+{{ /block }}
+
+{{ block name="title" prepend }}
+我的视频 -
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/teacherCenter/video.less">
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+
+    {{ include file="teacher_center/common/sidebar.html" active="video" }}
+
+    <div id="content" class="card">
+        <div class="card-header">
+            <strong class="text-primary">视频最多可上传 {{ $tpl_data.max }} 个</strong>
+            <h2>我的视频</h2>
+            <a class="text-info" href="{{ $origin_http }}/teacher_center/preview_home" target="_blank">
+                预览主页
+            </a>
+        </div>
+        <div class="card-body">
+            <div class="upload-video-tip"><i class="icon icon-info-circle"></i>请上传自我介绍、课程短片、才艺展示等有利于学生了解您的视频，不能包含推广信息（广告、联系方式、网站链接等）哦</div>
+            <ul class="video-list">
+
+            {{ foreach $tpl_data.video_list as $key=>$item }}
+                <li data-id="{{ $item.id }}" data-video="{{ $item.video }}" data-name="{{ $item.name }}"
+                {{ if $key == 4 }} class="clearfix" {{ /if }}>
+
+                    {{ include file="common/component/videoThumbnail.html" video=$item.video img=$item.img title=$item.name status=$item.status editable=true }}
+
+                    {{ if $item.status == 70 && isset($item.verify_status) && $item.verify_status == 2 }}
+                        <div class="message message-error">
+                            <i class="icon icon-info-circle"></i>
+                            {{ foreach $item.reasons as $reason }}
+                                {{ $reason }}；
+                            {{ /foreach }}
+                        </div>
+                    {{ /if }}
+
+                </li>
+            {{ /foreach }}
+
+            {{ if $script_data.count >= $script_data.max }}
+                {{ $text = ' style="display:none;"' }}
+            {{ else }}
+                {{ $text = '' }}
+            {{ /if }}
+
+                <li class="upload-trigger" {{ $text }}>
+                    <a class="upload-video" href="/teacher_center/uploadVideo">
+
+                    </a>
+                </li>
+
+            </ul>
+
+
+        </div>
+    </div>
+
+{{ /strip }}
+{{ /block }}
+

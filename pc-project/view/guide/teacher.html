@@ -1,0 +1,111 @@
+{{ extends file="common/main/base.html" }}
+
+{{ block name="data" }}
+
+{{ $smarty.block.parent }}
+{{ $script_path = "guide/teacher" }}
+
+{{ $nav_config.active = '' }}
+
+{{ /block }}
+
+{{ block name="title" }}
+老师帮助- 帮助中心 - 跟谁学
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/guide/teacher.less">
+{{ /block }}
+
+{{ block name="main" }}
+
+{{ strip }}
+
+
+
+<div id="main">
+
+    {{ include file="./common/sidebar.html" }}
+
+
+    <!--右-->
+    <div class="btright" id="tab">
+        <h2>老师帮助</h2>
+
+        <h3>我的账号</h3>
+        <a id="login" href="/guide/teacher_layout?a=teacher&op=login">注册登录</a>
+        <a id="change" href="/guide/teacher_layout?a=teacher&op=change">变更账号密码</a>
+
+        <h3>我的信息</h3>
+        <a id="perfect" href="/guide/teacher_layout?a=teacher&op=perfect">完善资料</a>
+        <a id="privacy" href="/guide/teacher_layout?a=teacher&op=privacy">隐私模式</a>
+        <a id="authentication" href="/guide/teacher_layout?a=teacher&op=authentication">老师认证</a>
+
+        <h3>课程设置</h3>
+        <a id="onecourse" href="/guide/teacher_layout?a=teacher&op=onecourse">一对一课程设置</a>
+        <a id="classcourse" href="/guide/teacher_layout?a=teacher&op=classcourse">班课设置</a>
+        <a id="videocourse" href="/guide/teacher_layout?a=teacher&op=videocourse">视频课设置</a>
+
+        <h3>我要招生</h3>
+        <a id="coupon" href="/guide/teacher_layout?a=teacher&op=coupon">优惠券</a>
+        <a id="discount" href="/guide/teacher_layout?a=teacher&op=discount">限时折扣</a>
+        <a id="share" href="/guide/teacher_layout?a=teacher&op=share">分享主页和课程</a>
+        <a id="consult" href="/guide/teacher_layout?a=teacher&op=consult">学生咨询</a>
+
+        <!--<h3>课程设置</h3>
+        <a id="time" href="/guide/teacher_layout?a=teacher&op=time">可授课时间</a>
+        <a id="subjects" href="/guide/teacher_layout?a=teacher&op=subjects">授课科目</a>
+        <a id="combo" href="/guide/teacher_layout?a=teacher&op=combo">课时优惠包</a>
+        <a id="price" href="/guide/teacher_layout?a=teacher&op=price">课程价格</a>-->
+
+        <h3>约课授课</h3>
+        <a id="receive" href="/guide/teacher_layout?a=teacher&op=receive">接到约课</a>
+        <a id="prepare" href="/guide/teacher_layout?a=teacher&op=prepare">给学生排课</a>
+        <a id="attend" href="/guide/teacher_layout?a=teacher&op=attend">如约上课</a>
+        <a id="online" href="/guide/teacher_layout?a=teacher&op=online">在线授课</a>
+
+        <h3>资金评价</h3>
+        <a id="compensation" href="/guide/teacher_layout?a=teacher&op=compensation">资金</a>
+        <a id="system" href="/guide/teacher_layout?a=teacher&op=system">评价体系</a>
+
+        <h3>申诉保障</h3>
+        <a id="cancel-less" href="/guide/teacher_layout?a=teacher&op=cancel-less">取消课程</a>
+        <a id="cancel-order" href="/guide/teacher_layout?a=teacher&op=cancel-order">取消订单</a>
+        <a id="appeal" href="/guide/teacher_layout?a=teacher&op=appeal">发起申诉</a>
+
+        <h3>短信相关</h3>
+        <a href="/guide/teacher_layout?a=teacher&op=sms-center">短信中心</a>
+
+        <h3>直播相关</h3>
+        <a id="enter-classroom" href="/guide/teacher_layout?a=teacher&op=enter-classroom">进入教室</a>
+        <a href="/guide/teacher_layout?a=teacher&op=upload-material">上传课件</a>
+        <a href="/guide/teacher_layout?a=teacher&op=audio-related">声音相关</a>
+        <a href="/guide/teacher_layout?a=teacher&op=play-function">播放功能</a>
+
+        <a href="/guide/teacher_layout?a=teacher&op=phone-pad">手机/pad进入教室</a>
+
+        <a href="/guide/teacher_layout?a=teacher&op=camera-related">摄像头相关</a>
+        <a href="/guide/teacher_layout?a=teacher&op=board-conection">连接手写板</a>
+        <a href="/guide/teacher_layout?a=teacher&op=recording">本地录制及云端录制</a>
+        <a href="/guide/teacher_layout?a=teacher&op=etc">其他</a>
+
+    </div>
+
+
+
+    <!--右 over-->
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+{{ /strip }}
+{{ /block }}

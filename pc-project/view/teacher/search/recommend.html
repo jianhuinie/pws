@@ -1,0 +1,44 @@
+{{ *
+
+@file 快速帮你找老师
+@author jixiaohui,wangyujie
+
+* }}
+
+{{ strip }}
+<div id="recommend" class="card">
+
+    <h3 class="card-header bor-bot">智能推荐老师</h3>
+    <div class="card-body">
+        <ul>
+            <li>
+                <i class="icon icon-pitch-on"></i>
+                距离我最近
+            </li>
+            <li>
+                <i class="icon icon-pitch-on"></i>
+                老师认证最优质
+            </li>
+            <li>
+                <i class="icon icon-pitch-on"></i>
+                最符合我的要求
+            </li>
+        </ul>
+
+        <a rel="nofollow" class="btn btn-primary btn-block" href="/recommend/seekTeacher">帮我推荐</a>
+    </div>
+
+    {{ if !isset($user_data) || !isset($user_data.user_type) || $user_data.user_type != 0 }}
+    <h3 class="card-header">人工帮你找老师</h3>
+    <div class="card-body form" id="recommend-form">
+        <div class="form-group">
+            <div class="form-controls">
+                <input class="form-text" type="mobile" name="mobile" placeholder="请输入手机号码" required />
+                <span class="error"></span>
+            </div>
+            <div class="btn btn-default btn-block btn-service">客服人工推荐</div>
+        </div>
+    </div>
+    {{ /if }}
+</div>
+{{ /strip }}

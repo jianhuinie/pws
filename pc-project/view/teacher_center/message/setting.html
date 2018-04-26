@@ -1,0 +1,166 @@
+{{ *
+
+@file 消息设置
+@author zhujialu
+
+* }}
+{{ strip }}
+
+<div class="message-setting">
+
+    <div class="header">
+
+        {{ if $tpl_data.message_setting.nodisturb == 1 }}
+            {{ $class = 'on' }}
+            {{ $text = '已开启' }}
+        {{ else }}
+            {{ $class = 'off' }}
+            {{ $text = '未开启' }}
+        {{ /if }}
+        <div class="no-disturb {{ $class }}">
+
+            免打扰时段设置：
+
+            <span class="switcher">
+                <strong>{{ $text }}</strong>
+                <i></i>
+            </span>
+
+            {{ $parts = explode('-', $tpl_data.message_setting.nodisturbtime ) }}
+
+            {{ $start_time = $parts[0] }}
+            {{ $end_time = $parts[1] }}
+
+            <span class="time-duration">
+                <span class="start-time">
+                    {{ $start_time }}
+                </span>
+                -
+                <span class="end-time">
+                    {{ $end_time }}
+                </span>
+            </span>
+
+            <b class="link edit-time">修改</b>
+
+        </div>
+
+        勾选后将会收到对应的短信通知
+
+    </div>
+
+    <div class="body">
+
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td>
+                        <i class="icon icon-list-o"></i>
+                        <strong>订单通知</strong>
+                        <small>（一对一）</small>
+                    </td>
+                    <td>
+
+                        {{ $setting = $tpl_data.message_setting.setting }}
+
+                        {{ include file="common/ui/checkbox.html" text="新增待支付订单" name="submit_order" checked=in_array('submit_order', $setting) }}
+
+                        {{ include file="common/ui/checkbox.html" text="新增已支付订单" name="pay_order" checked=in_array('pay_order', $setting) }}
+
+                        {{ include file="common/ui/checkbox.html" text="订单取消" name="cancel_order" checked=in_array('cancel_order', $setting) }}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <i class="icon icon-file-o"></i>
+                        <strong>课程通知</strong>
+                        <small>（一对一）</small>
+                    </td>
+                    <td>
+
+                        {{ include file="common/ui/checkbox.html" text="学生发起约课" name="reserve_course" checked=in_array('reserve_course', $setting) }}
+
+                        {{ include file="common/ui/checkbox.html" text="学生确认约课" name="confirm_course" checked=in_array('confirm_course', $setting) }}
+
+                        {{ include file="common/ui/checkbox.html" text="课程取消" name="cancel_course" checked=in_array('cancel_course', $setting) }}
+
+                        {{ include file="common/ui/checkbox.html" text="课前 1 天通知" name="remind_1day_before" checked=in_array('remind_1day_before', $setting) }}
+
+                        {{ include file="common/ui/checkbox.html" text="课前 1 小时通知" name="remind_1hour_before" checked=in_array('remind_1hour_before', $setting) }}
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <i class="icon icon-file-o"></i>
+                        <strong>班课通知</strong>
+                    </td>
+                    <td>
+                        {{ include file="common/ui/checkbox.html" text="新增待支付订单" name="submit_class_order" checked=in_array('submit_class_order', $setting) }}
+
+                        {{ include file="common/ui/checkbox.html" text="新增已支付订单" name="pay_class_order" checked=in_array('pay_class_order', $setting) }}
+
+                        {{ include file="common/ui/checkbox.html" text="订单取消" name="cancel_class_order" checked=in_array('cancel_class_order', $setting) }}
+
+                        {{ include file="common/ui/checkbox.html" text="满班" name="full_class" checked=in_array('full_class', $setting) }}
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <i class="icon icon-message-o"></i>
+                        <strong>消息通知</strong>
+                    </td>
+                    <td>
+                        {{ include file="common/ui/checkbox.html" text="有人给你发离线消息" name="receive_offline_message" checked=in_array('receive_offline_message', $setting) }}
+                        <small>
+                            有人给你发送离线消息时你会收到短信提醒，同一个联系人的消息通知系统每天最多发送一次
+                        </small>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <i class="icon icon-rmb-o"></i>
+                        <strong>资金通知</strong>
+                    </td>
+                    <td>
+                        {{ include file="common/ui/checkbox.html" text="课酬已到平台账户" name="pay_course" checked=in_array('pay_course', $setting) }}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <i class="icon icon-deduct"></i>
+                        <strong>扣分通知</strong>
+                    </td>
+                    <td>
+                        {{ include file="common/ui/checkbox.html" text="扣分增加通知" name="deduct_point" checked=in_array('deduct_point', $setting) }}
+
+                        {{ include file="common/ui/checkbox.html" text="惩罚状态解除" name="deduct_punishment_remove" checked=in_array('deduct_punishment_remove', $setting) }}
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+
+    <div class="footer">
+
+        <b class="link recovery">恢复默认设置</b>
+        <b class="link notify-all">全部通知</b>
+        <b class="link notify-none">全部不通知</b>
+
+        <div>
+            <div class="btn-primary save-setting">
+                保存
+            </div>
+        </div>
+    </div>
+</div>
+
+{{ /strip }}

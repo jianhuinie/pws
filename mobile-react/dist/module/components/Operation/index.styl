@@ -1,0 +1,79 @@
+@import 'resource/css/mixin/position.styl';
+@import "module/index.styl";
+
+.center-operate {
+    max-width: rem(414);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1;
+    &-btn {
+        position: absolute;
+        bottom: rem(64);
+        right: rem(15);
+        width: rem(58);
+        height: rem(58);
+        border-radius: 50%;
+        background: #797878;
+        text-align: center;
+        font-size: rem(11);
+        color: #EDEDEE;
+        .icon-operate {
+            font-size: rem(18);
+            margin-top: rem(12);
+        }
+    }
+    &-wrapper {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        z-index: 1;
+    }
+    &-mask {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        max-width: rem(414);
+    }
+    .operation-component {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background: #fff;
+        max-width: rem(414);
+        z-index: 10;
+        &-content {
+            display: flex;
+            height: rem(102);
+            justify-content: center;
+            .operation-item {
+                margin-top: rem(10);
+                &-icon {
+                    width: rem(50);
+                    height: rem(50);
+                    text-align: center;
+                    margin: 0 auto;
+                    font-size: rem(50);
+                }
+                &-desc {
+                    margin-top: rem(10);
+                    font-size: rem(14);
+                    color: #6D6D6E;
+                    letter-spacing: 0;
+                    line-height: rem(14);    
+                }
+            }
+        }   
+        &-close {
+            height: rem(46);
+            line-height: rem(46);
+            border-top: rem(1) solid #c1c1c1;
+            text-align: center;
+            font-size: rem(16);
+            color: #3d3d3e;
+        }
+    }
+}

@@ -1,0 +1,91 @@
+{{ *
+
+@file 老师中心 - 我的学生 - 可用优惠券列表
+@author wangyujie
+
+* }}
+
+{{ extends file="common/center/base.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $script_path = "teacherCenter/usableCoupons_25fe0644d9" }}
+    {{ $script_data.page = 1 }}
+
+    {{ $studentNum='' }}
+    {{ if isset($smarty.get.student_number) }}
+        {{ $studentNum=$smarty.get.student_number }}
+    {{ /if }}
+
+    {{ $script_data.studentNum = $studentNum }}
+
+{{ /block }}
+
+{{ block name="title" prepend }}
+我的学生 - 选择优惠券 -
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/teacherCenter/usableCoupons_7b0fa9baff.css">
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+
+    {{ include file="teacher_center/common/sidebar.html" active="student" }}
+
+    <div id="content" class="card">
+
+        <div class="card-header">
+            <h2>
+                <a href="/teacher_center/student">
+                    我的学生
+                </a>
+                &nbsp;&gt;&nbsp;
+                <a>选择优惠券</a>
+            </h2>
+        </div>
+
+        <div class="card-body">
+
+            <div class="coupon-body">
+
+                <div class="coupon-hint">
+                    每人限领1张
+                </div>
+
+                {{ if $tpl_data.coupons && $tpl_data.coupons|count > 0 }}
+
+                {{ include file="teacher_center/mktCenter/forOneCouponList.html" }}
+
+                {{ include file="common/component/pager.html" page=$tpl_data.pager.page count=$tpl_data.pager.count page_size=$tpl_data.pager.page_size hide_jump=1 }}
+
+                <div class="action">
+                    <button class="btn btn-primary btn-send">发送</button>
+                    <a class="btn btn-default" href="/teacher_center/student">取消</a>
+                </div>
+
+                {{ /if }}
+
+                {{ if $tpl_data.coupons|count == 0 }}
+                <div class="no-data">
+                    <div class="wrapper">
+                        <img class="avatar" src="{{ $static_origin }}/asset/img/center/teacherRank/header-avatar_ebce8d7cdb.png">
+                        {{ if empty($tpl_data.join_org) }}
+                            <p>没有可用的优惠券，新建一张吧！</p>
+                        {{ else }}
+                            <p>机构老师不能给学生发优惠券哦，请联系机构为学生发优惠券</p>
+                        {{ /if }}
+                    </div>
+                </div>
+                {{ /if }}
+            </div>
+
+        </div>
+    </div>
+
+{{ /strip }}
+{{ /block }}
+

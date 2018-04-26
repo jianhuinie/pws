@@ -1,0 +1,45 @@
+{
+    "tpl_data": {
+        "purchse_info": {
+            "confirm_status": 0
+        },
+        "course_info": {
+            "org_id": "3734",
+            "course_number": "11111111",
+            "course_name": "111111",
+            "course_type": "online",
+            "course_city": "北京",
+            "subject": "k12",
+            "price": "3600",
+            "length": "100",
+            "interest_type": "1",
+            "fenqi_type": "1",
+            "begin_time": "2016-07-25 00:00:00",
+            "end_time": "2016-08-03 00:00:00",
+            "create_time": "2016-07-20 15:32:32",
+            "update_time": "2016-07-25 14:51:57"
+        },
+        "org_info": {
+            "name": "yy小分队",
+            "address": [
+                "北京",
+                "北京",
+                "海淀",
+                "西北旺东路10号"
+            ],
+            "avata": "http://test-img.gsxservice.com/402807_wryar7jy.jpg",
+            "phone": "400012222转1231",
+            "address_des": "北京海淀西北旺东路10号"
+        },
+        "fenqi_info": {
+            "interest_type": "1",
+            "loan_stages": 6,
+            "loan_amounts": "3600",
+            "loan_rate": "0.88%",
+            "refund_origin_once": 600,
+            "refund_once": 600,
+            "refund_money": 31.68,
+            "refund_money_once": 0
+        }
+    }
+}

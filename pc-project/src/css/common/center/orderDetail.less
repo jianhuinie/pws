@@ -1,0 +1,114 @@
+/**
+ * @file 订单详情
+ * @author zhangjiayi
+ */
+
+@import './common/layout.less';
+@import "./component/enterClassroom.less";
+@import '../component/cancelOrderDialog.less';
+@import '../component/cancelOrderPromptDialog.less';
+@import '../component/baiduMapDialog.less';
+@import '../component/editOrderPriceDialog.less';
+@import "../component/editReservedLessonDialog.less";
+@import "../component/makePhoneCallDialog.less";
+@import './orderDetail/crumb.less';
+@import './orderDetail/user.less';
+@import './orderDetail/order.less';
+@import './orderDetail/pay.less';
+@import './orderDetail/course.less';
+@import './orderDetail/comment.less';
+@import './orderDetail/otherFee.less';
+@import './orderDetail/stage.less';
+@import './orderDetail/refundInfo.less';
+
+#main {
+    .suspend {
+        background: #fff3df;
+        color: #3d3d3e;
+        line-height: 40px;
+        margin: 15px auto;
+        .icon {
+            margin-right: 10px;
+            margin-left: 25px;
+        }
+    }
+
+    h1, h2 {
+        color: @brand-text;
+        display: inline-block;
+        padding-left: 24px;
+    }
+
+    h1 {
+        font-size: @font-size-large;
+    }
+
+    .icon-circle {
+        margin-right: 5px;
+    }
+
+    .content {
+        background-color: #FFF;
+        border: 1px solid @brand-gray-light;
+        color: @brand-text;
+        margin: 8px 0 14px;
+    }
+
+    .link {
+        color: @brand-info;
+        cursor: pointer;
+
+        &:hover {
+            color: @brand-primary;
+        }
+    }
+
+    thead {
+        background-color: transparent;
+        color: @brand-text-lighter;
+    }
+    tbody {
+        tr {
+            border-top: 1px solid @brand-gray-light;
+            border-bottom: none;
+
+
+        }
+    }
+    th,
+    td {
+        border-left: 1px solid @brand-gray-light;
+        &:first-child {
+            border-left: none;
+        }
+    }
+
+    .fire-record {
+        font-size: 13px;
+        .confirm-fire,
+        .refuse-fire {
+            color: #6288dd;
+            cursor: pointer;
+        }
+        .refuse-fire {
+            margin-left: 25px;
+        }
+
+    }
+
+}
+
+.class-course-icon {
+    .icon-anytime-quitclass,
+    .icon-limit-quitclass,
+    .icon-cannot-quitclass {
+        font-size: 72px;
+        line-height: 0.1;
+        vertical-align: middle;
+        margin-bottom: 7px;
+        margin-left: 2px;
+    }
+    .icon-cannot-quitclass {
+        color: #666;
+    }
+}

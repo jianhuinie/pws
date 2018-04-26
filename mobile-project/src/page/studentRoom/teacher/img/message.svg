@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_message</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M178.352941,235.181818 L187.006602,235.181818 C187.555054,235.181818 188,234.73534 188,234.18458 L188,221.997238 C188,221.439985 187.555241,221 187.006602,221 L170.993398,221 C170.444946,221 170,221.446479 170,221.997238 L170,234.18458 C170,234.741833 170.444759,235.181818 170.993398,235.181818 L173.176471,235.181818 L173.176471,239 L174.235294,239 L178.352941,235.181818 Z" id="path-1"></path>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="18" height="18" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="老师端" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-170.000000, -221.000000)" stroke="#000000" stroke-width="2">
+            <use id="ic_message" mask="url(#mask-2)" xlink:href="#path-1"></use>
+        </g>
+    </g>
+</svg>

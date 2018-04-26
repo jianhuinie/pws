@@ -1,0 +1,137 @@
+/**
+ * @file 课程套餐
+ * @author zhujialu
+ */
+
+ .course-hours {
+
+    .form-radio {
+
+        color: @brand-text;
+
+        input {
+            margin-right: @gap-horizontal-medium;
+        }
+    }
+
+    .input-group {
+        vertical-align: middle;
+    }
+
+    .combo-list {
+
+        .clearfix();
+        margin-left: -1 * @gap-horizontal-medium;
+
+        .combo-item {
+
+            background-color: @brand-gray-light;
+            border: 1px solid @brand-gray;
+            outline: 1px solid transparent;
+            float: left;
+            margin-left: 10px;
+
+            padding: 10px;
+            width: 253px;
+            position: relative;
+
+        }
+
+        .icon-combo-green-small,
+        .icon-combo-blue-small {
+            float: left;
+            margin-bottom: @gap-vertical-small;
+        }
+
+        .default {
+            color: @brand-text-lighter;
+            font-size: @font-size-tiny;
+        }
+        .price {
+            position: absolute;
+            left: 75px;
+            top: 17px;
+        }
+        .hours {
+            margin-right: @gap-horizontal-medium;
+            vertical-align: middle;
+            strong {
+                color: @brand-text;
+                font-size: @font-size-large;
+            }
+        }
+        .discount {
+            background-color: @brand-primary;
+            color: #FFF;
+            font-size: @font-size-tiny;
+            padding: 2px 0 2px 8px;
+            position: relative;
+
+            &:after {
+                content: ' ';
+                position: absolute;
+                right: -14px;
+                top: 0;
+                border: 9px solid @brand-primary;
+                border-right: 5px solid transparent;
+            }
+        }
+        .desc {
+            display: block;
+            clear: both;
+            font-size: @font-size-tiny;
+        }
+        .icon-check {
+            background-color: @brand-primary;
+            color: #FFF;
+            display: none;
+            padding: 2px;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+    }
+
+    .course-combo {
+
+        &.active {
+            .combo-item {
+
+                background-color: #FFF;
+                cursor: pointer;
+
+                &:hover,
+                &.active {
+                    border-color: @brand-primary;
+                    outline-color: @brand-primary;
+                }
+
+                &.active {
+                    .icon-check {
+                        display: block;
+                    }
+                }
+            }
+        }
+
+    }
+
+    .course-custom {
+
+        margin-bottom: 10px;
+
+        .form-group {
+            margin-top: 0;
+
+        }
+    }
+    .form-hint {
+        margin-left: @gap-horizontal-medium;
+    }
+
+    input[name="hours"]:disabled {
+        cursor: default;
+    }
+
+ }

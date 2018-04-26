@@ -1,0 +1,7 @@
+[
+    {
+        "tpl": "./answer.tpl",
+        "router": "/interest/answer",
+        "mock_data": "./mock/answer.json"
+    }
+]

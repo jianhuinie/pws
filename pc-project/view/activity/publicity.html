@@ -1,0 +1,230 @@
+{{ extends file="common/pc/base.html" }}
+
+{{ block name="title" }}
+跟谁学1周年，感恩有你！
+{{ /block }}
+
+{{ block name="data" }}
+
+{{ $smarty.block.parent }}
+
+{{ $script_path = "activity/publicity" }}
+
+{{ $nav_config.hidden = 1 }}
+{{ $flotage_config.hidden = 1 }}
+{{ $rave_config.hidden = 1 }}
+{{ $nav_config.active = '' }}
+{{ $amd_more = [ 'common/main/component/header' ] }}
+
+{{ $baidu_share_text = "一周年，感谢有您，跟谁学1.6亿打造学习狂欢节，6月16日等你来狂欢！" }}
+
+{{ $baidu_share_image = "http://img.gsxservice.com/0cms/d/file/content/2015/05/555d57ebe7d1c.jpg" }}
+
+
+{{ /block }}
+
+
+{{ block name="description" }}
+     一周年，感谢有您，跟谁学1.6亿打造学习狂欢节，6月16日等你来狂欢！
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/activity/publicity.less">
+{{ /block }}
+
+{{ block name="body" }}
+
+{{ strip }}
+{{ $smarty.block.parent }}
+
+{{ include file="common/script.html" }}
+<div id="main">
+{{ if $env == 'dev' }}
+{{ $src = 'src' }}
+{{ else }}
+{{ $src = 'asset' }}
+{{ /if }}
+
+
+
+    <!--[if lt IE 9]>
+    <style>
+
+        #main #layout {
+            overflow: hidden;
+            background: url(http://img.gsxservice.com/0cms/d/file/content/2015/05/5559dfd130951.jpg) 50% 0 no-repeat;
+            height: 100%;
+            margin: 0 auto;
+            position: relative;
+            background-size: 100%;
+            background-size: 100% 100%;
+            background-position: 50% -187px;
+
+            background-image: url('http://img.gsxservice.com/0cms/d/file/content/2015/06/557255a55f2e9.jpg');
+            background-size: cover;
+            filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://img.gsxservice.com/0cms/d/file/content/2015/06/557255a55f2e9.jpg',  sizingMethod='scale');
+
+
+        }
+        #navBar li {
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#17f4f4f4,endColorstr=#17f4f4f4);
+            background: rgba(244, 244, 244, filter: alpha(opacity=100)) none repeat scroll 0 0;
+            background: #f4f4f4;
+            opcacity: 0.2;
+            filter: alpha(opacity=40)
+        }
+
+        #main .sign img {
+            position: absolute;
+            left: 123px;
+            top: 132px;
+            z-index: 9;
+        }
+
+    </style>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <![endif]-->
+
+    <div id="pageContain">
+        <div class="page page1 current" style="display: block !important; ">
+            <div class="contain">
+                {{ include file="common/siteNav.html" }}
+                {{ include file="common/main/common/header.html" }}
+
+                <a class="sign" href="/activity/carnivalPrepare" target="_blank">
+                    <img src="http://img.gsxservice.com/0cms/d/file/content/2015/05/5559730fa8e7c.png" alt="狂欢"/>
+                </a>
+                <div style="height: 100%">
+                    <div id="layout"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page page2">
+            <div class="contain">
+                <img  class="intro fadeIn" src="http://img.gsxservice.com/0cms/d/file/content/2015/06/557198ac0fe54.png" alt="" />
+
+                    <img class="replace" src="http://img.gsxservice.com/0cms/d/file/content/2015/05/555b02191d923.jpg" alt="2"/>
+                <video autobuffer preload loop="loop" autoplay="autoplay" src="{{ $static_origin }}/{{ $src }}/img/activity/center/616/1go.mp4">
+
+
+                    <source  type="video/mp4" src="{{ $static_origin }}/{{ $src }}/img/activity/center/616/1go.mp4"/>
+
+                    <img class="replace" src="http://img.gsxservice.com/0cms/d/file/content/2015/05/555b02191d923.jpg" alt="2"/>
+
+                </video>
+            </div>
+
+        </div>
+
+        <div class="page page3">
+            <div class="contain">
+                <img  class="intro fadeIn" src="http://img.gsxservice.com/0cms/d/file/content/2015/06/557198ac50688.png" alt="" />
+
+                    <img class="replace" src="http://img.gsxservice.com/0cms/d/file/content/2015/05/5562dbb250ef1.jpg" alt="3"/>
+
+                <video preload loop="loop" autoplay="autoplay"  src="{{ $static_origin }}/{{ $src }}/img/activity/center/616/2goc.mp4">
+
+                    <source src="{{ $static_origin }}/{{ $src }}/img/activity/center/616/2goc.mp4"/>
+
+                    <img class="replace" src="http://img.gsxservice.com/0cms/d/file/content/2015/05/5562dbb250ef1.jpg" alt="3"/>
+
+                </video>
+
+            </div>
+        </div>
+
+        <div class="page page4">
+            <div class="contain">
+                <img  class="intro fadeIn" src="http://img.gsxservice.com/0cms/d/file/content/2015/06/557198ac8b801.png" alt="" />
+                    <img class="replace" src="http://img.gsxservice.com/0cms/d/file/content/2015/05/555b29df75723.jpg" alt="4"/>
+
+                <video loop="loop" autoplay="autoplay" src="{{ $static_origin }}/{{ $src }}/img/activity/center/616/3go.mp4">
+
+                    <source src="{{ $static_origin }}/{{ $src }}/img/activity/center/616/3go.mp4"/>
+
+                    <img class="replace" src="http://img.gsxservice.com/0cms/d/file/content/2015/05/555b29df75723.jpg" alt="4"/>
+
+                </video>
+            </div>
+        </div>
+
+        <div class="page page5">
+            <div class="contain">
+                <img  class="intro fadeIn" src="http://img.gsxservice.com/0cms/d/file/content/2015/06/557198acc041b.png" alt="" />
+
+                    <img class="replace" src="http://img.gsxservice.com/0cms/d/file/content/2015/05/555b29dfa4891.jpg" alt="4"/>
+                <video loop="loop" autoplay="autoplay" src="{{ $static_origin }}/{{ $src }}/img/activity/center/616/4go.mp4">
+
+                    <source src="{{ $static_origin }}/{{ $src }}/img/activity/center/616/4go.mp4"/>
+
+                    <img class="replace" src="http://img.gsxservice.com/0cms/d/file/content/2015/05/555b29dfa4891.jpg" alt="4"/>
+
+                </video>
+            </div>
+        </div>
+        <div class="page page6">
+            <div class="contain">
+                <img  class="intro fadeIn" src="http://img.gsxservice.com/0cms/d/file/content/2015/06/557198ad00334.png" alt="" />
+
+                    <img class="replace" src="http://img.gsxservice.com/0cms/d/file/content/2015/05/555b29dfd09a1.jpg" alt="4"/>
+
+                <video loop="loop" autoplay="autoplay" src="{{ $static_origin }}/{{ $src }}/img/activity/center/616/5go.mp4">
+
+                    <source src="{{ $static_origin }}/{{ $src }}/img/activity/center/616/5go.mp4"/>
+
+                    <img class="replace" src="http://img.gsxservice.com/0cms/d/file/content/2015/05/555b29dfd09a1.jpg" alt="4"/>
+
+
+                </video>
+            <div id="last">
+                <p>Copyright © 2014 - 2017 跟谁学版权所有. 京公网安备11010802015210号 | 京ICP备14027590号-1</p>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <ul id="navBar">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+
+    <div id="bd">
+        <div id="musicBox">
+            <div class="cover rotateCD"></div>
+        </div>
+    </div>
+
+    <div class="side-nav">
+        <div class="wrapper">
+            <div class="container">
+                <ul>
+                    <li class="owe">
+                        <a href="/activity/carnivalPrepare" target="_blank">
+                            <div class="mask"></div>
+                            <div class="content">周年活动</div>
+
+                        </a>
+                    </li>
+                    <li class="applay" >
+                        <div class="mask"></div>
+                        <div class="content"> <i class="icon icon-share"></i>
+                            我要分享
+                        </div>
+                        <div id="share">
+                {{ include file="common/component/baiduShare.html" }}
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+{{ /strip }}
+{{ /block }}

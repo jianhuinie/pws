@@ -1,0 +1,92 @@
+@import "module/index.styl";
+.fund-wallet {
+    overflow: hidden;
+    background: #f2f3f4;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    &-head {
+        background: #fff;
+        padding: rem(16) rem(15) rem(17);
+        overflow: hidden;
+        &-bg {
+            height: rem(156);
+            width: 100%;
+            overflow: hidden;
+            background-image: url('https://imgs.genshuixue.com/0cms/d/file/content/2018/01/5a588378bed4f.png');
+            background-size: 100% 100%;
+            text-align: center;
+            font-size: rem(14);
+            color: #FFFFFF;
+            box-shadow: 0 rem(4) rem(14) 0 rgba(249, 93, 93, 0.18);
+            border-radius: rem(6);
+            .balance {
+                &-text {
+                    margin-top: rem(32);
+                }
+                &-number {
+                    margin-top: rem(8);
+                    font-size: rem(38);
+                    line-height: rem(38);
+                    font-family: PingFangSC-Semibold;
+                }
+                &-next {
+                    margin-top: rem(16);
+                    font-size: rem(14);
+                }
+            }
+        }
+    }
+    &-body {
+        display: flex;
+        width: 100%;
+        background: #fff;
+        border-bottom: rem(1) solid #f6f6f6;
+        border-top: rem(1) solid #f6f6f6;
+        &-item {
+            position: relative;
+            flex: 1;
+            height: rem(68);
+            text-align: center;
+            overflow: hidden;
+            &:nth-child(1):after {
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                background: #f6f6f6;
+                content: ' ';
+                display: block;
+                width: rem(1);
+                height: rem(32);
+            }
+            .title {
+                font-size: rem(12);
+                color: #9D9D9E;
+                height: rem(12);
+                line-height: rem(12);
+                margin-top: rem(15);
+            }
+            .number {
+                font-family: PingFangSC-Regular;
+                margin-top: rem(4);
+                font-size: rem(20);
+                color: #3D3D3E;
+                letter-spacing: 0;
+                line-height: rem(20);
+            }
+        }
+    }
+    &-withdraw {
+        height: rem(46);
+        font-family: PingFangSC-Semibold;
+        font-size: rem(16);
+        color: #F95D5D;
+        letter-spacing: rem(5);
+        line-height: rem(46);
+        text-align: center;
+        background: #fff;
+    }
+}

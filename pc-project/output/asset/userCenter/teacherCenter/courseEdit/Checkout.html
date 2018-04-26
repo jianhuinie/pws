@@ -1,0 +1,14 @@
+<label class="checkbox">
+    <input type="checkbox" name=
+        "{{options.name}}" value=
+        "{{options.value}}" on-click=
+        "toggleStatus()"
+    />
+    {{options.text}}
+</label>
+
+<div class="input-group">
+    <div class="label secondary">￥</div>
+    <Input options="{{options.priceInputOptions}}" />
+    <div class="label secondary">元/课时</div>
+</div>

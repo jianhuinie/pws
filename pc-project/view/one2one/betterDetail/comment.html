@@ -1,0 +1,184 @@
+{{ *
+
+@file 优选一对一课程详情页 - 评价
+@author wangyujie
+
+@ ajax模板路径
+'comment_overview' => 'one2one/detail/commentOverview',
+'comment_nav' => 'one2one/detail/commentNav',
+'comment_list' => 'one2one/detail/commentList',
+
+* }}
+
+{{ strip }}
+<div id="teacher-comment">
+    <h3>
+        <span>评价</span>
+    </h3>
+
+    <div class="overview"></div>
+
+    <div class="comment-content">
+        <div class="list"></div>
+        <div class="pager-block"></div>
+    </div>
+
+</div>
+
+<script type="text/template" id="show-comment-overview">
+    <div class="score">
+        <strong>${summary.score}</strong>
+        <span class="star-score">
+            <!-- var: star = [1,2,3,4,5] -->
+            <!-- for: ${star} as ${i} -->
+                <!-- if: ${summary.score} >= ${i} -->
+                    <i class="icon icon-star star-shine"></i>
+                <!-- elif: ${i} - ${summary.score} <= 0.5 -->
+                    <span class="star-half">
+                        <i class="icon icon-star-half"></i>
+                        <i class="icon icon-star"></i>
+                    </span>
+                <!-- else -->
+                    <i class="icon icon-star"></i>
+                <!-- /if -->
+            <!-- /for -->
+        </span>
+    </div>
+    <div class="detail single">
+        <div class="star-comment">主动评价星级分布</div>
+        <ul>
+            <!-- for: ${summary.score_detail} as ${detail} -->
+            <!-- var: rate = ${detail.rate} * 100 -->
+            <li>
+                <span class="text">${detail.score}星</span>
+                <div class="progress primary">
+                    <div class="meter" style="width: ${rate}%"></div>
+                </div>
+                <span style="margin-left: 3px"> ${rate}% </span>
+            </li>
+            <!-- /for -->
+        </ul>
+    </div>
+</script>
+
+<script type="text/template" id="show-comment-list">
+    <!-- for: ${comments} as ${comment} -->
+            <div class="item">
+                <dl>
+                    <dt>
+                        <!--a href="/x/333082478" target="_blank"-->
+                            <b class="avatar-small">
+                                <img src="${comment.user.avatar_url}@1e_60w_60h_1c_0i_1o_90Q_1x.jpeg" alt="头像" width="60" height="60">
+                            </b>
+                        <!--/a-->
+                        <div class="user-name">
+                            ${comment.user.display_name}
+                        </div>
+                    </dt>
+                </dl>
+
+                <div class="comment">
+
+                    <div class="score-info">
+                        <span class="star-score">
+                            <!-- var: star = [1,2,3,4,5] -->
+                            <!-- for: ${star} as ${i} -->
+                                <!-- if: ${comment.score} >= ${i} -->
+                                    <i class="icon icon-star star-shine"></i>
+                                <!-- elif: ${i} - ${comment.score} <= 0.5 -->
+                                    <span class="star-half">
+                                        <i class="icon icon-star-half"></i>
+                                        <i class="icon icon-star"></i>
+                                    </span>
+                                <!-- else -->
+                                    <i class="icon icon-star"></i>
+                                <!-- /if -->
+                            <!-- /for -->
+                        </span>
+                    </div>
+
+                    <div class="content">
+                        ${comment.content}
+                    </div>
+
+                    <div class="order-info">
+                        <span class="date">${comment.create_time}</span>
+                        <div class="feedback">
+                            <b class="link btn-support" data-id="${comment.id}" data-count="${comment.thumb_count}">
+                                有用<span>（<em>${comment.thumb_count}</em>）</span>
+                            </b>
+                        </div>
+                    </div>
+
+                    <!-- if: ${comment.addition_comments.length} > 0 -->
+                        <!-- for: ${comment.addition_comments} as ${addition} -->
+                        <div class="comment-reply">
+                            ［追加评价］${addition.content}
+                        </div>
+                        <!-- /for -->
+                    <!-- /if -->
+
+                    <!-- if: ${comment.reply_comments.length} > 0 -->
+                        <!-- for: ${comment.reply_comments} as ${reply} -->
+                        <div class="comment-reply">
+                            ［回复］${reply.content}
+                        </div>
+                        <!-- /for -->
+                    <!-- /if -->
+                </div>
+
+                <!-- if: ${comment.fold_comments.length} > 0 -->
+                <div class="other-comment">
+                    <div class="more">
+                        <a class="more-comment">
+                            查看该用户其他${comment.fold_comments.length}条评价
+                        </a>
+                    </div>
+
+                    <!-- for: ${comment.fold_comments} as ${fold} -->
+                    <div class="others_comment">
+                        <div class="score-info">
+                            <span class="star-score">
+                                <!-- for: ${star} as ${i} -->
+                                    <!-- if: ${fold.score} >= ${i} -->
+                                        <i class="icon icon-star star-shine"></i>
+                                    <!-- elif: ${i} - ${fold.score} <= 0.5 -->
+                                        <span class="star-half">
+                                            <i class="icon icon-star-half"></i>
+                                            <i class="icon icon-star"></i>
+                                        </span>
+                                    <!-- else -->
+                                        <i class="icon icon-star"></i>
+                                    <!-- /if -->
+                                <!-- /for -->
+                            </span>
+                        </div>
+
+                        <div class="content">
+                            ${fold.content}
+                        </div>
+
+                        <div class="order-info">
+                            <span class="date">${fold.create_time}</span>
+                            <div class="feedback">
+                                <b class="link btn-support" data-id="${fold.id}" data-count="${fold.thumb_count}">
+                                    有用
+                                    <span>（<em>${fold.thumb_count}</em>）</span>
+                                </b>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /for -->
+                </div>
+                <!-- /if -->
+            </div>
+    <!-- /for -->
+</script>
+
+<script type="text/template" id="show-comment-pager">
+    <!-- if: ${pager.has_more} -->
+        <a>点击查看更多</a>
+    <!-- /if -->
+</script>
+
+{{ /strip }}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_tuijian</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="老师端" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-170.000000, -120.000000)" fill="#000000">
+            <path d="M187,121.717044 L187,128 L188,128 L188,120.5 C188,120.223858 187.776142,120 187.5,120 L180,120 L180,121 L186.302692,121 L176.394409,131.023496 L177.105591,131.726504 L187,121.717044 L187,121.717044 Z M175,120 L172.004882,120 C170.8939,120 170,120.893232 170,121.995089 L170,136.004911 C170,137.107377 170.893232,138 171.995089,138 L186.004911,138 C187.107377,138 188,137.102384 188,135.995118 L188,133 L187,133 L187,135.995118 C187,136.551451 186.553736,137 186.004911,137 L171.995089,137 C171.445259,137 171,136.554835 171,136.004911 L171,121.995089 C171,121.445049 171.44666,121 172.004882,121 L175,121 L175,120 L175,120 Z" id="ic_tuijian"></path>
+        </g>
+    </g>
+</svg>

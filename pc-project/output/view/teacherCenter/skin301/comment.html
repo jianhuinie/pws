@@ -1,0 +1,145 @@
+{{ *
+
+@file 新版老师模板页 - 首页 2016.1.8
+@author wuhongjie
+
+* }}
+
+{{ extends file="common/pc/base.html" }}
+{{ block name="data" }}
+
+{{ strip }}
+    {{ $smarty.block.parent }}
+    {{ $script_path = "teacherIndex/teacherComment_d3853b72eb" }}
+    {{ $script_data.teacherName = $tpl_data.profile.name }}
+    {{ $script_data.vipLevel = $tpl_data.profile.vip_level }}
+    {{ $script_data.templateLevel = $tpl_data.profile.template_level }}
+    {{ $script_data.domain = $tpl_data.profile.domain }}
+    {{ $script_data.teacherNum = $tpl_data.profile.user_number }}
+    {{ $script_data.teacherId = $tpl_data.profile.user_id }}
+    {{ $script_data.userId = $user_data.user_id }}
+    {{ $script_data.trial = $tpl_data.trial_course }}
+    {{ $script_data.initHeader = true }}
+    {{ $script_data.ispreview = $tpl_data.is_preview }}
+    {{ $script_data.isFavored = $tpl_data.is_favored }}
+    {{ $script_data.source = '2' }}
+    {{ $script_data.crumb = $tpl_data.crumb.list[3].remark_name }}
+
+    {{ if !empty($tpl_data.profile.organization) }}
+        {{ $script_data.org_id = $tpl_data.profile.organization.id }}
+    {{ else }}
+        {{ $script_data.org_id = 0 }}
+    {{ /if }}
+    {{ $script_data.trialCourseStatus = $tpl_data.trial_course.status }}
+    {{ $need_mobile_seo = true }}
+{{ /strip }}
+{{ /block }}
+
+{{ * SKU统计上报 * }}
+{{ block name='sku_id' }}
+{{ $sku_id=$tpl_data.profile.user_number }}
+{{ /block }}
+
+{{ block name="title" prepend }}
+{{ $tpl_data.title }}
+{{ /block }}
+
+{{ block name="keywords" }}
+{{ $tpl_data.keywords }}
+{{ /block }}
+
+{{ block name="description" }}
+{{ $tpl_data.description }}
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/teacherIndex/model3/comment_0765dc5228.css" />
+{{ /block }}
+
+{{ block name="body" }}
+
+{{ $smarty.block.parent }}
+{{ include file="common/siteNav.html" }}
+{{ strip }}
+
+{{ include file="teacherCenter/common/wrapper.html" }}
+<div id="content">
+    {{ $profile = $tpl_data.profile }}
+    {{ $teach = $tpl_data.teach }}
+    {{ include file="teacherCenter/common/scroll.html" profile = $profile active='comment' }}
+    {{ include file="teacherCenter/common/header3.html" active='comment' tpl_data=$tpl_data }}
+    <div class="body">
+        <div class="teacher-content">
+
+            <div class="teacher-comment">
+                <div class="teacher-content-header teacher-comment-header">
+                    <h1>课程评价</h1>
+                </div>
+                <div class="teacher-comment-content">
+                    {{ include file="teacherCenter/common/comment.html" tpl_data= $tpl_data }}
+                </div>
+            </div>
+        </div>
+        <div class="teacher-sidebar">
+            {{ if !empty($tpl_data.all_course) }}
+            <div class="teacher-recommend-course">
+                <div class="teacher-content-header teacher-comment-header">
+                    <h1>课程推荐</h1>
+                </div>
+                <div class="teacher-course-content">
+                    {{ foreach $tpl_data.all_course as $val }}
+                    <a class="course-item" href="{{ $val.detail_url }}" target="_blank">
+                        {{ if !empty($val.portrait) }}
+                        {{ $url = $val.portrait }}
+                        {{ else }}
+                        {{ $url = $val.cover_url }}
+                        {{ /if }}
+                        {{ include file="common/component/image.html" url=$url width="220" height=124 }}
+                        {{ $title = $val.name|cn_truncate:12 }}
+                        <div class="course-title" {{ if $title != $val.name }}data-title="{{ $val.name }}"{{ /if }}>{{ $title }}</div>
+                        {{ $class = '' }}
+                        {{ if $val.course_type == 1 }}
+                            {{ if count($val.price) > 1 }}
+                            {{ $min_price = 99999999 }}
+                            {{ foreach $val.price as $v }}
+                            {{ if $v && $v < $min_price }}
+                            {{ $min_price = $v }}
+                            {{ /if }}
+                            {{ /foreach }}
+                            {{ else }}
+                            {{ $min_price = $val.price[0] }}
+                            {{ /if }}
+                            {{ $price = $min_price }}
+                        {{ else }}
+                            {{ $price = $val.price }}
+                        {{ /if }}
+
+                        {{ if $price == 0 || $price == "0.00" }}
+                        {{ $price = '免费' }}
+                        {{ $class = 'price-free' }}
+                        {{ else }}
+                        {{ $price = '¥'|cat:$price }}
+                        {{ /if }}
+                        <div class="course-price {{ $class }}">{{ $price }}</div>
+                    </a>
+                    {{ /foreach }}
+                </div>
+            </div>
+            {{ /if }}
+        </div>
+
+    </div>
+</div>
+{{ /strip }}
+
+{{ include file="common/script.html" }}
+
+{{ block name="script" }}
+{{ strip }}
+{{ include file="common/component/loginDialog.html" onlyShowStudent=1 }}
+{{ /strip }}
+{{ /block }}
+
+{{ include file="common/footer.html" }}
+{{ include file="common/innerlink/searchList.html" data=$tpl_data.pageInnerLinks mod="老师" inner_type="teacher" }}
+{{ /block }}

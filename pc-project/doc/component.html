@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <title>组件</title>
+        <link rel="stylesheet" href="/doc/main.less">
+        <style>
+        body {
+            padding: 20px;
+            padding-left: 190px;
+        }
+        sidebar,
+        section {
+            background-color: #F5FAF4;
+            border: 1px solid #DDD;
+            box-shadow: 1px 1px 0 #F3F3F3;
+        }
+        sidebar {
+            position: fixed;
+            left: 20px;
+            top: 20px;
+            width: 150px;
+        }
+        sidebar a {
+            display: block;
+            padding: 5px 10px;
+        }
+        section {
+            padding: 0 20px 20px;
+            margin-bottom: 26px;
+        }
+        section > h1 {
+            border-bottom: 1px solid #EEE;
+            font-size: 18px;
+            padding: 10px 0;
+            margin-bottom: 20px;
+        }
+        section > ul + ul,
+        section > ul + div,
+        section > div + div {
+            margin-top: 10px;
+        }
+
+        .form {
+            width: 450px;
+        }
+        .form-label {
+            width: 100px;
+        }
+        textarea {
+            width: 300px;
+            height: 80px !important;
+        }
+        .img-example,
+        .video-example {
+            display: inline-block;
+        }
+
+        ul {
+            overflow: hidden;
+        }
+        li {
+            float: left;
+            margin-right: 10px;
+        }
+
+        #week-calendar-readyonly {
+            width: 265px;
+        }
+        #course-month-calendar {
+            margin: 3em 0;
+        }
+        </style>
+    </head>
+    <body>
+{{ strip }}
+        <sidebar>
+            <a href="#icon">图标</a>
+            <a href="#btn">按钮</a>
+            <a href="#form-control">表单控件</a>
+            <a href="#form-validate">表单验证</a>
+            <a href="#table">表格</a>
+            <a href="#pager">翻页</a>
+            <a href="#dialog">对话框</a>
+            <a href="#tab">标签页</a>
+            <a href="#text">文字颜色</a>
+            <a href="#label">标签</a>
+            <a href="#tip">工具提示</a>
+            <a href="#star-score">星级评分</a>
+            <a href="#avatar">头像</a>
+            <a href="#image">图片</a>
+            <a href="#video">视频</a>
+            <a href="#progress">进度条</a>
+            <a href="#uploader">上传</a>
+            <a href="#calendar">日历</a>
+        </sidebar>
+
+        <section id="icon">
+
+            <h1>图标</h1>
+
+            <div>
+                <i class="icon icon-arrow-up"></i>
+                <i class="icon icon-arrow-up-o"></i>
+                <i class="icon icon-article-arrow"></i>
+                <i class="icon icon-article-share"></i>
+                <i class="icon icon-arrow-down"></i>
+                <i class="icon icon-arrow-down-o"></i>
+                <i class="icon icon-check"></i>
+                <i class="icon icon-times"></i>
+                <i class="icon icon-close"></i>
+                </br>
+                <i class="icon icon-share-o"></i>
+                <i class="icon icon-rename"></i>
+                <i class="icon icon-new-folder"></i>
+                <i class="icon icon-pitch-on"></i>
+                <i class="icon icon-download"></i>
+                <i class="icon icon-move-file"></i>
+                <i class="icon icon-recycle-bin"></i>
+                <i class="icon icon-netdisk"></i>
+
+            </div>
+
+            <div>
+                <i class="icon icon-info-circle"></i>
+                <i class="icon icon-check-circle"></i>
+                <i class="icon icon-plus-circle"></i>
+                <i class="icon icon-minus-circle"></i>
+                <i class="icon icon-times-circle"></i>
+                <i class="icon icon-question-circle"></i>
+                <i class="icon icon-mobile-circle"></i>
+                <i class="icon icon-pencil-circle"></i>
+                <i class="icon icon-home-circle"></i>
+                <i class="icon icon-lightning-circle"></i>
+                <i class="icon icon-triangle"></i>
+                <i class="icon icon-triangle-oblong"></i>
+            </div>
+
+            <div>
+                <i class="icon icon-attachment"></i>
+                <i class="icon icon-ban"></i>
+                <i class="icon icon-bars-circle"></i>
+            </div>
+
+            <div>
+                <i class="icon icon-wave-left"></i>
+                <i class="icon icon-wave-right"></i>
+            </div>
+
+            <div>
+                <i class="icon icon-favor"></i>
+                <i class="icon icon-star"></i>
+                <i class="icon icon-circle"></i>
+            </div>
+
+            <div>
+                <i class="icon icon-smile-o"></i>
+                <i class="icon icon-neutral-o"></i>
+                <i class="icon icon-frown-o"></i>
+                <i class="icon icon-expression"></i>
+            </div>
+
+            <div>
+                <i class="icon icon-mail-circle"></i>
+                <i class="icon icon-phone-circle"></i>
+                <i class="icon icon-phone-o"></i>
+                <i class="icon icon-qq-circle"></i>
+                <i class="icon icon-wechat-circle"></i>
+                <i class="icon icon-weibo-circle"></i>
+                <i class="icon icon-renren-circle"></i>
+                <i class="icon icon-alipay-circle"></i>
+                <i class="icon icon-baidu-circle"></i>
+            </div>
+
+            <div>
+                <i class="icon icon-play-o"></i>
+                <i class="icon icon-play-oo"></i>
+                <i class="icon icon-lightning-o"></i>
+            </div>
+
+            <div>
+                <i class="icon icon-lightning"></i>
+                <i class="icon icon-home"></i>
+                <i class="icon icon-thumbs-up"></i>
+                <i class="icon icon-eye"></i>
+                <i class="icon icon-comment"></i>
+                <i class="icon icon-location"></i>
+                <i class="icon icon-plus"></i>
+                <i class="icon icon-share"></i>
+                <i class="icon icon-warning"></i>
+                <i class="icon icon-camera"></i>
+                <i class="icon icon-phone"></i>
+                <i class="icon icon-user"></i>
+                <i class="icon icon-message"></i>
+                <i class="icon icon-mobile"></i>
+                <i class="icon icon-screen"></i>
+                <i class="icon icon-screen-o"></i>
+                <i class="icon icon-calendar"></i>
+                <i class="icon icon-sign"></i>
+                <i class="icon icon-lock"></i>
+                <i class="icon icon-book"></i>
+                <i class="icon icon-book-slope"></i>
+                <i class="icon icon-image"></i>
+                <i class="icon icon-image-more"></i>
+                <i class="icon icon-pencil"></i>
+                <i class="icon icon-chat"></i>
+                <i class="icon icon-clock"></i>
+                <i class="icon icon-logo"></i>
+                <i class="icon icon-setting"></i>
+                <i class="icon icon-medal"></i>
+                <i class="icon icon-gift"></i>
+                <i class="icon icon-prize"></i>
+                <i class="icon icon-live"></i>
+                <i class="icon icon-live-play"></i>
+                <i class="icon icon-rank"></i>
+                <i class="icon icon-help"></i>
+                <i class="icon icon-feedback"></i>
+                <i class="icon icon-mobile-o"></i>
+                <i class="icon icon-up"></i>
+                <i class="icon icon-microphone2"></i>
+                <i class="icon icon-refresh"></i>
+                <i class="icon icon-shutdown"></i>
+                <i class="icon icon-group"></i>
+            </div>
+
+            <div>
+                <i class="icon icon-profile-rect"></i>
+            </div>
+
+            <div>
+                <i class="icon icon-door-o"></i>
+                <i class="icon icon-book-o"></i>
+                <i class="icon icon-clock-o"></i>
+                <i class="icon icon-chat-o"></i>
+                <i class="icon icon-webcam-o"></i>
+                <i class="icon icon-mail"></i>
+                <i class="icon icon-student"></i>
+                <i class="icon icon-search"></i>
+                <i class="icon icon-search-plus"></i>
+                <i class="icon icon-flag-o"></i>
+                <i class="icon icon-plus-o"></i>
+                <i class="icon icon-sun-o"></i>
+                <i class="icon icon-wechat-o"></i>
+                <i class="icon icon-check-o"></i>
+            </div>
+
+            <div>
+                <i class="icon icon-v-o"></i>
+                <i class="icon icon-message-o"></i>
+                <i class="icon icon-heart-o"></i>
+                <i class="icon icon-heart"></i>
+                <i class="icon icon-camera-o"></i>
+                <i class="icon icon-profile-o"></i>
+                <i class="icon icon-portrait-o"></i>
+                <i class="icon icon-setting-o"></i>
+                <i class="icon icon-file-o"></i>
+                <i class="icon icon-info-o"></i>
+                <i class="icon icon-home-o"></i>
+                <i class="icon icon-list-o"></i>
+                <i class="icon icon-medal-o"></i>
+                <i class="icon icon-money-o"></i>
+                <i class="icon icon-send-o"></i>
+                <i class="icon icon-shield-o"></i>
+                <i class="icon icon-star-o"></i>
+                <i class="icon icon-group-o"></i>
+                <i class="icon icon-times-o"></i>
+                <i class="icon icon-user-o"></i>
+                <i class="icon icon-location-o"></i>
+                <i class="icon icon-bars-o"></i>
+                <i class="icon icon-ellipsis-o"></i>
+                <i class="icon icon-mortarboard-o"></i>
+                <i class="icon icon-image-o"></i>
+                <i class="icon icon-book-open-o"></i>
+            </div>
+
+            <div>
+                <i class="icon icon-bullseye"></i>
+                <i class="icon icon-deliver"></i>
+                <i class="icon icon-door"></i>
+                <i class="icon icon-reply"></i>
+                <i class="icon icon-arrows"></i>
+                <i class="icon icon-rmb-o"></i>
+                <i class="icon icon-rmb"></i>
+                <i class="icon icon-shopping-cart"></i>
+                <i class="icon icon-variety"></i>
+                <i class="icon icon-vip"></i>
+                <i class="icon icon-edit-o"></i>
+            </div>
+
+            <div>
+                <i class="icon icon-clock-large-o"></i>
+                <i class="icon icon-money-large-o"></i>
+                <i class="icon icon-search-large-o"></i>
+                <i class="icon icon-thumbs-up-large-o"></i>
+                <i class="icon icon-chat-large-o"></i>
+                <i class="icon icon-target-large-o"></i>
+            </div>
+            </div>
+
+            <div>
+                <i class="icon icon-book-large-o"></i>
+                <i class="icon icon-cash-large-o"></i>
+                <i class="icon icon-shield-large-o"></i>
+                <i class="icon icon-ban-o"></i>
+                <i class="icon icon-coupons"></i>
+                <i class="icon icon-coupon-o"></i>
+                <i class="icon icon-markting-o"></i>
+            </div>
+
+            <div>
+                <i class="icon icon-angle-up"></i>
+                <i class="icon icon-angle-down"></i>
+                <i class="icon icon-sort"></i>
+                <i class="icon icon-caret-up"></i>
+                <i class="icon icon-caret-down"></i>
+                <i class="icon icon-caret-left"></i>
+                <i class="icon icon-caret-right"></i>
+                <i class="icon icon-chevron-left"></i>
+                <i class="icon icon-chevron-right"></i>
+                <i class="icon icon-speaker"></i>
+            </div>
+
+            <div>
+                <i class="icon angle-right-circle"></i>
+            </div>
+
+            <div>
+                <i class="icon icon-wheat"></i>
+            </div>
+
+            <div>
+                <i class="icon icon-left-large"></i>
+                <i class="icon icon-right-large"></i>
+                <i class="icon icon-tv"></i>
+                <i class="icon icon-arrow-o"></i>
+                <i class="icon icon-customer"></i>
+                <i class="icon icon-edit-underline"></i>
+                <i class="icon icon-question"></i>
+                <i class="icon icon-fire"></i>
+                <i class="icon icon-see-another"></i>
+            </div>
+
+            <div>
+                <i class="icon icon-certification-idcard"></i>
+                <i class="icon icon-certification-teacher"></i>
+                <i class="icon icon-certification-institute"></i>
+                <i class="icon icon-certification-profession"></i>
+                <i class="icon icon-certification-student"></i>
+                <i class="icon icon-certification-other"></i>
+                <i class="icon icon-certification-license"></i>
+            </div>
+
+
+            <div>
+                <i class="icon icon-add"></i>
+                <i class="icon icon-add-dark"></i>
+                <i class="icon icon-add-light"></i>
+
+                <i class="icon icon-remove"></i>
+                <i class="icon icon-remove-dark"></i>
+                <i class="icon icon-remove-light"></i>
+
+                <i class="icon icon-edit"></i>
+                <i class="icon icon-edit-dark"></i>
+                <i class="icon icon-edit-light"></i>
+
+                <i class="icon icon-round-add"></i>
+                <i class="icon icon-round-add-dark"></i>
+                <i class="icon icon-round-add-light"></i>
+
+                <i class="icon icon-round-edit"></i>
+                <i class="icon icon-round-edit-dark"></i>
+                <i class="icon icon-round-edit-light"></i>
+            </div>
+
+            <div>
+                <i class="icon icon-small-remove-dark"></i>
+                <i class="icon icon-small-remove-light"></i>
+                <i class="icon icon-small-edit-dark"></i>
+                <i class="icon icon-small-edit-light"></i>
+            </div>
+
+            <div>
+                <i class="icon icon-big-add-dark"></i>
+                <i class="icon icon-big-add-light"></i>
+                <i class="icon icon-big-edit-dark"></i>
+                <i class="icon icon-big-edit-light"></i>
+                <i class="icon icon-small-add-dark"></i>
+                <i class="icon icon-small-add-light"></i>
+            </div>
+
+            <div>
+                <i class="icon icon-combo-green"></i>
+                <i class="icon icon-combo-blue"></i>
+                <i class="icon icon-combo-green-small"></i>
+                <i class="icon icon-combo-blue-small"></i>
+            </div>
+
+            <div>
+                <i class="icon icon-writer"></i>
+                <i class="icon icon-picture"></i>
+            </div>
+
+            <div>
+                <i class="icon icon-bank-cmb" title="招商银行"></i>
+                <i class="icon icon-bank-icbc" title="中国工商银行"></i>
+                <i class="icon icon-bank-ccb" title="中国建设银行"></i>
+                <i class="icon icon-bank-abc" title="中国农业银行"></i>
+                <i class="icon icon-bank-boc" title="中国银行"></i>
+            </div>
+
+            <div>
+                <i class="icon icon-bank-bcm" title="交通银行"></i>
+                <i class="icon icon-bank-psbc" title="中国邮政储蓄银行"></i>
+                <i class="icon icon-bank-cgb" title="广发银行"></i>
+                <i class="icon icon-bank-spdb" title="浦发银行"></i>
+                <i class="icon icon-bank-ceb" title="光大银行"></i>
+            </div>
+
+            <div>
+                <i class="icon icon-bank-pab" title="平安银行"></i>
+                <i class="icon icon-bank-cib" title="兴业银行"></i>
+                <i class="icon icon-bank-cmbc" title="民生银行"></i>
+                <i class="icon icon-bank-citic" title="中信银行"></i>
+                <i class="icon icon-bank-hxb" title="华夏银行"></i>
+            </div>
+
+            <div>
+                <i class="icon icon-bank-bos" title="上海银行"></i>
+                <i class="icon icon-bank-bjrcb" title="北京农村商业银行"></i>
+                <i class="icon icon-bank-nbcb" title="宁波银行"></i>
+                <i class="icon icon-bank-hzb" title="杭州银行"></i>
+                <i class="icon icon-bank-srcb" title="上海农商银行"></i>
+                <i class="icon icon-bank-bocd" title="成都银行"></i>
+                <i class="icon icon-bank-cdrcb" title="成都农商银行"></i>
+
+            </div>
+
+            <div>
+                <i class="icon icon-bank-bob" title="北京银行"></i>
+                <i class="icon icon-bank-wzcb" title="温州银行"></i>
+                <i class="icon icon-bank-jsb" title="江苏银行"></i>
+                <i class="icon icon-bank-bnc" title="南昌银行"></i>
+                <i class="icon icon-bank-fdb" title="富滇银行"></i>
+                <i class="icon icon-bank-sdb" title="深圳发展银行"></i>
+                <i class="icon icon-bank-alipay" title="支付宝"></i>
+                <i class="icon icon-bank-wechat" title="微信支付"></i>
+                <i class="icon icon-bank-abc1003" title="visa"></i>
+                <i class="icon icon-bank-abc1004" title="master"></i>
+                <i class="icon icon-bank-shortcut" title="快捷支付"></i>
+            </div>
+
+        </section>
+
+        <section id="btn">
+            <h1>按钮</h1>
+            <ul>
+                <li>
+                    <button class="btn-small">确定</button>
+                </li>
+                <li>
+                    <button class="btn-small btn-gray">确定</button>
+                </li>
+                <li>
+                    <button class="btn-small btn-default">确定</button>
+                </li>
+                <li>
+                    <button class="btn-small btn-primary">确定</button>
+                </li>
+                <li>
+                    <button class="btn-small btn-info">确定</button>
+                </li>
+                <li>
+                    <button class="btn-small btn-success">确定</button>
+                </li>
+                <li>
+                    <button class="btn-small btn-link">确定</button>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <button class="btn">确定</button>
+                </li>
+                <li>
+                    <button class="btn btn-gray">确定</button>
+                </li>
+                <li>
+                    <button class="btn btn-default">确定</button>
+                </li>
+                <li>
+                    <button class="btn btn-primary">确定</button>
+                </li>
+                <li>
+                    <button class="btn btn-info">确定</button>
+                </li>
+                <li>
+                    <button class="btn btn-success">确定</button>
+                </li>
+                <li>
+                    <button class="btn btn-link">确定</button>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <button class="btn" disabled>确定</button>
+                </li>
+                <li>
+                    <button class="btn btn-gray" disabled>确定</button>
+                </li>
+                <li>
+                    <button class="btn btn-default" disabled>确定</button>
+                </li>
+                <li>
+                    <button class="btn btn-primary" disabled>确定</button>
+                </li>
+                <li>
+                    <button class="btn btn-info" disabled>确定</button>
+                </li>
+                <li>
+                    <button class="btn btn-success" disabled>确定</button>
+                </li>
+                <li>
+                    <button class="btn btn-link" disabled>确定</button>
+                </li>
+            </ul>
+            <div>
+                <div class="btn btn-block">确定</div>
+                <div class="btn btn-default btn-block">确定</div>
+                <div class="btn btn-primary btn-block">确定</div>
+                <div class="btn btn-info btn-block">确定</div>
+                <div class="btn btn-success btn-block">确定</div>
+                <div class="btn btn-link btn-block">确定</div>
+            </div>
+        </section>
+
+        <section id="form-control">
+            <h1>表单控件</h1>
+            <div class="form">
+
+                <div class="form-group">
+                    <label class="form-label">文本输入框：</label>
+                    <div class="form-controls">
+                        <div class="form-static">纯文本</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">文本输入框：</label>
+                    <div class="form-controls">
+                        <input class="form-text" type="text" name="username" placeholder="请输入用户名" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">数字输入框：</label>
+                    <div class="form-controls">
+                        <input class="form-number-example form-text" type="text" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">日期输入框：</label>
+                    <div class="form-controls">
+                        <div class="form-date">
+                            <input type="text" class="form-text form-date-example" />
+                            <div class="calendar"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">时间输入框：</label>
+                    <div class="form-controls">
+                        <div class="dropdown daytime-select">
+                            <input type="text" class="form-text" />
+                            <span class="trigger">
+                                <i class="caret"></i>
+                            </span>
+                            <ul class="dropdown-menu">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">日期下拉菜单：</label>
+                    <div class="form-controls">
+                        <div id="date-select">
+                            {{ include file="common/component/dateSelect.html" }}
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="form-group">
+                    <label class="form-label">地区下拉菜单：</label>
+                    <div class="form-controls">
+                        <div id="region-select">
+                            {{ include file="common/component/regionSelect.html" }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">前后缀输入框：</label>
+                    <div class="form-controls">
+                        <span class="input-group">
+                            <span class="input-group-addon">￥</span>
+                            <input class="form-text" type="text" />
+                            <span class="input-group-addon">时</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">单选框：</label>
+                    <div class="form-controls">
+
+                        {{ include file="common/component/radio.html" name="sex" value=1 text="男" }}
+
+                        {{ include file="common/component/radio.html" name="sex" value=0 text="女" }}
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">复选框：</label>
+                    <div class="form-controls">
+
+                        {{ include file="common/component/checkbox.html" name="hobby" value=0 text="琴" }}
+
+                        {{ include file="common/component/checkbox.html" name="hobby" value=1 text="棋" }}
+
+                        {{ include file="common/component/checkbox.html" name="hobby" value=2 text="书" }}
+
+                        {{ include file="common/component/checkbox.html" name="hobby" value=3 text="画" }}
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">文本域：</label>
+                    <div class="form-controls">
+                        <div class="form-editor">
+                            <textarea class="form-text" placeholder="请输入xxx"></textarea>
+                            <span class="form-hint">还可以输入<strong></strong>个字</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section id="form-validate">
+
+            <h1>表单验证</h1>
+
+            <div class="form">
+
+                <div class="form-group">
+                    <label class="form-label">用户名<i class="form-required"></i>：</label>
+                    <div class="form-controls">
+                        <input class="form-text" type="text" name="username" value="百家互联" placeholder="请输入用户名" required />
+                        <div class="form-static form-inline">
+                            <span class="success">
+                                <i class="icon icon-check-circle"></i>
+                            </span>
+                        </div>
+                        <span class="error"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">密码：</label>
+                    <div class="form-controls">
+                        <input class="form-text" type="password" name="password" required minlength="3" maxlength="8" />
+                        <div class="form-static form-inline">
+                            <span class="form-hint">
+                                <i class="icon icon-info-circle"></i>密码长度为 3 到 8 位
+                            </span>
+                            <span class="success"></span>
+                        </div>
+                        <span class="error"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">确认密码：</label>
+                    <div class="form-controls">
+                        <input class="form-text" type="password" name="password_confirm" required equals="password" />
+                        <div class="form-inline">
+                            <span class="success"></span>
+                        </div>
+                        <span class="error"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">城市：</label>
+                    <div class="form-controls">
+                        <div class="dropdown" required>
+                            <button class="btn">
+                                <i class="caret"></i>
+                                <span>请选择</span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li data-value="0">全部</li>
+                                <li data-value="1">北京</li>
+                                <li data-value="2">上海</li>
+                                <li data-value="3">广州</li>
+                                <li data-value="4">深圳</li>
+                            </ul>
+                        </div>
+                        <span class="error"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">年龄：</label>
+                    <div class="form-controls">
+                        <input class="form-number-example form-text" type="text" name="age" required min="1" max="80" />
+                        <div class="form-inline">
+                            <span class="success"></span>
+                        </div>
+                        <span class="error"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">手机：</label>
+                    <div class="form-controls">
+                        <input class="form-text" type="mobile" name="mobile" required />
+                        <div class="form-inline">
+                            <span class="success"></span>
+                        </div>
+                        <span class="error"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">座机：</label>
+                    <div class="form-controls">
+                        <input class="form-text" type="tel" name="tel" required />
+                        <div class="form-inline">
+                            <span class="success"></span>
+                        </div>
+                        <span class="error"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">邮箱：</label>
+                    <div class="form-controls">
+                        <input class="form-text" type="email" name="email" required />
+                        <div class="form-inline">
+                            <span class="success"></span>
+                        </div>
+                        <span class="error"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">留言：</label>
+                    <div class="form-controls">
+                        <textarea class="form-text" type="text" name="message" required></textarea>
+                        <span class="error"></span>
+                    </div>
+                </div>
+
+                <div class="form-action">
+                    <button class="btn btn-primary">确定</button>
+                    <button class="btn btn-default">取消</button>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section id="table">
+
+            <h1>表格</h1>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>姓名</th>
+                        <th>年龄</th>
+                        <th>性别</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>哈哈</td>
+                        <td>20</td>
+                        <td>男</td>
+                    </tr>
+                    <tr>
+                        <td>哈哈</td>
+                        <td>20</td>
+                        <td>男</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </section>
+
+        <section id="pager">
+
+            <h1>翻页</h1>
+
+            {{ include file="common/component/pager.html" page=1 count=100 }}
+
+
+        </section>
+
+        <section id="dialog">
+
+            <h1>对话框</h1>
+            <ul>
+                <li>
+                    <button id="dialog-trigger-custom" class="btn-default">自定义内容对话框</button>
+                </li>
+                <li>
+                    <button id="dialog-trigger-alert" class="btn-default">alert对话框</button>
+                </li>
+                <li>
+                    <button id="dialog-trigger-confirm" class="btn-default">confirm对话框</button>
+                </li>
+
+                <li>
+                    <button id="dialog-trigger-primary" class="btn-primary">primary 提示</button>
+                </li>
+                <li>
+                    <button id="dialog-trigger-info" class="btn-info">info 提示</button>
+                </li>
+                <li>
+                    <button id="dialog-trigger-success" class="btn-success">success 提示</button>
+                </li>
+                <li>
+                    <button id="dialog-trigger-error" class="btn-default">error 提示</button>
+                </li>
+            </ul>
+
+        </section>
+
+        <section id="tab">
+
+            <h1>标签页</h1>
+            <div class="tab">
+                <div class="tab-nav tab-nav-primary">
+                    <b class="nav-item">哈哈</b>
+                    <b class="nav-item">啊啊</b>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-panel">
+                        哈哈哈哈哈哈
+                    </div>
+                    <div class="tab-panel">
+                        啊啊啊啊啊啊
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab">
+                <div class="tab-nav tab-nav-info">
+                    <b class="nav-item">哈哈</b>
+                    <b class="nav-item">啊啊</b>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-panel">
+                        哈哈哈哈哈哈
+                    </div>
+                    <div class="tab-panel">
+                        啊啊啊啊啊啊
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section id="text">
+
+            <h1>文字颜色</h1>
+
+            <ul>
+                <li>
+                    <span class="text-primary">primary</span>
+                </li>
+                <li>
+                    <span class="text-info">info</span>
+                </li>
+                <li>
+                    <span class="text-success">success</span>
+                </li>
+                <li>
+                    <span class="text-error">error</span>
+                </li>
+                <li>
+                    <span class="text-gray">text-gray</span>
+                </li>
+            </ul>
+
+        </section>
+
+        <section id="badge">
+
+            <h1>徽章</h1>
+
+            <ul>
+                <li>
+                    <span class="badge badge-primary">primary</span>
+                </li>
+                <li>
+                    <span class="badge badge-info">info</span>
+                </li>
+                <li>
+                    <span class="badge badge-success">success</span>
+                </li>
+                <li>
+                    <span class="badge badge-error">error</span>
+                </li>
+            </ul>
+        </section>
+
+        <section id="label">
+            <h1>标签</h1>
+            <ul>
+                <li>
+                    <label class="label">标签</label>
+                </li>
+                <li>
+                    <label class="label label-default">标签</label>
+                </li>
+                <li>
+                    <label class="label label-primary">标签</label>
+                </li>
+                <li>
+                    <label class="label label-info">标签</label>
+                </li>
+                <li>
+                    <label class="label label-success">标签</label>
+                </li>
+                <li>
+                    <label class="label label-error">标签</label>
+                </li>
+            </ul>
+
+            <ul>
+                <li>
+                    <label class="label-inverse">标签</label>
+                </li>
+                <li>
+                    <label class="label-inverse label-default">标签</label>
+                </li>
+                <li>
+                    <label class="label-inverse label-primary">标签</label>
+                </li>
+                <li>
+                    <label class="label-inverse label-info">标签</label>
+                </li>
+                <li>
+                    <label class="label-inverse label-success">标签</label>
+                </li>
+                <li>
+                    <label class="label-inverse label-error">标签</label>
+                </li>
+            </ul>
+        </section>
+
+        <section id="tip">
+
+            <h1>工具提示</h1>
+            <ul>
+                <li>
+                    <label class="label label-primary" data-title="哈哈哈哈哈哈哈哈" data-placement="top">哈哈...</label>
+                </li>
+                <li>
+                    <label class="label label-primary" data-title="哈哈哈哈哈哈哈哈" data-placement="right">哈哈...</label>
+                </li>
+                <li>
+                    <label class="label label-primary" data-title="哈哈哈哈哈哈哈哈" data-placement="bottom">哈哈...</label>
+                </li>
+                <li>
+                    <label class="label label-primary" data-title="哈哈哈哈哈哈哈哈" data-placement="left">哈哈...</label>
+                </li>
+            </ul>
+
+            <h1>文字提示</h1>
+            <div>
+                <div class="message message-info">
+                    <i class="icon icon-info-circle"></i>
+                    普通提示信息普通提示信息普通提示信息普通提示信息普通提示信息普通提示信息普通提示信息普通提示信息普通提示信息普通提示信息普通提示信息普通提示信息普通提示信息！
+                </div>
+                <div class="message message-success">
+                    <i class="icon icon-check-circle"></i>
+                    成功提示信息！
+                </div>
+                <div class="message message-error">
+                    <i class="icon icon-info-circle"></i>
+                    错误提示信息！
+                </div>
+                <div class="message message-audit">
+                    <i class="icon icon-clock"></i>
+                    审核提示信息！
+                </div>
+            </div>
+        </section>
+
+        <section id="star-score">
+            <h1>星级评分</h1>
+            只读：{{ include file="common/component/starScore.html" score=4 }}
+        </section>
+
+        <section id="avatar">
+            <h1>头像</h1>
+            <ul>
+                <li>
+                    {{ include file="common/component/avatar.html" type="tiny" img="http://img.genshuixue.com/8245_hkz5iw1x.jpeg" }}
+                    <span class="caption">昵称</span>
+                </li>
+                <li>
+                    {{ include file="common/component/avatar.html" url="http://www.baidu.com" type="small" img="http://img.genshuixue.com/8245_hkz5iw1x.jpeg" }}
+                    <span class="caption">昵称</span>
+                </li>
+                <li>
+                    {{ include file="common/component/avatar.html" type="medium" img="http://img.genshuixue.com/8245_hkz5iw1x.jpeg" }}
+                    <span class="caption">昵称</span>
+                </li>
+                <li>
+                    {{ include file="common/component/avatar.html" type="large" img="http://img.genshuixue.com/8245_hkz5iw1x.jpeg" }}
+                    <span class="caption">昵称</span>
+                </li>
+            </ul>
+        </section>
+
+        <section id="image">
+            <h1>图片</h1>
+
+            <ul>
+                <li>
+                    {{ include file="common/component/imageThumbnail.html" url="http://img.genshuixue.com/3469_6o9rvtdk.jpeg" title="" }}
+                </li>
+                <li>
+                    {{ include file="common/component/imageThumbnail.html" url="http://img.genshuixue.com/3469_6o9rvtdk.jpeg" title="图片标题" }}
+                </li>
+                <li id="img-thumbnail-example">
+                    {{ include file="common/component/imageThumbnail.html" url="http://img.genshuixue.com/3469_6o9rvtdk.jpeg" title="图片标题" editable=1 }}
+                </li>
+            </ul>
+
+        </section>
+
+        <section id="video">
+            <h1>视频</h1>
+            <ul>
+                <li>
+                    {{ include file="common/component/videoThumbnail.html" video="" img="http://i2.letvimg.com/yunzhuanma/201409/21/48b19f8155c3c333cfb29cc83bc4d0cd/thumb/1_160_120.jpg" title="" }}
+                </li>
+                <li>
+                    {{ include file="common/component/videoThumbnail.html" video="" img="http://i2.letvimg.com/yunzhuanma/201409/21/48b19f8155c3c333cfb29cc83bc4d0cd/thumb/1_160_120.jpg" title="视频标题" }}
+                </li>
+                <li id="video-thumbnail-example">
+                    {{ include file="common/component/videoThumbnail.html" video="" img="http://i2.letvimg.com/yunzhuanma/201409/21/48b19f8155c3c333cfb29cc83bc4d0cd/thumb/1_160_120.jpg" title="视频标题" editable=1 }}
+                </li>
+
+            </ul>
+
+        </section>
+
+        <section id="progress">
+            <h1>进度条</h1>
+            <div class="progress">
+                <div class="progress-bar" style="width: 50%;">
+                    <span>50%</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="uploader">
+            <h1>上传</h1>
+            {{ include file="common/component/imageUploader.html" }}
+        </section>
+
+        <section id="calendar">
+            <h1>日历</h1>
+            <div id="week-calendar-readyonly"></div>
+            <div id="course-month-calendar"></div>
+            <div id="course-week-calendar"></div>
+        </section>
+
+{{ /strip }}
+        <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="http://s1.bdstatic.com/r/www/cache/ecom/esl/1-8-2/esl.js"></script>
+        <script>
+
+            require.config({
+                baseUrl: '/src',
+                paths: {
+                    cobble: '../dep/cobble/0.3.5/src'
+                }
+            });
+
+            require(
+                [
+                    'cobble/form/Validator',
+                    'cobble/form/Number',
+                    'cobble/form/Date',
+                    'cobble/form/Checkbox',
+                    'cobble/form/Radio',
+                    'cobble/form/Select',
+                    'cobble/ui/Tab',
+                    'cobble/ui/Tooltip',
+                    'cobble/ui/Calendar',
+                    'cobble/ui/Dialog',
+
+                    'common/ui',
+                    'common/component/Editor',
+                    'common/component/Image',
+                    'common/component/DaytimeSelect',
+                    'common/component/DateSelect',
+                    'common/component/RegionSelect',
+                    'common/component/ImageUploader',
+                    'teacher/component/WeekCalendar',
+                    'common/component/CourseMonthCalendar',
+                    'common/component/CourseWeekCalendar'
+                ],
+                function (Validator, Number, Date,
+                          Checkbox, Radio, Select,
+                          Tab, Tooltip, Calendar,
+                          Dialog, ui,
+                          Editor, Image,
+                          DaytimeSelect,
+                          DateSelect,
+                          RegionSelect,
+                          ImageUploader,
+                          WeekCalendar,
+                          CourseMonthCalendar,
+                          CourseWeekCalendar
+                ) {
+
+                    Number.init($('.form-number-example'));
+                    Date.init($('.form-date-example'));
+
+                    var validator = new Validator({
+                        element: $('#form-validate'),
+                        errorText: {
+                            username: {
+                                required: '请输入用户名'
+                            },
+                            password: {
+                                required: '请输入密码',
+                                minlength: '请输入3-8位密码',
+                                maxlength: '请输入3-8位密码'
+                            },
+                            password_confirm: {
+                                required: '请输入密码',
+                                equals: '两次输入的密码不一致'
+                            },
+                            city: {
+                                required: '请选择城市',
+                            },
+                            age: {
+                                required: '请输入年龄',
+                                min: '你真年轻！',
+                                max: '你真长寿!'
+                            },
+                            mobile: {
+                                required: '请输入手机号码',
+                                pattern: '手机号码格式错误'
+                            },
+                            tel: {
+                                required: '请输入座机号码',
+                                pattern: '座机号码格式错误'
+                            },
+                            email: {
+                                required: '请输入邮箱',
+                                pattern: '邮箱格式错误'
+                            },
+                            message: {
+                                required: '请输入留言'
+                            }
+                        }
+                    });
+
+                    $('.form-action .btn-primary').click(
+                        function () {
+                            validator.validate();
+                        }
+                    );
+
+                    $('.dropdown').each(function () {
+                        new Select({
+                            element: $(this),
+                            name: 'city'
+                        });
+                    });
+
+                    var daytimeSelect = new DaytimeSelect({
+                        element: $('.daytime-select'),
+                        min: '12:00',
+                        max: '16:00',
+                        step: 30
+                    });
+
+                    var dateSelect = new DateSelect({
+                        element: $('#date-select'),
+                        startYear: 1930,
+                        endYear: 2014
+                    });
+
+                    var regionSelect = new RegionSelect({
+                        element: $('#region-select'),
+                        provinceId: 1,
+                        cityId: 2,
+                        areaId: 3,
+                        countryId: 4
+                    });
+
+                    $('#dialog-trigger-custom').click(function () {
+                        new Dialog({
+                            title: '标题',
+                            content: '内容',
+                            width: 400
+                        });
+                    });
+
+                    $('#dialog-trigger-alert').click(function () {
+                        alert('系统错误！');
+                    });
+
+                    $('#dialog-trigger-confirm').click(function () {
+                        confirm('你确定要删除码？');
+                    });
+
+                    $('#dialog-trigger-primary').click(function () {
+                        primary('你赢啦！');
+                    });
+
+                    $('#dialog-trigger-info').click(function () {
+                        info('正在处理，请稍候...');
+                    });
+
+                    $('#dialog-trigger-success').click(function () {
+                        success('操作成功');
+                    });
+
+                    $('#dialog-trigger-error').click(function () {
+                        error('操作失败');
+                    });
+
+
+
+                    $('.tab').each(
+                        function () {
+                            var tab = new Tab({
+                                element: $(this),
+                                index: 0
+                            });
+                        }
+                    );
+
+                    var editor = new Editor({
+                        element: $('.form-editor'),
+                        maxLength: 100
+                    });
+
+                    var image = new Image({
+                        element: $('#img-thumbnail-example .img-thumbnail'),
+                        caption: $('#img-thumbnail-example .caption').html()
+                    });
+
+                    var image = new Image({
+                        element: $('#video-thumbnail-example .video-thumbnail'),
+                        caption: $('#video-thumbnail-example .caption').html()
+                    });
+
+                    var imageUploader = new ImageUploader({
+                        element: $('.image-uploader')
+                    });
+
+                    var weekCalendar = new WeekCalendar({
+                        element: $('#week-calendar-readyonly'),
+                        selectedDate: {
+                            '2014-08-19': 1,
+                            '2014-08-20': 2,
+                            '2014-08-21': 3,
+                            '2014-08-22': 4,
+                            '2014-08-23': 5,
+                            '2014-08-24': 6,
+                            '2014-08-25': 7,
+
+                            '2014-08-28': 1,
+                            '2014-08-29': 2,
+                            '2014-08-30': 3,
+                            '2014-08-31': 4,
+                            '2014-09-04': 5,
+                            '2014-09-07': 6,
+                            '2014-09-10': 7
+                        }
+                    });
+
+                    var courseMonthCalendar = new CourseMonthCalendar({
+                        element: $('#course-month-calendar'),
+                        type: 'month'
+
+                    });
+
+                    var courseWeekCalendar = new CourseWeekCalendar({
+                        element: $('#course-week-calendar'),
+                        type: 'week'
+                    });
+                }
+            );
+        </script>
+
+    </body>
+</html>

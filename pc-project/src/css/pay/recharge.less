@@ -1,0 +1,88 @@
+/**
+ * @file 账户充值
+ * @author zhujialu
+ */
+@import './common/layout.less';
+@import '../common/card.less';
+
+@import './common/pay-approach.less';
+@import './component/waitPayDialog.less';
+
+#main {
+    padding: 0;
+}
+
+.recharge-form {
+
+    .account-balance,
+    .recharge-amount {
+        .inline-block();
+    }
+
+    h2 {
+        color: @brand-text;
+        margin-left: @gap-horizontal-huge;
+    }
+
+    .recharge-money {
+        .inline-block();
+        margin-left: 3 * @gap-horizontal-huge;
+    }
+
+    .pay-approach {
+        margin: @gap-vertical-huge 0;
+    }
+}
+
+
+.recharge-result {
+
+    text-align: center;
+    padding: 4 * @gap-vertical-huge 0;
+
+    h3 {
+        color: @brand-text;
+        font-size: @font-size-large;
+    }
+    .icon-check-circle,
+    .icon-times-circle {
+        font-size: @font-size-huge;
+        margin-right: @gap-horizontal-medium;
+        vertical-align: text-bottom;
+    }
+    .icon-check-circle {
+        color: @brand-success;
+    }
+    .icon-times-circle {
+        color: @brand-error;
+    }
+
+    .btn-primary {
+        margin-top: 2 * @gap-vertical-huge;
+    }
+}
+
+.card-body {
+    .footer {
+        margin-top: 20px;
+        text-align: center;
+
+        > span {
+            background: url(../../img/im/expression-50.png) no-repeat 0 0;
+            display: inline-block;
+            margin-right: 15px;
+            width: 104px;
+            height: 123px;
+            vertical-align: middle;
+        }
+
+        a {
+            margin-left: 5px;
+            margin-right: 10px;
+            color: @brand-info;
+            &:hover {
+                color: @brand-primary;
+            }
+        }
+    }
+}

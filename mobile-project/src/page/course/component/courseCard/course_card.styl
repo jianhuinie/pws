@@ -1,0 +1,138 @@
+.course-card {
+    background: white;
+    padding: rem(10);
+    margin-bottom: rem(10);
+    .start-title{
+        text-align : center;
+        .title{
+            display : inline;
+            font-size:rem(17);
+            color:#3c3d3d;
+            margin:rem(0) rem(3);
+        }
+
+        .icon-star_all{
+            color:#ebeced;
+            font-size:rem(10);
+        }
+        .block-line{
+            position : relative;
+            top:rem(-2);
+            .line{
+                top:rem(5);
+                left: rem(-32);
+                position : absolute;
+                display : block;
+                width:rem(30);
+                height:rem(1);
+                font-size : rem(0);
+                border-top:1px solid #ebeced;
+            }
+            .line-sub{
+                width:rem(10);
+                left: rem(-10);
+                top:rem(7);
+            }
+        }
+        .block-line-right{
+            .line{
+                left:rem(14);
+            }
+            .line-sub{
+                left: rem(12);
+            }
+        }
+        .start-title-sub{
+            margin-top:rem(2);
+            font-size:rem(12);
+            color:#9d9e9e;
+            text-align:center;
+        }
+    }
+    .course-info {
+        margin-top: rem(15);
+        .course-item {
+            float: left;
+            width: 50%;
+            padding: rem(5);
+            .first-nav {
+                position: relative;
+                margin-bottom: rem(5);
+                .item-cover {
+                    border-radius: rem(5);
+                    height: rem(100);
+                }
+                .item-play-icon {
+                    position: absolute;
+                    height: rem(30);
+                    width: rem(30);
+                    top: 30%;
+                    left: 40%;
+                }
+                p {
+                    background: rgba(0,0,0,0.40);
+                    border-radius: rem(0) rem(0) rem(5) rem(5);
+                    font-family: PingFang-SC-Regular;
+                    font-size: rem(11);
+                    color: #ffffff;
+                    height: rem(20);
+                    line-height: rem(20);
+                    text-align:left;
+                    position: absolute;
+                    bottom: 0;
+                    width: 96%;
+                    padding-left: 4%;
+
+                }
+            }
+            .second-nav {
+                .title {
+                    font-family:PingFang-SC-Regular;
+                    font-size:rem(14);
+                    color:#3c3d3d;
+                    height: rem(30);
+                    line-height: rem(30);
+                    text-align:left;
+                    .type-icon {
+                        font-family:PingFang-SC-Regular;
+                        font-size:rem(10);
+                        color:#37a4f5;
+                        line-height:rem(9);
+                        border-radius:rem(2);
+                        border: 1px solid #37a4f5;
+                        padding: rem(2);
+                    }
+                }
+            }
+            .last-nav {
+                position: relative;
+                .price {
+                    font-family:PingFang-SC-Regular;
+                    font-size:rem(12);
+                    color:#ff6c00;
+                    letter-spacing:rem(-0.81);
+                    line-height:rem(11);
+                }
+                .other-info {
+                    position: absolute;
+                    right: 0;
+                    bottom: rem(5);
+                    font-family:PingFang-SC-Regular;
+                    font-size:rem(11);
+                    color:#9d9e9e;
+                    line-height:rem(11);
+                }
+            }
+        }
+    }
+    .has-more {
+        font-family: PingFang-SC-Regular;
+        font-size: rem(14);
+        color: #ff9100;
+        letter-spacing: rem(-0.81);
+        text-align: center;
+        line-height: rem(30);
+        height: rem(30);
+        margin-top: rem(10);
+    }
+}

@@ -1,0 +1,165 @@
+{{ strip }}
+{{ *query未命中老师 条件:has_filter为false 干掉筛选框* }}
+    {{ $query_unmatch_teacher = false }}
+    {{ if !$tpl_data.has_filter &&
+          empty($tpl_data.teachers) }}
+        {{ $query_unmatch_teacher = true }}
+    {{ /if }}
+
+{{ *筛选无老师 条件:has_filter为true无老师* }}
+    {{ $filter_unmatch_teacher = false }}
+    {{ if $tpl_data.has_filter &&
+          empty($tpl_data.teachers) }}
+        {{ $filter_unmatch_teacher = true }}
+    {{ /if }}
+
+{{ if !empty($tpl_data.teachers) }}
+    {{ foreach $tpl_data.teachers as $item }}
+    <div class="search-item {{ if $item@last }}item-last{{ /if }}">
+
+        <div class="wrapper">
+
+            <div class="teacher-detail">
+                <span class="index">{{ $item@index+1 }}.</span>
+                <div class="head-info">
+                    <div class="info">
+                            {{ if $item.id == '98851' }}
+                            <div  class="price"><strong>￥8</strong>起</div>
+                            {{ else }}
+                                {{ if $item.price }}
+                                    <div  class="price"><strong>￥{{ $item.price }}</strong>起</div>
+                                {{ /if }}
+                            {{ /if }}
+                    </div>
+
+                    <h2>
+                        {{ if $item.name_cut != $item.name }}
+                            {{ $title = ' data-title="'|cat: $item.name|cat: '"' }}
+                        {{ else }}
+                            {{ $title = '' }}
+                        {{ /if }}
+
+                        <a class="name" href="{{ $item.detail_url }}" target="_blank"{{ $title }}>
+                            {{ $item.name_cut }}
+                        </a>
+
+                    </h2>
+
+                    {{ if !empty($item.organization) }}
+                        {{ include file="common/component/orgLabel.html" name=$item.organization.name desc=$item.organization.description url=$item.organization.url width=14 }}
+                    {{ /if }}
+
+                    {{ if !empty($item.medal) }}
+                        {{ include file="common/variable/medal.html" scope=parent }}
+                        {{ foreach $item.medal as $val }}
+                            <img class="medal" src="{{ $val.logo }}" data-title="{{ $val.desc }}" data-width="14em">
+                        {{ /foreach }}
+                    {{ /if }}
+                </div>
+
+                <ul class="num">
+                    <li>{{ $item.student_count }}人学习</li>
+                    {{ if $item.comment_count }}
+                        {{ $final_comment_count = $item.comment_count }}
+                        {{ $final_comment_text = $final_comment_count|cat:' 条评价' }}
+                        <li>
+                            <a class="comment" href="{{ $item.detail_url }}#teacher-comment"
+                               target="_blank">{{ $final_comment_text }}</a>
+                        </li>
+                    {{ else }}
+                        <li>
+                            <span class="no-comment">暂无评分</span>
+                        </li>
+                    {{ /if }}
+                </ul>
+
+                {{ $parts = explode('##', $item.course) }}
+                {{ $count = count($parts) }}
+
+                {{ if $count == 3 }}
+                    {{ $course = $parts[1] }}
+                    {{ $display_course = '<em>'|cat: $course|cat: '</em>' }}
+                    {{ $course_suffix = $parts[2] }}
+                {{ else if $count == 1 }}
+                    {{ $course = '' }}
+                    {{ $display_course = '' }}
+                    {{ $course_suffix = $parts[0] }}
+                {{ /if }}
+
+
+                {{ $suffix_length = 23 - mb_strlen($course) }}
+
+                {{ $display_course_suffix = $course_suffix|cn_truncate: $suffix_length }}
+                {{ $display_all = $display_course|cat: $display_course_suffix }}
+                {{ $display_allcourse = $course|cat:$course_suffix }}
+
+                <div class="course">
+                    <i class="icon icon-book-o"></i>
+                    {{ if $item.id == '98851' }}
+                    <span>公共英语</span>
+                    {{ else }}
+                    <span{{ if $course_suffix != $display_course_suffix }} data-title="{{ $display_allcourse }}" data-width="20em"{{ /if }}>
+                        {{ $display_all }}
+                    </span>
+                    {{ /if }}
+                </div>
+
+                {{ if !empty($item.class_enrolling_count) || !empty($item.video_course_count) }}
+                <div class="course-count">
+                    <i class="icon icon-file-o"></i>
+                    {{ if !empty($item.class_enrolling_count) }}
+                        <span><i class="num">{{ $item.class_enrolling_count }}</i>个班课</span>
+                    {{ /if }}
+                    {{ if isset($item.video_course_count) && $item.video_course_count > 0 }}
+                        <span><i class="num">{{ $item.video_course_count }}</i>个视频课</span>
+                    {{ /if }}
+                </div>
+                {{ /if }}
+            </div>
+
+            <div class="teacher-card">
+
+                <div class="avatar">
+                    {{ if $item.video_url }}
+                        <i class="icon icon-play-oo video" data-video="{{ $item.video_url }}" data-name="{{ $item.name }}"></i>
+                    {{ /if }}
+
+                    {{ include file="common/component/avatar.html" url=$item.detail_url target="_blank" type="middle" img=$item.avatar_url }}
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    {{ /foreach }}
+    {{ include file="common/component/pager.html" page=$tpl_data.pager.page page_size=$tpl_data.pager.page_size count=$tpl_data.pager.result_total show_count=3 text="去第" }}
+{{ else }}
+    {{ if $query_unmatch_teacher }}
+    <div class="match-no-result">
+        <div class="pic">
+            <div class="no-result"></div>
+            <h1>抱歉，没有搜到与    <span class="key">{{ $tpl_data.q }}</span>    相关的老师</h1>
+        </div>
+        <div class="txt">
+            <h1>建议：</h1>
+            <p>1.请检查输入是否正确</p>
+            <p>2.如果你是该科目老师，请<a href="/static/teacher" target="_blank" class="signup"><span>立即入驻</span></a></p>
+        </div>
+    </div>
+    {{ else if $filter_unmatch_teacher }}
+    <div class="match-no-result lower">
+        <div class="pic">
+            <div class="no-result"></div>
+            <h1>抱歉，当前地图范围内没有符合筛选条件的老师</h1>
+        </div>
+        <div class="txt">
+            <h1>建议：</h1>
+            <p>1.拖动或缩放地图，重新搜索老师。</p>
+            <p>2.更改或去除上面筛选条件，再看看其他分类。</p>
+            <p>3.如果你是该科目老师，请<a href="/static/teacher" target="_blank" class="signup"><span>立即入驻</span></a></p>
+        </div>
+    </div>
+    {{ /if }}
+{{ /if }}
+{{ /strip }}

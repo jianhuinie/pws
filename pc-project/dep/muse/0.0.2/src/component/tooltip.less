@@ -1,0 +1,98 @@
+/**
+ * @file 工具提示
+ * @author zhujl
+ */
+
+.tooltip {
+    position: absolute;
+    border-radius: @tooltip-border-radius;
+
+    background-color: @tooltip-bg;
+    border: 1px solid @tooltip-border;
+    color: @tooltip-color;
+    font-size: @tooltip-font-size;
+
+    padding: @tooltip-padding-vertical
+             @tooltip-padding-horizontal;
+
+    z-index: @tooltip-zindex;
+
+    &:before,
+    &:after {
+        content: ' ';
+        position: absolute;
+        border: @tooltip-arrow-size solid transparent;
+    }
+
+}
+
+.tooltip-top {
+
+    &:before,
+    &:after {
+        left: 50%;
+        margin-left: -8px;
+    }
+    &:before {
+        border-top-color: @tooltip-border;
+        bottom: -16px;
+    }
+    &:after {
+        border-top-color: @tooltip-bg;
+        bottom: -15px;
+    }
+
+}
+.tooltip-right {
+
+    &:before,
+    &:after {
+        top: 50%;
+        margin-top: -8px;
+    }
+    &:before {
+        border-right-color: @tooltip-border;
+        left: -16px;
+    }
+    &:after {
+        border-right-color: @tooltip-bg;
+        left: -15px;
+    }
+
+}
+
+.tooltip-bottom {
+
+    &:before,
+    &:after {
+        left: 50%;
+        margin-left: -8px;
+    }
+    &:before {
+        border-bottom-color: @tooltip-border;
+        top: -17px;
+    }
+    &:after {
+        border-bottom-color: @tooltip-bg;
+        top: -16px;
+    }
+
+}
+
+.tooltip-left {
+
+    &:before,
+    &:after {
+        top: 50%;
+        margin-top: -8px;
+    }
+    &:before {
+        border-left-color: @tooltip-border;
+        right: -16px;
+    }
+    &:after {
+        border-left-color: @tooltip-bg;
+        right: -15px;
+    }
+
+}

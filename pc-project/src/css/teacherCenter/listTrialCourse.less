@@ -1,0 +1,177 @@
+/**
+ * @file 预约试听 - 引导页／列表页
+ * @author wangyujie
+ */
+
+@import '../common/center/common/layout.less';
+@import '../common/component/cancelOrderDialog.less';
+@import "../common/center/component/enterClassroom.less";
+@import "../common/component/editReservedLessonDialog.less";
+
+#content {
+    .tab-panel {
+        display: block;
+    }
+
+    .nav-item {
+        padding: 12px 0;
+        width: 148px;
+        text-align: center;
+    }
+
+}
+
+.trial-guide {
+    text-align: center;
+    margin-top: 3 * @gap-vertical-medium;
+    p {
+        color: @brand-text-lighter;
+    }
+    h3 {
+        font-size: 20px;
+        margin-top: 3 * @gap-vertical-medium;
+        margin-bottom: 2 * @gap-vertical-medium;
+    }
+    img {
+        margin: 4 * @gap-vertical-medium;
+    }
+ }
+
+.no-trial {
+    text-align: center;
+    color: @brand-text-lighter;
+    margin-top: 130px;
+    p {
+        margin-top: 3 * @gap-vertical-medium;
+    }
+ }
+
+.trial-list {
+    .hint {
+        font-size: 12px;
+        text-align: center;
+        margin-top: @gap-vertical-small;
+        .icon {
+            margin-right: @gap-horizontal-tiny;
+        }
+    }
+ }
+
+.trial-item {
+    margin-top: 14px;
+    border: 1px solid #deeaf7;
+    font-size: @font-size-tiny;
+
+    .header {
+        background-color: #f0f7ff;
+        padding: 6px 20px;
+    }
+
+    .course-date {
+        margin-left: @gap-horizontal-huge;
+    }
+
+    .user-number {
+        margin: 0 1em;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    td {
+        padding: 14px 20px;
+        border-left: 1px solid #deeaf7;
+        text-align: center;
+        vertical-align: middle;
+
+        &:first-child {
+            border-left: none;
+        }
+    }
+    .col1 {
+        width: 26em;
+        text-align: left;
+    }
+    .col2 {
+        width: 9em;
+    }
+    .col3 {
+        width: 6em;
+        .text-info {
+            display: block;
+            margin-top: @gap-vertical-tiny;
+        }
+    }
+
+    .across-line {
+        border-top: 1px solid #deeaf7;
+        .trial-time {
+            margin-right: @gap-horizontal-small;
+        }
+    }
+
+    .across-cont {
+        text-align: left;
+        padding: 5px 20px;
+        word-wrap: break-word;
+        word-break: break-all;
+    }
+
+    .avatar {
+        float: left;
+        margin-right: 12px;
+        line-height: 0;
+    }
+    .lesson-way {
+        color: @brand-text-lighter;
+    }
+    .price {
+        margin-left: @gap-horizontal-small;
+    }
+    .user-name {
+        color: @brand-text;
+        font-size: @font-size-medium;
+        line-height: 1.1;
+        margin-bottom: 9px;
+        span {
+            color: @brand-text-lighter;
+            font-size: 12px;
+        }
+    }
+
+    .lesson-range {
+        display: block;
+        margin: 5px 0;
+    }
+    .col4 {
+        color: #000;
+        .small {
+            margin-top: 5px;
+            width: 80px;
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+
+    }
+}
+
+.trial-note-dialog {
+    textarea {
+        width: 100%;
+        height: 80px;
+    }
+    .dialog-action {
+        margin-top: @gap-vertical-medium;
+    }
+}
+
+
+
+
+
+
+
+
+

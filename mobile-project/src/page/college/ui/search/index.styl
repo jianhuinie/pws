@@ -1,0 +1,117 @@
+@import "page/college/ui/rightNav/index.styl";
+.search-wrapper {
+	position: relative;
+	.display-none {
+		display: none;
+	}
+	.search {
+        height: rem(44);
+        line-height: rem(30);
+        background-color: #2b5490;
+        position: relative;
+        display: -webkit-box;
+        color: #fff;
+        padding: rem(7) rem(47) rem(7) rem(7);
+        .div-search {
+            padding-left: rem(7);
+		    background-color: #fff;
+		    -webkit-border-radius: rem(3);
+		    -moz-border-radius: rem(3);
+		    border-radius: rem(3);
+		    -webkit-box-flex: 1;
+		    display: -webkit-box;
+		   	.icon-search {
+	    		color: #3c3c3c;
+	    	}
+		    .input-search {
+	            margin-left: rem(5);
+	            background-color: #fff;
+	            font-size: rem(14);
+	            line-height: rem(22);
+	            border: 0;
+	            padding: rem(4);
+	            -webkit-box-flex: 1;
+	            display: block;
+	            color: #3c3c3c;
+	            width: 100%;
+	            outline: 0;
+        	}
+        	.search-text::-webkit-input-placeholder {
+	            color: #fff;
+	        }
+		}
+		.college-icon {
+			color: #fff;
+		    width: rem(40);
+		    font-size: rem(24);
+		    line-height: rem(30);
+		}
+		.icon-menu {
+			position: absolute;
+		    width: rem(40);
+		    height: rem(40);
+		    right: rem(3);
+		    top: rem(11);
+		    font-size: rem(22);
+		    text-align: center;
+		}
+		.btn-cancel {
+			position: absolute;
+    		right: rem(8);
+		}
+	}
+	.down {
+		display: none;
+		position: fixed;
+		top: rem(44);
+		bottom: 0;
+		left: 0;
+		right: 0;
+		z-index: 10;
+		background-color: #f8f8f8;
+		ul {
+			font-size: rem(15);
+			color: #3c3c3c;
+			li {
+				background:#ffffff;
+				box-shadow:rem(0) rem(0) rem(0) rem(0) #ebeced, rem(0) rem(0) rem(0) rem(0) #ebeced;
+				height: rem(44);
+				border-bottom: rem(1) solid #f5f5f6;
+				line-height: rem(44);
+				padding-left: rem(10);
+			}
+		}
+		.search-tips {
+			font-size: rem(13);
+			color:#6d6d6e;
+			height: rem(38);
+			line-height: rem(38);
+		}
+		.search-result {
+			li {
+				position: relative;
+				.icon-chevron-thin-right {
+					position: absolute;
+					right: rem(8);
+					top: rem(14);
+				}
+				.search-key {
+					color: red;
+				}
+			}
+		}
+		.search-empty {
+			.empty-tips {
+				background-color: #fff;
+				font-size: rem(13);
+				color:#6d6d6e;
+				height: rem(200);
+				line-height: rem(200);
+				text-align: center;
+			}
+		}
+	}
+	.down.on {
+		display: inline-block;
+	}
+}

@@ -1,0 +1,109 @@
+<div class="dialog invite-result-dialog">
+
+    <div class="header">
+        开通
+
+        {{#if role == 'teacher'}}
+            老师
+        {{else}}
+            学生
+        {{/if}}
+
+        身份
+
+        {{#if isSuccess}}
+            成功
+        {{else}}
+            失败
+        {{/if}}
+    </div>
+
+    <span class="close">×</span>
+
+    <div class="body">
+    {{#if role == 'teacher'}}
+
+        {{#if isSuccess}}
+        <i class="icon icon-check-circle"></i>
+        <div class="wrapper">'
+            <strong class="invite-result huge">
+                恭喜你开通老师身份！
+            </strong>
+            <div class="invite-message">
+                快去完善个人资料和课程信息吧~~
+            </div>
+            <div class="invite-countdown small muted">
+                <span class="timer">{{counter}}</span>秒后跳转至老师中心
+            </div>
+        </div>
+        {{else}}
+        <i class="icon icon-times-circle"></i>
+        <div class="wrapper">
+            <strong class="invite-result huge">
+                对不起，你的老师身份开通失败
+            </strong>
+            <div class="invite-message">
+                拨打 <span class="phone">4000-910-910</span> 咨询客服
+            </div>
+            <div class="invite-countdown small muted">
+                <span class="timer">{{counter}}</span>秒后自动关闭
+            </div>
+        </div>
+        {{/if}}
+
+    {{else}}
+
+        {{#if isSuccess}}
+        <i class="icon icon-check-circle"></i>
+        <div class="wrapper">
+            <strong class="invite-result huge">
+                恭喜你开通学生身份！
+            </strong>
+            <div class="invite-message">
+                快去搜索喜欢的老师和课程吧~~
+            </div>
+            <div class="invite-countdown small muted">
+                <span class="timer">{{counter}}</span>秒后返回
+            </div>
+         </div>
+        {{else}}
+        <i class="icon icon-times-circle"></i>
+        <div class="wrapper">
+            <strong class="invite-result huge">
+                对不起，您的学生身份开通失败
+            </strong>
+            <div class="invite-message">
+                拨打 <span class="phone">4000-910-910</span> 咨询客服
+            </div>
+            <div class="invite-countdown small muted">
+                <span class="timer">{{counter}}</span>秒后自动关闭
+            </div>
+        </div>
+        {{/if}}
+
+    {{/if}}
+    </div>
+
+    <div class="footer">
+        <div class="button primary" on-click="submit()">
+        {{#if role == 'teacher'}}
+            {{#if isSuccess}}
+                立即前往
+            {{else}}
+                立即关闭
+            {{/if}}
+        {{else}}
+            {{#if isSuccess}}
+                立即返回
+            {{else}}
+                立即关闭
+            {{/if}}
+        {{/if}}
+        </div>
+    </div>
+
+    <style>
+        {{style}}
+    </style>
+
+</div>

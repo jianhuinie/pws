@@ -1,0 +1,125 @@
+{{ strip }}
+<div class="form-bind-card">
+    <div class="form">
+
+        <div class="form-group card-id">
+            <div class="form-label">
+                银行卡号：
+            </div>
+            <div class="form-controls">
+                <div class="input-wrapper">
+                    <input type="int" class="form-text" name="cardId" required />
+                    <div class="floated">
+                        <img class="bank-logo" src="" />
+                        <span class="card-type"></span>
+                    </div>
+                    <span class="error"></span>
+                </div>
+                <div class="form-inline">
+                    <div class="btn-link supported-bank-list">支持的银行</div>
+                </div>
+                <div class="form-block">
+                    <span class="card-remark">
+                        单笔限额
+                        <span class="pay-each"></span>
+                        元，
+                        单日累计限额
+                        <span class="pay-day"></span>
+                        元
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group card-expire">
+            <div class="form-label">
+                有效期：
+            </div>
+            <div class="form-controls">
+
+                {{ include file="common/ui/dropdown.html" class="month-select" default="- 月 -" required=true }}
+                <span class="form-static">月</span>
+                -
+
+                {{ include file="common/ui/dropdown.html" class="year-select" default="- 年 -" required=true }}
+                <span class="form-static">年</span>
+
+                <span class="error"></span>
+                <span class="error"></span>
+            </div>
+        </div>
+
+        <div class="form-group card-cvv">
+            <div class="form-label">
+                卡验证码：
+            </div>
+            <div class="form-controls">
+                <input type="text" class="form-text" name="cvv" placeholder="卡后3位数" required pattern="\d{3}" />
+                <span class="error"></span>
+            </div>
+        </div>
+
+        <div class="form-group name">
+            <div class="form-label">
+                姓名：
+            </div>
+            <div class="form-controls">
+                <input type="text" class="form-text" name="ownerName" required />
+                <span class="error"></span>
+            </div>
+        </div>
+
+        <div class="form-group idcard">
+            <div class="form-label">
+                身份证：
+            </div>
+            <div class="form-controls">
+                <input type="text" class="form-text" name="ownerId" required />
+                <span class="error"></span>
+            </div>
+        </div>
+
+        <div class="form-group mobile">
+            <div class="form-label">
+                预留手机号：
+            </div>
+            <div class="form-controls">
+                <input type="mobile" class="form-text" name="ownerMobile" required />
+                <span class="error"></span>
+            </div>
+        </div>
+
+        <div class="form-group sms-code">
+            <div class="form-label">
+                手机验证码：
+            </div>
+            <div class="form-controls">
+                <input type="text" class="form-text" name="code" required />
+                <span class="error"></span>
+                <button class="btn-info btn-send-code">
+                    发送验证码
+                </button>
+            </div>
+        </div>
+
+        <div class="form-action">
+
+            <div class="agreement">
+                <label class="form-checkbox">
+                    <input type="checkbox" class="agree-checkbox" checked />
+                    我已阅读并同意
+                    <a href="{{ $root_http }}/guide/service_layout?a=service&op=fast-payment" target="_blank">
+                        《快捷支付服务协议》
+                    </a>
+                </label>
+            </div>
+
+            <button class="btn-primary btn-submit">
+                确定
+            </button>
+
+        </div>
+
+    </div>
+</div>
+{{ /strip }}

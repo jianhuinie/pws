@@ -1,0 +1,82 @@
+{{ $needs_share = false }}
+{{ $cash_legends = [] }}
+
+{{ $cash_legend = [] }}
+{{ $cash_legend["title"] = "第一名" }}
+{{ $cash_legend["money"] = "25000" }}
+{{ $cash_legends[] = $cash_legend }}
+
+{{ $cash_legend = [] }}
+{{ $cash_legend["title"] = "第二名" }}
+{{ $cash_legend["money"] = "15000" }}
+{{ $cash_legends[] = $cash_legend }}
+
+{{ $cash_legend = [] }}
+{{ $cash_legend["title"] = "第三名" }}
+{{ $cash_legend["money"] = "5000" }}
+{{ $cash_legends[] = $cash_legend }}
+
+{{ $cash_legend = [] }}
+{{ $cash_legend["title"] = "第四名" }}
+{{ $cash_legend["money"] = "2500" }}
+{{ $cash_legends[] = $cash_legend }}
+
+{{ $cash_legend = [] }}
+{{ $cash_legend["title"] = "第五名" }}
+{{ $cash_legend["money"] = "1500" }}
+{{ $cash_legends[] = $cash_legend }}
+
+{{ $cash_legend = [] }}
+{{ $cash_legend["title"] = "第六名" }}
+{{ $cash_legend["money"] = "1000" }}
+{{ $cash_legends[] = $cash_legend }}
+
+{{ $cash_description_top = "满足如下<strong>任一条件</strong>的老师，即可获得奖金" }}
+{{ $cash_description_bottom = "活动当月累计课酬前六名 / 活动当月累计学生数量前六名" }}
+
+{{ $medal_description_top = "活动期间，榜单前三，即可获得相应奖章。让您的个人主页与众不同！" }}
+{{ $medal_description_bottom = "" }}
+
+{{ $teachers_list = [] }}
+
+{{ $teachers = [] }}
+{{ $teachers['id'] = "pay" }}
+{{ $teachers['header'] = "课酬榜" }}
+{{ $teachers['background_color'] = "#fff" }}
+{{ $teachers['icon_style'] = "background-position: 0px -60px;" }}
+{{ $teachers['description'] = "" }}
+{{ $teachers['data'] = $tpl_data.top_lesson_pay }}
+{{ $teachers_list[] = $teachers }}
+
+{{ $teachers = [] }}
+{{ $teachers['id'] = "student" }}
+{{ $teachers['header'] = "学生数榜" }}
+{{ $teachers['background_color'] = "#F4F4F4" }}
+{{ $teachers['icon_style'] = "background-position: 0px -120px;" }}
+{{ $teachers['description'] = "" }}
+{{ $teachers['data'] = $tpl_data.top_student_count }}
+{{ $teachers_list[] = $teachers }}
+
+{{ $rules_backgound_color = "#fff" }}
+
+{{ $navs = [] }}
+
+{{ $nav = [] }}
+{{ $nav['id'] = 'cash' }}
+{{ $nav['name'] = '现金大奖' }}
+{{ $navs[] = $nav }}
+
+{{ $nav = [] }}
+{{ $nav['id'] = 'medal' }}
+{{ $nav['name'] = '专享奖章' }}
+{{ $navs[] = $nav }}
+
+{{ $nav = [] }}
+{{ $nav['id'] = 'pay' }}
+{{ $nav['name'] = '课酬榜' }}
+{{ $navs[] = $nav }}
+
+{{ $nav = [] }}
+{{ $nav['id'] = 'student' }}
+{{ $nav['name'] = '学生数榜' }}
+{{ $navs[] = $nav }}

@@ -1,0 +1,27 @@
+{{ *
+   * @file 2015.08版主页的左侧分类导航
+   * @author huahua
+* }}
+
+{{ strip }}
+
+<div class="main-category{{ if !$nav_config.popup }} main-category-popup{{ /if }}">
+    <h3 class='main-category-header'>
+        <a {{ if isset($tpl_data.is_www) && $tpl_data.is_www }}
+            href="/sc/-.html"
+        {{ else }}
+            href="/{{ $curr_city.domain }}/sc-.html"
+        {{ /if }} target="_blank">
+            全部课程
+        </a>
+
+        {{ if $nav_config.popup }}
+            <i class="icon icon-angle-down"></i>
+        {{ /if }}
+    </h3>
+    <div class="main-category-list" id="main-category-list">
+        <!-- file: common/main/component/category-data.html -->
+    </div>
+</div>
+
+{{ /strip }}

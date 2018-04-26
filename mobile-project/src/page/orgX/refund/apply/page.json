@@ -1,0 +1,7 @@
+[
+    {
+        "tpl": "./index.tpl",
+        "router": "/orgX/refund/apply",
+        "mock_data": "./mock/index.json"
+    }
+]

@@ -1,0 +1,143 @@
+.comment-box {
+    background: white;
+    top: rem(-10);
+    position: relative;
+    .header-line {
+        padding: 0 rem(4) 0 rem(10);
+        height: rem(46);
+        line-height: rem(46);
+        .point {
+            height: rem(20);
+            line-height: rem(20);
+            .comment-stars {
+                position: relative;
+                top: rem(2);
+                display: inline-block;
+                .icon-star_all {
+                    float: left;
+                    color: #ff9100;
+                    font-size: rem(14);
+                    &.grey-star {
+                        color: #ededed;
+                    }
+                }
+                .star-icon {
+                    float: left;
+                    position: relative;
+                    .icon-star_all {
+                        float: left;
+                        color: #ededed;
+                        font-size: rem(14);
+                    }
+                    .icon-star_half {
+                        float: left;
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        color: #ff9100;
+                        font-size: rem(14);
+                    }
+                }
+            }
+        }
+        .title {
+            float: left;
+            font-family: PingFangSC-Semibold;
+            font-size: rem(18);
+            color: #3D3D3E;
+        }
+        .more-comment {
+            float: right;
+            font-family: PingFang-SC-Regular;
+            font-size: rem(13);
+            color: #9D9D9E;
+            letter-spacing: 0;
+            .icon {
+                font-size: rem(16);
+            }
+        }
+    }
+    .cross-line {
+        top: 0;
+    }
+    .data-infos {
+        padding: rem(15) rem(10) rem(15) rem(54);
+        position: relative;
+        .avatar {
+            height: rem(40);
+            width: rem(40);
+            position: absolute;
+            left: rem(10);
+            top: rem(18);
+            img {
+                height: rem(40);
+                width: rem(40);
+                border-radius: 50%;
+            }
+        }
+
+        .header-line {
+            .student-name {
+                font-family: PingFang-SC-Regular;
+                font-size: rem(15);
+                color: #3D3D3E;
+                letter-spacing: 0;
+                line-height: rem(25);
+                height: rem(25);
+            }
+
+            .remark {
+                font-family: PingFang-SC-Regular;
+                font-size: rem(12);
+                color: #9D9D9E;
+                letter-spacing: 0;
+                line-height: rem(20);
+                height: rem(20);
+            }
+        }
+
+        .last-line {
+            position: absolute;
+            right: rem(10);
+            top: rem(15);
+            text-align: right;
+            .trump {
+                display: inline-block;
+                height: rem(25);
+                line-height: rem(25);
+                .icon-ic_tuijian_done {
+                    color: #ff9100;
+                    font-size: rem(20);
+                }
+                .icon-like {
+                    color: #6d6d6e;
+                    font-size: rem(16);
+                }
+                .number {
+                    font-family: SanFranciscoDisplay-Regular;
+                    font-size: rem(14);
+                    color: #6D6D6E;
+                    letter-spacing: 0;
+                    line-height: rem(14);
+                }
+            }
+            .date {
+                font-family: PingFang-SC-Regular;
+                font-size: rem(12);
+                color: #9D9D9E;
+                letter-spacing: 0;
+                line-height: rem(20);
+                height: rem(20);
+            }
+        }
+    }
+    .content {
+        padding: 0 rem(10) rem(12) rem(10);
+        font-family: PingFang-SC-Regular;
+        font-size: rem(14);
+        color: #3D3D3E;
+        line-height: rem(20);
+        word-wrap: break-word;
+        word-break: break-all;
+    }
+}

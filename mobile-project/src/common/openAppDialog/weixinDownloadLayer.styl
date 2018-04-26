@@ -1,0 +1,77 @@
+#weixin-download-layer {
+    .shadow,
+    .bg-container,
+    .main {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+    }
+
+    .shadow {
+        background-color: #000;
+        opacity: 0.6;
+        z-index: 998;
+    }
+
+    .bg-container {
+        z-index: 999;
+
+        .bg {
+            background-color: #fff;
+            width: rem(300);
+            height: rem(350);
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+    }
+
+    .main {
+        z-index: 1000;
+        .container {
+            height: rem(292);
+            width: rem(252);
+            text-align: left;
+            margin: 0 auto;
+            padding: rem(1);
+
+            bg: './component/weixinDownload.png' 100% auto;
+
+            .title {
+                font-size: rem(16);
+            }
+
+            .step-1 {
+                margin: rem(38) 0 0 rem(40);
+            }
+
+            .step-2 {
+                margin: rem(30) 0 0 rem(40);
+                height: rem(100);
+
+                .text-left,
+                .text-right
+                {
+                    font-size: rem(12);
+                    float: left;
+                    text-align: center;
+                    margin: rem(43) rem(30) 0 0;
+                    line-height: rem(14);
+                }
+            }
+
+            .step-3 {
+                clear: both;
+                margin: rem(25) 0 0 rem(40);
+
+                .text {
+                    margin: rem(4) 0 0 rem(30);
+                }
+            }
+        }
+    }
+
+}

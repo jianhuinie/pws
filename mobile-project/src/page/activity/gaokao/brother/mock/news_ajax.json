@@ -1,0 +1,45 @@
+{
+    "code": 0,
+    "msg": "succ",
+    "tpl_data": {
+        "news_list": [
+            {
+                "cover": {
+                    "height": 148,
+                    "url": "http://superfile.baijiahulian.com/news/xinsheng_s_pic.jpg",
+                    "width": 245
+                },
+                "paper_id": 5,
+                "paper_snippet": "新生入学防骗指南",
+                "paper_title": "新生入学防骗指南",
+                "paper_url": "http://interface.zhixue100.cn/wap/fangpian.html",
+                "paper_views": 18723
+            },
+            {
+                "cover": {
+                    "height": 148,
+                    "url": "http://superfile.baijiahulian.com/news/gaokaoshengbudebu_s_pic.jpg",
+                    "width": 245
+                },
+                "paper_id": 3,
+                "paper_snippet": "只需三点，轻松上一本",
+                "paper_title": "只需三点，轻松上一本",
+                "paper_url": "http://interface.zhixue100.cn/wap/three-point.html",
+                "paper_views": 12206
+            },
+            {
+                "cover": {
+                    "height": 148,
+                    "url": "http://superfile.baijiahulian.com/news/yiliunian_s_pic.jpg",
+                    "width": 245
+                },
+                "paper_id": 4,
+                "paper_snippet": "16年高三复习大事时间表",
+                "paper_title":"16年高三复习大事时间表",
+                "paper_url": "http://interface.zhixue100.cn/wap/2016sc.html",
+                "paper_views": 11091
+            }
+        ]
+    },
+    "ts": 1463822797
+}

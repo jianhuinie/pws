@@ -1,0 +1,96 @@
+{
+    "parser": "babel-eslint",
+    "extends": "airbnb",
+    "env": {
+      "browser": true,
+      "node": true
+    },
+    "parserOptions": {
+       "ecmaVersion": 6,
+       "sourceType": "module",
+       "ecmaFeatures": {
+         "jsx": true
+       }
+    },
+    "globals": {
+      "window": true,
+      "document": true,
+      "$": true,
+      "Jockey": true
+    },
+    "rules": {
+      // 定义对象的set存取器属性时，强制定义get      
+      // "accessor-pairs": 2,
+      // 指定数组的元素之间要以空格隔开(,后面)， never参数：[ 之前和 ] 之后不能带空格，always参数：[ 之前和 ] 之后必须带空格      
+      // "array-bracket-spacing": [2, "never"],
+      // 文件末尾强制换行
+      "eol-last": 0,
+      "no-console": 0,
+      "default-case": 1,
+      "prefer-template": 0,
+      "no-useless-return": 0,
+      //禁止行末加空格
+      "no-trailing-spaces": 0,
+      // 使用 === 替代 ==      
+      "eqeqeq": [2, "allow-null"],
+      // 强制使用.号取属性      
+      //    参数： allowKeywords：true 使用保留字做属性名时，只能使用.方式取属性      
+      //                         false 使用保留字做属性名时, 只能使用[]方式取属性 e.g [2, {"allowKeywords": false}]      
+      //           allowPattern:  当属性名匹配提供的正则表达式时，允许使用[]方式取值,否则只能用.号取值 e.g [2, {"allowPattern": "^[a-z]+(_[a-z]+)+$"}]      
+      "dot-notation": [2, {"allowKeywords": false}], 
+      // 方法表达式是否需要命名  
+      "func-names": 0,
+      // 对于JSX属性值总是使用双引号("), 其他均使用单引号(')
+      "jsx-quotes": 2,
+      // 不要在自动关闭的标签前加多个空格
+      "no-multi-spaces": 0,
+      // JSX属性名使用骆驼式风格，符合规范也校验错误，暂时关闭
+      "camelCase": 0,
+      // 使用箭头函数作为回调函数
+      "prefer-arrow-callback": 0,
+      "indent": 0,
+      "object-shorthand": 0,
+      "arrow-parens": 0,
+      "class-methods-use-this": 0,
+      "compat/compat": 2,
+      "comma-dangle": 0,
+      "consistent-return": 0,
+      "generator-star-spacing": [0],
+      "new-cap": 0,
+      // 箭头函数中，如果函数体里只有一句代码时可以省略大括号
+      // 规定是否可以省略大括号
+      "arrow-body-style": 0,
+      // 禁止对函数的参数重新进行无意义的赋值
+      "no-param-reassign": 0,
+      // 禁止隐式转换，为了消除简写的类型转换
+      "no-implicit-coercion": 1,
+      "no-mixed-operators": 0,
+      "no-plusplus": 0,
+      "no-use-before-define": 0,
+      "no-nested-ternary": 0,
+      "no-underscore-dangle": 0,
+      "no-var": "off",
+      "vars-on-top": "off",
+      "semi": ["error", "always"],
+      //禁止多余的冒号
+      "no-extra-semi": 0,
+      "no-undef": "off",
+      "jsx-a11y/href-no-hash": 0,
+      "jsx-a11y/img-has-alt": 0,
+      "strict": "warn",
+      "import/no-extraneous-dependencies": 0,
+      "import/no-unresolved": 0,
+      "import/no-webpack-loader-syntax": 0,
+      "no-unneeded-ternary": 0,
+      "prefer-rest-params": 0,
+      "no-prototype-builtins": 0,
+      "no-unused-expressions": 0
+    },
+    "plugins": [
+        "compat",
+        "import",
+        "promise",
+        "react"
+    ]
+  }
+  

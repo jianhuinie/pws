@@ -1,0 +1,65 @@
+{{ *
+
+@file 班课详情页 - 机构
+@author zhujialu
+
+* }}
+
+{{ strip }}
+{{ if $tpl_data }}
+
+<div id="course-org">
+    <h1 class="header">机构信息</h1>
+    <div class="body">
+        <div class="avatar">
+            {{ if $tpl_data.avatar }}
+                {{ $url = '/i/'|cat: $tpl_data.number }}
+                {{ include file="common/component/avatar.html" url=($url) target="_blank" type="small" img=$tpl_data.avatar alt=$tpl_data.name }}
+            {{ else }}
+                <img src="{{ $static_origin }}/asset/img/org/logo_35c5eacab8.jpg" class="logo">
+            {{ /if }}
+        </div>
+        <div class="info">
+            <h1>
+                <a href="/i/{{ $tpl_data.number }}" target="_blank">
+                    {{ $tpl_data.name|cn_truncate: 12 }}
+                </a>
+
+                {{ if isset($tpl_data.membership_level) && $tpl_data.membership_level != 1 }}
+                    {{ include file="common/variable/vipLevel.html" scope=parent }}
+                    <i class="icon-vip-{{ $orgVipLevelMap[$tpl_data.membership_level] }}"
+                    data-title="
+                        {{ if $tpl_data.membership_level == 2 }}
+                            跟谁学会员
+                        {{ else if $tpl_data.membership_level == 3 }}
+                            跟谁学高级会员
+                        {{ else if $tpl_data.membership_level == 4 }}
+                            跟谁学超级会员
+                        {{ /if }}
+                    "></i>
+                {{ /if }}
+            </h1>
+            {{ include file="common/component/chatLabel4.html"  user_number=$tpl_data.number user_type='institution' sku_type='org' click_type='IM_org' size="tiny" online_status=$tpl_data.im_online_status }}
+            {{ $org_intro = $tpl_data.brief|cn_truncate: 11 }}
+            <div class="intro"
+            {{ if $org_intro != $tpl_data.brief }}
+            data-title="{{ $tpl_data.brief }}" data-width="20em"
+            {{ /if }}
+            >
+            {{ $org_intro }}
+        </div>
+        {{ if $tpl_data.comments_cnt > 0 }}
+        <div class="score">
+            {{ include file="common/component/starScore.html" score=$tpl_data.score }}{{ $tpl_data.score }}分
+        </div>
+        {{ else }}
+        <div class="score">
+            暂无评分
+        </div>
+        {{ /if }}
+    </div>
+</div>
+</div>
+
+{{ /if }}
+{{ /strip }}

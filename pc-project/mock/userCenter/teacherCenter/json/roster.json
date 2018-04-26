@@ -1,0 +1,68 @@
+{
+"code": 0,
+"data": {
+    "roster_list": {
+        "list": [
+            {
+                "name": "会考英语",
+                "price": "5.67",
+                "price_min": "1",
+                "price_max": "111",
+                "course_number": "160701489288",
+                "create_time": "2016-07-01 13:55:08",
+                "cover": "",
+                "lesson_way": "4",
+                "course_type": "1",
+                "max_student": "455",
+                "succ_pay": "1",
+                "roster_url": "http://dev-wj.genshuixue.com/course/roster?course_type=2&course_number=160701489288"
+            },
+            {
+                "name": "高二英语",
+                "price": "5.67",
+                "course_number": "160701488392",
+                "create_time": "2016-07-01 10:45:41",
+                "cover": "http://test-img.gsxservice.com/526743_xz1auhcn.jpeg",
+                "lesson_way": "4",
+                "course_type": "2",
+                "max_student": "455",
+                "succ_pay": "1",
+                "roster_url": "http://dev-wj.genshuixue.com/course/roster?course_type=2&course_number=160701488392"
+            },
+            {
+                "name": "验证班课改价，不能返给学生奖学金",
+                "price": "9.99",
+                "course_number": "160630555328",
+                "create_time": "2016-06-30 20:20:29",
+                "cover": "http://test-img.gsxservice.com/526743_xz1auhcn.jpeg",
+                "lesson_way": "4",
+                "course_type": "3",
+                "max_student": "455",
+                "succ_pay": "1",
+                "roster_url": "http://dev-wj.genshuixue.com/course/roster?course_type=2&course_number=160630555328"
+            },
+            {
+                "name": "验证返奖学金精度的问题",
+                "price": "2.17",
+                "course_number": "160630554944",
+                "create_time": "2016-06-30 19:34:03",
+                "cover": "http://test-img.gsxservice.com/735999_81ut4zrd.jpeg",
+                "lesson_way": "4",
+                "course_type": "8",
+                "max_student": "455",
+                "succ_pay": "1",
+                "roster_url": "http://dev-wj.genshuixue.com/course/roster?course_type=2&course_number=160630554944"
+            }
+        ],
+        "pager": {
+            "count": 72,
+            "page": 1,
+            "page_size": 10
+        }
+    },
+    "has_roster": true,
+    "shizi_login": false
+},
+"ts": 1467707858,
+"msg": "succ"
+}

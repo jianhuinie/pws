@@ -1,0 +1,23 @@
+@import "../../resource/css/default.styl";
+
+.income {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    &-detail {
+        padding: 30px 0 30px 20px;
+        height: 220px;
+        &-strong {
+            font-weight: 700;    
+        }
+        > div {
+            line-height: 40px;
+            font-size: 14px;
+            color: $grey_600;
+            span {
+                display: inline-block;
+                width: 150px;
+            }
+        }
+    }
+}

@@ -1,0 +1,16 @@
+{{ *
+
+@file 账户设置
+@author wangyujie
+
+* }}
+
+{{ extends file="common/center/account.html" }}
+
+{{ block name="data" }}
+    {{ $smarty.block.parent }}
+{{ /block }}
+
+{{ block name="sidebar" }}
+    {{ include file="teacher_center/common/sidebar.html" active="account" }}
+{{ /block }}

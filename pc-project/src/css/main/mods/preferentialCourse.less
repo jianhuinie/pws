@@ -1,0 +1,271 @@
+/**
+ * @file 首页聚会学
+ * @author zengcheng
+ */
+
+.preferent-wrapper {
+    overflow: hidden;
+    .ellipsis {
+        display: inline-block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .preferent-left {
+        float: left;
+        width: 212px;
+        height: 487px;
+        .star-list{
+            .ellipsis{
+                max-width: 104px;
+            }
+        }
+    }
+    .preferent-right {
+        float: right;
+        width: 264px;
+        height: 487px;
+        .media-list {
+            display: none;
+            padding: 15px 0 12px;
+            &.active {
+                display: block;
+            }
+        }
+        .teacher-list {
+            .ellipsis {
+                max-width: 156px;
+            }
+        }
+        .course-list {
+            .ellipsis {
+                max-width: 206px;
+            }
+        }
+        .org-list {
+            .ellipsis {
+                max-width: 146px;
+            }
+        }
+    }
+    .preferent-middle {
+        padding: 0 20px 20px;
+        margin-left: 212px;
+        margin-right: 264px;
+        border-bottom: solid 1px #e8e8e8;
+        height: 487px;
+        .recommend-course-list {
+            margin-top: 16px;
+        }
+    }
+    .list-title {
+        margin-bottom: 6px;
+        font-size: 16px;
+        color: #333;
+        overflow: hidden;
+        &.highlight {
+            color: #ff4e88;
+        }
+        .more-link {
+            position: relative;
+            top: 3px;
+            float: right;
+            font-size: 12px;
+            color: #999;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+    .media-list-wrapper {
+        border: solid 1px #e8e8e8;
+        padding: 15px 15px 0;
+    }
+    .list-category {
+        height: 28px;
+        font-size: 14px;
+        border-bottom: solid 1px #e8e8e8;
+        color: #333;
+        .category-item {
+            display: inline-block;
+            line-height: 15px;
+            width: 76px;
+            padding-bottom: 8px;
+            text-align: center;
+            cursor: pointer;
+            border-bottom: solid 2px transparent;
+            &.active {
+                color: #f90;
+                border-color: #f90;
+            }
+        }
+    }
+    .media-item {
+        margin-bottom: 15px;
+        font-size: 12px;
+        .media-index {
+            float: left;
+            .index {
+                display: inline-block;
+                width: 16px;
+                height: 16px;
+                line-height: 16px;
+                border-radius: 2px;
+                text-align: center;
+                background: #bdbdbd;
+                color: #fff;
+                &.with-strong{
+                    background: #f90;
+                }
+            }
+        }
+        .media-content {
+            padding-left: 10px;
+            overflow: hidden;
+        }
+        .media-avatar {
+            float: left;
+            position: relative;
+            a {
+                display: block;
+                &:hover{
+                    &:after{
+                        background: #000;
+                    }
+                }
+            }
+            a:after {
+                background-color: transparent;
+                content: ' ';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                .opacity(0.4);
+                .transition(background 0.3s);
+            }
+            img {
+                display: block;
+            }
+        }
+        .media-info {
+            padding-left: 10px;
+            line-height: 1;
+            overflow: hidden;
+            .media-name {
+                color: #333;
+                line-height: 18px;
+            }
+            .media-description {
+                color: #999;
+                margin-top: 5px;
+            }
+        }
+    }
+
+    .recommend-teacher {
+        overflow: hidden;
+        .teacher-banner {
+            float: left;
+            a,
+            img {
+                display: block;
+            }
+        }
+        .teacher-course-description {
+            overflow: hidden;
+            position: relative;
+            height: 250px;
+            padding: 15px;
+            border: solid 1px #e8e8e8;
+            border-left: none;
+            .teacher-course-name {
+                font-size: 14px;
+                line-height: 24px;
+                color: #333;
+                margin-top: -5px;
+            }
+            .teacher-description {
+                color: #666;
+                font-size: 12px;
+                line-height: 22px;
+                margin-top: 20px;
+                word-wrap: break-word;
+                word-break: break-all;
+            }
+            .teacher-course-status {
+                position: absolute;
+                bottom: 10px;
+                left: 15px;
+                line-height: 1;
+                color: #666;
+                font-size: 12px;
+                .strong {
+                    font-size: 14px;
+                    color: #f72862;
+                }
+            }
+        }
+    }
+    .recommend-course-list {
+        margin: 0 -8px;
+        .course-item {
+            display: inline-block;
+            margin: 0 8px;
+            .course-banner {
+                a,
+                img {
+                    display: block;
+                }
+
+                a:after {
+                    background-color: transparent;
+                    content: ' ';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    .opacity(0.4);
+                    .transition(background 0.3s);
+                }
+
+                a {
+                    position: relative;
+                    &:hover{
+                        &:after{
+                            background: #000;
+                        }
+                    }
+                }
+            }
+            .course-info {
+                margin-top: 10px;
+                font-size: 12px;
+                line-height: 1;
+            }
+            .course-name {
+                color: #333;
+                a{
+                    font-size: 13px;
+                }
+            }
+            .ellipsis {
+                max-width: 214px;
+            }
+            .course-other {
+                margin-top: 8px;
+                color: #999;
+            }
+            .divider {
+                margin: 0 10px;
+                vertical-align: initial;
+            }
+            .strong {
+                margin: 0 3px;
+                color: #f72862;
+            }
+        }
+    }
+}

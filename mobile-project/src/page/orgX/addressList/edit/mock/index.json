@@ -1,0 +1,117 @@
+{
+    "code": 0,
+    "msg": "succ",
+    "tpl_data": {
+        "if_receive_textbook": false,
+        "address_list": {
+            "42246": {
+                "id": "42246",
+                "object_type": "2",
+                "object_ref": "0",
+                "user_address_id": null,
+                "user_id": "342110",
+                "user_role": "2",
+                "user_name": "whh",
+                "mobile": "18301474399",
+                "email": null,
+                "area_id": "17041408",
+                "location_addr": "博彦科技大厦",
+                "lng": null,
+                "lat": null,
+                "status": "1",
+                "created_at": "2016-11-04 15:41:31",
+                "updated_at": "2016-11-04 15:41:31",
+                "regular_address": {
+                    "province": {
+                        "id": "16777216",
+                        "name": "北京",
+                        "display_order": "1000",
+                        "level": "1",
+                        "hidden": "0",
+                        "bid": "131",
+                        "bname": "北京市",
+                        "tid": "110000"
+                    },
+                    "city": {
+                        "id": "17039360",
+                        "name": "北京",
+                        "display_order": "0",
+                        "level": "2",
+                        "hidden": "0",
+                        "bid": "131",
+                        "bname": "北京市",
+                        "tid": "110100"
+                    },
+                    "area": {
+                        "id": "17041408",
+                        "name": "朝阳区",
+                        "display_order": "14",
+                        "level": "3",
+                        "hidden": "0",
+                        "bid": "2898",
+                        "bname": "朝阳区",
+                        "tid": "110105"
+                    },
+                    "location_addr": "博彦科技大厦"
+                },
+                "full_address": "北京市朝阳区博彦科技大厦"
+            },
+            "4226": {
+                "id": "42246",
+                "object_type": "2",
+                "object_ref": "0",
+                "user_address_id": null,
+                "user_id": "342110",
+                "user_role": "2",
+                "user_name": "whh",
+                "mobile": "18301474399",
+                "email": null,
+                "area_id": "17041408",
+                "location_addr": "博彦科技大厦",
+                "lng": null,
+                "lat": null,
+                "status": "1",
+                "created_at": "2016-11-04 15:41:31",
+                "updated_at": "2016-11-04 15:41:31",
+                "regular_address": {
+                    "province": {
+                        "id": "16777216",
+                        "name": "北京",
+                        "display_order": "1000",
+                        "level": "1",
+                        "hidden": "0",
+                        "bid": "131",
+                        "bname": "北京市",
+                        "tid": "110000"
+                    },
+                    "city": {
+                        "id": "17039360",
+                        "name": "北京",
+                        "display_order": "0",
+                        "level": "2",
+                        "hidden": "0",
+                        "bid": "131",
+                        "bname": "北京市",
+                        "tid": "110100"
+                    },
+                    "area": {
+                        "id": "17041408",
+                        "name": "朝阳区",
+                        "display_order": "14",
+                        "level": "3",
+                        "hidden": "0",
+                        "bid": "2898",
+                        "bname": "朝阳区",
+                        "tid": "110105"
+                    },
+                    "location_addr": "博彦科技大厦"
+                },
+                "full_address": "北京市朝阳区博彦科技大厦"
+            }
+        }
+    },
+    "ts": 1478247196,
+    "declare_config": {
+        "declareTpl": null
+    }
+}

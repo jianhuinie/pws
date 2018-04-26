@@ -1,0 +1,167 @@
+{{ foreach $course as $val }}
+
+{{ ** 埋点统计 ** }}
+{{ if isset($tpl_data.condition.query) }}
+{{ $log_url = ($val@index+1)|cat:","|cat:$val.number|cat:","|cat:$log_id }}
+{{ /if }}
+
+<div class="online-course-item course-item">
+
+    {{ if isset($condition.sd) && $condition.sd && $val.debug_info }}
+    <div class="debug_info" style="display: none;">
+        {{ $val.debug_info }}
+    </div>
+    {{ /if }}
+
+    <a class="course-item-photo" rel="nofollow" href="{{ $val.detail_url }}" target="_blank"{{ if $log_flag }} log="{{ $log_url }},course_photo" {{ /if }}>
+        {{ include file="common/variable/photo.html" url=$val.photo_url raw_width=400 raw_height=300 width=132 height=100 }}
+            <img src="{{ $photo }}"  alt="{{ $tpl_data.category|default:'' }}">
+    </a>
+
+    <div class="course-item-info">
+        {{ $name = $val.name|cn_truncate: 18 }}
+        <a href="{{ $val.detail_url }}" target="_blank" title="{{ $tpl_data.category|default:'' }}" class="course-name" {{ if $name != $val.name }} data-title="{{ $val.name|escape }}" data-width="20em"{{ /if }}{{ if $log_flag }} log="{{ $log_url }},name" {{ /if }}>
+            {{ $name }}
+        </a>
+
+        {{ $arrangement = $val.arrangement|cn_truncate:20 }}
+        <div class="course-arrangement" {{ if $arrangement != $val.arrangement }}data-title="{{ $val.arrangement }}" data-width="20em"{{ /if }}>
+            {{ $arrangement }}&nbsp;
+            <span class="course-item-student">
+                {{ $val.sales }}
+            </span>
+        </div>
+
+        <div class="course-tags">
+            {{ if $val.fenqi }}
+                <span class="fenqi-tag">{{ $val.fenqi.tag_name }}</span>
+            {{ /if }}
+            {{ if $val.tag_playback == 1 }}
+                <span class="playback-tag">回放</span>
+            {{ /if }}
+            {{ if $val.tag_trial == 1 }}
+                <span class="trial-tag">试听</span>
+            {{ /if }}
+            {{ if $val.tag_ziliao == 1 }}
+                <span class="ziliao-tag">资料</span>
+            {{ /if }}
+        </div>
+
+        <div class="course-price">
+            {{ if $val.can_chaban }}
+                ￥<span>{{ $val.chaban_price }}</span><span class="course-price-no">￥{{ $val.price }}</span>
+            {{ else }}
+                {{ if $val.price == 0 }}
+                    <span style="color: #48b14b;">免费</span>
+                {{ else }}
+                    ￥<span>{{ $val.price }}</span>
+                {{ /if }}
+            {{ /if }}
+
+            {{ if $val.price != 0 }}
+                {{ if isset($val.cps_flag) && $val.cps_flag != 0 }}
+                    <span class="cps-scholarship"></span>
+                {{ /if }}
+            {{ /if }}
+        </div>
+    </div>
+
+    {{ if empty($val.org) }}
+
+        {{ $teacher = $val.teacher }}
+        {{ if !empty($teacher.domain) }}
+            {{ $teacherDomain = $teacher.domain }}
+        {{ else }}
+            {{ $teacherDomain = $teacher.number }}
+        {{ /if }}
+
+        <div class="course-item-teacher">
+            <div class="teacher-avatar">
+                <a  href="/{{ $teacherDomain }}" target="_blank"{{ if $log_flag }} log="{{ $log_url }},avatar" {{ /if }}>
+                {{ include file="common/component/avatar.html" type="small" img=$val.teacher.avatar alt=$val.teacher.name }}
+                </a>
+            </div>
+            <div class="teacher-base-info">
+                <a class="teacher-info" href="/{{ $teacherDomain }}" target="_blank"{{ if $log_flag }} log="{{ $log_url }},tname" {{ /if }}>
+                    {{ $tname = $val.teacher.name|cn_truncate:7 }}
+                    <div class="teacher-info-name" {{ if $tname != $val.teacher.name }}data-title="{{ $val.teacher.name }}" data-width="20em"{{ /if }}>
+                        {{ $tname }}
+                        {{ if $val.vip_level > 0 }}
+                        <i class="icon icon-vip{{ $val.teacher.vip_level }}"  data-title="{{ $vip_name[$val.teacher.vip_level] }}"></i>
+                        {{ /if }}
+                    </div>
+                </a>
+                <a class="teacher-comment"  href="/{{ $teacherDomain }}/tcomment" target="_blank"{{ if $log_flag }} log="{{ $log_url }},comment" {{ /if }}>
+                    {{ if $val.teacher.score != '0.0' }}
+                    <span class="teacher-comment-score">{{ $val.teacher.score }}分</span>
+                    {{ /if }}
+                    <span class="teacher-comment-times">
+                        （
+                        {{ if $val.teacher.total_comment == 0 }}
+                            暂无评分
+                        {{ else }}
+                            {{ $val.teacher.total_comment }}条评价
+                        {{ /if }}
+                        ）
+                    </span>
+                </a>
+            </div>
+        </div>
+    {{ else }}
+        {{ $org = $val.org }}
+
+        {{ if !empty($org.domain) }}
+            {{ $domain = $org.domain }}
+        {{ else }}
+            {{ $domain = $org.number }}
+        {{ /if }}
+
+        {{ if !empty($org.url) }}
+            {{ $org_url = $org.url }}
+        {{ else }}
+            {{ $org_url = "/i/"|cat:$domain }}
+        {{ /if }}
+
+        <div class="course-item-teacher">
+            <div class="teacher-avatar">
+                <a  href="{{ $org_url }}" target="_blank"{{ if $log_flag }} log="{{ $log_url }},avatar" {{ /if }}>
+                    {{ if $org.avatar }}
+                        {{ include file="common/component/avatar.html" type="small" img=$org.avatar alt=$org.name }}
+                    {{ else }}
+                        {{ include file="common/component/avatar.html" type="small" img='/asset/img/org/logo.jpg' alt=$org.name raw=true }}
+                    {{ /if }}
+                </a>
+            </div>
+            <div class="teacher-base-info">
+                <a class="teacher-info" href="{{ $org_url }}" target="_blank"{{ if $log_flag }} log="{{ $log_url }},tname" {{ /if }}>
+                    {{ $tname = $org.name|cn_truncate:7 }}
+                    <div class="teacher-info-name" {{ if $tname != $org.name }}data-title="{{ $org.name }}" data-width="20em"{{ /if }}>
+                    {{ $tname }}
+                    {{ if $org.vip_level > 0 }}
+                    <i class="icon icon-vip{{ $org.vip_level }}"  data-title="{{ $vip_name[$org.vip_level] }}"></i>
+                    {{ /if }}
+                    </div>
+                </a>
+                {{ if $org.org_is_hero }}
+                    <div>
+                        {{ include file='common/component/goldCert.html' }}
+                    </div>
+                {{ /if }}
+                <a class="teacher-comment"  href="/i/comment/{{ $domain }}" target="_blank"{{ if $log_flag }} log="{{ $log_url }},comment" {{ /if }}>
+                    {{ if $org.score != '0.0' }}
+                    <span class="teacher-comment-score">{{ $org.score }}分</span>
+                    {{ /if }}
+                    <span class="teacher-comment-times">
+                        {{ if $org.total_comment == 0 }}
+                            暂无评分
+                        {{ else }}
+                            （{{ $org.total_comment }}条评价）
+                        {{ /if }}
+                    </span>
+                </a>
+            </div>
+        </div>
+    {{ /if }}
+
+</div>
+{{ /foreach }}

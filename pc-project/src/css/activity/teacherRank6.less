@@ -1,0 +1,380 @@
+/**
+ * @file 活动 排名 第6季
+ * @author liucong
+ */
+
+@import '../main/base.less';
+@import '../common/layout.less';
+
+@strong-color: #E76D20;
+
+body {
+    background-color: #FCCC2F;
+}
+
+#main {
+    .dark {
+        color: @brand-text;
+    }
+    margin-top: 0;
+    .text-primary {
+        color: @strong-color !important;
+    }
+
+    width: 100%;
+
+    & > .wrapper {
+        width: 1100px;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .baidu-share {
+        bottom: -140px;
+        right: 450px;
+        top: auto;
+    }
+
+    .banner {
+        background: url(../../img/activity/teacherRank/anniversary/banner.jpg) 50% 0px no-repeat;
+        height: 499px;
+    }
+
+    .sub-container {
+        & > .header {
+            text-align: center;
+            color: #fff;
+            background: url(../../img/activity/teacherRank/anniversary/header.jpg) 50% 0px no-repeat;
+            height: 60px;
+            width: 706px;
+            line-height: 60px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            font-size: 30px;
+        }
+
+        .content {
+            background-color: #fff;
+            border-radius: 20px;
+            position: relative;
+            z-index: 1;
+            margin-top: -44px;
+        }
+
+        .intro {
+            text-align: center;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+    }
+
+    .sub-container + .sub-container {
+        margin-top: 57px;
+    }
+
+    .icon-question,
+    .icon-answer,
+    .icon-star-a {
+        background: url(../../img/activity/teacherRank/second/QAStar.png) no-repeat;
+        vertical-align: middle;
+    }
+
+    .icon-question,
+    .icon-answer {
+        height: 20px;
+        width: 20px;
+        margin-right: 10px;
+    }
+
+    .icon-star-a {
+        height: 19px;
+        width: 19px;
+        background-position: -44px 0;
+        margin: -3px 5px 0 5px;
+    }
+
+    .icon-question {
+        background-position: 0 0;
+    }
+
+    .icon-answer {
+        background-position: -22px 0;
+    }
+
+    #introduction {
+
+        .content {
+            .clearfix();
+            padding: 66px 45px 34px 40px;
+            line-height: 2em;
+
+            .intro-header {
+                font-size: 32px;
+                color: #FF4018;
+                font-weight: bold;
+
+                span {
+                    padding-bottom: 3px;
+                    border-bottom: 3px solid #FF4018;
+                }
+
+                margin-bottom: 20px;
+            }
+
+            .legend {
+                font-size: 12px;
+                margin-left: 30px;
+            }
+        }
+
+        .colum-left {
+            width: 465px;
+            float: left;
+        }
+
+        .column-right {
+            width: 534px;
+            float: right;
+        }
+
+        .anniversary-banner {
+            width: 100%;
+            height: 142px;
+            background: url(../../img/activity/teacherRank/anniversary/anniversary_banner.jpg) 50% 0 no-repeat;
+            margin-bottom: 48px;
+        }
+
+        .desc {
+            border: 1px solid #FF8B31;
+            background-color: #FFFDF7;
+            border-radius: 8px;
+            padding: 40px 21px;
+
+            .big {
+                font-size: 16px;
+            }
+        }
+
+        .highlight {
+            color: #03BF7D;
+        }
+
+        .bang {
+            .inline-block();
+            vertical-align: middle;
+            margin-left: -5px;
+            margin-right: -5px;
+        }
+
+        .splitter {
+            height: 1px;
+            background-color: #FF8B31;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            position: relative;
+
+            .triangle-up(10px, 60px, #FF8B31, #FFFDF7);
+        }
+    }
+
+    #cash {
+        .content {
+            padding: 63px 36px 36px 36px;
+        }
+        .legend-container + .legend-container {
+            margin-left: 29px;
+        }
+        .legend-container {
+            .inline-block();
+            position: relative;
+            text-align: center;
+
+            .legend {
+                background: url(../../img/activity/teacherRank/second/cash.jpg);
+                width: 147px;
+                height: 101px;
+                color: #fff;
+                padding-top: 47px;
+                font-size: 24px;
+            }
+            .index {
+                position: absolute;
+                top: 3px;
+                left: 9px;
+                color: @strong-color;
+            }
+            .label {
+                margin-top: 10px;
+            }
+        }
+    }
+
+    #medal {
+        .content {
+            padding: 63px 0 48px 0;
+            text-align: center;
+        }
+        .medal-container + .medal-container {
+            margin-left: 98px;
+        }
+        .medal-container {
+            .inline-block();
+        }
+        .medal {
+            background: url(../../img/activity/teacherRank/second/medals.png) no-repeat;
+            width: 100px;
+            height: 149px;
+        }
+        .label {
+            margin-top: 10px;
+        }
+    }
+
+    #noorg-teacher {
+        .content {
+            padding: 64px 80px 46px 64px;
+        }
+
+        .teacher + .teacher {
+            margin-left: 26px;
+        }
+        .first {
+            margin-left: 0 !important;
+        }
+        .teacher {
+            .inline-block();
+            position: relative;
+            width: 170px;
+            background-color: #FFEBD1;
+            margin-top: 20px;
+            padding: 0 10px 10px 10px;
+
+            .header {
+                background: url(../../img/activity/teacherRank/second/teacher_header.png);
+                width: 161px;
+                height: 23px;
+                padding-left: 50px;
+                line-height: 23px;
+                margin-left: -10px;
+
+            }
+
+            .org a {
+
+                color: #fff;
+                &:hover {
+                    color: #fff;
+                }
+            }
+
+            .index {
+                background: url(../../img/activity/teacherRank/second/rank.png);
+                width: 43px;
+                height: 32px;
+                position: absolute;
+                top: -12px;
+                left: 0;
+            }
+
+            .avatar, .empty-avatar {
+                text-align: center;
+                margin-top: 10px;
+            }
+
+            .avatar {
+                a, img, a:after {
+                    border-radius: 0;
+                }
+            }
+
+            .info {
+                .subject {
+                    font-size: 14px;
+                }
+            }
+
+            .total {
+                font-size: 20px;
+                color: @strong-color;
+            }
+
+            .icon-star-a {
+                margin-left: 0;
+            }
+
+            .base-info {
+
+                .name, .info {
+                    .inline-block();
+                }
+
+                .name + .info {
+                    margin-left: 10px;
+                }
+
+                .name {
+                    color: @brand-text;
+                    font-size: 16px;
+                }
+            }
+
+        }
+    }
+
+    #rule {
+        .content {
+            padding: 64px 54px 40px 54px;
+        }
+        h3 {
+            color: @strong-color;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        line-height: 2em;
+
+        .index, .important {
+            background: url(../../img/activity/teacherRank/second/index.png) no-repeat;
+            margin-right: 10px;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            vertical-align: top;
+            margin-top: 4px;
+        }
+        .important {
+        }
+    }
+
+}
+
+.share {
+
+    position: relative;
+    height: 0;
+    text-align: center;
+    margin-top: 63px;
+    color: #fff;
+
+    & > div {
+        .inline-block();
+        padding: 10px 0;
+        width: 300px;
+        background-color: #8C4AF3;
+        font-size: 28px;
+        margin-top: -30px;
+        border-radius: 30px;
+    }
+
+    img {
+        margin-right: 5px;
+    }
+}
+
+.copy-right {
+    background-color: #FF4F18;
+    text-align: center;
+    color: #fff;
+    padding: 72px 0;
+}

@@ -1,0 +1,99 @@
+/**
+ * @file 钱包管理 - 优惠券
+ * @author liucong
+ */
+
+@import '../common/center/common/layout.less';
+
+#content {
+    .left {
+        text-align: left;
+    }
+    .icon-new-coupon {
+        .inline-block();
+        vertical-align: top;
+        margin: 2px 2px 0 2px;
+    }
+
+    table {
+        margin-top: @gap-vertical-large;
+        font-size: @font-size-tiny;
+    }
+    tbody {
+        tr {
+            height: 86px;
+        }
+        td {
+            vertical-align: middle;
+            position: relative;
+        }
+    }
+    .border-left, .border-right {
+        position: absolute;
+        background-color: red;
+        width: 7px;
+        height: 85px;
+        top: -1px;
+        background: url(../../img/center/coupon_border.jpg)
+    }
+    .border-left {
+        left: 0;
+    }
+    .border-right {
+        right: 0;
+    }
+    .denominations {
+        color: @brand-primary;
+        font-size: 18px;
+    }
+
+    .unavailable {
+        tr {
+            background-color: #EEEEEE;
+            border-top: 1px solid @brand-gray;
+            border-bottom: 1px solid @brand-gray;
+        }
+        .border-left {
+            background-position: 0 0;
+        }
+        .border-right {
+            background-position: -7px 0;
+        }
+        .denominations {
+            color: inherit;
+        }
+    }
+    .available {
+        tr {
+            background-color: #FDFCE5;
+            color: @brand-text;
+            border-top: 1px solid #FFEDC1;
+            border-bottom: 1px solid #FFEDC1;
+        }
+        .border-left {
+            background-position: -14px 0;
+        }
+        .border-right {
+            background-position: -21px 0;
+        }
+    }
+    .splitter {
+        height: 10px;
+        background-color: #fff;
+    }
+
+    .cond-menu {
+        background-color: #FFF;
+        border: 1px solid @brand-gray;
+        padding: @gap-vertical-medium
+                 @gap-horizontal-large;
+
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        z-index: 2;
+
+        .triangle-up(6px, 2em);
+    }
+}

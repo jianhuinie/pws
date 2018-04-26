@@ -1,0 +1,137 @@
+{{ *
+   * @file 2016.08版主页的主要导航条
+   * @author peilonghui, wangyujie
+* }}
+
+{{ strip }}
+{{ $active = $nav_config.active }}
+
+{{ if !$nav_config.hidden }}
+<div id="nav">
+
+    <div class="wrapper">
+
+        {{ include file="common/main/component/category.html" }}
+
+        <ul class="nav-items">
+
+            {{ $has_login = isset($user_data.user_name) }}
+
+            {{ $menu = [] }}
+
+            {{ $menu_video = [ ] }}
+            {{ $menu_video['title'] = '视频课' }}
+            {{ $menu_video['url'] = 'http://www.genshuixue.com/videozone' }}
+            {{ $menu_video['target'] = '_blank' }}
+
+            {{ $menu['videozone'] = $menu_video }}
+
+            {{ $menu_live = [ ] }}
+            {{ $menu_live['title'] = '直播课' }}
+            {{ $menu_live['url'] = 'http://www.genshuixue.com/livezone' }}
+            {{ $menu_live['target'] = '_blank' }}
+
+            {{ $menu['live'] = $menu_live }}
+
+
+            {{ $menu_privilege = [ ] }}
+            {{ $menu_privilege['title'] = '聚惠学' }}
+            {{ $menu_privilege['url'] = 'http://ju.genshuixue.com/?zn=zn_juhuixue_tab_pc ' }}
+            {{ $menu_privilege['nofollow'] = 1 }}
+            {{ $menu_privilege['target'] = '_blank' }}
+
+            {{ $menu['privilege'] = $menu_privilege }}
+
+
+            {{ $menu_kaoyan = [ ] }}
+            {{ $menu_kaoyan['title'] = '考研专区' }}
+            {{ $menu_kaoyan['url'] = 'http://kaoyan.genshuixue.com/courses/yyindex?zn=zn_pc_index' }}
+            {{ $menu_kaoyan['target'] = '_blank' }}
+
+            {{ $menu['kaoyan'] = $menu_kaoyan }}
+
+
+            {{ $menu_forum = [ ] }}
+            {{ $menu_forum['title'] = '社区' }}
+            {{ $menu_forum['url'] = 'http://bbs.genshuixue.com/' }}
+            {{ * $menu_forum['extra'] =  '<div class="forum-icon-box"><i class="forum-hot-icon"></i></div>' * }}
+            {{ $menu_forum['nofollow'] = 1 }}
+            {{ $menu_forum['target'] = '_blank' }}
+
+            {{ $menu['forum'] = $menu_forum }}
+
+
+            {{ * $menu_article = [ ] * }}
+            {{ * $menu_article['title'] = '学习头条' * }}
+            {{ * $menu_article['url'] = 'http://news.genshuixue.com' * }}
+            {{ * **$menu_article['extra'] =  '<img class="privilege-icon" src="http://img.gsxservice.com/0cms/d/file/content/2015/07/55af0e5fc7503.png" alt="学习头条" />'** * }}
+            {{ * $menu_article['target'] = '_blank' * }}
+
+            {{ * $menu['article'] = $menu_article * }}
+
+
+            {{ $business_school = [ ] }}
+            {{ $business_school['title'] = '商学院' }}
+            {{ $business_school['url'] = 'http://biz.genshuixue.com' }}
+            {{ **$business_school['extra'] =  '<img class="privilege-icon" src="http://img.gsxservice.com/0cms/d/file/content/2015/07/55af0e5fc7503.png" alt="商学院" />'** }}
+            {{ $business_school['target'] = '_blank' }}
+
+            {{ $menu['biz'] = $business_school }}
+
+
+            {{ $menu_teacher = [ ] }}
+            {{ $menu_teacher['title'] = '老师入驻' }}
+            {{ $menu_teacher['url'] = 'http://www.genshuixue.com/static/teacher' }}
+            {{ $menu_teacher['nofollow'] = 1 }}
+
+            {{ $menu['teacher'] = $menu_teacher }}
+
+
+            {{ $menu_org = [ ] }}
+            {{ $menu_org['title'] = '机构入驻' }}
+            {{ $menu_org['url'] = 'http://i.genshuixue.com' }}
+            {{ $menu_org['nofollow'] = 1 }}
+
+            {{ $menu['org'] = $menu_org }}
+
+
+            {{ $menu_app = [ ] }}
+            {{ $menu_app['title'] = '下载APP' }}
+            {{ $menu_app['url'] = 'http://www.genshuixue.com/static/app' }}
+            {{ $menu_app['nofollow'] = 1 }}
+            {{ $menu_app['target'] = '_blank' }}
+
+            {{ $menu['app'] = $menu_app }}
+
+
+            {{ $menu_member = [ ] }}
+            {{ $menu_member['title'] = '会员中心' }}
+            {{ $menu_member['url'] = 'http://www.genshuixue.com/teacher_center/vip_center' }}
+            {{ $menu_member['nofollow'] = 1 }}
+            {{ $menu_member['target'] = '_blank' }}
+
+            {{ $menu['member'] = $menu_member }}
+
+            {{ foreach $menu as $key=>$item }}
+            <li>
+
+                <a {{ if isset($item.nofollow) }} rel="nofollow" {{ /if }} class="{{ $key }}{{ if isset($active) && $active == $key }} active{{ /if }}" href="{{ $item.url }}"{{ if isset($item.target) }} target="{{ $item.target }}"{{ /if }}>
+                    {{ $item.title }}
+                    {{ if $item.title == '会员中心' }}
+                        <div class="vip-icon"></div>
+                    {{ /if }}
+                </a>
+
+                {{ if isset($item.extra) }}
+                    {{ $item.extra }}
+                {{ /if }}
+
+            </li>
+            {{ /foreach }}
+        </ul>
+
+    </div>
+</div>
+
+{{ /if }}
+{{ /strip }}

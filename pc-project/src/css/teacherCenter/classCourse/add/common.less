@@ -1,0 +1,185 @@
+.class-course-content {
+
+    & > div {
+        padding: 20px;
+    }
+
+    .module-content-header {
+        margin: 16px 0;
+        margin-left: -1px;
+        padding-left: 18px;
+        border-left: 3px solid #f90;
+        font-weight: bold;
+        color: #3d3d3d;
+    }
+
+    .module-content-form {
+        border-top: 1px solid #ededed;
+        padding-top: 10px;
+
+        .form-group {
+
+            margin-top: 10px;
+
+            .form-label {
+                width: 140px;
+                padding-right: 26px;
+                float: none;
+                display: inline-block;
+                vertical-align: top;
+            }
+
+            .form-controls {
+
+                display: inline-block;
+                vertical-align: top;
+
+                &.hide {
+                    display: none;
+                }
+
+                input.form-text {
+                    height: 36px;
+                    width: 550px;
+                    margin-right: 5px;
+                }
+
+                .dropdown {
+                    min-width: 120px;
+                    &.address-selector {
+                        min-width: 416px;
+                    }
+                }
+
+                [type="radio"], [type="checkbox"] {
+                    position: relative;
+                    top: -1px;
+                }
+
+                .input-tip {
+                    color: #aaa;
+                    font-size: 12px;
+                }
+
+                .input-desc {
+                    .input-tip;
+                    span {
+                        color: #f90;
+                    }
+                }
+
+
+            }
+            .input-tip-container {
+
+                display: inline-block;
+                font-size: 12px;
+                .icon-check-circle {
+                    display: none;
+                    margin-top: 10px;
+                }
+
+                .icon-info-circle {
+                    display: none;
+                    color: #f00;
+                    &:before {
+                        margin-right: 5px;
+                    }
+                }
+
+                &.valid {
+                    .input-tip {
+                        display: none;
+                    }
+
+                    .icon-check-circle {
+                        display: inline-block;
+                        color: #81d54c;
+                    }
+
+                    .icon-info-circle {
+                        display: none;
+                    }
+                }
+
+                &.invalid {
+                    .input-tip {
+                        display: none;
+                    }
+
+                    .icon-check-circle {
+                        display: none;
+                    }
+
+                    .icon-info-circle {
+                        display: inline-block;
+                    }
+                }
+
+                &.block-invalid {
+                    display: block;
+                    max-width: 600px;
+                }
+            }
+        }
+        .teacher-tip-container, .plan-tip-container, .timelegnth-tip-container {
+            display: inline-block;
+            font-size: 12px;
+            .icon-check-circle {
+                display: none;
+                margin-top: 10px;
+            }
+
+            .icon-info-circle {
+                display: none;
+                margin-top: 10px;
+                color: #f00;
+                padding-left: 58px;
+                &:before {
+                    margin-right: 5px;
+                }
+            }
+
+            &.valid {
+                .input-tip {
+                    display: none;
+                }
+
+                .icon-check-circle {
+                    display: inline-block;
+                    color: #81d54c;
+                }
+
+                .icon-info-circle {
+                    display: none;
+                }
+            }
+
+            &.invalid {
+                .input-tip {
+                    display: none;
+                }
+
+                .icon-check-circle {
+                    display: none;
+                }
+
+                .icon-info-circle {
+                    display: inline-block;
+                }
+            }
+
+            &.block-invalid {
+                display: block;
+                max-width: 600px;
+            }
+        }
+        .plan-tip-container {
+            display: block;
+            .icon-info-circle {
+                padding-left: 0;
+            }
+        }
+    }
+
+}

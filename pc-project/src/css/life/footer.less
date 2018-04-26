@@ -1,0 +1,98 @@
+/**
+ * @file 懂行底导
+ * @author wangtianhua
+ */
+footer {
+    	font-size: 12px;
+    	background-color: #fff;
+    	padding-bottom: 30px;
+    	.foot {
+    		width: 1190px;
+	    	margin: 0 auto;
+	    	overflow: hidden;
+            padding-left: 10px;
+    		.about {
+    			width: 85%;
+    			float: left;
+    			.friend-links {
+			    	border-top: 1px solid #eee;
+		    	    padding-top: 15px;
+			    }
+	    		.site-map,
+			    .friend-links {
+			        text-align: left;
+			        li {
+			            .inline-block();
+			        }
+
+			        font-size: @font-size-tiny;
+
+			        a {
+			            margin-right: @gap-horizontal-small;
+			            color: #666;
+
+			            &:hover {
+			                color: @brand-primary;
+			            }
+			        }
+			    }
+			    .friend-links {
+			        margin-top: @gap-vertical-large;
+                    .friend-company {
+                        a{
+                            b{
+                                display: inline;
+                                float: left;
+                                margin: 0 3px;
+                                font-weight: 400;
+                                color: #ddd;
+                            }
+                        }
+                    }
+			    }
+			    .copyright {
+			        color: @brand-text-lighter;
+			        font-size: @font-size-tiny;
+			        text-align: left;
+		            margin-top: 10px;
+			    }
+			    .site-map {
+		        	margin-top: 30px;
+		        	ul{
+	        		    display: inline-block;
+	        		    &.add {
+                            li {
+                                a{
+                                    color: #222;
+                                    b {
+                                        margin-left: 3px;
+                                    }
+                                }
+                            }
+	        		    	font-size: 12px;
+	        		    }
+	        		    &.old {
+	        		    	margin-left: 30px;
+	        		    }
+		        	}
+		   		}
+    		}
+    		.friend-links-label {
+    			color: #9d9d9d;
+    		}
+    		.code {
+    			float: right;
+    			width: 120px;
+    			height: 120px;
+			    margin-top: 20px;
+    			margin-right: 35px;
+                text-align: center;
+    			img {
+    				width: 100px;
+                    height: 100px;
+    			}
+    		}
+
+    	}
+
+    }

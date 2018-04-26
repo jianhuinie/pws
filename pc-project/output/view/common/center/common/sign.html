@@ -1,0 +1,64 @@
+{{ *
+
+@file 老师个人中心侧边栏 - 签到
+@author wangyujie
+
+* }}
+
+{{ strip }}
+
+{{ if !$ext_data.has_checkin }}
+
+    <div class="sign-close">&times;</div>
+
+    <div class="sign-header">
+        <h1>选择签到表情</h1>
+    </div>
+
+    <div class="sign-body">
+        <div id="expression-container" class="expression-container">
+           <div class="expression-panel">
+                {{ include file="common/variable/expression.html" scope=parent }}
+                {{ foreach $expressionMap as $src => $name }}
+                    <div class="expression-item" data-name="{{ $name }}" data-val="{{ $src }}">
+
+                       <img src="{{ $static_origin }}/asset/img/im/expression-{{ $src }}.png" alt="{{ $name }}" />
+
+                       <div class="tip-container">
+                           <div>{{ $name }}</div>
+                           <div class="back-arrow"></div>
+                           <div class="front-arrow"></div>
+                       </div>
+
+                   </div>
+                {{ /foreach }}
+           </div>
+
+           <div class="back-arrow"></div>
+           <div class="front-arrow"></div>
+        </div>
+
+        <input type="hidden" name="expression" />
+
+        <div class="form-group">
+           <div class="form-controls">
+               <div class="form-editor mood">
+                   <textarea type="text" class="form-text" name="mood" placeholder="今天的心情如何？说上两句..."></textarea>
+                   <span class="text-error no-mood-warn">
+                        选择一个签到表情吧！
+                    </span>
+                   <span class="form-hint">
+                       还可以输入 <strong>140</strong> 个字
+                   </span>
+               </div>
+           </div>
+        </div>
+
+        <div class="form-action">
+            <button class="btn btn-info btn-sign">签到</button>
+        </div>
+    </div>
+
+{{ /if }}
+
+{{ /strip }}

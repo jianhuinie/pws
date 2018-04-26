@@ -1,0 +1,121 @@
+{{ *
+
+@file 活动主页
+@author zengcheng
+
+* }}
+{{ extends file="social/common/base.html" }}
+
+{{ block name="data" }}
+
+    {{ * 需要im * }}
+    {{ $need_im = false }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $nav_config.active = '' }}
+    {{ $nav_config.hidden = 1 }}
+    {{ $flotage_config.hidden = true }}
+
+    {{ $script_data.groupId = $tpl_data.group_id|default:'' }}
+    {{ $script_data.threadId = $tpl_data.thread_id|default:'' }}
+    {{ $script_data.content = $tpl_data.content|default:'' }}
+    {{ $script_path = "social/write" }}
+
+{{ /block }}
+
+{{ block name = "style" }}
+    <link rel="stylesheet" href="{{ $static_origin }}/src/css/social/write.less">
+{{ /block }}
+
+{{ block name="main" }}
+
+{{ strip }}
+<div id="main">
+    <div class="wrapper">
+        <h3 class="label">
+            {{ if empty($tpl_data.name) }}
+                发表新帖
+            {{ else }}
+                修改帖子
+            {{ /if }}
+        </h3>
+        <div class="editor-wrapper">
+            <div id="post-title-editor" class="post-title">
+                <div class="form-editor">
+                    <textarea class="form-text" name="postTitle" placeholder="输入帖子标题">{{ $tpl_data.name|default:''|escape:'html' }}</textarea>
+                    <div class="form-hint"></div>
+                </div>
+            </div>
+            <div id="post-editor"></div>
+
+            <div id="course-card">
+            {{ if isset($tpl_data.course_card) && !empty($tpl_data.course_card) }}
+                {{ include file="common/variable/courseType.html" scope=parent }}
+                    <div class="hint">
+                        每个帖子只能添加一个卡片哦
+                    </div>
+                {{ foreach $tpl_data.course_card as $course }}
+
+                    <div class="course-card" data-coursenum="{{ $course.course_number }}" data-coursetype="{{ $course.course_type }}">
+
+                        <div class="course-type">
+                            {{ $courseTypeMap[$course.course_type] }}
+                        </div>
+                        {{ include file="common/component/image.html" url=$course.course_cover width=158 height=112 }}
+                        <div class="course-info">
+                            <div class="title">
+                                {{ $course.course_name|cn_truncate: 18 }}
+                            </div>
+                            <div class="teacher">
+                                {{ $course.teacher_nickname|cn_truncate: 20 }}
+                            </div>
+
+                            <div class="address">
+                                {{ if isset($course.course_address) }}
+                                    <i class="icon icon-location-o"></i>
+                                    <span data-title="{{ $course.course_address }}" data-width="20em">
+                                        {{ $course.course_address|cn_truncate: 19 }}
+                                    </span>
+                                {{ /if }}
+                            </div>
+
+                            <div class="other">
+                                <a class="btn-to-look small" href="{{ $course.course_url }}" target="_blank">
+                                    去看看
+                                </a>
+                                <span class="price">
+                                    <em>¥</em>{{ $course.course_price }}
+                                </span>
+                                {{ if isset($course.course_time) }}
+                                <span class="date">
+                                    {{ $course.course_time }}
+                                </span>
+                                {{ /if }}
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="course-card-action">
+                        <button class="btn-link del-course-card">
+                            删除
+                        </button>
+                        <button class="btn-link re-course-card">
+                            重新插入
+                        </button>
+                    </div>
+                {{ /foreach }}
+            {{ /if }}
+            </div>
+
+            <div class="post-action">
+                <button class="btn btn-primary post-btn">发表帖子</button>
+                <button class="btn btn-default cancel-btn">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+{{ include file="common/component/ueditor.html" }}
+{{ /strip }}
+{{ /block }}

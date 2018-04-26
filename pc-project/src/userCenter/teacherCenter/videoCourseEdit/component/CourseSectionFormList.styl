@@ -1,0 +1,55 @@
+/**
+ * @file 视频列表
+ * @author zhujialu
+ */
+
+@import 'userCenter/common/variable.styl'
+
+$video-item-width = 344px
+$video-item-height = 137px
+
+.course-section-form-list
+
+    .video-item
+        display inline-block
+        width $video-item-width
+        height $video-item-height
+        margin 8px
+        vertical-align top
+
+    .course-section-form
+        cursor move
+        width $video-item-width
+        z-index $zindex-medium
+        transition-property background-color
+        transition-property border-color
+        transition-duration 0.2s
+
+        &.dragging
+            background-color #FAFAFA
+
+        &.active
+            z-index $zindex-medium + 1
+            border-style dashed
+
+        &.brother
+            background-color #F2F8FF
+            border-color #9FB3E3
+
+    .add-course-section
+
+        border 1px dashed $brand-border
+        background-color #fff
+        cursor pointer
+        padding 36px 0
+        text-align center
+
+        .icon-plus
+            margin-right $horizontal-small
+
+        .book
+            background url(../img/sprite.png) no-repeat 0 0
+            display inline-block
+            margin-bottom $vertical-medium
+            width 32px
+            height 32px

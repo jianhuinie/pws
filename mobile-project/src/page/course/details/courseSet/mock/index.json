@@ -1,0 +1,220 @@
+{
+    "code": 0,
+    "msg": "succ",
+    "tpl_data": {
+        "org_info": {
+            "name": "\u738b\u5e0c\u6d9b\u5de5\u4f5c\u5ba4",
+            "number": "877551459",
+            "short_intro": "\u4f18\u8d28\u6559\u80b2\uff0c\u8bda\u4fe1\u4e3a\u672c\u3002",
+            "extension": "4000-122-166 \u8f6c146073",
+            "level": 1,
+            "photo_url": "https:\/\/img.genshuixue.com\/24752879_v8t2m0qc.jpeg",
+            "course_count": 22,
+            "comment_rate": "58%",
+            "comment_count": "19",
+            "is_authentication": "1",
+            "student_count": 26,
+            "home_url": "http:\/\/beta.genshuixue.com\/i\/877551459"
+        },
+        "course_info": {
+            "name": "\u62c6\u8868\u4e00\u5bf9\u4e00\u7ebf\u4e0b-\u6fb3\u6d32\u7559\u5b66",
+            "status": "2",
+            "number": "80286826689031",
+            "lesson_way": "4",
+            "course_type": "11",
+            "retire_flag": "0",
+            "introduction": "<p>11111<\/p>",
+            "cover": "https:\/\/img.genshuixue.com\/23720500_9apgej13.png",
+            "increment_service": [
+                "\u968f\u65f6\u9000"
+            ],
+            "lesson_type_number": 2,
+            "type_info": [
+                {
+                    "name": "\u6fb3\u6d32\u7559\u5b66\u4e00\u5bf9\u4e00\u7ebf\u4e0b\u514d\u8d39",
+                    "number": "54806425830011",
+                    "code": "",
+                    "class_time": "",
+                    "class_time_desc": "",
+                    "class_plan": "",
+                    "address": "\u5317\u4eac\u5e02\u6d77\u6dc0\u533a",
+                    "class_hour": "1\u8bfe\u65f6\u8d77",
+                    "price": "0.00",
+                    "class_hour_explain": "0.00\u5143\/1\u8bfe\u65f6",
+                    "detail_url": "https:\/\/beta-m.genshuixue.com\/org_course\/one2oneDetail\/54806425830011",
+                    "detail_m_url": "https:\/\/beta-m.genshuixue.com\/org_course\/one2oneDetail\/54806425830011",
+                    "lesson_way": null,
+                    "status": "2",
+                    "buy_way": "1",
+                    "display_status": ""
+                },
+                {
+                    "name": "\u6fb3\u6d32\u7559\u5b66\u4e00\u5bf9\u4e00\u7ebf\u4e0b\u4ed8\u8d39",
+                    "number": "81649971429011",
+                    "code": "",
+                    "class_time": "",
+                    "class_time_desc": "",
+                    "class_plan": "",
+                    "address": "\u5317\u4eac\u5e02\u6d77\u6dc0\u533a",
+                    "class_hour": "20",
+                    "price": "1.00",
+                    "class_hour_explain": "1.00\u5143\/20\u8bfe\u65f6",
+                    "detail_url": "https:\/\/beta-m.genshuixue.com\/org_course\/one2oneDetail\/81649971429011",
+                    "detail_m_url": "https:\/\/beta-m.genshuixue.com\/org_course\/one2oneDetail\/81649971429011",
+                    "lesson_way": null,
+                    "status": "2",
+                    "buy_way": "2",
+                    "display_status": ""
+                }
+            ],
+            "price": "0.00",
+            "address": "\u8f6f\u4ef6\u56ed\u897f\u4e8c\u8def",
+            "video": null,
+            "relative_course": [
+                {
+                    "number": "54701516873031",
+                    "name": "\u6fb3\u6d32\u4e00\u5468\u6e38\u653b\u7565\u7b2c\u4e00\u7bc7\u7b2c\u4e00\u8282",
+                    "pic": "https:\/\/img.genshuixue.com\/24517731_c2lds0pz.jpg",
+                    "photo_url": "https:\/\/img.genshuixue.com\/24517731_c2lds0pz.jpg",
+                    "price": "0.00",
+                    "course_type": "11",
+                    "detail_url": "\/org_course\/detail\/54701516873031"
+                },
+                {
+                    "number": "47990634605031",
+                    "name": "\u5a74\u513f\u8f85\u5bfc\u7b2c\u4e00\u7ae0\u8282\u7b2c\u4e00\u7bc7\u5165\u95e8\u7bc7\uff08\u514d\u8d39\uff09",
+                    "pic": "https:\/\/img.genshuixue.com\/24565141_0w5k4y6f.jpg",
+                    "photo_url": "https:\/\/img.genshuixue.com\/24565141_0w5k4y6f.jpg",
+                    "price": "0.00",
+                    "course_type": "11",
+                    "detail_url": "\/org_course\/detail\/47990634605031"
+                },
+                {
+                    "number": "81964505857031",
+                    "name": "\u5927\u897f\u6d0b\u590f\u4ee4\u8425\uff08\u4e0d\u53ef\u9000\uff09",
+                    "pic": "https:\/\/img.genshuixue.com\/23720440_n9pzf9xl.png",
+                    "photo_url": "https:\/\/img.genshuixue.com\/23720440_n9pzf9xl.png",
+                    "price": "0.00",
+                    "course_type": "11",
+                    "detail_url": "\/org_course\/detail\/81964505857031"
+                }
+            ]
+        },
+        "comment": {
+            "comment_point": "3.4",
+            "comment_number": 16,
+            "comment_count": 16,
+            "comment_rate": "50%",
+            "comment_list": [
+                {
+                    "serial_number": "0",
+                    "user_id": "611044",
+                    "teacher_user_id": "0",
+                    "desc_match": "5.0",
+                    "teach_result": "5.0",
+                    "service_attitude": "5.0",
+                    "face_type": "1",
+                    "info": "5\u661f\u597d\u8bc4\uff0c\u8001\u5e08\u8bb2\u5f97\u7279\u522b\u7279\u522b\u597d\uff0c",
+                    "create_time": "2017-01-06 19:32",
+                    "fr": "0",
+                    "course_type": "11",
+                    "course_number": "81649971429011",
+                    "thumb_up": "0",
+                    "has_photo": "0",
+                    "display_title": "\u6fb3\u6d32\u7559\u5b66\u4e00\u5bf9\u4e00\u7ebf\u4e0b\u4ed8\u8d39",
+                    "anonymous": "0",
+                    "total_score": "5.0",
+                    "comment_num": "1",
+                    "teacher_user_number": "877551459",
+                    "private_domain": "877551459",
+                    "comment_id": "1543429",
+                    "has_thumb_up": false,
+                    "comprehensive_score": "5.0",
+                    "course": {
+                        "course_number": "81649971429011",
+                        "course_url": "https:\/\/beta-m.genshuixue.com\/org_course\/one2oneDetail\/81649971429011",
+                        "teacher_name": "\u738b\u5e0c\u6d9b\u5de5\u4f5c\u5ba4",
+                        "course_type": "11",
+                        "course_name": "\u6fb3\u6d32\u7559\u5b66\u4e00\u5bf9\u4e00\u7ebf\u4e0b\u4ed8\u8d39"
+                    },
+                    "user": {
+                        "display_name": "\u5c0f\u82b1",
+                        "avatar_url": "https:\/\/imgs.genshuixue.com\/30518_j897m0no.jpeg",
+                        "number": "643649788",
+                        "url": "http:\/\/beta.genshuixue.com\/x\/643649788"
+                    },
+                    "photo_list": [],
+                    "is_my_comment": false,
+                    "if_can_addition": false,
+                    "if_can_review": false,
+                    "has_more": 0,
+                    "can_open": 0,
+                    "user_name": "\u5c0f\u82b1",
+                    "user_avatar": "https:\/\/imgs.genshuixue.com\/30518_j897m0no.jpeg",
+                    "date": "2017-01-06 19:32",
+                    "content": "5\u661f\u597d\u8bc4\uff0c\u8001\u5e08\u8bb2\u5f97\u7279\u522b\u7279\u522b\u597d\uff0c"
+                },
+                {
+                    "serial_number": "0",
+                    "user_id": "611044",
+                    "teacher_user_id": "0",
+                    "desc_match": "5.0",
+                    "teach_result": "5.0",
+                    "service_attitude": "5.0",
+                    "face_type": "1",
+                    "info": "\u8001\u5e08\u8bb2\u5f97\u5f88\u597d\uff0c5\u661f\u597d\u8bc4\u597d\u8bc4\u597d\u8bc4",
+                    "create_time": "2017-01-06 17:37",
+                    "fr": "0",
+                    "course_type": "11",
+                    "course_number": "54806425830011",
+                    "thumb_up": "0",
+                    "has_photo": "0",
+                    "display_title": "\u6fb3\u6d32\u7559\u5b66\u4e00\u5bf9\u4e00\u7ebf\u4e0b\u514d\u8d39",
+                    "anonymous": "1",
+                    "total_score": "5.0",
+                    "comment_num": "1",
+                    "teacher_user_number": "877551459",
+                    "private_domain": "877551459",
+                    "comment_id": "1543357",
+                    "has_thumb_up": false,
+                    "comprehensive_score": "5.0",
+                    "course": {
+                        "course_number": "54806425830011",
+                        "course_url": "https:\/\/beta-m.genshuixue.com\/org_course\/one2oneDetail\/54806425830011",
+                        "teacher_name": "\u738b\u5e0c\u6d9b\u5de5\u4f5c\u5ba4",
+                        "course_type": "11",
+                        "course_name": "\u6fb3\u6d32\u7559\u5b66\u4e00\u5bf9\u4e00\u7ebf\u4e0b\u514d\u8d39"
+                    },
+                    "user": {
+                        "display_name": "\u533f\u540d\u7528\u6237",
+                        "avatar_url": "https:\/\/imgs.genshuixue.com\/0common\/ic_anonymous_user_n.png",
+                        "url": ""
+                    },
+                    "photo_list": [],
+                    "is_my_comment": false,
+                    "if_can_addition": false,
+                    "if_can_review": false,
+                    "has_more": 0,
+                    "can_open": 0,
+                    "user_name": "\u533f\u540d\u7528\u6237",
+                    "user_avatar": "https:\/\/imgs.genshuixue.com\/0common\/ic_anonymous_user_n.png",
+                    "date": "2017-01-06 17:37",
+                    "content": "\u8001\u5e08\u8bb2\u5f97\u5f88\u597d\uff0c5\u661f\u597d\u8bc4\u597d\u8bc4\u597d\u8bc4"
+                }
+            ],
+            "comment_url": "https:\/\/beta-m.genshuixue.com\/comment\/getCourseComments?course_number=80286826689031&comment_type=10"
+        },
+        "qrcode_url": "https:\/\/beta-m.genshuixue.com\/org_course\/detail\/80286826689031",
+        "share_info": {
+            "short_url": "http:\/\/gensx.cn\/SLveeq",
+            "share_url": "https:\/\/beta-m.genshuixue.com\/org_course\/detail\/80286826689031?render=json",
+            "image": "https:\/\/img.genshuixue.com\/23720500_9apgej13.png",
+            "course_name": "\u62c6\u8868\u4e00\u5bf9\u4e00\u7ebf\u4e0b-\u6fb3\u6d32\u7559\u5b66",
+            "share_content": "\u738b\u5e0c\u6d9b\u5de5\u4f5c\u5ba4\u5c06\u5728\u8ddf\u8c01\u5b66\u5f00\u8bb2\u514d\u8d39\u6fb3\u6d32\u8bfe\u3010\u62c6\u8868\u4e00\u5bf9\u4e00\u7ebf\u4e0b-\u6fb3\u6d32\u7559\u5b66\u3011\uff0c\u611f\u5174\u8da3\u7684\u53ef\u4ee5\u70b9\u51fb\u6ce8\u518c\u62a5\u540d\u3002"
+        }
+    },
+    "ts": 1486970278,
+    "declare_config": {
+        "declareTpl": "v2\/resources\/page\/course\/details\/courseSet\/index"
+    }
+}

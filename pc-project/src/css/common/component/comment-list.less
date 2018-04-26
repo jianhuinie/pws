@@ -1,0 +1,284 @@
+/**
+ * @file 评价列表样式
+ * @author jixiaohui
+ */
+
+#comment-category {
+
+    background: #F2F2F2;
+    text-align: left;
+    padding: 3px 0;
+    clear: both;
+
+    .form-radio {
+        margin-left: 20px;
+    }
+}
+
+#tab-nav-info {
+
+    clear: left;
+    margin-top: @gap-vertical-large;
+    background-color: @tab-info-nav-bg;
+    text-align: left;
+
+    .nav-item-all {
+        width: 200px;
+        text-align: center;
+    }
+
+    .nav-item {
+
+        border-bottom: 4px solid transparent;
+        border-color: transparent;
+        color: #555;
+        -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+        border-style: solid;
+        border-bottom-width: 4px;
+        line-height: 1.571428571428571;
+        padding: 12px 36px;
+
+        &:hover,
+        &.active {
+            color: @tab-info-nav-item-color-active;
+            border-bottom-color: @tab-info-nav-item-border-active;
+
+            .transition(
+                border-color 0.5s,
+                color 0.2s
+            );
+        }
+    }
+
+    .nav-item-all {
+        cursor: pointer;
+        position: relative;
+        top: 0;
+        left: 0;
+
+        .icon-angle-down,
+        .icon-angle-up {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+        }
+
+        .nav-list {
+
+            display: none;
+            background: #fff;
+            z-index: @zindex-tiny;
+            width: 180px;
+
+            position: absolute;
+            left: 0;
+            top: 48px;
+
+            border: 1px solid #ccc;
+            border-top: none;
+
+            .list-source {
+                padding-right: 0;
+                width: 100%;
+            }
+        }
+
+    }
+    .btn-primary {
+        line-height: 1.171428571428571;
+    }
+}
+
+.no-top-border {
+    border-top: none!important;
+}
+
+#comment-list {
+    height: 100%;
+    width: 100%;
+    min-height: 400px;
+    overflow: hidden;
+
+    .no-data {
+        text-align: center;
+        width: 100%;
+        .vertical-middle(400px);
+    }
+
+    ul {
+        width: 100%;
+        height: 100%;
+        line-height: 20px;
+
+        .comment-item {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            padding: 20px 0;
+            border-bottom: 1px solid @brand-gray;
+
+            .avatar {
+                float: left;
+                margin-right: 20px;
+                position: relative;
+                width: 100px;
+                .avatar_name {
+                    position: absolute;
+                    bottom: -25px;
+                    left: 0px;
+                    width: 100px;
+                }
+            }
+
+            .content {
+                height: 100%;
+                float: left;
+                width: 630px;
+
+                .icon {
+                    float: left;
+                    margin: 3px 3px 0;
+                }
+
+                .container {
+                    width: 100%;
+                    height: 100%;
+                    float: left;
+                    text-align: left;
+
+                    .default {
+                        font-size: 12px;
+                    }
+
+                    .text {
+                        line-height: 30px;
+                        word-wrap: break-word;
+                        word-break: break-all;
+                        margin-top: 10px;
+                    }
+
+                    .time {
+                        color: @brand-text-lighter;
+                    }
+                }
+                span {
+                    margin-right: 10px;
+                }
+            }
+
+            .info {
+                color: #9d9d9d;
+            }
+
+            .person {
+                height: 35px;
+                text-align: left;
+                color: #9d9d9d;
+                float: right;
+
+                .user {
+                    display: block;
+                    .icon {
+                        float: right;
+                        margin: 3px;
+                    }
+                }
+
+                .fr {
+                    display: block;
+                }
+
+                .buttons {
+                    display: inline-block;
+                    text-align: right;
+                    .change-comment,
+                    .add-comment-btn {
+                        margin-left: 10px;
+                    }
+                }
+
+
+                .reply-comment-btn,
+                .appeal-btn,
+                .appeal-deal,
+                .appeal-result-btn {
+                    line-height: 22px;
+                    margin-left: 5px;
+                    padding: 1px 10px;
+                }
+
+            }
+
+            .comment-form {
+                clear: both;
+                display: none;
+                width: 600px;
+                text-align: left;
+                padding-top: @gap-vertical-medium;
+                margin-left: 115px;
+                .form-editor {
+                    textarea {
+                        width: 600px;
+                        height: 100px;
+                    }
+                    .form-hint {
+                        text-align: right;
+                    }
+                }
+                .error {
+                    left: 503px!important;
+                    top: -40px!important;
+                }
+                .form-action {
+                    float: right;
+                    margin-bottom: 10px;
+                }
+            }
+
+            .add-comment-show,
+            .comment-reply {
+                clear: both;
+                padding: 10px;
+                margin-left: 110px;
+                text-align: left;
+                border-top: 1px dashed #efefef;
+            }
+
+            .comment-photo-box {
+                width: 496px;
+                height: 100%;
+                overflow: hidden;
+                margin-left: 115px;
+            }
+            .del {
+                text-decoration: underline;
+                cursor: pointer;
+                margin-right: 10px;
+            }
+        }
+
+        .invite {
+
+            .person {
+                width: 100px;
+                text-align: center;
+                .user{
+                    .user-name {
+                        float: none;
+                    }
+
+                    .icon {
+                        float: none;
+                    }
+                }
+            }
+
+            .del {
+                text-decoration: underline;
+                cursor: pointer;
+            }
+        }
+
+    }
+}

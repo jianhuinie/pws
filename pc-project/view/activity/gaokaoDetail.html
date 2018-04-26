@@ -1,0 +1,62 @@
+{{ extends file="common/pc/base.html" }}
+
+{{ block name="title" }}
+{{ $tpl_data.title }}-高考－跟谁学
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/activity/gaokao.less">
+{{ /block }}
+
+{{ block name="data" }}
+
+{{ $smarty.block.parent }}
+
+{{ $flotage_config.hidden = 1 }}
+{{ $rave_config.hidden = 1 }}
+{{ $nav_config.hidden = 1 }}
+
+{{ /block }}
+
+{{ strip }}
+{{ block name="body" }}
+
+{{ $smarty.block.parent }}
+
+{{ include file="common/siteNav.html" }}
+{{ include file="common/main/common/header.html" }}
+{{ include file="common/script.html" }}
+
+<div id="main">
+    <div id="content-left">
+        <div class="detail-title">
+            <div class="title"><b>{{ $tpl_data.title }}</b></div>
+            <div class="source">来源：跟谁学</div>
+        </div>
+        <div class="detail-content">
+            {{ $tpl_data.content }}
+        </div>
+    </div>
+    <div id="content-right" class="content">
+        <div class="title-div">
+            <div class="title">课程推荐</div>
+        </div>
+        <div class="recommend-teacher">
+            <a class="recomment-item" target="_blank" href="http://www.genshuixue.com/teacher/classCourseDetail/151220937495?source=gsx_baiduPCkapian_yingyujiqiao">
+                <img class="recomment-img" src="{{ $static_origin }}/src/img/activity/gaokao/yingyu.jpg">
+                <div class="recomment-descript">高考英语技巧</div>
+            </a>
+            <a class="recomment-item" target="_blank" href="http://www.genshuixue.com/activity/one2oneWinter?zn=zn_121_pcbanner&source=gsx_baiduPCkapian&isp=1">
+                <img class="recomment-img" src="{{ $static_origin }}/src/img/activity/gaokao/yiduiyi.jpg">
+                <div class="recomment-descript">寒假一对一活动</div>
+            </a>
+            <a class="recomment-item" target="_blank" href="http://www.genshuixue.com/teacher/classCourseDetail/151218871889?source=gsx_baiduPCkapian_jinghuayikao">
+                <img class="recomment-img" src="{{ $static_origin }}/src/img/activity/gaokao/yikao.jpg">
+                <div class="recomment-descript">艺考技巧</div>
+            </a>
+        </div>
+    </div>
+</div>
+{{ include file="common/footer.html" }}
+{{ /block }}
+{{ /strip }}

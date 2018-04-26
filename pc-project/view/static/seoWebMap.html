@@ -1,0 +1,226 @@
+{{ *
+   * @file 2015.9网站地图
+   * @author tangrongyan
+* }}
+{{ extends file="common/pc/base.html" }}
+
+{{ block name="title" }}
+    {{ $tpl_data.title }}
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/static/seoWebMap.less">
+{{ /block }}
+
+{{ block name="data" }}
+
+    {{ $need_im = false }}
+    {{ $smarty.block.parent }}
+
+    {{ $flotage_config.hidden = 1 }}
+    {{ $rave_config.hidden = 1 }}
+    {{ $nav_config.hidden = 1 }}
+    {{ $amd_more = [ 'common/main/component/header' ] }}
+
+{{ /block }}
+
+
+{{ block name="keywords" }}
+    {{ $smarty.block.parent }}
+    网站地图
+{{ /block }}
+
+{{ block name="description" }}
+    {{ $smarty.block.parent }}
+    网站地图
+{{ /block }}
+
+{{ strip }}
+{{ block name="body" }}
+
+{{ $smarty.block.parent }}
+
+{{ include file="common/siteNav.html" }}
+{{ include file="common/main/common/header.html" }}
+{{ include file="common/script.html" }}
+{{ include file="static/common/category-data.html" }}
+
+        {{ function getLevel1CategoryItem }}
+            {{ foreach $item.names as $name }}
+            {{ if isset($item.ids) }}
+                {{ $queryText = "-"|cat:$item.ids[$name@index] }}
+            {{ else }}
+                {{ $queryText = $name }}
+            {{ /if }}
+
+            <a href="/{{ $id }}/{{ $queryText }}.html" target="_blank">
+                <span>{{ $name }}</span>{{ if not $name@last }}、{{ /if }}
+            </a>
+            {{ /foreach }}
+        {{ /function }}
+
+
+        {{ function getCategoryItem }}
+
+            {{ $replaceWithPrefix =  ($way == 'rep') }}
+            {{ $appendWithPrefix =  ($way == 'add') }}
+
+            {{ $itemArr = '-'|explode:$item }}
+
+            {{ if $replaceWithPrefix }}
+                {{ $queryText = urlencode($prefix) }}
+            {{ else if $appendWithPrefix }}
+                {{ $queryText = urlencode($prefix|cat:$item) }}
+            {{ else }}
+                {{ $queryText = urlencode($item) }}
+            {{ /if }}
+
+            {{ $queryText = $queryText|cat:'.html' }}
+
+            {{ $itemArr = '-'|explode: $item }}
+            {{ if $itemArr|count > 1 }}
+                {{ $queryText = '-'|cat:$itemArr[1]|cat:'.html' }}
+            {{ /if }}
+
+            {{ if isset($level3)&&level3==true }}
+                <a {{ if isset($level3)&&level3==true }}class="level3-item"{{ /if }} href="/{{ $id }}/{{ $queryText }}" target="_blank" style="{{ if isset($first) && $first==1 }}padding-left: 0;{{ /if }} {{ if isset($last) && $last==1 }}
+        border-right: none;{{ /if }}">
+                    <span>{{ $itemArr[0] }}{{ $kind }}</span>
+                </a>
+            {{ else }}
+                <a {{ if isset($level3)&&level3==true }}class="level3-item"{{ /if }} href="/{{ $id }}/{{ $queryText }}" target="_blank" style=" {{ if isset($last) && last==1 }}border-right: none;
+    {{ /if }}{{ if isset($first) && $first==1 }}padding-left: 0;{{ /if }}">
+                    <span>{{ $itemArr[0] }}</span>
+                </a>
+            {{ /if }}
+        {{ /function }}
+
+<div id="main">
+
+    <div class="container">
+
+        <div class="title-crumb">
+            <a href="http://www.genshuixue.com/">跟谁学</a>
+            &gt;
+            <a href="/static/seoWebMap">网站地图</a>
+        </div>
+        <h2>
+            <div class="sign">
+                <span>
+                    <a href="http://news.genshuixue.com/" target="_blank">
+                        学习头条
+                    </a>
+                </span>
+                <span class="triangle"></span>
+            </div>
+        </h2>
+
+
+        <p class="item-Headline">
+
+            {{ foreach $headLine as $hl }}
+             <a href="{{ $hl.link }}" {{ if $hl@last }}class="last-item"{{ /if }} target="_blank">
+                {{ $hl.name }}
+            </a>
+            {{ /foreach }}
+        </p>
+
+
+    {{ foreach $type_cate as $ct }}
+
+        <h2>
+            <div class="sign">
+                <span>
+                    <a href="{{ $ct.cate_link }}" target="_blank">
+                       {{ $ct.cate_name }}
+                    </a>
+                </span>
+                <span class="triangle"></span>
+            </div>
+        </h2>
+
+
+        <div class="">
+            <div class="category-wrapper">
+
+                {{ foreach $category as $cat }}
+                <div class="">
+
+
+                    <div class="title" >
+                        <h4 {{ if $cat@first }}style="padding-top: 0;"{{ /if }}>
+                            {{ if isset($cat.isMore) && $cat.isMore }}
+                                <p class="level1-more">{{ $cat.names }}</p>
+                            {{ else }}
+                                {{ getLevel1CategoryItem item = $cat id=$ct.cate_id }}
+                            {{ /if }}
+                        </h4>
+                    </div>
+
+                    {{ if $cat.float|count > 0 }}
+                    <div class="" style="display:block" >
+                        {{ foreach $cat.float as $ca }}
+                        {{ $caItems = ';'|explode:$ca }}
+                        {{ if empty($ca) }}
+                        <div class="split"></div>
+                        {{ else if isset($cat.isMore) && $cat.isMore }}
+                        <div class="more">
+                            <ul>
+                                {{ foreach $caItems as $c }}
+                                <li>
+                                    {{ getCategoryItem item = $c way="no" id = $ct.cate_id kind=$ct.cate_kind }}
+                                </li>
+                                {{ /foreach }}
+                            </ul>
+                        </div>
+                        {{ else }}
+                        <dl {{ if $ca@last && $cat@last }}class="the-last"{{ /if }} >
+                            <dt>
+                                {{ getCategoryItem item = $caItems[0] way="no" id=$ct.cate_id }}
+                            </dt>
+                            <dd>
+                                {{ foreach $caItems as $c }}
+
+                                {{ if $c@index > 0 }}
+                                    {{ if isset($cat.searchPrefix) }}
+                                        {{ getCategoryItem item = $c prefix = $caItems[0] way="add" level3=true kind=$ct.cate_kind id=$ct.cate_id last=$c@last first=$c@index }}
+                                    {{ else }}
+                                        {{ getCategoryItem item = $c way="no" level3=true kind=$ct.cate_kind id=$ct.cate_id last=$c@last first=$c@index }}
+                                    {{ /if }}
+                                {{ /if }}
+
+                                {{ /foreach }}
+
+                            </dd>
+                        </dl>
+                        {{ /if }}
+                        {{ /foreach }}
+                    </div>
+                    {{ /if }}
+
+
+
+                </div>
+
+                {{ /foreach }}
+
+            </div>
+        </div>
+
+
+    {{ /foreach }}
+
+
+    </div>
+
+</div>
+
+
+
+
+    {{ include file="common/footer.html" }}
+
+
+{{ /block }}
+{{ /strip }}
+

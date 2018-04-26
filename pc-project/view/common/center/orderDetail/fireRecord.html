@@ -1,0 +1,60 @@
+{{ *
+
+@file 课消记录 - 机构X课
+@author wangyujie
+
+* }}
+{{ strip }}
+
+<div class="fire-record">
+
+    <h2>
+        <i class="icon icon-circle"></i>
+        课消记录
+    </h2>
+
+    <div class="content">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>课消时间</th>
+                    <th>消耗课时</th>
+                    <th>金额</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{ foreach $fire_record as $record }}
+                <tr>
+                    <td>
+                        {{ $record.create_time }}
+                    </td>
+                    <td>
+                        {{ $record.class_count }}课时
+                    </td>
+                    <td>
+                        ¥{{ $record.confirm_money }}
+                    </td>
+                    <td data-number="{{ $record.serial_number }}">
+                        {{ if $record.confirm_status == 1 }}
+                            已确认
+                        {{ else if $record.confirm_status == 2 }}
+                            已拒绝
+                        {{ else }}
+                            <span class="confirm-fire">
+                                确认消课
+                            </span>
+                            <span class="refuse-fire">
+                                拒绝消课
+                            </span>
+                        {{ /if }}
+                    </td>
+                </tr>
+                {{ /foreach }}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{{ /strip }}

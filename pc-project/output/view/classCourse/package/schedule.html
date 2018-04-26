@@ -1,0 +1,104 @@
+{{ *
+
+@file 组合课 - 教学计划
+@author wangyujie
+
+* }}
+
+{{ strip }}
+<div id="schedule-info">
+    <h3>
+        <span>教学计划</span>
+    </h3>
+
+    <div class="content">
+        {{ foreach $courses as $course }}
+            <div class="schedule-item">
+
+                <div class="info">
+
+                    <a href="{{ $course.url }}" target="_blank" class="preface">
+                        {{ include file="common/component/image.html" url=$course.cover width="132" height=100 }}
+                    </a>
+                    <div class="course-detail">
+                        <div class="type-title">
+                            {{ if $course.course_type == 2 }}
+                                {{ if $course.lesson_way == 2 }}
+                                    <i class="icon course-type">直播课</i>
+                                {{ else if $course.lesson_way == 4 }}
+                                    <i class="icon course-type">线下课</i>
+                                {{ /if }}
+                            {{ else if $course.course_type == 3 }}
+                                 <i class="icon course-type">视频课</i>
+                            {{ else if $course.course_type == 1 }}
+                                <i class="icon course-type">1对1</i>
+                            {{ /if }}
+                            <a href="{{ $course.url }}" target="_blank">
+                                {{ $course.name }}
+                            </a>
+                        </div>
+                        <div class="overview">
+                            <label>课程安排：</label>
+                            {{ $course.arrangement }}
+                        </div>
+                        <div class="teacher">
+                            <label>主讲老师：</label>
+                            {{ $course.teacher.display_name }}
+                        </div>
+                        <div class="price">
+                            <em>¥</em>{{ $course.price }}
+                        </div>
+                    </div>
+                </div>
+
+                {{ $counter = count($course.schedule_list) }}
+                {{ * 无其他课或者一对一，不显示 * }}
+                {{ if $counter != 0 && $course.course_type != 1 }}
+                <div class="list">
+                    <ul>
+                        {{ foreach $course.schedule_list as $item }}
+
+                            {{ if $course.course_type == 2 }}
+                                <li>
+                                    <div class="serial">
+                                        第{{ $item@index + 1 }}节
+                                    </div>
+                                    <div class="title">
+                                        {{ $item.content|cn_truncate: 29 }}
+                                    </div>
+                                    <div class="begin-time">
+                                        {{ $item.begin_time|date_format: "%m月%d日 %H:%M" }}
+                                    </div>
+                                    <div class="status">
+                                        {{ if $item.is_over == 0 }}
+                                            未开课
+                                        {{ else if $item.is_over == 1 }}
+                                            已结束
+                                        {{ else if $item.is_over == 2 }}
+                                            进行中
+                                        {{ /if }}
+                                    </div>
+                                </li>
+                            {{ else if $course.course_type == 3 }}
+                                <li>
+                                    <div class="serial">
+                                        第{{ $item.index }}节
+                                    </div>
+                                    <div class="title">
+                                        {{ $item.title }}
+                                    </div>
+                                </li>
+                            {{ /if }}
+                        {{ /foreach }}
+                    </ul>
+                    <div class="view-all open">
+                        查看课程目录
+                    </div>
+                </div>
+                {{ /if }}
+            </div>
+        {{ /foreach }}
+    </div>
+
+</div>
+{{ /strip }}

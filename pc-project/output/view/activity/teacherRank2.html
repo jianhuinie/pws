@@ -1,0 +1,25 @@
+{{ *
+
+@file 活动 老师排名 第二期
+@author liucong
+
+* }}
+
+{{ extends file="activity/common/teacherRank.html" }}
+
+{{ block name="data" }}
+
+{{ include file="activity/data/teacherRank/season2.html" scope=parent }}
+{{ $smarty.block.parent }}
+{{ $script_data.navs = $navs }}
+
+{{ if $needs_share }}
+{{ $baidu_share_image = "{{ $static_origin }}/asset/img/activity/teacherRank/share2.jpg" }}
+{{ $baidu_share_text = "登名师榜中榜,赢新年第一奖" }}
+{{ /if }}
+
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/activity/teacherRank2_9e110d3bd1.css">
+{{ /block }}

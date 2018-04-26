@@ -1,0 +1,374 @@
+/**
+ * @file 留学库
+ * @author tangrongyan
+ */
+
+@import '../main/base.less';
+
+
+        /*导航*/
+        #main .side-nav {
+            position: absolute;
+            height: 0;
+            z-index: 3;
+            top: 867px;
+            right: 30px;
+            width: 100%;
+        }
+        #main .fixed {
+            position: fixed;
+            height: 0;
+            z-index: 3;
+            top: 284px;
+            right: 30px;
+            width: 100%;
+        }
+        #main .side-nav .wrapper {
+            width: 100%;
+            min-width: 1170px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        #main .side-nav .container {
+            float: right;
+            width: 82px;
+            position: relative;
+            display: none;
+        }
+        #main .side-nav ul {
+            color: #fff;
+        }
+        #main .side-nav li {
+
+            cursor: pointer;
+            position: relative;
+            text-align: center;
+            width: 82px;
+            margin-bottom: 2px;
+            color: #eedede;
+        }
+        #main .side-nav li:hover {
+            color: #fff;
+        }
+        #main .side-nav li.owe {
+            width: 82px;
+            height: 116px;
+        }
+        #main .side-nav li.applay .content {
+            background:  url(http://img.gsxservice.com/0cms/d/file/content/2015/06/5590e91f1a4b8.png) no-repeat 50% 0px;
+            width: 78px;
+            height: 78px;
+            line-height: 28px;
+            font-size: 24px;
+            position: absolute;
+            top: 9px;
+            // padding-top: 58px;
+            padding-left: 6px;
+            padding-top: 10px;
+            padding-right: 6px;
+            color: #fff;
+        }
+        #main .side-nav li.applay {
+            width: 82px;
+            height: 82px;
+        }
+        #main .side-nav li.applay i {
+            font-size: 46px;
+            position: absolute;
+            top: 4px;
+            left: 0px;
+        }
+        #main .side-nav li:hover .mask {
+            opacity: 0.4;
+            filter: alpha(opacity=40);
+        }
+
+        /*分享*/
+        .applay .baidu-share {
+            left: -156px;
+            width: 240px;
+            top: 84px;
+        }
+        .applay .baidu-share:before , .applay .baidu-share:after {
+            right: 35px;
+        }
+
+        // last
+
+        #main #last {
+            background: #43c0ec;
+            height: 74px;
+            line-height: 74px;
+            margin-top: 126px;
+            p {
+            color: #fff;
+            text-align: center;
+             }
+        }
+
+        //layout:
+
+        #main {
+            margin: 0px auto;
+            width: 100%;
+            background: #fca600;
+        }
+        #main #layout {
+            overflow: hidden;
+            background: #fca600 url(http://img.gsxservice.com/0cms/d/file/content/2015/09/55f641b136e81.jpg) 50% 0 no-repeat;
+            height: 754px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+
+        /*老师资料*/
+        .school-info  {
+            width: 1060px;
+            margin: 0 auto;
+            text-align: center;
+
+            .tab-head {
+                background: #4b32ab;
+                height: 70px;
+                line-height: 70px;
+                color: #fff;
+                font-size: 24px;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+
+                .tab-nav {
+                    width: 182px;
+                    height: 70px;
+                    cursor: pointer;
+                    display: inline-block;
+                    margin-left: 2px;
+                    &.the-first{
+                        margin-left: 0px;
+                    }
+                }
+
+
+            }
+            .tab-content {
+                background: #fec367;
+                padding: 16px;
+                padding-top: 14px;
+            }
+        }
+        .school-info .list {
+            width: auto;
+            height: 100%;
+            display: inline-block;
+            margin: 0 auto ;
+            overflow: hidden;
+            display: none;
+        }
+        .school-info .list li {
+            float: left;
+            width: 500+6px;
+            height: 190+6px;
+            border: 3px solid transparent;
+            margin-right: 14px;
+            margin-top: 20px;
+            background: #fff;
+            position: relative;
+            text-align: center;
+            padding: 19px 22px 16px;
+            box-shadow: 2px 2px 2px #dbdbdb;
+            // border: 1px solid #dbdbdb;
+            // border-top: none;
+
+            &:hover {
+                border: 3px solid #41c2f2;
+                border-radius: 2px;
+            }
+            &.last-li {
+                margin-right: 0px;
+            }
+            &.last-add {
+                a {
+                    color: #666;
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                }
+                img {
+                    width: 47px;
+                    height: 47px;
+                    margin-top: 50px;
+                    margin-bottom: 20px;
+                }
+            }
+        }
+        .school-info .list li img {
+            width: 153px;
+            height: 153px;
+            // border-radius: 50%;
+            position: relative;
+            float: left;
+        }
+        .school-info  .list li:hover .school-mask {
+            display: block;
+            -webkit-animation: schoolMaskShow 0.5s;
+            -moz-animation: schoolMaskShow 0.5s;
+            -ms-animation: schoolMaskShow 0.5s;
+            -o-animation: schoolMaskShow 0.5;
+            animation: schoolMaskShow 0.5s;
+            opacity: 0.2;
+            filter: alpha(opacity=20);
+        }
+        .school-info  .list li:last-child {
+            margin-right: 0;
+        }
+        .school-info  .school-mask {
+            position: absolute;
+            display: none;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+        .school-info  .school-mask > a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        .school-info  .school-intro {
+            background: transparent;
+            font-size: 20px;
+            overflow: hidden;
+            color: #3d3d3d;
+            text-align: center;
+            margin: 20px auto;
+        }
+        .school-info  .school-baseinfo {
+            padding-left: 14px;
+            line-height: 1;
+            text-align: left;
+            float: left;
+            width: 300px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .school-info  .school-baseinfo em,
+        .school-info  .school-baseinfo strong {
+            display: block;
+            text-align: center;
+        }
+        .school-info  .school-baseinfo em,
+        .school-info  .school-baseinfo strong,
+        .school-info  .school-baseinfo span {
+            margin-top: 10px;
+        }
+        .school-info em a {
+            font-size: 24px;
+            color: #3d3d3d;
+            text-align: left;
+        }
+        .school-info  .school-baseinfo strong {
+            color: #fff;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 188px;
+            height: 45px;
+            background: #f17546;
+            margin: 8px auto;
+            line-height: 45px;
+            text-align: center;
+            font-size: 20px;
+
+
+        }
+        .school-info  .school-baseinfo .school-addr {
+            font-size: 12px;
+            display: block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .school-info  .school-baseinfo .icon-location-o {
+            font-size: 13px;
+            position: relative;
+            top: 1px;
+            margin-right: 4px;
+            color: #de3547;
+        }
+        .school-info  .school-baseinfo p {
+            line-height: 16px;
+        }
+        .school-info  .school-age {
+            margin-left: 10px;
+            display: inline-block;
+            *display: inline;
+            *zoom: 1;
+            color: #fff;
+            padding: 4px 12px 3px;
+            text-align: center;
+            font-size: 12px;
+            background: #de3547;
+        }
+        .school-info  .pic {
+            background: url(http://cdn.gsxservice.com/asset/img/org/empty_teacher.png) no-repeat;
+            width: 128px;
+            height: 135px;
+        }
+
+        @-webkit-keyframes schoolMaskShow {
+            0% {
+                opacity: 0;
+                filter: alpha(opacity=0);
+            }
+            100% {
+                opacity: 0.2;
+                filter: alpha(opacity=20);
+            }
+        }
+        @-moz-keyframes schoolMaskShow {
+            0% {
+                opacity: 0;
+                filter: alpha(opacity=0);
+            }
+            100% {
+                opacity: 0.2;
+                filter: alpha(opacity=20);
+            }
+        }
+        @-ms-keyframes schoolMaskShow {
+            0% {
+                opacity: 0;
+                filter: alpha(opacity=0);
+            }
+            100% {
+                opacity: 0.2;
+                filter: alpha(opacity=20);
+            }
+        }
+        @-o-keyframes schoolMaskShow {
+            0% {
+                opacity: 0;
+                filter: alpha(opacity=0);
+            }
+            100% {
+                opacity: 0.2;
+                filter: alpha(opacity=20);
+            }
+        }
+        @keyframes schoolMaskShow {
+            0% {
+                opacity: 0;
+                filter: alpha(opacity=0);
+            }
+            100% {
+                opacity: 0.2;
+                filter: alpha(opacity=20);
+            }
+        }
+
+
+

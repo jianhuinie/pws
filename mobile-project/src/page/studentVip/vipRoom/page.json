@@ -1,0 +1,7 @@
+[
+    {
+        "tpl": "./index.tpl",
+        "router": "/student/vip/card",
+        "mock_data": "./mock/index.json"
+    }
+]

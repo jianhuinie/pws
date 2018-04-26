@@ -1,0 +1,393 @@
+/**
+ * @file 活动 排名 第五季
+ * @author liucong
+ */
+
+@import '../main/base.less';
+@import '../common/layout.less';
+
+@strong-color: #E76D20;
+
+body {
+    background-color: #F2751B;
+}
+
+#main {
+    .dark {
+        color: @brand-text;
+    }
+    margin-top: 0;
+    .text-primary {
+        color: @strong-color !important;
+    }
+
+    width: 100%;
+
+    & > .wrapper {
+        width: 1100px;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .baidu-share {
+        bottom: -140px;
+        right: 450px;
+        top: auto;
+    }
+
+    .side-nav {
+
+        position: fixed;
+        height: 0;
+        z-index: 3;
+        display: none;
+        top: 0;
+        width: 100%;
+
+        .wrapper {
+            width: 100%;
+            min-width: 1170px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .container {
+            float: right;
+            width: 133px;
+            position: relative;
+        }
+
+        .avatar {
+            img {
+                width: 120px;
+                height: 105px;
+                margin-bottom: -10px;
+                position: relative;
+                z-index: 2;
+                background-color: transparent;
+            }
+        }
+        .app {
+            background-color: #D41F1D;
+            position: relative;
+            z-index: 3;
+            padding: 5px;
+            margin-bottom: 10px;
+            text-align: center;
+            h3 {
+                color: #F6B52D;
+            }
+            img {
+                margin-top: 5px;
+                width: 113px;
+                height: 109px;
+            }
+        }
+        ul {
+            margin-top: -14px;
+            color: #fff;
+            background-color: #D41F1D;
+        }
+        li {
+            padding: 10px 0 10px 10px;
+            border-bottom: 1px solid #C30408;
+            font-size: 16px;
+            cursor: pointer;
+            position: relative;
+            text-align: center;
+        }
+        .link {
+            a {
+                color: #fff;
+                &:hover {
+                    color: #fff;
+                }
+            }
+        }
+        .active {
+            background-color: #fff;
+            color: @strong-color;
+            border: none;
+        }
+        .back-to-top {
+            font-size: 14px;
+            color: #E2BC3B;
+            background-color: #850502;
+        }
+
+    }
+
+    .banner {
+        background: url(../../img/activity/teacherRank/second/banner.jpg) 50% 0px no-repeat;
+        height: 506px;
+    }
+
+    .sub-container {
+        & > .header {
+            text-align: center;
+            color: #fff;
+            background: url(../../img/activity/teacherRank/second/header.jpg) 50% 0px no-repeat;
+            height: 60px;
+            width: 706px;
+            line-height: 60px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            font-size: 30px;
+        }
+
+        .content {
+            background-color: #fff;
+            border-radius: 20px;
+            position: relative;
+            z-index: 1;
+            margin-top: -44px;
+        }
+
+        .intro {
+            text-align: center;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+    }
+
+    .sub-container + .sub-container {
+        margin-top: 57px;
+    }
+
+    .icon-question,
+    .icon-answer,
+    .icon-star-a {
+        background: url(../../img/activity/teacherRank/second/QAStar.png) no-repeat;
+        vertical-align: middle;
+    }
+
+    .icon-question,
+    .icon-answer {
+        height: 20px;
+        width: 20px;
+        margin-right: 10px;
+    }
+
+    .icon-star-a {
+        height: 19px;
+        width: 19px;
+        background-position: -44px 0;
+        margin: -3px 5px 0 5px;
+    }
+
+    .icon-question {
+        background-position: 0 0;
+    }
+
+    .icon-answer {
+        background-position: -22px 0;
+    }
+
+    #introduction {
+        .content {
+            padding: 66px 55px 34px 55px;
+            line-height: 2em;
+
+            .legend {
+                width: 516px;
+                margin: 20px auto;
+                background-color: #FFF0E4;
+
+                border: 1px solid @strong-color;
+                border-radius: 12px;
+                padding: 22px 25px;
+            }
+        }
+    }
+
+    #cash {
+        .content {
+            padding: 63px 36px 36px 36px;
+        }
+        .legend-container + .legend-container {
+            margin-left: 29px;
+        }
+        .legend-container {
+            .inline-block();
+            position: relative;
+            text-align: center;
+
+            .legend {
+                background: url(../../img/activity/teacherRank/second/cash.jpg);
+                width: 147px;
+                height: 101px;
+                color: #fff;
+                padding-top: 47px;
+                font-size: 24px;
+            }
+            .index {
+                position: absolute;
+                top: 3px;
+                left: 9px;
+                color: @strong-color;
+            }
+            .label {
+                margin-top: 10px;
+            }
+        }
+    }
+
+    #medal {
+        .content {
+            padding: 63px 0 48px 0;
+            text-align: center;
+        }
+        .medal-container + .medal-container {
+            margin-left: 98px;
+        }
+        .medal-container {
+            .inline-block();
+        }
+        .medal {
+            background: url(../../img/activity/teacherRank/second/medals.png) no-repeat;
+            width: 100px;
+            height: 149px;
+        }
+        .label {
+            margin-top: 10px;
+        }
+    }
+
+    #org-teacher, #noorg-teacher {
+        .content {
+            padding: 64px 80px 46px 64px;
+        }
+
+        .teacher + .teacher {
+            margin-left: 26px;
+        }
+        .first {
+            margin-left: 0 !important;
+        }
+        .teacher {
+            .inline-block();
+            position: relative;
+            width: 170px;
+            background-color: #FFEBD1;
+            margin-top: 20px;
+            padding: 0 10px 10px 10px;
+
+            .header {
+                background: url(../../img/activity/teacherRank/second/teacher_header.png);
+                width: 161px;
+                height: 23px;
+                padding-left: 50px;
+                line-height: 23px;
+                margin-left: -10px;
+            }
+
+            .org a {
+
+                color: #fff;
+                &:hover {
+                    color: #fff;
+                }
+            }
+
+            .index {
+                background: url(../../img/activity/teacherRank/second/rank.png);
+                width: 43px;
+                height: 32px;
+                position: absolute;
+                top: -12px;
+                left: 0;
+            }
+
+            .avatar, .empty-avatar {
+                text-align: center;
+                margin-top: 10px;
+            }
+
+            .avatar {
+                a, img, a:after {
+                    border-radius: 0;
+                }
+            }
+
+            .info {
+                .name {
+                    color: @brand-text;
+                    margin-right: 3px;
+                    font-size: 16px;
+                }
+                .subject {
+                    font-size: 14px;
+                }
+            }
+
+            .total {
+                font-size: 22px;
+                color: @strong-color;
+                float: right;
+            }
+
+            .icon-star-a {
+                margin-left: 0;
+            }
+
+        }
+    }
+
+    #rule {
+        .content {
+            padding: 64px 54px 40px 54px;
+        }
+        h3 {
+            color: @strong-color;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        line-height: 2em;
+
+        .index, .important {
+            background: url(../../img/activity/teacherRank/second/index.png) no-repeat;
+            margin-right: 10px;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            vertical-align: top;
+            margin-top: 4px;
+        }
+        .important {
+        }
+    }
+
+}
+
+.share {
+
+    position: relative;
+    background-color: #fff;
+    height: 3px;
+    text-align: center;
+    margin-top: 63px;
+    color: #FF510E;
+
+    & > div {
+        .inline-block();
+        padding: 10px 0;
+        width: 300px;
+        background-color: #fff;
+        font-size: 28px;
+        margin-top: -30px;
+        border-radius: 30px;
+    }
+
+    img {
+        margin-right: 5px;
+    }
+}
+
+.copy-right {
+    background-color: #BF4C0F;
+    text-align: center;
+    color: #fff;
+    padding: 72px 0;
+}

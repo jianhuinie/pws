@@ -1,0 +1,64 @@
+{{ *
+
+@file 上课地点
+
+      参数：
+
+      count: 地址薄中地址数目，必须
+
+@author wangyujie
+
+* }}
+
+{{ strip }}
+
+{{ if isset($count) && $count > 0 }}
+    {{ $has_addr = true }}
+{{ else }}
+    {{ $has_addr = false }}
+{{ /if }}
+
+<div class="form-group addr-radio">
+    <label class="form-label">
+        <i class="form-required"></i>
+        课程地址<span class="reserve">：</span>
+        <span class='text-error'>（必填）</span>
+    </label>
+    <div class="form-controls">
+        {{ include file="common/component/radio.html" name="addr_radio" value="1" text="从地址库中选择" checked = $has_addr }}
+
+        <div class="dropdown address-list"{{ if isset($address_list_required) && $address_list_required }} required{{ /if }}>
+            <button class="btn-default">
+                <i class="caret"></i>
+                <span>请选择</span>
+            </button>
+            <ul class="dropdown-menu"></ul>
+        </div>
+        <span class="error"></span>
+
+        {{ if isset($count) && $count < 10 }}
+            {{ include file="common/component/radio.html" name="addr_radio" value="2" text="使用新地址" checked = !$has_addr }}
+        {{ /if }}
+
+        <button class="btn-link small original-addr">
+            使用原地址
+        </button>
+
+        <span class="error"></span>
+    </div>
+
+    {{ if isset($count) && $count >= 11 }}
+    <div class="form-static">
+        <span class="form-hint">
+            <i class="icon icon-info-circle"></i>
+            你已经设置了超过10条地址，请在地址库中选择
+        </span>
+    </div>
+    {{ /if }}
+
+
+
+</div>
+
+
+{{ /strip }}

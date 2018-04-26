@@ -1,0 +1,159 @@
+{{ *
+
+@file 学生个人中心侧边栏
+@author zhujialu
+
+* }}
+
+
+{{ $schedule = [] }}
+{{ $schedule.name = '我的课表' }}
+{{ $schedule.url = '/lesson/studentLessons' }}
+{{ $schedule.icon = 'icon-file-o' }}
+{{ if $active === 'schedule' }}
+    {{ $schedule.active = true }}
+{{ /if }}
+
+
+{{ $playback = [] }}
+{{ $playback.name = '我的课程回放' }}
+{{ $playback.url = '/lesson/lessonsPlayback' }}
+{{ $playback.icon = 'icon-play-oo' }}
+{{ if $active === 'playback' }}
+    {{ $playback.active = true }}
+{{ /if }}
+
+
+{{ $teacher = [] }}
+{{ $teacher.name = '我的老师' }}
+{{ $teacher.url = '/student_center/teacher' }}
+{{ $teacher.icon = 'icon-student' }}
+{{ if $active === 'teacher' }}
+    {{ $teacher.active = true }}
+{{ /if }}
+
+
+{{ $order = [] }}
+{{ if isset($tpl_data.huike.is_huike_student) && $tpl_data.huike.is_huike_student }}
+    {{ $order.name = '我的报名' }}
+{{ else }}
+    {{ $order.name = '我的订单' }}
+{{ /if }}
+{{ $order.icon = 'icon-list-o' }}
+{{ $order.url = '/order/studentOrders' }}
+{{ if $active === 'order' }}
+    {{ $order.active = true }}
+{{ /if }}
+
+
+{{ $videoLessons = [] }}
+{{ $videoLessons.name = '我的视频课' }}
+{{ $videoLessons.icon = 'icon-camera-o' }}
+{{ $videoLessons.url = '/student_center/videoLessons' }}
+{{ if $active === 'videoLessons' }}
+    {{ $videoLessons.active = true }}
+{{ /if }}
+
+
+{{ $finances.name = '钱包管理' }}
+{{ $finances.url = '/wallet/index' }}
+{{ $finances.icon = 'icon-money-o' }}
+{{ if $active === 'cash' || $active === 'coupon' || $active === 'myBankCard' }}
+    {{ $finances.active = true }}
+{{ /if }}
+
+{{ $coupon = [] }}
+{{ $coupon.name = '我的钱包' }}
+{{ $coupon.url = '/wallet/index' }}
+{{ $coupon.icon = 'icon-money-o' }}
+{{ $coupon.outer = 1 }}
+{{ $coupon.blank = 1 }}
+{{ $finances.children[] = $coupon }}
+
+
+{{ $coupon = [] }}
+{{ $coupon.name = '我的优惠券' }}
+{{ $coupon.url = '/wallet/index?tab=account&sub_tab=coupon' }}
+{{ $coupon.icon = 'icon-money-o' }}
+{{ $coupon.outer = 1 }}
+{{ $coupon.blank = 1 }}
+{{ $finances.children[] = $coupon }}
+
+{{ * $cash = [] * }}
+{{ * $cash.name = '余额' * }}
+{{ * $cash.url = '/student_center/cash' * }}
+{{ * $cash.icon = 'icon-money-o' * }}
+{{ * $cash.https = 1 * }}
+{{ * if $active === 'cash' * }}
+    {{ * $cash.active = true * }}
+{{ * /if * }}
+{{ * $finances.children[] = $cash * }}
+
+{{ * $myBankCard = [] * }}
+{{ * $myBankCard.name = '我的银行卡' * }}
+{{ * $myBankCard.url = '/student_center/myBankCard' * }}
+{{ * $myBankCard.icon = 'icon-money-o' * }}
+{{ * $myBankCard.https = 1 * }}
+{{ * if $active === 'myBankCard' * }}
+    {{ * $myBankCard.active = true * }}
+{{ * /if * }}
+{{ * $finances.children[] = $myBankCard * }}
+
+
+{{ $credit = [] }}
+{{ $credit.name = '我的评价' }}
+{{ $credit.url = '/student_center/commentFromTeacher?page=1&page_size=10' }}
+{{ $credit.icon = 'icon-star-o' }}
+{{ if $active === 'credit' }}
+    {{ $credit.active = true }}
+{{ /if }}
+
+
+{{ $favourite = [] }}
+{{ $favourite.name = '我的收藏' }}
+{{ $favourite.url = '/collection/list/course' }}
+{{ $favourite.icon = 'icon-heart-o' }}
+{{ if $active === 'favourite' }}
+    {{ $favourite.active = true }}
+{{ /if }}
+
+{{ $courseFav = [] }}
+{{ $courseFav.name = '课程收藏' }}
+{{ $courseFav.url = '/collection/list/course' }}
+{{ if $active === 'courseFav' }}
+    {{ $courseFav.active = true }}
+{{ /if }}
+{{ $favourite.children[] = $courseFav }}
+
+{{ $teacherFav = [] }}
+{{ $teacherFav.name = '老师收藏' }}
+{{ $teacherFav.url = '/student_center/favourite' }}
+{{ if $active === 'teacherFav' }}
+    {{ $teacherFav.active = true }}
+{{ /if }}
+{{ $favourite.children[] = $teacherFav }}
+
+{{ $orgFav = [] }}
+{{ if isset($tpl_data.huike.is_huike_student) && $tpl_data.huike.is_huike_student }}
+    {{ $orgFav.name = '学校收藏' }}
+{{ else }}
+    {{ $orgFav.name = '机构收藏' }}
+{{ /if }}
+{{ $orgFav.url = '/collection/list/org' }}
+{{ if $active === 'orgFav' }}
+    {{ $orgFav.active = true }}
+{{ /if }}
+{{ $favourite.children[] = $orgFav }}
+
+{{ $menu = [] }}
+{{ $menu[] = $schedule }}
+{{ $menu[] = $playback }}
+{{ $menu[] = $teacher }}
+{{ $menu[] = $order }}
+{{ $menu[] = $videoLessons }}
+{{ $menu[] = $finances }}
+{{ $menu[] = $credit }}
+{{ $menu[] = $favourite }}
+
+
+{{ include file="common/center/common/sidebar.html" menu=$menu }}

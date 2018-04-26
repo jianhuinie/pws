@@ -1,0 +1,213 @@
+{{ *
+
+@file 班课详情页会员模版
+@author niejianhui
+
+* }}
+
+{{ extends file="common/main/base.html" }}
+
+{{ block name="data" }}
+    {{ $smarty.block.parent }}
+    {{ $nav_config.hidden = 1 }}
+    {{ $nav_config.active = '' }}
+    {{ $login_dialog_config.student_only = true }}
+
+    {{ **顶部搜索去掉placeholder支持空query** }}
+    {{ $current_page = 'detail' }}
+    {{ $need_mobile_seo = true }}
+    {{ $script_path = 'classCourse/tpl1/detail' }}
+
+    {{ $first_teacher = '' }}
+    {{ foreach $tpl_data.teacher_profiles as $val }}
+        {{ if $val@first }}
+            {{ $first_teacher = $val }}
+        {{ /if }}
+    {{ /foreach }}
+    {{ if !empty($first_teacher) }}
+        {{ $script_data.teacherNum = $first_teacher.number }}
+    {{ /if }}
+
+    {{ $script_data.lessonWay = $tpl_data.course_info.lesson_way }}
+    {{ $script_data.realprice = $tpl_data.course_info.realtime_price }}
+    {{ $script_data.price = $tpl_data.course_info.price }}
+    {{ $script_data.photos = $tpl_data.course_info.photos }}
+    {{ $script_data.courseNum = $tpl_data.course_info.number }}
+    {{ $script_data.courseType = $tpl_data.course_type }}
+    {{ $script_data.courseId = $tpl_data.course_info.id }}
+    {{ $script_data.position =  $tpl_data.course_info.offline_poi }}
+    {{ $script_data.area_id =  $tpl_data.course_info.area_id }}
+    {{ $script_data.address =  $tpl_data.course_info.address }}
+    {{ $script_data.name =  $user_data.user_name }}
+    {{ $script_data.address =  $tpl_data.course_info.address }}
+    {{ $script_data.teacherId = $tpl_data.teacher.id }}
+    {{ $script_data.teacherNum = $tpl_data.course_info.user_number }}
+    {{ $script_data.userId = $user_data.user_id }}
+    {{ $script_data.crumb = $tpl_data.course_path[3].remark_name }}
+    {{ $script_data.isLogin =  $tpl_data.course_info.material_info.user_login_status }}
+    {{ $script_data.isJoin =  $tpl_data.course_info.material_info.is_join }}
+    {{ $script_data.replayValid = $tpl_data.course_info.replay_valid }}
+    {{ $script_data.hasReplay = $tpl_data.course_info.has_replay }}
+    {{ $script_data.replayUrl = $tpl_data.course_info.replay_url }}
+    {{ $script_data.feedbackUrl =  $tpl_data.trial_info.feedback_url }}
+    {{ $script_data.roomNo =  $tpl_data.trial_info.lesson.room_no }}
+
+    {{ $script_data.isOneOnOneTeacher =  $tpl_data.is_one_on_one_teacher }}
+
+    {{ $script_data.one_on_one_teacher_mobile = $tpl_data.one_on_one_teacher_mobile }}
+    
+    {{ if $tpl_data.course_info.display_status == 6 || $tpl_data.course_info.display_status == 13 }}
+        {{ $script_data.isOver = true }}
+    {{ else }}
+        {{ $script_data.isOver = false }}
+    {{ /if }}
+    {{ if $tpl_data.course_info.display_status == 2 || $tpl_data.course_info.display_status == 5 }}
+        {{ $script_data.enrolling = 1 }}
+    {{ /if }}
+    {{ $script_data.isOrg = $tpl_data.is_organization }}
+    {{ if !empty($tpl_data.organization) }}
+        {{ $script_data.isOrgCourse = true }}
+        {{ $script_data.city_filter = $tpl_data.organization.city_filter }}
+        {{ $script_data.extension = $tpl_data.organization.extension|default:'4000－910－910' }}
+        {{ $script_data.orgNumber = $tpl_data.organization.number }}
+        {{ if not empty ($tpl_data.organization.support_tianxiao) }}
+            {{ $script_data.isTianxiaoOrg = $tpl_data.organization.support_tianxiao }}
+        {{ /if }}
+    {{ else }}
+        {{ $script_data.isOrgCourse = false }}
+    {{ /if }}
+
+    {{ **$script_data.displayStatus = $tpl_data.course_info.display_status** }}
+    {{ $baidu_share_text = "#跟谁学# 分享一位老师给你哦~"|cat: $tpl_data.course_info.name }}
+    {{ $baidu_share_text = $baidu_share_text|cat: "，还在等什么？找好老师，上跟谁学，快来开启寻师之旅吧！" }}
+    {{ $baidu_share_text = $baidu_share_text|replace:"'":"\'"|replace:'"':'\"' }}
+
+    {{ $baidu_share_image = $tpl_data.course_info.cover.url }}
+    {{ if !$baidu_share_image || $baidu_share_image == "" }}
+        {{ $baidu_share_image = $tpl_data.course_info.photos[0].url }}
+    {{ /if }}
+
+    {{ if !$baidu_share_image || $baidu_share_image=="" }}
+        {{ $baidu_share_image = $static_origin|cat:"/asset/img/share.jpg" }}
+    {{ /if }}
+
+    {{ $baidu_query = "跟谁学 " }}
+{{ /block }}
+{{ * SKU统计上报 * }}
+{{ block name='sku_id' }}
+{{ $sku_id=$tpl_data.course_info.number }}
+{{ /block }}
+
+{{ block name="title" }}
+{{ strip }}
+{{ if $tpl_data.course_info.price == 0 }}【免费】{{ /if }}
+{{ $tpl_data.course_info.name }}_{{ $tpl_data.course_path['3'].name }}_{{ foreach $tpl_data.teacher_profiles as $key=>$teacher_profile }}{{ $teacher_profile.display_name }}{{ /foreach }}-跟谁学
+{{ /strip }}
+{{ /block }}
+
+{{ block name="keywords" }}
+{{ strip }}
+{{ $tpl_data.course_info.name }}
+{{ /strip }}
+{{ /block }}
+
+{{ block name="description" }}
+{{ strip }}
+
+跟谁学为您提供{{ foreach $tpl_data.teacher_profiles as $key=>$teacher_profile }}{{ $teacher_profile.display_name }}{{ /foreach }}{{ $tpl_data.course_info.name }}课程，{{ $tpl_data.course_info.target }}。找好老师，上跟谁学！
+
+{{ /strip }}
+{{ /block }}
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/classCourse/tpl1/detail.less">
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+<div id="container">
+    {{ $url = $smarty.get.action }}
+    {{ if $tpl_data.is_preview == 1 && $url != 'shenhe' }}
+    <div class="mask">
+        <div class="alpha-mask"></div>
+        <div class="half-alpha-mask"></div>
+        <p>
+            <span>这是预览页面，不可操作哦~</span>
+            <br />
+            （信息填写完整并检查后可提交审核，审核通过的班课会自动开始招生）
+        </p>
+    </div>
+    {{ /if }}
+
+    <div id="top">
+        <div id="headInfo">
+            {{ include file="../common/crumbs.html" }}
+            <div id="courseNum">班课编号:{{ $tpl_data.course_info.number }}</div>
+        </div>
+        <div id="contentTop" class="card">
+            {{ include file="../common/courseInfo.html" }}
+        </div>
+    </div>
+    <div id="middle">
+        <div id="bodyInfo">
+            <div id="contentBody">
+                {{ if isset($tpl_data.is_juhuixue) && $tpl_data.is_juhuixue }}
+                    <a href="http://ju.genshuixue.com/?zn=zn_juhuixue_zbhuiliu_pc" target="_blank">
+                        <img class="juhuixue-photo" src="{{ $static_origin }}/src/img/classCourse/juhuixuePc.png">
+                    </a>
+                {{ /if }}
+
+                {{ include file="../common/tabNav.html" }}
+
+                {{ if $tpl_data.course_type != 4 }}
+                    {{ include file="../common/courseIntro.html" }}
+                {{ /if }}
+
+                {{ include file="../common/courseDetail.html" }}
+
+                {{ if $tpl_data.course_type != 4 }}
+                    {{ include file="../common/teachOutline.html" }}
+                {{ /if }}
+
+                {{ if $tpl_data.course_info.lesson_way == 4 }}
+                    {{ include file="../common/address.html" }}
+                {{ /if }}
+
+                {{ if $tpl_data.course_info.material_info.total_count > 0 }}
+                    {{ include file="../common/courseData.html" }}
+                {{ /if }}
+
+                {{ include file="classCourse/common/comment.html" type=$tpl_data.course_type }}
+            </div>
+            <div id="sideBar">
+                {{ include file="../common/sideBar.html" }}
+            </div>
+        </div>
+    </div>
+    <div id="bottom">
+        <div id="contentBottom">
+            {{ if count($tpl_data.relative_course) > 0 }}
+                <div class="emptyBox">
+                    {{ include file="../common/othersLearn.html" }}
+                </div>
+            {{ /if }}
+            {{ if $tpl_data.course_info.lesson_way == 2 }}
+                <div class="emptyBox">
+                    {{ include file="../common/liveinfo.html" }}
+                </div>
+            {{ /if }}
+            <div id="clearfix"></div>
+        </div>
+    </div>
+    {{ include file="../common/ceiling.html" }}
+    {{ include file="../../common/component/baiduMap.html" }}
+</div>
+{{ /strip }}
+{{ /block }}
+{{ include file="common/script.html" }}
+{{ block name="script" }}
+{{ /block }}
+
+
+{{ block name="inner_link" }}
+{{ include file="common/innerlink/searchList.html" data=$tpl_data.pageInnerLinks mod="课程" inner_type="course" }}
+{{ /block }}

@@ -1,0 +1,17 @@
+
+
+
+{{ $helperCert = [] }}
+{{ $helperCert[] = ['师资认证', 'book-large-o', "我们提供身份认证、教师证认证、学历认证、专业资质认证等认证方式，确保老师的信息真实可信。"] }}
+{{ $helperCert[] = ['支付安全', 'shield-large-o', "你支付的课程订单资金不会直接划转给老师，而是存放在跟谁学平台。只有当你完成上课并确认课程满意后，资金才会划转给老师。保障你的资金安全。"] }}
+{{ $helperCert[] = ['随时退款', 'cash-large-o', " 每张订单第一堂课为试听课，试听不满意，你可以无条件全额退款。订单中的未使用课时支持随时退，让您没有后顾之忧"] }}
+
+
+<ul class="main-banner-helper-cert">
+    {{ foreach $helperCert as $cer }}
+    <li title="{{ $cer[2] }}">
+        <i class="icon icon-{{ $cer[1] }}"></i>
+        {{ $cer[0] }}
+    </li>
+    {{ /foreach }}
+</ul>

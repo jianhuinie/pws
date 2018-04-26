@@ -1,0 +1,76 @@
+{{ extends file="common/main/base.html" }}
+
+{{ block name="title" }}
+新闻报道- 关于跟谁学 - 跟谁学
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/guide/news.less">
+{{ /block }}
+
+{{ block name="main" }}
+
+{{ strip }}
+
+
+
+<div id="main">
+
+    {{ include file="./common/sidebar.html" }}
+
+
+    {{ include file="./common/newsd.html" }}
+    <!--右-->
+    <div class="btright">
+        <h2>新闻报道</h2>
+
+        
+        <!--模版数据-->
+        {{ foreach $tpl_data.news as $news }}
+        {{ if ($news@index+1) % 6 === 0  }}<br/>{{ /if }}
+        <p class="foreword">
+            •
+            <span class="news-date">{{ $news.date }}</span>
+            <a target="_blank" href="{{ $news.url }}">
+                {{ $news.title }}
+            </a>
+        </p>
+        {{ /foreach }}
+        
+        <!--        <p class="foreword">
+                    •
+                    <span class="newss-date">2014-10-14</span>
+                    <a target="_blank" href="http://www.rong360.com/gl/2014/10/14/58139.html">
+                        陈向东：我也是90后
+                    </a>
+                </p>-->
+
+        {{ foreach $page_data.news as $news }}
+
+<!--        {{ if ($news@index+1) % 6 === 0  }}<br/>{{ /if }}-->
+
+
+<!--        <p class="foreword">
+            •
+            <span class="news-date">{{ $news.date }}</span>
+            <a target="_blank" href="{{ $news.url }}">
+                {{ $news.title }}
+            </a>
+        </p>-->
+
+        {{ /foreach }}
+    </div>
+    <!--右 over-->
+</div>
+
+
+
+
+
+
+
+
+
+
+{{ /strip }}
+{{ /block }}

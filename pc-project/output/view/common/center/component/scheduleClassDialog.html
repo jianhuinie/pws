@@ -1,0 +1,72 @@
+{{ *
+
+@file 快速排课
+@author wangyujie
+
+* }}
+{{ strip }}
+
+{{ $user_type = $user_data.user_type }}
+
+{{ if $user_type == 0 }}
+    {{ $user_identity = '学生' }}
+{{ else if $user_type == 2 }}
+    {{ $user_identity = '老师' }}
+{{ /if }}
+
+<div class="quick-schedule-class">
+
+    <div class="person-list">
+
+        <div id="search" class="search-form">
+
+            <div class="wrap">
+                <i class="icon icon-search"></i>
+
+                <input class="search-input" type="text" name="keyword" placeholder="在这里搜索你的{{ $user_identity }}名称、ID或者科目吧" autocomplete="off" />
+            </div>
+
+            <button class="btn-primary btn-search">
+                搜索
+            </button>
+        </div>
+
+        <div class="person-list-inner">
+            <div class="hint">
+                <button class="btn-link btn-search-all">查看全部{{ $user_identity }}</button>
+                {{ if $user_type == 0 }}
+                    <span>请在下方列表选择你要排课的学生</span>
+                {{ else if $user_type == 2 }}
+                    <span>请在下方列表选择你要约课的老师</span>
+                {{ /if }}
+            </div>
+            {{ if $user_type == 0 }}
+            <ul>
+                <li class="item-header">
+                    <div class="student-info">学生</div>
+                    <div class="subject-name">科目</div>
+                    <div class="remain-time">可约</div>
+                </li>
+            </ul>
+            {{ /if }}
+            <ul class="p-list"></ul>
+        </div>
+
+    </div>
+
+    <div class="order-list">
+
+        <div class="not-choice-person">
+            <img src="{{ $static_origin }}/asset/img/center/tiaopi_01a65bbc89.png" alt="">
+            {{ if $user_type == 0 }}
+                <p>请在左侧选择你要排课的学生</p>
+            {{ else if $user_type == 2 }}
+                <p>请在左侧选择你要约课的老师</p>
+            {{ /if }}
+        </div>
+
+    </div>
+
+</div>
+
+{{ /strip }}

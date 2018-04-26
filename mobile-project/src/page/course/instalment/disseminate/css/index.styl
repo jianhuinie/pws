@@ -1,0 +1,207 @@
+@import "page/_base/base.styl";
+@import "page/_common/nav_bar/nav_bar.styl";
+
+.GSX_Dialog
+    .GSX_Dialog_skin_ok
+        color #3fa5f2!important
+
+    .GSX_Dialog_buttons
+        border none!important
+
+& .GSX_Dialog_default
+    border-radius rem(10)!important
+
+.instalment-disseminate
+    position relative
+    background url(/src/page/course/instalment/disseminate/img/bg.jpg) no-repeat
+    padding rem(15)
+    color #fff
+    img
+        width 100%
+        height 100%
+        opacity 0
+
+    > .title
+        margin rem(30) auto
+        text-align center
+        position relative
+        width 95%
+        > .icon
+            position absolute
+            right rem(-5)
+            top rem(20)
+            width rem(30)
+            height rem(30)
+
+    > ul
+        text-align center
+        li
+            width rem(70)
+            height rem(75)
+            color #fff
+            display inline-block
+            position relative
+            margin rem(15) rem(10)
+
+    > .subject,
+    > .join-info
+        font-size rem(17)
+        font-weight bold
+
+    > .subject
+        text-align center
+
+    > .join-info
+        margin rem(55) 0
+
+    > .sign-dialog
+        display none
+        position relative
+        font-size rem(14)
+        > .mask
+            position fixed
+            left 0
+            top 0
+            right 0
+            bottom 0
+            background #000
+            opacity 0.5
+            z-index 1
+
+        > .container
+            position fixed
+            z-index 100
+            top 25%
+            width rem(250)
+            background-color #fff
+            border-radius rem(2)
+            left 50%
+            margin-left rem(-125)
+
+            > div
+                color #000
+                position relative
+                text-align center
+                padding rem(25) 0
+                > div
+                 text-align left
+                 margin-left rem(20)
+
+                > span
+                    position absolute
+                    right rem(-10)
+                    top rem(-10)
+                    display block
+                    width rem(34)
+                    height rem(34)
+                    > img
+                        opacity 1
+
+                > .error
+                    opacity 0
+                & .error.visible
+                    opacity 1
+                    color #f95710
+
+                >.btn,
+                > input
+                    height rem(30)
+                    line-height rem(30)
+                    width rem(210)
+                    border-radius rem(2)
+                    margin auto
+                    display block
+
+                > input
+                    outline none
+                    border rem(1) solid #ccc
+                    padding-left rem(5)
+                    margin-bottom rem(20)
+
+                > .btn
+                    background-color #bbb
+                    color #fff
+                & .btn.btn-submit
+                    background-color #3fa5f2
+
+    > .sign
+        width rem(178)
+        height rem(43)
+        margin auto
+        position relative
+        margin-bottom rem(100)
+        > a:hover
+            background url(/src/page/course/instalment/disseminate/img/signActive.png)
+            background-size 100%
+
+        > a
+            display block
+            background url(/src/page/course/instalment/disseminate/img/signBtn.png)
+            background-size 100%
+            width 100%
+            height 100%
+
+        > .sign-icon
+            position absolute
+            width rem(50)
+            height rem(68)
+            right rem(-60)
+            top rem(-45)
+
+    > .notice
+        position relative
+        border 2px solid #fff
+        padding rem(10)
+        margin-bottom rem(20)
+        > img
+            width rem(48)
+            height rem(64)
+            position absolute
+            top rem(-64)
+            left rem(-3)
+
+    > .next
+        text-align center
+        margin-bottom rem(5)
+        img
+            width rem(21)
+            height rem(21)
+
+    > .more
+        text-align center
+        font-size rem(14)
+        margin-bottom rem(30)
+
+    > .describe
+        > p
+            font-size rem(16)
+            margin-bottom rem(20)
+
+    > .feature
+        > ul
+            margin rem(20) 0
+            > li
+                position relative
+                margin rem(20) 0
+                padding-left rem(45)
+                > img
+                    width rem(40)
+                    height rem(40)
+                    position absolute
+                    top 50%
+                    margin-top rem(-18)
+                    left 0
+
+    > .process
+        padding rem(33) 0
+        text-align center
+        font-size rem(16)
+        > .title
+            font-size rem(18)
+            margin-bottom rem(20)
+            font-weight bold
+
+        > .process-list
+            width rem(163)
+            margin auto
+

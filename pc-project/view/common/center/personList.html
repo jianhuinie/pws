@@ -1,0 +1,167 @@
+{{ *
+
+@file 用户列表 - 列表模板
+@author zhangjiayi
+
+* }}
+{{ strip }}
+
+{{ if isset($tpl_data.person_list.role) && $tpl_data.person_list.role == 0 }}
+    {{ $target_type = 'student' }}
+    {{ $chat_to_student = true }}
+{{ else }}
+    {{ $target_type = 'teacher' }}
+    {{ $chat_to_student = false }}
+{{ /if }}
+
+{{ foreach $tpl_data.person_list as $key=>$item }}
+    {{ if $key !== 'role' }}
+        <div class="person">
+            <div class="person-detail">
+                {{ if $item.type == "teacher" }}
+                <a href="/x/{{ $item.person_number }}" target="_blank">
+                    {{ include file="common/component/avatar.html" type="small" img=$item.avatar }}
+                </a>
+                {{ else }}
+                <a href="{{ $item.domain }}" target="_blank">
+                    {{ include file="common/component/avatar.html" type="small" img=$item.avatar }}
+                </a>
+                {{ /if }}
+                <div class="person-content">
+
+                    <div class="person-info">
+                        {{ if $item.type == "student"  }}
+                        <a href="{{ $item.domain }}" target="_blank">
+                        <span class="person-name">
+                            {{ $item.display_name }}
+
+                            {{ if $item.sex == 1 }}
+                                {{ $class = "male" }}
+                            {{ else }}
+                                {{ $class = "female" }}
+                            {{ /if }}
+                            <i class="icon icon-user {{ $class }}"></i>
+                        </span>
+                        </a>
+                        {{ else }}
+                        <span class="person-name">
+                            {{ $item.display_name }}
+
+                            {{ if $item.sex == 1 }}
+                                {{ $class = "male" }}
+                            {{ else }}
+                                {{ $class = "female" }}
+                            {{ /if }}
+                            <i class="icon icon-user {{ $class }}"></i>
+                        </span>
+                        {{ /if }}
+
+
+
+
+                        {{ if $item.mobile }}
+                        {{ if $item.type == 'student' }}
+                        <!-- <span class="person-phone" data-mobile="{{ $item.mobile }}" data-number="{{ $item.person_number }}" data-name="{{ $item.display_name }}">
+                            <i class="icon icon-phone-o"></i>拨打电话
+                        </span> -->
+                        {{ else }}
+                            {{ if isset($item.has_mobile) && $item.has_mobile }}
+                                <span class="person-phone">
+                                    电话：{{ $item.mobile }}
+                                 </span> 
+                            {{ /if }}
+                        {{ /if }}
+                        {{ /if }}
+
+
+                        {{ if isset($item.qreserve_sign) && $item.qreserve_sign == 1 }}
+                            {{ $opened = 1 }}
+                        {{ else }}
+                            {{ $opened = 0 }}
+                        {{ /if }}
+
+                        {{ if $item.type == "student" }}
+
+                            <span class="{{ if $opened == 1 }}opened{{ /if }} quick-lesson-box" data-user-number="{{ $item.person_number }}">
+
+                                <label class="form-checkbox {{ if $opened }} checked {{ /if }}">
+                                    <input type="checkbox" name="quick-lesson" {{ if $opened }} checked="checked" {{ /if }} />
+                                    <i class="icon icon-lightning"></i>
+                                    <span data-title="什么是闪电约课？<br />开启闪电约课后，该老师发起的约课以及时间修改系统将为你自动确认" data-width="19em">
+                                        {{ if $opened == 1 }}
+                                            闪电约课已开启
+                                        {{ else }}
+                                            闪电约课
+                                        {{ /if }}
+                                    </span>
+                                </label>
+
+                            </span>
+                        {{ elseif $item.type == "teacher" }}
+
+                            <span class="{{ if $opened == 1 }}opened{{ /if }} quick-lesson-box">
+                                <i class="icon icon-lightning"></i>
+                                {{ if $opened == 1 }}
+                                    <span data-title="{{ $item.display_name }}为你开启了闪电约课，你向该学生约课将被自动确认。课程结束后系统会自动支付课酬。" data-width="20em">
+                                        闪电约课开启
+                                    </span>
+                                {{ else }}
+                                    <span data-title="闪电约课未开启。学生为你开启闪电约课后，你发起的约课会被系统自动确认。" data-width="21em">
+                                        闪电约课未开启
+                                    </span>
+                                {{ /if }}
+                            </span>
+
+                            {{ if isset($tpl_data.is_org) && !$tpl_data.is_org }}
+                            <a class="send-coupon" href="/teacher_center/myCoupons?student_number={{ $item.person_number }}">
+                                发优惠券
+                            </a>
+                            {{ /if }}
+
+                        {{ /if }}
+
+                    </div>
+
+                    <div class="person-control">
+
+                        <div class="action">
+
+                            <span>
+                                <a href="{{ $item.domain }}" target="_blank">
+                                    {{ if $item.type == "student" }}
+                                        查看TA的主页
+                                    {{ elseif $item.type == "teacher" }}
+                                        查看TA的信用
+                                    {{ /if }}
+                                </a>
+                            </span>
+
+                            <span class="check-order" data-user-number="{{ $item.person_number }}">
+                                查看订单 <i class="icon icon-angle-down"></i>
+                            </span>
+
+                        </div>
+
+                        {{ if $item.person_number != $user_data.user_number }}
+                        {{ include file="common/component/chatLabel4.html" user_number=$item.person_number user_type=$target_type chat_to_student=$chat_to_student size="tiny" online_status=$item.im_online_status }}
+                        {{ /if }}
+
+                        {{ if $item.mobile }}
+                        {{ if $item.type == 'student' }}
+                        <span class="person-phone" data-mobile="{{ $item.mobile }}" data-number="{{ $item.person_number }}" data-name="{{ $item.display_name }}">
+                            <i class="icon icon-phone-o"></i>拨打电话
+                        </span>
+                        {{ /if }}
+                        {{ /if }}
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="order-list" data-status="nodata"></div>
+
+        </div>
+    {{ /if }}
+{{ /foreach }}
+
+{{ /strip }}

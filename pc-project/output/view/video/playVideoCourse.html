@@ -1,0 +1,277 @@
+{{ extends file="common/pc/base.html" }}
+
+{{ block name="data" }}
+    {{ $smarty.block.parent }}
+
+    {{ $flotage_config.hidden = 1 }}
+    {{ $script_path = "video/playVideoCourse_3ac554c57d" }}
+    {{ $script_data.playIndex = $tpl_data.index_info.index }}
+    {{ $script_data.courseNumber = $tpl_data.course_info.number }}
+    {{ $script_data.sectionNumber = $tpl_data.index_info.section_id }}
+    {{ $script_data.sign = $tpl_data.sign }}
+    {{ $script_data.teacherNumber = $tpl_data.teacher_info.user_number }}
+    {{ $script_data.purchaseId = $tpl_data.additional.purchase_id_video }}
+
+    {{ **是否登陆** }}
+    {{ if !empty($user_data) }}
+        {{ $script_data.hasLogin = true }}
+    {{ else }}
+        {{ $script_data.hasLogin = false }}
+    {{ /if }}
+
+{{ /block }}
+
+{{ block name="title" prepend }}
+视频课播放 -
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/video/playVideoCourse_c1fefa1830.css">
+{{ /block }}
+
+{{ block name="body" }}
+
+{{ strip }}
+{{ $smarty.block.parent }}
+
+<div id="main">
+
+    <div id="video-container">
+        <div class="title">
+            <!--span class="go-back"><i class="icon icon-chevron-left"></i>返回</span-->
+            <span class="course-title">
+                {{ if empty($tpl_data.course_info.title_verify_status) }}
+                    <a href="/video_course/getcourseshowdetail?number={{ $tpl_data.course_info.number }}&user_number={{ $tpl_data.teacher_info.user_number }}" data-title="{{ $tpl_data.course_info.name }}" data-width="20em">{{ $tpl_data.course_info.name|cn_truncate:17 }}</a>
+                {{ else }}
+                    <a href="/video_course/getcourseshowdetail?number={{ $tpl_data.course_info.number }}&user_number={{ $tpl_data.teacher_info.user_number }}" class="outofline" data-title="该课程标题包含违规内容，请等待老师修改完成后，再进行查看" data-width="20em">该课程标题包含违规内容，请等待老师修改...</a>
+                {{ /if }}
+            </span>
+        </div>
+        <iframe src="" id="main-video" frameborder="no" border="0" scrolling='no'>
+        </iframe>
+    </div>
+
+    <div id="collapse-btn">
+        <div class="wrapper">
+            <div class="thumb-nail">
+                <i class="chevron-left">&lt;&lt;</i>
+                <i class="chevron-right">&gt;&gt;</i>
+            </div>
+        </div>
+    </div>
+
+    <div id="side-bar">
+
+        <div class="header">
+            {{ if empty($tpl_data.course_info.title_verify_status) }}
+                <a href="/video_course/getcourseshowdetail?number={{ $tpl_data.course_info.number }}&user_number={{ $tpl_data.teacher_info.user_number }}" data-title="{{ $tpl_data.course_info.name }}" data-width="20em">{{ $tpl_data.course_info.name|cn_truncate:17 }}</a>
+            {{ else }}
+                <a href="/video_course/getcourseshowdetail?number={{ $tpl_data.course_info.number }}&user_number={{ $tpl_data.teacher_info.user_number }}" class="outofline" data-title="该课程标题包含违规内容，请等待老师修改完成后，再进行查看" data-width="20em">该课程标题包含违规内容，请等待老师修改...</a>
+            {{ /if }}
+            <div class="tag"></div>
+        </div>
+
+        <div class="teacher">
+            {{ if $tpl_data.course_info.user_role == 0 }}
+                <div class="avatar">
+                    {{ include file="common/component/avatar.html" url=$tpl_data.teacher_info.url target="_blank" type="small" img=$tpl_data.teacher_info.avatar }}
+                </div>
+
+                <div class="info">
+                    <div class="name">
+                        {{ $tpl_data.teacher_info.realname }}
+                    </div>
+                    <div>
+                        {{ if $tpl_data.teacher_info.great_rate != 0 }}
+                            {{ include file="common/component/starScore.html" score=$tpl_data.teacher_info.great_rate }}
+                            {{ $tpl_data.teacher_info.great_rate }} 分
+                        {{ else }}
+                            暂无评分
+                        {{ /if }}
+                    </div>
+                    <div>
+                        {{ $tpl_data.teacher_info.intro|cn_truncate: 19 }}
+                    </div>
+                </div>
+            {{ else if $tpl_data.course_info.user_role == 6 }}
+                <div class="avatar">
+                    {{ include file="common/component/avatar.html" url=$tpl_data.organization_info.url target="_blank" type="small" img=$tpl_data.organization_info.avatar_url }}
+                </div>
+
+                <div class="info">
+                    <div class="name">
+                        {{ $tpl_data.organization_info.name }}
+                    </div>
+                    <div>
+                        {{ if $tpl_data.organization_info.great_rate != 0 }}
+                            {{ include file="common/component/starScore.html" score=$tpl_data.organization_info.great_rate }}
+                            {{ $tpl_data.organization_info.great_rate }} 分
+                        {{ else }}
+                            暂无评分
+                        {{ /if }}
+                    </div>
+                    <div>
+                        {{ $tpl_data.organization_info.brief|cn_truncate: 19 }}
+                    </div>
+                </div>
+            {{ /if }}
+
+            <div class="action">
+                {{ if $tpl_data.additional.can_comment }}
+                    <button class="btn-primary btn-comment">发表评价</button>
+                {{ elseif !$tpl_data.additional.purchase_id_video }}
+                    {{ if $tpl_data.additional.is_free }}
+                        <button class="btn-primary join">加入课程</button>
+                    {{ else }}
+                        <button class="btn-primary buy">购买课程</button>
+                    {{ /if }}
+                {{ /if }}
+
+                <div class="write-comment-form form">
+                    <div class="score">
+                        <i class="icon icon-close"></i>
+                        <ul>
+                            <li>
+                                评分：{{ include file="common/component/starScore.html" score=0 }}
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="form-group">
+
+                        <div class="form-editor">
+                            <textarea name="info" type="text" class="form-text" placeholder="快来写下你对老师的评价吧" required>
+                            </textarea>
+                            <span class="error"></span>
+                            <span class="form-hint">
+                                可以输入<strong>500</strong>字
+                            </span>
+                            {{ include file="common/component/checkBox.html" name="anonymous" value=1 text="匿名评价" }}
+                        </div>
+
+                    </div>
+
+                    <div class="form-action">
+                        <button class="btn-primary btn-write-comment">提交评价</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu">
+            <div class="header">课程目录</div>
+            <div class="lesson-list">
+                {{ if $tpl_data.course_info.chapter_mode == 1 }}
+                    <ul class="lesson-list-wrapper">
+                        {{ foreach $tpl_data.video_list as $video }}
+                            <li{{ if $video@first }} class="first"{{ else if $video@last }} class="last"{{ /if }} data-media-id="{{ $video.media_id }}" {{ if empty($video.status) }}
+                                data-lesson-title="{{ $video.title|cn_truncate:35 }}"
+                            {{ else }}
+                                data-lesson-title="unrule"
+                            {{ /if }} data-index="{{ $video.index }}" data-section-id="{{ $video.section_id }}">
+                                <div class="index">
+                                    课节{{ $video.index }}
+                                </div>
+                                <div class="splitter">
+                                    <div class="circle"></div>
+                                </div>
+                                <div>
+                                    {{ if $video.pay_status == 3 }}
+                                        <span class="label-free">试听</span>
+                                        {{ $video_title_max_length = 14 }}
+                                    {{ else }}
+                                        {{ $video_title_max_length = 16 }}
+                                    {{ /if }}
+
+                                    {{ if $video.status == 0 }}
+                                        <span>
+                                            {{ $video.title|cn_truncate: $video_title_max_length }}
+                                        </span>
+                                    {{ else if $video.status == 1 }}
+                                        <span class="wrong-title">
+                                            该课程标题包含违规内容，请等待...
+                                        </span>
+                                    {{ /if }}
+                                </div>
+                            </li>
+                        {{ /foreach }}
+                     </ul>
+                {{ else if $tpl_data.course_info.chapter_mode == 2 }}
+                    {{ foreach $tpl_data.video_list_chapter as $chapter }}
+                        <div class="chapter">
+                            第{{ $chapter@index + 1 }}章&nbsp;{{ $chapter.title }}
+                        </div>
+                        <ul class="lesson-list-wrapper">
+                            {{ foreach $chapter.item_list as $section }}
+                            <li{{ if $section@first }} class="first"{{ else if $section@last }} class="last"{{ /if }} data-media-id="{{ $section.media_id }}" {{ if empty($section.status) }}
+                                data-lesson-title="{{ $section.title|cn_truncate:35 }}"
+                            {{ else }}
+                                data-lesson-title="unrule"
+                            {{ /if }} data-index="{{ $section.index }}" data-section-id="{{ $section.section_id }}">
+                                <div class="index">
+                                    课节{{ $section.index }}
+                                </div>
+                                <div class="splitter">
+                                    <div class="circle"></div>
+                                </div>
+                                <div>
+                                    {{ if $section.pay_status == 3 }}
+                                        <span class="label-free">试听</span>
+                                        {{ $video_title_max_length = 14 }}
+                                    {{ else }}
+                                        {{ $video_title_max_length = 16 }}
+                                    {{ /if }}
+
+                                    {{ if $section.status == 0 }}
+                                        <span>
+                                            {{ $section.title|cn_truncate: $video_title_max_length }}
+                                        </span>
+                                    {{ else if $section.status == 1 }}
+                                        <span class="wrong-title">
+                                            该课程标题包含违规内容，请等待...
+                                        </span>
+                                    {{ /if }}
+                                </div>
+                            </li>
+                            {{ /foreach }}
+                        </ul>
+                    {{ /foreach }}
+                {{ /if }}
+
+                {{ if !empty($tpl_data.advert) }}
+                <div class="ad-wrapper">
+                    <h4 class="ad-title">热门链接</h4>
+                    <ul class="ad-list">
+                        {{ foreach $tpl_data.advert.list as $item }}
+                        {{ $countCompany = 20 - $item.position|count_characters:true - $item.city|count_characters:true }}
+                        <li>
+                            <a href="{{ $item.url }}" target="_blank" data-i="{{ $countCompany }}">
+                                <span class="ad-city">[{{ $item.city }}]</span>
+                                <span class="ad-company" title="{{ $item.company }}">
+                                    {{ $item.company|cn_truncate:$countCompany }}
+                                </span>
+                                <span class="ad-position">{{ $item.position }}</span>
+                                <span class="ad-pay">{{ $item.payment }}</span>
+                            </a>
+                        </li>
+                        {{ /foreach }}
+                    </ul>
+                    <div class="ad-more"><a href="{{ $tpl_data.advert.more_url }}" target="_blank">更多选择</a></div>
+                </div>
+               {{ /if }}
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{{ include file="common/script.html" }}
+
+{{ /strip }}
+{{ /block }}
+
+{{ block name="script" }}
+{{ strip }}
+    {{ include file="common/component/loginDialog.html" onlyShowStudent=1 }}
+{{ /strip }}
+{{ /block }}

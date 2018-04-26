@@ -1,0 +1,24 @@
+{
+    "tpl_data": {
+        "status": 0,
+        "id": "332294568_6113_3223",
+        "detail": {
+            "student_name": "胡斌",
+            "subject": "钢琴",
+            "min_price": 0,
+            "max_price": 100,
+            "way_text": "在线授课",
+            "address": "北京-海淀区",
+            "notes": ""
+        },
+        "cps": {
+            "normal_course": "10%",
+            "class_course": "20%",
+            "video_course": "40%"
+        },
+        "sms_push": {
+            "teacher_number": 332294568,
+            "status": 0
+        }
+    }
+}

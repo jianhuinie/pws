@@ -1,0 +1,61 @@
+@import "page/_base/base.styl";
+@import "page/_common/nav_bar/nav_bar.styl";
+
+.container {
+    margin-top: rem(10);
+    background: white;
+    border-top: 1px solid #e6e6e6;
+    .item {
+        position: relative;
+        min-height: rem(110);
+        border-bottom: 1px solid #e6e6e6;
+        img {
+            height: rem(80);
+            width: rem(80);
+            border-radius: 50%;
+            position: absolute;
+            left: rem(10);
+            top: rem(15);
+        }
+        .infos {
+            padding-left: rem(100);
+            padding-top: rem(15);
+            padding-right: rem(10);
+            .name {
+                font-size: rem(16);
+                color: #3c3d3d;
+                height: rem(20);
+                line-height: rem(20);
+            }
+            .subject {
+                font-size: rem(13);
+                color: #3c3d3d;
+                height: rem(25);
+                line-height: rem(25);
+            }
+            .detail {
+                    font-size: rem(13);
+                    color: #9d9e9e;
+                    height: rem(20);
+                    line-height: rem(20);
+            }
+            .price {
+                color: #ff6d00;
+                font-size: rem(16);
+                height: rem(30);
+                line-height: rem(30);
+            }
+        }
+    }
+}
+.has-more {
+    width: 100%;
+    text-align: center;
+    font-size: rem(14);
+    background: white;
+    height: rem(30);
+    line-height: rem(30);
+    &.hide {
+        display: none;
+    }
+}

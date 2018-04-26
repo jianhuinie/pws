@@ -1,0 +1,145 @@
+@import "page/_base/base.styl";
+@import "./register.styl"
+
+$brand-text = #3D3D3E;
+$brand-text-lighter = #9D9D9E;
+
+body {
+    background-color: #FFF;
+}
+
+.teacher-info {
+    height: rem(95);
+    padding: rem(15) rem(13) rem(15) rem(15);
+
+    .avatar {
+        float: left;
+        width: rem(45);
+        height: rem(45);
+        border-radius: 50%;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .details {
+        margin-left: rem(53);
+
+        .name {
+            font-size: rem(17);
+            color: $brand-text;
+
+            span {
+                margin-right: 0;
+                vertical-align: middle;
+            }
+
+            img {
+                margin-left: 0;
+                width: rem(17);
+                vertical-align: middle;
+            }
+        }
+
+        .info {
+            font-size: rem(13);
+            color: $brand-text-lighter;
+
+            span {
+                margin-right: rem(10);
+            }
+
+            .arrow {
+                float: right;
+                margin-right: 0;
+                width: rem(8);
+            }
+        }
+
+        .introduce {
+            font-size: rem(12);
+            color: $brand-text-lighter;
+        }
+    }
+}
+
+title(backgroundColor color)
+    margin-top: rem(25);
+    height: rem(36);
+    line-height: rem(36);
+    font-size: rem(15);
+    background-color backgroundColor
+    color color
+    text-align: center;
+
+$student-title-backgroundColor = #FFF3DF;
+$student-title-color = #FF9100;
+
+$teacher-title-backgroundColor = #F6FBFF;
+$teacher-title-color = #37A4F5;
+
+.student-title
+    title($student-title-backgroundColor, $student-title-color)
+
+.teacher-title
+    title($teacher-title-backgroundColor, $teacher-title-color)
+
+#first-title {
+    margin-top: 0;
+}
+
+signboard()
+    display: block;
+    margin: rem(19) auto rem(14);
+
+.student-signboard
+    signboard()
+    width: 54.6%;
+
+.teacher-signboard
+    signboard()
+    width: 19.2%;
+
+.advertisement {
+    margin: 0 rem(15);
+    font-size: rem(15);
+    text-indent: 2em;
+
+    .student-highlight {
+        color: $student-title-color;
+    }
+
+    .teacher-highlight {
+        color: $teacher-title-color;
+    }
+}
+
+.student-reg {
+    background-color: $student-title-color;
+}
+
+.teacher-reg {
+    background-color: $teacher-title-color;
+}
+
+.contact {
+    margin: rem(18) auto rem(32);
+    font-size: rem(15);
+    text-align: center;
+    color: $brand-text-lighter;
+}
+
+slogon()
+    display: block;
+    margin: 0 auto rem(21);
+
+.student-slogon
+    slogon()
+    width: rem(190);
+
+.teacher-slogon
+    slogon()
+    width: rem(207);

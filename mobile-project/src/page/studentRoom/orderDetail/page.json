@@ -1,0 +1,7 @@
+[
+    {
+        "tpl": "./index.tpl",
+        "router": "/studentRoom/orderDetail",
+        "mock_data": "./mock/index.json"
+    }
+]

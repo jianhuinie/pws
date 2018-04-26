@@ -1,0 +1,1 @@
+define("userCenter/common/filter/formatTime",["require","exports","module","moment"],function(require){"use strict";var e=require("moment");return function(r,t){return e(r).format(t||"HH:mm")}});

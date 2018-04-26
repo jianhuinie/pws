@@ -1,0 +1,45 @@
+{{ *
+    @file: 综合排名
+    @author：wangtianhua
+* }}
+
+{{ extends file="../../common/base.html" }}
+
+{{ block name="title" prepend }}
+数据中心 - 综合排名 -
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/userCenter/teacherCenter/dataCenter/sysntheticSort/sysntheticSort_69de801bae.css">
+{{ /block }}
+
+{{ block name="script" }}
+<script>
+require(
+    [
+        'userCenter/teacherCenter/common/layout_fca6630c9a',
+        'userCenter/teacherCenter/dataCenter/sysntheticSort/sysntheticSort_35cfd8c504'
+    ],
+    function (layout, visitData) {
+
+        {{ $php_data = $tpl_data }}
+
+        {{ if isset($tpl_data.is_huike_teacher) }}
+            {{ $is_huike_teacher = $tpl_data.is_huike_teacher }}
+        {{ else }}
+            {{ $is_huike_teacher = 0 }}
+        {{ /if }}
+
+        layout.init({
+            topMenu: 'userCenter',
+            sideMenu: 'dataCenter',
+            isHuikeTeacher: {{ $is_huike_teacher }}
+        });
+
+        visitData.init(
+            {{ json_encode($php_data, 77) }}
+        );
+    }
+);
+</script>
+{{ /block }}

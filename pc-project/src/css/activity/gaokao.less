@@ -1,0 +1,145 @@
+/**
+ * @file 高考
+ * @author  wuhongjie
+ */
+
+@import '../common/layout.less';
+@import '../common/main/common/header.less';
+@import '../common/main/common/nav.less';
+@import '../common/footer.less';
+@import '../common/component/loginDialog.less';
+
+body{
+  background: #FFFFFF;
+}
+#main{
+  width: 900px;
+}
+.content{
+    .title-div{
+        height: 45px;
+        width: 100%;
+        border-top: 2px solid #c7c7c7;
+        border-bottom: 1px solid #ececec;
+        font-family: '[FZLTCHJW]';
+        font-size: 18px;
+        color: #333333;
+        font-weight: bold;
+        .title{
+            height: 45px;
+            margin-top: -2px;
+            display: inline-block;
+            padding: 10px 5px;
+            border-top: 2px solid #f90;
+        }
+    }
+}
+#content-left{
+    float: left;
+    width: 600px;
+    .title-div{
+        border-bottom: none;
+    }
+    .seemore{
+        width: 100%;
+        height: 42px;
+        background: #f3f5f9;
+        text-align: center;
+        font-size: 16px;
+        padding-top: 8px;
+        cursor: pointer;
+    }
+    .content-div{
+        .subject-item{
+            display: inline-block;
+            width: 100%;
+            padding-top: 20px;
+            height: 165px;
+            cursor: pointer;
+            border-top: 1px solid #ececec;
+            img{
+                width: 200px;
+                height: 124px;
+                float: left;
+                margin-right: 20px;
+            }
+            .item-content{
+                .item-title{
+                    height: 40px;
+                    em {
+                        display: inherit;
+                        font-size: 18px;
+                        color: #333333;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                    }
+                }
+                .item-description{
+                    font-size: 14px;
+                    color: #9e9d9d;
+                    word-wrap: break-word;
+                    word-break: break-all;
+                }
+            }
+            &:hover {
+                .item-title em{
+                    color: #f90;
+                }
+            }
+        }
+    }
+
+
+    .detail-title{
+        height: 100px;
+        border-bottom: 1px solid #ececec;
+        border-top: 1px solid #ececec;
+        .title{
+            text-align: center;
+            margin-top: 18px;
+            font-size: 24px;
+            color: #f90;
+            font-weight: bold;
+        }
+        .source{
+            margin-top: 20px;
+            margin-left: 10px;
+            font-size: 14px;
+            color: #808080;
+        }
+    }
+    .detail-content{
+        padding: 20px;
+        font-size: 16px;
+        color: #333333;
+        img{
+            max-width: 100%;
+        }
+    }
+}
+#content-right{
+    width: 265px;
+    float: right;
+    .recommend-teacher{
+        .recomment-item{
+            display: inline-block;
+            margin-top: 20px;
+            width: 265px;
+            height: 180px;
+            text-align: center;
+            .recomment-img{
+                width: 262px;
+                height: 162px;
+            }
+            .recomment-descript{
+                width: 100%;
+                height: 30px;
+                text-align: left;
+                font-size: 14px;
+                padding-left: 3px;
+                margin-top: 5px;
+                color: #333333;
+            }
+        }
+    }
+}

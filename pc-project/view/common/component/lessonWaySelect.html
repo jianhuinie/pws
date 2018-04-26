@@ -1,0 +1,35 @@
+{{ *
+
+@file 上课方式下拉框
+
+      参数：
+
+      required：可选，是否必选
+
+@author zhujialu
+
+* }}
+{{ strip }}
+
+{{ if isset($smarty.get.lesson_way) }}
+    {{ $lesson_way = $smarty.get.lesson_way }}
+{{ else }}
+    {{ $lesson_way = '' }}
+{{ /if }}
+
+{{ if isset($required) && $required }}
+    {{ $required = ' required' }}
+{{ else }}
+    {{ $required = '' }}
+{{ /if }}
+
+<div class="dropdown lesson-way" data-value="{{ $lesson_way }}"{{ $required }}>
+    <span class="btn-default">
+        <i class="caret"></i>
+        <span></span>
+    </span>
+    <ul class="dropdown-menu">
+    </ul>
+</div>
+
+{{ /strip }}

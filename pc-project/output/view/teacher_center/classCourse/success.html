@@ -1,0 +1,88 @@
+{{ extends file="common/center/baseNew.html" }}
+
+{{ block name="data" }}
+
+    {{ $need_im = false }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $script_path = "teacherCenter/classCourse/success_3d6f759db7" }}
+
+{{ /block }}
+
+{{ block name="title" prepend }}
+班课设置 -
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/teacherCenter/classCourse/success_c130e3737f.css">
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+
+    <div class="class-course-header {{ if $tpl_data.course.verify_status != 1 }}hide{{ /if }}">
+        <a href="/tcenter/courses/class-courses/list-html?lesson_way={{ $tpl_data.course.lesson_way }}">&lt; 返回班课列表</a>
+    </div>
+
+    <div class="card">
+
+        <div class="card-header">
+            <h2>
+                <img src="{{ $static_origin }}/asset/img/teacher-center/classCourse/course-publish_17549331ce.png" />
+                班课发布
+            </h2>
+        </div>
+        <div class="card-body">
+            <div class="success-info">
+                <i class="icon icon-smile-o"></i>
+                {{ if $tpl_data.course.verify_status != 1 }}
+                班课已经成功提交审核，在审核工作时间内
+                <span class="text-primary">2小时</span>左右即可审核完成，请您耐心等待。 审核工作时间9:00-21:00
+                {{ else }}
+                班课已经成功发布，您修改的信息已经更新
+                {{ /if }}
+            </div>
+            <div class="and-more">
+                接下来你可以：
+                <ul>
+                    <li>
+                        {{ if $tpl_data.course.verify_status != 1 }}
+                        <a href="/class_course/preview?number={{ $tpl_data.number }}">
+                            预览该班课
+                        </a>
+                        {{ else }}
+                        <a href="/teacher/classCourseDetail/{{ $tpl_data.number }}">
+                            查看该班课
+                        </a>
+                        {{ /if }}
+                        <div class="hint">
+                            没有学生报名时，您可以到“老师个人中心 &gt; 课程设置 &gt;<a href="/tcenter/courses/class-courses/list-html?lesson_way={{ $tpl_data.course.lesson_way }}">     班课列表
+                            </a>”进行修改；有学生报名或者开课后只能修改部分内容
+                        </div>
+                    </li>
+                    <li>
+                        <a href="/teacher_center">返回老师个人中心</a>
+                    </li>
+                    <li>
+                        <a href="/tcenter/courses/class-courses/form?lesson_way={{ $tpl_data.course.lesson_way }}">继续发布班课</a>
+                    </li>
+                </ul>
+
+                <div class="share {{ if $tpl_data.course.verify_status != 1 }}hide{{ /if }}">
+                    <div class="title">分享给好友</div>
+                    <input class="form-text" type="text" name="url" value="http://www.genshuixue.com/teacher/classCourseDetail/{{ $tpl_data.number }}" />
+                    <div class="btn btn-primary copy" id="btn-copy">
+                        复制链接
+                        <span id="empty"></span>
+                    </div>
+                    您可以直接复制班课链接发送给好友
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+{{ /strip }}
+{{ /block }}

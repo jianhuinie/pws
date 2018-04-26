@@ -1,0 +1,87 @@
+{{ extends file="common/pc/base.html" }}
+
+{{ block name="title" }}
+    Hello Teacher
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/activity/helloteacher_296a43491f.css">
+{{ /block }}
+
+{{ block name="data" }}
+
+{{ $need_im = false }}
+
+{{ $smarty.block.parent }}
+
+{{ $script_path = "activity/helloteacher_494cd1f3d0" }}
+
+{{ /block }}
+
+
+{{ block name="description" }}
+     Hello Teacher
+{{ /block }}
+
+{{ block name="keywords"  }}
+    Hello Teacher
+{{ /block }}
+
+
+
+{{ strip }}
+{{ block name="body" }}
+
+{{ include file="common/script.html" }}
+<div class="topnav">
+    <div class="area">
+        <div class="navlogo"></div>
+        <div class="nav">
+            <div class="navphone">
+                <i class="icon icon-phone"></i>
+                4000-910-910
+            </div>
+            <div><a href="http://www.genshuixue.com/" target="_blank">去官网看看</a></div>
+            <div class="navlink"><a href="http://www.genshuixue.com/guide/entering?a=entering" target="_blank">入驻跟谁学</a></div>
+
+        </div>
+    </div>
+
+</div>
+<div class="top_bg">
+    <div class="area">
+        <div class="dateinfo">20150907<br>跟谁学出品</div>
+    </div>
+</div>
+<div class="content_top">
+    <div class="area banner_top"></div>
+</div>
+<div class="content" style="background-color:{{ $tpl_data.color.bg_color|default:'#000' }}">
+    <div class="area">
+
+        <div class="banner01 banner"></div>
+
+        <div class="banner_con banner_con01"></div>
+
+        <div class="banner02 banner"></div>
+
+        <div class="banner_con banner_con02"></div>
+
+        <div class="banner03 banner"></div>
+
+
+        <div class="banner_con banner_con03"></div>
+
+        <div class="banner04 banner"></div>
+
+
+        <div class="banner_con banner_con04"></div>
+    </div>
+</div>
+
+
+{{ include file="common/footer.html" }}
+
+
+{{ /block }}
+{{ /strip }}

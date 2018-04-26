@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LazyLoadImage Demo Page</title>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1, maximum-scale=1">
+    <style>
+
+        th, td {
+            text-align: center;
+            min-width: 100px;
+        }
+
+        th {
+            font-size: 16px;
+            line-height: 30px;
+            font-weight: bold;
+            background: #0c516c;
+            color: #ffffff;
+        }
+
+        td {
+            font-size: 14px;
+            line-height: 30px;
+        }
+    </style>
+    <script src="../../lib/requirejs/require.debug.js"></script>
+    <script src="../help.js"></script>
+</head>
+<body>
+<h1>M站 App Jockey接口配置信息</h1>
+<table id="tab" border="1" cellspacing="0">
+    <tr>
+        <th>actionName</th>
+        <th>app</th>
+        <th>ios版本</th>
+        <th>android版本</th>
+        <th>是否支持jockey</th>
+        <th>是否支持schema</th>
+    </tr>
+</table>
+
+<script>
+
+    var cells = ['actionName', 'app', 'ios', 'android', 'jockey', 'schema'];
+    function showItemConfig(actionName, actionConfig) {
+        var table = document.getElementById('tab');
+        var rowElement = table.insertRow(table.rows.length);
+
+        var cellElement;
+        var content;
+        for (var i = 0; i < cells.length; i++) {
+            cellElement = rowElement.insertCell(i);
+            content = '';
+            switch (cells[i]) {
+                case 'actionName':
+                    content = actionName;
+                    break;
+                case 'app':
+                    if (actionConfig[cells[i]]) {
+                        content = actionConfig[cells[i]];
+                    } else {
+                        content = '不限';
+                    }
+                    break;
+                case 'ios':
+                case 'android':
+                    if (actionConfig[cells[i]]) {
+                        content = actionConfig[cells[i]].join(' -> ');
+                    } else {
+                        content = '不限';
+                    }
+                    break;
+                case 'jockey':
+                case 'schema':
+                    if (actionConfig[cells[i]]) {
+                        content = '是'
+                    } else {
+                        content = '否';
+                    }
+                    break;
+                default:
+                    if (actionConfig[cells[i]]) {
+                        content = actionConfig[cells[i]];
+                    }
+                    break;
+            }
+            cellElement.innerHTML = content;
+        }
+    }
+    require(['zepto', 'app_config'], function ($, appConfig) {
+        var allConfig = appConfig.get();
+        for (var key in allConfig) {
+            showItemConfig(key, allConfig[key]);
+        }
+    });
+</script>
+</body>
+</html>

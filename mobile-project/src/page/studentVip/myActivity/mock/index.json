@@ -1,0 +1,40 @@
+{
+    "tpl_data": {
+        "coupon_info": {
+            "total": "20",
+            "unused": "20",
+            "used": "0",
+            "expired": "0"
+        },
+        "list": [
+            {
+                "course_number": "160708488073",
+                "course_title": "学生会员-机构老师线下班课03",
+                "arrangement": "7月11日（周一） 09:20-09:50",
+                "address": "你好漂亮美容养生馆哇咔咔咔咔咔咔咔咔快快快快快快快快快快快快快快快快快快快快快快快快快快快",
+                "tag": "已报名",
+                "detail_url": "http://zhaohailei-m.test.genshuixue.com/teacher/classCourseDetail/160708488073",
+                "cover": "http://test-img.gsxservice.com/738010_08ljkg0u.jpeg"
+            },
+            {
+                "course_number": "160708488201",
+                "course_title": "学生会员-机构老师线下班课05",
+                "arrangement": "7月11日（周一） 06:00-06:30",
+                "address": "你好漂亮美容养生馆",
+                "tag": "已报名",
+                "detail_url": "http://zhaohailei-m.test.genshuixue.com/teacher/classCourseDetail/160708488201",
+                "cover": "http://test-img.gsxservice.com/738010_08ljkg0u.jpeg"
+            },
+            {
+                "course_number": "160708488205",
+                "course_title": "学生会员-机构老师线下班课06",
+                "arrangement": "",
+                "address": "你好漂亮美容养生馆",
+                "tag": "已报名",
+                "detail_url": "http://zhaohailei-m.test.genshuixue.com/teacher/classCourseDetail/160708488205",
+                "cover": "http://test-img.gsxservice.com/738010_08ljkg0u.jpeg"
+            }
+        ]
+    }
+
+}

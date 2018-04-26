@@ -1,0 +1,163 @@
+@import "page/_base/base.styl";
+@import "page/_common/nav_bar/nav_bar.styl";
+
+$primrose = #FFFBD6;
+$red = #F64C44;
+$green = #37BC61;
+$black = #3d3d3e;
+$grey = #777775;
+$muted = #9d9d9e;
+$white = #ffffff;
+$primary = #FF9100;
+$purple = #954ba8;
+
+body {
+    background-color: $primrose;
+}
+.footer,
+.banner {
+    padding-bottom: 98%;
+    position: relative;
+    img {
+        position: absolute;
+        width: 100%;
+    }
+}
+.banner {
+    padding-bottom: 98%;
+    .title {
+        position: absolute;
+        bottom: rem(20);
+        width: 100%;
+        font-size: rem(18);
+        color: #3d3d3e;
+        text-align: center;
+        .bold {
+            font-weight: bold;
+        }
+    }
+}
+.footer {
+    padding-bottom: 40%;
+}
+
+.centered {
+    text-align: center;
+}
+
+.login-form {
+    background-color: $primrose;
+    padding: 0 rem(37);
+
+    .title {
+        color: $black;
+        position: relative;
+        margin: rem(20) 0;
+        &:after,
+        &:before {
+            width: 25%;
+            position: absolute;
+            bottom: rem(3);
+            content: '\A';
+            display: block;
+            border-bottom: solid 1px $muted;
+            border-top: solid 1px transparent;
+        }
+        &:before {
+            left: rem(-10);
+        }
+        &:after {
+            right: rem(-10);
+        }
+    }
+
+    .row {
+        display: flex;
+        background-color: #fff;
+        outline: rem(1) solid rgba(0, 0, 0, 0.2);
+        margin-top: rem(10);
+        position: relative;
+        input {
+            flex: 1;
+            padding: rem(10) rem(20);
+            outline: none;
+            border: none
+        }
+    }
+
+    .button {
+        width: 100%;
+        border: none;
+        outline: none;
+        color: $white;
+        display: block;
+        font-size: rem(18);
+        padding: rem(10);
+        margin-top: rem(20);
+        border-radius: rem(100);
+    }
+
+    .button-verifycode {
+        width: 7em;
+        margin: rem(5);
+        background: $green;
+        border: none;
+        color: $white;
+        outline: none;
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: rem(5) 0;
+    }
+
+    .button-activate {
+        background-color: $green;
+    }
+
+    .button-download {
+        color: $primary;
+        border: 1px solid $primary;
+        background-color: $white;
+        .logo {
+            width: rem(33);
+            margin-bottom: rem(2);
+        }
+        .text {
+            display: inline-block;
+            height: rem(33);
+            line-height: rem(33);
+        }
+    }
+
+    .bug-vip {
+        background-color: $purple;
+        margin-top: 0;
+    }
+
+    .illustrate {
+        color: $muted;
+        font-size: rem(14);
+        margin-top: rem(15);
+        text-align: left;
+    }
+
+    .confirm-mobile {
+        color: $muted;
+        font-size: rem(15);
+    }
+
+    .change-mobile,
+    .vip-login {
+        color: $muted;
+        display: block;
+        font-size: rem(15);
+        margin-top: rem(15);
+        text-decoration: underline;
+    }
+
+    .binded-mobile {
+        font-size: rem(30);
+        color: $black;
+    }
+
+}

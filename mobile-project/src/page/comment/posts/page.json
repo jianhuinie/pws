@@ -1,0 +1,4 @@
+[{
+    "tpl": "./index.tpl",
+    "mock_data": "./mock/index.json"
+}]

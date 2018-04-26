@@ -1,0 +1,234 @@
+
+.form-address {
+    .clearfix();
+    background: #fff;
+    padding: 0;
+}
+
+/*.new-address {*/
+    .province,
+    .city,
+    .area,
+    .country {
+        .btn-default {
+            width: 100px;
+        }
+    }
+
+    .country {
+        display: none;
+    }
+
+    textarea[name="location_addr"] {
+        width: 320px;
+        height: 36px;
+    }
+
+    textarea[name="detailed_address"] {
+        width: 320px;
+        height: 72px;
+    }
+
+    .form-col {
+        float: left;
+        min-width: 320px;
+        .message-primary {
+            display: none;
+            padding-left: @gap-horizontal-medium !important;
+            margin-top: @gap-horizontal-tiny;
+            .icon {
+                margin-right: @gap-horizontal-tiny;
+            }
+        }
+    }
+
+    .map {
+        float: left;
+        margin-left: @gap-horizontal-medium;
+        position: relative;
+
+        .amplify {
+            display: none;
+            font-size: 10px;
+            padding: 2px 6px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            em {
+                position: relative;
+                color: #fff;
+                cursor: pointer;
+                z-index: 2;
+            }
+            .icon-search-plus {
+                margin-right: @gap-horizontal-tiny;
+            }
+            .bg {
+                .opacity(0.5);
+                background-color: #000;
+                position: absolute;
+                right: 0;
+                top: 0;
+
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+            }
+        }
+
+        #map {
+            display: none;
+            width: 300px;
+            height: 205px;
+            border: 1px solid #ddd;
+        }
+
+        .map-oper {
+            display: none;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+
+            width: 100%;
+            height: 36px;
+            text-align: center;
+            button {
+                position: relative;
+                z-index: 2;
+                margin-top: @gap-horizontal-tiny;
+            }
+            .btn-default {
+                display: none;
+                margin-left: @gap-horizontal-small;
+            }
+
+            .bg {
+                .opacity(0.5);
+                background-color: #000;
+                position: absolute;
+                left: 0;
+                top: 0;
+
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+            }
+        }
+
+    }
+
+    .form-action {
+        clear: both;
+    }
+/*}*/
+
+.original-addr {
+    display: none;
+    color: @brand-info;
+    margin-left: @gap-horizontal-medium;
+    &:hover {
+        color: @brand-primary;
+    }
+}
+
+.regular-addr {
+
+    .form-controls {
+        display: inline-block;
+        position: relative;
+        top: -15px;
+    }
+    .form-hint {
+        cursor: pointer;
+        display: inline-block;
+        float: right;
+    }
+}
+
+.address-suggestion {
+    display: inline-block;
+    .suggestion-input {
+        position: relative;
+    }
+    .suggestion-list {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-top: none;
+        display: none;
+        width: 320px;
+        box-shadow: 1px 1px 3px #ededed;
+        z-index: 3;
+        overflow-y: auto;
+        position: absolute;
+        top: 41px;
+        li {
+            cursor: pointer;
+            padding: 2px @gap-horizontal-tiny;
+        }
+        .icon-location {
+            color:#999;
+            padding-right: @gap-horizontal-tiny;
+        }
+        em {
+            color: #ccc;
+            font-size: 12px;
+            margin-left: @gap-horizontal-medium;
+        }
+        .active {
+            background-color: #efefef;
+        }
+    }
+}
+
+.anchorBL {
+    display: none;
+}
+
+.area-hint {
+    cursor: pointer;
+    font-size: 12px;
+    float: left;
+    margin-left: @gap-horizontal-medium;
+    position: relative;
+    top: 12px;
+}
+
+.big-map {
+    #big-map {
+        width: 510px;
+        height: 380px;
+        border: 1px solid #ddd;
+    }
+
+    .map-oper {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+
+        width: 100%;
+        height: 36px;
+        text-align: center;
+        button {
+            position: relative;
+            z-index: 2;
+            margin-top: @gap-horizontal-tiny;
+        }
+        .btn-default {
+            // display: none;
+            margin-left: @gap-horizontal-small;
+        }
+
+        .bg {
+            .opacity(0.5);
+            background-color: #000;
+            position: absolute;
+            left: 0;
+            top: 0;
+
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+    }
+
+}

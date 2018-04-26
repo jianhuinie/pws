@@ -1,0 +1,87 @@
+{{ *
+
+@file 机构校区地图页
+@author jixiaohui
+
+* }}
+{{ extends file="./common/base.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $need_im = true }}
+    {{ $script_path = "org/area" }}
+    {{ $script_data.areaList = $tpl_data.area }}
+    {{ $script_data.orgnumber = $tpl_data.base_info.number }}
+    {{ $script_data.orgId = $tpl_data.base_info.id }}
+    {{ $script_data.isFavored = $tpl_data.is_favored }}
+    {{ if not empty($tpl_data.base_info.support_tianxiao) }}
+        {{ $script_data.isTianxiaoOrg = $tpl_data.base_info.support_tianxiao }}
+    {{ /if }}
+
+    {{ $active = 'area' }}
+    {{ $flotage_config.hidden = 1 }}
+    {{ $need_mobile_seo = true }}
+    {{ $need_location_seo = true }}
+{{ /block }}
+
+
+{{ block name="title" }}
+{{ strip }}
+    {{ $tpl_data.title }}
+{{ /strip }}
+{{ /block }}
+
+{{ block name="keywords" }}
+{{ strip }}
+    {{ $tpl_data.keywords }}
+{{ /strip }}
+{{ /block }}
+
+{{ block name="description" }}
+{{ strip }}
+    {{ $tpl_data.description }}
+{{ /strip }}
+{{ /block }}
+
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/org/area.less">
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+
+{{ $flag = false }}
+{{ foreach $tpl_data.area as $val }}
+    {{ if $val.detail }}
+        {{ $flag = true }}
+    {{ /if }}
+{{ /foreach }}
+<div class="area-box">
+    {{ if $flag&&count($tpl_data.area) > 0 }}
+        <div id="map">
+        </div>
+        <ul class="area-info">
+            {{ foreach $tpl_data.area as $val }}
+                {{ if $val.detail }}
+                    <li>
+                        <i class="icon icon-location"></i>
+                        <span>{{ $val.name }}</span>
+                        <p>{{ $val.detail }}</p>
+                    </li>
+                {{ /if }}
+            {{ /foreach }}
+        </ul>
+    {{ else }}
+        <div class="no-data">
+            <div class="pic"></div>
+            <span class="text">GPS还定位不到TA</span>
+        </div>
+    {{ /if }}
+</div>
+{{ include file="common/component/baiduMap.html" }}
+{{ include file="common/component/loginDialog.html" onlyShowStudent=1 }}
+{{ /strip }}
+{{ /block }}

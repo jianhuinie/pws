@@ -1,0 +1,20 @@
+{{ *
+
+@file 教师个人中心 - 提现
+@author zhujialu
+
+* }}
+
+{{ extends file="common/center/withdraw.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $cash_page = "/teacher_center/cash" }}
+
+{{ /block }}
+
+{{ block name="sidebar" }}
+    {{ include file="./common/sidebar.html" active="cash" }}
+{{ /block }}

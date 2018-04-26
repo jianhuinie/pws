@@ -1,0 +1,49 @@
+{{ extends file="common/main/base.html" }}
+
+{{ block name="data" }}
+
+{{ $smarty.block.parent }}
+
+
+{{ $nav_config.active = '' }}
+
+{{ /block }}
+
+
+{{ block name="title" }}
+视频拍摄- 用户指南 - 跟谁学
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/guide/layout_b4b9ead288.css">
+{{ /block }}
+
+{{ block name="main" }}
+
+{{ strip }}
+
+
+<div id="main">
+
+    {{ include file="./common/sidebar.html" }}
+
+
+    <!--右-->
+    <div class="btright">
+        <h2>视频拍摄</h2>
+        <p class="foreword">
+            跟谁学为你提供专业的照片与视频拍摄的整套服务，专业的拍摄团队、专人的拍摄指导、精心的后期剪辑为你打造完美的个人形象，让学生更全面地了解你。
+        </p>
+        <h4>1、自我介绍拍摄（1分钟）</h4>
+        <p>简短有力的自我介绍能让学生在最短时间内了解你。</p>
+        <h4><span>2、示范课程拍摄（5分钟）</span></h4>
+        <p>跟谁学为你提供良好的录课室和专业团队，通过5分钟的课程短片真实还原授课情况，让学生清晰感知你的授课方式、教学特征，提高约课率。部分艺术类老师（如舞蹈、器乐等）将享受专人上门拍摄服务。</p>
+        <h4><span>3、形象包装</span></h4>
+        <p>专业摄影师为你进行全方位的形象包装，帮助你拍摄首页形象照和相关资质认证照片，助你快速完成个人信息填写及认证流程，立即开启你的教学之旅。</p>
+        <p style="text-align:center; margin-top:30px; line-height:40px; padding-bottom:30px; font-size:16px; color:#ff9900"><img src="{{ $static_origin }}/asset/img/guide/ovideok_27cb3a4412.jpg" alt="" /><br />预约拍摄：010-82826826</p>
+    </div>
+    <!--右 over-->
+</div>
+
+{{ /strip }}
+{{ /block }}

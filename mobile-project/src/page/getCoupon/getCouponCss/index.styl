@@ -1,0 +1,216 @@
+body {
+    background: white;
+}
+.coupon-status {
+    margin-top: 12%;
+    text-align: center;
+    font-family: PingFang-SC-Regular;
+    font-size: rem(20);
+    color: #FF9100;
+    letter-spacing: rem(0.6);
+    line-height: rem(18);
+}
+.get-coupon-text {
+    margin-top: 6%;
+    text-align: center;
+    font-family: PingFang-SC-Regular;
+    font-size: rem(14);
+    color: #9D9D9E;
+    font-weight: 200;
+    letter-spacing: 0;
+    .pre-text {
+        margin-bottom: rem(4);
+    }
+}
+.coupon-contents {
+    margin-top: 7%;
+    position: relative;
+    img {
+        position: relative;
+        width: 90%;
+        margin-left: 5%;
+    }
+    .coupon-cont {
+        margin-left: 5%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        text-align: center;
+        min-height: rem(70);
+        .coupon-left-cont {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            right: 70%;
+            width: 30%;
+            transform: translateY(-50%);
+            .coupon-moneny {
+                .coupon-rmb {
+                    font-family: PingFang-SC-Regular;
+                    font-size: rem(15);
+                    color: #fff;
+                    letter-spacing: 0;
+                    line-height: rem(15);
+                }
+                .coupon-balance {
+                    font-family: PingFang-SC-Medium;
+                    font-size: rem(28);
+                    color: #fff;
+                    letter-spacing: 0;
+                    line-height: rem(25);
+                }
+            }
+            .coupon-conthod {
+                font-family: PingFang-SC-Regular;
+                font-size: rem(10);
+                color: #fff;
+                font-weight: 100;
+                letter-spacing: 0;
+                line-height: rem(12);
+                border: 1px solid #fff;
+                padding: 0 rem(2);
+                border-radius: rem(1);
+            }
+        }
+        .coupon-right-cont {
+            position: absolute;
+            left: 34%;
+            top: 50%;
+            width: 60%;
+            transform: translateY(-50%);
+            text-align: left;
+            .coupon-limit {
+                font-family: PingFang-SC-Regular;
+                font-size: rem(14);
+                color: #fff;
+                font-weight: 200;
+                letter-spacing: 0;
+            }
+            .coupon-time {
+                font-family: PingFang-SC-Regular;
+                font-size: rem(13);
+                color: #fff;
+                font-weight: 200;
+                letter-spacing: 0;
+            }
+        }
+    }
+}
+
+.coupon-title {
+    margin-top: 10%;
+    padding-top: 5%;
+    text-align: center;
+    font-family: PingFang-SC-Regular;
+    font-size: rem(14);
+    font-weight: 200;
+    color: #9D9D9E;
+    letter-spacing: 0;
+    background-color: #F8F8FA;
+}
+.course-content {
+    padding: 0 rem(10);
+    padding-top: 6%;
+    background-color: #F8F8FA;
+    .course-card {
+        width: 46%;
+        float: left;
+        margin-right: 2%;
+        margin-left: 2%;
+        .logo-content {
+            position: relative;
+            height: 0;
+            .logo-mask {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                top: 0;
+                background: black;
+                opacity: 0.1;
+                z-index: 1;
+            }
+            img {
+                width: 100%;
+            }
+            .logo-text {
+                position: absolute;
+                transform: translate(-50%, -50%);
+                top: 50%;
+                left: 50%;
+                opacity: 0.6;
+                background: #000000;
+                border-radius: rem(4);
+                font-family: PingFang-SC-Regular;
+                font-size: rem(14);
+                color: #FFFFFF;
+                font-weight: 200;
+                line-height: rem(30);
+                height: rem(30);
+                width: 56%;
+                text-align: center;
+                z-index: 2;
+                &.hide {
+                    display: none;
+                }
+            }
+        }
+        .course-name {
+            font-family: PingFang-SC-Regular;
+            font-size: rem(14);
+            color: #3C3D3D;
+            line-height: rem(18);
+            margin-top: rem(5);
+            margin-bottom: rem(5);
+            height: rem(36);
+        }
+    }
+}
+
+.buttons {
+    padding-top: 11%;
+    text-align: center;
+    background-color: #F8F8FA;
+    .button-item {
+        display: inline-block;
+        border: 1px solid #FF9100;
+        border-radius: rem(3);
+        text-align: center;
+        width: 35%;
+        height: rem(40);
+        line-height: rem(40);
+        font-family: PingFang-SC-Regular;
+        font-size: rem(17);
+        color: #FF9100;
+        font-weight: 200;
+        margin-top: rem(10);
+        margin-bottom: rem(10);
+        &.hide {
+            display: none;
+        }
+    }
+    .wx-button {
+        margin-left: 8%;
+    }
+}
+.rules {
+    margin-top: 4%;
+    font-family: PingFang-SC-Regular;
+    font-size: rem(13);
+    font-weight: 200;
+    color: #9D9D9E;
+    letter-spacing: 0;
+    text-align: center;
+}
+.bottom-logo {
+    background-color: #F8F8FA;
+    padding-top: 10%;
+    text-align: center;
+    padding-bottom: rem(40);
+    img {
+        height: rem(61);
+        width: rem(94);
+    }
+}

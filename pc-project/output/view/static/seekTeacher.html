@@ -1,0 +1,237 @@
+{{ extends file="common/pc/base.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $flotage_config.hideChatToKF = true }}
+
+    {{ $script_path = "static/seekTeacher_3b26f9e543" }}
+
+    {{ if !empty($smarty.get.activity_voice) }}
+        {{ $is_force_voice = true }}
+    {{ else }}
+        {{ $is_force_voice = false }}
+    {{ /if }}
+
+    {{ $script_data.isForceVoice = $is_force_voice }}
+
+{{ /block }}
+
+{{ block name="title" }}
+帮我找老师
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/static/seekTeacher_186c243ed0.css">
+{{ /block }}
+
+{{ block name="body" }}
+
+    {{ $smarty.block.parent }}
+    {{ include file="static/common/header.html" }}
+
+{{ strip }}
+
+<div id="main">
+    <div id="seek-box">
+        <div id="box-header" class="step-one"></div>
+        <div id="box-body">
+
+            <div class="form" id="seek-form">
+
+                <h1>
+                    填写老师要求
+                    <span>
+                        填的要求越详细，找到的老师越适合你哦~
+                    </span>
+                </h1>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        <i class="form-required"></i>
+                        想学科目：
+                    </label>
+                    <div class="form-controls">
+                        <div class="dropdown category1">
+                            <button class="btn-default">
+                                <i class="caret"></i>
+                                <span>请选择</span>
+                            </button>
+                            <ul class="dropdown-menu"></ul>
+                        </div>
+
+                        <div class="dropdown category2">
+                            <button class="btn-default">
+                                <i class="caret"></i>
+                                <span>请选择</span>
+                            </button>
+                            <ul class="dropdown-menu"></ul>
+                        </div>
+
+                        <div class="dropdown category3">
+                            <button class="btn-default">
+                                <i class="caret"></i>
+                                <span>请选择</span>
+                            </button>
+                            <ul class="dropdown-menu"></ul>
+                        </div>
+                    </div>
+
+                    <span class="error"></span>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        老师性别：
+                    </label>
+                    <div class="form-controls">
+                        {{ include file="common/component/radio.html" name="teacher_sex" value="2" text="不限" checked=1 }}
+                        {{ include file="common/component/radio.html" name="teacher_sex" value="1" text="男老师" }}
+                        {{ include file="common/component/radio.html" name="teacher_sex" value="0" text="女老师" }}
+                        <span class="error"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        授课方式：
+                    </label>
+                    <div class="form-controls">
+                        {{ include file="common/component/radio.html" name="lesson_type" value="1" text="协商地点" checked=1 }}
+                        {{ include file="common/component/radio.html" name="lesson_type" value="2" text="在线授课" }}
+                        {{ include file="common/component/radio.html" name="lesson_type" value="4" text="学生上门" }}
+                        {{ include file="common/component/radio.html" name="lesson_type" value="8" text="老师上门" }}
+                        <span class="error"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        每课时薪酬：
+                    </label>
+                    <div class="form-controls">
+                        {{ include file="common/component/radio.html" name="pay_bound" value="1" text="不限" checked=1 }}
+                        {{ include file="common/component/radio.html" name="pay_bound" value="2" text="￥0-￥100" }}
+                        {{ include file="common/component/radio.html" name="pay_bound" value="3" text="￥100-￥200" }}
+                        {{ include file="common/component/radio.html" name="pay_bound" value="4" text="￥200-￥400" }}
+                        {{ include file="common/component/radio.html" name="pay_bound" value="5" text="￥400以上" }}
+                        <span class="error"></span>
+                    </div>
+                </div>
+
+                <div class="new-address">
+                    <label class="form-label">
+                        <i class="form-required"></i>
+                        上课地址：
+                    </label>
+                    {{ include file="teacher_center/component/addressForm.html" }}
+                </div>
+                {{ include file="common/component/baiduMap.html" }}
+
+                <div class="form-group message-txt">
+                    <label class="form-label">
+                        更多描述：
+                    </label>
+
+                    <div class="form-editor">
+                        <textarea class="form-text" name="message_txt" placeholder="提供更多信息，如周三上课，快速提分"></textarea>
+                        <div class="form-hint"></div>
+                        <span class="error"></span>
+                    </div>
+
+                </div>
+
+                <div class="no-login">
+                    <div id="mobile">
+                        {{ include file="common/component/mobileInput.html" is_international=!$is_force_voice show_label=true }}
+                    </div>
+
+                    <div id="captcha">
+                       {{ include file="common/component/captcha.html" captcha_name="signin" }}
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            <i class="form-required"></i>校验码：
+                        </label>
+                        <div class="form-controls">
+                            <input id="verify-code" class="form-text{{ if $is_force_voice }} voice-code-text{{ else }} sms-code-text{{ /if }}" type="text" name="verifycode" autocomplete="off" pattern="^\d*$">
+                            {{ if $is_force_voice }}
+                            <button class="btn btn-info btn-verify voice-code-btn" disabled="true">获取语音校验码</button>
+                            {{ else }}
+                            <button class="btn btn-info btn-verify" id="verifycodebutton" disabled="true">获取校验码</button>
+                            {{ /if }}
+                            <span class="error" id="verify-code-error"></span>
+                        </div>
+                    </div>
+                    {{ if !$is_force_voice }}
+                    <div class="voice-code-link hidden">
+                        <span class="btn-link text-info">没有收到校验码？</span>
+                    </div>
+                    {{ /if }}
+                </div>
+
+                <div class="form-group">
+                    <div class="form-controls">
+                        <button class="btn-primary btn-recommend">帮我推荐</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="seek-success">
+                <i class="icon icon-check-circle"></i>
+                <div class="seek-success">
+                    <h1 class="text-success">
+                        要求发布成功
+                    </h1>
+                    <span class="hint">
+                        为您推荐的老师将通过短信发送到您的手机，敬请留意！一般情况将在30分钟内完成推荐老师
+                    </span>
+                    <a class="btn-primary btn-block continue-seek">继续找老师</a>
+                    <span class="hint">
+                        为了更方便的与老师沟通联系，<br />建议您扫描右侧二维码下载跟谁学手机APP
+                    </span>
+                </div>
+            </div>
+
+            <div class="sns-login">
+
+                <h5>下载跟谁学APP，随时随地找好老师</h5>
+                <p>扫描二维码快速安装APP</p>
+
+                <img class="qcode" src="{{ $static_origin }}/asset/img/app/pc/student-qr_71aa19a893.png" alt="扫二维码">
+
+                <ul>
+                    <li>
+                        <i class="icon icon-pitch-on"></i>
+                        轻松约课上课
+                    </li>
+                    <li>
+                        <i class="icon icon-pitch-on"></i>
+                        随时随地聊天
+                    </li>
+                    <li>
+                        <i class="icon icon-pitch-on"></i>
+                        提问名师回答
+                    </li>
+                    <li>
+                        <i class="icon icon-pitch-on"></i>
+                        手机专享优惠
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        </div>
+    </div>
+</div>
+
+
+    {{ include file="static/common/footer.html" }}
+
+    {{ include file="common/script.html" }}
+
+
+{{ /strip }}
+{{ /block }}

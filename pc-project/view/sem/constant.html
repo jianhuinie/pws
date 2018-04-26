@@ -1,0 +1,491 @@
+{{ *
+   * @file 2014.09版主站首页的静态数据
+   * @author peilonghui
+* }}
+{{ strip }}
+{{ $page_data = [] scope="parent" }}
+
+
+{{ $promotions = [] }}
+
+{{ $promotionSlider = [] }}
+
+{{ $promotionSlider1 = [] }}
+{{ $promotionSlider1['pic_url'] = 'img/main/banner_slide01_%e8%b5%96%e8%b5%96.jpg' }}
+{{ $promotionSlider1['link'] = '/t/laishiying' }}
+{{ $promotionSlider1['title'] = '赖赖老师' }}
+{{ $promotionSlider[] = $promotionSlider1 }}
+
+
+{{ $promotionSlider2 = [] }}
+{{ $promotionSlider2['pic_url'] = 'img/main/banner_slide02_%e5%88%98%e6%96%87%e6%98%8e.jpg' }}
+{{ $promotionSlider2['link'] = '/t/resuuu44' }}
+{{ $promotionSlider2['title'] = '刘文明' }}
+{{ $promotionSlider[] = $promotionSlider2 }}
+
+
+
+{{ $promotionSlider3 = [] }}
+{{ $promotionSlider3['pic_url'] = 'img/main/banner_slide03_%e5%b4%94%e5%9b%bd%e4%bc%9f.jpg' }}
+{{ $promotionSlider3['link'] = '/t/cuiguowei' }}
+{{ $promotionSlider3['title'] = '崔国伟' }}
+{{ $promotionSlider[] = $promotionSlider3 }}
+
+{{ $promotionSlider4 = [] }}
+{{ $promotionSlider4['pic_url'] = 'img/main/banner_slide04_%e8%b5%b5%e5%bb%ba%e6%98%86.jpg' }}
+{{ $promotionSlider4['link'] = '/t/jiankun' }}
+{{ $promotionSlider4['title'] = '赵建昆' }}
+{{ $promotionSlider[] = $promotionSlider4 }}
+
+{{ $promotionSlider5 = [] }}
+{{ $promotionSlider5['pic_url'] = 'img/main/banner_slide05_%e6%96%b0%e5%ae%89%e9%be%99.jpg' }}
+{{ $promotionSlider5['link'] = '/t/xinanlong' }}
+{{ $promotionSlider5['title'] = '新安龙' }}
+{{ $promotionSlider[] = $promotionSlider5 }}
+
+{{ $promotion['slider'] = $promotionSlider }}
+
+{{ $promotionStatic = [] }}
+
+{{ $promotionStatic1 = [] }}
+{{ $promotionStatic1['pic_url'] = "img/main/banner_static01_%e7%8a%b6%e5%85%83.jpg" }}
+{{ $promotionStatic1['link'] = "/activity/wise" }}
+{{ $promotionStatic1['title'] = "状元" }}
+{{ $promotionStatic[] = $promotionStatic1 }}
+
+{{ $promotionStatic2 = [] }}
+{{ $promotionStatic2['pic_url'] = "img/main/banner_static02_%e5%9c%86%e6%a2%a6%e7%ac%ac%e4%ba%8c%e5%bc%b9.png" }}
+{{ $promotionStatic2['link'] = "/activity/oneiromancy" }}
+{{ $promotionStatic2['title'] = "圆梦" }}
+{{ $promotionStatic[] = $promotionStatic2 }}
+
+
+{{ $promotionStatic3 = [] }}
+{{ $promotionStatic3['pic_url'] = "img/main/banner_static03_%e5%85%8d%e8%b4%b9%e5%8d%88%e9%a4%90.png" }}
+{{ $promotionStatic3['link'] = "/activity/lunch" }}
+{{ $promotionStatic3['title'] = "免费午餐" }}
+{{ $promotionStatic[] = $promotionStatic3 }}
+
+{{ $promotion['static'] = $promotionStatic }}
+
+{{ $page_data['promotion'] = $promotion scope="parent" }}
+
+{{ $helper = [] }}
+
+{{ $helperNews = [] }}
+
+{{ $helperNewsNotice = [] }}
+{{ $helperNewsNotice['key'] = 'notice' }}
+{{ $helperNewsNotice['catname'] = '公告' }}
+
+
+{{ $helperNewsNoticeContent = [] }}
+
+{{ $helperNewsNoticeContentItem4 = [] }}
+{{ $helperNewsNoticeContentItem4['link'] = "/guide/nlayout?op=subvert" }}
+{{ $helperNewsNoticeContentItem4['title'] = "陈向东自我颠覆，做在新东方做不了的事" }}
+{{ $helperNewsNoticeContent[] = $helperNewsNoticeContentItem4 }}
+
+{{ $helperNewsNoticeContentItem0 = [] }}
+{{ $helperNewsNoticeContentItem0['link'] = "/guide/nlayout?op=value" }}
+{{ $helperNewsNoticeContentItem0['title'] = "跟谁学荣膺“最具价值在线教育机构”" }}
+{{ $helperNewsNoticeContent[] = $helperNewsNoticeContentItem0 }}
+
+{{ $helperNewsNoticeContentItem1 = [] }}
+{{ $helperNewsNoticeContentItem1['link'] = "/guide/nlayout?op=chic" }}
+{{ $helperNewsNoticeContentItem1['title'] = "来跟谁学，跟谁学？众多名家入驻跟谁学" }}
+{{ $helperNewsNoticeContent[] = $helperNewsNoticeContentItem1 }}
+
+
+
+{{ $helperNewsNoticeContentItem3 = [] }}
+{{ $helperNewsNoticeContentItem3['link'] = "/guide/nlayout?op=tutor" }}
+{{ $helperNewsNoticeContentItem3['title'] = "［名师来了］思维导师田应翔专访" }}
+{{ $helperNewsNoticeContent[] = $helperNewsNoticeContentItem3 }}
+
+
+{{ $helperNewsNotice['data'] = $helperNewsNoticeContent }}
+
+{{ $helperNews[] = $helperNewsNotice }}
+
+{{ $helperNewsRule = [] }}
+{{ $helperNewsRule['key'] = 'rule' }}
+{{ $helperNewsRule['catname'] = '规则' }}
+
+
+{{ $helperNewsRuleContent = [] }}
+
+{{ $helperNewsRuleContentItem1 = [] }}
+{{ $helperNewsRuleContentItem1['link'] = "/guide/process?a=process" }}
+{{ $helperNewsRuleContentItem1['title'] = "跟谁学的使用流程" }}
+{{ $helperNewsRuleContent[] = $helperNewsRuleContentItem1 }}
+
+{{ $helperNewsRuleContentItem2 = [] }}
+{{ $helperNewsRuleContentItem2['link'] = "/guide/entering?a=entering" }}
+{{ $helperNewsRuleContentItem2['title'] = "怎样才能成为跟谁学的老师
+" }}
+{{ $helperNewsRuleContent[] = $helperNewsRuleContentItem2 }}
+
+
+{{ $helperNewsRuleContentItem3 = [] }}
+{{ $helperNewsRuleContentItem3['link'] = "/guide/student_layout?a=student&op=cancel-order" }}
+{{ $helperNewsRuleContentItem3['title'] = "怎样申请退款" }}
+{{ $helperNewsRuleContent[] = $helperNewsRuleContentItem3 }}
+
+
+{{ $helperNewsRule['data'] = $helperNewsRuleContent }}
+
+{{ $helperNews[] = $helperNewsRule }}
+
+
+
+{{ $helperNewsActivity = [] }}
+{{ $helperNewsActivity['key'] = 'activity' }}
+{{ $helperNewsActivity['catname'] = '活动' }}
+
+
+{{ $helperNewsActivityContent = [] }}
+
+{{ $helperNewsActivityContentItem1 = [] }}
+{{ $helperNewsActivityContentItem1['link'] = "/activity/wise" }}
+{{ $helperNewsActivityContentItem1['title'] = "跟谁学携手高考状元，助力你的高分之旅" }}
+{{ $helperNewsActivityContent[] = $helperNewsActivityContentItem1 }}
+
+{{ $helperNewsActivityContentItem2 = [] }}
+{{ $helperNewsActivityContentItem2['link'] = "/activity/lunch" }}
+{{ $helperNewsActivityContentItem2['title'] = "你点赞，我捐餐！爱心传递，你我同行" }}
+{{ $helperNewsActivityContent[] = $helperNewsActivityContentItem2 }}
+
+
+
+{{ $helperNewsActivity['data'] = $helperNewsActivityContent }}
+
+{{ $helperNews[] = $helperNewsActivity }}
+
+
+
+{{ $helperNewsNews = [] }}
+{{ $helperNewsNews['key'] = 'news' }}
+{{ $helperNewsNews['catname'] = '新闻' }}
+
+{{ $helperNewsNewsContent = [] }}
+
+{{ $helperNewsNewsContentItem1 = [] }}
+{{ $helperNewsNewsContentItem1['link'] = "/guide/nlayout?op=new_11-5" }}
+{{ $helperNewsNewsContentItem1['title'] = "陈向东：重新起跑的幸福" }}
+{{ $helperNewsNewsContent[] = $helperNewsNewsContentItem1 }}
+
+{{ $helperNewsNewsContentItem2 = [] }}
+{{ $helperNewsNewsContentItem2['link'] = "/guide/nlayout?op=new_11-3" }}
+{{ $helperNewsNewsContentItem2['title'] = "移动在线教育十个靠谱的创业方向" }}
+{{ $helperNewsNewsContent[] = $helperNewsNewsContentItem2 }}
+
+{{ $helperNewsNewsContentItem3 = [] }}
+{{ $helperNewsNewsContentItem3['link'] = "/guide/nlayout?op=new_10-31" }}
+{{ $helperNewsNewsContentItem3['title'] = "互联网教育会颠覆传统教育培训机构吗" }}
+{{ $helperNewsNewsContent[] = $helperNewsNewsContentItem3 }}
+
+{{ $helperNewsNewsContentItem4 = [] }}
+{{ $helperNewsNewsContentItem4['link'] = "/guide/nlayout?op=value" }}
+{{ $helperNewsNewsContentItem4['title'] = "跟谁学荣膺“最具价值在线教育机构”" }}
+{{ $helperNewsNewsContent[] = $helperNewsNewsContentItem4 }}
+
+{{ $helperNewsNews['data'] = $helperNewsNewsContent }}
+{{ $helperNewsNews['more'] = "/guide/news?a=news" }}
+
+{{ $helperNews[] = $helperNewsNews }}
+
+
+
+{{ $helperNewsWelfare = [] }}
+{{ $helperNewsWelfare['key'] = 'welfare' }}
+{{ $helperNewsWelfare['catname'] = '公益' }}
+
+
+{{ $helperNewsWelfareContent = [] }}
+
+{{ $helperNewsWelfareContentItem1 = [] }}
+{{ $helperNewsWelfareContentItem1['link'] = "/activity/lunch" }}
+{{ $helperNewsWelfareContentItem1['title'] = "跟谁学携手免费午餐，助力公益事业" }}
+{{ $helperNewsWelfareContent[] = $helperNewsWelfareContentItem1 }}
+
+{{ $helperNewsWelfareContentItem2 = [] }}
+{{ $helperNewsWelfareContentItem2['link'] = "/activity/oneiromancy" }}
+{{ $helperNewsWelfareContentItem2['title'] = "你的学习梦，我来帮忙圆" }}
+{{ $helperNewsWelfareContent[] = $helperNewsWelfareContentItem2 }}
+
+
+
+{{ $helperNewsWelfare['data'] = $helperNewsWelfareContent }}
+
+{{ $helperNews[] = $helperNewsWelfare }}
+
+{{ $helper['news'] = $helperNews }}
+
+
+
+{{ $helperCert = [] }}
+{{ $helperCert[] = ['&#xe639;', '师资认证', 'book-large-o'] }}
+{{ $helperCert[] = ['&#xe63b;', '支付安全', 'shield-large-o'] }}
+{{ $helperCert[] = ['&#xe63a;',  '随时退款', 'cash-large-o'] }}
+{{ $helper['cert'] = $helperCert }}
+
+{{ $page_data['helper'] = $helper scope="parent" }}
+
+{{ $hotpoints = [] }}
+
+{{ $hotpoints2 = [] }}
+{{ $hotpoints2['count'] = 38 }}
+{{ $hotpoints2['url'] = '/s/course/975-976/search.html' }}
+{{ $hotpoints2['img'] = 'img/main/img_guitar.jpg' }}
+{{ $hotpoints2['title'] = '器乐' }}
+{{ $hotpoints2['courseid'] = 976 }}
+{{ $hotpoints2['courseid_full'] = '975-976' }}
+{{ $hotpoints[] = $hotpoints2 }}
+
+{{ $hotpoints1 = [] }}
+{{ $hotpoints1['count'] = 34 }}
+{{ $hotpoints1['url'] = '/s/course/975-1031/search.html' }}
+{{ $hotpoints1['img'] = 'img/main/img_dancer2.jpg' }}
+{{ $hotpoints1['title'] = '舞蹈' }}
+{{ $hotpoints1['courseid'] = 1031 }}
+{{ $hotpoints1['courseid_full'] = '975-1031' }}
+{{ $hotpoints[] = $hotpoints1 }}
+
+{{ $hotpoints5 = [] }}
+{{ $hotpoints5['count'] = 26 }}
+{{ $hotpoints5['url'] = '/s/course/975-1011/search.html' }}
+{{ $hotpoints5['img'] = 'img/main/img_sing.jpg' }}
+{{ $hotpoints5['title'] = '声乐' }}
+{{ $hotpoints5['courseid'] = 1011 }}
+{{ $hotpoints5['courseid_full'] = '975-1011' }}
+{{ $hotpoints[] = $hotpoints5 }}
+
+
+{{ $hotpoints4 = [] }}
+{{ $hotpoints4['count'] = 19 }}
+{{ $hotpoints4['url'] = '/s/course/975-1061-1063/search.html' }}
+{{ $hotpoints4['img'] = 'img/main/img_sumiao.jpg' }}
+{{ $hotpoints4['title'] = '素描' }}
+{{ $hotpoints4['courseid'] = 1063 }}
+{{ $hotpoints4['courseid_full'] = '975-1061-1063' }}
+{{ $hotpoints[] = $hotpoints4 }}
+
+
+
+{{ $hotpoints3 = [] }}
+{{ $hotpoints3['count'] = 8 }}
+{{ $hotpoints3['url'] = '/s/course/975-1061-1062/search.html' }}
+{{ $hotpoints3['img'] = 'img/main/img_childrenpainting2.jpg' }}
+{{ $hotpoints3['title'] = '创意绘画' }}
+{{ $hotpoints3['courseid'] = 1062 }}
+{{ $hotpoints3['courseid_full'] = '975-1061-1062' }}
+{{ $hotpoints[] = $hotpoints3 }}
+
+
+{{ $page_data['hotpoints'] = $hotpoints scope="parent" }}
+
+{{ $floors = [] }}
+
+{{ $floor1 = [] }}
+{{ $floor1['key'] = 'k12' }}
+{{ $floor1['title'] = '中小学' }}
+{{ $floor1['hot_words'] = ["数学", "英语", "语文", "小升初_50790400"] }}
+
+{{ $floor1Data = [] }}
+
+
+
+
+{{ $floor1Data0 = [] }}
+{{ $floor1Data0['teacher_name'] = "王一杰" }}
+{{ $floor1Data0['location'] = "北京_海淀区" }}
+{{ $floor1Data0['discipline'] = "高中化学" }}
+{{ $floor1Data0['desc'] = "北大化学博士，高中时获得化学奥赛省一等奖，曾在盛世清北教育（考研）、学而思（中小学）任教，专注化学辅导" }}
+{{ $floor1Data0['link'] = "/t/wangyijie" }}
+{{ $floor1Data0['pic_url'] = "img/main/%e7%8e%8b%e4%b8%80%e6%9d%b0.jpeg" }}
+{{ $floor1Data0['seniority'] = "5年教龄" }}
+{{ $floor1Data[] = $floor1Data0 }}
+
+{{ $floor1Data1 = [] }}
+{{ $floor1Data1['teacher_name'] = "刘淑君" }}
+{{ $floor1Data1['location'] = "北京_海淀区" }}
+{{ $floor1Data1['discipline'] = "中考语文" }}
+{{ $floor1Data1['desc'] = "重点中学高级语文教师，20多年班主任经验与毕业班工作经历，多次参与中高考阅卷工作，创立“阅读写作法”" }}
+{{ $floor1Data1['link'] = "/teacher/detail/371755688" }}
+{{ $floor1Data1['pic_url'] = "img/main/%e5%88%98%e6%b7%91%e5%90%9b.jpg" }}
+{{ $floor1Data1['seniority'] = "30年教龄" }}
+{{ $floor1Data[] = $floor1Data1 }}
+
+{{ $floor1Data2 = [] }}
+{{ $floor1Data2['teacher_name'] = "王澍秋" }}
+{{ $floor1Data2['location'] = "北京_海淀区_人民大学" }}
+{{ $floor1Data2['discipline'] = "中高考数学" }}
+{{ $floor1Data2['desc'] = "稳优数学快速提分训练法创始人，高考数学理科状元，13年教龄，7年北京中高考一线辅导经验，北京中高考数学命题研究学者" }}
+{{ $floor1Data2['link'] = "/t/qq848668802" }}
+{{ $floor1Data2['pic_url'] = "img/main/%e7%8e%8b%e6%be%8d%e7%a7%8b.jpg" }}
+{{ $floor1Data2['seniority'] = "13年教龄" }}
+{{ $floor1Data[] = $floor1Data2 }}
+
+{{ $floor1Data3 = [] }}
+{{ $floor1Data3['teacher_name'] = "陈婷" }}
+{{ $floor1Data3['location'] = "北京_石景山区" }}
+{{ $floor1Data3['discipline'] = "高三文科英语" }}
+{{ $floor1Data3['desc'] = "金钥匙、万达教育、金博教育、聚能教育等多家机构签约教师，初三、高三毕业生英语家教一对一主讲" }}
+{{ $floor1Data3['link'] = "/t/resuuu164" }}
+{{ $floor1Data3['pic_url'] = "img/main/%e9%99%88%e5%a9%b7.jpg" }}
+{{ $floor1Data3['seniority'] = "9年教龄" }}
+{{ $floor1Data[] = $floor1Data3 }}
+
+{{ $floor1Data4 = [] }}
+{{ $floor1Data4['teacher_name'] = "刘忠恒" }}
+{{ $floor1Data4['location'] = "北京_大兴区" }}
+{{ $floor1Data4['discipline'] = "初高中语文" }}
+{{ $floor1Data4['desc'] = "潜心研究中考动态，对教材结构、知识系统十分熟悉，教学经验丰富，能充分调动学生学习兴趣，做到提优补差" }}
+{{ $floor1Data4['link'] = "/t/liuzhongheng" }}
+{{ $floor1Data4['pic_url'] = "img/main/%e5%88%98%e5%bf%a0%e6%81%92.jpg" }}
+{{ $floor1Data4['seniority'] = "30年教龄" }}
+{{ $floor1Data[] = $floor1Data4 }}
+
+{{ $floor1['data'] = $floor1Data }}
+
+{{ $floors[] = $floor1 }}
+
+
+
+{{ $floor3 = [] }}
+{{ $floor3['key'] = 'abroad' }}
+{{ $floor3['title'] = '出国留学' }}
+{{ $floor3['more'] = "218103808" }}
+{{ $floor3['hot_words'] = ["托福", "SAT"] }}
+
+{{ $floor3Data = [] }}
+
+{{ $floor3Data4 = [] }}
+{{ $floor3Data4['teacher_name'] = "杨子江" }}
+{{ $floor3Data4['location'] = "北京_海淀区" }}
+{{ $floor3Data4['discipline'] = "GRE" }}
+{{ $floor3Data4['desc'] = "新东方20周年功勋教师，新东方集团教师培训师，GRE王牌讲师，很多学生被哈佛大学、耶鲁大学等世界名校录取" }}
+{{ $floor3Data4['link'] = "/t/yangzijiang" }}
+{{ $floor3Data4['pic_url'] = "img/main/%e6%9d%a8%e5%ad%90%e6%b1%9f.jpg" }}
+{{ $floor3Data4['seniority'] = "11年教龄" }}
+{{ $floor3Data[] = $floor3Data4 }}
+
+{{ $floor3Data3 = [] }}
+{{ $floor3Data3['teacher_name'] = "马原九子" }}
+{{ $floor3Data3['location'] = "北京_海淀区_中关村" }}
+{{ $floor3Data3['discipline'] = "SAT语法" }}
+{{ $floor3Data3['desc'] = "北京乐闻携尔SAT语法王牌讲师，推崇语法与语感相结合的英语学习方法，擅长语法全阶段教学" }}
+{{ $floor3Data3['link'] = "/teacher/detail/328997618" }}
+{{ $floor3Data3['pic_url'] = "img/main/%e9%a9%ac%e5%8e%9f%e4%b9%9d%e5%ad%90.jpg" }}
+{{ $floor3Data3['seniority'] = "3年教龄" }}
+{{ $floor3Data[] = $floor3Data3 }}
+
+{{ $floor3Data2 = [] }}
+{{ $floor3Data2['teacher_name'] = "张驰新" }}
+{{ $floor3Data2['location'] = "上海_静安区" }}
+{{ $floor3Data2['discipline'] = "雅思全科" }}
+{{ $floor3Data2['desc'] = "上外英语语言文学专业，英国威尔士&清华大学MBA，新东方20周年功勋教师，前上海新东方学校英联邦部总监" }}
+{{ $floor3Data2['link'] = "/t/zhangchixin" }}
+{{ $floor3Data2['pic_url'] = "img/main/%e5%bc%a0%e9%a9%b0%e6%96%b0.jpg" }}
+{{ $floor3Data2['seniority'] = "14年教龄" }}
+{{ $floor3Data[] = $floor3Data2 }}
+
+{{ $floor3Data0 = [] }}
+{{ $floor3Data0['teacher_name'] = "王雪力" }}
+{{ $floor3Data0['location'] = "北京_海淀区_苏州街" }}
+{{ $floor3Data0['discipline'] = "托福口语" }}
+{{ $floor3Data0['desc'] = "北京乐闻携尔托福口语王牌讲师，美国Oregon州立大学主修历史，两年美国工作经验，让学生们说出地道口语，快速提分" }}
+{{ $floor3Data0['link'] = "/t/wangxueli" }}
+{{ $floor3Data0['pic_url'] = "img/main/%e7%8e%8b%e9%9b%aa%e5%8a%9b.jpg" }}
+{{ $floor3Data0['seniority'] = "3年教龄" }}
+{{ $floor3Data[] = $floor3Data0 }}
+
+{{ $floor3Data1 = [] }}
+{{ $floor3Data1['teacher_name'] = "李达" }}
+{{ $floor3Data1['location'] = "北京_海淀区_苏州街" }}
+{{ $floor3Data1['discipline'] = "托福听力" }}
+{{ $floor3Data1['desc'] = "北京乐闻携尔托福听力王牌讲师，独创“循环式听写”方法，帮你剖析ETS出题源头，快速突破托福听力瓶颈" }}
+{{ $floor3Data1['link'] = "/t/genlidaxue" }}
+{{ $floor3Data1['pic_url'] = "img/main/%e6%9d%8e%e8%be%be.jpg" }}
+{{ $floor3Data1['seniority'] = "4年教龄" }}
+{{ $floor3Data[] = $floor3Data1 }}
+
+{{ $floor3['data'] = $floor3Data }}
+
+{{ $floors[] = $floor3 }}
+
+
+{{ $floor4 = [] }}
+{{ $floor4['key'] = 'art' }}
+{{ $floor4['title'] = '艺术/体育' }}
+{{ $floor4['more'] = "150994944" }}
+{{ $floor4['hot_words'] = ["舞蹈", "绘画
+", "声乐", "书法", "武术"] }}
+
+{{ $floor4Data = [] }}
+
+{{ $floor4Data0 = [] }}
+{{ $floor4Data0['teacher_name'] = "孙虹烨" }}
+{{ $floor4Data0['location'] = "北京_丰台区_丰益桥" }}
+{{ $floor4Data0['discipline'] = "魔方" }}
+{{ $floor4Data0['desc'] = "北京尚文机构魔方老师，北京顶级魔方高手，现世界魔方协会四、五、六、七阶排名均列北京第一，三阶排名前三" }}
+{{ $floor4Data0['link'] = "/t/mofang" }}
+{{ $floor4Data0['pic_url'] = "img/main/%e5%ad%99%e8%99%b9%e7%83%a8.png" }}
+{{ $floor4Data0['seniority'] = "4年教龄" }}
+{{ $floor4Data[] = $floor4Data0 }}
+
+{{ $floor4Data1 = [] }}
+{{ $floor4Data1['teacher_name'] = "朱磊" }}
+{{ $floor4Data1['location'] = "北京_朝阳区_劲松" }}
+{{ $floor4Data1['discipline'] = "钢琴" }}
+{{ $floor4Data1['desc'] = "八年教学经验，多次参加国内外重要演出并获奖，善于将奥尔夫教学法与传统教学法相结合，使学生轻松提高" }}
+{{ $floor4Data1['link'] = "/t/zhulei" }}
+{{ $floor4Data1['pic_url'] = "img/main/%e6%9c%b1%e7%a3%8a.jpg" }}
+{{ $floor4Data1['seniority'] = "8年教龄" }}
+{{ $floor4Data[] = $floor4Data1 }}
+
+{{ $floor4Data2 = [] }}
+{{ $floor4Data2['teacher_name'] = "王荣剑" }}
+{{ $floor4Data2['location'] = "北京_朝阳区_望京" }}
+{{ $floor4Data2['discipline'] = "皮雕" }}
+{{ $floor4Data2['desc'] = "20年皮雕艺术家，国内一流专业水准，擅长各类人物动物高浮雕创作" }}
+{{ $floor4Data2['link'] = "/t/resuuu1032" }}
+{{ $floor4Data2['pic_url'] = "img/main/%e7%8e%8b%e8%8d%a3%e5%89%91.jpg" }}
+{{ $floor4Data2['seniority'] = "20年教龄" }}
+{{ $floor4Data[] = $floor4Data2 }}
+
+{{ $floor4Data3 = [] }}
+{{ $floor4Data3['teacher_name'] = "毕玉" }}
+{{ $floor4Data3['location'] = "北京_朝阳区_团结湖" }}
+{{ $floor4Data3['discipline'] = "武术/散打" }}
+{{ $floor4Data3['desc'] = "“疯拳会”格斗俱乐部创始人，2007年获北京市散打锦标赛48kg冠军，2003年山东武术散打锦标赛48kg级冠军" }}
+{{ $floor4Data3['link'] = "/t/biyu00" }}
+{{ $floor4Data3['pic_url'] = "img/main/%e6%af%95%e7%8e%89.jpeg" }}
+{{ $floor4Data3['seniority'] = "8年教龄" }}
+{{ $floor4Data[] = $floor4Data3 }}
+
+{{ $floor4Data4 = [] }}
+{{ $floor4Data4['teacher_name'] = "努尔夏提·努尔艾力" }}
+{{ $floor4Data4['location'] = "北京_大兴区" }}
+{{ $floor4Data4['discipline'] = "街舞breaking" }}
+{{ $floor4Data4['desc'] = "2012年WIB长江breaking一对一冠军；2014年北京市全国大学生街舞大赛breaking一对一冠军。目前在多家专业培训机构担任金牌舞蹈老师" }}
+{{ $floor4Data4['link'] = "/teacher/detail/371100658" }}
+{{ $floor4Data4['pic_url'] = "img/main/%e5%8a%aa%e5%b0%94%e5%a4%8f%e6%8f%90%e5%8a%aa%e5%b0%94%e8%89%be%e5%8a%9b.jpg" }}
+{{ $floor4Data4['seniority'] = "4年教龄" }}
+{{ $floor4Data[] = $floor4Data4 }}
+
+{{ $floor4['data'] = $floor4Data }}
+
+{{ $floors[] = $floor4 }}
+{{ $page_data['floors']=$floors scope="parent" }}
+
+{{ * 广告位6，7，8打底* }}
+{{ $banner_bottom_static = [] }}
+{{ $banner_bottom_static['6'] = ['click' => 'http://www.genshuixue.com/teacher/classCourseDetail?number=150417549130', 'material' => '/asset/img/main/city/guding/banner_Henry-yeh_130x180.jpg'] }}
+{{ $banner_bottom_static['7'] = ['click' => 'http://ju.genshuixue.com/', 'material' => '/asset/img/main/city/guding/shoudan300.jpg'] }}
+{{ $banner_bottom_static['8'] = ['click' => 'http://ju.genshuixue.com/', 'material' => '/asset/img/main/city/guding/shoudan300.jpg'] }}
+{{ $banner_bottom_static['9'] = ['click' => 'http://gicorg.genshuixue.com/', 'material' => '/asset/img/main/city/beijing/banner_logos_huanyuhongze_130x60.jpg'] }}
+{{ $page_data['banner_bottom_static']=$banner_bottom_static scope="parent" }}
+
+{{ /strip }}

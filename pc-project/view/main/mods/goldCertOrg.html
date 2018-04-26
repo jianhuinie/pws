@@ -1,0 +1,34 @@
+{{ * 
+    @file 金牌认证机构广告轮播图  机构 ／ 课程 搜索页也有用到
+    width 图片宽度
+    @author niejianhui 
+ * }}
+
+{{ strip }}
+    <div class="gold-cert-org">
+        <div class="goldcert-slider" width="{{ $width }}px">
+            <ul class="inner-slider"> 
+                {{ foreach $tpl_data.gold_cert_org as $org }}
+                    <li class="org-item" data-orgnumber="{{ $org.orgNumber }}" 
+                        data-cityid="{{ $org.cityId }}">
+                        <a href="{{ $org.webUrl }}" target="_blank">
+                            <img src="{{ $org.imgUrl }}" width="{{ $width }}px">
+                        </a>
+                        <span class="text-ad">广告</span>
+                    </li>
+                {{ /foreach }}
+            </ul>
+        </div>
+        {{ if count($tpl_data.gold_cert_org) > 1 }}
+            <ul class="goldcert-slider-button">
+                {{ foreach $tpl_data.gold_cert_org as $org }}
+                    <li>
+                        <span class="button-item">
+                            {{ $org@index }}
+                        </span>
+                    </li>
+                {{ /foreach }}
+            </ul>
+        {{ /if }}
+    </div>
+{{ /strip }}

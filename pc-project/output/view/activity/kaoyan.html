@@ -1,0 +1,469 @@
+{{ *
+
+@file 活动主页
+@author zhangshaolong
+
+* }}
+{{ extends file="common/main/base.html" }}
+
+{{ block name="data" }}
+
+    {{ * 需要im * }}
+    {{ $need_im = false }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $nav_config.active = '' }}
+    {{ $nav_config.hidden = 1 }}
+    {{ $flotage_config.hidden = true }}
+
+    {{ $script_path = "activity/kaoyan_1853bf3b7c" }}
+
+    {{ **顶部搜索去掉placeholder支持空query** }}
+    {{ $current_page = '' }}
+
+    {{ * 不需要底部 * }}
+    {{ $footer_config.hidden = false }}
+
+    {{ $style = 'top: 200px; background: transparent; border: none; left: 0;' }}
+
+{{ /block }}
+
+{{ block name = "title" }}
+    2016考研冲刺，名师大咖面对面
+{{ /block }}
+
+{{ block name="description" }}
+    
+{{ /block }}
+
+{{ block name="keywords" }}
+    
+{{ /block }}
+
+{{ block name = "style" }}
+    <link rel="stylesheet" href="{{ $static_origin }}/asset/css/activity/kaoyan_ba0b1a4412.css">
+{{ /block }}
+
+{{ block name="main" }}
+
+{{ strip }}
+<div id="main">
+    {{ $zn = 'pc_kaoyan' }}
+    <div class="banner-wrapper"></div>
+
+    <div class="kaoyan-wrapper">
+        <div class="kaoyan-label kaoyan-label1"></div>
+        {{ $url = 'http://www.genshuixue.com/teacher/classCourseDetail/151104589753'|escape:'url' }}
+        <a href="http://www.genshuixue.com/track/source?id={{ $zn }}_151104589753&class_number=151104589753&url={{ $url }}" target="_blank">
+            <div class="class-container">
+                <div class="kaoyan-teacher kaoyan-teacher1"></div>
+                <div class="kaoyan-detail">
+                    <div class="detail-container">
+                        <div class="detail-title">考研政治第一人点题，紧跟任汝芬政治至少得80分</div>
+                        <div class="desc-item">
+                            <div>授课专家：</div>
+                            <div>
+                                任汝芬，哲学系教授，哲学、思想政治教育硕士研究生导师，长期从事马克思主义理论教学；至今拥有30余年考研辅导历程，创造了一套独特的教学方法，深受全国广大考生的欢迎与信任；“要想得高分,跟定任汝芬”是考生对他最客观的评价。
+                            </div>
+                        </div>
+
+                        <div class="desc-item">
+                            <div>主攻科目：</div>
+                            <div>
+                                考研政治
+                            </div>
+                        </div>
+
+                        <div class="desc-item">
+                            <div>课程内容：</div>
+                            <div>
+                                考研政治核心考点串讲、2016考研政治热点预测、2016考研政治大题点题、答题思路
+                            </div>
+                        </div>
+
+                        <div class="desc-item">
+                            <div>课程时长：</div>
+                            <div>
+                                3小时
+                            </div>
+                        </div>
+
+                        <div class="desc-item">
+                            <div>开课时间：</div>
+                            <div>
+                                12月11日（19:00-22:00）
+                            </div>
+                        </div>
+
+                        <div class="desc-item">
+                            <div>上课形式：</div>
+                            <div>
+                                在线直播（支持手机观看学习）
+                            </div>
+                        </div>
+
+                        <div class="desc-item">
+                            <div>教辅资料：</div>
+                            <div>
+                                独家课程讲义
+                            </div>
+                        </div>
+                    </div>
+                    <div class="class-price">
+                        <div>冰点价￥38.00</div>
+                        <div>原价<span>￥1988.00</span></div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="kaoyan-wrapper">
+        <div class="kaoyan-label kaoyan-label2"></div>
+        {{ $url = 'http://www.genshuixue.com/teacher/classCourseDetail/151105523127'|escape:'url' }}
+        <a href="http://www.genshuixue.com/track/source?id={{ $zn }}_151105523127&class_number=151105523127&url={{ $url }}" target="_blank">
+            <div class="class-container">
+                <div class="kaoyan-teacher kaoyan-teacher2"></div>
+                <div class="kaoyan-detail">
+                    <div class="detail-container">
+                        <div class="detail-title">考研数学第一人陈文灯：独创解题技巧拿高分</div>
+                        <div class="desc-item">
+                            <div>授课专家：</div>
+                            <div>
+                                中央财经大学教授、北京文登学校校长，考研讲坛上唯一一位享受国务院特殊津贴者03年承担教育十一五规划教材负责人，曾将1个普通院校数学统考代入统考第一名；培养了很多满分的学员。
+                            </div>
+                        </div>
+
+                        <div class="desc-item">
+                            <div>主攻科目：</div>
+                            <div>
+                                考研数学
+                            </div>
+                        </div>
+
+                        <div class="desc-item">
+                            <div>课程内容：</div>
+                            <div>
+                                考研数学核心考点串讲、考研数学解题技巧
+                            </div>
+                        </div>
+
+                        <div class="desc-item">
+                            <div>课程时长：</div>
+                            <div>
+                                3小时
+                            </div>
+                        </div>
+
+                        <div class="desc-item">
+                            <div>开课时间：</div>
+                            <div>
+                                12月11日（14:00-17:00）
+                            </div>
+                        </div>
+
+                        <div class="desc-item">
+                            <div>上课形式：</div>
+                            <div>
+                                在线直播（支持手机观看学习）
+                            </div>
+                        </div>
+
+                        <div class="desc-item">
+                            <div>教辅资料：</div>
+                            <div>
+                                独家课程讲义
+                            </div>
+                        </div>
+                    </div>
+                    <div class="class-price">
+                        <div>冰点价￥38.00</div>
+                        <div>原价<span>￥1888.00</span></div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="kaoyan-wrapper">
+        <div class="kaoyan-label kaoyan-label3"></div>
+        {{ $url = 'http://www.genshuixue.com/teacher/classCourseDetail/151105771688'|escape:'url' }}
+        <a href="http://www.genshuixue.com/track/source?id={{ $zn }}_151105771688&class_number=151105771688&url={{ $url }}" target="_blank">
+            <div class="class-container">
+                <div class="kaoyan-teacher kaoyan-teacher3"></div>
+                <div class="kaoyan-detail">
+                    <div class="detail-container">
+                        <div class="detail-title">考研应试教学法旗手商志：英语救命3小时考前终极点拨</div>
+                        <div class="desc-item">
+                            <div>授课专家：</div>
+                            <div>
+                                商志老师，中国单词第一人，传奇考研英语满分写作创始人，考研英语辅导高分神话的缔造者。主讲的考研英语基础班、强化班、写作班、全程班等创造了多项他人无法打破的记录。培养了很多满分的学员。
+                            </div>
+                        </div>
+
+                        <div class="desc-item">
+                            <div>主攻科目：</div>
+                            <div>
+                                英语大小作文
+                            </div>
+                        </div>
+
+                        <div class="desc-item">
+                            <div>课程内容：</div>
+                            <div>
+                                常见大小作文类型、解题思路和答题模板、各题型年度终极归纳
+                            </div>
+                        </div>
+
+                        <div class="desc-item">
+                            <div>课程时长：</div>
+                            <div>
+                                3小时
+                            </div>
+                        </div>
+
+                        <div class="desc-item">
+                            <div>开课时间：</div>
+                            <div>
+                                12月13日（14:00-17:00）
+                            </div>
+                        </div>
+
+                        <div class="desc-item">
+                            <div>上课形式：</div>
+                            <div>
+                                在线直播（支持手机观看学习）
+                            </div>
+                        </div>
+
+                        <div class="desc-item">
+                            <div>教辅资料：</div>
+                            <div>
+                                独家课程讲义
+                            </div>
+                        </div>
+                    </div>
+                    <div class="class-price">
+                        <div>冰点价￥38.00</div>
+                        <div>原价<span>￥1088.00</span></div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="kaoyan-wrapper">
+        <div class="kaoyan-label kaoyan-label4"></div>
+        {{ $url = 'http://www.genshuixue.com/teacher/classCourseDetail/151104588844'|escape:'url' }}
+        <a href="http://www.genshuixue.com/track/source?id={{ $zn }}_151104588844&class_number=151104588844&url={{ $url }}" target="_blank">
+            <div class="class-container">
+                <div class="kaoyan-teacher kaoyan-teacher4"></div>
+                <div class="kaoyan-detail">
+                    <div class="detail-container">
+                        <div class="detail-title">提分最快的颠覆级教练钟平：6分钟搞定一篇92分阅读</div>
+                        <div class="desc-item">
+                            <div>授课专家：</div>
+                            <div>
+                                钟平，北京大学语言处理博士，资深英语类考试培训专家，多年潜心研究如何迅速提高英语基础薄弱学生考试成绩，画龙点睛式的教学方法和以独特文跨理思维开创翻译数学模型神器，以绝对实力开发阅读写作绝杀技深受推崇。
+                            </div>
+                        </div>
+
+                        <div class="desc-item">
+                            <div>主攻科目：</div>
+                            <div>
+                                英语阅读理解、英译汉、完形填空
+                            </div>
+                        </div>
+
+                        <div class="desc-item">
+                            <div>课程内容：</div>
+                            <div>
+                                用逻辑思维最短时间获得完型最高分、万能公式教你完虐所有长难句
+                            </div>
+                        </div>
+
+                        <div class="desc-item">
+                            <div>课程时长：</div>
+                            <div>
+                                3小时
+                            </div>
+                        </div>
+
+                        <div class="desc-item">
+                            <div>开课时间：</div>
+                            <div>
+                                12月13日（19:00-22:00）
+                            </div>
+                        </div>
+
+                        <div class="desc-item">
+                            <div>上课形式：</div>
+                            <div>
+                                在线直播（支持手机观看学习）
+                            </div>
+                        </div>
+
+                        <div class="desc-item">
+                            <div>教辅资料：</div>
+                            <div>
+                                独家课程讲义
+                            </div>
+                        </div>
+                    </div>
+                    <div class="class-price">
+                        <div>冰点价￥38.00</div>
+                        <div>原价<span>￥798.00</span></div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="kaoyan-wrapper">
+        <div class="kaoyan-label kaoyan-label5"></div>
+        {{ $url = 'http://www.genshuixue.com/teacher/classCourseDetail/151104588477'|escape:'url' }}
+        <a href="http://www.genshuixue.com/track/source?id={{ $zn }}_151104588477&class_number=151104588477&url={{ $url }}" target="_blank">
+            <div class="class-container">
+                <div class="kaoyan-teacher kaoyan-teacher5"></div>
+                <div class="kaoyan-detail">
+                    <div class="detail-container">
+                        <div class="detail-title">考研政治界泰山北斗徐之明：考前押宝 直击政治70分</div>
+                        <div class="desc-item">
+                            <div>授课专家：</div>
+                            <div>
+                                徐之明，中国人民大学教授，考研政治界泰山北斗，考研政治阅卷组组长，四大门户网站考研频道首席特邀专家，中国考研界最受欢迎政治辅导专家之一。近6年全国考研政治状元培养者，2013年推出的《考研政治分析题核心预测》风靡全国，命中考题5道。
+                            </div>
+                        </div>
+
+                        <div class="desc-item">
+                            <div>主攻科目：</div>
+                            <div>
+                                政治马原、时事、当代
+                            </div>
+                        </div>
+
+                        <div class="desc-item">
+                            <div>课程内容：</div>
+                            <div>
+                                马原、时事、当代核心考点、当代热点预测、当代密押大题、答题思路
+                            </div>
+                        </div>
+
+                        <div class="desc-item">
+                            <div>课程时长：</div>
+                            <div>
+                                3小时
+                            </div>
+                        </div>
+
+                        <div class="desc-item">
+                            <div>开课时间：</div>
+                            <div>
+                                12月12日（14:00-17:00）
+                            </div>
+                        </div>
+
+                        <div class="desc-item">
+                            <div>上课形式：</div>
+                            <div>
+                                在线直播（支持手机观看学习）
+                            </div>
+                        </div>
+
+                        <div class="desc-item">
+                            <div>教辅资料：</div>
+                            <div>
+                                独家课程讲义
+                            </div>
+                        </div>
+                    </div>
+                    <div class="class-price">
+                        <div>冰点价￥38.00</div>
+                        <div>原价<span>￥1598.00</span></div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="kaoyan-wrapper">
+        <div class="kaoyan-label kaoyan-label6"></div>
+        {{ $url = 'http://www.genshuixue.com/teacher/classCourseDetail/151103588392'|escape:'url' }}
+        <a href="http://www.genshuixue.com/track/source?id={{ $zn }}_151103588392&class_number=151103588392&url={{ $url }}" target="_blank">
+            <div class="class-container">
+                <div class="kaoyan-teacher kaoyan-teacher6"></div>
+                <div class="kaoyan-detail">
+                    <div class="detail-container">
+                        <div class="detail-title">考研政治小王子桑宏斌：政治终极押题 3个小时定输赢</div>
+                        <div class="desc-item">
+                            <div>授课专家：</div>
+                            <div>
+                                桑宏斌，人称考研政治“小王子”，善于将复杂晦涩的考研政治考点和生活热点对接，谈笑间破解真题命题思路，对真题有独到的研究和破解之法，真正做到从学生的角度透析考研政治考点、难点，在全国各地讲授考研政治，受到广大考生一致好评。
+                            </div>
+                        </div>
+
+                        <div class="desc-item">
+                            <div>主攻科目：</div>
+                            <div>
+                                政治毛中特、思修、史纲
+                            </div>
+                        </div>
+
+                        <div class="desc-item">
+                            <div>课程内容：</div>
+                            <div>
+                                归纳考研政治最精华考点、毛中特、思修、史纲热点预测、大题终极预测、答题思路
+                            </div>
+                        </div>
+
+                        <div class="desc-item">
+                            <div>课程时长：</div>
+                            <div>
+                                3小时
+                            </div>
+                        </div>
+
+                        <div class="desc-item">
+                            <div>开课时间：</div>
+                            <div>
+                                12月12日（19:00-22:00）
+                            </div>
+                        </div>
+
+                        <div class="desc-item">
+                            <div>上课形式：</div>
+                            <div>
+                                在线直播（支持手机观看学习）
+                            </div>
+                        </div>
+
+                        <div class="desc-item">
+                            <div>教辅资料：</div>
+                            <div>
+                                独家课程讲义
+                            </div>
+                        </div>
+                    </div>
+                    <div class="class-price">
+                        <div>冰点价￥38.00</div>
+                        <div>原价<span>￥998.00</span></div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="kaoyan-wrapper qq-group">
+        <div>
+            <img src="{{ $static_origin }}/asset/img/activity/kaoyan/qq-group_df7b373e06.jpg">
+        </div>
+    </div>
+    <div class="float-tip">
+        <div class="phone"></div>
+        <div class="share">
+            {{ include file="common/component/baiduShare.html" }}
+        </div>
+    </div>
+</div>
+{{ /strip }}
+{{ /block }}

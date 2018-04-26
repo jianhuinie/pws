@@ -1,0 +1,11 @@
+{{ if isset($tpl_data.is_preview) && $tpl_data.is_preview }}
+<div class="mask">
+    <div class="alpha-mask"></div>
+    <div class="half-alpha-mask"></div>
+    <p>
+        <span>这是预览页面，不可操作哦~</span>
+        <br />
+        （预览页面包含未审核的信息，只有通过审核的信息才会展示在真实的个人主页哦！）
+    </p>
+</div>
+{{ /if }}

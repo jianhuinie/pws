@@ -1,0 +1,349 @@
+/**
+ * @file 个人中心 - 左右布局
+ * @author zhujialu
+ */
+
+@import '../../reset.less';
+
+@import '../../muse.less';
+@import './variable.less';
+
+@import '../../mixin.less';
+@import '../../component.less';
+
+@import '../../icon.less';
+@import '../../siteNav.less';
+@import './header.less';
+@import './nav.less';
+@import '../../../common/footer.less';
+
+//所有页面都需要活动banner的样式
+@import '../../../rave/ravebanner.less';
+@import '../component/enterClassroom.less';
+#footer {
+    .wrapper {
+        width: 1100px;
+    }
+}
+
+@import '../../base.less';
+@import '../../card.less';
+
+@import '../../component/judge-dialog';
+
+#sidebar {
+    float: left;
+
+    .icon {
+        margin-right: @gap-horizontal-medium;
+        vertical-align: middle;
+        font-size: 20px;
+    }
+
+    .white-flag {
+        display: none;
+    }
+
+}
+
+#sidebar.teacher-sidebar {
+
+    width: 188px;
+    padding: 10px 20px;
+
+    .notify {
+
+        border-top: 1px solid #e5e5e5;
+        font-size: @font-size-tiny;
+        padding: 5px 0;
+
+        a {
+            display: block;
+            padding: 2px 0px;
+        }
+        i:before {
+            content: '*';
+            margin-right: 10px;
+        }
+    }
+
+    .menu-item {
+        border-top: 1px dashed #eee;
+
+        &:hover,
+        &.active {
+            > a {
+                color: #ff9900;
+            }
+        }
+
+        > a,
+        > b {
+            color: #222;
+            display: block;
+            font-size: 16px;
+            padding: 6px 18px;
+        }
+
+        li {
+            font-size: 12px;
+            padding: 4px 20px;
+            > a {
+                display: inline-block;
+                &:hover {
+                    color: #f90;
+                }
+            }
+
+            &.active {
+                position: relative;
+                > a {
+                    color: #ff9900;
+                    font-weight: bold;
+                }
+                &:before {
+                    content: ' ';
+                    // display: none;
+                    position: absolute;
+                    left: 0;
+                    top: 8px;
+                    border-style: solid;
+                    border-width: 5px;
+                    border-color: transparent;
+                    border-left-color: #f90;
+                }
+            }
+        }
+
+        &:first-child {
+            border-top: none;
+        }
+        &:last-child {
+            border-bottom: none;
+        }
+
+        .icon-info-circle {
+            color: @brand-error;
+            font-size: @font-size-tiny;
+            margin-left: 5px;
+        }
+    }
+
+}
+
+#sidebar.student-sidebar {
+
+    border-right: none;
+    background-color: #f7f7f7;
+
+    .qrcode-box {
+        border-top: 1px solid #e5e5e5;
+        padding: 13px 0;
+        font-size: 12px;
+        .wechat-qrcode {
+            width: 115px;
+            height: 115px;
+            margin: 10px auto;
+            background: url(../../../../img/wechat_qrcode.png) no-repeat;
+        }
+        .text-info {
+            text-align: center;
+            margin: 0 auto;
+            color: #6d6d6e;
+        }
+        .text-primary {
+            color: #f90;
+            text-align: center;
+        }
+    }
+
+    .user-info {
+
+        border-bottom: 1px solid #e5e5e5;
+        padding: 15px 0 15px 10px;
+        .clearfix();
+
+        .thumbnail {
+            float: left;
+            margin-right: 10px;
+        }
+        h5 {
+            color: @brand-text;
+            font-size: 1.2em;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        p {
+            font-size: @font-size-tiny;
+        }
+
+        &.active {
+            background-color: #FFF;
+            border-left: 3px solid @brand-primary;
+        }
+    }
+
+    .menu-item {
+
+        border-top: 1px solid transparent;
+        border-bottom: 1px solid transparent;
+
+        &:hover,
+        &.active {
+            background-color: #FFF;
+            border-color: #e5e5e5;
+        }
+
+        &:hover {
+            + .active {
+                border-top-color: transparent;
+            }
+        }
+        &.active {
+            border-left: 3px solid @brand-primary;
+            + .menu-item {
+                border-top: none;
+            }
+        }
+
+        > a,
+        > b {
+            display: block;
+            padding: 7px 15px;
+
+        }
+
+        .icon {
+            color: @brand-text-light;
+        }
+
+        strong {
+            color: @brand-text;
+        }
+
+        li {
+
+            margin: 2px 0;
+
+            > a {
+                display: inline-block;
+                padding: 3px 8px;
+                border-radius: 2px;
+                font-size: @font-size-tiny;
+                margin-left: 40px;
+
+                &:hover {
+                    background-color: @brand-primary;
+                    color: #FFF;
+                    .transition(0s);
+                }
+            }
+
+            &.active {
+                > a {
+                    background-color: @brand-primary;
+                    color: #FFF;
+                }
+            }
+        }
+
+        &:first-child {
+            border-top: none;
+        }
+        &:last-child {
+            border-bottom: none;
+        }
+
+        .icon-info-circle {
+            color: @brand-error;
+            font-size: @font-size-tiny;
+            margin-left: 5px;
+        }
+    }
+
+}
+
+#content {
+
+    padding: 0;
+    float: right;
+    min-height: 650px;
+
+    .card-header {
+        padding: 8px 30px;
+    }
+    .card-body {
+        padding: 20px 30px;
+    }
+
+    .no-data {
+        width: 100%;
+        text-align: center;
+        .vertical-middle(330px);
+
+        .wrapper {
+            .icon-info-circle {
+                color: @brand-primary;
+                font-size: @font-size-medium;
+                margin-right: @gap-horizontal-small;
+            }
+        }
+    }
+
+    .nav-item {
+        .badge {
+            margin-left: @gap-horizontal-small;
+        }
+    }
+}
+
+
+.card {
+    border: 1px solid #e5e5e5;
+    box-shadow: none;
+}
+
+.video-divide-dialog {
+    background: url(../../../../img/video/video-divide-dialog.jpg) no-repeat 0 0;
+    background-image: -webkit-image-set(url(../../../../img/video/video-divide-dialog@2x.jpg) 2x);
+    width: 944px;
+    height: 560px;
+
+    .dialog-close {
+        display: none;
+    }
+    .dialog-body {
+        font-size: 16px;
+        padding: 142px 50px 0 50px;
+
+        p + p {
+            margin-top: 10px;
+        }
+    }
+
+    .divide-footer {
+        position: absolute;
+        bottom: 30px;
+        left: 290px;
+        text-align: center;
+
+        .btn-primary {
+            width: 120px;
+            border-radius: 18px;
+        }
+        p {
+            margin-top: 10px;
+        }
+    }
+}
+
+.video-divide-explain-dialog {
+    width: 740px;
+
+    p {
+        margin-bottom: 10px;
+        text-indent: 2em;
+    }
+}

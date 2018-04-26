@@ -1,0 +1,103 @@
+/**
+ * @file 左下角浮出按钮
+ * @author yangji
+ */
+
+#link-panel-container {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    size: 0 0;
+    z-index: $zindex-huge;
+
+    .button-item {
+        size: rem(50) rem(50);
+        position: absolute;
+        text-align: center;
+
+        .hover-show {
+            display: none;
+        }
+
+    }
+
+    .main-button {
+        left: rem(10);
+        bottom: rem(50);
+
+        bg: './main-btn.png' 100% 100%;
+
+        z-index: $zIndex-huge;
+
+        display: block;
+
+    }
+
+    &.opened {
+
+        .buttons-container {
+            display: block;
+        }
+    }
+
+
+    .buttons-container{
+
+        color: #fff;
+        position: absolute;
+        bottom: 0;
+        z-index: $zindex-huge;
+
+        >a {
+            background: #e9e8e8;
+            color: #9f9f9f;
+
+            border-radius: rem(25);
+            display: block;
+
+            &:before {
+                font-size: rem(22);
+                display: block;
+                margin-top: rem(6);
+                background: transparent;
+            }
+
+            >i {
+                font-size: rem(10);
+            }
+        }
+
+        display: none;
+
+        .mask {
+            position: fixed;
+            background-color: #000;
+            opacity: 0.5;
+            z-index: -1;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        .home-link {
+            left: rem(10);
+            bottom: rem(140);
+
+        }
+
+        .order-link {
+            left: rem(65);
+            bottom: rem(105);
+        }
+
+
+        .download-link {
+            left: rem(100);
+            bottom: rem(50);
+
+        }
+
+    }
+
+}

@@ -1,0 +1,33 @@
+{{ *
+
+@file 单选框
+
+      参数：
+      text: 文本
+      class: 文本类目
+      name: 名称
+      value: 值
+      checked: 是否选中
+
+@author zhujialu
+
+* }}
+{{ strip }}
+
+{{ if !isset($class) }}
+    {{ $class = '' }}
+{{ /if }}
+{{ if !isset($checked) }}
+    {{ $checked = 0 }}
+{{ /if }}
+{{ if !isset($disabled) }}
+    {{ $disabled = 0 }}
+{{ /if }}
+
+<label class="form-radio">
+    <input type="radio" name="{{ $name }}" value="{{ $value }}"{{ if $checked }} checked="checked"{{ /if }} {{ if $disabled }}disabled="disabled"{{ /if }} />
+
+    <span class="{{ $class }}">{{ $text }}</span>
+</label>
+
+{{ /strip }}

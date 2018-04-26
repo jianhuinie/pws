@@ -1,0 +1,44 @@
+/**
+ * @file 发起约课
+ * @author wangyujie
+ */
+@import "../main/base.less";
+@import "../common/card.less";
+@import "./reserve/index.less";
+@import '../common/component/makePhoneCallDialog.less';
+@import '../common/component/quickLessonDialog.less';
+
+#main {
+
+    .card-body {
+
+        .quick-lesson-box {
+            .icon {
+                color: #6e6e6e;
+                margin-right: 2px;
+            }
+        }
+
+        .opened {
+            color: @brand-primary;
+            .icon {
+                color: @brand-primary;
+            }
+        }
+
+        .icon-call {
+            vertical-align: middle;
+            margin-top: -2px;
+        }
+
+    }
+
+    .four-hundred {
+        .icon {
+            color: @brand-primary;
+            font-size: 18px;
+            margin-right: @gap-horizontal-tiny;
+        }
+    }
+
+}

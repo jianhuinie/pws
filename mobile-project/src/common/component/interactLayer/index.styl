@@ -1,0 +1,196 @@
+.single-line {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.no-click {
+  position: fixed;
+  top: rem(60);
+  height: rem(38);
+  width: 100%;
+  overflow: hidden;
+  background: transparent;
+  z-index: 150;
+  @keyframes inter-animation {
+    0%{
+      transform: translateY(rem(0));
+      opacity: 0.3;
+    }
+    5.8%{
+      transform: translateY(rem(-36));
+      opacity: 0.9;
+    }
+    27.5%{
+      transform: translateY(rem(-36));
+      opacity: 0.9;
+    }
+    33.3%{
+      transform: translateY(rem(-70));
+      opacity: 0.3;
+    }
+    39.1%{
+      transform: translateY(rem(-106));
+      opacity: 0.9;
+    }
+    60.8%{
+      transform: translateY(rem(-106));
+      opacity: 0.9;
+    }
+    66.6%{
+      transform: translateY(rem(-140));
+      opacity: 0.3;
+    }
+    72.4%{
+      transform: translateY(rem(-175));
+      opacity: 0.9;
+    }
+    94.1%{
+      transform: translateY(rem(-175));
+      opacity: 0.9;
+    }
+    100%{
+      transform: translateY(rem(-208));
+      opacity: 0.3;
+    }
+  }
+
+  .animation {
+    animation: inter-animation 13.8s ease 2s;
+  }
+  .inter-ul {
+    background: transparent;
+    margin-top: rem(5);
+    .inter-li {
+      opacity: 0.89;
+      background: #3d3d3e;
+      border-radius: rem(100);
+      height: rem(30);
+      max-width: rem(345);
+      margin: rem(35) auto rem(0);
+      line-height: rem(30);
+      font-size: rem(14);
+      color: #eeeeee;
+      display: inline-block;
+      position: relative;
+      left: rem(20);
+      margin-right: rem(150);
+      img.inter-img {
+        border-radius: rem(100);
+        margin: rem(0) rem(0) rem(2) rem(2);
+        width: rem(26);
+        height: rem(26);
+      }
+      .inter-msg {
+        margin-right: rem(15);
+      }
+    }
+  }
+}
+.can-click {
+  position: fixed;
+  bottom: rem(100);
+  height: rem(45);
+  z-index: 6;
+  &.hide {
+    display: none;
+  }
+  .inter-container {
+    background: transparent;
+    border-bottom-right-radius: 45px;
+    border-top-right-radius: 45px;
+    height: rem(45);
+    z-index: 5;
+    position: relative;
+    .inter-div {
+      border-radius: rem(45);
+      border: 2px solid #fff;
+      -webkit-box-shadow: rem(0) rem(0) rem(3) #666;
+      box-shadow: rem(0) rem(0) rem(5) #666;
+      background: #eee;
+      display: inline-block;
+      margin-left: rem(15);
+      width: rem(47);
+      height: rem(47);
+      position: relative;
+      .inter-div-img {
+        width: 100%;
+        height: 100%;
+        border-radius: rem(45);
+      }
+      .inter-a {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        position: absolute;
+        z-index: 100;
+        top: 0;
+      }
+      .inter-mask {
+        position: absolute;
+        opacity: 0.6;
+        width: 100%;
+        height: 100%;
+        background: #111;
+        border-radius: rem(45);
+        top: 0;
+      }
+      img.icon {
+        display: inline-block;
+        width: rem(14);
+        height: rem(14);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        background: transparent;
+        z-index: 5;
+        &.hide {
+          display: none;
+        }
+      }
+  }
+
+  }
+  .inter-info {
+    line-height: rem(36);
+    height: rem(36);
+    position: absolute;
+    z-index: 1;
+    border-bottom-right-radius: 30px;
+    border-top-right-radius: 30px;
+    top: rem(7);
+    max-width: rem(285);
+    margin-left: rem(20);
+    background: #3d3d3e;
+    opacity: 0.2;
+    padding-left: rem(17);
+    color: #fff;
+    font-size: rem(13);
+    padding-right: rem(24);
+    width: rem(0);
+    transition: all 0.3s ease 1s;
+    a {
+      display: inline-block;
+      color: #eee;
+    }
+    .inter-info-a {
+      width: 100%;
+    }
+    .inter-text {
+      width: 100%;
+    }
+    span.inter-audio {
+      display: inline-block;
+    }
+    .close {
+      position: absolute;
+      right: rem(10);
+      top: rem(10);
+      width: rem(15);
+      height: rem(15);
+      border-radius: 100%;
+      background-size: rem(15);
+    }
+  }
+}

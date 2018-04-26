@@ -1,0 +1,97 @@
+{{ *
+
+@file 3810联报优惠
+@author wangyujie
+
+* }}
+
+{{ strip }}
+
+<div id="combo">
+
+    <div class="tab-nav">
+        {{ foreach $courses as $item }}
+        <b {{ if $item@first }}class="active"{{ /if }} data-num="{{ $item.activity_id }}">{{ $item.title }}</b>
+        {{ /foreach }}
+    </div>
+    <div class="tab-content">
+        {{ foreach $courses as $item }}
+        <div class="tab-panel" data-num="{{ $item.activity_id }}" data-discounts='{{ json_encode($item.discounts, 77) }}'>
+
+            <div class="combo-compute">
+                <div class="total-price">
+                    组合价格：
+                    <span>¥ <em>{{ $current_course.price|number_format:2 }}</em></span>
+                </div>
+                <div class="ori-price">
+                    价格：¥ <em>{{ $current_course.price|number_format:2 }}</em>
+                </div>
+                <div class="save-price">
+                    立即省：¥ <em>0.00</em>
+                </div>
+                <button class="small btn-primary combo-purchase">
+                    立即购买
+                </button>
+            </div>
+
+            <div class="course-list">
+                <div class="course-oitem">
+                    {{ include file="common/component/image.html" width=130 url=$current_course.photos[0].url }}
+                    <div class="course-title">
+                        {{ $current_course.name|cn_truncate:11 }}
+                    </div>
+                    <div class="purchase-info">
+                        <span class="course-price">
+                            ¥{{ $current_course.price|number_format:2 }}
+                        </span>
+                    </div>
+                </div>
+
+                <div class="course-add">+</div>
+                {{ $count = 0 }}
+
+                {{ foreach $item.course as $list }}
+                    {{ if $count == 0 }}
+                    <div class="item-group show">
+                    {{ else if $count%4 == 0 }}
+                    <div class="item-group">
+                    {{ /if }}
+
+                        <div class="course-item" data-number={{ $list.number }}>
+                            <a href="/org_class_course/detail/{{ $list.number }}" target="_blank">
+                                {{ include file="common/component/image.html" width=130 url=$list.preface }}
+                            </a>
+                            <div class="course-title">
+                                <a href="/org_class_course/detail/{{ $list.number }}" target="_blank">
+                                    {{ $list.title|cn_truncate:11 }}
+                                </a>
+                            </div>
+                            <div class="purchase-info">
+                                {{ include file="common/ui/checkbox.html" name="combo" text='' value=$list.price }}
+                                <span class="course-price">
+                                    ¥{{ $list.price|number_format:2 }}
+                                </span>
+                            </div>
+                        </div>
+
+                    {{ if ($count+1)%4 == 0 || $list@last }}
+                    </div>
+                    {{ /if }}
+
+                    {{ $count = $count + 1 }}
+                {{ /foreach }}
+            </div>
+
+            {{ if count($item.course) > 4 }}
+            <div class="course-more">
+                <i class="icon icon-angle-up disable"></i>
+                <i class="icon icon-angle-down"></i>
+            </div>
+            {{ /if }}
+
+        </div>
+        {{ /foreach }}
+    </div>
+
+</div>
+{{ /strip }}

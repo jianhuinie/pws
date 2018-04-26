@@ -1,0 +1,7 @@
+[
+    {
+        "tpl": "./index.tpl",
+        "router": "/kaoyan/orderConfirm",
+        "mock_data": "./mock/index.json"
+    }
+]

@@ -1,0 +1,198 @@
+{{ extends file="common/pc/base.html" }}
+
+{{ block name="title" }}
+    {{ $tpl_data.page_title }}
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/activity/mingshi3_6a639ce247.css">
+{{ /block }}
+
+{{ block name="data" }}
+
+{{ $need_im = false }}
+{{ $smarty.block.parent }}
+
+{{ $script_path = "activity/mingshi_90084c4a75" }}
+
+{{ $flotage_config.hidden = 1 }}
+{{ $rave_config.hidden = 1 }}
+{{ $nav_config.hidden = 1 }}
+{{ $amd_more = [ 'common/main/component/header_40e06bdd81' ] }}
+
+
+{{ $baidu_share_text = $tpl_data.share_text }}
+
+{{ $baidu_share_image = $tpl_data.share_image }}
+
+{{ $page_bg = $tpl_data.page_backgroune }}
+{{ $top_image = $tpl_data.top_image }}
+{{ $top_height = $tpl_data.top_height }}
+{{ $listbox_titbg = $tpl_data.listbox_titbg }}
+{{ $listbox_titimg = $tpl_data.listbox_titimg }}
+{{ $listbox_conbg = $tpl_data.listbox_conbg }}
+{{ $page_bottom = $tpl_data.page_bottom }}
+
+{{ /block }}
+
+
+{{ block name="description" }}
+     {{ $tpl_data.page_des }}
+{{ /block }}
+
+{{ block name="keywords"  }}
+
+    {{ $smarty.block.parent }}
+    {{ $tpl_data.page_keywords }}
+{{ /block }}
+
+
+
+{{ strip }}
+{{ block name="body" }}
+
+{{ $smarty.block.parent }}
+
+{{ include file="common/siteNav.html" }}
+{{ include file="common/main/common/header.html" }}
+{{ include file="common/script.html" }}
+<div id="main">
+
+    <div class="side-nav">
+        <div class="wrapper">
+            <div class="container">
+                <ul>
+                    <li class="applay" >
+                        <div class="content"></div>
+                        <div id="share">{{ include file="common/component/baiduShare.html" }}</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <style>
+        #main {
+            background: {{ $page_bg }};
+        }
+        #main #layout {
+            background: {{ $page_bg }} url("{{ $top_image }}") 50% 0 no-repeat;
+            height: {{ $top_height }};
+        }
+        .teacher-info .tab-head {
+            background: {{ $listbox_titbg }};
+        }
+        .teacher-info .tab-head .tab-nav {
+            background: url("{{ $listbox_titimg }}") no-repeat;
+        }
+        .teacher-info .tab-content {
+            background: {{ $listbox_conbg }};
+        }
+        #main #last {
+            background: {{ $page_bottom }}
+        }
+    </style>
+    <div id="layout"></div>
+
+    <!--[if lt IE 9]>
+    <style>
+        .teacher-info .list li {
+            width: 189px;
+            }
+
+        .teacher-info .list li .school {
+            background: #1dbb6f;
+            height: 26px;
+
+        }
+
+    </style>
+    <![endif]-->
+
+    <div class="teacher-info">
+
+        <div class="tab-head">
+            {{ foreach $tpl_data.list_titles as $title }}
+            <b class="tab-nav {{ if $title@index == 0 }}active {{ /if }}">{{ $title }}</b>
+            {{ /foreach }}
+        </div>
+
+        <div class="tab-content">
+            {{ if $tpl_data.teacher_list == 0 }}
+                {{ foreach $tpl_data.teacherlist_datas as $subject }}
+                <ul class="list" {{ if $subject@index == 0 }}style="display: block" {{ /if }}>
+                    {{ foreach $subject as $sigle }}
+                    <li {{ if ($sigle@index+1) % 5 == 0 }}class="last-li"{{ /if }}>
+                        {{ if $sigle.school != "" }}
+                        <span class="school">
+                            <span>{{ $sigle.school }}</span>
+                        </span>
+                        {{ /if }}
+
+                        <a href="{{ $sigle.url }}" target="_blank">
+                            <img src="{{ $sigle.avatar }}@1e_120w_120h_1c_0i_1o_90Q_1x.jpeg" alt="{{ $sigle.name }}" />
+                        </a>
+                        <div class="teacher-baseinfo"> <em><a href="{{ $sigle.url }}">{{ $sigle.name }}</a></em>  <strong class="teacher-subject">{{ $sigle.subject }}</strong>
+                            <div class="teacher-intro">{{ $sigle.intro }}</div>
+                        </div>
+                        <div class="teacher-mask">
+                            <a target="_blank" href="{{ $sigle.url }}"></a>
+                        </div>
+                    </li>
+                    {{ /foreach }}
+                </ul>
+                {{ /foreach }}
+            {{ else if $tpl_data.teacher_list == 1 }}
+
+                {{ foreach $tpl_data.course_detail as $courselist }}
+                <ul class="course-list" {{ if $courselist@index == 0 }}style="display: block"{{ /if }}>
+                    {{ foreach $courselist as $course }}
+                    <li class="course-item {{ if ($course@index+1) % 4 == 0 }} last-li{{ /if }}" data-number="2346343434">
+                        <div class="img-wrapper">
+                            <a href="{{ $course.url }}" target="_blank">
+                                <img src="{{ $course.cover }}" width="240" height="135">
+                            </a>
+                            <div class="img-tip" title="{{ $course.name }}">{{ $course.name }}</div>
+                        </div>
+                        <div class="course-info">
+                            <div>开课时间：{{ $course.begin_time }}</div>
+                            <div title="测试老师名称">主讲老师：{{ $course.teacher_name }}</div>
+                        </div>
+                        <div class="course-price">
+                            <div class="course-sec-price">
+                                <span class="price">￥{{ $course.price }}</span>
+                            </div>
+                            <a class="course-sec-btn" href="{{ $course.url }}" target="_blank">我要秒杀
+                                <span class="icon icon-lightning"></span>
+                            </a>
+                        </div>
+                    </li>
+                    {{ /foreach }}
+                </ul>
+                {{ /foreach }}
+
+            {{ /if }}
+
+        </div>
+
+    </div>
+
+    <div class="img">
+
+        {{ foreach $tpl_data.imagelist_datas as $img }}
+        <div>
+            <img src="{{ $img }}">
+        </div>
+        {{ /foreach }}
+    </div>
+
+
+
+    <div id="last">
+        <p>
+            Copyright © 2014 - 2017 跟谁学版权所有. 京公网安备11010802015210号 | 京ICP备14027590号-1
+        </p>
+    </div>
+
+</div>
+{{ /block }}
+{{ /strip }}

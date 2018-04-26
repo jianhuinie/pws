@@ -1,0 +1,268 @@
+@import "page/_base/base.styl";
+@import "page/_common/nav_bar/nav_bar.styl";
+
+$white = #fff;
+
+.hidden {
+    display: none !important;
+}
+
+body{
+    background: #f5f5f5;
+    font-size: rem(14);
+}
+
+.nav-header{
+    background: #f6f7f7;
+}
+
+.fll {
+    float: left;
+}
+.flr {
+    float: right;
+}
+.clear-fix {
+    clear: both;
+}
+.ovh {
+    overflow: hidden;
+}
+
+.text-ellipsis {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.tac {
+    text-align: center;
+}
+
+.cover {
+    position: relative;
+    color: $white;
+    .mask {
+        z-index: 2;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(255, 255, 255, .15);
+        width: 100%;
+        height: rem(267);
+        // height: 100%;
+    }
+    .img {
+        width: 100%;
+        height: rem(267);
+    }
+    .entry-or-not {
+        z-index: 3;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        margin: rem(-60) 0;
+        height: rem(80);
+        .playing {
+            display: block;
+            position: relative;
+            top: 0;
+            left: 50%;
+            margin-left: rem(-25);
+            width: rem(50);
+            height: rem(50);
+            .icon {
+                display: block;
+                width: rem(50);
+                height: rem(50);
+            }
+        }
+        .not-playing {
+            display: block;
+            margin: rem(25) 0 0;
+        }
+    }
+    .teacher-info {
+        z-index: 3;
+        position: absolute;
+        overflow: hidden;
+        padding: rem(10) rem(15);
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, .4);
+        width: 100%;
+        height: rem(60);
+        .avatar {
+            border: rem(1) solid transparent;
+            border-radius: 50%;
+            width: rem(40);
+            height: rem(40);
+        }
+        .text {
+            padding: 0 0 0 rem(10);
+            .name {
+                font-size: rem(15);
+            }
+            .brief-intro {
+                padding: rem(2) 0 0;
+                font-size: rem(13);
+                color: #cdcdce;
+            }
+        }
+        .open-in-app {
+            position: absolute;
+            top: rem(15.5);
+            right: rem(15);
+            border: rem(1) solid #ffffff;
+            border-radius: rem(100);
+            width: rem(100);
+            height: rem(27);
+            line-height: rem(27);
+        }
+    }
+}
+
+.homepage,
+.live-hall {
+    margin: rem(10) 0;
+    padding: rem(15);
+    background: $white;
+    .wrapper {
+        position: relative;
+        display: block;
+        .img {
+            padding: 0 rem(15) 0 0;
+            width: rem(22);
+            height: rem(22);
+            vertical-align: bottom;
+        }
+        .desc {
+            color: #6d6d6e;
+        }
+        .desc-more,
+        .icon {
+            position: absolute;
+            color: #9d9d9e;
+        }
+        .desc-more {
+            top: rem(2);
+            right: rem(20);
+        }
+        .icon {
+            top: rem(4);
+            right: 0;
+        }
+    }
+}
+.homepage {
+    border-bottom: rem(1) solid #ededee;
+}
+.live-hall {
+    margin-top: rem(-9);
+}
+
+.course-list {
+    padding: rem(15) rem(15) rem(45);
+    background: $white;
+    .title {
+        position: relative;
+        border-bottom: rem(1) solid #ededee;
+        padding: 0 0 rem(15) 0;
+        .desc {
+            color: #6d6d6e;
+        }
+        .more {
+            position: absolute;
+            top: 0;
+            right: 0;
+            color: #9d9d9e;
+        }
+    }
+    .unit {
+        display: flex;
+        border-bottom: rem(1) solid #ededee;
+        padding: rem(10) 0;
+        .face {
+            display: block;
+            flex: 4;
+            width: rem(100);
+            height: rem(64);
+        }
+        .text {
+            position: relative;
+            flex: 11;
+            padding: 0 rem(5);
+            .type,
+            .name {
+                display: inline-block;
+                height: rem(19);
+                line-height: rem(19);
+            }
+            .type {
+                border: rem(1) solid #37a4f5;
+                border-radius: rem(2);
+                width: 33%;
+                vertical-align: top;
+                background: #37a4f5;
+                color: $white;
+            }
+            .name {
+                padding: 0 0 0 rem(8);
+                width: 67%;
+                color: #3c3d3e;
+            }
+            .price {
+                position: absolute;
+                bottom: 0;
+                left: rem(5);
+                text-align: left;
+                color: #f73;
+            }
+            .price-free {
+                color: #41b14b;
+            }
+        }
+    }
+}
+
+.signup {
+    padding: 0 0 0 rem(15);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: rem(45);
+    line-height: rem(45);
+    background: $white;
+    color: #6c6d6e;
+    .free {
+        float: right;
+        display: inline-block;
+        padding: 0 rem(25);
+        background: #37a4f5;
+        color: $white;
+    }
+}
+
+.download-mask {
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1000;
+    background: black;
+    opacity: 0.8;
+    .content {
+        width: 100%;
+        text-align: right;
+        img {
+            width: 60%;
+            margin-top: rem(30);
+        }
+    }
+}

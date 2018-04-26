@@ -1,0 +1,175 @@
+{{ extends file="./base.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $script_path = "activity/uk/profile_8fa73b5991" }}
+
+    {{ $menu = "profile" }}
+
+    {{ $script_data.has_pay = $tpl_data.has_pay }}
+
+    {{ $script_data.number = $tpl_data.number }}
+    {{ $script_data.name = $tpl_data.name }}
+    {{ $script_data.description = $tpl_data.description }}
+    {{ $script_data.avatar = $tpl_data.avatar }}
+    {{ $script_data.frozen = $tpl_data.frozen }}
+
+{{ /block }}
+
+{{ block name="content" }}
+
+    <div class="uk-main">
+
+        {{ if $tpl_data.has_pay > 0 && $user_data.user_number }}
+
+        <div class="profile-wrapper self">
+
+            <div class="left-box self-info">
+
+                {{ if $tpl_data.frozen == 0 }}
+                <img class="photo member-photo" data-src="{{ $tpl_data.avatar }}" />
+                {{ else }}
+                <img class="photo" src="{{ $static_origin }}/asset/img/activity/uk/frozen_86ff2eaf24.png" />
+                {{ /if }}
+                <div class="self-info">
+                    <div class="tit">{{ $tpl_data.name }}</div>
+                    <div>编号：{{ $tpl_data.number }}</div>
+                    <div>{{ $tpl_data.grade }}</div>
+                    <a href="javascript:" id="invite-friend">邀请好友参赛&gt;</a>
+                </div>
+            </div>
+
+            <div class="right-box self-des">
+                <div style="margin: 3px 0 13px">
+                    <span class="label">才艺名称：</span>{{ $tpl_data.talent }}
+                </div>
+
+                <div>
+                    <div class="label">个人描述：</div>
+                    <div>{{ $tpl_data.description }}</div>
+                </div>
+
+                {{ if $tpl_data.has_pay <= 2 || ($tpl_data.has_pay == 3 && $tpl_data.status == 1) }}
+                <a class="to-edit" href="/uk/edit">编辑资料&gt;</a>
+                {{ /if }}
+
+            </div>
+
+        </div>
+
+        <div class="profile-wrapper" style="margin-top: 20px;">
+
+            <div class="left-box">
+
+                <div class="block-title">当前流程</div>
+
+                <div class="current-process">
+
+                    <div class="line"></div>
+
+                    {{ foreach $tpl_data.process as $pro }}
+
+                    <div class="step {{ if $pro.color == 0 }} disable {{ /if }} {{ if $pro.color == 2 }} eliminate {{ /if }} {{ if $pro.color == 3 }} doing {{ /if }}">
+                        {{ $pro.title }}
+                        <div>{{ $pro.text }}</div>
+
+                        {{ if isset($pro.status) && $pro.status == 1 }}
+                        <span id="pay-audit">待支付评审费</span>
+                        {{ /if }}
+
+                    </div>
+
+                    {{ /foreach }}
+
+                </div>
+
+            </div>
+
+            <div class="right-box">
+                <div class="block-title">参赛视频</div>
+
+                {{ if !$tpl_data.video_id }}
+                    <div class="video_empty">
+                        请上传视频
+                    </div>
+
+                    <div class="btns self-btns">
+                        <a class="uk-btn upload-btn" href="/uk/upload#uk-nav">
+                            上传视频
+                        </a>
+                    </div>
+                {{ else }}
+
+                    {{ if $tpl_data.video_status == 70 }}
+                    <iframe id="frame-player" src="/video/view/{{ $tpl_data.video_id }}" frameborder="0"></iframe>
+
+                    {{ else if $tpl_data.video_status == 30 }}
+                    <div class="video_empty">
+                        视频正在转码中，暂时不能播放，请稍后查看
+                    </div>
+                    {{ else if $tpl_data.video_status == 50 }}
+                    <div class="video_empty">
+                        视频转码失败，无法播放
+                    </div>
+                    {{ else }}
+                    <div class="video_empty">
+                        视频处理失败，无法播放
+                    </div>
+                    {{ /if }}
+
+                    <div class="stats">
+                        {{ if $tpl_data.has_pay > 3 || ($tpl_data.has_pay == 3 && $tpl_data.status == 0) }}
+                        {{ if $tpl_data.vote_count > 0 }}
+                            当前排名：<span id="label-rank">{{ $tpl_data.rank }}</span>
+                        {{ /if }}
+                        当前票数：<span>{{ $tpl_data.vote_count }}</span>
+                        {{ /if }}
+
+                        {{ if ($tpl_data.has_pay == 2 && $tpl_data.video_id) || ($tpl_data.has_pay == 3 && $tpl_data.status == 1) }}
+                        <a id="change-video" href="/uk/upload">修改视频&gt;</a>
+                        {{ /if }}
+                    </div>
+
+                    {{ if $tpl_data.has_pay == 3 && $tpl_data.status == 1 }}
+                        <div class="btns self-btns">
+                            <div class="uk-btn join-btn">
+                                确认参赛
+                            </div>
+                        </div>
+                    {{ /if }}
+
+                {{ /if }}
+
+                {{ if $tpl_data.has_pay > 3 || ($tpl_data.has_pay == 3 && $tpl_data.status == 0) }}
+
+                <div class="share">
+                    分享：
+                    <a href="javascript:" data-share class="wechat"><i class="icon icon-wechat"></i></a>
+                    <a href="javascript:" data-share class="qq"><i class="icon icon-qq"></i></a>
+                    <a href="javascript:" data-share class="weibo"><i class="icon icon-weibo"></i></a>
+                    <a href="javascript:" data-share class="qzone"><i class="icon icon-qzone"></i></a>
+                </div>
+                {{ /if }}
+
+            </div>
+
+        </div>
+
+        {{ else }}
+            <div class="unstart">
+                <div>
+                    {{ if $user_data.user_number }}
+                        {{ $user_data.user_name }}，
+                    {{ /if }}
+                    您好~
+                </div>
+                您尚未报名，请先 <a id="btn-go-join" href="/uk/edit" class="uk-btn" style="width: 80px">前往报名</a>
+            </div>
+        {{ /if }}
+
+    </div>
+
+
+{{ /block }}

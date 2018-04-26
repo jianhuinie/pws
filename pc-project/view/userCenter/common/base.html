@@ -1,0 +1,332 @@
+{{ *
+
+@file 母版
+@author zhujialu
+
+* }}
+{{ strip }}
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+    <head>
+
+        {{ block name="data" }}
+
+            {{ $host_origin = rtrim($site_config.baseUri, '/') }}
+            {{ $host_origin_http = $host_origin|replace:"https://":"http://" }}
+            {{ $host_origin_https = $host_origin|replace:"http://":"https://" }}
+
+            {{ $static_origin = rtrim($site_config.staticBaseUri, '/') }}
+            {{ $static_origin_http = $static_origin|replace:"https://":"http://" }}
+            {{ $static_origin_https = $static_origin|replace:"http://":"https://" }}
+
+            {{ $env = $site_config.env }}
+            {{ $host_origin_prefix = $env }}
+
+            {{ if $env == "production" }}
+                {{ $host_origin_prefix = "www" }}
+                {{ $env = "www" }}
+            {{ else }}
+                {{ $terms = explode('.', $host_origin_http) }}
+                {{ $host_origin_prefix = substr($terms[0], 7) }}
+            {{ /if }}
+
+            {{ $root_origin_http = 'http://'|cat: $host_origin_prefix|cat: '.genshuixue.com' }}
+            {{ $root_origin_https = 'https://'|cat: $host_origin_prefix|cat: '.genshuixue.com' }}
+
+            {{ if substr($smarty.server.SERVER_PROTOCOL, 0, 5) === 'HTTPS' }}
+                {{ $root_origin = $root_origin_https }}
+            {{ else }}
+                {{ $root_origin = $root_origin_http }}
+            {{ /if }}
+
+            {{ if !isset($need_im) }}
+                {{ $need_im = true }}
+            {{ /if }}
+
+            {{ if !isset($need_baidu_map) }}
+                {{ $need_baidu_map = false }}
+            {{ /if }}
+
+            {{ if !isset($need_ueditor) }}
+                {{ $need_ueditor = false }}
+            {{ /if }}
+
+        {{ /block }}
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge" />
+        <meta name="keywords" content="{{ block name="keywords" }}跟谁学, {{ /block }}" />
+        <meta name="description" content="{{ block name="description" }}跟谁学, {{ /block }}" />
+        <meta name="baidu-site-verification" content="{{ block name="baidu-site-verification" }}{{ /block }}" />
+        <link rel="shortcut icon" href="{{ $static_origin }}/src/img/logo.ico" />
+
+        <title>
+            {{ block name="title" }}跟谁学{{ /block }}
+        </title>
+        <script src="{{ $static_origin }}/dep/web-analysis/0.0.5/wat.js"></script>
+        <script>
+
+            {{ $js_site_data = [] }}
+            {{ $js_site_data['env'] = $env }}
+            {{ $js_site_data['needIm'] = $need_im }}
+
+
+            {{ $js_site_data['host'] = $host_origin }}
+            {{ $js_site_data['hostHttp'] = $host_origin_http }}
+            {{ $js_site_data['hostHttps'] = $host_origin_https }}
+            {{ $js_site_data['static'] = $static_origin }}
+            {{ $js_site_data['staticHttp'] = $static_origin_http }}
+            {{ $js_site_data['staticHttps'] = $static_origin_https }}
+
+            {{ $custom_path = '/src' }}
+
+            {{ $js_site_data['source'] = $static_origin|cat: $custom_path }}
+            {{ $js_site_data['sourceHttp'] = $static_origin_http|cat: $custom_path }}
+            {{ $js_site_data['sourceHttps'] = $static_origin_https|cat: $custom_path }}
+
+            {{ $js_site_data['root'] = $root_origin }}
+            {{ $js_site_data['rootHttp'] = $root_origin_http }}
+            {{ $js_site_data['rootHttps'] = $root_origin_https }}
+
+            {{ $js_site_data['monkey'] = [] }}
+            {{ $js_site_data['monkey'][$site_config.csrfTokenName] = $site_config.csrfTokenValue }}
+
+            {{ $js_site_data['serverTime'] = $ts * 1000 }}
+
+            {{ $js_user_data = [] }}
+            {{ $js_user_data['type'] = intval($user_data.user_type) }}
+            {{ $js_user_data['totalIntegral'] = intval($user_data.total_integral) }}
+            {{ $js_user_data['avatar'] = $user_data.avatar }}
+            {{ $js_user_data['number'] = $user_data.user_number }}
+            {{ $js_user_data['privateDomain'] = $user_data.private_domain }}
+            {{ $js_user_data['mobile'] = $user_data.mobile }}
+            {{ $js_user_data['displayName'] = $user_data.display_name }}
+            {{ $js_user_data['name'] = $user_data.display_name }}
+            {{ $js_user_data['vip_level'] = $user_data.vip_level }}
+            {{ $js_user_data['id'] = $user_data.user_id }}
+            {{ $js_user_data['source_sys_id'] = $user_data.source_sys_id }}
+            {{ $js_user_data['qreserve_remind'] = $user_data.qreserve_remind }}
+            {{ $js_user_data['qreserve_global_sign'] = $user_data.qreserve_global_sign }}
+            {{ $js_user_data['classCourse'] = '' }}
+            {{ $js_user_data['globalDistrict'] = '' }}
+            {{ if isset($user_data.permission) }}
+                {{ $js_user_data['classCourse'] = $user_data.permission.class_course }}
+                {{ $js_user_data['globalDistrict'] = $user_data.permission.global_district }}
+            {{ /if }}
+
+            var siteData = {{ json_encode($js_site_data, 77) }};
+            var userData = {{ json_encode($js_user_data, 77) }};
+
+            (function (global) {
+                var GSX_CONFIG = null;
+                global['GSX_INIT'] = function (config) {
+                    global['GSX_INIT'] = null;
+                    GSX_CONFIG = config;
+                    var cb;
+                    while (cb = cbs.shift()) {
+                        cb(GSX_CONFIG);
+                    }
+                };
+                var cbs = [];
+                global['gsx_ready'] = function (callback) {
+                    if (GSX_CONFIG) {
+                        callback(GSX_CONFIG);
+                    } else if ('function' == typeof callback) {
+                        cbs.push(callback);
+                    }
+                };
+            })(window);
+
+            window.gsx_ready(function(config){
+                var WAT = window.WAT;
+                if (config.env.type == 'production' && WAT) {
+                    var page_type = "{{ if isset($log_data.page) }}{{ $log_data.page }}{{ /if }}";
+                    var page_str = "{{ if isset($log_data.page_type) }}{{ $log_data.page_type }}{{ /if }}";
+
+                    var referrer = document.referrer;
+                    var encodeReferrer = encodeURI(referrer);
+                    var pre_page_str = localStorage.getItem('pre_page_str');
+                    var pre_page_obj;
+                    try {
+                       pre_page_obj = JSON.parse(pre_page_str) || {};
+                    } catch (e) {
+                        pre_page_obj = {};
+                        var refKey = encodeReferrer + '_pre_page_str';
+                        pre_page_obj[refKey] = pre_page_str;
+                        pre_page_obj[Date.now()] = refKey;
+                    }
+                    WAT.pgv({
+                        "user_number": config.user ? config.user.number : '',
+                        "guid": config.log[0],
+                        "params": {
+                            "page_type": page_type,
+                            "page_str": page_str,
+                            "pre_page_str": encodeReferrer && pre_page_obj[encodeReferrer + '_pre_page_str'],
+                            "user_role": config.user ? config.user.type : '',
+                            "session_id": config.log[1]
+                        }
+                    });
+
+                    setTimeout(function () {
+                        for (var name in pre_page_obj) {
+                            if (pre_page_obj.hasOwnProperty(name)) {
+                                var dt = +name;
+                                if (!isNaN(dt) && Date.now() - dt > 2 * 60 * 60 * 1000) {
+                                    var key = pre_page_obj[name];
+                                    pre_page_obj[key] = null;
+                                    pre_page_obj[name] = null;
+                                    delete pre_page_obj[key];
+                                    delete pre_page_obj[name];
+                                }
+                            }
+                        }
+                        var encodeUrl = encodeURI(location.href);
+                        var key = encodeUrl + '_pre_page_str';
+                        pre_page_obj[key] = page_str;
+                        pre_page_obj[Date.now()] = key;
+                        localStorage.setItem('pre_page_str', JSON.stringify(pre_page_obj));
+                        pre_page_obj = null;
+                    });
+
+                    WAT.initClick({
+                        "type": "pc",
+                        "hot": !!config.hot_click,
+                        "service": page_type
+                    });
+                    WAT.watchClick();
+
+                    WAT.timing();
+                }
+            });
+
+        </script>
+
+        {{ if isset($site_config.mainUri) }}
+            {{ $reportUrl = $site_config.mainUri|cat:"static/report" }}
+            {{ if $site_config.protocol == "https" }}
+                {{ $reportUrl = $reportUrl|replace:"http://":"https://" }}
+            {{ /if }}
+        {{ else }}
+            {{ $reportUrl = $root_origin|cat:"/static/report" }}
+        {{ /if }}
+
+        <script src="{{ $reportUrl }}"></script>
+
+
+        {{ if $need_im }}
+        <link rel="stylesheet" href="{{ $static_origin }}/asset/hermes/css/main.css" />
+        {{ /if }}
+
+        <link rel="stylesheet" href="{{ $static_origin }}/dep/cs/1.0.8/cs.css" />
+        <link rel="stylesheet" href="{{ $static_origin }}/src/css/common/center/component/enterClassroom.less" />
+        {{ block name="style" }}{{ /block }}
+    </head>
+
+    <body>
+
+        <div id="app"></div>
+
+        {{ if $need_baidu_map }}
+            <script src="http://api.map.baidu.com/api?v=2.0&ak=EMB0bKIvMeOd70lyyG92BZlu"></script>
+        {{ /if }}
+
+        {{ if $need_ueditor }}
+            {{ include file="common/component/ueditor.html" }}
+        {{ /if }}
+
+        <script src="{{ $static_origin }}/dep/ractive/0.8.0/ractive.js"></script>
+        <script src="{{ $static_origin }}/dep/base/0.0.12/src/base.js"></script>
+        <script>
+            require.config({
+                baseUrl: '{{ $static_origin }}/src',
+                packages: [
+                    {
+                        name: 'cobble',
+                        location: '../dep/cobble/0.3.28/src',
+                        main: 'main'
+                    },
+                    {
+                        name: 'audioPlayer',
+                        location: '../dep/audioPlayer/0.0.4/src',
+                        main: 'audioPlayer'
+                    },
+                    {
+                        name: 'webIM',
+                        location: '../dep/webIM/0.0.1/src',
+                        main: 'sdk'
+                    },
+                    {
+                        name: 'cc',
+                        location: '../dep/cc/1.1.1/src',
+                        main: 'main'
+                    },
+                    {
+                        name: 'echarts',
+                        location: '../dep/echarts/2.1.10/src',
+                        main: 'echarts'
+                    },
+                    {
+                        name: 'underscore',
+                        location: '../dep/underscore/1.6.0/src',
+                        main: 'underscore'
+                    },
+                    {
+                        name: 'custom',
+                        location: '../dep/cc/1.1.1/custom'
+                    },
+                    {
+                        name: 'moment',
+                        location: '../dep/moment/2.7.0/src',
+                        main: 'moment'
+                    },
+                    {
+                        name: 'TextClipboard',
+                        location: '../dep/TextClipboard/0.0.3/src',
+                        main: 'TextClipboard'
+                    },
+                    {
+                        name: 'SwfStore',
+                        location: '../dep/SwfStore/0.0.1/src',
+                        main: 'SwfStore'
+                    },
+                    {
+                        name: 'imageCrop',
+                        location: '../dep/image-crop/0.0.3/src',
+                        main: 'imageCrop'
+                    }
+                ],
+                urlArgs: {
+                    'hermes/dispatcher': '{edp-variable:{version}}'
+                }
+            });
+        </script>
+
+        {{ block name="script" }}{{ /block }}
+
+        {{ include file="common/center/component/enterClassroom.html" }}
+
+        {{ if $env === 'www' }}
+        <div class="cert">
+            <a rel="nofollow" key="55fac474efbfb024124812c8" logo_size="124x47"  logo_type="realname"  href="http://www.anquan.org">
+                <script src="//static.anquan.org/static/outer/js/aq_auth.js"></script>
+            </a>
+
+            <a rel="nofollow" class="integrity" href="https://credit.szfw.org/CX20151229013058200175.html" target="_blank"></a>
+
+            <a rel="nofollow" class="credible" href="https://ss.knet.cn/verifyseal.dll?sn=e17010411010866120gzva000000&comefrom=trust&trustKey=dn&trustValue=www.genshuixue.com" target="_blank"></a>
+
+            <a rel="nofollow" class="geo-trust" href="https://smarticon.geotrust.com/smarticonprofile?Referer=http://www.genshuixue.com" target="_blank"></a>
+
+            <a id="_pingansec_bottomimagelarge_shiming" href="http://si.trustutn.org/info?sn=785161021024981516566&certType=1">
+                <img src="http://v.trustutn.org/images/cert/bottom_large_img.png"/>
+            </a>
+        </div>
+        {{ /if }}
+
+    </body>
+
+</html>
+{{ /strip }}

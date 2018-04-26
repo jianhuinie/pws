@@ -1,0 +1,54 @@
+{{ extends file="common/pc/base.html" }}
+
+{{ block name="title" }}
+{{ $tpl_data.title }} - 活动中心 - 跟谁学
+{{ /block }}
+
+{{ block name="style" }}
+<!--<link rel="stylesheet" href="{{ $static_origin }}/src/css/common/layout.less">-->
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/activity/center.less">
+{{ /block }}
+
+{{ block name="data" }}
+
+{{ $need_im = true }}
+{{ $smarty.block.parent }}
+
+{{ $amd_more = [ 'common/main/component/header' ] }}
+{{ * $amd_more = [ 'activity/center' ] * }}
+
+{{ if isset($user_data) && $user_data }}
+{{ $script_data.user_type = $user_data.user_type }}
+{{ $script_data.user_number = $user_data.user_number }}
+{{ /if }}
+
+{{ $flotage_config.hidden = 1 }}
+
+{{ /block }}
+{{ block name="description" }}找好老师，上跟谁学{{ /block }}
+
+{{ strip }}
+{{ block name="body" }}
+
+{{ $smarty.block.parent }}
+
+{{ include file="common/siteNav.html" }}
+{{ include file="common/main/common/header.html" }}
+
+{{ include file="common/script.html" }}
+
+<div id="main">
+    <!--{{ $tpl_data.content }}-->
+
+
+    
+
+
+    <!--over-->
+</div>
+
+{{ include file="common/component/loginDialog.html" }}
+{{ * include file="common/footer.html" * }}
+
+{{ /block }}
+{{ /strip }}

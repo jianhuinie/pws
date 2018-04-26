@@ -1,0 +1,21 @@
+{{ *
+
+@file 我的评价 - 来自学生的评价
+@author jixiaohui
+
+* }}
+{{ extends file="common/center/credit.html" }}
+
+{{ block name="data" }}
+    {{ $smarty.block.parent }}
+    {{ $identity = "teacher" }}
+    {{ $nav_active_tab = 'index' }}
+    {{ $type = "commentFromStudent" }}
+{{ /block }}
+
+{{ block name="floatHelp" }}
+    {{ include file="teacher_center/common/floatHelp.html" }}
+{{ /block }}
+{{ block name="sidebar" }}
+    {{ include file="teacher_center/common/sidebar.html" active="comment" }}
+{{ /block }}

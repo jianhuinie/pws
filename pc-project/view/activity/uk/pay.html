@@ -1,0 +1,58 @@
+{{ extends file="common/pc/base.html" }}
+
+{{ block name="title" }}
+    中英文化交流大赛
+{{ /block }}
+
+{{ block name="style" }}
+    <link rel="stylesheet" href="{{ $static_origin }}/src/css/activity/uk.less">
+{{ /block }}
+
+{{ block name="data" }}
+
+{{ $need_im = false }}
+{{ $smarty.block.parent }}
+
+{{ $script_path = "activity/uk/pay" }}
+
+
+
+{{ $flotage_config.hidden = 1 }}
+{{ $rave_config.hidden = 1 }}
+{{ $nav_config.hidden = 1 }}
+{{ $amd_more = [ 'common/main/component/header' ] }}
+
+{{ /block }}
+
+{{ block name="keywords" }}
+    {{ $smarty.block.parent }}
+    中英文化交流大赛
+{{ /block }}
+
+{{ block name="description" }}
+    {{ $smarty.block.parent }}
+    中英文化交流大赛
+{{ /block }}
+
+{{ strip }}
+{{ block name="body" }}
+
+{{ $smarty.block.parent }}
+
+{{ include file="common/siteNav.html" }}
+{{ include file="common/main/common/header.html" }}
+{{ include file="common/script.html" }}
+
+
+
+<div id="main">
+
+<iframe height="600px" width="100%" src="{{ $tpl_data.zijin_host }}/purchase/payProductPurchase?purchase_id={{ $tpl_data.purchase_id }}&user_id={{ $user_data.user_id }}"></iframe>
+
+</div>
+
+    {{ include file="common/footer.html" }}
+
+{{ /block }}
+{{ /strip }}
+

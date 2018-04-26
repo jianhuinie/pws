@@ -1,0 +1,224 @@
+/**
+ * @file 老师以及学生个人中心我的课表的样式表
+ * @author peilonghui
+ */
+
+@import "./common/layout.less";
+@import "./component/scheduleItem.less";
+@import "./component/enterClassroom.less";
+@import "../component/roleTooltip.less";
+@import "../component/courseCalendar.less";
+@import "../component/cancelOrderDialog.less";
+@import "../component/cancelOrderPromptDialog.less";
+@import "../component/editReservedLessonDialog.less";
+@import "../component/makePhoneCallDialog.less";
+@import '../component/quickLessonDialog.less';
+@import "../../teacherCenter/classCourse/scheduleItem.less";
+
+@import "../../common/center/component/onlineCourseDialog.less";
+@import '../../common/center/component/scheduleClassDialog.less';
+@import './component/ipadRemindDialog.less';
+
+.schedule-item,
+.class-course {
+    margin-top: 14px;
+}
+
+.nav-item {
+    width: 25%;
+    text-align: center;
+}
+
+.schedule-calendar {
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.schedule-detail {
+
+    width: 100%;
+    td {
+        vertical-align: middle;
+    }
+
+    .schedule-detail-first {
+        border-top: none;
+        padding-top: 0;
+        width: 100%;
+    }
+}
+
+.schedule-rolephoto {
+
+    .avatar-medium {
+        margin-right: @gap-horizontal-large;
+        vertical-align: text-top;
+    }
+
+    strong {
+        position: relative;
+        top: @gap-vertical-medium;
+        font-weight: bold;
+        color: #000;
+        width: 70px;
+        .text-overflow();
+        .inline-block();
+    }
+
+    width: 176px;
+}
+
+
+.schedule-classinfo {
+    width: 282px;
+
+    font-size: @font-size-medium;
+
+    span {
+        font-size: @font-size-small;
+        margin-right: @gap-horizontal-small;
+    }
+
+    a {
+        font-size: @font-size-tiny;
+        margin-left: @gap-horizontal-tiny;
+    }
+}
+
+.schedule-classstatus {
+    font-size: @font-size-tiny;
+}
+
+/**&-item {
+    float: left;
+    width: 600px;
+}**/
+
+.schedule-info {
+    font-size: @font-size-tiny;
+    color: @brand-text-lighter;
+    margin: @gap-vertical-small 0;
+    border-top: 1px dashed @brand-gray-light;
+    padding-top: @gap-vertical-small;
+    width: 600px;
+
+    span {
+        margin-right: @gap-horizontal-large;
+    }
+
+    em {
+        color: @brand-primary;
+        .text-overflow();
+        width: 270px;
+        line-height: 15px;
+    }
+}
+
+
+
+.schedule-operates {
+
+    em {
+        font-size: @font-size-tiny;
+        //margin-top: @gap-vertical-medium;
+
+        i {
+            margin: 0 @gap-horizontal-tiny;
+            position: relative;
+            top: -1px;
+        }
+    }
+
+    a {
+        margin-bottom: @gap-vertical-tiny;
+
+
+    }
+
+    a[disabled] {
+        background-color: @brand-gray;
+        cursor: not-allowed;
+    }
+
+    text-align: center;
+    width: 124px;
+
+}
+
+.schedule-button {
+    padding: @gap-vertical-tiny @gap-horizontal-large;
+    color: #fff;
+    .inline-block();
+    font-size: @font-size-tiny;
+
+    &:hover {
+        color: #fff;
+    }
+
+}
+
+.schedule-opts-enter_classroom {
+    background-color: @brand-success;
+
+    &:hover {
+        background-color: lighten(@brand-success, 6%);
+    }
+}
+
+.schedule-opts-pay {
+    background: @brand-primary;
+
+    &:hover {
+        background-color: lighten(@brand-primary, 6%);
+    }
+}
+
+.schedule-opts-accept_request {
+    background: @brand-info;
+
+    &:hover {
+        background-color: lighten(@brand-info, 6%);
+    }
+}
+
+.link-pager {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.schedule-mapdlg {
+    width: 600px;
+    height: 400px;
+    margin-top: @gap-vertical-small;
+}
+
+.schedule-multi-item {
+    .schedule-classinfo {
+        width: 240px;
+    }
+}
+
+.course-calendar {
+
+    border-top: none;
+    width: 740px;
+
+    .overview {
+        width: 223px;
+    }
+
+    table {
+        width: 515px;
+    }
+
+    th,
+    td {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+}
+
+.icon-lightning-circle {
+    margin-right: @gap-horizontal-tiny;
+}
+

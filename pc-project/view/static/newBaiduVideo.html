@@ -1,0 +1,191 @@
+{{ extends file="common/pc/base.html" }}
+
+
+{{ block name="data" }}
+
+
+{{ $need_im = false }}
+{{ $smarty.block.parent }}
+
+
+{{ $script_path = "static/baiduVideo" }}
+{{ $script_data.lunix_time = $ts }}
+
+{{ $nav_config.hidden = 1 }}
+{{ $flotage_config.hidden = 1 }}
+{{ $rave_config.hidden = 1 }}
+
+
+{{ /block }}
+
+{{ block name="title" }}
+百度视频 - 找好老师，上跟谁学
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/static/newBaiduVideo.less">
+{{ /block }}
+
+{{ block name="body" }}
+
+{{ strip }}
+    <!--[if lt IE 8]>
+    <style>
+        body {
+            padding: 0px !important;
+            margin: 0px !important;
+        }
+        .browser-upgrade {
+            display: none;
+            height: 0;
+            width: 0
+        }
+        #main .content h1 {
+            font-weight: 300;
+            display: inline;
+            vertical-align: middle;
+        }
+        #main .tab-head {
+            display: inline;
+        }
+        #main .content li {
+            width: 20%
+        }
+        #main .side .hot-teacher li {
+            margin-bottom: 0px;
+        }
+        #main .first {
+            margin-bottom: 25px;
+        }
+        #main .baseinfo {
+            cursor: pointer;
+        }
+        #main .img-wrapper {
+            cursor: pointer;
+        }
+    </style>
+<![endif]-->
+{{ /strip }}
+
+{{ strip }}
+
+{{ $smarty.block.parent }}
+
+
+<div id="main">
+    <div class="content">
+
+        <h1>大家都在看</h1>
+
+            <div class="tab-head">
+                {{ foreach $tpl_data as $tab_title }}
+                <b class="tab-nav {{ if $tab_title@index eq 0 }} active {{ /if }}">{{ $tab_title.class }}</b>
+                {{ /foreach }}
+            </div>
+
+            <div class="tab-content">
+
+                {{ foreach $tpl_data as $class_all }}
+
+                    <div class="tab-panel"  {{ if $class_all@index == 0 }}style="display: block;" {{ /if }}>
+                            <ul class="primary">
+                                {{ foreach $class_all.data as $class }}
+                                <li>
+                                    <a href="{{ $class.url }} " target="_blank" static="bl=site_zone">
+                                        <img src="{{ $class.img }}" />
+                                        <span>{{ $class.title }}</span>
+                                    </a>
+                                </li>
+                                {{ /foreach }}
+                            </ul>
+                    </div>
+                {{ /foreach }}
+            </div>
+    </div>
+</div>
+
+
+
+
+<!--[if lt IE 8]>
+
+    <script>
+
+        window.onload = function() {
+            require(
+                    [
+                        'cobble/ui/Tab'
+                    ],
+                    function(Tab) {
+
+
+
+                        $('#main').each(
+                                function() {
+                                    new Tab({
+                                        trigger: 'click',
+                                        navActiveClass: 'active',
+                                        navSelector: '.tab-nav',
+                                        contentSelector: '.tab-panel',
+                                        element: $(this),
+                                        index: 0
+                                    });
+                                }
+                        );
+
+
+
+                    });
+
+    }
+
+
+    </script>
+
+<![endif]-->
+
+
+<script> (function(W) {
+
+        var pageTn = 'baiduYingshi',
+                site = 'genshuixue';
+        function statistics(st) {
+            var img = new Image();
+            window["bd_" + (new Date()).getTime()] = img;
+            img.src = 'http://nsclick.baidu.com/v.gif?pid=104&tn=' + pageTn + '&tpl=' + pageTn + '&site=' + site + '&' + st + '&bl=site_zone&' + 'page=edu&' + 't=' + new Date().getTime();
+            return true;
+        }
+        document.body.onmousedown = function(e) {
+            e = window.event || e;
+            var node = e.srcElement || e.target;
+            try {
+                var st = node.getAttribute('static') || node.parentNode.getAttribute('static') || node.parentNode.parentNode.getAttribute('static');
+                if (st) {
+                    var url = node.href || node.parentNode.href || node.parentNode.parentNode.href;
+                    if (url && !/^(javascript:;|#)$/.test(url) && st.indexOf('u=') == -1) {
+                        st += ('&u=' + encodeURIComponent(url));
+                    }
+                    statistics(st);
+                }
+            } catch (e) {
+
+            }
+        };
+        var pimg = new Image();
+        window["bd_" + (new Date()).getTime()] = pimg;
+
+        pimg.src = 'http://nsclick.baidu.com/v.gif?pid=104&tn=' + pageTn + '&tpl=' + pageTn + '&site=' + site + '&bl=site_zone&' + 'page=edu&' + '&t=' + new Date().getTime();
+    })(window);
+
+</script>
+
+
+
+{{ include file="common/script.html" }}
+
+
+
+
+
+{{ /strip }}
+{{ /block }}

@@ -1,0 +1,165 @@
+{{ extends file="common/pc/base.html" }}
+
+{{ block name="title" }}
+    {{ $tpl_data.title  }}
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/activity/newFace_9cdbd42380.css">
+{{ /block }}
+
+{{ block name="data" }}
+
+{{ $need_im = false }}
+{{ $smarty.block.parent }}
+
+{{ $script_path = "activity/newFace_275256b631" }}
+
+{{ $flotage_config.hidden = 1 }}
+{{ $rave_config.hidden = 1 }}
+{{ $nav_config.hidden = 1 }}
+{{ $amd_more = [ 'common/main/component/header_40e06bdd81' ] }}
+
+
+{{ $baidu_share_text = $tpl_data.share_text|default:"跟谁学《一键抢生源》专题" }}
+
+{{ $baidu_share_image = $tpl_data.share_img|default:"" }}
+
+{{ /block }}
+
+
+{{ block name="description" }}
+    {{ $tpl_data.description  }}
+{{ /block }}
+
+{{ block name="keywords"  }}
+
+    {{ $smarty.block.parent }}
+    {{ $tpl_data.keywords }}
+{{ /block }}
+
+{{ strip }}
+{{ block name="body" }}
+
+{{ $smarty.block.parent }}
+
+{{ include file="common/siteNav.html" }}
+{{ include file="common/main/common/header.html" }}
+{{ include file="common/script.html" }}
+<div id="main">
+
+{{ *
+    2015/12/12
+    宽度由960px
+    调成1100px
+* }}
+
+
+    <!--[if lt IE 9]>
+    <style>
+
+    </style>
+    <![endif]-->
+    <style>
+        #main {
+            background-color: {{ $tpl_data.bg_color }};
+        }
+        #main #layout {
+            overflow: hidden;
+            background: #fff url({{ $tpl_data.banner.url }}) 50% 0 no-repeat;
+            height: {{ $tpl_data.banner.height }};
+        }
+        #main #last {
+            background: {{ $tpl_data.last }};
+        }
+
+        #main .side-nav .applay .content {
+            background: {{ $tpl_data.share_color }};
+        }
+        #main .side-nav .applay .content:hover {
+            background: {{ $tpl_data.share_color_hover }};
+        }
+
+
+    </style>
+
+
+    <div class="side-nav">
+        <div class="wrapper">
+            <div class="container">
+                <ul>
+                    <li class="applay" >
+                        <div class="content">分享</div>
+                        <div id="share">{{ include file="common/component/baiduShare.html" }}</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="layout">
+
+         {{ if isset($tpl_data.banner.video) && $tpl_data.banner.video != '0' }}
+            <div class="video" data-video="{{ $tpl_data.banner.video }}">
+                {{ include file="common/component/image.html" url=$tpl_data.banner.video_img width="390" height="200" }}
+                <i class="icon icon-play-o"></i>
+            </div>
+        {{ /if }}
+
+    </div>
+
+
+
+
+    <div class="wrap">
+
+        <div class="teacher-detail">
+
+            {{ if isset($tpl_data.fixed.teacher_img) }}
+                <img src="{{ $tpl_data.fixed.teacher_img }}" alt="" />
+            {{ /if }}
+
+            {{ if isset($tpl_data.fixed.course_detail_img) }}
+                <a class="course" href="{{ $tpl_data.fixed.course_detail }}" target="_blank" >
+                    <img src="{{ $tpl_data.fixed.course_detail_img }}@1e_1100w" alt="" />
+                </a>
+            {{ /if }}
+
+        </div>
+
+
+
+
+
+
+        {{ foreach $tpl_data.teacher_detail as $teacher_detail }}
+            {{ if isset($teacher_detail.link) && $teacher_detail.link !== 0 }}
+                <a href="{{ $teacher_detail.link }} " target="_blank">
+                    <img src="{{ $teacher_detail.img }}@1e_1100w" alt="" />
+                </a>
+            {{ else }}
+                <img src="{{ $teacher_detail.img }}@1e_1100w" alt="" />
+            {{ /if }}
+
+        {{ /foreach }}
+
+    </div>
+
+
+
+
+
+    <div id="last">
+        <p>
+            Copyright © 2014 - 2017 跟谁学版权所有. 京公网安备11010802015210号 | 京ICP备14027590号-1
+        </p>
+    </div>
+
+
+
+
+
+</div>
+{{ /block }}
+{{ /strip }}

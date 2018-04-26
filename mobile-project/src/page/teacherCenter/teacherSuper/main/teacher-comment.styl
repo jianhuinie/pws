@@ -1,0 +1,341 @@
+.comments-overview {
+  margin-top: rem(10);
+  .comments-statistics {
+   text-align: center;
+    li {
+      display: inline-block;
+    }
+      .star {
+        .star-score {
+          .icon {
+            margin-right: rem(10);
+          }
+        }
+      }
+    .sum-score {
+      font-size: rem(18);
+      color: $C500;
+      text-align: center;
+      display: block;
+    }
+    .total-number {
+      display: block;
+      color: $C500;
+      font-size: rem(15);
+      text-align: center;
+      margin-top: rem(5);
+    }
+  }
+  .comments-stars {
+    text-align: center;
+    margin-top: rem(10);
+    li {
+      list-style: none;
+      position: relative;
+      margin-bottom: rem(9);
+      .star-level {
+        font-size: rem(13);
+        color: #9d9e9e;
+        margin-right: rem(5);
+      }
+      .grey-line, .orange-line {
+        display: inline-block;
+        height: rem(10);
+        border-radius: rem(2);
+      }
+      .grey-line {
+        width: rem(180);
+        position: relative;
+        background-color: #F6F6F6;
+        margin-right: rem(1);
+      }
+      .orange-line {
+        width: rem(10);
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: $C500;
+      }
+      .num {
+        font-size: rem(11);
+        color: #B6B6B6;
+      }
+    }
+  }
+
+}
+.star-score {
+  .icon {
+    font-size: rem(22);
+  }
+  .icon-star_all {
+    color: #dcddde;
+  }
+  .star-shine {
+    color: $C500;
+  }
+  .star-half {
+    display: inline-block;
+    position: relative;
+    line-height: 0;
+    .icon-star_half {
+      color: $C500;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+}
+.tab-list {
+
+  .tab-title {
+    width: 100%;
+    height: rem(40);
+    line-height: rem(38);
+    background-color: #fff;
+    border-bottom: 1px solid $g200;
+    font-size: rem(13);
+  }
+  li.tab-item {
+    //display: inline-block;
+    float: left;
+    width: 25%;
+    text-align: center;
+    color: $G300;
+
+    &.active {
+      color: $C500;
+      > div {
+
+        border-bottom: 1px solid $C500;
+
+      }
+    }
+  }
+  .comments-filter {
+    font-size: rem(12);
+    padding: rem(10) 0;
+    padding-bottom: 0;
+    //border-bottom: 1px solid #f2f4f5;
+    > li {
+      display: inline-block;
+      text-align: center;
+      width: auto;
+
+      cursor: pointer;
+      padding: 0 rem(8);
+      border-radius: rem(2);
+      height: rem(27);
+      line-height: rem(27);
+      color: $G300;
+      margin-bottom: rem(10);
+
+      > i {
+        font-style: normal;
+      }
+    }
+    .comment-tag {
+      background: #fff;
+      margin-right: rem(5);
+    }
+    .middle, .lower {
+      background: #f2f4f5;
+    }
+    > .active {
+      color: $C500;
+      border: 1px solid $g200;
+
+      > i {
+        color: #fff;
+      }
+    }
+  }
+  .comment-panel {
+    .no-comment {
+      padding: 0 rem(30);
+      padding-top: rem(25);
+      text-align: center;
+      > img {
+        width: rem(75);
+        height: rem(80);
+
+      }
+      > p {
+        margin-top: rem(10);
+        font-size: rem(14);
+        color: #aeafb0;
+      }
+    }
+
+  }
+  .more-comment {
+    padding: rem(15) 0;
+    font-size: rem(14);
+    color: $G300;
+    text-align: center;
+  }
+}
+
+.comment-list-wrapper {
+  li {
+    display: block;
+    background-color: #fff;
+    border-bottom: 1px solid #f2f4f5;
+    &.main-course-comment {
+      margin-top: rem(10);
+    }
+    &:first-child {
+      margin-top: 0;
+    }
+    padding: rem(15) 0;
+    width: auto;
+    text-align: left;
+  }
+
+  .user-img {
+    width: rem(44);
+    height: rem(44);
+    float: left;
+    margin-right: rem(10);
+
+    img {
+      border-radius: 50%;
+    }
+  }
+  .right-info {
+
+    // padding-top: rem(5);
+    margin-bottom: rem(10);
+    .user-name {
+      color: $G300;
+      margin-bottom: rem(5);
+      font-size: rem(14);
+      .like {
+        float: right;
+        font-size: rem(13);
+        color: $G300;
+        &.isLike {
+          color: $C500;
+        }
+      }
+    }
+    .stars-info {
+      font-size: rem(12);
+      color: $G300;
+      .icon {
+        font-size: rem(12);
+      }
+
+      .like {
+        float: right;
+        font-size: rem(14);
+        &.isLike {
+          color: $C500;
+        }
+      }
+    }
+  }
+  .comment-content {
+    margin: 0;
+    word-break: break-all;
+    font-size: rem(14);
+    line-height: rem(24);
+
+    .comment-photo-list {
+      margin-top: rem(10);
+      overflow: hidden;
+      > li {
+        float: left;
+        text-align: center;
+        width: 20%;
+        padding: rem(2);
+        div {
+          position: relative;
+          width: 100%;
+          padding-top: 100%;
+          img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+  .course-info {
+    margin: rem(10) 0 0;
+    .create-time {
+      font-size: rem(13);
+      color: $G300;
+    }
+    .course-title {
+      font-size: rem(13);
+      color: $g500;
+    }
+  }
+  .teacher_reply {
+    background-color: $g200;
+    font-size: rem(14);
+    color: $g600;
+  }
+  .student-additioanl {
+    .additional-date {
+      margin-top: rem(15);
+      color: $Orange;
+      font-size: rem(13);
+    }
+    .comment-additional {
+      font-size: rem(14);
+      margin-top: rem(10);
+    }
+  }
+  .teacher-additional {
+    font-size: rem(14);
+    color: $g600;
+    background-color: $g200;
+    padding: rem(10);
+    margin-top: rem(10);
+    border-radius: rem(2);
+    position: relative;
+    word-break: break-all;
+    line-height: 1.2;
+    .triangle {
+      position: absolute;
+      width: rem(10);
+      height: rem(10);
+      border-radius: rem(2);
+      background-color: $g200;
+      top: rem(-5);
+      left: rem(20);
+      transform: rotate(45deg);
+    }
+  }
+  .other-course-comment {
+    padding-top: 0;
+    .right-info {
+      margin: 0;
+      padding-top: rem(10);
+      border-top: 1px solid $g200;
+    }
+    .user-img, .user-name {
+      display: none;
+    }
+    .stars-info {
+      font-size: rem(12);
+      color: $g400;
+      margin-bottom: rem(10);
+    }
+  }
+  .user-more-comment {
+    width: 100%;
+    height: rem(36);
+    line-height: rem(36);
+    background-color: #fff;
+    font-size: rem(12);
+    color: $g400;
+    text-align: center;
+    border-top: 1px solid $g200;
+  }
+}

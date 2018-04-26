@@ -1,0 +1,89 @@
+/**
+ * @file 加入跟谁学
+ * @author  jixiaohui
+ */
+.consult-dialog {
+
+    height: 580px;
+    overflow: auto;
+
+    .left-box {
+        float: left;
+        width: 380px;
+        margin-bottom: 20px;
+    }
+
+    .right-box {
+        width: 290px;
+        float: left;
+        margin-bottom: 20px;
+    }
+
+    .form-group {
+
+        width: 365px;
+        display: inline-block;
+
+        .form-label {
+            width: 100px;
+            text-align: right;
+        }
+        .remark,
+        .graduate-date {
+            text-align: left;
+        }
+
+        .dropdown .btn-default,
+        .form-text {
+            width: 250px;
+        }
+
+        #graduate_date {
+            width: 290px !important;
+        }
+
+        textarea {
+            width: 290px !important;
+            height: 150px;
+        }
+
+    }
+
+    .dialog-action {
+        position: relative;
+        top: -16px;
+    }
+
+    .btn-primary {
+        padding: 6px 70px;
+    }
+    .btn-upload {
+        position: relative;
+        margin-left: 10px;
+    }
+    .btn-upladbg {
+        border-color: #ccc;
+        color: #555;
+        .gradient-vertical(#fefefe, #f5f5f5);
+    }
+    .upfile {
+        opacity: 0;
+        filter: alpha(opacity=0);
+        cursor: pointer;
+        position: absolute;
+        left: 76px;
+        top: 0;
+        width: 204px;
+        height: 38px;
+        z-index: 2;
+    }
+    .up-tip {
+        text-align: left;
+        color: #888;
+        padding-top: 5px;
+    }
+    .file-tip {
+        padding-top: 10px;
+    }
+
+}

@@ -1,0 +1,78 @@
+{{ *
+
+@file 直播相关 - 声音相关
+@author shubaiqiao
+
+* }}
+
+{{ strip }}
+<div class="related">
+    <span>直播相关问题</span>
+        <a id="enter-classroom" href="/guide/teacher_layout?a=teacher&op=enter-classroom">进入教室</a>
+        <a href="/guide/teacher_layout?a=teacher&op=upload-material">上传课件</a>
+        <a href="/guide/teacher_layout?a=teacher&op=play-function">播放功能</a>
+
+        <a href="/guide/teacher_layout?a=teacher&op=phone-pad">手机/pad进入教室</a>
+
+        <a href="/guide/teacher_layout?a=teacher&op=camera-related">摄像头相关</a>
+        <a href="/guide/teacher_layout?a=teacher&op=board-conection">连接手写板</a>
+        <a href="/guide/teacher_layout?a=teacher&op=recording">本地录制及云端录制</a>
+        <a href="/guide/teacher_layout?a=teacher&op=etc">其他</a>
+</div>
+
+<div class="audio-related">
+    <h2>声音相关</h2>
+
+    <h3>1. 如何打开或关闭麦克风？</h3>
+    <p>点击“上课”<img class="little" src="{{ $static_origin }}/src/img/guide/teacher/audio-related-1.png" alt="上课"/>按钮会自动打开麦克风，如需关闭，点击左下角麦克风图标<img class="little" src="{{ $static_origin }}/src/img/guide/teacher/audio-related-2.png" alt="麦克风图标"/>即可关闭。</p>
+
+    <h3>2. 如何打开或关闭摄像头？</h3>
+    <p>在上课过程中，点击左下角摄像头图标<img class="little" src="{{ $static_origin }}/src/img/guide/teacher/audio-related-3.png" alt="打开摄像头"/>打开摄像头，点击<img class="little" src="{{ $static_origin }}/src/img/guide/teacher/audio-related-4.png" alt="关闭摄像头"/>关闭摄像头；</p>
+
+    <h3>3. 为什么所有学生都听不到我的声音？</h3>
+    <p>检查是否点击了“上课”按钮，看下耳机或麦克风有没有接错孔，是否和电脑接口一致，可以尝试点教室左下角麦克风图标右边的小三角<img class="little" src="{{ $static_origin }}/src/img/guide/teacher/audio-related-5.png" alt="切换麦克风"/>切换其他麦克风试试，重新插拔耳机或退出教室重进。检查系统默认麦克风是否有误。</p>
+    <img src="{{ $static_origin }}/src/img/guide/teacher/audio-related-6.png" alt="切换麦克风"/>
+
+    <h3>4. 听到自己的回声是怎么回事？</h3>
+    <p>1.回声的产生是因为正在发言的学生使用外放，扬声器把老师的声音播放出来后，又被学生的麦克风捕捉到，又传回到了老师这边导致的，让发言学生戴耳机即可。</p>
+    <p>2.关掉设置页面。</p>
+    <p>3.关掉声卡中的混响音效。</p>
+
+    <h3>5. 上课时听不到学生声音</h3>
+    <p>在“发言列表”中确认下学生是否在发言状态，需要学生举手发言才可以听到；检查自己的扬声器是否正常；如果学生用的是手机，需要让学生允许跟谁学app访问麦克风； </p>
+
+    <h3>6. 为什么我看不到学生的摄像头画面呢？</h3>
+    <p>首先学生要在发言状态，并在直播助手中打开了摄像头，老师需要点击“发言列表”才能看到学生画面。</p>
+    <img src="{{ $static_origin }}/src/img/guide/teacher/audio-related-7.png" alt="发言列表"/>
+
+    <h3>7. 学生怎么用语音发言？</h3>
+    <p>在上课状态下，上班课的学生先点击“举手”<img class="little" src="{{ $static_origin }}/src/img/guide/teacher/audio-related-8.png" alt="举手"/>，老师在“发言列表”中同意后，学生即可用语音发言；一对一课程，学生可以直接在电脑直播助手点左下角的麦克风或用手机学生客户端点“举手”按钮即可。</p>
+
+    <h3>8. 检测的时候扬声器没声音怎么办？</h3>
+    <p>看下直播助手和系统扬声器是否被静音了，也可以自己在电脑上播放一下音乐或视频，看有没有声音，如有插耳机、音响等看下连接是否有误，并检查设备上面的音量旋钮，调大音量，或点教室左下角扬声器图标右边的小三角，切换到其他扬声器设备，也可以检测下声卡驱动，建议更新到最新版驱动；更换扬声器设备；检查下系统默认设备是否选择有误。</p>
+    <img src="{{ $static_origin }}/src/img/guide/teacher/audio-related-9.png" alt="默认设备"/>
+
+    <h3>9. 麦克风有杂音或啸叫。</h3>
+    <p>首先确定用户周围有没有手机等电子设备干扰（移开电子设备）、是不是有多台设备同时进入教室（设备需远离，或者插上耳机）、环境因素，比如笔记本电脑的散热风扇的声音；把直播助手中的自动增益关掉，在系统中把麦克风增强控制在24db以内，不要超过这个值，因为大多数设备承受不住这么大的电流就会产生啸叫；更新声卡驱动。</p>
+    <img src="{{ $static_origin }}/src/img/guide/teacher/audio-related-10.png" alt="操作步骤"/>
+    <img src="{{ $static_origin }}/src/img/guide/teacher/audio-related-11.png" alt="自动增益"/>
+
+    <h3>10. 声音延迟问题。</h3>
+    <p>检查有没有占网速设备或软件；如果有一方或双方使用的是网页，可能会出现延迟，使用跟谁学软件上课即可；关闭VPN、代理。</p>
+</div>
+
+<div class="related">
+    <span>直播相关问题</span>
+        <a id="enter-classroom" href="/guide/teacher_layout?a=teacher&op=enter-classroom">进入教室</a>
+        <a href="/guide/teacher_layout?a=teacher&op=upload-material">上传课件</a>
+        <a href="/guide/teacher_layout?a=teacher&op=play-function">播放功能</a>
+
+        <a href="/guide/teacher_layout?a=teacher&op=phone-pad">手机/pad进入教室</a>
+
+        <a href="/guide/teacher_layout?a=teacher&op=camera-related">摄像头相关</a>
+        <a href="/guide/teacher_layout?a=teacher&op=board-conection">连接手写板</a>
+        <a href="/guide/teacher_layout?a=teacher&op=recording">本地录制及云端录制</a>
+        <a href="/guide/teacher_layout?a=teacher&op=etc">其他</a>
+</div>
+
+{{ /strip }}

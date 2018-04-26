@@ -1,0 +1,78 @@
+/**
+ * @file 我的学生 - 可领取优惠券列表页
+ * @author wangyujie
+ */
+
+@import '../common/center/common/layout.less';
+
+#content {
+
+    .coupon-hint {
+        font-size: 12px;
+        font-weight: normal;
+        color: @brand-text-lighter;
+        margin-bottom: @gap-vertical-medium;
+    }
+
+    .coupon-body {
+        .no-data {
+            .wrapper {
+                img {
+                    width: 90px;
+                }
+            }
+        }
+
+        .coupon-list {
+            tbody {
+                font-size: 12px;
+            }
+            tr {
+                border-bottom: 1px solid #eee;
+            }
+            .th-check {
+                width: 50px;
+            }
+            .th-balance {
+                width: 70px;
+            }
+            .th-time {
+                width: 200px;
+            }
+            .th-cond,
+            .th-recv {
+                width: 110px;
+            }
+
+            td {
+                vertical-align: middle;
+                padding: 16px;
+            }
+            .balance {
+                font-weight: bold;
+            }
+            .btn-link {
+                color: @brand-info;
+                font-size: 12px;
+            }
+        }
+
+        .pager-block {
+            text-align: right;
+        }
+
+        .action {
+            text-align: center;
+            margin: 3 * @gap-horizontal-medium auto;
+            button {
+                min-width: 85px;
+                margin-right: @gap-horizontal-medium;
+            }
+            a {
+                width: 85px;
+            }
+        }
+
+    }
+
+}

@@ -1,0 +1,5 @@
+[{
+    "tpl": "./img.tpl",
+    "router": "/img_pre",
+    "mock_data": ""
+}]

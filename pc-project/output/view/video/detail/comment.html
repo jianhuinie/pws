@@ -1,0 +1,52 @@
+{{ *
+
+@file 视频课详情页 - 课程评价
+@author wangyujie
+
+@ ajax模板路径
+'comment_overview' => 'video/detail/commentOverview',
+'comment_list' => 'video/detail/commentList',
+* }}
+
+{{ strip }}
+<div id="video-comment">
+
+    <h3>
+        <span>课程评价</span>
+    </h3>
+
+    <div class="write-comment-form form">
+
+        <div class="score">
+            <ul>
+                <li>
+                    评分  {{ include file="common/component/starScore.html" score=0 }}
+                </li>
+            </ul>
+        </div>
+
+        <div class="form-group">
+
+            <div class="form-editor">
+                <textarea name="info" type="text" class="form-text" required>
+                </textarea>
+                <span class="form-hint">
+                    可以输入<strong>500</strong>字
+                </span>
+            </div>
+            <span class="error"></span>
+        </div>
+
+        <div class="form-action">
+            {{ include file="common/component/checkBox.html" name="anonymous" value=1 text="匿名评价" }}
+            <button class="btn-primary btn-write-comment small">
+                发表
+            </button>
+        </div>
+    </div>
+
+    <div class="nav-content">
+    </div>
+
+</div>
+{{ /strip }}

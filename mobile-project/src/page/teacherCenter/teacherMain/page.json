@@ -1,0 +1,22 @@
+[
+    {
+        "tpl": "./teacherMain.tpl",
+        "router": "/teacherCenter/teacherMain",
+        "mock_data": "./mock/teacherMain.json"
+    },
+    {
+        "tpl": "./main/teacher-photo.tpl",
+        "router": "/teacherCenter/teacherPhoto",
+        "mock_data": "./mock/teacherMain.json"
+    },
+    {
+        "tpl": "./main/teacher-article.tpl",
+        "router": "/teacherCenter/teacherArticle",
+        "mock_data": "./mock/teacherMain.json"
+    },
+    {
+        "tpl": "./main/teacher-comment.tpl",
+        "router": "/teacherCenter/teacherComment",
+        "mock_data": "./mock/teacherMain.json"
+    }
+]

@@ -1,0 +1,121 @@
+{{ *
+@file 排行榜活动 第五季
+@author liucong
+ * }}
+
+{{ extends file="common/center/base.html" }}
+
+{{ block name="title" prepend }}
+我的排名 -
+{{ /block }}
+
+{{ block name="data" }}
+
+{{ $smarty.block.parent }}
+{{ $script_path = "teacherCenter/teacherRank" }}
+{{ $script_data.currentTime = $tpl_data.current_time }}
+{{ $script_data.expiredTime = $tpl_data.expired_time }}
+
+{{ $rank = [] }}
+{{ $rank.id = "rank" }}
+{{ $rank.header = "独立老师综合实力榜" }}
+{{ $rank.data = $tpl_data.teacher_rank }}
+{{ $rank.prompt = "打入老师账户的课酬,才能计入此排行榜。" }}
+
+{{ $activity_link = "/activity/teacherRank6" }}
+
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/teacherCenter/teacherRank6.less">
+{{ /block }}
+
+
+{{ block name="main" }}
+
+{{ strip }}
+
+{{ include file="teacher_center/common/sidebar.html" active="teacherRank" }}
+
+
+<div id="content" class="card">
+    <div class="card-header">
+        <h2>排行榜活动</h2>
+    </div>
+
+    <div class="container">
+        {{ if !$tpl_data.is_org }}
+
+        {{ if !isset($tpl_data.is_download_app) || $tpl_data.is_download_app }}
+        <div class="title">
+            <img class="avatar" src="{{ $static_origin }}/src/img/center/teacherRank/header-avatar.png">
+            <div>
+                <p class="highlight">
+                    老师您好，</br>您在独立名师综合实力榜中排名如下：
+                </p>
+                <p class="count-down">距离活动结束时间：<span></span></p>
+            </div>
+        </div>
+
+        <div class="rank">
+            <div class="wrapper {{ $rank.id }}">
+                <p class="header">
+                    <span>{{ $rank.header }}</span>
+                </p>
+                <div class="content">
+                    <div class="rank-info">
+                        您当前是<span class="text-primary">{{ if $rank.data.rank == 0 }}20名以后{{ else }}第{{ $rank.data.rank }}名{{ /if }}</span>，
+                        总经验值为<span class="text-primary">{{ $rank.data.exp_total }}</span></br>
+                        其中课酬经验值<span class="text-primary">{{ $rank.data.exp_lesson_pay }}</span>、
+                        学生数经验值<span class="text-primary">{{ $rank.data.exp_student_count }}</span>、</br>
+                        新学生数经验值<span class="text-primary">{{ $rank.data.exp_new_student }}</span>、
+                        在线课程经验值<span class="text-primary">{{ $rank.data.exp_online_lesson }}</span>、</br>
+                        评价经验值<span class="text-primary">{{ $rank.data.exp_comment }}</span>
+                    </div>
+                    <div class="msg">
+                        {{ $rank.data.msg }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{ else }}
+        <div class="app">
+            <div>
+                <img src="{{ $static_origin }}/src/img/center/teacherRank/app.png" alt="">
+            </div>
+            <div>
+                <h3>扫描下载老师版APP,登录后参与活动，</h3>
+                <h3>就有机会赢取排行榜现金大奖哦~</h3>
+            </div>
+        </div>
+        {{ /if }}
+        <div class="goto-activity">
+            <a href="{{ $activity_link }}" class="btn-primary">查看活动详情</a>
+        </div>
+
+        {{ if !empty($tpl_data.previous_rank_list) }}
+        <div class="previous">
+            <div class="header">
+                往期排名
+            </div>
+            <div class="msg">
+                {{ foreach $tpl_data.previous_rank_list as $previous_rank }}
+                    <p>{{ $previous_rank.phase }}：{{ $previous_rank.msg }}</p>
+                {{ /foreach }}
+            </div>
+        </div>
+        {{ /if }}
+
+        {{ else }}
+            <div class="org-tip">
+                <div class="wrapper">
+                提示 本季排行榜（6-7月）只针对独立老师</br>，请持续关注跟谁学的后续活动吧！一定会带给你惊喜哦～
+                </div>
+            </div>
+        {{ /if }}
+    </div>
+</div>
+
+{{ /strip }}
+
+{{ /block }}

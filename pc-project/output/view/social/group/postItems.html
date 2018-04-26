@@ -1,0 +1,94 @@
+{{ strip }}
+<ul class="post-items">
+    {{ foreach $data as $item }}
+    <li class="post-item" data-id="{{ $item.thread_id }}" data-user-id="{{ $item.user_id }}">
+        <div class="post-num-wrapper {{ if isset($item.is_new) && $item.is_new == '1' }}new-post{{ else if isset($item.is_good) && $item.is_good == '1' }}good-post{{ /if }}">
+            <div class="post-comment-num">
+                {{ if isset($item.is_new) && $item.is_new == '1' }}
+                     新贴
+                {{ else }}
+                    {{ if $item.posts == '0' }}
+                     评论
+                    {{ else }}
+                    {{ $item.posts }}
+                    {{ /if }}
+                {{ /if }}
+            </div>
+        </div>
+        <div class="post-content">
+            <div class="post-header">
+                <a class="ellipsis" href="{{ $item.link }}" target="_blank">
+                    {{ $item.name|escape:'html' }}
+                </a>
+                <span class="label-fine" {{ if isset($item.is_good) && $item.is_good == '1' }}style="display:inline-block;"{{ /if }}>
+                    精
+                </span>
+                <span class="label-top" {{ if isset($item.is_top) && $item.is_top == '1' }}style="display:inline-block;"{{ /if }}>
+                    置顶
+                </span>
+                {{ if $isAdmin == '1' }}
+                <span class="action-holder">
+                    管理<i class="icon icon-caret-down"></i>
+                    <div class="action-list-wrapper">
+                        <ul class="action-list">
+                            <li class="set-top" data-status="{{ if $item.is_top }}1{{ else }}0{{ /if }}">
+                                {{ if $item.is_top == '1' }}取消置顶{{ else }}置顶{{ /if }}
+                            </li>
+                            <li class="set-good" data-status="{{ if $item.is_good }}1{{ else }}0{{ /if }}">
+                                {{ if $item.is_good == '1' }}取消加精{{ else }}设为精华{{ /if }}
+                            </li>
+                            <li class="delete">
+                                删除
+                            </li>
+                            {{ if $item.is_baned == '0' }}
+                            <li class="set-ban">
+                                禁言
+                            </li>
+                            {{ else }}
+                            <li class="baned">已禁言</li>
+                            {{ /if }}
+                        </ul>
+                    </div>
+                </span>
+                {{ /if }}
+            </div>
+            <div class="post-abstract">
+                {{ if !empty($item.summary) }}
+                <div class="post-abstract-wrapper">
+                    <a class="post-abstract-intro ellipsis" href="{{ $item.link }}" target="_blank">
+                        {{ $item.summary|escape:'html' }}
+                    </a>
+                </div>
+                {{ /if }}
+                {{ if !empty($item.photo_list) }}
+                    <ul class="post-img-list">
+                        {{ foreach array_slice($item.photo_list, 0, 4) as $photo }}
+                        <li>
+                            <a href="{{ $item.link }}" target="_blank">
+                            {{ include file="common/component/image.html" url=$photo.img width=140 height=80 alt=$photo.name|default:'' }}
+                            </a>
+                        </li>
+                        {{ /foreach }}
+                    </ul>
+                {{ /if }}
+            </div>
+
+            <div class="post-info">
+                <a class="user-link" href="{{ $item.homepage }}" target="_blank" rel="nofollow">
+                    {{ $item.user_name|default:'' }}
+                </a>
+                <span>{{ $item.time_tip }}</span>
+                <span class="right">
+                    <i class="icon icon-thumbs-up"></i>
+                    {{ if $item.zans > 0 }}
+                    {{ $item.zans }}
+                    {{ else }}
+                        赞
+                    {{ /if }}
+                </span>
+            </div>
+        </div>
+    </li>
+    {{ /foreach }}
+</ul>
+{{ /strip }}

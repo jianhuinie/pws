@@ -1,0 +1,88 @@
+/**
+ * @file 班课详情页 - 机构
+ * @author zhujialu
+ */
+#course-org {
+    background-color: #FAFAFA;
+    padding: @gap-vertical-large @gap-horizontal-large;
+    @course-org-avatar-width: 60px;
+
+    .body {
+        margin-top: @gap-vertical-large;
+    }
+
+    .avatar, .info {
+        .inline-block();
+        vertical-align: top;
+    }
+
+    .avatar {
+        width: @course-org-avatar-width;
+        margin-right: 10px;
+
+        a, img, a:after {
+            border-radius: 0;
+        }
+
+    }
+
+    .info {
+        width: 226 - @course-org-avatar-width;
+        min-height: 95px;
+
+        h1 {
+            .text-overflow();
+            a {
+                color: #3d3d3d;
+                position: relative;
+                top: -3px;
+                font-size: @font-size-tiny;
+            }
+        }
+
+        .icon-vip-vip,
+        .icon-vip-gvip,
+        .icon-vip-cvip {
+            display: inline-block;
+            margin-left: 5px;
+            width: 19px;
+            height: 19px;
+        }
+
+        .icon-vip-vip {
+            background: url(../../../img/org/small-vip.png);
+        }
+        .icon-vip-gvip {
+            background: url(../../../img/org/small-gvip.png);
+        }
+        .icon-vip-cvip {
+            background: url(../../../img/org/small-cvip.png);
+        }
+
+        .chat-label {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .intro {
+            font-size: @font-size-tiny;
+            color: #3d3d3d;
+            position: relative;
+            top: 2px;
+        }
+
+        .score {
+            font-size: 12px;
+            color: #6e6e6e;
+            position: relative;
+            top: 2px;
+        }
+    }
+}
+
+#course-teacher.fixed {
+    position: fixed;
+    top: 0px;
+    z-index: 4;
+    width: 266px;
+}

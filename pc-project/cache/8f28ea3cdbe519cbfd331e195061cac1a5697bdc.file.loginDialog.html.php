@@ -1,0 +1,6 @@
+<?php /* Smarty version Smarty-3.1.19, created on 2016-06-25 14:29:15 compiled from "/Users/bjhl/workspace/web-fe/view/common/component/loginDialog.html" */ ?>
+<?php /*%%SmartyHeaderCode:936957663576e24bb254b20-17686544%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array ( 'file_dependency' => array ( '8f28ea3cdbe519cbfd331e195061cac1a5697bdc' => array ( 0 => '/Users/bjhl/workspace/web-fe/view/common/component/loginDialog.html', 1 => 1466835415, 2 => 'file', ), ), 'nocache_hash' => '936957663576e24bb254b20-17686544', 'function' => array ( ), 'has_nocache_code' => false, 'version' => 'Smarty-3.1.19', 'unifunc' => 'content_576e24bb257fc0_50042318',
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_576e24bb257fc0_50042318')) {function content_576e24bb257fc0_50042318($_smarty_tpl) {?><script type="text/template" id="login-dialog-form"><?php $_smarty_tpl->tpl_vars['login_type'] = new Smarty_variable('dialog', null, 0);?><?php echo $_smarty_tpl->getSubTemplate ("common/component/loginForm.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+<div class="bykefu-div"><div class="not-wanttologin">还不想登录？</div><div class="bykefu">立即联系客服</div></div></script><?php }} ?>

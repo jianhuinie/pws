@@ -1,0 +1,24 @@
+{{ strip }}
+<div class="group-nav">
+    <ul class="group-nav-list">
+        <li class="group-nav-item">
+            <a href="http://www.genshuixue.com">跟谁学</a>
+        </li>
+
+        <li class="group-nav-devider">&gt;</li>
+
+        <li class="group-nav-item">
+            <a href="/forum/index">社区首页</a>
+        </li>
+
+        {{ foreach $data as $nav }}
+
+        <li class="group-nav-devider">&gt;</li>
+
+        <li class="group-nav-item">
+            <a href="{{ $nav.link|default:'javascript:void(0);' }}">{{ $nav.name }}</a>
+        </li>
+        {{ /foreach }}
+    </ul>
+</div>
+{{ /strip }}

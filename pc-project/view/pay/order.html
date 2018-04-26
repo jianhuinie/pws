@@ -1,0 +1,309 @@
+{{ *
+
+@file 提交订单
+@author liucong
+
+* }}
+
+{{ extends file="common/main/base.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+    {{ $flotage_config.hidden = 1 }}
+
+    {{ $script_path = "pay/order" }}
+
+    {{ $student = $tpl_data.student_profile }}
+    {{ if !empty($tpl_data.product.teacher_profile) }}
+        {{ $teacher = $tpl_data.product.teacher_profile }}
+    {{ else }}
+        {{ $teacher = null }}
+    {{ /if }}
+
+    {{ $product = $tpl_data.product }}
+    {{ $coupon = $tpl_data.account.coupon }}
+
+    {{ $script_data.name = $student.name }}
+    {{ $script_data.mobile = $student.mobile }}
+
+    {{ ** 是否支持邮寄资料 ** }}
+    {{ $post_info = $tpl_data.material_post_info }}
+    {{ $script_data.support_materials_post = $post_info.support_materials_post }}
+
+    {{ $script_data.default_id = $post_info.post_address.id }}
+
+    {{ ** 选中的 provinceId cityId areaId  ** }}
+    {{ $post_info_address = $post_info.post_address }}
+    {{ $script_data.provinceId = $post_info_address.province_id }}
+    {{ $script_data.userCityId = $post_info_address.city_id }}
+    {{ $script_data.areaId = $post_info_address.area_id }}
+
+    {{ ** 默认的 详细地址 座机 手机号 收件人姓名  ** }}
+    {{ $location_addr = $post_info_address.location_addr }}
+    {{ $h_mobile = $post_info_address.telephone }}
+    {{ $re_mobile = $post_info_address.mobile }}
+    {{ $rev_name = $post_info_address.name }}
+
+    {{ $script_data.location_addr = $post_info_address.location_addr }}
+    {{ $script_data.re_mobile = $post_info_address.mobile }}
+    {{ $script_data.rev_name = $post_info_address.name }}
+
+    {{ $script_data.type = $product.course_type }}
+    {{ $script_data.periods = $tpl_data.fenqi_data.periods }}
+
+    {{ ** 1.一对一 2.班课 3.视频课 4.机构班课 5.试听课 1112.机构X课 ** }}
+    {{ $is_class_course = $product.course_type == 2 || $product.course_type == 4 }}
+    {{ $is_video_course = $product.course_type == 3 }}
+    {{ $is_trial_course = $product.course_type == 5 }}
+    {{ $is_x_course = $product.course_type == 11 || $product.course_type == 12 }}
+
+    {{ if $is_class_course || $is_video_course }}
+        {{ $script_data.courseNumber = $product.course_number }}
+        {{ $script_data.courseType = $product.course_type }}
+    {{ else }}
+        {{ $script_data.comboId = $product.combo_id }}
+        {{ $script_data.courseId = $product.course_id }}
+        {{ $script_data.hours = $product.hours }}
+        {{ $script_data.courseNumber = $product.course_number }}
+        {{ $script_data.courseType = $product.course_type }}
+    {{ /if }}
+
+    {{ if $is_x_course }}
+        {{ $script_data.orgNumber = $product.org_profile.number }}
+    {{ /if }}
+
+    {{ $script_data.isVideoCourse = $is_video_course }}
+    {{ $script_data.isClassCourse = $is_class_course }}
+    {{ $script_data.retireFlag = $tpl_data.product.retire_flag }}
+    {{ $script_data.hasPassword = $tpl_data.account.has_password }}
+
+    {{ if !empty($tpl_data.account.discount) }}
+        {{ $script_data.price = $tpl_data.account.discount[0].pre_price }}
+    {{ else }}
+        {{ $script_data.price = $tpl_data.product.pay_money }}
+    {{ /if }}
+
+    {{ $script_data.activityPrice = $tpl_data.account.discount[0].pre_price }}
+    {{ $script_data.couponPrice = $tpl_data.product.pay_money }}
+    {{ $script_data.singlePrice = $tpl_data.product.price }}
+
+    {{ if isset($product.original_money) && $product.original_money != 0 }}
+    {{ $script_data.originalMoney = $tpl_data.product.original_money }}
+    {{ /if }}
+    {{ $script_data.balance = $tpl_data.account.balance }}
+    {{ $script_data.prize = $tpl_data.account.valid_prize }}
+    {{ $script_data.prizeId = $tpl_data.account.prize_id }}
+
+    {{ if !empty($teacher) }}
+        {{ $script_data.teacherId = $teacher.id }}
+        {{ $script_data.teacherNumber = $teacher.number }}
+    {{ /if }}
+
+    {{ $script_data.lessonWay = $product.lesson_way }}
+    {{ $script_data.subjectId = $product.subject_id }}
+
+    {{ if !empty($tpl_data.account.coupon) && !empty($tpl_data.account.coupon.available) }}
+        {{ $script_data.useCoupon = 1 }}
+    {{ /if }}
+
+    {{ if !empty($tpl_data.account.discount) }}
+        {{ $script_data.marketActivity = $tpl_data.account.discount }}
+    {{ /if }}
+
+    {{ if $product.course_type == 1 }}
+        {{ $coursesection = $product.hours }}
+    {{ else if $product.course_type == 2 }}
+        {{ if $product.price == '0.00' }}
+            {{ $coursesection = 1 }}
+        {{ else }}
+            {{ $coursesection = $product.total_price/$product.price }}
+        {{ /if }}
+    {{ else if $product.course_type == 4 }}
+        {{ $coursesection = $product.freq }}
+    {{ else if $product.course_type == 5 }}
+        {{ $coursesection = 1 }}
+    {{ else if $product.course_type == 11 }}
+        {{ $coursesection = $product.hours }}
+    {{ else if $product.course_type == 12 }}
+        {{ if $product.price == '0.00' }}
+            {{ $coursesection = 1 }}
+        {{ else }}
+            {{ $coursesection = $product.total_price/$product.price }}
+        {{ /if }}
+    {{ /if }}
+    {{ $script_data.coursesection = $coursesection }}
+
+    {{ if isset($tpl_data.fenqi_data) && !empty($tpl_data.fenqi_data) }}
+        {{ $script_data.fenqi_flag = 1 }}
+    {{ else }}
+        {{ $script_data.fenqi_flag = 0 }}
+    {{ /if }}
+    {{ $script_data.choice_fenqi = $tpl_data.choice_fenqi }}
+    {{ $script_data.is_fenqi_whitelist = $tpl_data.is_fenqi_whitelist }}
+    {{ $script_data.is_preferred_business = $tpl_data.is_preferred_business }}
+
+{{ /block }}
+
+{{ * SKU统计上报 * }}
+{{ block name='sku_id' }}
+{{ $sku_id=$tpl_data.product.course_number }}
+{{ /block }}
+
+{{ block name="title" prepend }}
+提交订单 -
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/pay/order.less">
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+
+<div id="main" class="card">
+
+    {{ if !$is_video_course }}
+    <div class="section">
+
+        <div class="section-header">
+            联系方式
+        </div>
+        {{ if $is_trial_course }}
+            <div class="section-body">
+            {{ $tpl_data.student_profile.lesson_way = $tpl_data.product.lesson_way }}
+            {{ include file="./order/trialStudent.html" profile=$tpl_data.student_profile }}
+            </div>
+        {{ else }}
+            <div class="section-body">
+            {{ $tpl_data.student_profile.lesson_way = $tpl_data.product.lesson_way }}
+            {{ include file="./order/student.html" profile=$tpl_data.student_profile }}
+            </div>
+        {{ /if }}
+    </div>
+    {{ /if }}
+
+    <div class="section">
+    <!-- 在没有限时折扣的时候：单价是:price 合计:total_price 应付:pay_money
+    有限时折扣：取discount price pre_price -->
+        {{ if $is_video_course }}
+            {{ include file="./order/videoCourse.html" product=$product account=$tpl_data.account }}
+        {{ else if $is_trial_course }}
+            {{ include file='./order/trialCourse.html' product=$product account=$tpl_data.account }}
+        {{ else }}
+            {{ include file='./order/course.html' product=$product account=$tpl_data.account }}
+        {{ /if }}
+    </div>
+
+
+    <!-- 邮寄资料 -->
+    {{ if $tpl_data.material_post_info.support_materials_post }}
+    <div class="section">
+        <div class="section-body">
+        {{ include file='./order/mailInfo.html' }}
+        </div>
+    </div>
+    {{ /if }}
+
+
+    <div class="section">
+        {{ include file="./order/internalPay.html" order=$product account=$tpl_data.account }}
+    </div>
+
+    <div class="footer">
+        {{ if !$is_video_course && $tpl_data.show_plat_ensure }}
+            <div class="footer-ensure">
+                <div class="wrapper">
+                    {{ **3810不显示此模块** }}
+                    {{ if $product.course_type != 4 && $product.course_type != 11 && $product.course_type != 12 }}
+                        <div class="form-group text-right">
+                            {{ if $tpl_data.is_preferred_business }}
+                                {{ *include file="common/component/checkBox.html" text="平台支付保障" checked=true name="use_plat_ensure" value=1 disabled=true* }}
+                            {{ else }}
+                                {{ if $product.min_student > 1 }}
+                                    {{ include file="common/component/checkBox.html" text="平台支付保障" checked=true name="use_plat_ensure" value=1 }}
+                                    <div class="cbk-mask">
+
+                                    </div>
+                                {{ else }}
+                                    {{ include file="common/component/checkBox.html" text="平台支付保障" checked=true name="use_plat_ensure" value=1 }}
+                                {{ /if }}
+                            {{ /if }}
+                        </div>
+                    {{ else if $product.course_type == 11 || $product.course_type == 12 }}
+                        <div class="form-group text-right">
+                            {{ if $product.retire_flag != 100 }}
+                                {{ include file="common/component/checkBox.html" text="平台支付保障" checked=true name="use_plat_ensure" value=1 }}
+                            {{ /if }}
+                        </div>
+                    {{ /if }}
+
+                    {{ if !(($product.course_type == 11 || $product.course_type == 12) &&  $product.retire_flag == 100) }}
+                        <div class="form-hint">
+                            <span class="on">
+                            {{ **3810话术** }}
+                            {{ if $tpl_data.is_preferred_business }}
+                                 平台支付保障-放心购买，随时可退
+                            {{ elseif $product.course_type == 4 }}
+                                课酬将直接支付给机构，无法通过跟谁学平台申请退款
+                            {{ else }}
+                                {{ if !$is_class_course }}
+                                    平台支付保障-放心购买，随时可退
+                                {{ else }}
+                                    平台支付保障已开启
+                                {{ /if }}
+                            {{ /if }}
+                            <i class="icon icon-info-circle" data-width="20em" data-title="
+                            {{ **3810话术** }}
+                            {{ if $product.course_type == 4 }}
+                                机构已将该班课设置为即时收款，支付成功后课酬将直接支付给机构，无法通过跟谁学平台申请退款，如需退款请与机构线下协商。
+                            {{ else }}
+                                {{ if !$is_class_course }}
+                                    您支付的学费将由跟谁学平台予以保障，首次课不满意全额退款，其余课次可申请退剩余课酬。
+                                {{ else }}
+                                    您支付的学费将由跟谁学平台予以保障，在老师设置的可退区间可申请退剩余课酬。
+                                {{ /if }}
+                            {{ /if }}
+                            "></i></span>
+                            <span class="off">平台支付保障已关闭，学费将直接打给老师<i class="icon icon-info-circle" data-title="您关闭了平台支付保障，支付的学费将直接打给老师，无法通过跟谁学平台申请退款，如需退款请与老师协商。"></i></span>
+                        </div>
+                    {{ /if }}
+                </div>
+            </div>
+        {{ /if }}
+
+        {{ if $is_video_course }}
+        <div class="footer-watch">
+            <div class="watch"></div>
+            {{ if $product.expire_days >= 0 }}
+                <span>
+                    {{ $product.expire_days }}天随时看
+                </span>
+            {{ else }}
+                <span>
+                    随时看
+                </span>
+            {{ /if }}
+            <div class="refund-hint">
+                视频课购买后不支持退课
+            </div>
+        </div>
+        {{ /if }}
+
+        {{ if !empty($tpl_data.account.discount) && $tpl_data.account.discount[0].type == 1 }}
+        <span class="limitime-hint">
+            <i class="icon icon-clock-o"></i>
+            &nbsp;下单后请于10分钟内支付，避免订单自动取消哦！
+        </span>
+        {{ /if }}
+
+        <button id="btn-submit" class="btn btn-primary">
+            提交订单
+        </button>
+        <p class="text-error"></p>
+    </div>
+
+</div>
+
+{{ /strip }}
+{{ /block }}

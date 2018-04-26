@@ -1,0 +1,102 @@
+{{ *
+
+@file 教师钱包管理
+@author zhujialu
+
+* }}
+{{ extends file="common/center/cash.html" }}
+
+{{ block name="data" }}
+
+    {{ $nav_active_tab = 'index' }}
+
+    {{ $bind_page = "/teacher_center/bindCard" }}
+    {{ $withdraw_page = "/teacher_center/withdraw" }}
+    {{ $balance_text = "可提现余额" }}
+    {{ $history_text = "收支明细" }}
+
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/common/center/cash.less">
+{{ /block }}
+
+{{ block name="floatHelp" }}
+
+    {{ include file="teacher_center/common/floatHelp.html" }}
+
+{{ /block }}
+
+
+{{ block name="sidebar" }}
+
+    {{ include file="teacher_center/common/sidebar.html" active="cash" }}
+
+{{ /block }}
+
+{{ block name="cardheader" }}
+    {{ strip }}
+    <h2>钱包管理</h2>
+    <a href="/guide/teacher_layout?a=teacher&op=compensation" class="fund">
+        <span class="question">资金常见问题</span>
+        <i class="text-error icon-question-circle"></i>
+    </a>
+    {{ /strip }}
+{{ /block }}
+
+
+{{ block name="overview" }}
+
+<div class="teacher-cash">
+    <div class="account-balance">
+        <label for="">
+            余额：
+        </label>
+        <span class="money">
+            ￥{{ $tpl_data.account.balance|number_format:2 }}
+        </span>
+    </div>
+
+    <div class="expect-income">
+        <label>
+            预期收入:
+        </label>
+        <span class="money">
+            ￥{{ $tpl_data.account.expect_earning|number_format:2 }}
+        </span>
+    </div>
+    <div class="total-income">
+        <label>
+            累计收入:
+        </label>
+        <span class="money">
+            ￥{{ $tpl_data.account.income|number_format:2 }}
+        </span>
+    </div>
+
+    <div class="action">
+        <button id="btn-recharge" class="btn-primary">
+            充值
+        </button>
+        <button id="btn-withdraw" class="btn-info"
+        {{ if isset($tpl_data.owing_money) && $tpl_data.owing_money > 0 }} disabled
+        {{ /if }}
+        >
+            提现
+        </button>
+    </div>
+
+    {{ if isset($tpl_data.owing_money) && $tpl_data.owing_money > 0 }}
+    <div class="fine-detail">
+        <div class="text-error">
+            未缴罚款：￥{{ $tpl_data.owing_money|number_format:2 }}
+        </div>
+
+        <div class="text-muted">
+            {{ $tpl_data.fine_description }}
+        </div>
+    </div>
+    {{ /if }}
+</div>
+
+{{ /block }}

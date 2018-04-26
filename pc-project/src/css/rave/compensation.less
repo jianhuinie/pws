@@ -1,0 +1,186 @@
+/**
+ * @file 618活动主场页
+ * @author zengcheng
+ */
+@import '../main/base.less';
+@import './round.less';
+@import './courseItem.less';
+@import './org.less';
+@import './course.less';
+@import './coupondialog.less';
+
+
+//重置背景色
+body{
+    background: #fff;
+    #main{
+        width: 100%;
+        margin: 0 auto;
+        background: #fba531 url('http://img.gsxservice.com/0cms/d/file/content/2015/06/557ef3ab46748.jpg') no-repeat center 0;
+        background-color: #fba531;
+    }
+    .im-chat-window,
+    .im-toggle-bar{
+        z-index: 1000;
+    }
+}
+
+#main{
+    .rave_share_btn{
+        position: relative;
+        margin: 32px auto;
+        margin-bottom: 88px;
+        width: 320px;
+        height: 70px;
+        line-height: 70px;
+        font-size: 32px;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+        text-align: center;
+        .gradient-vertical(#ff545c, #df0203);
+        &:hover{
+            .gradient-vertical(#ff645f, #e31a07);
+        }
+        .baidu-share{
+            top: 70px;
+            left: 44px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            &:before,
+            &:after{
+                right: auto;
+                left: 109px;
+            }
+        }
+    }
+    .copyright{
+        margin-top: 20px;
+        height: 66px;
+        line-height: 66px;
+        text-align: center;
+        color: #fbbb31;
+        background: #ee4524;
+    }
+    .luck-banner{
+        margin-top: 15px;
+        img{
+            display: block;
+        }
+    }
+    .main-wrapper{
+        position: relative;
+        width: 1100px;
+        padding-top: 1px;
+        margin: 0 auto;
+        .back-main{
+            position: absolute;
+            top: 550px;
+            left: 880px;
+            color: #ffff41;
+        }
+        .anchor{
+            position: absolute;
+            width: 147px;
+            height: 147px;
+            z-index: 30;
+            &.excellent_course{
+                left: 620px;
+                top: 420px;
+                background: url('../../img/rave/excellent_course.png') no-repeat center;
+            }
+            &.get_coupon{
+                left: 470px;
+                top: 440px;
+                background: url('../../img/rave/get_coupon.png') no-repeat center;
+            }
+            &.crazy_discount{
+                left: 320px;
+                top: 460px;
+                background: url('../../img/rave/crazy_discount.png') no-repeat center;
+            }
+            &.sec_kill{
+                left: 400px;
+                top: 470px;
+                background: url('../../img/rave/sec_kill.png') no-repeat center;
+            }
+        }
+    }
+    .rave{
+        margin-top: 759px;
+    }
+    .sec-kill{
+        margin-top: 68px;
+    }
+    .org-rave{
+        margin-top: 45px;
+    }
+    .course-rave{
+        margin-top: 45px;
+    }
+    .rave_nav{
+        position: fixed;
+        top: 200px;
+        right: -10px;
+        z-index: 100;
+        .rave-nav-wrapper{
+            display: none;
+            width: 130px;
+            height: 365px;
+            .nav_bg{
+                position: absolute;
+                width: 100%;
+                z-index: 1;
+                img{
+                    display: block;
+                }
+            }
+            .nav_content{
+                position: absolute;
+                padding: 64px 20px 0;
+                width: 100%;
+                z-index: 10;
+                .rave_nav_title{
+                    text-align: center;
+                    font-size: 18px;
+                    color: #a02524;
+                    height: 1.5em;
+                    line-height: 1.5em;
+                }
+                .rave_nav_list{
+                    margin: 0 5px;
+                    .rave_nav_item{
+                        display: block;
+                        text-align: center;
+                        font-size: 16px;
+                        color: #fff;
+                        background: #ee4524;
+                        &.active,
+                        &:hover{
+                            color: #ee4524;
+                            background: #fff;
+                        }
+                    }
+                }
+                .rave_nav_luck{
+                    margin-top: 12px;
+                    text-align: center;
+                    img{
+                        display: block;
+                    }
+                }
+                .rave_nav_back_top{
+                    margin-top: 58px;
+                    text-align: center;
+                    color: #b20100;
+                    .icon{
+                        display: block;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}

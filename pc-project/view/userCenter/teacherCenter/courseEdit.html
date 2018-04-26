@@ -1,0 +1,53 @@
+{{ *
+    一对一课程设置
+    author：wangtianhua
+* }}
+
+{{ extends file="../common/base.html" }}
+
+{{ block name="data" }}
+    {{ $smarty.block.parent }}
+    {{ $need_baidu_map = true }}
+{{ /block }}
+
+{{ block name="title" prepend }}
+    一对一课程设置
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/userCenter/teacherCenter/courseEdit/courseEdit.styl">
+{{ /block }}
+
+{{ block name="script" }}
+<script>
+require(
+    [
+        'userCenter/teacherCenter/common/layout',
+        'userCenter/teacherCenter/courseEdit/courseEdit'
+    ],
+    function (layout, courseEdit) {
+
+        {{ $php_data = $tpl_data }}
+
+        {{ if isset($tpl_data.is_huike_teacher) }}
+            {{ $is_huike_teacher = $tpl_data.is_huike_teacher }}
+        {{ else }}
+            {{ $is_huike_teacher = 0 }}
+        {{ /if }}
+
+        layout.init({
+            topMenu: 'userCenter',
+            sideMenu: 'courseSettings',
+            isHuikeTeacher: {{ $is_huike_teacher }},
+            appendBreadcrumb: {
+                text: '一对一课程设置'
+            }
+        });
+
+        courseEdit.init(
+            {{ json_encode($php_data, 77) }}
+        );
+    }
+);
+</script>
+{{ /block }}

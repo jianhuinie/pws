@@ -1,0 +1,153 @@
+{{ *
+
+@file 新版老师详情页 - 视频相册 2015.5.12
+@author jixiaohui
+
+* }}
+
+{{ extends file="common/main/base.html" }}
+
+{{ block name="data" }}
+{{ strip }}
+    {{ $smarty.block.parent }}
+    {{ $script_path = "teacher/newPhotoVideo" }}
+    {{ $script_data.teacherId = $tpl_data.profile.user_id }}
+    {{ $script_data.teacherNum = $tpl_data.profile.user_number }}
+    {{ $script_data.usabletimeDesc = $tpl_data.profile.usabletime_desc }}
+    {{ $script_data.domain = $tpl_data.profile.domain }}
+    {{ $script_data.teacherName = $tpl_data.profile.name }}
+    {{ $script_data.isFavored = $tpl_data.is_favored }}
+    {{ $script_data.ispreview = $tpl_data.is_preview }}
+    {{ $script_data.audio = $tpl_data.profile.audio }}
+    {{ $script_data.audio_length = $tpl_data.profile.audio_length }}
+    {{ $script_data.lng = $tpl_data.profile.offline_poi.lng }}
+    {{ $script_data.lat = $tpl_data.profile.offline_poi.lat }}
+    {{ if !empty($tpl_data.profile.org_type) }}
+        {{ $script_data.org_type = $tpl_data.profile.org_type }}
+    {{ /if }}
+    {{ if !empty($tpl_data.profile.organization) }}
+        {{ $script_data.org_id = $tpl_data.profile.organization.id }}
+    {{ /if }}
+
+    {{ $nav_config.hidden = 1 }}
+    {{ $nav_config.active = '' }}
+
+    {{ $baidu_share_text = "#跟谁学# 分享一位老师给你哦~"|cat: $tpl_data.profile.name }}
+    {{ $baidu_share_text = $baidu_share_text|cat: "，"|cat: $tpl_data.profile.slogan|regex_replace:"/[\r\t\n]/":" " }}
+    {{ $baidu_share_text = $baidu_share_text|cat: "，还在等什么？找好老师，上跟谁学，快来开启寻师之旅吧！" }}
+
+    {{ $baidu_share_image = $static_origin|cat:"/asset/img/share.jpg" }}
+
+    {{ **顶部搜索去掉placeholder支持空query** }}
+    {{ $current_page = 'detail' }}
+    {{ $need_location_seo = true }}
+
+{{ /strip }}
+{{ /block }}
+
+{{ block name="title" }}
+    {{ $tpl_data.title }}
+{{ /block }}
+
+{{ block name="keywords" }}
+    {{ $tpl_data.keywords }}
+{{ /block }}
+
+{{ block name="description" }}
+    {{ $tpl_data.description }}
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/teacher/newPhotoVideo.less">
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+
+{{ include file="./newDetail/crumb.html" profile=$tpl_data.profile crumb=$tpl_data.crumb }}
+{{ include file="./common/banner.html" }}
+
+{{ **李杜老师特殊处理,329108828** }}
+{{ $hidden = true }}
+
+<div id="main" class="media-active">
+    {{ include "teacher/newDetail/profile.html" tpl_data=$tpl_data.profile is_favored=$tpl_data.is_favored active="photovideo" }}
+    <div id="teacher-content">
+        <div id="teacher-media">
+            <div id="media-list-box">
+                {{ if !empty($tpl_data.video_list) || !empty($tpl_data.photo_list) }}
+                {{ $counter = 1 }}
+                <ul id="media-list">
+                    {{ if count($tpl_data.video_list) > 0 }}
+                        {{ foreach $tpl_data.video_list as $val }}
+                            <li class="video {{ if $counter%5 == 0 }}last{{ /if }}" data-type="video" data-image="{{ $val.preface_url_prefix }}_160_120.jpg" data-video="{{ $val.video }}" data-name="{{ $val.name }}">
+                                <div class="portrait" data-video="{{ $val.video }}" data-name="{{ $val.name }}" data-vid="{{ $val@index+1 }}">
+                                    {{ if strpos($val.preface_url_prefix,"letvimg.com") !== false }}
+                                        {{ if strpos($val.preface_url,"noimg_h.jpg") === false }}
+                                            {{ $videoImgUrl = $val.preface_url_prefix|cat:"_160_120.jpg" }}
+                                        {{ else }}
+                                            {{ $videoImgUrl = $val.preface_url }}
+                                        {{ /if }}
+                                    {{ else }}
+                                        {{ include file="common/variable/photo.html" url=$val.preface_url width=180 height=134 raw_width=1 raw_height=1 }}
+                                        {{ $videoImgUrl = $photo }}
+                                    {{ /if }}
+                                    <img src="{{ $videoImgUrl }}" {{ if !empty($val.name) }}
+                                    alt="{{ $val.name }}"
+                                {{ else }}
+                                    alt="{{ $tpl_data.profile.name }}"
+                                {{ /if  }}>
+                                    <i class="icon icon-play-o"></i>
+                                    <div class="media-mask"></div>
+                                </div>
+                                {{ $final_name = $val.name|cn_truncate:11 }}
+                                <span class="caption"{{ if $final_name != $val.name }} data-title="{{ $val.name }}"{{ /if }}>{{ $final_name }}</span>
+                            </li>
+                            {{ $counter = $counter + 1 }}
+                        {{ /foreach }}
+                    {{ /if }}
+                    {{ if count($tpl_data.photo_list) > 0 }}
+                        {{ foreach $tpl_data.photo_list as $val }}
+                            <li class="photo  {{ if $counter%5 == 0 }}last{{ /if }}" data-type="photo" data-image="{{ $val.img }}" data-name="{{ $val.name }}">
+                                <div class="portrait" data-image="{{ $val.img }}" data-name="{{ $val.name }}">
+                                    {{ include file="common/variable/photo.html" url=$val.img raw_width=$val.width raw_height=$val.height width=180 height=134 }}
+                                    <img src="{{ $photo }}" {{ if !empty($val.name) }}
+                                    alt="{{ $val.name }}"
+                                {{ else }}
+                                    alt="{{ $tpl_data.profile.name }}"
+                                {{ /if  }}>
+                                    <div class="media-mask"></div>
+                                </div>
+                                {{ $final_name = $val.name|cn_truncate:11 }}
+                                <span class="caption"{{ if $final_name != $val.name }} data-title="{{ $val.name }}"{{ /if }}>{{ $final_name }}</span>
+                            </li>
+                            {{ $counter = $counter + 1 }}
+                        {{ /foreach }}
+                    {{ /if }}
+                </ul>
+                {{ include file="teacher/newDetail/pager.html" page=$tpl_data.pager.page page_size=$tpl_data.pager.page_size url='/'|cat:$tpl_data.profile.domain|cat:'/photoVideo' count=$tpl_data.pager.count }}
+                {{ /if }}
+            </div>
+
+            {{ if empty($tpl_data.video_list) && empty($tpl_data.photo_list) }}
+            <div class="no-media" style="height:340px;">
+                <div class="no-media-icon"></div>
+                <span>老师太懒了，还没有添加照片、视频！</span>
+            </div>
+            {{ /if }}
+        </div>
+        {{ include file="teacher/detail/orderForm.html" tpl_data=$tpl_data.teach.subject min_price=$tpl_data.teach.min_price hidden=$hidden can_order=$tpl_data.profile.can_order }}
+    </div>
+</div>
+{{ /strip }}
+{{ /block }}
+
+{{ block name="inner_link" }}
+{{ include file="common/innerlink/searchList.html" data=$tpl_data.pageInnerLinks mod="老师" inner_type="teacher" }}
+{{ /block }}
+
+{{ block name="script" }}
+{{ strip }}
+    {{ include file="common/component/loginDialog.html" onlyShowStudent=1 }}
+{{ /strip }}
+{{ /block }}

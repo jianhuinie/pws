@@ -1,0 +1,101 @@
+<form class="order-form-item" id="order-form">
+    <view class="order-container">
+        <view class="header">
+            <view class="title">{{item.title}}</view>
+            <view class="sub-title">{{item.sub_title}}</view>
+        </view>
+        <view class="body">
+            <view class="line name">
+                <input
+                        placeholder="请输入您的姓名"
+                        value="{{saveDataParams.user_name}}"
+                        maxlength="10"
+                        bindinput="bindNameInput"
+                    />
+            </view>
+            <view class="line subjects">
+                <view>
+                    <picker
+                        range="{{item.subjects}}"
+                        value="{{subject1Index}}"
+                        range-key="name"
+                        bindchange="bindSubject1Change"
+                    >
+                        <view class="picker {{subject1Index === -1 && 'placeholder'}}">
+                            {{subject1List[subject1Index].name || '请选择年级'}}
+                        </view>
+                    </picker>
+                </view>
+                <view>
+                    <picker
+                        range="{{subject2List}}"
+                        value="{{subject2Index}}"
+                        range-key="name"
+                        bindchange="bindSubject2Change"
+                        disabled="{{!subject2List.length}}"
+                    >
+                        <view class="picker {{subject2Index === -1 && 'placeholder'}}">
+                            {{subject2List[subject2Index].name || '请选择科目'}}
+                        </view>
+                    </picker>
+                </view>
+            </view>
+            <view class="line mobile">
+                <input
+                        placeholder="请输入您的手机号码"
+                        value="{{saveDataParams.mobile}}"
+                        maxlength="11"
+                        bindinput="bindMobileInput"
+                    />
+            </view>
+            <view class="line img-code" wx:if="{{isShowPicCaptcha}}">
+                <input
+                    placeholder="图片验证码"
+                    value="{{sendSMSParams.captcha}}"
+                    maxlength="4"
+                    bindinput="bindCaptchaKeyInput"
+                />
+                <view class="img" bindtap="showPicCaptcha">
+                    <image mode="widthFix" src="{{captchaUrl}}"></image>
+                </view>
+			</view>
+            <view class="line sms-code" wx:if="{{isShowSMSCode}}">
+                <input
+                        placeholder="输入短信验证码"
+                        value="{{saveDataParams.sms_code}}"
+                        maxlength="6"
+                        bindinput="bindSMSCodeInput"
+                    />
+                <view class="sms-code-txt {{isGetSMSCode ? 'timer' : ''}}" bindtap="bindSMSCodeTap">
+                    {{sendSMSCodeTip}}
+                </view>
+            </view>
+        </view>
+        <view class="footer">
+            <button
+                type="primary"
+                bindtap="bindSaveTap"
+                disabled="{{!saveDataParams.user_name || saveDataParams.mobile.length < 11 || !saveDataParams.course_name}}"
+            >
+                立即预约
+            </button>
+            <view class="consult">
+                <view class="phone" bindtap="bindGSXCallTap">
+                    <image mode="scaleToFill" src="https://imgs.genshuixue.com/0cms/d/file/content/2017/06/592fcb9293a43.png"></image>
+                    电话咨询
+                </view>
+                <view class="wechat">
+                    <button 
+                        open-type="contact"
+                        session-from="weapp"
+                        plain="true"
+                        bindtap="bindWechatTap"
+                    >
+                        <image mode="scaleToFill" src="https://imgs.genshuixue.com/0cms/d/file/content/2017/06/592fcb92daeb1.png"></image>
+                        微信咨询
+                    </button>
+                </view>
+            </view>
+        </view>
+    </view>
+</form>

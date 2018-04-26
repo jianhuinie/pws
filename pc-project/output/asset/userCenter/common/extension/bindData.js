@@ -1,0 +1,1 @@
+define("userCenter/common/extension/bindData",["require","exports","module"],function(){"use strict";return function(e,n){$.each(n,function(n,t){e.set(n,e.get(t));var i=[n,t];$.each(i,function(n,t){e.observe(t,function(n,o){if("undefined"!=typeof o){var u={};$.each(i,function(e,i){if(i!==t)u[i]=n}),e.set(u)}})})})}});

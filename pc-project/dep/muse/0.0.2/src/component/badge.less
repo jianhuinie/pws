@@ -1,0 +1,34 @@
+/**
+ * @file 徽章
+ * @author zhujl
+ */
+
+.badge {
+    color: #FFF;
+    display: inline-block;
+    font-size: @font-size-tiny;
+    line-height: 1;
+    padding: 3px 5px;
+    border-radius: 9px;
+    text-align: center;
+
+    &:empty {
+        display: none;
+    }
+}
+
+.badge-primary {
+    background-color: @brand-primary;
+}
+
+.badge-info {
+    background-color: @brand-info;
+}
+
+.badge-success {
+    background-color: @brand-success;
+}
+
+.badge-error {
+    background-color: @brand-error;
+}

@@ -1,0 +1,213 @@
+{{ extends file="common/center/baseNew.html" }}
+
+{{ block name="data" }}
+
+    {{ $need_im = false }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $script_path = "teacherCenter/classCourse/add" }}
+    {{ $script_data.detailInfo = $tpl_data.detail_info }}
+    {{ $script_data.basicInfo = $tpl_data.basic_info }}
+    {{ $script_data.isOrganization = $tpl_data.is_organization }}
+    {{ $script_data.totalPay = $tpl_data.total_pay }}
+    {{ $script_data.schedules = $tpl_data.schedule_info.schedules }}
+    {{ $script_data.templates_m = $tpl_data.templates_m }}
+    {{ $script_data.template_m = $tpl_data.template_m }}
+    {{ $script_data.templates = $tpl_data.templates }}
+    {{ $script_data.template_pc = $tpl_data.template_pc }}
+    {{ $script_data.is_userlimit = $tpl_data.is_userlimit }}
+
+    {{ if isset($tpl_data.course_name_words) }}
+        {{ $script_data.courseNameWords = $tpl_data.course_name_words }}
+    {{ else }}
+        {{ $script_data.courseNameWords = 20 }}
+    {{ /if }}
+
+    {{ if $tpl_data.is_organization }}
+        {{ $script_data.teacherList = $tpl_data.organization_teacher_list }}
+        {{ $script_data.organization = $tpl_data.organization }}
+    {{ /if }}
+    {{ if isset($tpl_data.basic_info.number) }}
+        {{ $script_data.courseNumber = $tpl_data.basic_info.number }}
+    {{ /if }}
+    {{ $script_data.teacherInfo = $tpl_data.teacher_info }}
+
+    {{ $has_audited = false }}
+    {{ if isset($tpl_data.basic_info.verify_status) && $tpl_data.basic_info.verify_status == 1 }}
+        {{ $has_audited = true }}
+        {{ $script_data.verifyStatus = true }}
+    {{ /if }}
+    {{ $script_data.vip_level = $user_data.vip_level }}
+{{ /block }}
+
+{{ block name="title" prepend }}
+班课设置 -
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/teacherCenter/classCourse/add.less" />
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+    <div class="class-course-header">
+        <a href="javascript:void(0);" class="back-class-list">< 返回班课列表</a>
+        <div class="class-course-tip">
+
+            <img src="{{ $static_origin }}/src/img/teacher-center/classCourse/course-publish.png" />
+            <div class="class-course-text">班课发布</div>
+            {{ if $tpl_data.basic_info.verify_status != 2 }}
+            <div class="class-course-notice">
+                <span class="icon icon-info-circle"></span>
+                {{ if $has_audited }}
+                    {{ if $tpl_data.total_pay == 0 }}
+                        提醒：修改班课照片、详情需要重新审核；修改班课时间、地点会通知学生，请谨慎修改
+                    {{ else }}
+                        提醒：该班课已经有学生报名，只能修改部分信息。修改时间、地点系统会自动通知所有学生，请谨慎操作
+                    {{ /if }}
+                {{ else }}
+                    提醒：必填信息都填写完毕才能发布班课，您也可以暂时保存、后续完善后发布
+                {{ /if }}
+            </div>
+            {{ /if }}
+            {{ if $tpl_data.basic_info.verify_status == 2 }}
+            <div class="class-course-reject">
+                <span class="icon icon-info-circle"></span>
+                提醒：班课审核被拒，请修改后再提交审核！
+                <span class="reject-reason">查看详情</span>
+            </div>
+            {{ /if }}
+        </div>
+    </div>
+    <div class="class-course-line">
+        <div>
+            <div class="float-left">
+                <i class="icon icon-edit-o"></i>
+                填写班课信息
+            </div>
+            {{ if isset($tpl_data.basic_info.number) }}
+                <div class="float-right">
+                    班课编号：{{ $tpl_data.basic_info.number }}
+                </div>
+            {{ /if }}
+        </div>
+    </div>
+    <div class="class-course-body">
+        <div class="module-nav">
+            {{ include file="./add/moduleNav.html" }}
+        </div>
+
+        <div class="class-course-content">
+            <div data-module-path="teacherCenter/classCourse/add/basicInfo" id="class-course-basic">
+                {{ include file="./add/basicInfo.html" basicInfo=$tpl_data.basic_info }}
+            </div>
+
+            <div data-module-path="teacherCenter/classCourse/add/schedue" id="class-course-schedue">
+                {{ include file="./add/schedue.html" scheduleInfo=$tpl_data.schedule_info }}
+            </div>
+
+            <div data-module-path="teacherCenter/classCourse/add/photo" id="class-course-photo">
+                {{ include file="./add/photo.html" photoInfo=$tpl_data.photo_info }}
+            </div>
+
+            <div data-module-path="teacherCenter/classCourse/add/detailInfo" id="class-course-detail">
+                {{ include file="./add/detailInfo.html" detailInfo=$tpl_data.detail_info }}
+            </div>
+
+            <div data-module-path="teacherCenter/classCourse/add/quit" id="class-course-quit">
+                {{ include file="./add/quit.html" quitInfo=$tpl_data.quit_info fromShizi=$tpl_data.shizi_login }}
+            </div>
+
+            <div data-module-path="teacherCenter/classCourse/add/template" id="class-course-template" >
+                <div class="module-content-header">
+                    模版选择
+                    <a name="exit"></a>
+                    <span class="message">
+                        选择您班课的模板，建议使用chrome浏览器浏览手机端动态效果
+                    </span>
+                </div>
+
+                <div class="module-content-form">
+                    <div class="tab-nav tab-nav-primary">
+                        <a class="nav-item active" data-template="templates_pc">网页模板</a>
+                        <a class="nav-item" data-template="templates_m">手机模板</a>
+                    </div>
+                    <ul class="templates templates_m">
+                        {{ foreach $tpl_data.templates_m as $item }}
+                            <li class="template">
+                                <div class="image">
+                                    <div class="mode {{ if $item.template == $tpl_data.template_m }} active {{ /if }}" data-template="{{ $item.template }}" data-vip="{{ $item.level }}" data-floor='{{ $item@index }}'>
+                                        {{ include file="common/component/image.html" url=$item.image width=200 height=125 alt="模板" }}
+                                    </div>
+                                    <div class="title">
+                                        {{ $item.display_name }}
+                                    </div>
+                                </div>
+                            </li>
+                        {{ /foreach }}
+                    </ul>
+                    <ul class="templates templates_pc">
+                        {{ foreach $tpl_data.templates as $item }}
+                            <li class="template">
+                                <div class="image">
+                                    <div class="mode {{ $tpl_data.template_pc }} {{ if $item.template == $tpl_data.template_pc }} active {{ /if }}" data-template="{{ $item.template }}" data-vip="{{ $item.level }}">
+                                        {{ include file="common/component/image.html" url=$item.image width=200 height=125 alt="模板" }}
+                                    </div>
+                                    <div class="title">
+                                        {{ $item.display_name }}
+                                    </div>
+                                </div>
+                            </li>
+                        {{ /foreach }}
+                    </ul>
+                </div>
+                <div class="preview-mask"></div>
+                <div class="preview-phone">
+                    <div class="view">
+                        <div class="view-content">
+                            <div class="html-box">
+                                <iframe scrolling="auto" src="{{ $tpl_data.templates_m[0].preview_url }}" id='m-preview'></iframe>
+                            </div>
+                            <div class="pic-box">
+                                <img src="{{ $tpl_data.templates_m[0].preview_image }}" alt="模板" class="tem-pic" />
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <div class="prev-temp">
+                            上一个模板
+                        </div>
+
+
+                        <div class="next-temp">
+                            下一个模板
+                        </div>
+
+                        <div class="exit-preview">
+                            退出预览
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="class-actions">
+               <!--  <button class="btn btn-default preview-action">
+                    <i class="icon icon-eye"></i>
+                    预览网页版
+                </button> -->
+                {{ if !$has_audited }}
+                    <button class="btn btn-default keep-action">
+                        保存草稿
+                    </button>
+                {{ /if }}
+                <button class="btn btn-info publish-action">
+                    发布班课
+                </button>
+            </div>
+        </div>
+    </div>
+
+{{ /strip }}
+{{ /block }}

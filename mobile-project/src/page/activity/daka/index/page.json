@@ -1,0 +1,7 @@
+[
+    {
+        "tpl": "./index.tpl",
+        "router": "/daka",
+        "mock_data": "./mock/index.json"
+    }
+]

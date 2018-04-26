@@ -1,0 +1,7 @@
+[
+    {
+        "tpl": "./index.tpl",
+        "router": "/staging/detail",
+        "mock_data": "./mock/index.json"
+    }
+]

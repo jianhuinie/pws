@@ -1,0 +1,91 @@
+{{ extends file="common/base.html" }}
+
+{{ block name="title" }}
+优惠券领取
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/org/coupon_31e5bb1afe.css">
+{{ /block }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $script_data['serial_num'] = $tpl_data.serial_num }}
+    {{ $script_data['source_user_role'] = $tpl_data.source_user_role }}
+
+    {{ if $smarty.get.ch }}
+        {{ $script_data['ch'] = $smarty.get.ch }}
+    {{ else }}
+        {{ $script_data['ch'] = '' }}
+    {{ /if }}
+
+    {{ $script_path = "org/coupon_fb418bade1" }}
+
+    {{ $img = '<img src="/asset/img/activity/center/sendmoney/blog-banner_10bd680f95.jpg" />' }}
+    {{ $parts = explode('"', $img) }}
+    {{ $urlshare = $parts[1] }}
+
+    {{ $baidu_share_image =  $static_origin|cat: $urlshare }}
+
+{{ /block }}
+
+
+{{ block name="body" }}
+{{ strip }}
+
+{{ include file="common/siteNav.html" }}
+
+<div id="main">
+    <div class="coupon-content">
+
+        <div class="get-confirm">
+
+            <img src="{{ $static_origin }}/asset/img/center/getCoupon_7ee462349c.jpg" alt="领取优惠券" />
+            <h3 class="coupon-title">
+                <span class="company">
+                    {{ $tpl_data.org_name }}
+                </span>
+                <span class="coupon-value">
+                    {{ $tpl_data.total_money|string_format:"%d" }}元优惠券
+                </span>
+            </h3>
+
+            <p>
+                {{ if $tpl_data.cond_course_type == 2 }}
+                    购买［{{ $tpl_data.cond_class[0].name|cn_truncate: 10 }}］等课程可用
+                {{ else if $tpl_data.cond_course_type == 3 }}
+                    购买［{{ $tpl_data.cond_video[0].name|cn_truncate: 10 }}］等课程可用
+                {{ else }}
+                    {{ if $tpl_data.cond_threshold != null && $tpl_data.cond_threshold != -1 && $tpl_data.cond_threshold != 0 }}
+                        单笔满{{ $tpl_data.cond_threshold }}可用，
+                    {{ /if }}
+                    仅可购买{{ $tpl_data.org_name }}的课程
+                {{ /if }}
+            </p>
+
+            <p>
+                有效期：
+                <span class="coupon-expiry">
+                    {{ $tpl_data.effect_time|date_format:"%Y/%m/%d" }} -{{ $tpl_data.expire_time|date_format:"%Y/%m/%d" }}
+                </span>
+            </p>
+
+            <div class="button-box">
+                <button class="btn-small btn-primary btn-receive" data-haslogin="{{ isset($user_data.user_name) }}">
+                    确认领取
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+{{ include file="common/component/loginDialog.html" onlyShowStudent=1 }}
+{{ include file="common/footer.html" }}
+{{ include file="common/script.html" }}
+
+{{ /strip }}
+{{ /block }}

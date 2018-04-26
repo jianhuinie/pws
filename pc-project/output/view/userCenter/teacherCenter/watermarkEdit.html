@@ -1,0 +1,52 @@
+{{ *
+    视频课水印
+    author：wangtianhua
+* }}
+
+{{ extends file="../common/base.html" }}
+
+{{ block name="data" }}
+    {{ $smarty.block.parent }}
+    {{ $need_baidu_map = true }}
+{{ /block }}
+
+{{ block name="title" prepend }}
+    视频课水印
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/userCenter/teacherCenter/watermarkEdit/watermarkEdit_e63626b7a8.css">
+{{ /block }}
+
+{{ block name="script" }}
+<script>
+require(
+    [
+        'userCenter/teacherCenter/common/layout_fca6630c9a',
+        'userCenter/teacherCenter/watermarkEdit/watermarkEdit_da5fcf3678'
+    ],
+    function (layout, watermarkEdit) {
+        {{ $php_data = $tpl_data }}
+
+        {{ if isset($tpl_data.is_huike_teacher) }}
+            {{ $is_huike_teacher = $tpl_data.is_huike_teacher }}
+        {{ else }}
+            {{ $is_huike_teacher = 0 }}
+        {{ /if }}
+
+        layout.init({
+            topMenu: 'userCenter',
+            sideMenu: 'courseSettings',
+            isHuikeTeacher: {{ $is_huike_teacher }},
+            appendBreadcrumb: {
+                text: '视频课水印'
+            }
+        });
+
+        watermarkEdit.init(
+            {{ json_encode($php_data, 77) }}
+        );
+    }
+);
+</script>
+{{ /block }}

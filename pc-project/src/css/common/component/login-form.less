@@ -1,0 +1,329 @@
+@import "mobileInput.less";
+
+
+/** 2014.09版的登录，学生和老师分开登录，一手机号可以注册两个身份 **/
+.hidden {
+    display: none;
+}
+
+.login-form {
+
+    &[data-login="password"] {
+        .form-password {
+            display: block;
+        }
+        .form-sms,
+        .form-captcha,
+        .form-wechat {
+            display: none;
+        }
+        .btn-link[data-way="password"] {
+            color: @brand-primary;
+        }
+    }
+    &[data-login="wechat"] {
+        #login-mobile,
+        .form-captcha,
+        .form-password,
+        .form-sms,
+        .remember-me,
+        .form-action {
+            display: none;
+        }
+        .form-wechat {
+            display: block;
+        }
+        .btn-link[data-way="wechat"] {
+            color: @brand-primary;
+        }
+    }
+    &[data-login="sms"] {
+        .form-password,
+        .form-captcha,
+        .form-wechat {
+            display: none;
+        }
+        .form-sms,
+        .sms-prompt {
+            display: block;
+        }
+        .btn-link[data-way="sms"] {
+            color: @brand-primary;
+        }
+    }
+
+    .login-way-switch {
+
+        margin-bottom: 10px;
+
+        & > .small {
+            border: none;
+        }
+
+        .icon {
+            margin-right: 2px;
+            vertical-align: text-top;
+        }
+        .icon-wechat-o,
+        .icon-mobile-o {
+            font-size: 1.2em;
+        }
+    }
+
+    .placeholder-wrapper {
+        display: block;
+    }
+    .form-sms {
+        .placeholder-wrapper {
+            .inline-block();
+        }
+    }
+    .form-text {
+        width: 100%;
+        padding-left: 24px;
+    }
+
+    .form-body {
+        padding: 0px 30px;
+    }
+
+    .form-wechat {
+        text-align: center;
+        .user-select(none);
+
+        .help,
+        .scan {
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+    }
+    #wechat-login {
+        padding-top: 21px;
+    }
+    .wechat-help {
+        background: url(../../../img/static/wechat-scan.jpg) no-repeat 50%;
+        display: none;
+        height: 186px;
+    }
+
+    .form-controls {
+        .icon-mobile,
+        .icon-lock {
+            position: absolute;
+            left: 6px;
+            top: 16px;
+        }
+    }
+
+    .form-radios {
+
+        width: 100%;
+
+        label {
+            .inline-block();
+            width: 50%;
+            text-align: center;
+            padding: 11px 0;
+            cursor: pointer;
+            background: @brand-gray-lighter;
+            border: 1px solid @brand-gray-light;
+            border-top: 0;
+            font-size: @font-size-medium;
+
+            &.active {
+                border: 0;
+                background: #fff;
+                cursor: text;
+                color: @brand-primary;
+            }
+        }
+
+        input[type="radio"] {
+            display: none;
+        }
+    }
+
+
+    .form-password,
+    .form-sms,
+    .form-action {
+        margin-top: 5px;
+    }
+
+    .form-auxlinks {
+        margin-top: @gap-vertical-medium;
+        text-align: right;
+        .clearfix();
+
+        i {
+            margin: @gap-horizontal-tiny;
+            position: relative;
+            bottom: 1px;
+        }
+
+        font-size: 0.8em;
+        color: @brand-gray;
+
+        .form-signup {
+            color: @brand-primary;
+            cursor: pointer;
+        }
+
+        .form-feedback {
+            color: @brand-gray;
+        }
+        .form-switch-international {
+            margin-top: @gap-vertical-medium;
+            color: @brand-text;
+
+            b {
+                cursor: pointer;
+                &:hover {
+                    color: @brand-primary;
+                }
+            }
+        }
+    }
+
+    .form-forget {
+        float: left;
+        color: @brand-primary;
+        cursor: pointer;
+    }
+
+    .form-block.captcha {
+        img {
+            width: 54px;
+            height: 22px;
+        }
+        input {
+            width: 182px;
+        }
+        .input-group-addon {
+            background-color: #fff;
+            line-height: 0;
+        }
+        .form-hint {
+            text-align: right;
+            span {
+                color: @brand-info;
+            }
+        }
+    }
+
+    .form-sms {
+
+        .form-text {
+            width: 138px;
+            padding-left: @gap-horizontal-small;
+        }
+
+        .btn-info {
+            width: 155px;
+            height: 38px;
+            margin-left: @gap-horizontal-large;
+        }
+
+        .placeholder {
+            padding-left: @gap-horizontal-small;
+        }
+
+    }
+    .sms {
+        padding-left: 7px;
+    }
+
+    .btn-link {
+        &,
+        &:hover {
+            border: none;
+        }
+    }
+
+    .sms-prompt {
+        display: none;
+        text-align: center;
+        .icon {
+            margin-right: 10px;
+        }
+    }
+    .mobile-input {
+        .enable-international {
+            input[name="mobile"] {
+                width: 268px;
+            }
+        }
+    }
+
+    .voice-code-link {
+
+        .btn-link {
+            font-size: @font-size-tiny;
+            color: @brand-info;
+            &:hover {
+                color: @brand-primary;
+            }
+        }
+        span {
+            padding-top: 0;
+        }
+    }
+
+    .login-way {
+
+        color: #666;
+
+        b {
+            cursor: pointer;
+            margin-left: 16px;
+
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+    }
+    .sns-login {
+        border-top: 1px solid #e9e9e9;
+        margin-top: @gap-vertical-medium;
+        padding-top: 2 * @gap-vertical-medium;
+        text-align: center;
+
+        h5 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .icon {
+            margin-left: 14px;
+            font-size: 1.5em;
+            cursor: pointer;
+
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+        .icon-wechat-circle {
+            color: #54b207;
+        }
+        .icon-qq-circle {
+            color: #009ed8;
+        }
+        .icon-alipay-circle {
+            color: #ee6a18;
+        }
+        .icon-weibo-circle {
+            color: #d45451;
+        }
+        .icon-renren-circle {
+            color: #2276a2;
+        }
+        .icon-baidu-circle {
+            color: #2524e5;
+        }
+
+    }
+
+}
+
+/******** 2014.09的登录样式结束 ****/

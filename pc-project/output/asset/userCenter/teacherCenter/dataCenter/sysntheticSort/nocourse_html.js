@@ -1,0 +1,1 @@
+define("userCenter/teacherCenter/dataCenter/sysntheticSort/nocourse_html", [], function () { return '<div id="content" class="card"><div id="content-header"></div><div class="no-course">暂无排名信息</div></div>'});

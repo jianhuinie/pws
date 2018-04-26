@@ -1,0 +1,130 @@
+{{ *
+
+@file 评价详情
+@author zhujialu
+
+* }}
+{{ strip }}
+
+{{ $is_teacher = $identity == 'teacher' }}
+{{ $to_teacher = false }}
+
+{{ function getAuthor author=null }}
+
+<h4>
+{{ if $is_teacher }}
+    {{ if $author == 'teacher' }}
+        我给学生的评价
+    {{ else }}
+        学生给我的评价
+    {{ /if }}
+{{ else }}
+    {{ if $author == 'teacher' }}
+        老师给我的评价
+    {{ else }}
+        我给老师的评价
+    {{ /if }}
+{{ /if }}
+</h4>
+
+{{ /function }}
+
+{{ function getCommentItem comment=null to_teacher=null }}
+
+    <div class="comment-item">
+
+        <div class="header">
+            {{ $teacher_user_name = "" }}
+            {{ if isset($comment.teacher_user_name) }}
+                {{ $teacher_user_name = $comment.teacher_user_name }}
+            {{ /if }}
+            {{ if $is_class_course && $teacher_user_name }}
+
+            <span class="teacher">
+            老师：{{ $teacher_user_name }}
+            </span>
+
+            {{ /if }}
+
+            <span>
+                总体评分：
+                {{ include file="common/component/starScore.html" score=$comment.total_score }}
+            </span>
+
+            <span class="create-time">
+                {{ $create_time = "" }}
+                {{ if isset($comment.create_time) }}
+                    {{ $create_time = $comment.create_time }}
+                {{ /if }}
+                {{ $create_time|date_format: '%Y-%m-%d %H:%M' }}
+            </span>
+
+            <span>
+                {{ $display_title = "" }}
+                {{ if isset($comment.display_title) }}
+                    {{ $display_title = $comment.display_title }}
+                {{ /if }}
+                {{ $display_title }}
+            </span>
+        </div>
+
+        <div class="text">
+            {{ if $comment.info }}
+                {{ $comment.info|escape }}
+            {{ else }}
+                未做出评价，系统默认评价！（默认评价）
+            {{ /if }}
+        </div>
+
+    </div>
+
+{{ /function }}
+
+
+{{ $student_comment_count = count($student_comment) }}
+{{ $teacher_comment_count = count($teacher_comment) }}
+
+{{ if $student_comment_count > 0 || $teacher_comment_count > 0 }}
+<div class="comment">
+
+    <h2>
+        <i class="icon icon-circle"></i>
+        评价信息
+    </h2>
+
+    <div class="content">
+
+    {{ if $student_comment_count > 0 }}
+
+        {{ getAuthor author="teacher" }}
+
+        {{ $to_teacher = false }}
+
+        {{ foreach $student_comment as $item }}
+            {{ getCommentItem comment=$item to_teacher=$to_teacher }}
+        {{ /foreach }}
+    {{ /if }}
+
+    </div>
+
+    <div class="content">
+
+    {{ if $teacher_comment_count > 0 }}
+
+        {{ getAuthor author="student" }}
+
+        {{ $to_teacher = true }}
+
+        {{ foreach $teacher_comment as $item }}
+            {{ getCommentItem comment=$item to_teacher=$to_teacher }}
+        {{ /foreach }}
+
+    {{ /if }}
+
+    </div>
+
+
+</div>
+{{ /if }}
+
+{{ /strip }}

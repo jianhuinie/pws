@@ -1,0 +1,7 @@
+[
+    {
+        "tpl": "./index.tpl",
+        "router": "/sign/arr",
+        "mock_data": "./mock/index.json"
+    }
+]

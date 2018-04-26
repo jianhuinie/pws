@@ -1,0 +1,266 @@
+{{ *
+
+@file 钱包管理 - 历史记录
+@author caoying
+
+* }}
+{{ block name="data" }}
+
+    {{ if $tpl_data.history_list_tpl.userType == 2 }}
+        {{ $identity = "student" }}
+    {{ else }}
+        {{ $identity = "teacher" }}
+    {{ /if }}
+
+    {{ $origin_http = $smarty.server.SERVER_NAME|replace:"https://":"http://" }}
+
+{{ /block }}
+
+{{ if count($tpl_data.history_list_tpl.history) === 0 }}
+<div class="no-data">
+    <div class="wrapper">
+        <i class="icon icon-info-circle"></i>
+        还没有交易记录
+    </div>
+</div>
+
+{{ else }}
+
+<table class="table history">
+    <thead>
+        <tr>
+            <th width="20%" class="left">时间</th>
+            <th width="45%" class="left">备注</th>
+            <th width="16%" class="left">类型</th>
+            <th width="19%" class="right">金额</th>
+        </tr>
+    </thead>
+
+    <tbody>
+    {{ if $identity === 'teacher' }}
+
+        {{ include file="common/variable/teacher-optype.html" scope="parent" }}
+        {{ $optype_map_old = $teacher_optype }}
+
+    {{ else }}
+
+        {{ include file="common/variable/student-optype.html" scope="parent" }}
+        {{ $optype_map_old = $student_optype }}
+
+    {{ /if }}
+
+    {{ include file="common/variable/optype.html" scope="parent" }}
+    {{ $money_from = [] }}
+    {{ $money_from['1'] = "余额" }}
+    {{ $money_from['2'] = "优惠券" }}
+    {{ $money_from['3'] = "奖学金" }}
+    {{ $money_from['4'] = "第三方" }}
+    {{ $money_from['6'] = "自主优惠券" }}
+    {{ $money_from['7'] = "机构优惠券" }}
+    {{ $money_from['26'] = "原支付方" }}
+
+    {{ foreach $tpl_data.history_list_tpl.history as $item }}
+
+        <tr>
+            <td class="left">{{ $item.create_time }}</td>
+            <td class="left">
+                {{ if is_string($item.op_info) }}
+                {{ $item.op_info }}
+                {{ else }}
+                    {{ * op_for 1:课程 2:订单 3:其他 * }}
+                    {{ if $item.op_for == 1 }}
+                    <a class="text-info" href="/lesson/{{ if $identity === 'student' }}studentLessons{{ else }}teacherLessons{{ /if }}?date={{ $item.op_info['1'].date }}" target="_blank">{{ $item.op_info["1"].msg }}</a>
+
+                    {{ else if $item.op_for == 2 }}
+
+                    <a class="text-info" href="/order/{{ if $identity === 'student' }}studentOrderDetail{{ else }}teacherOrderDetail{{ /if }}?purchase_id={{ $item.op_info['2'].id }}" target="_blank">{{ $item.op_info["2"].msg }}</a>
+
+                    {{ else }}
+
+                    {{ $item.op_info["3"].msg }}
+
+                    {{ /if }}
+                {{ /if }}
+            </td>
+
+            {{ $op_type_arr = explode(':', $item.op_type) }}
+            {{ * 后一个状态需要覆盖前一个 所以数组要翻转 * }}
+            {{ $op_type_arr = array_reverse($op_type_arr) }}
+            {{ * 后端存在新旧两套optype映射 用op_type_old(boolean) 区分 * }}
+            {{ if $item.op_type_old }}
+                {{ $item_optype_map = $optype_map_old }}
+            {{ else }}
+                {{ $item_optype_map = $optype_map }}
+            {{ /if }}
+            {{ $op_type = $op_type_arr[0] }}
+            {{ $is_transaction = ($op_type == 1 || $op_type == 2 || $op_type == 3 || $op_type == 4) }}
+
+            <td class="left">
+                {{ * 苹果学币显示 * }}
+                {{ if $identity === 'teacher' }}
+                    {{ if isset($item.is_coin_pay) && $item.is_coin_pay != '0' }}
+                        {{ if $item.op_type == '2' || $item.op_type == '3' }}
+                            苹果渠道{{ $item_optype_map[$op_type_arr[0]] }}
+                        {{ else }}
+                            {{ $item_optype_map[$op_type_arr[0]] }}
+                        {{ /if }}
+                    {{ else }}
+                        {{ $item_optype_map[$op_type_arr[0]] }}
+                    {{ /if }}
+                {{ else }}
+                    {{ if isset($item.is_coin_pay) && $item.is_coin_pay != '0' }}
+                        {{ if $item.op_type == '2' || $item.op_type == '3' }}
+                            学币{{ $item_optype_map[$op_type_arr[0]] }}
+                        {{ else }}
+                            {{ $item_optype_map[$op_type_arr[0]] }}
+                        {{ /if }}
+                    {{ else }}
+                        {{ $item_optype_map[$op_type_arr[0]] }}
+                    {{ /if }}
+                {{ /if }}
+
+                {{ if !empty($item.op_failure) }}
+                <span class="failure">
+                    <i class="icon icon-question-circle text-info">
+                    </i>
+                    <div class="failure-text">
+                        <span>{{ $item.op_failure }}</span>
+                    </div>
+                </span>
+                {{ /if }}
+            </td>
+
+            {{ if $item.op_type_old }}
+                {{ * 老数据“首单返现”需要显示正负号和颜色 * }}
+                {{ * 班课补贴需要正负号颜色 * }}
+                {{ * 排行榜活动奖励 * }}
+                {{ * 老师身份注册奖励 * }}
+                {{ * 学生充值 * }}
+                {{ * 老师充值 * }}
+                {{ * 转入机构 * }}
+                {{ * 老数据“冻结”需要显示正负号和颜色 * }}
+                <td class="right total">
+                    {{ if isset($item.is_settlement) }}
+                        <span class="settlement
+                        {{ if $item.is_settlement != 1 }} muted{{ /if }}
+                        ">
+                            {{ if $item.is_settlement == 1 }}
+                                已结算
+                            {{ else }}
+                                未结算
+                            {{ /if }}
+                        </span>
+                    {{ /if }}
+                    {{ if $op_type == 25 || $op_type == 22 || $op_type == 20 || $op_type == 26 || ($identity === 'teacher' && $op_type == 7) || $op_type == 24 || ($identity === 'teacher' && $op_type == 13) || ($identity === 'student' && $op_type == 1) }}
+                    <span class="{{ if $item.op_money < 0 }}text-error{{ else }}text-success{{ /if }}">
+                        {{ if $item.op_money > 0 }}+{{ /if }}
+                        {{ $item.op_money|number_format: 2 }}
+                    </span>
+                    {{ else }}
+                    <span>{{ abs($item.op_money)|number_format: 2 }}</span>
+                    {{ /if }}
+                </td>
+            {{ else }}
+                <td class="right">
+                    {{ foreach $item.op_money as $key=>$money_item }}
+
+                        {{ if $money_item@index == 0 }}
+                            <p class="total">
+
+                                {{ if isset($item.is_settlement) }}
+                                <span class="settlement
+                                    {{ if $item.is_settlement != 1 }} muted{{ /if }}
+                                    ">
+                                        {{ if $item.is_settlement == 1 }}
+                                            已结算
+                                        {{ else }}
+                                            未结算
+                                        {{ /if }}
+                                    </span>
+                                {{ /if }}
+
+                        {{ else if $money_item@index == 1 }}
+                            <p>(
+                        {{ else }}
+                            <span>
+                        {{ /if }}
+
+
+                        {{ if $key != 0 }}
+
+                            {{ if $identity === 'teacher' || $op_type == 3 }}
+                                含
+                            {{ /if }}
+
+                            {{ * 如果是1.学生2.学币支付3.取消订单 * }}
+                            {{ if $identity != 'teacher' && $item.is_coin_pay != 0 &&
+                            $item.op_type == 4 }}
+                                学币
+                            {{ else }}
+                                {{ $money_from[$key] }}
+                            {{ /if }}
+                        {{ /if }}
+
+                        {{ * 需要显示颜色及正负号的情况 * }}
+                        {{ * 交易类且非“确认课酬”状态的学生显示的“使用余额” * }}
+                        {{ * 交易类“确认课酬”为老师显示的总金额 * }}
+                        {{ * 交易类“支付订单”“视频课”为老师显示的总金额 * }}
+
+                        {{ * 需要显示正负号但不显示颜色的情况 * }}
+                        {{ * 交易类为学生显示奖学金和优惠券 * }}
+
+                        {{ if $is_transaction }}
+                            {{ if (($key == 1) && $identity === 'student' && ($op_type != 3) ) || ($identity === 'teacher' && $key == 0 && $op_type == 3) || ($op_type == 2 && $item.course_type == 3 && $identity === 'teacher') || ($op_type == 0) || ( $op_type == 4 && $key == 33 ) }}
+                                <span class=
+                                {{ if isset($item.is_settlement) && $item.is_settlement != 1 }}
+                                "muted"
+                                {{ else }}
+                                "{{ if $money_item < 0 }}text-error{{ else }}text-success{{ /if }}"
+                                {{ /if }}
+                                >
+                                    {{ if $money_item > 0 }}+{{ /if }}
+                                    {{ $money_item }}
+                                </span>
+                            {{ else }}
+                                <span class=
+                                {{ if isset($item.is_settlement) && $item.is_settlement != 1 }}
+                                "muted"
+                                {{ else }}
+                                ""
+                                {{ /if }}
+                                >
+                                    {{ abs($money_item)|number_format:2 }}
+                                </span>
+                            {{ /if }}
+                        {{ else }}
+                            <span class=
+                            {{ if isset($item.is_settlement) && $item.is_settlement != 1 }}
+                            "muted"
+                            {{ else }}
+                            "{{ if $money_item < 0 }}text-error{{ else }}text-success{{ /if }}"
+                            {{ /if }}
+                            >
+                            {{ if $money_item > 0 }}+{{ /if }}
+                            {{ $money_item }}
+                            </span>
+                        {{ /if }}
+
+
+                        {{ if $money_item@index == 0 }}
+                            </p>
+                        {{ else if $money_item@last }}
+                            )</p>
+                        {{ else }}
+                            ，</span>
+                        {{ /if }}
+
+                    {{ /foreach }}
+                </td>
+            {{ /if  }}
+        </tr>
+
+    {{ /foreach }}
+    </tbody>
+</table>
+{{ include file="common/center/cashPager.html" }}
+{{ /if }}

@@ -1,0 +1,1 @@
+define("cc/function/imageDimension",["require","exports","module"],function(){"use strict";var e=[];return function(n,i){var t=new Image,o=e.push(t);t.onload=function(){var n=t.height;if(null!=n&&n>0)i(t.width,n),delete e[o-1],t=null;else setTimeout(t.onload,10)},t.src=n}});

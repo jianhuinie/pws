@@ -1,0 +1,184 @@
+{{ *
+
+@file 老师文章编辑/新增页
+@author zengcheng, wangyujie
+
+* }}
+{{ extends file="common/main/base.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $nav_config.active = '' }}
+    {{ $nav_config.hidden = 1 }}
+    {{ $flotage_config.hidden = true }}
+
+    {{ $script_path = "teacher/article/articleEdit_710c44c0c9" }}
+    {{ $script_data.originHttps = $origin_https }}
+    {{ $script_data.article = $tpl_data.article }}
+    {{ $script_data.categories = $tpl_data.categories }}
+    {{ $script_data.portrait = $tpl_data.article.cover }}
+
+    {{ **顶部搜索去掉placeholder支持空query** }}
+    {{ $current_page = 'detail' }}
+
+{{ /block }}
+
+{{ block name = "title" }}
+老师发文章
+{{ /block }}
+
+{{ block name = "style" }}
+    <link rel="stylesheet" href="{{ $static_origin }}/asset/css/teacher/article/articleEdit_5ee44b87f4.css">
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+<div id="main">
+
+    <div class="panel">
+        <div class="panel-title">
+            文章
+        </div>
+        <div class="panel-back">
+            {{ if $tpl_data.article.is_draft }}
+                <a href="#">返回草稿列表</a>
+            {{ else }}
+                <a href="#">返回文章列表</a>
+            {{ /if }}
+        </div>
+    </div>
+
+    <div class="panel-content">
+
+        <div id="article-profile" class="article-profile">
+
+            <div class="img-wrapper">
+                <img src="" width="60px" height="60px"/>
+            </div>
+
+            <div class="article-info">
+
+                <div class="article-author"></div>
+
+                <div class="power">
+                    <div class="dropdown" required>
+                        <button class="btn-default btn-block">
+                            <i class="caret"></i>
+                            <span></span>
+                        </button>
+                        <ul class="dropdown-menu"></ul>
+                    </div>
+                </div>
+
+                <div class="category">
+                    <div class="dropdown" required>
+                        <button class="btn-default btn-block">
+                            <i class="caret"></i>
+                            <span></span>
+                        </button>
+                        <div class="menu-wrapper">
+                            <ul class="dropdown-menu"></ul>
+                            <div class="divider"></div>
+                            <div class="category-new-btn">新建分类</div>
+                        </div>
+                    </div>
+                </div>
+
+                {{ if $tpl_data.article.is_draft == 1 }}
+                    <div class="last-save-time">
+                        最后保存于 {{ $tpl_data.article.update_time }}
+                    </div>
+                {{ /if }}
+
+                <div class="set-top">
+                    <label for="set-top">
+                        <input type="checkbox" name="top" id="set-top" {{ if $tpl_data.article.top == 1 }}checked{{ /if }}/>
+                        置顶
+
+                    </label>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="article-content">
+
+            <div id="article-title" class="article-title">
+                <div class="form-editor">
+                    <textarea class="form-text" name="article_title" placeholder="输入文章标题" contenteditable="true">
+                    </textarea>
+                    <div class="form-hint">
+                        还可以输入 <strong>100</strong> 个字
+                    </div>
+                </div>
+            </div>
+            <div id="article-cover">
+                {{ if empty($tpl_data.article.cover) }}
+                    <button class="btn btn-primary add-cover">添加封面</button>
+                {{ /if }}
+                <div class="frontcover" {{ if empty($tpl_data.article.cover) }}style="display:none;"{{ /if }}>
+                    <img {{ if !empty($tpl_data.article.cover) }}src="{{ $tpl_data.article.cover }}"{{ /if }}>
+                    <div class="cover-status">
+                        <span class="upload-tip" style="display:none;"><i class="icon icon-check-circle"></i>封面上传成功</span>
+                        <a class="edit-cover">编辑封面</a>
+                    </div>
+                </div>
+            </div>
+            <div id="article-content"></div>
+            <div id="article-attach-info">
+                <div id="article-attach-cate">
+                    <label for="class-category" class="label-tip">学科分类：</label>
+                    <div id="class-category">
+                        <div class="course-category">
+                            <div class="dropdown">
+                                <button class="btn-default btn-block">
+                                    <i class="caret"></i>
+                                    <span>请选择</span>
+                                </button>
+                                <ul class="dropdown-menu"></ul>
+                            </div>
+                        </div>
+                        <div class="course-category">
+                            <div class="dropdown">
+                                <button class="btn-default btn-block">
+                                    <i class="caret"></i>
+                                    <span>请选择</span>
+                                </button>
+                                <ul class="dropdown-menu"></ul>
+                            </div>
+                        </div>
+                        <div class="course-category">
+                            <div class="dropdown">
+                                <button class="btn-default btn-block">
+                                    <i class="caret"></i>
+                                    <span>请选择</span>
+                                </button>
+                                <ul class="dropdown-menu"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div id="article-tags">
+                    <label for="tag-wrapper" class="label-tip">添加标签：</label>
+                    <div id="tag-wrapper">
+                        <input type="text" class="article-tags" name="articleTags" placeholder="标签间请用“空格”隔开,最多可添加5个标签,每个标签不能超过10个字符"/>
+                    </div>
+                </div>
+            </div>
+            <div id="article-actions" class="article-actions">
+                <button type="button" class="btn btn-default btn-cancel-edit">取消</button>
+                <button type="button" class="btn btn-info btn-save-publish">发表文章</button>
+                <button type="button" class="btn btn-default btn-save-draft">保存草稿</button>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+{{ include file="common/component/ueditor.html" }}
+{{ /strip }}
+{{ /block }}

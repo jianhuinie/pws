@@ -1,0 +1,52 @@
+
+.media-panel {
+display: none;
+    position: absolute;
+    top: 0;
+    right: @message-panel-width;
+    bottom: 0;
+    width: @media-panel-width;
+
+    background-color: #FFF;
+    padding: @padding-vertical @padding-horizontal;
+
+    box-shadow: -2px 0 4px rgba(0, 0, 0, 0.5);
+
+    .nav-item {
+        padding: 6px 28px;
+        width: 50%;
+        text-align: center;
+    }
+
+    .tab-panel {
+        &.active {
+            display: block;
+        }
+    }
+
+}
+
+.user-item {
+
+    padding: 6px 10px;
+
+    line-height: 30px;
+
+    .avatar,
+    strong {
+        vertical-align: top;
+    }
+
+    .avatar {
+        margin-right: 10px;
+        border-radius: 50%;
+    }
+
+    strong {
+        display: inline-block;
+    }
+
+    &:nth-child(odd) {
+        background-color: #F5F5F5;
+    }
+}

@@ -1,0 +1,160 @@
+/**
+ * @file 学习头条
+ * @author jixiaohui
+ */
+#study-main {
+    border: 1px solid #eee;
+    width: 256px;
+    float: right;
+
+    .category {
+        height: 36px;
+        line-height: 36px;
+        font-weight: bold;
+        font-size: 16px;
+        color: #f90;
+        border-bottom: 1px solid #eee;
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    .list {
+        padding: 15px;
+
+        .item {
+            margin-bottom: 5px;
+        }
+
+        .box {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            display: none;
+        }
+
+        .point {
+            background: url(../../../img/navigation/point.jpg) no-repeat;
+            width: 3px;
+            height: 3px;
+            display: inline-block;
+            margin-right: 5px;
+            position: relative;
+            top: -3px;
+        }
+
+        .cover,
+        img {
+            width: 60px;
+            height: 60px;
+        }
+
+        .cover {
+            display: block;
+            position: relative;
+
+
+            &:after {
+                .opacity(0.4);
+
+                background-color: transparent;
+
+                content: ' ';
+
+                position: absolute;
+                top: 0;
+                left: 0;
+
+                width: 100%;
+                height: 100%;
+
+            }
+
+            &:hover {
+                &:after {
+                    background-color: #000;
+                    .transition(background 0.3s);
+                }
+            }
+        }
+
+        .title {
+            font-weight: bold;
+            font-size: 14px;
+            color: #333;
+            display: block;
+            margin-bottom: 10px;
+
+            &:hover {
+                color: #f90;
+            }
+        }
+
+        .cover {
+            width: 60px;
+            height: 60px;
+            float: left;
+            margin-right: 10px;
+            margin-bottom: 15px;
+        }
+
+        .detail {
+            font-size: 13px;
+            color: #999;
+
+            &:hover {
+                color: #f90;
+            }
+        }
+
+        .link {
+            color: #333;
+            font-size: 13px;
+
+            &:hover {
+                color: #f90;
+            }
+        }
+    }
+
+    .link-box {
+        background: #f7f7f7;
+        border-top: 1px solid #eee;
+        width: 100%;
+        height: 125px;
+        overflow: hidden;
+
+        span {
+            font-size: 14px;
+            color: #333;
+            margin-top: 10px;
+            display: block;
+        }
+    }
+
+    .join-box {
+        float: left;
+        margin-left: 40px;
+    }
+
+    .download-box {
+        float: right;
+        margin-right: 40px;
+    }
+
+    .join,
+    .download {
+        width: 54px;
+        height: 54px;
+        display: block;
+        margin-top: 20px;
+    }
+
+    .join {
+        background: url(../../../img/navigation/join.png) no-repeat;
+    }
+
+    .download {
+        background: url(../../../img/navigation/app.jpg) no-repeat;
+    }
+}

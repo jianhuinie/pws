@@ -1,0 +1,167 @@
+{{ include file="teacherCenter/common/crumb.html" profile=$profile crumb=$tpl_data.crumb }}
+<div class="teacher-header">
+    {{ $profile = $tpl_data.profile }}
+
+    <div class="teacher-info-content">
+        <div class="teacher-info">
+            <div class="teacher-info-avatar">
+                {{ include file="common/component/avatar.html" type="big" img=$profile.avatar alt=$profile.name }}
+                {{ include file="common/component/avatarPendant.html" type="circle" }}
+            </div>
+            <div class="teacher-info-name">
+                {{ $pname = $profile.name|cn_truncate:15 }}
+                <span {{ if $pname != $profile.name }} data-title="{{ $profile.name }}" {{ /if }}>{{ $pname }}</span>
+                <i class="icon-vip-vip vip-level{{ $profile.vip_level }}"
+                   data-title="
+                                {{ if $profile.vip_level == 1 }}
+                                    跟谁学会员
+                                {{ else if $profile.vip_level == 2 }}
+                                    跟谁学高级会员
+                                {{ else if $profile.vip_level == 3 }}
+                                    跟谁学超级会员
+                                {{ /if }}
+                            "></i>
+                {{ **3810项目隐藏这些图标** }}
+                {{ if empty($profile.org_type) || $profile.org_type == 4 }}
+
+                {{ if !empty($profile.medal) }}
+                {{ include file="common/variable/medal.html" scope=parent }}
+                {{ foreach $profile.medal as $val }}
+                <img class="medal" src="{{ $val.logo }}" data-title="{{ $val.desc }}">
+                {{ /foreach }}
+                {{ /if }}
+                {{ /if }}
+
+                <span class="visit-count"></span>
+            </div>
+            <div class="teacher-info-tips">
+                <div class="teacher-info-tips-item teacher-info-mainCourse">
+                    <span>{{ $profile.subject_name }}</span>
+                </div>
+                <div class="teacher-info-tips-item teacher-info-teacher-year">
+                            <span>{{ $teach = $tpl_data.teach }}
+                            {{ if $teach.school_age == -1 || $teach.school_age == 90 }}
+                            30年以上教龄
+                            {{ else }}
+                            {{ $teach.school_age }}年教龄
+                            {{ /if }}
+                            </span>
+                </div>
+                <div class="teacher-info-tips-item teacher-info-address">
+                {{ if !$profile.country }}
+                    {{ if !empty($profile.area) }}
+                    <i class="icon icon-location-o"></i>
+                    {{ $profile.area }}
+                    {{ else if !empty($profile.org_address) }}
+                    <i class="icon icon-location-o"></i>
+                    {{ $profile.org_address }}
+                    {{ /if }}
+                {{ else }}
+                    <i class="icon icon-location-o"></i>
+                    {{ $profile.country }}
+                {{ /if }}
+                </div>
+            </div>
+            <div class="teacher-info-button">
+                {{ if $profile.user_id != $user_data.user_id }}
+                    <div class="teacher-info-button-asks">
+                        {{ if empty($tpl_data.org_type) || $tpl_data.org_type != 4 }}
+                            {{ include file="common/component/chatLabel4.html"  user_number=$profile.user_number user_type='teacher' size="large" online_status=$profile.im_online_status }}
+                        {{ else }}
+                            {{ include file="common/component/chatLabel4.html"  user_number=$profile.organization.number user_type='institution' size="large" online_status=$profile.organization.im_online_status }}
+                        {{ /if }}
+                    </div>
+                {{ /if }}
+
+                {{ if $profile.user_id != $user_data.user_id }}
+
+                    <div class="teacher-info-button-listen">
+                        预约试听
+                    </div>
+
+                    <div class="teacher-info-button-more  btn-more">
+                        <img src="{{ $static_origin }}/asset/img/teacherIndex/model/btn-more_2e78636473.png">
+                        <div class="teacher-info-button-more-content">
+                            <div class="button-save" id="favor" data-teacherid="{{ $profile.user_id|default:0 }}" data-haslogin="" {{ **3810项目隐藏收藏** }}
+                            {{ if isset($profile.org_type) && $profile.org_type == 4 }}style="display:none;"{{ /if }}>
+                            <span>{{ if $tpl_data.is_favored }}已收藏{{ else }}收藏{{ /if }}</span>
+                            </div>
+                            <div class="button-correct">纠错</div>
+                        </div>
+                    </div>
+                {{ else }}
+                    <a class="btn-info" href="/teacher_center/profile" target="_blank">
+                        编辑个人资料
+                    </a>
+                {{ /if }}
+            </div>
+        </div>
+        <ul class="teacher-link">
+            <li class="teacher-link-item"><a {{ if $active == 'index' }} class="active" {{ else }} href="/{{ $profile.domain }}" {{ /if }}>主页</a></li>
+            <li class="teacher-link-item"><a {{ if $active == 'course' }} class="active" {{ else }} href="/{{ $profile.domain }}/course" {{ /if }}>课程</a></li>
+            <li class="teacher-link-item"><a {{ if $active == 'photo' }} class="active" {{ else }} href="/{{ $profile.domain }}/photoVideo" {{ /if }}>视频/照片</a></li>
+            <li class="teacher-link-item"><a {{ if $active == 'article' }} class="active" {{ else }} href="/{{ $profile.domain }}/article" {{ /if }}>文章</a></li>
+            <li class="teacher-link-item"><a {{ if $active == 'experience' }} class="active" {{ else }} href="/{{ $profile.domain }}/intro" {{ /if }}>履历</a></li>
+            <li class="teacher-link-item teacher-link-item-comment"><a {{ if $active == 'comment' }} class="active" {{ else }} href="/{{ $profile.domain }}/tcomment" {{ /if }}>评价</a></li>
+        </ul>
+        <div class="teacher-info-model-share">
+            {{ if $user_data.user_type == '0' && $profile.user_id != $user_data.user_id }}
+            {{ *使用模板* }}
+            <div class="teacher-info-use-model">
+                <i class="icon use-model"></i>
+                <span class="use-model">使用模板</span>
+            </div>
+            {{ else }}
+            {{ *分享* }}
+            <div class="teacher-info-share">
+                {{ $share_text = "#跟谁学# 分享一位老师给你哦~"|cat: $profile.name }}
+                {{ $share_text = $share_text|cat: "，"|cat: $profile.slogan|regex_replace:"/[\r\t\n]/":" " }}
+                {{ $share_text = $share_text|cat: "，还在等什么？找好老师，上跟谁学，快来开启寻师之旅吧！" }}
+
+                {{ $share_image = $profile.avatar }}
+
+                {{ if !$share_image || $share_image == "" }}
+                {{ $share_image = $static_origin|cat:"/asset/img/share.jpg" }}
+                {{ /if }}
+
+                {{ $share_data = [] }}
+                {{ $share_data.title = $share_text }}
+                {{ $share_data.img = $share_image }}
+
+                <li class="social-share" data-share='{{ json_encode($share_data, 77) }}'>
+                    <i class="icon icon-share"></i>
+                    分享
+                </li>
+
+                <li class="mobile-see">
+                    <i class="icon icon-mobile"></i>
+                    手机浏览
+                    <div class="qrcode-container">
+                        <div class="qrcode"></div>
+                        <span class="qrcode-text">用手机扫码看</span>
+                    </div>
+                </li>
+
+            </div>
+            {{ /if }}
+        </div>
+    </div>
+</div>
+
+{{ if isset($user_data) && isset($user_data.mobile) }}
+    {{ $mobile = $user_data.mobile }}
+    {{ $username = $user_data.display_name }}
+{{ else }}
+    {{ $mobile = '' }}
+    {{ $username = '' }}
+{{ /if }}
+
+{{ if empty($profile.organization) }}
+    {{ $kf = 'true' }}
+    {{ $object_name = '' }}
+{{ else }}
+    {{ $kf = 'false' }}
+    {{ $object_name = $profile.name }}
+{{ /if }}
+
+{{ include file="common/component/advisoryDialog.html" object_name=$object_name dialog_name='预约' mobile=$mobile username=$username kf=$kf }}

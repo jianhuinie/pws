@@ -1,0 +1,43 @@
+.header-wrapper{
+    background: #ff6c00;
+    .header {
+        width: 1100px;
+        margin: 0 auto;
+        background: #ff6c00;
+        height: 56px;
+        line-height: 56px;
+        .logo {
+            margin-right: 60px;
+            display: inline-block;
+            width: 120px;
+            height: 34px;
+            vertical-align: middle;
+            background: #ff6c00 url('../../img/headline/headline_logo.png') center no-repeat;
+        }
+        .headline-nav-list {
+            line-height: 1;
+            display: inline-block;
+            color: #fff;
+        }
+        .headline-nav-item {
+            display: inline-block;
+            margin-right: 20px;
+            a {
+                padding: 8px 10px;
+                font-size: 16px;
+                color: #fff;
+                border-radius: 3px;
+            }
+            &:hover {
+                font-weight: bold;
+            }
+            &.active {
+                font-weight: bold;
+                a{
+                    background: #ffffff;
+                    color: #ff6c00;
+                }
+            }
+        }
+    }
+}

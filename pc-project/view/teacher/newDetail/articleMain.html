@@ -1,0 +1,56 @@
+<div class="article-main-wrapper" id="article-main">
+    <div class="article-main">
+        <span class="title">文章
+            <span class="count" data-domain="{{ $tpl_data.profile.domain }}">({{ $tpl_data.article.pager.total }}篇文章)</span>
+        </span>
+        <a data-domain="{{ $tpl_data.profile.domain }}" target="_blank">全部文章></a>
+        <div class="article-list">
+            {{ $hasCover = false }}
+            {{ foreach $tpl_data.article.items as $list }}
+            {{ $hasCover = false }}
+            {{ if isset($list.cover) && $list.cover != null }}
+            {{ $hasCover = true }}
+            {{ /if }}
+            <div data-url="{{ $list.detail_url }}" class="list {{ if $list@first }}first{{ /if }} {{ if $hasCover }}has-cover{{ /if }}" {{ if $list@last }}id="end"{{ /if }}>
+                {{ if $hasCover }}
+                    <div class="article-cover">
+                        {{ include file="common/component/image.html" url=$list.cover width=200 height=112 }}
+                    </div>
+                {{ /if }}
+                <div class="list-center">
+                    <div class="header">
+                        <!-- {{ if $list.top_time > 0 }}
+                        <span class="article-label">
+                        顶
+                        </span>
+                        {{ /if }} -->
+                        <span class="article-title">
+                            {{ $list.title|cn_truncate: 21 }}
+                            <!-- {{ if $list.has_img == 1 }}
+                            <i class="icon icon-picture"></i>
+                            {{ /if }} -->
+                        </span>
+                         <span class="article-id">
+                            {{ $list.item_id }}
+                        </span>
+                        <span class="icon icon-img">
+                        </span>
+                    </div>
+                    <div class="article-content">
+                        {{ $list.summary|default:"..."|escape:"html"|truncate:66:"...":true }}
+                    </div>
+                    <div class="article-shot-actions">
+                        <span class="shot-action">
+                            {{ $list.publish_at }}
+                        </span>
+                        <span class="shot-action">
+                            <i class="icon icon-thumbs-up"></i>
+                            {{ $list.upvotes }}
+                        </span>
+                    </div>
+                </div>
+            </div>
+            {{ /foreach }}
+        </div>
+    </div>
+</div>

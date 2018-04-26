@@ -1,0 +1,150 @@
+{
+    "tpl_data": {
+        "comment_list": [
+            {
+                "desc_match": "1.0",
+                "teach_result": "1.0",
+                "service_attitude": "1.0",
+                "face_type": "2",
+                "info": "\u4e00\u4e8c\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d\u5341\u4e00\u4e8c\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d\u5341\u4e00\u4e8c\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d\u5341\u4e00\u4e8c\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d\u5341\u4e00\u4e8c\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d\u5341\u4e00\u4e8c\u4e09\u56db\u4e94\u516d",
+                "create_time": "2015-03-13 21:25",
+                "fr": "2",
+                "like": 2,
+                "course_type": "1",
+                "thumb_up": "0",
+                "has_photo": "1",
+                "display_title": "\u603b\u8bfe\u7a0b",
+                "comment_id": "36684",
+                "has_thumb_up": false,
+                "comprehensive_score": "1",
+                "course": {
+                    "course_name": "\u94a2\u7434",
+                    "hours": "1.0",
+                    "lesson_way": "8",
+                    "real_student": "yuyue",
+                    "lesson_way_name": "\u8001\u5e08\u4e0a\u95e8"
+                },
+                "user": {
+                    "display_name": "wwwwwwww",
+                    "avatar_url": "http:\/\/test-img.gsxservice.com\/333070_ocktjons.jpeg",
+                    "number": "877452358",
+                    "url": "http://m.genshuixue.com/x/877452358"
+                },
+                "photo_list": [
+                    {
+                        "url": "http:\/\/test-img.gsxservice.com\/310706_hvl6i47g.jpeg"
+                    },
+                    {
+                        "url": "http:\/\/test-img.gsxservice.com\/310707_jbfnt6bl.jpeg"
+                    },
+                    {
+                        "url": "http:\/\/test-img.gsxservice.com\/310708_f2fxd427.jpeg"
+                    },
+                    {
+                        "url": "http:\/\/test-img.gsxservice.com\/310709_vtg5gx0w.jpeg"
+                    },
+                    {
+                        "url": "http:\/\/test-img.gsxservice.com\/310710_ntsb2lf7.jpeg"
+                    }
+                ],
+                "additional": {
+                    "student": {
+                        "teacher_comment_id": "36840",
+                        "info": "追平",
+                        "type": "1",
+                        "create_time": "当天追评",
+                        "date": 2
+                    },
+                    "teacher": {
+                        "teacher_comment_id": "36840",
+                        "info": "回复回复回复回复回复回复回复回复回复回复",
+                        "type": "2",
+                        "create_time": "2015-10-21 10:00:19"
+                    }
+                }
+            },
+            {
+                "desc_match": "1.0",
+                "teach_result": "1.0",
+                "service_attitude": "1.0",
+                "face_type": "2",
+                "info": "\u4e00\u4e8c\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d\u5341\u4e00\u4e8c\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d\u5341\u4e00\u4e8c\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d\u5341\u4e00\u4e8c\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d\u5341\u4e00\u4e8c\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d\u5341\u4e00\u4e8c\u4e09\u56db\u4e94\u516d",
+                "create_time": "2015-03-13 21:25",
+                "fr": "0",
+                "course_type": "1",
+                "thumb_up": "0",
+                "has_photo": "1",
+                "display_title": "\u603b\u8bfe\u7a0b",
+                "comment_id": "36683",
+                "has_thumb_up": false,
+                "comprehensive_score": "1",
+                "course": {
+                    "course_name": "\u94a2\u7434",
+                    "hours": "1.0",
+                    "lesson_way": "8",
+                    "real_student": "yuyue",
+                    "lesson_way_name": "\u8001\u5e08\u4e0a\u95e8"
+                },
+                "user": {
+                    "display_name": "wwwwwwww",
+                    "avatar_url": "http:\/\/test-img.gsxservice.com\/333070_ocktjons.jpeg",
+                    "number": "877452358",
+                    "url": "http://m.genshuixue.com/x/877452358"
+                },
+                "photo_list": [
+                    {
+                        "url": "http:\/\/test-img.gsxservice.com\/310710_ntsb2lf7.jpeg"
+                    },
+                    {
+                        "url": "http:\/\/test-img.gsxservice.com\/310706_hvl6i47g.jpeg"
+                    },
+                    {
+                        "url": "http:\/\/test-img.gsxservice.com\/310707_jbfnt6bl.jpeg"
+                    },
+                    {
+                        "url": "http:\/\/test-img.gsxservice.com\/310708_f2fxd427.jpeg"
+                    },
+                    {
+                        "url": "http:\/\/test-img.gsxservice.com\/310709_vtg5gx0w.jpeg"
+                    }
+                ],
+                "additional": {
+                    "student": {
+                        "teacher_comment_id": "36840",
+                        "info": "追平",
+                        "type": "1",
+                        "create_time": "2015-10-21 10:00:19",
+                        "date": 2
+                    },
+                    "teacher": {
+                        "teacher_comment_id": "36840",
+                        "info": "回复回复回复回复回复回复回复回复回复回复",
+                        "type": "2",
+                        "create_time": "2015-10-21 10:00:19"
+                    }
+                }
+            }
+        ],
+        "user": {
+            "display_name": "wwwwwwww",
+            "avatar_url": "http:\/\/test-img.gsxservice.com\/333070_ocktjons.jpeg",
+            "number": "877452358",
+            "url": "http://m.genshuixue.com/x/877452358"
+        },
+        "can_comment_list": [
+            {
+                "purchase_id": "1115080779123096",
+                "course_name": "\u5728\u7ebf\u76f4\u64ad\u6d4b\u8bd58",
+                "url": "http://m.genshuixue.com/order/comment?purchase_id=1116011351786309"
+            }
+        ],
+        "has_more": 1,
+        "profile": {
+            "number": "891839",
+            "name": "llll"
+        }
+    },
+    "ext_data": {
+        "is_app": 1
+    }
+}

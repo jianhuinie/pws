@@ -1,0 +1,322 @@
+{{ *
+
+@file 个人资料
+@author zhengjunxin
+
+* }}
+
+{{ extends file="common/main/base.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+    {{ $active = 'personal' }}
+    {{ $nav_config.hidden = 1 }}
+    {{ $nav_config.active = '' }}
+    {{ $flotage_config.hidden = true }}
+
+{{ /block }}
+
+{{ block name="title" }}
+    {{ if isset($tpl_data.basic_info.nickname) }}
+        {{ $tpl_data.basic_info.nickname }}的个人资料
+    {{ /if }} － 跟谁学
+{{ /block }}
+
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/student/personal_203524b5ab.css">
+{{ if isset($tpl_data.huike.is_huike_student) && $tpl_data.huike.is_huike_student }}
+    <style type="text/css">
+        #site-nav .status-info li:nth-child(3){
+            display: none;
+        }
+
+        .user-info li {
+            display: none;
+        }
+        .user-info .my-course,
+        .user-info .custom-service {
+            display: inline-block;
+        }
+        #site-nav .course-menu {
+            left: -100px;
+        }
+        #site-nav .course-menu:before, #site-nav .course-menu:after {
+            left: 13em;
+        }
+        #header {
+            display: none;
+        }
+        #footer .wrapper > div {
+            display: none;
+        }
+        #footer .wrapper .copyright {
+            display: block;
+        }
+    </style>
+{{ /if }}
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+{{ if isset($tpl_data.huike.is_huike_student) && $tpl_data.huike.is_huike_student }}
+    <div class="huike-header">
+        <a href="{{ $tpl_data.huike.org_url }}" class="huike-logo" target="_blank"></a>
+    </div>
+{{ /if }}
+{{ include file= "student/common/banner.html" }}
+<div id="main">
+    {{ include file="student/common/header.html" }}
+    <div class="basic">
+        <div class="common">
+            <div class="title">
+                <i class="icon icon-portrait-o"></i>
+                基本信息
+            </div>
+            <div class="content">
+                <div>
+                    <span>
+                        昵称：
+                    </span>
+                    <div class="cont">
+                        {{ if isset($tpl_data.basic_info.nickname) }}
+                            {{ $tpl_data.basic_info.nickname }}
+                        {{ else }}
+                            {{ $tpl_data.basic_info.mobile }}
+                        {{ /if }}
+                    </div>
+                </div>
+                <div>
+                    <span>
+                        性别：
+                    </span>
+                    <div class="cont">
+                        {{ if $tpl_data.basic_info.sex == 0 }}
+                            女
+                        {{ else }}
+                            男
+                        {{ /if }}
+                    </div>
+                </div>
+                <div>
+                    <span>
+                        出生：
+                    </span>
+                    <div class="cont">
+                        {{ $tpl_data.basic_info.birthday|date_format:"%Y-%m-%d" }}
+                    </div>
+                </div>
+                <div>
+                    <span>
+                        地址：
+                    </span>
+                    <div class="cont">
+                        {{ if isset($tpl_data.basic_info.address.province.name) }}
+                            {{ $tpl_data.basic_info.address.province.name }}
+                            {{ if isset($tpl_data.basic_info.address.city.name)|| isset($tpl_data.basic_info.address.area.name) }}
+                                &nbsp;
+                            {{ /if }}
+                        {{ /if }}
+                        {{ if isset($tpl_data.basic_info.address.city.name) && $tpl_data.basic_info.address.city.name !==$tpl_data.basic_info.address.province.name }}
+                            {{ $tpl_data.basic_info.address.city.name }}
+                            {{ if isset($tpl_data.basic_info.address.area.name) }}
+                                &nbsp;
+                            {{ /if }}
+                        {{ /if }}
+                        {{ if isset($tpl_data.basic_info.address.area.name) }}
+                            {{ $tpl_data.basic_info.address.area.name }}
+                        {{ /if }}
+                    </div>
+                </div>
+                <div>
+                    <span>
+                        简介：
+                    </span>
+                    <div class="cont">
+                        {{ $tpl_data.basic_info.short_introduce }}
+                    </div>
+                </div>
+                <div>
+                    <span>
+                        感兴趣课程：
+                    </span>
+                    <div class="cont">
+                        {{ foreach $tpl_data.basic_info.subjects as $item }}
+                            <a target="_blank" href="/s/city/{{ $city }}/q/{{ $item.name }}/search.html">{{ $item.name }}</a>
+                        {{ /foreach }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="education">
+        {{ $background = $tpl_data.background }}
+
+        {{ $backgroundEmpty = empty($background.colleges) &&
+            empty($background.senior_schools) &&
+            empty($background.special_schools) &&
+            empty($background.middle_schools) &&
+            empty($background.primary_schools) }}
+        <div class="common {{ if $backgroundEmpty }}education-empty{{ /if }}">
+            <div class="title">
+                <i class="icon-edu"></i>
+                教育信息
+            </div>
+
+            <div class="content">
+                {{ if !$backgroundEmpty }}
+                <div>
+                    {{ if !empty($tpl_data.background)&&!empty($tpl_data.background.colleges) }}
+                    <span>
+                        大学：
+                    </span>
+                    <div class="cont">
+                        {{ foreach $tpl_data.background.colleges as $item }}
+                            <div>
+                                {{ $item.school_name }}{{ $item.enter_school|date_format:"%Y年" }}{{ $item.department_name }}
+                            </div>
+                        {{ /foreach }}
+                    </div>
+                    {{ /if }}
+                </div>
+                <div>
+                    {{ if !empty($tpl_data.background) && !empty($tpl_data.background.senior_schools) }}
+                    <span>
+                        高中：
+                    </span>
+                    <div class="cont">
+                        {{ foreach $tpl_data.background.senior_schools as $item }}
+                        <div>
+                            {{ $item.school_name }}&nbsp;&nbsp;{{ $item.enter_school|date_format:"%Y年" }}
+                        </div>
+                        {{ /foreach }}
+                    </div>
+                    {{ /if }}
+                </div>
+                <div>
+                    {{ if !empty($tpl_data.background)&&!empty($tpl_data.background.special_schools) }}
+                    <span>
+                        中专技校：
+                    </span>
+                    <div class="cont">
+                       {{ foreach $tpl_data.background.special_schools as $item }}
+                       <div>
+                           {{ $item.school_name }}&nbsp;&nbsp;{{ $item.enter_school|date_format:"%Y年" }}
+                       </div>
+                       {{ /foreach }}
+                    </div>
+                    {{ /if }}
+                </div>
+                <div>
+                    {{ if !empty($tpl_data.background)&&!empty($tpl_data.background.middle_schools) }}
+                    <span>
+                        初中：
+                    </span>
+                    <div class="cont">
+                       {{ foreach $tpl_data.background.middle_schools as $item }}
+                       <div>
+                           {{ $item.school_name }}&nbsp;&nbsp;{{ $item.enter_school|date_format:"%Y年" }}
+                       </div>
+                       {{ /foreach }}
+                    </div>
+                    {{ /if }}
+                </div>
+                <div>
+                    {{ if !empty($tpl_data.background)&&!empty($tpl_data.background.primary_schools) }}
+                    <span>
+                        小学：
+                    </span>
+                    <div class="cont">
+                        {{ foreach $tpl_data.background.primary_schools as $item }}
+                       <div>
+                           {{ $item.school_name }}&nbsp;&nbsp;{{ $item.enter_school|date_format:"%Y年" }}
+                       </div>
+                       {{ /foreach }}
+                    </div>
+                    {{ /if }}
+                </div>
+
+                {{ else if isset($tpl_data.basic_info.user_number) && isset($user_data.user_number) && $tpl_data.basic_info.user_number == $user_data.user_number }}
+                    <div class="empty">
+                        <p class="empty-p">
+                            你的求学经历还是个谜
+                        </p>
+                        <a href="/student_center/profile" target="_blank" class="btn btn-primary">添加</a>
+                    </div>
+                {{ else }}
+                    <p class="none">
+                        该用户没填写过任何信息
+                    </p>
+                {{ /if }}
+            </div>
+        </div>
+    </div>
+    <div class="work">
+        <div class="common {{ if empty($tpl_data.work) }} work-empty {{ /if }}">
+            <div class="title">
+                <i class="icon-work"></i>
+                工作信息
+            </div>
+            <div class="content">
+                {{ if !empty($tpl_data.work) }}
+                    {{ foreach $tpl_data.work as $item }}
+                        <div class="experience">
+                            <div>
+                                <span>
+                                    公司：
+                                </span>
+                                {{ $item.company_name }}
+                            </div>
+                            {{ if isset($item.start_date) && isset($item.end_date) }}
+                            <div>
+                                <span>
+                                    时间：
+                                </span>
+                                {{ $item.start_date|date_format:"%Y-%m " }}
+
+                                {{ if $item.end_date > 0 }}
+                                    至
+                                    {{ $item.end_date|date_format:" %Y-%m" }}
+                                {{ else }}
+                                    - 至今
+                                {{ /if }}
+                            </div>
+                            {{ else if isset($item.start_date) && !isset($item.end_date) }}
+                            <div>
+                                <span>
+                                    时间：
+                                </span>
+                                {{ $item.start_date|date_format:"%Y-%m" }}
+                            </div>
+                            {{ else if !isset($item.start_date) && isset($item.end_date) }}
+                            <div>
+                                <span>
+                                    时间：
+                                </span>
+                                {{ $item.end_date|date_format:"%Y-%m" }}
+                            </div>
+                            {{ /if }}
+                        </div>
+                    {{ /foreach }}
+                {{ else if isset($tpl_data.basic_info.user_number) && isset($user_data.user_number) && $tpl_data.basic_info.user_number == $user_data.user_number }}
+                    <div class="empty">
+                        <p class="empty-p">
+                            你还没有填写工作信息
+                        </p>
+                        <a href="/student_center/profile" target="_blank" class="btn btn-primary">添加</a>
+                    </div>
+                {{ else }}
+                    <p class="none">
+                        该用户没填写过任何信息
+                    </p>
+                {{ /if }}
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+
+{{ /strip }}
+{{ /block }}

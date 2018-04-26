@@ -1,0 +1,78 @@
+@import "mobileInput.less";
+
+/** 登陆／浅注册表单内容 **/
+.register-form {
+    width: 509px;
+    height: 330px;
+    background: url(../../../img/bg/easyregisterbg.png) no-repeat;
+
+    .placeholder-wrapper {
+        display: block;
+    }
+
+    .form-text {
+        width: 100%;
+        padding-left: 24px;
+    }
+
+    .form-body {
+        padding: 125px 115px;
+    }
+
+    .form-controls {
+        .icon-mobile,
+        .icon-lock {
+            position: absolute;
+            left: 6px;
+            top: 16px;
+        }
+    }
+
+    .form-sms,
+    .form-action {
+        margin-top: 5px;
+    }
+
+    .form-action {
+        button {
+            font-size: 16px;
+            width: 100%;
+        }
+    }
+
+    .form-sms {
+
+        .form-text {
+            width: 110px;
+        }
+
+        .btn-info {
+            width: 155px;
+            height: 38px;
+            margin-left: @gap-horizontal-large;
+        }
+
+        .placeholder {
+            padding-left: @gap-horizontal-small;
+        }
+
+    }
+
+    .btn-link {
+        &,
+        &:hover {
+            border: none;
+        }
+    }
+
+}
+
+.login-dialog {
+    .dialog-close {
+        color: #505050;
+        background: rgba(255, 255, 255, 0);
+        right: 10px;
+        top: 10px;
+    }
+}
+/******** 2014.09的登录样式结束 ****/

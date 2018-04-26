@@ -1,0 +1,72 @@
+{{ *
+
+@file 懂行页脚
+@author wangtianhua
+
+* }}
+
+{{ strip }}
+<div class="foot">
+    <div class="about">
+        <div class="site-map">
+            <ul class="add">
+                <li><a href="http://www.genshuixue.com" target="_blank">跟谁学<b>｜</b></a></li>
+                <li><a href="http://ju.genshuixue.com/" target="_blank">聚惠学<b>｜</b></a></li>
+                <li><a href="http://www.genshuixue.com/livezone" target="_blank">直播专区<b>｜</b></a></li>
+                <li><a href="http://www.genshuixue.com/videozone" target="_blank">视频专区<b>｜</b></a></li>
+                <li><a href="http://bbs.genshuixue.com/forum/index" target="_blank">跟谁学社区<b>｜</b></a></li>
+                <li><a href="http://news.genshuixue.com" target="_blank">学习头条</a></li>
+            </ul>
+            <ul class="old">
+                <li>
+                    <a href="http://www.genshuixue.com/guide/clause?a=clause" target="_blank">
+                        网站条款
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.genshuixue.com/guide/notice?a=notice" target="_blank">
+                        活动公告
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.genshuixue.com/guide/news?a=news" target="_blank">
+                        新闻报道
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.genshuixue.com/static/links#8" target="_blank">
+                        申请合作
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.genshuixue.com/static/seoWebMap" target="_blank">
+                        网站地图
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="friend-links">
+            <ul>
+                <li class="friend-links-label">合作伙伴：</li>
+                {{ foreach $data as $val }}
+                    <li class="friend-company">
+                        <a rel="{{ if $val.nofollow }}nofollow{{ /if }}" href="{{ $val.link }}" target="_blank">{{ $val.title }}</a>
+                    </li>
+                {{ /foreach }}
+                <li class="friend-links-last">
+                    <a href="{{ $root }}/static/links" target="_blank" class="more">更多</a>
+                </li>
+            </ul>
+        </div>
+        <div class="copyright">
+            Copyright © 2014 - 2017 北京百家互联科技有限公司版权所有. 京公网安备11010802015210号 | 京ICP备14027590号-1
+        </div>
+    </div>
+
+    <div class="code">
+        <img src="{{ $static_origin }}/asset/img/life/knowcode_21c6152308.jpg">
+        <div>更多分享，关注留学社群</div>
+    </div>
+</div>
+{{ /strip }}

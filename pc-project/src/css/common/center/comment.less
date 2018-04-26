@@ -1,0 +1,241 @@
+/**
+ * @file 课程评价
+ * @author jixiaohui
+ */
+
+@import './common/layout.less';
+@import './component/order.less';
+@import './component/courseOrder.less';
+@import './component/courseComment.less';
+@import '../component/cancelOrderDialog.less';
+@import '../component/moreImageUploader.less';
+
+#content {
+
+    .card-body {
+
+        .order {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .comment-box {
+
+            .judge {
+
+                color: @brand-text;
+                margin: @gap-vertical-medium 0;
+
+                .form-radio {
+                    margin-right: @gap-horizontal-medium;
+                }
+
+                .icon {
+                    font-size: 25px;
+                    vertical-align: middle;
+                }
+
+                .icon-smile-o {
+                    color: #F66;
+                }
+
+                .icon-neutral-o {
+                    color: #F0C000;
+                }
+
+                .icon-frown-o {
+                    color: @brand-text-light;
+                }
+            }
+
+            textarea {
+                width: 718px;
+                height: 170px;
+            }
+
+            .score {
+                height: 40px;
+                line-height: 40px;
+
+                ul {
+                    .clearfix();
+                }
+
+                li {
+                    float: left;
+                    margin-left: @gap-horizontal-huge;
+
+                    &:first-child {
+                        margin-left: 0;
+                    }
+                }
+            }
+
+        }
+
+        .form-group {
+            margin-top: 0;
+        }
+
+
+        .form-action {
+            margin-top: @gap-horizontal-medium;
+        }
+
+        .comment-photo-box {
+            width: 496px;
+            height: 100%;
+            overflow: hidden;
+
+            .comment-photo-list {
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                padding-left: 1px;
+                padding-top: 1px;
+
+                li {
+                    float: left;
+                    padding: 2px;
+                    border: 1px solid #E6E6E6;
+                    margin-right: 8px;
+                    margin-bottom: 12px;
+                    cursor: pointer;
+
+                    img {
+                        width: 80px;
+                        height: 60px;
+                        display: block;
+                        clear: both;
+                    }
+                }
+
+                li.active {
+                    border: 2px solid #FF7F00;
+                    position: relative;
+                    top: -1px;
+                    left: -1px;
+                }
+            }
+
+            .comment-photo-player {
+                width: 494px;
+                height: 100%;
+                overflow: hidden;
+                border: 1px solid #DEDEDE;
+                text-align: center;
+                margin-bottom: 14px;
+
+                .photo-action {
+                    height: 100%;
+                    width: 100%;
+                    overflow: hidden;
+                    margin: 10px 14px;
+                }
+
+                li {
+                    float: left;
+                    margin-right: 15px;
+                    font-size: 14px;
+                    color: #3d3d3d;
+                    cursor: pointer;
+                }
+
+                .photo-icon {
+                    background: url(../../../img/teacher/photo-action.png);
+                    width: 14px;
+                    height: 14px;
+                    display: inline-block;
+                    margin-right: 5px;
+                    position: relative;
+                    top: 1px;
+                }
+
+                .photo-packup {
+                    background-position: 0 0;
+                }
+
+                .photo-sourse {
+                    background-position: -20px 0;
+                }
+
+                .photo-left {
+                    background-position: -40px 0;
+                }
+
+                .photo-right {
+                    background-position: -58px 0;
+                }
+
+                .photo-wrapper {
+                    overflow: hidden;
+                    margin: 0 auto;
+                    text-align: center;
+                    position: relative;
+                    cursor: pointer;
+
+                    .floater {
+                        float: left;
+                        height: 50%;
+                        width: 100%;
+                    }
+
+                    img {
+
+                    }
+                }
+
+                .photo-name {
+                    margin: 10px auto;
+                    text-align: center;
+                    color: #333333;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+
+.ie8 {
+    .comment-photo-player {
+
+        .left,
+        .right {
+            display: none;
+        }
+    }
+}
+
+.sensitive {
+    em {
+        color: @brand-primary;
+    }
+}
+
+.comment-act {
+    display: none;
+
+    .comment-act-mask, .comment-act-mask + div {
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        top: 0;
+    }
+
+    .comment-act-mask {
+        .opacity(0.8);
+        background-color: #000;
+        z-index: @zindex-huge;
+
+        & + div {
+            background: url(../../../img/center/prize.png) 50% 50% no-repeat;
+            text-align: center;
+            z-index: @zindex-huge + 1;
+        }
+    }
+}
+
+
+
+
+

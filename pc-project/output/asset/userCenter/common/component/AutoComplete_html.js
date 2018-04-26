@@ -1,0 +1,1 @@
+define("userCenter/common/component/AutoComplete_html", [], function () { return '<div class="auto-complete dropdown{{#if options.className}} {{options.className}}{{/if}}"><Input options="{{options.input}}" /><div class="menu"></div></div>'});

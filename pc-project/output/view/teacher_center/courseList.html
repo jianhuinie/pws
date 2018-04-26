@@ -1,0 +1,87 @@
+{{ *
+
+@file 课程设置
+@author zhujialu, wangyujie
+
+* }}
+
+{{ extends file="common/center/base.html" }}
+
+{{ block name="data" }}
+    {{ $smarty.block.parent }}
+    {{ $script_path = "teacherCenter/courseList_f0ac916221" }}
+    {{ $script_data.vip_level = $user_data.vip_level }}
+    {{ $nav_active_tab = 'index' }}
+{{ /block }}
+
+{{ block name="title" prepend }}
+课程设置 -
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/teacherCenter/courseList_202af580e0.css">
+{{ /block }}
+
+{{ block name="main" }}
+
+{{ strip }}
+    {{ include file="teacher_center/common/floatHelp.html" }}
+    {{ include file="teacher_center/common/sidebar.html" active="courseSettings" }}
+
+    <div id="content" class="card">
+
+        <div class="card-header">
+            <h2>课程设置</h2>
+            <a class="text-info" href="{{ $origin_http }}/teacher_center/preview_home" target="_blank">
+                预览主页
+            </a>
+        </div>
+
+        <div class="card-body">
+
+            <div class="tab-nav tab-nav-info">
+                <a class="nav-item active">一对一</a>
+                <a href="/tcenter/courses/class-courses/list-html?lesson_way=4" class="nav-item">
+                    线下班课
+                    {{ if isset($tpl_data.is_complete) && $tpl_data.is_complete == false }}
+                    <i class="icon icon-info-circle"></i>
+                    {{ /if }}
+                </a>
+                <a href="/tcenter/courses/class-courses/list-html?lesson_way=2" class="nav-item">直播课</a>
+                <a href="/video_course/getcourselist?type=1&page=1&page_size=10" class="nav-item">视频课</a>
+            </div>
+
+            <div class="tab">
+
+                <div class="form-trigger">
+
+                    <div class="to-course-date">
+                        <a class="btn btn-primary" href="/teacher_combo/list_admin">
+                            课时优惠包
+                        </a>
+                    </div>
+
+                    <div class="to-combo">
+                        <a class="btn btn-primary" href="/usable_time/setting">
+                            设置授课时间
+                        </a>
+                    </div>
+
+                    <div class="create-course">
+                        <a class="btn btn-info">
+                            <i class="icon icon-plus"></i>
+                            添加课程
+                        </a>
+                    </div>
+
+                </div>
+
+                {{ include file="teacher_center/course/courseSubject.html" has_roster=$tpl_data.has_roster }}
+
+            </div>
+
+        </div>
+    </div>
+
+{{ /strip }}
+{{ /block }}

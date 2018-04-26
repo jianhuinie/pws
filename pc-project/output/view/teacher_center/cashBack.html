@@ -1,0 +1,18 @@
+{{ *
+
+@file 返现活动
+@author liucong
+
+* }}
+
+{{ extends file="common/center/cashBack.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+
+{{ /block }}
+
+{{ block name="sidebar" }}
+    {{ include file="teacher_center/common/sidebar.html" active="cashBack" }}
+{{ /block }}

@@ -1,0 +1,134 @@
+@import "page/_base/base.styl";
+
+.hidden {
+    display: none !important;
+}
+
+.return-to-live {
+    z-index: 2;
+    position: absolute;
+    overflow: hidden;
+    width: rem(168);
+    padding: rem(10);
+    font-size: rem(18);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #fff;
+    .left-angle {
+        width: rem(18);
+        height: rem(20);
+    }
+    .course-name {
+        position: relative;
+        top: rem(1);
+    }
+}
+.bottom-layer-img1,
+.bottom-layer-img2 {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.tip-block {
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: rem(-47) rem(-136.5);
+    width: rem(273);
+    height: rem(94);
+    text-align: center;
+    .text {
+        font-size: rem(12);
+        color: #fff;
+        line-height: 1.5;
+        text-align: center;
+    }
+    .buttons {
+        margin-top: rem(20);
+        .not-sign-up,
+        .now-sign-up {
+            display: inline-block;
+            width: rem(100);
+            height: rem(40);
+            background: #000;
+            line-height: rem(40);
+            font-size: rem(16);
+            text-decoration: none;
+        }
+        .not-sign-up {
+            border:rem(1) solid #f3f3f4;
+            margin-right: rem(20);
+            color: #f3f3f4;
+        }
+        .now-sign-up {
+            border:rem(1) solid #ff9100;
+            color: #ff9100;
+        }
+    }
+}
+
+.feedback-block {
+    z-index: 3;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: rem(-127) rem(-115.5);
+    padding: rem(15) rem(19) rem(15) rem(20);
+    width: rem(231);
+    height: rem(254);
+    background: #f3f3f4;
+    transition: all .5s ease-in;
+    .title-text {
+        margin-bottom: rem(24);
+        font-size: rem(12);
+        color: #6d6d6e;
+    }
+    .options-list {
+        .item {
+            .flag {
+                position: relative;
+                top: rem(2.5);
+                display: inline-block;
+                width: rem(14);
+                height: rem(14);
+                border: 1px solid #ddddde;
+                border-radius: 50%;
+                background: #fff;
+                .inner-circle {
+                    margin: rem(3) auto;
+                    width: rem(6);
+                    height: rem(6);
+                    border: 1px solid #fff;
+                    border-radius: 50%;
+                    background: #fff;
+                }
+            }
+            .flag-selected {
+                background: #ff9100;
+                .inner-circle {
+                    border: 1px solid #ff9100;
+                }
+            }
+            font-size: rem(12);
+            color: #3d3d3e;
+            margin-bottom: rem(12);
+        }
+    }
+    .submit-btn {
+        display: block;
+        margin: 0 auto;
+        border: 1px solid #ff9100;
+        width: rem(100);
+        height: rem(36);
+        background: #f3f3f4;
+        text-align: center;
+        color: #ff9100;
+    }
+}

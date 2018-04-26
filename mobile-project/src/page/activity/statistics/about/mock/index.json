@@ -1,0 +1,13 @@
+{
+    "tpl_data": {
+        "code": 0,
+        "data": {
+            "avatar": "http://test-img.gsxservice.com/headpic_sexless.jpg",
+            "user_name": "\u8bbf\u5ba2_SSydw",
+            "user_number": "371678011",
+            "user_role": -1
+        },
+        "msg": "succ",
+        "ts": 1453440809
+    }
+}

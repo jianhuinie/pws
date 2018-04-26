@@ -1,0 +1,243 @@
+{{ *
+
+@file 存储空间
+@author wangyujie
+
+* }}
+{{ extends "common/center/base.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+    {{ $nav_active_tab = 'index' }}
+
+    {{ $script_path = "teacherCenter/storageSpace" }}
+    {{ $script_data.priceDifference = $tpl_data.price_difference }}
+    {{ $script_data.unitPrice = $tpl_data.unit_price }}
+    {{ $script_data.isOrg = $tpl_data.is_org_teacher }}
+
+{{ /block }}
+
+{{ block name="title" prepend }}
+存储空间 -
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/teacherCenter/storageSpace.less">
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+
+{{ function name="formatFileSize" }}
+    {{ if $size < 1024 }}
+        {{ ($size)|number_format: 1|cat: 'B' }}
+    {{ else if ($size/1024) < 1024 }}
+        {{ ($size/1024)|number_format: 1|cat: 'KB' }}
+    {{ else if ($size/1024/1024) < 1024 }}
+        {{ ($size/1024/1024)|number_format: 1|cat: 'MB' }}
+    {{ else }}
+        {{ ($size/1024/1024/1024)|number_format: 1|cat: 'GB' }}
+    {{ /if }}
+{{ /function }}
+
+    {{ include file="teacher_center/common/sidebar.html" active="storageSpace" }}
+
+    <div id="content" class="card">
+
+        <div class="card-header">
+            <div class="usage">
+                （
+                {{ if $tpl_data.quota_used < $tpl_data.quota_total }}
+                    已使用空间：
+                    <span class="text-primary">
+                        {{ formatFileSize size=$tpl_data.quota_used }}
+                    </span>
+                    /{{ formatFileSize size=$tpl_data.quota_total }}
+                {{ else }}
+                    <span class="text-error">存储空间已满</span>：
+                    <span class="text-error">
+                        {{ formatFileSize size=$tpl_data.quota_used }}
+                    </span>
+                    /{{ formatFileSize size=$tpl_data.quota_total }}
+                {{ /if }}
+                ）
+            </div>
+            <h2>存储空间</h2>
+        </div>
+
+        <div class="card-body intro-card">
+            <h3>关于存储空间</h3>
+
+            <p>
+                普通用户享有10G的免费云端存储空间，会员老师可以获赠更多的免费存储空间：
+            </p>
+
+            <table style="margin: 1em 0">
+                <tr>
+                    <td class="wide"></td>
+                    <td>非会员老师</td>
+                    <td>普通会员老师</td>
+                    <td>高级会员老师</td>
+                    <td>超级会员老师</td>
+                </tr>
+                <tr>
+                    <td>免费存储空间大小<br>（个体老师）</td>
+                    <td>10G</td>
+                    <td>20G</td>
+                    <td>50G</td>
+                    <td>100G</td>
+                </tr>
+            </table>
+
+            <table style="margin: 1em 0">
+                <tr>
+                    <td class="wide"></td>
+                    <td>非会员机构</td>
+                    <td>普通会员机构</td>
+                    <td>高级会员机构</td>
+                    <td>超级会员机构</td>
+                </tr>
+                <tr>
+                    <td>免费存储空间大小<br>（全机构老师共享）</td>
+                    <td>10G</td>
+                    <td>40G</td>
+                    <td>100G</td>
+                    <td>200G</td>
+                </tr>
+            </table>
+
+            <p>
+                您在资料库中上传的资料文件，开设视频课时上传的视频文件，和直播课产生的云端录制视频，都将计入云存储空间范围内。
+            </p>
+
+            <h3>如何更好地利用存储空间</h3>
+            <p>
+                定期清理资料库中的资料文件<br>
+                删除已经不再使用的直播回放视频<br>
+                当视频课程下架后，记得删除资料库中的视频文件
+            </p>
+
+            <h3>存储空间价格</h3>
+            <table>
+                <tr>
+                    <td>会员等级</td>
+                    <td>非会员</td>
+                    <td>会员</td>
+                    <td>高级会员</td>
+                    <td>超级会员</td>
+                </tr>
+                <tr>
+                    <td>价格</td>
+                    <td>42元/年·G</td>
+                    <td>32元/年·G</td>
+                    <td>26元/年·G</td>
+                    <td>22元/年·G</td>
+                </tr>
+            </table>
+
+            <a class="link" href="/teacher_center/vip_center" target="_blank">
+                升级会员，尽享优惠！
+            </a>
+
+            <button class="btn-primary purchase-show">
+                购买空间
+            </button>
+        </div>
+
+        <div class="card-body purchase-card">
+
+            <div class="form form-purchase">
+
+                <div class="form-group">
+                    <label class="form-label">
+                        容量大小
+                    </label>
+                    <div class="form-controls">
+                        <input type="text" class="form-text" name="capacity" value="5" min="1" max="99" required pattern="^\d+$" />GB
+                        <button class="btn-default subtract">-</button>
+                        <button class="btn-default plus">+</button>
+                        <span class="error"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        购买单价
+                    </label>
+                    <div class="form-controls">
+                        <div class="form-static">
+                            <span class="text-primary">{{ $tpl_data.unit_price }}</span>元/年·GB
+                            {{ if $tpl_data.vip_level != 0 }}
+                            <span class="org-price">¥42</span>
+                            （会员专享<span class="text-primary">{{ $tpl_data.discount }}</span>折）
+                            {{ /if }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        开通对象
+                    </label>
+                    <div class="form-controls">
+                        <div class="form-static">
+                            {{ $user_data.display_name }}（{{ $user_data.mobile }}）
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        付费模式
+                    </label>
+                    <div class="form-controls">
+                        <div class="form-static">
+                            一年
+                            <div class="expiry">
+                                有效期至
+                                <em class="text-primary">
+                                    {{ $tpl_data.new_expire_time }}
+                                </em>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        应付金额
+                    </label>
+                    <div class="form-controls">
+                        <div class="form-static">
+                            <div class="price">
+                                <span class="text-primary total-price">
+                                    {{ 5 * $tpl_data.unit_price + $tpl_data.price_difference }}
+                                </span>元
+                            </div>
+                            {{ if $tpl_data.price_difference != 0 }}
+                            <div class="price-detail">
+                                <span class="temp-price">
+                                    {{ 5 * $tpl_data.unit_price }}
+                                </span>元
+                                +
+                                {{ $tpl_data.price_difference }}元差价
+                                <i class="icon icon-info-circle price-intro"></i>
+                            </div>
+                            {{ /if }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-action">
+                    <button class="btn-primary to-pay">确认支付</button>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+{{ /strip }}
+{{ /block }}

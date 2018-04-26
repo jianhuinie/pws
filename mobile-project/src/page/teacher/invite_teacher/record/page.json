@@ -1,0 +1,7 @@
+[
+    {
+        "tpl": "./index.tpl",
+        "router": "/recommendPrize/record",
+        "mock_data": "./mock/index.json"
+    }
+]

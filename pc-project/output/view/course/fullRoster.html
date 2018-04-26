@@ -1,0 +1,60 @@
+{{ *
+
+@file 班级花名册
+@author wangyujie
+
+* }}
+
+{{ extends file="common/center/base.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $script_path = "course/fullRoster_9c500e4075" }}
+
+    {{ if isset($tpl_data.class_course) }}
+        {{ $classCourse=$tpl_data.class_course }}
+    {{ /if }}
+    {{ if isset($tpl_data.teacher_course) }}
+        {{ $teacherCourse=$tpl_data.teacher_course }}
+    {{ /if }}
+    {{ if isset($tpl_data.video_course) }}
+        {{ $videoCourse=$tpl_data.video_course }}
+    {{ /if }}
+
+{{ /block }}
+
+{{ block name="title" prepend }}
+班级花名册 -
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/course/fullRoster_5c76fdb260.css">
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+<div id="main" class="card">
+
+    <div class="card-header">
+        <span>客服电话：4000-910-910，010-86448910</span>
+        <a class="logo" href="{{ $origin_http }}">
+            <img src="{{ $static_origin }}/asset/img/logo-release_ff8029b320.png" />
+        </a>
+    </div>
+
+    <div class="card-body">
+
+        {{ include file="course/roster/courseInfo.html" }}
+        {{ include file="course/roster/studentList.html" }}
+
+    </div>
+
+</div>
+{{ /strip }}
+{{ /block }}
+
+
+
+

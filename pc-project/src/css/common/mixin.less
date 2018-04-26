@@ -1,0 +1,35 @@
+/**
+ * @file less 函数
+ * @author zhujialu
+ */
+
+@import '../../../dep/muse/0.0.2/src/mixin.less';
+
+.gradient-vertical(@startColor, @endColor) {
+    background-color: @endColor;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@startColor), to(@endColor)); // Safari 4+, Chrome 2+
+    background-image: -webkit-linear-gradient(top, @startColor, @endColor); // Safari 5.1+, Chrome 10+
+    background-image: -moz-linear-gradient(top, @startColor, @endColor); // FF 3.6+
+    background-image: linear-gradient(to bottom, @startColor, @endColor); // Standard, IE10
+    background-repeat: repeat-x;
+}
+
+.triangle-up(@size, @left, @color:@brand-gray, @background-color:#fff){
+
+    &:before,
+    &:after {
+        border: @size solid transparent;
+        content: ' ';
+        position: absolute;
+        left: @left;
+    }
+
+    &:before {
+        border-bottom-color: @color;
+        top: -(@size * 2);
+    }
+    &:after {
+        border-bottom-color: @background-color;
+        top: -(@size * 2 - 1);
+    }
+}

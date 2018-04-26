@@ -1,0 +1,23 @@
+{{ strip }}
+{{ if isset($teachers) && count($teachers) }}
+<div id="relatedteacher" class="card">
+    <h1 class="card-header">相关老师</h1>
+    <div class="card-body">
+        <ul>
+            {{ foreach $teachers as $val }}
+            <li>
+
+                {{ include file="common/component/avatar.html" type="small" img=$val.avatar_url url=$val.detail_url target="_blank" }}
+
+                <div class="detail">
+                    <a href="{{ $val.detail_url }}" class="teachername" target="_blank">{{ $val.name }}</a>
+                    <div class="course">{{ $val.course }}</div>
+                    <p class="price">¥{{ $val.price }}<span class="time">/小时起</span></p>
+                </div>            
+            </li>
+            {{ /foreach }}
+        </ul>
+    </div>
+</div>
+{{ /if }}
+{{ /strip }}

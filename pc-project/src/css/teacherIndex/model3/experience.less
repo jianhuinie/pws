@@ -1,0 +1,180 @@
+@import '../../common/layout.less';
+@import '../../common/component/loginDialog.less';
+@import '../common/wrapper.less';
+@import '../common/header3.less';
+@import '../common/experience.less';
+@import '../common/success.less';
+
+#content{
+    width: 100%;
+    .body{
+        width: 1020px;
+        min-width: 1020px;
+        margin: 0 auto;
+        .teacher-content-header {
+            font-size: 14px;
+            color: #000;
+            width: 100%;
+            font-weight: bold;
+            height: 47px;
+            text-align: left;
+            padding-left: 20px;
+            padding-top: 16px;
+            display: inherit;
+            border-bottom: 1px solid #eee;
+            span{
+                font-size: 12px;
+                color: #888;
+            }
+        }
+        .teacher-content-bottom{
+            text-align: center;
+            height: 35px;
+            padding-top: 8px;
+            font-size: 12px;
+            border-top: 1px solid #eee;
+            cursor: pointer;
+        }
+        .clearfix();
+        .teacher-content{
+            width: 740px;
+            float: left;
+            margin-right: 10px;
+            &>div{
+              margin-top: 14px;
+              max-width: 740px;
+              background: #FFFFFF;
+            }
+            .teacher-intro{
+                height: auto;
+                .teacher-intro-info{
+                    padding: 20px;
+                    &>div{
+                        margin-top: 5px;
+                    }
+                    .info-tips li{
+                        display: inline-block;
+                        margin: 0 5px;
+                    }
+                    .introduction{
+                        display: inline-block;
+                        margin-left: 70px;
+                        margin-top: -22px;
+                    }
+                }
+            }
+            .teacher-record{
+                margin-top: 0;
+                .teacher-record-header{
+                    h1{
+                        display: inline-block;
+                        margin-right: 25px;
+                        height: 31px;
+                        cursor: pointer;
+                    }
+                    .active{
+                        border-bottom: 2px solid #f95;
+                    }
+                }
+                .teacher-record-content{
+                    padding: 0 20px;
+                    &>div{
+                        height: auto;
+                        padding-bottom: 20px;
+                    }
+                }
+            }
+        }
+        .teacher-sidebar{
+            width: 260px;
+            float: left;
+            margin-left: 10px;
+            &>div{
+                background: #FFFFFF;
+                max-width: 260px;
+                margin-top: 14px;
+            }
+            .teacher-baseinfo{
+                .teacher-baseinfo-data{
+                    width: 100%;
+                    height: 100%;
+                    overflow: hidden;
+                    border-bottom: 1px solid #E6E6E6;
+                    font-size: 12px;
+                    color: #6d6d6d;
+                    padding: 10px 0;
+                    li{
+                        float: left;
+                        width: 33%;
+                        border-left: 1px solid #E6E6E6;
+                        text-align: center;
+                        &:first-child{
+                            border-left: none;
+                        }
+                    }
+                }
+                .teacher-baseinfo-intro{
+                    padding: 10px;
+                    text-align: center;
+                    color: #6D6D6D;
+                    font-size: 12px;
+                }
+            }
+            .teacher-tips{
+                .teacher-tips-tag{
+                    width: 100%;
+                    padding: 0 20px;
+                    height: 100%;
+                    max-height: 65px;
+                    overflow: hidden;
+                    margin-top: 10px;
+                    font-size: 12px;
+                    color: #6d6d6d;
+                    li{
+                        float: left;
+                        padding: 1px 14px;
+                        height: 23px;
+                        border: 1px solid #f95;
+                        margin-right: 5px;
+                        margin-bottom: 10px;
+                        background: #fffbf5;
+                        border-radius: 12px;
+                    }
+                }
+            }
+            .teacher-orginfo{
+                .teacher-org{
+                    height: 80px;
+                    margin: 20px;
+                    &>*{
+                      float: left;
+                    }
+                    img{
+                        border-radius: 0;
+                        width: 60px;
+                        height: 60px;
+                    }
+                    .teacher-org-info{
+                        padding-left: 10px;
+                        font-size: 12px;
+                        .teacher-org-name{
+                            font-size: 14px;
+                            color: #222222;
+                            margin-bottom: 2px;
+                        }
+                        .teacher-org-zizhi span{
+                            color: #6187dc;
+                            display: inline-block;
+                            border: 1px solid #6187dc;
+                            padding: 0 5px;
+                          margin-left: 5px;
+                        }
+                        .teacher-org-intro{
+                            margin-top: 2px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

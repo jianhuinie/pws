@@ -1,0 +1,213 @@
+/**
+ * @file 邀请评价页
+ * @author zhangjiayi
+ */
+
+@import '../main/base.less';
+@import '../common/card.less';
+@import '../common/main/common/nav.less';
+@import '../pay/course/teacher.less';
+@import '../common/component/loginDialog.less';
+@import '../common/component/commentResultDialog.less';
+@import '../common/component/moreImageUploader.less';
+
+
+.hidden {
+    display: none;
+}
+
+#main {
+
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+    .section {
+        .section-header {
+            border-bottom: 1px solid @brand-gray;
+            font-size: @font-size-medium;
+        }
+
+        .section-body {
+            margin: 20px 0 40px 20px;
+        }
+    }
+
+    .card {
+        margin: 0 auto;
+        padding: 20px 40px;
+    }
+
+    .form-required {
+        vertical-align: top;
+        margin-top: 0;
+        &:before {
+            vertical-align: top;
+        }
+    }
+
+    .voice-code-link {
+        margin-left: 60px;
+
+        .btn-link {
+            font-size: @font-size-tiny;
+            color: @brand-info;
+            &:hover {
+                color: @brand-primary;
+            }
+        }
+        span {
+            padding-top: 0;
+        }
+    }
+
+    #captcha {
+        .captcha-image {
+            margin-left: 60px;
+            vertical-align: bottom;
+        }
+    }
+}
+
+.btn-send-code,
+.login-guide,
+.bind-success {
+    display: none;
+}
+.form-inline {
+    //display: none;
+}
+
+.comment-title {
+
+    font-size: 20px;
+    font-weight: bolder;
+    margin-bottom: 20px;
+
+    .icon {
+        font-size: 20px;
+        margin-right: 4px;
+    }
+
+    span {
+        color: @brand-primary;
+    }
+}
+
+.form-student {
+    .form-name {
+        margin-left: 13px;
+    }
+
+    .form-sms,
+    .btn-register {
+        display: none;
+    }
+
+    .btn-register {
+        //margin: 12px 0 0 60px;
+        left: 62px;
+        top: 10px;
+    }
+
+}
+
+.comment-box {
+
+    .judge {
+
+        color: @brand-text;
+        margin: @gap-vertical-medium 0;
+
+        .form-radio {
+            margin-right: @gap-horizontal-medium;
+        }
+
+        .icon {
+            font-size: 25px;
+            vertical-align: middle;
+        }
+
+        .icon-smile-o {
+            color: #F66;
+        }
+
+        .icon-neutral-o {
+            color: #F0C000;
+        }
+
+        .icon-frown-o {
+            color: @brand-text-light;
+        }
+    }
+
+    textarea {
+        width: 618px;
+        height: 150px;
+    }
+
+    .score {
+        //font-size: @font-size-medium;
+        height: 34px;
+        line-height: 34px;
+    }
+    .cont {
+        margin-top: 43px;
+        margin-left: -80px;
+    }
+    .form-action {
+        margin-top: 10px;
+        margin-left: 250px;
+    }
+}
+
+.teacher-info {
+
+    .comment-select {
+        margin-top: 10px;
+    }
+
+    .dropdown {
+        margin-top: 0;
+        margin-left: 0;
+        margin-right: 30px;
+
+        .btn {
+            width: 160px;
+        }
+    }
+    .price {
+        display: none;
+    }
+
+    .lesson-hour {
+        height: 36px;
+        position: relative;
+        top: -7px;
+        vertical-align: bottom;
+    }
+
+    dd {
+        margin-top: 10px;
+
+        .name {
+            margin-bottom: 10px;
+        }
+    }
+}
+
+.has-comminted-dialog {
+    .dialog-close {
+        display: none;
+    }
+}
+
+.comment-result-dialog {
+    color: @brand-success;
+}
+
+
+.sensitive {
+    em {
+        color: @brand-primary;
+    }
+}

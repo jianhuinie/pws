@@ -1,0 +1,109 @@
+{{ strip }}
+<div id="all-courses" class="card">
+    <div class="title">
+        同课程全部课型
+    </div>
+    <table class="course-list">
+        <thead>
+            <tr>
+                <td class="class-checkbox">已选课型</td>
+                <td class="class-code">课程编号</td>
+                <td class="class-name">课程名称</td>
+                <td class="class-time">上课时间</td>
+                <td>课程安排</td>
+                <td class="class-explain">课时说明</td>
+                <td>上课地点</td>
+                <td class="class-option">操作</td>
+            </tr>
+        </thead>
+        <tbody>
+            {{ foreach $tpl_data.type_info as $course }}
+            <tr class="to-course {{ if $course.selected == 1 }} active {{ /if }}">
+                <td>
+                    <a href="{{ $course.detail_url }}" target="_blank">
+                        <input type="checkbox" {{ if $course@index == 0 }} checked {{ /if }} />
+                    </a>
+                </td>
+                <td>
+                    <a href="{{ $course.detail_url }}" target="_blank">
+                        {{ if $course.code }}
+                            {{ $course.code }}
+                        {{ else }}
+                            待定
+                        {{ /if }}
+                    </a>
+                </td>
+                <td class="class-name">
+                    <a href="{{ $course.detail_url }}" target="_blank">
+                        {{ $course.name }}
+                    </a>
+                </td>
+                <td>
+                    <a href="{{ $course.detail_url }}" target="_blank">
+                        {{ if $course.class_time }}
+                            {{ $course.class_time }}
+                        {{ else }}
+                            待定
+                        {{ /if }}
+                    </a>
+                </td>
+                <td>
+                    <a href="{{ $course.detail_url }}" target="_blank">
+                        {{ if $course.class_plan }}
+                            {{ $course.class_plan }}
+                        {{ else }}
+                            待定
+                        {{ /if }}
+                    </a>
+                </td>
+                <td>
+                    <a href="{{ $course.detail_url }}" target="_blank">
+                        {{ $course.class_hour_explain }}
+                    </a>
+                </td>
+                <td>
+                    <a class="address" href="{{ $course.detail_url }}" target="_blank">
+                        {{ if $course.lesson_way == 2 }}
+                            在线授课
+                        {{ else if $course.lesson_way == 4 }}
+                            {{ if {{ $course.address }} }}
+                                {{ $course.address }}
+                            {{ else }}
+                                待定
+                            {{ /if }}
+                        {{ /if }}
+                    </a>
+                </td>
+                <td class="text-primary">
+                    {{ if $course.status == 2 }}
+                        {{ if $course.buy_way == 1 }}
+                            <a class="btn-primary" href="{{ $course.detail_url }}" target="_blank">
+                                选择课时
+                            </a>
+                        {{ else if $course.buy_way == 2 }}
+                            <div class="enroll-action">
+                                <button class="btn-primary reserve-course" data-buyway="2" data-number="{{ $course.number }}" data-lessonway="{{ $course.lesson_way }}">
+                                    立即购买
+                                </button>
+                            </div>
+                        {{ /if }}
+                    {{ else if $course.status == 3 }}
+                        <div class="enroll-action">
+                            <button class="btn-default">
+                                暂停招生
+                            </button>
+                        </div>
+                    {{ else if $course.status == 14 }}
+                        <div class="enroll-action">
+                            <button class="btn-default">
+                                已下架
+                            </button>
+                        </div>
+                    {{ /if }}
+                </td>
+            </tr>
+            {{ /foreach }}
+        </tbody>
+    </table>
+</div>
+{{ /strip }}

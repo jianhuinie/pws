@@ -1,0 +1,18 @@
+{{ strip }}
+    <div id="othersLearn" class="card">
+        <div class="title">其他同学还在学</div>
+        <div class="lists">
+            {{ foreach $tpl_data.relative_course as $val }}
+                <div class="item">
+                   <a href="{{ $val.courses_detail_url }}" target="_blank">
+
+                       {{ include file="common/component/image.html" width=180 height=110 url=$val.img_url }}
+                   </a>
+                    <a href="{{ $val.courses_detail_url }}" target="_blank">
+                        <p>{{ $val.name|cn_truncate:10 }}</p>
+                    </a>
+                </div>
+            {{ /foreach }}
+        </div>
+    </div>
+{{ /strip }}

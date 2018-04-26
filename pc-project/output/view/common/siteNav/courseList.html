@@ -1,0 +1,10 @@
+{{ *
+
+@file 顶部导航 - 课程列表
+@author zhangjiayi
+
+* }}
+
+{{ foreach $tpl_data.course_list.lessons as $item }}
+    {{ include file="./course.html" course=$item }}
+{{ /foreach }}

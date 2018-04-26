@@ -1,0 +1,47 @@
+@import "page/_base/base.styl";
+@import "page/_common/nav_bar/nav_bar.styl";
+@import "page/studentRoom/_part/teacherList.styl";
+@import "page/studentRoom/_part/refresh.styl";
+@import "page/studentRoom/_part/nav.styl";
+@import "common/ui/Loading/index.styl";
+
+.nav-bar {
+    z-index: 2;
+}
+
+.has-more {
+    font-family: PingFang-SC-Regular;
+    font-size: rem(14);
+    color: #9d9d9e;
+    letter-spacing: rem(0.49);
+    text-align: center;
+    height: rem(50);
+    line-height: rem(50);
+}
+
+.empty {
+    text-align: center;
+    margin-top: rem(100);
+    img {
+        width: rem(80);
+    }
+    p{
+        margin-top: rem(10);
+        font-size: rem(12);
+        color: #9d9d9e;
+    }
+}
+
+.add-icon {
+    z-index: 1;
+    display: inline-block;
+    position: fixed;
+    bottom: rem(20);
+    right: rem(20);
+    width: rem(60);
+    height: rem(60);
+    display: none;
+    img {
+        width: 100%;
+    }
+}

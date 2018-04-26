@@ -1,0 +1,1 @@
+define('common/function/timeSpan_d90461ee00',['require','exports'],function(){'use strict';function n(n){if(1===n.toString().length)return'0'+n;else return n;}return function(e){if(1>e)e=0;var t=parseInt(e/86400,10),r=parseInt((e-86400*t)/3600,10),s=parseInt((e-86400*t-3600*r)/60,10),i=parseInt(e-86400*t-3600*r-60*s,10);return{days:t,hours:n(r),minutes:n(s),seconds:n(i)};};});

@@ -1,0 +1,137 @@
+@import "page/_base/base.styl";
+@import "page/_common/nav_bar/nav_bar.styl";
+
+$border-red = #FF5850;
+$border-grey = #CDCDCE;
+$border-purple = #954BA8;
+$border-blue = #25BAC6;
+$border-darkblue = #0594C5;
+$border-primary = #FF9100;
+
+$text-muted = #9d9d9e;
+$text-black = #3d3d3e;
+
+$bg-white = #fefefe;
+$bg-gobal = #F8F7ED;
+
+.nav-bar {
+    color: $bg-white;
+    background-color: $text-black;
+    .nav-button {
+        color: $bg-white;
+    }
+}
+
+.vip-club {
+    background-color: $bg-gobal;
+    padding: rem(17) rem(20);
+
+    .vip-card {
+        width: 100%;
+        border-radius: rem(10);
+        box-shadow: 0 rem(2) rem(3) rem(0) #d3d3d3;
+        position: relative;
+        img {
+            width: 100%;
+        }
+        .card-number {
+            position: absolute;
+            bottom: rem(10);
+            left: rem(16);
+            color: $border-purple;
+            font-size: rem(16);
+        }
+    }
+
+    .text {
+        font-size: rem(13);
+        text-align: center;
+        color: $text-black;
+        margin-top: rem(20);
+        word-break: break-all;
+        .rest-time {
+            color: $border-red;
+        }
+    }
+
+    .row {
+        display: flex;
+        text-align: center;
+        margin-top: rem(22);
+        a {
+            display: block;
+            width: 50%;
+        }
+        .column {
+            flex: 1;
+            border: 1px solid transparent;
+            padding-top: rem(25);
+            padding-bottom: rem(20);
+            border-radius: rem(10);
+            background-color: $bg-white;
+            .title {
+                font-size: rem(15);
+                color: $text-black;
+                height: rem(30);
+                line-height: rem(30);
+                margin-top: rem(10);
+                &.muted {
+                    color: $text-muted;
+                }
+            }
+            .sub-title {
+                font-size: rem(14);
+                color: $text-muted;
+                .coupon-count {
+                    color: $border-red;
+                }
+            }
+            &:nth-child(2) {
+                margin-left: rem(10);
+            }
+        }
+        .column-first {
+            border-color: $border-red;
+        }
+        .column-second {
+            border-color: $border-grey;
+        }
+        .column-third {
+            border-color: $border-purple;
+        }
+        .column-fourth {
+            border-color: $border-blue;
+        }
+        .column-fifth {
+            border-color: $border-darkblue;
+        }
+        .column-sixth {
+            border-color: $border-primary;
+        }
+        img {
+            width: rem(54);
+        }
+    }
+
+    .tuition-bodyguard {
+        border: 1px solid $border-grey;
+        border-radius: rem(10);
+        padding: rem(10);
+        font-size: rem(15);
+        margin: rem(20) 0;
+        width: 100%;
+        color: #6d6d6e;
+        display: flex;
+        vertical-align: middle;
+        .tuition-letin {
+            flex: 1;
+            padding-left: rem(7);
+            line-height: rem(23);
+        }
+        img {
+            width: rem(20);
+            height: rem(23);
+        }
+    }
+
+}

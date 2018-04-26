@@ -1,0 +1,101 @@
+{{ extends file="common/main/base.html" }}
+
+
+{{ block name="data" }}
+
+{{ $smarty.block.parent }}
+
+{{ $script_path = "activity/iphone" }}
+
+
+{{ $nav_config.active = '' }}
+{{ $nav_config.hidden = 1 }}
+
+{{ $baidu_share_text = "我刚刚参加了@跟谁学 的“庆祝测试版上线，iPhone 6免费送”活动！注册即有抽奖机会！大家都来参加吧～" }}
+
+{{ $baidu_share_image = "http://img.gsxservice.com/0home/banner_register.png" }}
+
+{{ /block }}
+
+{{ block name="title" }}
+iphone6免费送- 活动中心 - 跟谁学
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/activity/iphone.less">
+{{ /block }}
+
+{{ block name="main" }}
+
+{{ strip }}
+
+<div id="main">
+
+    {{ if isset($smarty.get.compaign_id) }}
+
+    {{ $compaign_id = $smarty.get.compaign_id }}
+
+    {{ else }}
+
+    {{ $compaign_id = pc002 }}
+
+    {{ /if }}
+
+
+    {{ if isset($user_data.user_name) }}
+    {{ $has_login = 1 }}
+    {{ else }}
+    {{ $has_login = 0 }}
+    {{ /if }}
+
+    {{ if isset($smarty.get.su) }}
+    {{ $su = $smarty.get.su }}
+    {{ else }}
+    {{ $su = 0 }}
+    {{ /if }}
+
+
+
+    <div id="iphone">
+
+        <div class="top"></div>
+
+        <div class="main">
+            <ul>
+                <li class="more">
+                    <!--                <p>2014年9月22日，跟谁学 www.genshuixue.com
+                                    终于与各位老师、同学见面了！
+                                    我们致力于打造人人乐用的学习服务平台
+                                    让学生精确地找到最合适的老师
+                                    让老师最大化地体现自身价值</p>-->
+                    <!--<a href="http://www.genshuixue.com/">点击更多了解跟谁学</a>-->
+                    <a href="/guide/about?a=about">点击更多了解跟谁学</a>
+
+                </li>
+
+                <li class="raffle">
+                    <!--                <p>在如此特别的日子里，我们为大家献上了
+                                    “庆祝测试版上线，iPhone 6免费送”活动！
+                                    想要参与史上最难买的iPhone6抽奖？
+                                    那就猛戳这里吧！</p>-->
+
+
+                    {{ include file="common/component/baiduShare.html" }}
+                    <button id="apply" class="btn btn-primary" data-su="{{ $su }}" data-login="{{ $has_login }}" data-compaign="{{ $compaign_id }}">参与抽奖</button>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+
+
+
+
+
+</div>
+
+
+
+{{ /strip }}
+{{ /block }}

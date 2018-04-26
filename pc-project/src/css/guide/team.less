@@ -1,0 +1,138 @@
+/**
+ * @file 老师入驻
+ * @author tangrongyan
+ */
+
+@import './layout.less';
+
+
+
+#main .btright {
+    padding: 50px 40px;
+    width: 769px;
+
+    .banner {
+        height: 410px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .promotion {
+        position: absolute;
+        left: -769px;
+    }
+    .promotion li {
+        float: left;
+    }
+
+    .promotion-slider-nav {
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+        .clearfix();
+
+        li {
+            float: left;
+        }
+
+        span {
+            text-indent: -9999px;
+            display: block;
+            width: 10px;
+            height: 10px;
+            border-radius: 5px;
+            background: @brand-gray;
+            margin-left: 2px;
+            opacity: 0.9;
+            cursor: pointer;
+
+            &.active {
+                opacity: 1;
+                background: @brand-primary;
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+#main .item {
+    li {
+        float: left;
+        color:#202020;
+        font-size: 15px;
+        margin-bottom: 40px;
+        img {
+            border: 6px solid #FFF;
+            height: 238px;
+            width: 202px;
+        }
+        em {
+            display: block;
+            font-size: 20px;
+            margin: 20px auto; 
+        }
+        div {
+            width: 250px;
+            height: 250px;
+            margin-left: 18px;
+            display: inline-block;
+            vertical-align: top;
+
+            .mark {
+                padding: 8px 0;
+                text-align: center;
+                width: 314px;
+                left: -17px;
+                padding-left: 17px; 
+                background-color: #ffe468;
+                position: relative;
+            }
+            .mark:after {
+                border: 18px solid #ffe468;
+                border-right: 18px solid #ffefbd;
+                content: ' ';
+                position: absolute;
+                top: 0px;
+            }
+            .sorce {
+                display: block;
+                margin: 6px auto;
+            }
+            .school {
+                display: block;
+            }
+            .institution {
+                display: block;
+                margin: 7px auto 20px;
+            }
+        }
+    }
+}

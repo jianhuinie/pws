@@ -1,0 +1,46 @@
+{{ *
+
+@file 教师中心 - 管理总览
+@author wangyujie
+
+* }}
+
+{{ extends file="../../common/base.html" }}
+
+{{ block name="title" prepend }}
+会员特权详情 －
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/userCenter/teacherCenter/vipCenter/detail/vipDetail.styl" />
+{{ /block }}
+
+{{ block name="script" }}
+<script>
+require(
+    [
+        'userCenter/teacherCenter/common/layout',
+        'userCenter/teacherCenter/vipCenter/detail/orgVipDetail'
+    ],
+    function (layout, index) {
+        {{ $php_data = $tpl_data }}
+
+        {{ if isset($tpl_data.is_huike_teacher) }}
+            {{ $is_huike_teacher = $tpl_data.is_huike_teacher }}
+        {{ else }}
+            {{ $is_huike_teacher = 0 }}
+        {{ /if }}
+
+        layout.init({
+            topMenu: 'vipCenter',
+            other : true,
+            isHuikeTeacher: {{ $is_huike_teacher }}
+        });
+
+        index.init(
+            {{ json_encode($php_data, 77) }}
+        );
+    }
+);
+</script>
+{{ /block }}

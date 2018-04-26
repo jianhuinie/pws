@@ -1,0 +1,159 @@
+{{ *
+
+@file 老师中心 - 营销中心 - 添加优惠券
+@author wangyujie
+
+* }}
+
+{{ extends file="common/center/base.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $script_path = "teacherCenter/addCoupon" }}
+
+{{ /block }}
+
+{{ block name="title" prepend }}
+营销中心 - 新建优惠券 -
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/teacherCenter/addCoupon.less">
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+
+    {{ include file="teacher_center/common/sidebar.html" active="mkt" }}
+
+    <div id="content" class="card">
+
+        <div class="card-header">
+            <a href="/teacher_center/myCoupons">
+                优惠券
+            </a>
+            &nbsp;&gt;&nbsp;
+            <a>新建优惠券</a>
+        </div>
+
+        <div class="card-body">
+
+            <div class="form form-add-coupon">
+
+                <div class="form-group">
+                    <label class="form-label">
+                        面值：
+                    </label>
+                    <div class="form-controls">
+                        <input type="money" class="form-text" name="balance" />元
+
+                        <div class="form-static form-inline">
+                            <span class="form-hint">
+                                请填写5~2000元以内的整数金额
+                            </span>
+                        </div>
+
+                        <span class="error"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        张数：
+                    </label>
+                    <div class="form-controls">
+                        <input type="int" class="form-text" name="total_count">
+                        总额
+                        <span class="total-balance"></span>
+                        元
+                        <div class="form-static form-inline">
+                            <span class="form-hint">
+                                不能超过1000张
+                            </span>
+                        </div>
+                        <span class="error"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        使用条件：
+                    </label>
+                    <div class="form-controls">
+                        {{ include file="common/component/radio.html" name="threshold" value="0" text="无限制" checked=1 }}
+                        {{ include file="common/component/radio.html" name="threshold" value="1" text="" }}
+                        <input type="money" class="form-text" name="cond_threshold" />元以上可以使用
+                        <span class="error"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        有效期：
+                    </label>
+                    <div class="form-controls start-date">
+                        <input class="form-text" name="start_date" readonly="readonly" />
+                    </div>
+                    至
+                    <div class="form-controls end-date">
+                        <input class="form-text" name="end_date" readonly="readonly" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        每人限领：
+                    </label>
+                    <div class="form-controls">
+                        <div class="form-static">
+                            1张
+                        </div>
+                        <input type="hidden" class="form-text" name="max_recv_count" value="1" readonly="readonly" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        备注：
+                    </label>
+
+                    <div class="form-editor">
+                        <textarea class="form-text" name="remark" placeholder="最多30个字，有助于你区分设置的不同的优惠券哦~"></textarea>
+                        <div class="form-hint">
+                            还可以输入 <strong>30</strong> 个字
+                        </div>
+                    </div>
+
+                    <!--div class="form-static form-inline">
+                        <span class="form-hint">
+                            备注信息有助于区分优惠券
+                        </span>
+                    </div-->
+
+                    <span class="error"></span>
+                </div>
+
+                <div class="form-action">
+                    <button class="btn btn-primary btn-save">保存</button>
+                    <a class="btn btn-default" href="/teacher_center/myCoupons">取消</a>
+                    <ul>
+                        <li>
+                            <i class="form-required"></i>
+                            优惠券信息保存后不可进行修改哦！
+                        </li>
+                        <li>
+                            <i class="form-required"></i>
+                            通过苹果设备购买的视频课，不能使用优惠券
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{{ /strip }}
+{{ /block }}
+

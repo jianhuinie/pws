@@ -1,0 +1,1 @@
+define("cc/function/supportInput",["require","exports","module"],function(){"use strict";return function(){var t=$('<input type="text" />')[0];return"oninput"in t}});

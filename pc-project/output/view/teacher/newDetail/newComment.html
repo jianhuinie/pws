@@ -1,0 +1,29 @@
+{{ *
+
+@file 课程评价
+@author jixiaohui
+
+* }}
+
+{{ strip }}
+
+{{ $totalCount = count($tpl_data.comment_data.comment_list) }}
+
+<div id="teacher-comment" class="show-teacher-comment">
+    <div class="new-title" >
+        所有评价
+    </div>
+    <div class="overview">
+        {{ * include file="teacher/newDetail/commentOverview.html" tpl_data=$tpl_data * }}
+    </div>
+
+    <div class="tab-nav-info" id="show-tab-nav-info" >
+        {{ * include file="teacher/newDetail/commentNav.html" tpl_data=$tpl_data * }}
+    </div>
+
+    <div class="nav-content">
+        {{ * include file="teacher/newDetail/commentList.html" tpl_data=$tpl_data * }}
+    </div>
+</div>
+
+{{ /strip }}

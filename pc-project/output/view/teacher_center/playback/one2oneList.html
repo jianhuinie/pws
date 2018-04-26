@@ -1,0 +1,121 @@
+{{ *
+
+@file 老师中心 - 直播回放 - 一对一列表
+@author wangyujie
+
+* }}
+
+{{ strip }}
+
+<div class="form form-query">
+    <div class="form-group">
+        <label class="form-label">
+            选择时间段：
+        </label>
+        从
+        <div class="form-controls start-date">
+            <input class="form-text" name="start_date" readonly="readonly" />
+        </div>
+        到
+        <div class="form-controls end-date">
+            <input class="form-text" name="end_date" readonly="readonly" />
+        </div>
+
+        <button class="btn btn-primary btn-query">
+            查询
+        </button>
+    </div>
+</div>
+
+<div id="onevone-list">
+    {{ if $courseInfo.course_list }}
+        <ul class="live-list">
+            <li class="list-header">
+                <div class="schedule-no">课程信息</div>
+                <div class="schedule-time">课节时间</div>
+                <div class="schedule-status">状态</div>
+                <div class="schedule-expire">回放截止时间</div>
+                <div class="schedule-actions">操作</div>
+            </li>
+
+            {{ foreach $courseInfo.course_list as $item }}
+                <li class="list-item {{ if $item@first }}open{{ /if }}">
+
+                    <div class="course-info" data-cnumber="{{ $item.number }}">
+                        <div class="course-name">
+                            {{ $item.name|cn_truncate: 32 }}
+                        </div>
+                        <div class="course-expire" data-expireday="{{ $item.playback_expire_day }}">
+                            {{ if $item.playback_expire_day == 0 }}
+                                <span>始终有效</span>
+                            {{ else }}
+                                回放有效期
+                                <span>{{ $item.playback_expire_day }}天</span>
+                            {{ /if }}
+                            <span class="edit">
+                                编辑
+                            </span>
+                        </div>
+                        <div class="course-switch">
+                            <i class="icon icon-caret-down"></i>
+                            <i class="icon icon-caret-up"></i>
+                        </div>
+                    </div>
+
+                    <ul class="schedule-list">
+                        {{ foreach $item.schedule_list as $sItem }}
+                            <li class="schedule-item" data-sid="{{ $sItem.schedule_id }}" data-playbackid="{{ $sItem.playback_id }}">
+
+                                <div class="schedule-no">
+                                    {{ $sItem.schedule_name }}
+                                </div>
+
+                                <div class="schedule-time">
+                                    {{ $sItem.begin_time }}
+                                </div>
+
+                                <div class="schedule-status">
+                                    {{ if $sItem.media_status == 20 }}
+                                        <span>上传中</span>
+                                    {{ else if $sItem.media_status == 30 }}
+                                        <span class="text-primary">转换中</span>
+                                    {{ else if $sItem.media_status == 50 }}
+                                        <span class="text-error" data-width="19em" data-title="转码失败…正在尝试再次转码，如有疑问请拨打客服热线4000-910-910，010-86448910">转换失败</span>
+                                    {{ else if $sItem.media_status == 70 }}
+                                        <span class="text-success">回放中</span>
+                                    {{ else if $sItem.media_status == 90 }}
+                                        <span>已结束回放</span>
+                                    {{ /if }}
+                                </div>
+
+                                <div class="schedule-expire">
+                                    {{ $sItem.media_expire }}
+                                </div>
+
+                                <div class="schedule-actions">
+                                    {{ if $sItem.media_status == 70  || $sItem.media_status == 90 }}
+                                        <a href="{{ $sItem.cloud_playback_url }}" target="_blank">
+                                            预览
+                                        </a>
+                                        <span class="delete">删除</span>
+                                    {{ else }}
+                                        <span class="disable">预览</span>
+                                        <span class="disable">删除</span>
+                                    {{ /if }}
+                                </div>
+
+                            </li>
+                        {{ /foreach }}
+                    </ul>
+                </li>
+            {{ /foreach }}
+        </ul>
+    {{ else }}
+        <div class="no-live">
+            <p class="bgImg"></p>
+            <p>暂无可用直播回放</p>
+        </div>
+    {{ /if }}
+</div>
+
+{{ /strip }}

@@ -1,0 +1,33 @@
+{{ *
+
+@file 商学院 － 关于我们
+@author wangyujie
+
+* }}
+
+{{ extends file="./common.html" }}
+
+{{ block name="data" }}
+    {{ $smarty.block.parent }}
+    {{ $script_path = "activity/businessSchool/common" }}
+{{ /block }}
+
+{{ block name="variable" }}
+    {{ $menu = "about" }}
+{{ /block }}
+
+
+{{ block name="content" }}
+{{ strip }}
+
+<div class="bs-content">
+    {{ foreach $tpl_data as $item }}
+    <div class="about-us">
+        <img src="{{ $item.imgUrl }}" />
+    </div>
+    {{ /foreach }}
+</div>
+
+
+{{ /strip }}
+{{ /block }}

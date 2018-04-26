@@ -1,0 +1,365 @@
+{{ *
+
+@file 抽奖、分享页面
+@author liucong
+
+* }}
+
+{{ extends file="common/main/base.html" }}
+
+{{ block name="data" }}
+
+{{ $smarty.block.parent }}
+{{ $script_path = "activity/prize_d6a1afd720" }}
+
+{{ $script_data = [] }}
+{{ $script_data.sourceUserNumber = $tpl_data.source_user_number }}
+{{ $script_data.hasGetPrize = $tpl_data.has_get_prize }}
+
+{{ if !empty($user_data) }}
+    {{ $script_data.userNumber = $user_data.user_number }}
+    {{ $script_data.userType = $user_data.user_type }}
+
+{{ /if }}
+
+{{ if isset($smarty.get.type) }}
+    {{ $script_data.sourceUserType = $smarty.get.type }}
+{{ /if }}
+
+{{ $nav_config.hidden = 1 }}
+{{ $flotage_config.hidden = 1 }}
+
+{{ if !empty($user_data) && $user_data.user_type == 0 }}
+{{ $baidu_share_text = "我在跟谁学开课了, 送你最高千元奖学金红包，各种现金奖励，快来领取吧!" }}
+{{ else }}
+{{ $baidu_share_text = "跟谁学在发红包呢，赶紧去抢" }}
+{{ /if }}
+
+{{ $baidu_share_image = "{{ $static_origin }}/asset/img/activity/prize/share.jpg" }}
+
+{{ if !empty($user_data) }}
+{{ $baidu_share_url = $origin_http|cat:"/activity/share?number="|cat:$user_data.user_number|cat:"&type="|cat:$user_data.user_type }}
+{{ /if }}
+
+
+{{ if empty($user_data) || ($tpl_data.is_owner == false && $user_data.user_type != 0) }}
+    {{ $showPrize = true }}
+{{ else }}
+    {{ $showPrize = false }}
+{{ /if }}
+
+{{ $path = "/activity/share?" }}
+{{ if isset($smarty.get.number) }}
+    {{ $path = $path|cat:"number="|cat:$smarty.get.number }}
+{{ /if }}
+
+{{ if isset($smarty.get.type) }}
+    {{ $path = $path|cat:"&type="|cat:$smarty.get.type }}
+{{ /if }}
+{{ $path = urlencode($path) }}
+
+{{ if isset($tpl_data.expired) && $tpl_data.expired }}
+    {{ $is_expired = true }}
+{{ else }}
+    {{ $is_expired = false }}
+{{ /if }}
+
+{{ /block }}
+
+{{ block name="title" }}
+抽奖- 活动中心 - 跟谁学
+{{ /block }}
+
+
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/activity/prize_978bfc4b8d.css">
+{{ /block }}
+
+{{ block name="main" }}
+
+{{ strip }}
+
+{{ function getStarTeachers }}
+    <div class="star-teacher">
+        <h1>明星老师</h1>
+        <ul>
+            {{ foreach $teachers as $teacher }}
+            <li {{ if ($teacher@index + 1) % 5 == 0 }}class="last"{{ /if }}>
+                <a href="{{ $teacher.detail_url }}" target="_blank">
+                    <img src="{{ $teacher.avatar }}" class="avatar">
+                    <p class="name">{{ $teacher.name }}</p>
+                    <p class="course-name">{{ $teacher.course_name }}</p>
+                    <p class="school-age">{{ $teacher.school_age }}年教龄</p>
+                </a>
+            </li>
+            {{ /foreach }}
+        </ul>
+    </div>
+{{ /function }}
+
+
+<div id="main">
+    <div class="banner"></div>
+    <div class="up-container{{ if $is_expired }} up-container-small{{ /if }}"></div>
+    <div class="left-right{{ if $is_expired }} left-right-upper{{ /if }}">
+        <div class="wrapper">
+            <div class="left"></div>
+            <div class="right"></div>
+        </div>
+    </div>
+
+    <div id="container" class="wrapper">
+        {{ if $is_expired }}
+        <div class="expired">
+            <div class="border"></div>
+            <div class="header"></div>
+            <div class="inner">
+                <div class="wrapper">
+                    <div class="fillter" ></div>
+                    <div class="notice">
+                        <span>已抢得的红包还可以继续使用哦~</span>
+                    </div>
+                    <div class="wechat">
+                        <img src="{{ $static_origin }}/asset/img/activity/prize/wechat_f5c4eb75d6.jpg" alt="">
+                    </div>
+                    <div class="splitter"></div>
+                    {{ if isset($tpl_data.teachers) && $tpl_data.teachers|count > 0 }}
+                        {{ getStarTeachers teachers=$tpl_data.teachers }}
+                    {{ /if }}
+                </div>
+            </div>
+        </div>
+        {{ else }}
+
+        {{ if $showPrize }}
+
+            {{ if empty($user_data) || $tpl_data.has_get_prize == true }}
+                {{ $disable_prize = true }}
+            {{ else }}
+                {{ $disable_prize = false }}
+            {{ /if }}
+
+        <div class="activity">
+                <div class="border"></div>
+                <div class="header"></div>
+                <div class="inner">
+                    <div class="wrapper">
+                        <div class="fillter" ></div>
+                        <div class="inviter">
+                            <img src="{{ $tpl_data.source_user_avatar }}">
+                            <span>{{ $tpl_data.source_user_name }}</span>
+                            <b>给你发红包啦！赶快领取吧</b>
+                        </div>
+                        <div class="prize{{ if $disable_prize }} disable{{ /if }}">
+                            <div class="salver">
+                                <div class="tooltip tooltip-bottom">
+                                    <div>你已抢过TA的红包，快去别人那看看吧</div>
+                                    <!--<i class="icon icon-caret-up"></i>-->
+                                </div>
+                                <div class="pointer">
+                                <img class="get-prize{{ if $disable_prize }}-disabled{{ /if }}" src="{{ $static_origin }}/asset/img/activity/prize/pointer{{ if $disable_prize }}_disabled{{ /if }}.png" alt="">
+                                </div>
+                            </div>
+                            <div class="description">
+                                <h2>活动规则</h2>
+                                <p>1. 每个好友的红包限领一次</p>
+                                <p>2. 创建自己的分享链接，给好友发红包，还有现金奖励！</p>
+                                <h2>使用规则</h2>
+                                <p>奖学金可以在购买课时时直接抵扣课时费。</p>
+                                {{ if empty($user_data) }}
+                                <div class="login">
+                                    <p>登录后才可参与抽奖</p>
+                                    <div class="register big-btn"><a href="/static/register?user_type=2&next={{ $path }}">马上注册</a></div>
+                                    <p>已有账号？<span class="login-link">点此登录</span></p>
+                                </div>
+                                {{ /if }}
+
+                                {{ if isset($tpl_data.has_get_prize) && $tpl_data.has_get_prize == true }}
+                                <div class="has-get-money">
+                                    <p class="money-get">{{ $tpl_data.get_prize_money }}元奖学金</p>
+                                    <p>已打入你的跟谁学资金账户</p>
+                                </div>
+                                {{ /if }}
+                                <div class="goto-share big-btn" {{ if !$tpl_data.has_get_prize }} style="display:none"{{ /if }}><span>马上查看分享有礼</span></div>
+                            </div>
+                            <div class="prize-result">
+                                <div class="close"></div>
+                                <p class="prize-money">50</p>
+                            </div>
+                            <div class="prize-result-gray">
+                                <div class="close"></div>
+                                <p class="prize-money">0元</p>
+                            </div>
+                        </div>
+                        {{ if isset($tpl_data.teachers) && $tpl_data.teachers|count > 0 }}
+                            {{ getStarTeachers teachers = $tpl_data.teachers }}
+                        {{ /if }}
+                    </div>
+                </div>
+        </div>
+        {{ /if }}
+
+        {{ if !empty($user_data) }}
+        <div id="prize-share" class="share{{ if !$showPrize }} share-big{{ /if }}">
+            <div class="border"></div>
+            <div class="header"></div>
+            <div class="inner">
+                <div class="wrapper">
+                    <div class="fillter" ></div>
+                    <div class="share-avatar">
+                        <div class="first">
+                            <p>邀请好友首次登录跟谁学App</br>可立得5元现金</p>
+                        </div>
+                        <div class="second">
+                            <p>该好友上完第一次课</br>返现最高可达100元</p>
+                        </div>
+                    </div>
+
+                    <div class="share-to big-btn"><span>参与分享有礼</span></div>
+                    {{ include file="common/component/baiduShare.html" }}
+                    <p class="prompt" >提示：分享后，好友不会看到你将会获奖励的任何信息。</p>
+
+                    {{ if $user_data.user_type == 0 }}
+                    <p class="teacher_cannot">你是老师，就不给你发奖学金啦~</p>
+                    {{ /if }}
+
+                    {{ * 不显示抽奖的 需要显示app * }}
+                    {{ if !$showPrize }}
+                    <div class="app">
+                        {{ if $user_data.user_type == 0 }}
+                        <p>下载APP,　方便您随时随地管理学生和提取课酬。</p>
+                        {{ else }}
+                        <p>查看奖学金、现金奖励情况使用奖学金向参与活动的老师约课</p>
+                        {{ /if }}
+                        <div class="content">
+                            <img src="{{ $static_origin }}/asset/img/activity/prize/app_code_ee15183b2c.jpg" alt="">
+                        </div>
+                    </div>
+                    {{ if $user_data.user_type == 0 }}
+                        {{ $center_url = $origin_http|cat:"/teacher_center"|cat:"/cashBack" }}
+                    {{ else }}
+                        {{ $center_url = $origin_http|cat:"/student_center"|cat:"/cashBack" }}
+                    {{ /if }}
+                    <div class="goto-center small-btn"><a href="{{ $center_url }}">前往个人中心活动页面查看返现情况</a></div>
+                    {{ /if }}
+
+                    <div class="goto-share-page small-btn" style="display:none"><span>查看我的分享活动主页</span></div>
+                </div>
+            </div>
+
+        </div>
+        {{ /if }}
+
+        <div class="record">
+
+            <div class="border"></div>
+            <div class="header"></div>
+            <div class="inner">
+                <div class="wrapper">
+                    <div class="fillter" ></div>
+
+                    <h3>好友手气</h3>
+
+                    <div class="record-list prize-list">
+                    {{ include file = "activity/component/prizeList.html" }}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="share-story">
+            <div class="trigger"><span>分享你与<b>跟谁学</b>的故事</span></div>
+            <div class="share-content">
+                <div class="wrapper">
+                    <ul>
+                        <li>
+                            <img src="{{ $static_origin }}/asset/img/activity/prize/weibo_e5eed6eef4.png" alt="">
+                            <div class="info">
+                                <h4>新浪官方微博</h4>
+                                <p>扫一扫立即关注</p>
+                                <p>搜索：@<b>跟谁学</b></p>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="{{ $static_origin }}/asset/img/activity/prize/wechat_f5c4eb75d6.jpg" alt="">
+                            <div class="info">
+                                <h4>官方微信订阅号</h4>
+                                <p>扫码关注，更多精彩</p>
+                                <p>微信号：<b>跟谁学</b></p>
+                            </div>
+                        </li>
+                        <li class="last">
+                            <img src="{{ $static_origin }}/asset/img/activity/prize/qq_b2492f4295.png" alt="">
+                            <div class="info">
+                                <h4>跟谁学官方QQ交流群</h4>
+                                <p>搜索：<b>跟谁学</b></p>
+                                <p>群号：310442613</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        {{ /if }}
+
+    </div>
+
+    <div class="rules{{ if $is_expired }} rules-expired{{ /if }}">
+        <div class="header">
+            <div id="rules-trigger" class="trigger">
+                <span>活动详情</span>
+            </div>
+        </div>
+        {{ if !$is_expired }}
+        <div class="content">
+            <h3>一、活动范围与活动时间</h3>
+            <p>无论老师或是学生，凡在跟谁学注册的用户，均可参与本次活动。</p>
+            <p>活动时间：</p>
+            <p>2014年11月11日 00:00:00 — 2014年12月31日 23:59:59</p>
+
+            <h3>二、活动路径</h3>
+            <p>通过电脑端、Pad端、手机端，均可进入跟谁学活动页面。</p>
+
+            <h3>三、活动细则</h3>
+            <p>（一）分享注册返现：用户A（邀请人）将奖学金红包分享链接发送给好友B，好友B（被邀请人）成功注册后并完成登录，用户A将获得5元的现金奖励，奖励直接划入用户A在跟谁学平台的账户中。奖励仅限前10万新注册用户，名额有限，抢完即止！</p>
+            <p style="font-weight:bolder">通告：感谢大家的关爱，参与本活动的新注册用户达到10万人，邀请注册奖励已自动停止。应广大用户的热烈要求，跟谁学特追加10万个注册奖励名额。用户A（邀请人）将奖学金红包分享给好友B，B注册并下载跟谁学APP登录后，A即获得5元现金奖励。同一手机设备，只能为A增加一个邀请注册奖励。A获取邀请注册奖励的累计上限为100元。</p>
+            <p>（二）首次上课返现：用户A邀请注册的好友B，在跟谁学平台上选择带“奖”字标识的老师，用奖学金红包约课，完成首次课程并确认支付后，用户A（邀请人）将获得额外的现金奖励。奖励金额为好友B首次课程单价的50%且最高为100元。</p>
+            <p>以上现金奖励每周均可提现哦。</p>
+            <p>（三）奖学金红包：</p>
+            <p>1．跟谁学不为老师用户设置奖学金红包。</p>
+            <p>2．学生用户进入活动页面，点击抽奖即可抢得“奖学金红包”。奖学金红包面额随机分配，每个奖学金红包最高为1000元。用户点击抽奖后即可在活动页面上查询中奖金额。  每个分享链接同一用户只能参加一次抽奖活动，同一用户可从多个好友发送的分享链接中参加多次奖学金红包抽奖活动。用户累计中奖金额无上限哦。</p>
+            <p>3．奖学金红包不得直接提现，不得转赠他人，不得为他人付款。</p>
+            <p>4．学生用户选择带“奖”字标识的老师的课程，可以使用奖学金抵扣课时费，每小时可抵用课程单价的25%，最高50元/小时。累计抵扣的上限为奖学金红包的同等金额。当用户要求退课时，订单中使用奖学金抵扣的部分不予退还。</p>
+
+            <h3>四、反舞弊条款</h3>
+            <p>1．跟谁学禁止用户使用作弊方式获取奖励，凡以套取现金为目的虚假交易行为均被视为舞弊行为，跟谁学将取消其所有奖励。</p>
+            <p>2．活动进行过程中，跟谁学会抽样对邀请人和被邀请好友进行电话回访确认其真实性，希望邀请人和被邀请好友给予配合。凡被确认为舞弊的用户，跟谁学有权取消其获得的所有奖励。</p>
+            <h3>五、本活动规则在实施过程中的未尽事宜，跟谁学在法律规定范围内享有解释权。</h3>
+        </div>
+        {{ else }}
+        <div class="content">
+            <h3>通告：本次活动已于2014年12月1日截止。已经抢得的奖学金红包可以继续使用，使用规则请看下面【活动细则】</h3>
+
+            <h3>一、活动时间</h3>
+            <p>奖学金红包请于2014年12月31日 23:59:59前使用，逾期将自动清零。</p>
+            <h3>二、活动细则</h3>
+            <p>奖学金红包：</p>
+            <p>1．跟谁学不为老师用户设置奖学金红包。</p>
+            <p>2．奖学金红包不得直接提现，不得转赠他人，不得为他人付款。</p>
+            <p>3．学生用户选择带"奖"字标识的老师的课程，可以使用奖学金抵扣课时费，每小时可抵用课程单价的25%，最高50元/小时。累计抵扣的上限为奖学金红包的同等金额。当用户要求退课时，订单中使用奖学金抵扣的部分不予退还。</p>
+            <h3>三、反舞弊条款</h3>
+            <p>1．跟谁学禁止用户使用作弊方式获取奖励，凡以套取现金为目的虚假交易行为均被视为舞弊行为，跟谁学将取消其所有奖励。</p>
+            <p>2．活动进行过程中，跟谁学会抽样对邀请人和被邀请好友进行电话回访确认其真实性，希望邀请人和被邀请好友给予配合。凡被确认为舞弊的用户，跟谁学有权取消其获得的所有奖励。</p>
+            <h3>四、本活动规则在实施过程中的未尽事宜，跟谁学在法律规定范围内享有解释权。</h3>
+        </div>
+        {{ /if }}
+    </div>
+
+</div>
+
+{{ include file="common/component/loginDialog.html" }}
+{{ /strip }}
+{{ /block }}

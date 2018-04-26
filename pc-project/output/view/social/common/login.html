@@ -1,0 +1,15 @@
+{{ strip }}
+<div class="login">
+    <div class="user-avatar">
+        <div class="avatar-wrapper">
+        {{ $url = $static_origin|cat:'/asset/img/headori.png' }}
+        <img src="{{ $url }}" width="100px" height="100px">
+        </div>
+    </div>
+    <div class="welcome-tip">hi，欢迎来到跟谁学社区</div>
+    <div class="welcome-actions">
+        <button class="btn btn-primary btn-login">登录</button>
+        <a class="btn btn-primary btn-register" href="/static/register" target="_blank" rel="nofollow">注册</a>
+    </div>
+</div>
+{{ /strip }}

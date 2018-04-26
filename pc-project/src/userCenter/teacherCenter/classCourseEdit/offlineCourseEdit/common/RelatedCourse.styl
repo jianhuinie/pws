@@ -1,0 +1,98 @@
+/**
+ * @file 添加相关课程
+ * @author wangtianhua
+ */
+@import '../component/common.styl';
+
+.add-related-course {
+    .related-course-list {
+        list-style: none;
+        background-color: $grey;
+        width: 750px;
+        height: 468px;
+        padding: 17px;
+        overflow-y: auto;
+        .related-course-item {
+            padding: 15px 5px;
+            > img {
+                display: inline-block;
+            }
+            .content {
+                display: inline-block;
+                width: 475px;
+                height: 140px;
+                vertical-align: top;
+                padding: 0 15px;
+                position: relative;
+                > div {
+                    line-height: 28px;
+                }
+                .price {
+                    font-size: 16px;
+                    &.free {
+                        color: #1db954;
+                    }
+                    &.now-price {
+
+                    }
+                    &.original-price {
+
+                    }
+                }
+                > label {
+                    position: absolute;
+                    top: 0;
+                    right: -17px;
+                    margin-top: -15px;
+                    width: 701px;
+                    height: 173px;
+                    .check-input {
+                        position: absolute;
+                        right: 14px;
+                        top: 41%;
+                    }
+                    .choose {
+                        background-color: $white;
+                        border: 1px solid $border-color;
+                        width: 25px;
+                        height: 25px;
+                        border-radius: 100%;
+                        display: inline-block;
+                        position: absolute;
+                        left: 95%;
+                        top: 38%;
+                        .icon-check-circle {
+                            font-size: 24px;
+                        }
+                    }
+                }
+
+            }
+        }
+        .related-course-item:hover {
+            background-color: $border-color;
+            padding: 15px 5px;
+        }
+    }
+    .footer {
+        text-align: center;
+        margin-top: 15px;
+        .intro {
+            line-height: 36px;
+            float: left;
+        }
+        .before {
+            margin-left: -60px;
+        }
+    }
+    .nodata {
+        background-color: $grey;
+        width: 750px;
+        height: 468px;
+        margin-bottom: 17px;
+        text-align: center;
+        font-size: 17px;
+        color: #6d6d6e;
+        line-height: 468px;
+    }
+}

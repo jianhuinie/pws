@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+        <!-- TODO: 支持TDK -->
+        <title></title>
+
+        <meta name="format-detection" content="telephone=no"/>
+
+        <!--兼容老浏览器-->
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+
+        <meta id="viewport" name="viewport"
+            content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1, maximum-scale=1"
+            ratio="1"
+            >
+        <script type="text/javascript">
+            (function () {
+                var dpr = window.devicePixelRatio;
+                var viewport = document.getElementById('viewport');
+                var htmls = document.getElementsByTagName('html')[0];
+                var content = null;
+                var ratio = 1 / dpr;
+                content = 'width=device-width, initial-scale=' + ratio + ', user-scalable=no, minimum-scale=' + ratio + ', maximum-scale=' + ratio;
+                // 对于嵌入的iframe，在嵌入的登录框页面会存在缩放问题，暂时先不管3这种情况
+                // else if (+dpr === 3) {
+                //     var content = 'width=device-width, initial-scale=0.5, user-scalable=no, minimum-scale=0.3333333333, maximum-scale=0.333333333333';
+                //     htmls.setAttribute('style', 'font-size: 48px');
+                // }
+                function updateFontSize() {
+                    var bWidth = document.documentElement.getBoundingClientRect().width;
+                    var bRate = 23.4375; // 根据iphone6标准算出来的
+                    var fontSize = bWidth / bRate;
+                    if (!isWap()) {
+                        fontSize = 16;
+                    }
+                    htmls.setAttribute('style', 'font-size: ' + fontSize + 'px');
+                }
+                function isWap() {
+                    var userAgentInfo = navigator.userAgent.toLowerCase();
+                    return userAgentInfo.indexOf('iphone') !== -1 || userAgentInfo.indexOf('android') !== -1;
+                }
+                window.addEventListener('resize', function () {
+                    updateFontSize();
+                });
+                // window.addEventListener('pageshow', function (b) {
+                //     updateFontSize();
+                // });
+                window.onpageshow = function (event) {
+                    if (event.persisted) {
+                        window.location.reload();
+                    }
+                };
+                
+                // function pageShowAndHide() {
+                //     var isPageHide = false;
+                //     window.addEventListener('pageshow', function (event) {
+                //         if (isPageHide) {
+                //             window.location.reload();
+                //         }
+                //     });
+
+                //     window.addEventListener('pagehide', function () {
+                //         isPageHide = true;
+                //     });
+                // }
+                // pageShowAndHide();
+
+                if (content) {
+                    viewport.setAttribute('content', content);
+                    viewport.setAttribute('ratio', ratio);
+                }
+                updateFontSize();
+            })();
+        </script>
+        <!--隐藏苹果工具栏和菜单栏-->
+        <meta name="apple-mobile-web-app-capable" content="yes"/>
+
+        <!--todo 修改苹果浏览器状态栏样式-->
+        <!--<meta name="apple-mobile-web-app-status-bar-style" content="black">-->
+
+        <!--chrome工具栏颜色（android chrome 39开始支持）-->
+        <meta name="theme-color" content="#FF9900">
+
+        <meta name="baidu-site-verification" content="AwZm789POz"/>
+        <meta name="format-detection" content="telephone=no">
+
+        <meta http-equiv="x-dns-prefetch-control" content="on"/>
+
+        <link rel="dns-prefetch" href="http://storage.genshuixue.com"/>
+        <link rel="dns-prefetch" href="https://click.genshuixue.com"/>
+        <!-- <link rel="stylesheet" href="/dist/module/index.styl"> -->
+        <!-- <link rel="stylesheet" href="https://live-cdn.wenzaizhibo.com/m/asset/playback/player.css"> -->
+        <link rel="stylesheet" href="../../../lib/antd/antd.css">
+        <link rel="stylesheet" href="../../../lib/dragula/dragula.min.css">
+        <link rel="stylesheet" href="../../../lib/icomoon/0.1.1/style.css">
+        <!-- <script src="https://live-cdn.wenzaizhibo.com/m/asset/playback/player.js"></script> -->
+        <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+
+        <script>
+            /**
+             * 把查询字符串解析成对象，反向操作可用 $.param
+             *
+             * @param {string} queryStr 查询字符串，可直接把 location.search 或 location.hash 扔进来解析
+             * @return {Object}
+             */
+            var parseQuery = function (queryStr) {
+                var result = { };
+
+                if (typeof queryStr === 'string' && queryStr.length > 1) {
+
+                    var startIndex = 0;
+
+                    var firstChar = queryStr.charAt(0);
+
+                    // query 如 ?a=1
+                    if (firstChar === '?') {
+                        startIndex = 1;
+                    }
+                    // hash 如 #a=1
+                    else if (firstChar === '#') {
+                        startIndex = 1;
+
+                        var secondChar = queryStr.charAt(1);
+                        // hash 如 #/a=1&b=2
+                        if (secondChar === '/') {
+                            startIndex = 2;
+                        }
+                    }
+
+                    if (startIndex > 0) {
+                        queryStr = queryStr.substr(startIndex);
+                    }
+
+
+                    // $.each(
+                    //     queryStr.split('&'),
+                    //     function (index, item) {
+                    //         var parts = item.split('=');
+                    //         if (parts.length === 2) {
+                    //             var key = $.trim(parts[0]);
+                    //             if (key) {
+                    //                 result[key] = decodeURIComponent($.trim(parts[1]));
+                    //             }
+                    //         }
+                    //     }
+                    // );
+                    queryStr.split('&').forEach(function (item, index) {
+                        var parts = item.split('=');
+                        if (parts.length === 2) {
+                            var key = parts[0];
+                            if (key) {
+                                result[key] = decodeURIComponent(parts[1]);
+                            }
+                        }
+                    });
+                }
+
+                return result;
+            };
+
+            var param = function (params) {
+                var arr = [];
+                for (var key in params) {
+                    if (params[key]) {
+                        try {
+                            arr.push(encodeURIComponent(key) + "=" + encodeURIComponent(params[key]));
+                        } catch (ex) {
+                            arr.push(key + "=" + params[key]);
+                        }
+                    } else {
+                        try {
+                            arr.push(encodeURIComponent(key));
+                        } catch (ex) {
+                            arr.push(key);
+                        }
+                    }
+                }
+                return arr.length ? "?" + arr.join("&") : "";
+            };
+            
+            // (function (global) {
+                
+            // })(window);
+            // var appConfigDef = $.getJSON('/global/app-config');
+            (function (global) {
+                // hurry 解决微信小程序不支持#的问题，等支持可以直接去掉
+                var queryString = parseQuery(location.search);
+                if (queryString.hashVal) {
+                    var hash = '#' + decodeURIComponent(queryString.hashVal);
+                    queryString.hashVal = null;
+                    delete queryString.hashVal;
+                    var search = param(queryString);
+                    location.href = location.pathname + (search ? '?' + search : '') + hash;
+                    return;
+                }
+                var page_config = null
+                var require_config = null
+                var cbs = []
+
+                function isReady () {
+                    return page_config && require_config
+                }
+
+                function check () {
+                    if (isReady()) {
+                        var cb
+                        while (cb = cbs.shift()) {
+                            cb(page_config)
+                        }
+                    }
+                }
+
+                global['GSX_INIT'] = function (config) {
+                    // global['GSX_INIT'] = null
+                    page_config = config
+                    check()
+                }
+                global['gsx_ready'] = function (callback) {
+                    if (isReady()) {
+                        callback(page_config, require_config)
+                    } else if ('function' == typeof callback) {
+                        cbs.push(callback)
+                    }
+                }
+                // ready重置，支持单页hash变化
+                global['gsx_ready_reset'] = function () {
+                    // 因为重新获取report接口，所以cbs需要清空
+                    // cbs.length = 0;
+                    page_config = null;
+                }
+                global['initRequireConfig'] = function (config) {
+                    // 获取js静态资源的cdn域名
+                    // 不再通过服务端获取，op做容灾，相同域名dns到不同的cdn服务器
+                    if (!config.root_path) {
+                        config.rootPath = config.rootPath || location.origin + '/';
+                        if (location.host === 'm.genshuixue.com') {
+                            config.rootPath = 'http://m-cdn.gsxservice.com/';
+                            if (location.protocol === 'https:') {
+                                config.rootPath = 'https://m-cdns.genshuixue.com/';
+                            }
+                        }
+                    }
+                    if (require._config) {
+                        require._config(config)
+                    }
+                    require_config = config || true
+                    check()
+                }
+            })(window)
+        </script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script src="/dist/loader.js"></script>
+    <script>
+        require(['module/student/purchase/main'], function () {});
+    </script>
+    <script label-del="true" src="/dist/manifest.js"></script>
+    <script label-del="true" src="/../lib/requirejs/plugin_text.js"></script>
+  </body>
+</html>

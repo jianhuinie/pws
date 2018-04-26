@@ -1,0 +1,7 @@
+[
+    {
+        "tpl": "./index.tpl",
+        "router": "/statistics/login",
+        "mock": ""
+    }
+]

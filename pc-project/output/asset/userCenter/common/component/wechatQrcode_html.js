@@ -1,0 +1,1 @@
+define("userCenter/common/component/wechatQrcode_html", [], function () { return '<table class="table"><tbody><tr><td width="160px"><div class="huge success">微信订阅号</div></td><td width="40px"></td><td width="160px"><div class="huge primary">学生服务号</div></td></tr></tbody></table><div class="wechat-qrcode"></div>'});

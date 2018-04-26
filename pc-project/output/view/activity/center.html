@@ -1,0 +1,48 @@
+{{ extends file="common/pc/base.html" }}
+
+{{ block name="title" }}
+{{ $tpl_data.title }} - 跟谁学
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/activity/center_058e276e86.css">
+{{ /block }}
+
+{{ block name="data" }}
+
+{{ $need_im = true }}
+{{ $smarty.block.parent }}
+
+{{ $amd_more = [ 'common/main/component/header_40e06bdd81' ] }}
+
+{{ if isset($user_data) && $user_data }}
+{{ $script_data.user_type = $user_data.user_type }}
+{{ $script_data.user_number = $user_data.user_number }}
+{{ /if }}
+
+{{ $flotage_config.hidden = 1 }}
+
+{{ /block }}
+
+{{ block name="keywords" }}{{ $tpl_data.keywords }}{{ /block }}
+{{ block name="description" }}{{ $tpl_data.description }}{{ /block }}
+
+{{ block name="body" }}
+{{ strip }}
+
+{{ $smarty.block.parent }}
+
+{{ include file="common/siteNav.html" }}
+{{ include file="common/main/common/header.html" }}
+
+
+<div id="main">
+    {{ $tpl_data.content }}
+</div>
+
+{{ include file="common/component/loginDialog.html" }}
+{{ * include file="common/footer.html" * }}
+{{ include file="common/script.html" }}
+
+{{ /strip }}
+{{ /block }}

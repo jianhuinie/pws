@@ -1,0 +1,56 @@
+<!--头部导航-->
+<div id="head">
+    <div class="box">
+        {{ if !empty($tpl_data.site) && $tpl_data.site == 'qq' }}
+            <a href="http://hao.qq.com/" class="qq-logo"></a>
+            <div class="qq-txt">教育</div>
+        {{ else }}
+            <a class="logo"></a>
+        {{ /if }}
+        <div class="citys">
+            <strong>
+                {{ $tpl_data.current_city.name }}
+            </strong>
+            <div class="city-trigger">
+                <a rel="nofollow">切换城市</a>
+            </div>
+        </div>
+        <div class="form-group city-select" style="display:none;">
+            <label class="form-label">选择城市：</label>
+            <div class="form-controls">
+                {{ include file="common/component/citySelect.html" }}
+                <button class="btn-comfirm btn-info">确定</button>
+                <button class="btn-cancel btn-info">取消</button>
+            </div>
+        </div>
+        <ul class="feature-box">
+            <a rel="nofollow" class="certification" href="http://www.genshuixue.com/guide/guarantee?a=guarantee" target="_blank">
+                <li>
+                    <i class="icon teacher-sign"></i>
+                    <span>老师认证</span>
+                </li>
+                <li>
+                    <i class="icon keep-back"></i>
+                    <span>随时退</span>
+                </li>
+                <li>
+                    <i class="icon real-comment"></i>
+                    <span>真实评价</span>
+                </li>
+            </a>
+        </ul>
+    </div>
+    <div class="nav-box">
+        <ul>
+            <li {{ if empty($tpl_data.page_type) }}class="active"{{ /if }}><a href="/sogou/index{{ if !empty($tpl_data.site) && $tpl_data.site == 'qq' }}?site=qq&source=gsx_qqdh_pc{{ else }}?source=gsx_qqdh_pc{{ /if }}">首页</a></li>
+            <li {{ if !empty($tpl_data.page_type)&&$tpl_data.page_type == 'zxx' }}class="active"{{ /if }}><a href="/sogou/midPreSchool{{ if !empty($tpl_data.site) && $tpl_data.site == 'qq' }}?site=qq&source=gsx_qqdh_k12{{ else }}?source=gsx_sogoudh_k12{{ /if }}">中小学</a></li>
+            <li {{ if !empty($tpl_data.page_type)&&$tpl_data.page_type == 'cglx' }}class="active"{{ /if }}><a href="/sogou/studyAbroad{{ if !empty($tpl_data.site) && $tpl_data.site == 'qq' }}?site=qq&source=gsx_qqdh_lx{{ else }}?source=gsx_sogoudh_lx{{ /if }}">出国留学</a></li>
+            <li {{ if !empty($tpl_data.page_type)&&$tpl_data.page_type == 'ytxq' }}class="active"{{ /if }}><a href="/sogou/artInterest{{ if !empty($tpl_data.site) && $tpl_data.site == 'qq' }}?site=qq&source=gsx_qqdh_yt{{ else }}?source=gsx_sogoudh_yt{{ /if }}">艺体兴趣</a></li>
+            {{ if !empty($tpl_data.site) && $tpl_data.site == 'qq' }}
+            {{ else }}
+            <li><a href="http://match.genshuixue.com/kael?groupId=1&source=gsx_kaoyan_pcjhsougou" target="_blank">考研专题</a></li>
+            {{ /if }}
+            <li><a href="http://www.genshuixue.com/recommend/fill_info?source=sougou" target="_blank">找老师</a></li>
+        </ul>
+    </div>
+</div>

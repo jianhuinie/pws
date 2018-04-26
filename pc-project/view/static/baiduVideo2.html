@@ -1,0 +1,178 @@
+{{ extends file="common/pc/base.html" }}
+
+
+{{ block name="data" }}
+
+{{ $smarty.block.parent }}
+
+<!--{{* $script_path = "static/baiduVideo" *}}-->
+{{ $script_data.lunix_time = $ts }}
+
+{{ /block }}
+
+{{ block name="title" }}
+百度视频 - 找好老师，上跟谁学
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/static/baiduVideo2.less">
+{{ /block }}
+
+{{ block name="body" }}
+
+{{ strip }}
+    <!--[if lt IE 8]>
+    <style>
+        body {
+            padding: 0px !important;
+            margin: 0px !important;
+        }
+        .browser-upgrade {
+            display: none;
+            height: 0;
+            width: 0
+        }
+        #main .content h1 {
+            font-weight: 300;
+        }
+        #main .content li {
+            width: 24.6%
+        }
+        #main .side .hot-teacher li {
+            margin-bottom: 0px;
+        }
+        #main .first {
+            margin-bottom: 15px;
+        }
+        #main .baseinfo {
+            cursor: pointer;
+        }
+        #main .img-wrapper {
+            cursor: pointer;
+        }
+    </style>
+<![endif]-->
+{{ /strip }}
+
+{{ strip }}
+
+{{ $smarty.block.parent }}
+
+{{ include file="static/baiduVideo/baiduData.html" }}
+<div id="main">
+    <div class="content">
+        <h1>中小学老师</h1>
+        <ul class="primary first">
+            {{ foreach $page_data.class as $class }}
+            <li>
+                <a href="{{ $class.url }}" target="_blank" static="bl=site_zone">
+                    <img src="{{ $static_origin }}/asset/img/static/baiduVideo/{{ $class.img }}" />
+                    <span>{{ $class.name }}</span>
+                </a>
+            </li>
+            {{ /foreach }}
+        </ul>
+        <h1>艺术老师</h1>
+        <ul class="primary">
+            {{ foreach $page_data.art as $class }}
+            <li>
+                <a href="{{ $class.url }}" target="_blank" static="bl=site_zone">
+                    <img src="{{ $static_origin }}/asset/img/static/baiduVideo/{{ $class.img }}" />
+                    <span>{{ $class.name }}</span>
+                </a>
+            </li>
+            {{ /foreach }}
+        </ul>
+    </div>
+    <div class="side">
+        <div class="hot-teacher">
+            <h1>人气老师</h1>
+
+            <ul>
+                {{ foreach $tpl_data.teacher as $teacher }}
+                <li>
+                    <a static="bl=site_zone" href="{{ if !empty($teacher.link) }}{{ $teacher.link }}{{ else }}javascript:void(0);{{ /if }}" target="{{ if $teacher.link }}_blank{{ /if }}">
+                        <div class="img-wrapper">
+                            <!--[if lt IE 8]>
+                                <a href="{{ if !empty($teacher.link) }}{{ $teacher.link }}{{ else }}javascript:void(0);{{ /if }}" target="{{ if $teacher.link }}_blank{{ /if }}">
+                            <![endif]-->
+                            {{ include file="common/component/image.html" url={{ $teacher.photo_url }} width="130" class='' alt={{ $teacher.name }}|cat:'老师' }}
+                            <!--<img src="{{ $teacher.photo_url }}" alt="{{ $teacher.name }}老师"/>-->
+                            <!--[if lt IE 8]>
+                                </a>
+                            <![endif]-->
+                        </div>
+                        <div class="baseinfo-wrapper">
+                            <!--[if lt IE 8]>
+                                <a href="{{ if !empty($teacher.link) }}{{ $teacher.link }}{{ else }}javascript:void(0);{{ /if }}" target="{{ if $teacher.link }}_blank{{ /if }}">
+                            <![endif]-->
+                            <div class="baseinfo">
+                                <span>{{ $teacher.name }}</span>
+                                <span class="course">{{ $teacher.subject }}</span>
+                                <p class="intro">
+                                    {{ $teacher.intro }}
+                                </p>
+                            </div>
+                            <!--[if lt IE 8]>
+                                </a>
+                            <![endif]-->
+                        </div>
+                    </a>
+                </li>
+                {{ /foreach }}
+            </ul>
+        </div>
+        <div class="hot">
+            <h1>热门活动</h1>
+            <ul>
+                {{ foreach $tpl_data.activity as $activity }}
+                <li>
+                    <a static="bl=site_zone" href="{{ if !empty($activity.url) }}{{ $activity.url }}{{ else }}javascript:void(0);{{ /if }}" target="{{ if $activity.url }}_blank{{ /if }}">·&nbsp; {{ $activity.title }}</a>
+                </li>
+                {{ /foreach }}
+            </ul>
+        </div>
+        <a href="http://www.genshuixue.com?source=baiduVideo" target="_blank" static="bl=site_zone">
+            <img src="{{ $static_origin }}/src/img/static/baiduVideo/baidu-big.png" width="287" height="153"/>
+        </a>
+    </div>
+</div>
+
+<!--{{* include file="common/script.html" *}}-->
+
+<script> (function(W) {
+        /*--统计--*/
+        var pageTn = 'baiduYingshi',
+                site = 'genshuixue';
+        function statistics(st) {
+            var img = new Image();
+            window["bd_" + (new Date()).getTime()] = img;
+            img.src = 'http://nsclick.baidu.com/v.gif?pid=104&tn=' + pageTn + '&tpl=' + pageTn + '&site=' + site + '&' + st + '&bl=site_zone&' + 'page=edu&' + 't=' + new Date().getTime();
+            return true;
+        }
+        document.body.onmousedown = function(e) {
+            e = window.event || e;
+            var node = e.srcElement || e.target;
+            try {
+                var st = node.getAttribute('static') || node.parentNode.getAttribute('static') || node.parentNode.parentNode.getAttribute('static');
+                if (st) {
+                    var url = node.href || node.parentNode.href || node.parentNode.parentNode.href;
+                    if (url && !/^(javascript:;|#)$/.test(url) && st.indexOf('u=') == -1) {
+                        st += ('&u=' + encodeURIComponent(url));
+                    }
+                    statistics(st);
+                }
+            } catch (e) {
+
+            }
+        }
+        var pimg = new Image();
+        window["bd_" + (new Date()).getTime()] = pimg;
+//  pimg.src = 'http://nsclick.baidu.com/p.gif?pid=104&tn='+pageTn+'&tpl='+pageTn+'&site='+site+'&t=' + new Date().getTime();
+        pimg.src = 'http://nsclick.baidu.com/v.gif?pid=104&tn=' + pageTn + '&tpl=' + pageTn + '&site=' + site + '&bl=site_zone&' + 'page=edu&' + '&t=' + new Date().getTime();
+    })(window);
+
+</script>
+
+{{ /strip }}
+{{ /block }}

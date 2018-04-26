@@ -1,0 +1,104 @@
+{{ *
+
+@file 班级花名册 － 班课信息
+@author wangyujie
+
+* }}
+{{ strip }}
+
+<div class="operation">
+    <a class="
+        {{ if isset($classCourse) && $classCourse.price == '0' && $classCourse.lesson_way == '2' }}
+            free-online-class
+        {{ else if isset($classCourse) && $classCourse.price == '0' && $classCourse.lesson_way == '4' }}
+            free-underline-class
+        {{ else if isset($classCourse) }}
+            class-down
+        {{ else if isset($teacherCourse) }}
+            one2one-down
+        {{ else if isset($videoCourse) && $videoCourse.price == '0' }}
+            video-free-down
+        {{ else if isset($videoCourse) }}
+            video-down
+        {{ /if }}  btn-primary small" href="{{ $tpl_data.download_url }}">
+        下载
+    </a>
+
+    <a class="
+        {{ if isset($classCourse) && $classCourse.price == '0' && $classCourse.lesson_way == '2' }}
+            free-online-class-print
+        {{ else if isset($classCourse) && $classCourse.price == '0' && $classCourse.lesson_way == '4' }}
+            free-underline-class-print
+        {{ else if isset($classCourse) }}
+            class-print
+        {{ else if isset($teacherCourse) }}
+            one2one-print
+        {{ else if isset($videoCourse) && $videoCourse.price == '0' }}
+            video-free-print
+        {{ else if isset($videoCourse) }}
+            video-print
+        {{ /if }}  btn-default small" href="{{ $tpl_data.print_url }}" target="_blank">
+        打印
+    </a>
+</div>
+
+<ul class="course-info">
+
+    {{ if isset($classCourse) && $classCourse != '' }}
+        <li><span>课程名称：</span>{{ $classCourse.name }}</li>
+        <li><span>班级编号：</span>{{ $classCourse.number }}</li>
+
+        {{ if $classCourse.lesson_way == 2 }}
+        <li><span>上课方式：</span>在线授课</li>
+        {{ else if $classCourse.address != '' }}
+        <li><span>上课地点：</span>{{ $classCourse.address }}</li>
+        {{ /if }}
+
+        <li><span>课程时间：</span>
+            {{ $classCourse.begin_time|date_format:"%Y年%m月%d日 %H:%M" }}
+            -
+            {{ $classCourse.end_time|date_format:"%Y年%m月%d日 %H:%M" }}
+        </li>
+        <li><span>班内学生：</span>{{ $classCourse.current_student }}/{{ $classCourse.max_student }}人</li>
+    {{ /if }}
+
+    {{ if isset($teacherCourse) && $teacherCourse != '' }}
+        <li><span>课程名称：</span>{{ $teacherCourse.name }}</li>
+        <li><span>班级编号：</span>{{ $teacherCourse.number }}</li>
+        {{ if isset($teacherCourse.lesson_way) && $teacherCourse.lesson_way != '' }}
+            <li>
+                <span>上课方式：</span>
+                {{ foreach $teacherCourse.lesson_way as $val }}
+                    {{ if $val == '1' }}
+                        协商地点 &nbsp;
+                    {{ else if $val == '2' }}
+                        在线教学 &nbsp;
+                    {{ else if $val == '4' }}
+                        学生上门 &nbsp;
+                    {{ else if $val == '8' }}
+                        老师上门 &nbsp;
+                    {{ /if }}
+                {{ /foreach }}
+            </li>
+
+        {{ /if }}
+    {{ /if }}
+
+    {{ if isset($videoCourse) && $videoCourse != '' }}
+        <li><span>课程名称：</span>{{ $videoCourse.name }}</li>
+        <li><span>班级编号：</span>{{ $videoCourse.number }}</li>
+        <li><span>上课方式：</span>
+            视频课
+        </li>
+        <li><span>课程有效期：</span>
+        {{ if $videoCourse.expire_hours == '0' }}
+            随时看
+        {{ else }}
+            {{ $videoCourse.expire_hours/24 }}天
+        {{ /if }}
+        </li>
+        <!-- <li class="intro">花名册包含报名及观看但未报名用户，游客用户即为观看但未报名学生</li> -->
+    {{ /if }}
+</ul>
+
+{{ /strip }}

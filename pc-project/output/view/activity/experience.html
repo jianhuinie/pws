@@ -1,0 +1,86 @@
+{{ extends file="common/main/base.html" }}
+
+{{ block name="data" }}
+
+{{ $smarty.block.parent }}
+
+{{ $script_path = "activity/experience_7a4da659c3" }}
+
+{{ $nav_config.active = '' }}
+{{ $nav_config.hidden = 1 }}
+
+{{ $baidu_share_text = "我刚刚参加了@跟谁学 的“招募全流程体验官”活动！报名即有机会获得500元学习体验基金，还有更多惊喜等着你！大家都来参加吧～" }}
+
+{{ $baidu_share_image = "http://img.gsxservice.com/0home/%E6%B5%81%E7%A8%8B%E4%BD%93%E9%AA%8C%E5%AE%98banner.jpg" }}
+
+
+{{ /block }}
+
+
+{{ block name="title" }}
+全流程体验官- 活动中心 - 跟谁学
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/activity/experience_eb9d38f446.css">
+{{ /block }}
+
+{{ block name="main" }}
+
+{{ strip }}
+
+<div id="main">
+
+    <div id="experience">
+    </div>
+
+    {{ if isset($smarty.get.compaign_id) }}
+
+    {{ $compaign_id = $smarty.get.compaign_id }}
+
+    {{ else }}
+
+    {{ $compaign_id = pc001 }}
+
+    {{ /if }}
+
+    {{ if isset($user_data.user_name) }}
+    {{ $has_login = 1 }}
+    {{ else }}
+    {{ $has_login = 0 }}
+    {{ /if }}
+
+    {{ if isset($smarty.get.su) }}
+    {{ $su = $smarty.get.su }}
+    {{ else }}
+    {{ $su = 0 }}
+    {{ /if }}
+
+    <div id="bottom">
+        <div class="content">
+
+            <button id="apply" class="btn btn-primary" data-su="{{ $su }}" data-compaign="{{ $compaign_id }}" data-login="{{ $has_login }}">我要报名</button>
+
+            <img src="{{ $static_origin }}/asset/img/activity/experience/code_bcd07a7c52.png" alt="跟谁学二维码"/>
+            <p>扫描二维码，关注活动进展</p>
+            <p class="right">*本活动最终解释权归跟谁学学习服务平台所有</p>
+            {{ include file="common/component/baiduShare.html" }}
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+{{ /strip }}
+{{ /block }}

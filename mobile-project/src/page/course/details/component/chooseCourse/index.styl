@@ -1,0 +1,120 @@
+@import "page/_base/css/color.styl";
+
+.choose-course, .choose-course-layer {
+    margin-top: rem(10);
+    background-color: #fff;
+    overflow: hidden;
+
+    .title {
+        margin: rem(16) rem(15) 0;
+        border-left: 2px solid #ff6c00;
+        padding-left: rem(5);
+        color: $brand-text;
+        font-size: rem(18);
+        line-height: 1;
+    }
+
+    .course {
+        position: relative;
+        margin: rem(10);
+        padding: rem(15) rem(10);
+        border: rem(1) solid #ededee;
+
+        .name {
+            margin-bottom: rem(15);
+            font-size: rem(15);
+            color: #3d3d3e;
+        }
+
+        .info {
+            margin-top: rem(10);
+            width: 90%;
+            font-size: rem(13);
+            color: $brand-text-lighter;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            .info-title {
+                display: inline-block;
+                width: rem(52);
+                text-align: justify;
+                text-align-last: justify;
+            }
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            right: rem(15);
+            width: rem(8);
+            margin-top: rem(-4);
+        }
+    }
+
+    .chose {
+        border: rem(1) solid #ff9100 !important;
+        background-color: #fffcf7;
+    }
+
+    .more {
+        margin: 0 auto rem(15);
+        padding: 0 rem(12);
+        width: rem(170);
+        height: rem(38);
+        line-height: rem(38);
+        text-align: center;
+        color: $brand-text-light;
+        border: rem(1) solid #ddddde;
+    }
+}
+
+.choose-course-layer {
+    position: fixed;
+    -webkit-transition: -webkit-transform 1s;
+    transition: transform 1s;
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
+    z-index: 1000;
+    bottom: 0;
+    width: 100%;
+
+    .close {
+        float: right;
+        margin: rem(10) rem(10) 0;
+        width: rem(23);
+        height: rem(23);
+        border: 1px solid #555;
+        border-radius: 50%;
+        overflow: hidden;
+
+        i {
+            font-size: rem(22);
+        }
+    }
+
+    .layer-title {
+        clear: both;
+        font-size: rem(16);
+        text-align: center;
+        color: #ff9100;
+    }
+
+    .layer-body {
+        max-height: rem(350);
+        overflow: scroll;
+    }
+
+    .ok {
+        width: 100%;
+        height: rem(44);
+        line-height: rem(44);
+        color: #fff;
+        background-color: #ff9100;
+        text-align: center;
+        font-size: rem(17);
+    }
+
+    .disable {
+        background-color: #999;
+    }
+}

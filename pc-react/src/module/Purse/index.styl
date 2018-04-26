@@ -1,0 +1,52 @@
+@import "../../resource/css/default.styl";
+
+.purse {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    &-detail {
+        height: 170px;
+        display: flex;
+        padding: 36px 0 27px 0;
+        &-withdraw {
+            width: 50%;
+            padding-left: 70px;
+            border-right: 1px solid #EDEDEE;
+        }
+        &-unsettled {
+            padding-left: 90px;
+        }
+        &-title {
+            font-size: 14px;
+            color: #3D3D3E;
+        }
+        &-num {
+            font-size: 40px;
+            color: #3D3D3E;
+            line-height: 40px;
+            margin: 13px 0 15px 0;
+        }
+        &-tip {
+            font-size: 12px;
+            color: #9D9D9E;
+        }
+        span {
+            display: block;
+        }
+        &-popover {
+            width: 276px;
+            font-family: PingFangSC-Regular;
+            font-size: 12px;
+            color: #9D9D9E;
+            line-height: 16px;
+            &-para {
+                margin-bottom: 10px;
+            }
+        }
+        &-icon {
+            margin-left: 5px;
+            color: #6D6D6E;
+            font-size: 13px;    
+        }
+    }
+}

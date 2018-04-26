@@ -1,0 +1,420 @@
+/**
+ * @file 顶部导航栏
+ * @author zhangjiayi
+ */
+@import './component/inviteDialog.less';
+@import './component/inviteResultDialog.less';
+
+#site-nav {
+
+    @height: 32px;
+
+    background-color: #F4F4F4;
+    border-bottom: 1px solid #DDD;
+    font-size: @font-size-tiny;
+    height: @height;
+    position: relative;
+    z-index: @zindex-large;
+
+    .user-select(none);
+
+    .wrapper {
+        width: 1190px;
+        margin: 0 auto;
+    }
+
+
+    .login-info {
+        > a,
+        > span {
+            vertical-align: top;
+        }
+    }
+    .user-name {
+        display: inline-block;
+        max-width: 65px;
+        .text-overflow();
+    }
+    .wechat {
+        text-align: center;
+        font-size: 12px;
+        cursor: pointer;
+        .icon-wechat {
+            font-size: 16px;
+            vertical-align: middle;
+        }
+        &:hover {
+            .icon {
+                color: green;
+            }
+        }
+        .wechat-qrcode {
+            width: 150px;
+            .qrcode-box {
+                width: 115px;
+                height: 115px;
+                margin: 0 auto;
+                background: url(../../img/wechat_qrcode.png) no-repeat;
+            }
+            .text-primary {
+                color: #ff9100;
+                line-height: 20px;
+            }
+            .text-muted {
+                color: #6d6d6e;
+                line-height: 20px;
+            }
+        }
+    }
+
+    .status-info,
+    .user-info {
+
+        .clearfix();
+
+        li {
+            float: left;
+            height: @height;
+            line-height: @height;
+            padding: 0 @gap-horizontal-medium;
+            position: relative;
+
+            &:first-child {
+                padding-left: 0;
+            }
+
+            &:last-child {
+                padding-right: 0;
+            }
+        }
+
+        .change-type {
+            cursor: pointer;;
+        }
+    }
+
+    .user-info {
+
+        float: right;
+
+        li:before {
+            background-color: @brand-gray;
+            content: ' ';
+            width: 1px;
+            height: 12px;
+
+            position: absolute;
+            left: 0;
+            top: 10px;
+        }
+
+        .user-center,
+        .my-course,
+        .my-favor {
+
+            &:before {
+                display: none;
+            }
+        }
+
+        .user-index {
+
+            a {
+                color: @brand-error;
+            }
+
+            cursor: pointer;
+
+            &:before {
+                display: none;
+            }
+        }
+    }
+
+    .status-info {
+        .icon {
+            margin-right: @gap-horizontal-tiny;
+        }
+    }
+
+    .user-center,
+    .my-course,
+    .my-favor,
+    .custom-service
+    .wechat {
+        cursor: pointer;
+        position: relative;
+    }
+
+
+    .menu {
+
+        background-color: #FFF;
+        border: 1px solid @brand-gray;
+        padding: @gap-vertical-medium
+                 @gap-horizontal-large;
+
+        display: none;
+        position: absolute;
+        top: @height;
+        left: 0;
+
+        &:before,
+        &:after {
+            border: 6px solid transparent;
+            content: ' ';
+            position: absolute;
+            left: 2em;
+        }
+
+        &:before {
+            border-bottom-color: @brand-gray;
+            top: -12px;
+        }
+        &:after {
+            border-bottom-color: #FFF;
+            top: -11px;
+        }
+    }
+
+    .user-center {
+
+
+        .menu {
+            display: none;
+            width: 138px;
+
+            .btn-block {
+                font-size: @font-size-tiny;
+            }
+
+
+            a {
+                display: block;
+            }
+
+            .btn {
+                padding: 5px 3px 5px 3px;
+                text-indent: 0;
+            }
+
+
+        }
+
+        &:hover {
+            .center {
+                color: @brand-primary;
+            }
+        }
+    }
+
+    .my-course {
+
+        .icon-calendar {
+            margin-right: 4px;
+        }
+
+        .menu {
+
+            padding: 0;
+
+            .course {
+
+                border-bottom: 1px solid @brand-gray-light;
+                display: block;
+                color: @brand-text;
+
+                line-height: 23px !important;
+                padding: 5px 10px 0 10px;
+
+                width: 328px;
+
+                span {
+                    .inline-block();
+                    float: left;
+                }
+
+                .avatar {
+                    width: 65px;
+                }
+
+                .course-content{
+
+                    font-size: @font-size-tiny;
+                    float: right;
+                    width: 260 - 2 * @gap-horizontal-large;
+
+                    div {
+                        padding: 5px 5px 5px 0px;
+                        .clearfix();
+                    }
+
+                    .course-title {
+                        padding-right: 10px;
+                    }
+
+                    .course-date {
+                        width: 80px;
+                        overflow: hidden;
+                    }
+
+                    .course-name,
+                    .course-time {
+                        padding-right: 5px;
+                    }
+
+                    .course-status,
+                    .course-way {
+                        float: right;
+                        padding-right: 5px;
+                    }
+
+                    .course-status {
+                        color: @brand-primary;
+                        text-align: right;
+                    }
+
+                    .course-way {
+                        text-align: right;
+                    }
+
+                }
+
+                &:hover {
+                    background-color: @brand-primary-lighter;
+                }
+
+            }
+
+            .action {
+
+                cursor: default;
+                text-align: right;
+                padding: 10px;
+
+            }
+
+            .not-login-action {
+
+                cursor: default;
+                text-align: center;
+                padding: 5px 0;
+                .title {
+                    border-bottom: 1px solid @brand-gray;
+                }
+
+                .btn {
+                    .inline-block();
+                    margin: 10px;
+                    width: 182 - 2 * @gap-horizontal-large;
+                }
+            }
+
+        }
+
+        &:hover {
+            .icon-calendar, .course {
+                color: @brand-primary;
+            }
+        }
+
+    }
+
+    .my-favor {
+        .icon-favor {
+            margin-right: 4px;
+        }
+
+        .menu {
+
+            a {
+                display: block;
+            }
+            left: 10px;
+        }
+
+        &:hover {
+            .icon-favor, .favor {
+                color: @brand-primary;
+            }
+        }
+    }
+
+
+    .custom-service {
+        // & > span:hover {
+        //     color: @brand-primary;
+        // }
+        &:hover {
+
+            .service {
+                color: @brand-primary;
+            }
+
+            .icon {
+                color: #6d6d6d;
+            }
+        }
+
+        .menu {
+            width: 80px;
+
+            & > * {
+                display: block;
+            }
+
+            b {
+                cursor: pointer;
+                &:hover {
+                    color: @brand-primary;
+                }
+            }
+        }
+    }
+
+
+
+    .login-link,
+    .icon-mobile,
+    .icon-mail,
+    .icon-live-play {
+        color: @brand-primary;
+        font-size: 13px;
+        position: relative;
+    }
+
+    .login-link {
+        cursor: pointer;
+    }
+    .logout-link {
+        margin-left: @gap-horizontal-small;
+    }
+    .register-link {
+
+    }
+
+    .icon-phone {
+        margin-right: @gap-horizontal-tiny;
+    }
+}
+
+.service-hotline-dialog {
+    .header {
+        vertical-align: middle;
+        font-size: 24px;
+        .icon {
+            color: @brand-primary;
+            margin-right: 8px;
+            font-size: 30px;
+            vertical-align: middle;
+        }
+        margin-bottom: 20px;
+
+    }
+    .header, .confirm {
+        text-align: center;
+    }
+    .confirm {
+        margin-top: 20px;
+    }
+}

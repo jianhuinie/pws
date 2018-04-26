@@ -1,0 +1,113 @@
+{
+    "code": 0,
+    "msg": "succ",
+    "tpl_data": {
+        "base_info": {
+            "id": "3280",
+            "number": "374214409",
+            "name": "希涛教育培训机构",
+            "domain": "374214409",
+            "tags": [
+                {
+                    "name": "aa"
+                }
+            ],
+            "brief": "啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊",
+            "logo": "http://test-img.gsxservice.com/357979_kien5xav.jpg",
+            "location": "北京",
+            "org_type": {
+                "type": "1",
+                "name": "工作室",
+                "certify": "身份证"
+            },
+            "area_id": 17039360,
+            "preface": "http://test-img.gsxservice.com/376406_gg3eg9xw.jpg",
+            "score": "4.1",
+            "address": "北京",
+            "total_views": 239,
+            "total_comments": "182",
+            "total_students": "",
+            "url": "http://xiaofeng-m.test.genshuixue.com/i/374214409",
+            "audio": null,
+            "video": {
+                "url": "http://xiaofeng-m.test.genshuixue.com/org/photo?number=374214409",
+                "count": 5
+            },
+            "extension": "4000122166,191461",
+            "city_filter": 1
+        },
+        "page_url": {
+            "index": "",
+            "course": "/i/new_course",
+            "news": "/ i/new_black"
+        },
+        "news_list": [
+            {
+                "type": "活动通知",
+                "title": "扩展字段测试",
+                "preface": "http://test-img.gsxservice.com/376406_gg3eg9xw.jpg",
+                "brief": "伤者无大碍中新网广西南丹8月24日电&nbsp;广西河池市南丹县委宣传部24日16时30分提供的新闻通稿显示，当日发生在该县的汽车爆炸事件，伤者已送往该县人民医院救治，确认已无大碍。[详细]今天16:34",
+                "create_time": "2015-08-24 18:11:08",
+                "url": "http://xiaofeng-m.test.genshuixue.com/i/activityDetail/340.html"
+            }
+        ],
+        "our_school_courses": [
+            {
+                "course_type": 1,
+                "course_cover": "http://test-img.gsxservice.com/357979_kien5xav.jpg",
+                "course_name": "test啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊",
+                "course_number": "1234567",
+                "course_url": "http://test-img.gsxservice.com/357979",
+                "begin_time": "格式化后的时间",
+                "teacher_name": "肖锋",
+                "play_count": 10
+            },
+            {
+                "course_type": 3,
+                "course_cover": "http://test-img.gsxservice.com/357979_kien5xav.jpg",
+                "course_name": "test",
+                "course_number": "1234567",
+                "course_url": "http://test-img.gsxservice.com/357979",
+                "begin_time": "格式化后的时间",
+                "teacher_name": "肖锋",
+                "play_count": 10
+            }
+        ],
+        "famous_school_courses": [
+            {
+                "course_type": 2,
+                "course_cover": "http://test-img.gsxservice.com/357979_kien5xav.jpg",
+                "course_name": "test",
+                "course_number": "1234567",
+                "course_url": "http://test-img.gsxservice.com/357979",
+                "begin_time": "格式化后的时间",
+                "teacher_name": "肖锋",
+                "play_count": 10
+            }
+        ],
+        "out_school_courses": [
+            {
+                "course_type": 3,
+                "course_cover": "http://test-img.gsxservice.com/357979_kien5xav.jpg",
+                "course_name": "test",
+                "course_number": "1234567",
+                "course_url": "http://test-img.gsxservice.com/357979",
+                "begin_time": "格式化后的时间",
+                "teacher_name": "肖锋",
+                "play_count": 10
+            }
+        ],
+        "lbs": {
+            "province": "北京",
+            "city": "北京",
+            "coord": {
+                "lng": 116.39564503788,
+                "lat": 39.92998577808
+            }
+        }
+    },
+    "ts": 1476494568,
+    "declare_config": {
+        "declareTpl": "org/school_index"
+    }
+}

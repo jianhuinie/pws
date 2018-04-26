@@ -1,0 +1,175 @@
+/**
+ * @file 老师详情页
+ * @author tangrongyan
+ */
+
+
+@import './layout.less';
+
+
+#main {
+    background: #FFF;
+
+
+    .btright {
+        width: 840px;
+
+        padding: 100px 130px;
+
+        h3 {
+            color: #333333;
+            padding-bottom: 10px;
+        }
+        a {
+
+            // display: inline-block;
+            margin-right: 30px;
+            cursor: pointer;
+            width: 84px;
+        }
+        a:hover {
+            color: #ff9900;
+        }
+    }
+}
+
+#tab {
+    display: block;
+}
+
+#main #item {
+    padding-top: 0px;
+
+    a{
+        margin-right: 0;
+        width: auto;
+
+    }
+    .crumb {
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #9d9d9d;
+        display: block;
+    }
+    .crumb .title {
+        color: #1c1c1c;
+        font-size: 26px;
+        margin: 16px auto 8px auto;
+
+    }
+    .crumb .date {
+        color: #9d9d9d;
+        font-size: 14px;
+        margin-right: 8px;
+
+    }
+    .crumb .from {
+        color: #9d9d9d;
+        font-size: 14px;
+        margin-right: 8px;
+
+    }
+    img {
+        max-width: 729px;
+        margin-top: 20px;
+    }
+
+    .img {
+        text-align: center;
+    }
+    .paragraph {
+        text-indent: 2em;
+    }
+}
+
+/*每个页面特别样式*/
+.btright {
+    .prepare {
+        p.title {
+            font-size: 22px;
+            margin: 32px;
+        }
+
+    }
+    .return {
+        p.title {
+
+            font-size: 22px;
+            margin: 32px;
+        }
+
+    }
+}
+
+/*video*/
+#main .video-show {
+    /*height: 413px;*/
+    /*background-color: #f4f4f4;*/
+
+    .wrapper {
+        width: 960px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    ul {
+        padding: 15px 0;
+        overflow: hidden;
+        li {
+            float: left;
+            padding-bottom: 2px;
+
+            img {
+                height: 140px;
+                width: 240px;
+            }
+        }
+
+    }
+    .video-thumbnail {
+        height: 223px;
+        line-height: 30;
+        width: 319px;
+        position: relative;
+        background-color: #fff;
+        .icon {
+            background: url(../../img/activity/wise/vshow_01.png);
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            left: 20px;
+            bottom: 10px;
+
+        }
+        &:hover .icon {
+            background: url(../../img/activity/wise/vshow_02.png);
+            z-index: 999;
+        }
+        .info {
+            display: none;
+        }
+        &:hover .info {
+            position: absolute;
+            left: 70px;
+            bottom: 10px;
+            color: #FFF;
+            z-index: 999;
+            line-height: 22px;
+            font-size: 14px;
+            display: block;
+        }
+        span {
+            display: block;
+        }
+        img {
+            width: 308px;
+            height: 206px;
+        }
+
+    }
+    .video-thumbnail:hover:after {
+        height: 206px;
+        width: 310px;
+        left: 4px;
+        top: 20px;
+    }
+}

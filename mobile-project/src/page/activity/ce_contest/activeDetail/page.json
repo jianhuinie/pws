@@ -1,0 +1,7 @@
+[
+    {
+        "tpl": "./index.tpl",
+        "router": "/uk/activie_detail",
+        "mock_data": "./mock/index.json"
+    }
+]

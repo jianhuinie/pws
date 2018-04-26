@@ -1,0 +1,190 @@
+/**
+ * @file 老师用户中心 课程管理 直播回放
+ * @author wangyujie
+ */
+
+@import '../common/center/common/layout.less';
+@import '../common/component/setPlaybackExpireDialog.less';
+
+#content {
+    min-height: 1040px;
+
+    .tab-nav-info {
+        .active-tab {
+            color: #6287d5;
+            border-color: #6287d5;
+        }
+    }
+
+    .tab-content {
+        .active-tab {
+            display: block;
+        }
+    }
+
+    .form-query {
+        color: #999;
+        margin-top: 10px;
+
+        .start-date,
+        .end-date {
+            display: inline-block;
+            margin: 0 @gap-horizontal-medium;
+            input {
+                color: #666;
+                width: 120px;
+            }
+        }
+
+        .btn-query {
+            width: 62px;
+        }
+
+        .calendar {
+            display: none;
+            z-index: 2;
+        }
+    }
+
+    ul.live-list {
+        margin-top: 20px;
+        line-height: 30px;
+
+        .list-header {
+            background-color: #f7f9fa;
+            border-top: 1px solid #f1f1f1;
+            color: #333;
+            font-size: 14px;
+            .schedule-actions {
+                width: 108px;
+            }
+        }
+
+        .list-header,
+        .schedule-item {
+            div {
+                display: inline-block;
+                text-align: center;
+            }
+            .schedule-no {
+                width: 100px;
+            }
+            .schedule-time {
+                width: 215px;
+            }
+            .schedule-status {
+                width: 120px;
+            }
+            .schedule-expire {
+                width: 175px;
+            }
+            .schedule-actions {
+                a,
+                .delete,
+                .to-sale {
+                    color: @brand-info;
+                    cursor: pointer;
+                }
+                a,
+                span {
+                    margin-right: 5px;
+                }
+                .disable {
+                    color: #e2e2e2;
+                    cursor: not-allowed;
+                    margin-left: 5px;
+                }
+            }
+        }
+
+        .list-item {
+            .icon {
+                font-size: 16px;
+            }
+            .icon-caret-down {
+                display: block;
+            }
+            .icon-caret-up,
+            .schedule-list {
+                display: none;
+            }
+            &.open {
+                .icon-caret-down {
+                    display: none;
+                }
+
+                .icon-caret-up,
+                .schedule-list {
+                    display: block;
+                }
+            }
+        }
+
+
+        .course-info {
+            display: table;
+            background-color: #fcfdfd;
+            border-top: 1px solid #f1f1f1;
+            border-bottom: 1px solid #f1f1f1;
+            color: #666;
+            font-size: 12px;
+            width: 100%;
+            margin-top: -1px;
+
+            div {
+                display: inline-block;
+            }
+            .course-name {
+                width: 455px;
+                padding-left: 15px;
+            }
+            .course-expire {
+                color: #999;
+                width: 143px;
+                text-align: right;
+                span {
+                    color: #666;
+                    margin: 0 6px;
+                }
+                .edit {
+                    cursor: pointer;
+                    color: @brand-info;
+                }
+            }
+            .course-switch {
+                width: 80px;
+                text-align: right;
+                .icon {
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .schedule-list {
+            color: #999;
+            font-size: 12px;
+        }
+    }
+
+    #onevone-list {
+        .schedule-expire {
+            width: 195px;
+        }
+        .schedule-actions {
+            width: 80px;
+        }
+    }
+
+    .no-live {
+        text-align: center;
+        .bgImg {
+            background-image: url(../../img/teacher/noresult.png);
+            background-repeat: no-repeat;
+            width: 126px;
+            height: 153px;
+            margin: 100px auto 20px;
+        }
+    }
+
+
+}

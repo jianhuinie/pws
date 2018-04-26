@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-controller="datetimepickerCtrl">
+    <head>
+        <meta charset="UTF-8" />
+        <title>datetimepicker - Demo</title>
+        <script src="../../../dep/jquery/dist/jquery.js"></script>
+        <script src="../../../dep/angular/angular.js"></script>
+        <!-- <script src="../../dep/angular-animate/angular-animate.js"></script> -->
+        <!-- <script src="../../dep/angular-route/angular-route.js"></script> -->
+        <script src="./controller.js"></script>
+        <link rel="stylesheet/less" href="../../../src/widget/index.less"/>
+    </head>
+    <body>
+        <div>
+           <input datetimepicker options="options" ng-model="dateSelected"
+                  style="width: 200px" id="datetimepicker">
+            </br>
+            ngModel值: <span ng-bind="dateSelected"></span>
+        </div>
+    </body>
+    <script src="less.min.js"></script>
+    <script src="../../../dep/requirejs/require.js"></script>
+    <script type="text/javascript">
+
+        require.config({
+            baseUrl: '../../../src'
+        });
+
+        require(
+            [
+                'ngDirective/module'
+            ],
+            function () {
+                require(
+                    [
+                        'ngDirective/datetimepicker/directive'
+                    ],
+                    function () {
+                        angular.bootstrap(document, ['demo']);
+                    }
+                )
+            }
+        );
+    </script>
+</html>

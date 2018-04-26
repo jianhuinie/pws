@@ -1,0 +1,26 @@
+{{ strip }}
+
+<div id="courseIntro" class="card">
+    <div class="title">
+        简介
+    </div>
+
+    <div class="details">
+        {{ $tpl_data.introduce }}
+
+        {{ if isset($tpl_data.label_ids) && $tpl_data.label_ids }}
+        <div class="tags">
+            <span class="tip">标签:</span>
+            <ul>
+                {{ $list = explode(',', $tpl_data.label_ids) }}
+                {{ foreach $list as $val }}
+                    <li>{{ $val }}</li>
+                {{ /foreach }}
+            </ul>
+        </div>
+        {{ /if }}
+
+    </div>
+</div>
+
+{{ /strip }}

@@ -1,0 +1,1 @@
+define("cc/function/supportFlash",["require","exports","module"],function(){"use strict";return function(){var e,t=navigator.plugins;if(t&&t.length>0)e=t["Shockwave Flash"];else if(document.all)try{e=new ActiveXObject("ShockwaveFlash.ShockwaveFlash")}catch(c){}return!!e}});

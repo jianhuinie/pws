@@ -1,0 +1,92 @@
+@import "module/index.styl";
+.fund-withdraw {
+    background: #f2f3f4;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    &-head {
+        margin-top: rem(10);
+        background: #fff;
+        text-align: center;
+        overflow: hidden;
+        &-title {
+            margin: 0 auto;
+            height: rem(48);
+            width: rem(122);
+            font-size: rem(16);
+            color: #3D3D3E;
+            line-height: rem(48);
+            border-bottom: rem(2) solid #F95D5D;
+        }
+    }
+    &-body {
+        background: #fff;
+        overflow: hidden;
+        margin-top: rem(1);
+        &-item {
+            padding: rem(14) rem(15);
+            border-bottom: rem(1) solid #EBEBEB;
+            .title {
+                font-size: rem(14);
+                color: #3D3D3E;
+                line-height: rem(16);
+            }
+            .number {
+                font-family: PingFangSC-Semibold;
+                margin-top: rem(10);
+                font-size: rem(20);
+                color: #1DB954;
+                line-height: rem(20);
+                &.available {
+                    color: #F95D5D;
+                }
+            }
+            .desc {
+                margin-top: rem(6);
+                font-size: rem(12);
+                color: #6D6D6E;
+                line-height: rem(20);
+            }
+        }
+    }
+    &-form {
+        background: #fff;
+        padding: 0 rem(15) rem(16);
+        overflow: hidden;
+        &-item {
+            margin-top: rem(16);
+            .title {
+                font-size: rem(14);
+                color: #3D3D3E;
+                line-height: rem(16);
+            }    
+            .value {
+                margin-top: rem(10);
+                display: block;
+                height: rem(48);
+                width: 100%;
+                background: #F2F3F4;
+                border-radius: rem(5);   
+                text-indent: rem(15);
+                font-size: rem(14);
+                color: #9D9D9E;
+                line-height: rem(16);
+            }
+        }
+        &-desc {
+            margin-top: rem(8);
+            font-size: rem(12);
+            color: #6D6D6E;
+            line-height: rem(20);    
+        }
+    }
+    &-submit {
+        background: #f2f3f4;
+        padding: rem(16) rem(15);    
+    }
+    .protocol {
+        color: #37a4f5;
+    }
+}

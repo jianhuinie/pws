@@ -1,0 +1,256 @@
+{
+    "code": 0,
+    "msg": "succ",
+    "tpl_data": {
+        "one_on_one_teacher_mobile": 888888888,
+        "is_sem": 0,
+        "is_preview": false,
+        "is_valid": true,
+        "model": "default",
+        "is_one_on_one_teacher": true,
+        "base_info": {
+            "name": "高老师",
+            "number": "375209228",
+            "avatar": "https://imgs.genshuixue.com/31525468_0jvv6ikm.jpg",
+            "private_domain": "375209228",
+            "area_id": "17041408",
+            "sex": "0",
+            "audio": null,
+            "video": {
+                "count": 1,
+                "url": "/video/view/458684"
+            },
+            "introduce": null,
+            "short_introduce": "毕业于对外汉语专业，半年以上对外汉语教学...",
+            "org": {
+                "name": "汉通国际教育",
+                "number": "373724659",
+                "url": "https://m.genshuixue.com/i/hantong",
+                "membership_level": 4,
+                "support_student_advisory": true,
+                "extension": "4000122166,182690",
+                "city_filter": 1,
+                "support_tianxiao": false
+            },
+            "is_gold_certification": false,
+            "course_count": 2,
+            "student_count": 26,
+            "course_length": 7.5,
+            "great_rate": 0,
+            "detail_url": "/375209228/other_info",
+            "preface": "https://imgs.genshuixue.com/1367607_n80wp0yx.jpeg",
+            "history_course_url": "/teacher/classCourseList/375209228",
+            "vip_level": 3,
+            "is_valid": true,
+            "class_punctuality_rate": "100%",
+            "fans_num": "1",
+            "focus_flag": 0,
+            "kefu_tel": "4000910910"
+        },
+        "detail_info": {
+            "total_views": 2036,
+            "location": "北京朝阳区麦子店街霞光里15号霄云中心B座1203",
+            "country": "",
+            "position": {
+                "lng": "116.470787",
+                "lat": "39.965831"
+            },
+            "certs": [
+                "身份认证",
+                "学历认证"
+            ],
+            "skill": [
+                "择校老师"
+            ],
+            "cert_detail_url": "https://m.genshuixue.com/teacher/cert/375209228",
+            "area_detail_url": "https://m.genshuixue.com/teacher/area/375209228",
+            "is_recommend": false,
+            "school_age": "3年教龄",
+            "is_active": false
+        },
+        "coupon_info": {
+            "coupon_url": "",
+            "coupon_list": []
+        },
+        "selected_courses": {
+            "list": [
+                {
+                    "type": 2,
+                    "number": 170628822718,
+                    "name": "提高SSAT词汇量与掌握解题技巧1",
+                    "info": "07月11日开始 还剩138名额",
+                    "cover_url": "https://imgs.genshuixue.com/36878782_vkh32hp1.jpeg",
+                    "subject_id": "792",
+                    "realtime_price": null,
+                    "original_price": 650,
+                    "price": 0,
+                    "is_online": true,
+                    "can_order": true,
+                    "max_student": 150,
+                    "total_pay": 12,
+                    "begin_time": 1499770800,
+                    "status_type": "enrolling",
+                    "button": {
+                        "type": "enrolling",
+                        "name": "立即报名",
+                        "url": "http://m.genshuixue.com/teacher/classCourseDetail/170628822718"
+                    },
+                    "url": "https://m.genshuixue.com/teacher/classCourseDetail/170628822718",
+                    "discount": null,
+                    "fenqi": null
+                },
+                {
+                    "name": "SSAT-提高SSAT词汇量与掌握解题技巧",
+                    "number": 362834133007,
+                    "type": 1,
+                    "cover_url": "https://imgs.genshuixue.com/1367573_xkq8kv9q.jpeg",
+                    "subject_id": 792,
+                    "id": 486973,
+                    "price": 49,
+                    "info": "课程介绍： 考前结合大纲对重点知识进行梳理和串讲；\n历年真题精讲精做，以达到熟练的程度；\n各科的查漏补缺，扫除疑难，为大考保驾护航！\n汉通师资：三年以上国际课程教学经验，深度解析国际课程考纲，\n                   熟知历年真题，可全英文或双语授课\n课程形式：VIP一对一，量身定制课程计划\n                   精品小班课，2-5人",
+                    "is_online": 2,
+                    "support_offline": 5,
+                    "url": "https://m.genshuixue.com/teacher/one2oneCourseDetail/362834133007"
+                }
+            ]
+        },
+        "photos": [
+            {
+                "index": 0,
+                "type": "photo",
+                "name": null,
+                "img": "https://imgs.genshuixue.com/31525481_kqow087n.jpg",
+                "url": "https://imgs.genshuixue.com/31525481_kqow087n.jpg",
+                "create_time": "2017-03-28 10:56:18"
+            }
+        ],
+        "videos": [
+            {
+                "index": 0,
+                "type": "video",
+                "name": "自我介绍",
+                "img": "https://imgs.genshuixue.com/00-x-upload/image/5895886_44d1b16c173b11ed1440e60dd6c688b4_xQ4rXtR5.jpg",
+                "url": "https://m.genshuixue.com/video/view/458684",
+                "create_time": "2017-03-31 10:18:19"
+            }
+        ],
+        "relation_cases": {
+            "list": [],
+            "more_url": "https://m.genshuixue.com/375209228/successCase"
+        },
+        "past_experiences": {
+            "list": [
+                {
+                    "start_date": "2016-05-01",
+                    "end_date": "2017-03-01",
+                    "content": "国际课程中英语的教学，负责SSAT英语教研工作，包括国际学校英语课程的教学工作，有着丰富的教学经验。"
+                },
+                {
+                    "start_date": "2015-03-01",
+                    "end_date": "2016-04-01",
+                    "content": "幼儿英语启蒙教育，熟知儿童学习语言的规律，将成人与幼儿学习语言的规律进行了对比，对语言教学有了更加深刻认识。参加教研工作并能够主持相关会议。"
+                },
+                {
+                    "start_date": "2014-06-01",
+                    "end_date": "2015-02-01",
+                    "content": "对外汉语老师，根据对外汉语教学法准备课程，编写教案，进行授课，掌握了一定的汉语甚至语言的教学技巧，发现语言教学的规律。"
+                }
+            ]
+        },
+        "students_comments": {
+            "more_url": "https://m.genshuixue.com/375209228/tcomment",
+            "total_score": 0,
+            "comment_count": 0,
+            "list": []
+        },
+        "seo_data": {
+            "page_title": "【高老师】高老师_SSAT课程_SSAT培训-跟谁学 ",
+            "page_keywords": "高老师,高老师SSAT",
+            "description": "跟谁学为您提供高老师老师SSAT课程的在线直播、线下班课、1对1课程，高老师相册视频，个人资料，学生评价，高老师课程数量，学生数量，教学时长，好评率，方便学生和家长全方位了解高老师。找好老师，上跟谁学！"
+        },
+        "trial_course_info": {
+            "type": 5,
+            "status": -1
+        },
+        "retire": {
+            "flag": true,
+            "url": "https://m.genshuixue.com/teacher/refundProcess?id=refund"
+        },
+        "static_notice_info": {
+            "has_wenda": false,
+            "has_one2one_course": true,
+            "has_online_course": true,
+            "has_offline_course": false,
+            "has_video_course": false
+        },
+        "favorite_info": {
+            "favorite_status": 0,
+            "type": "teacher",
+            "number": "375209228"
+        },
+        "other_info": "<span style=\"font-family: 微软雅黑, Arial; font-size: 14px; font-style: normal; font-variant: normal; line-height: 20px;\">毕业于对外汉语专业，半年以上对外汉语教学经验，两年英语教学经验，对语言习得有深入的了解，具有熟练的儿童英语和青少年英语教学技巧。</span>",
+        "share_info": {
+            "title": "高老师在跟谁学开课啦",
+            "img_url": "https://imgs.genshuixue.com/31525468_0jvv6ikm.jpg@300w_300h",
+            "img": "https://imgs.genshuixue.com/31525468_0jvv6ikm.jpg@300w_300h",
+            "url": "https://m.genshuixue.com/375209228?source=",
+            "text": "我在跟谁学发现了一位好老师高老师，来自汉通国际教育，有3年SSAT教学经验，自我评价：毕业于对外汉语专业，半年以上对外汉语教学...",
+            "content": "我在跟谁学发现了一位好老师高老师，来自汉通国际教育，有3年SSAT教学经验，自我评价：毕业于对外汉语专业，半年以上对外汉语教学...",
+            "share_weixin": {
+                "title": "高老师在跟谁学开课啦",
+                "content": "我在跟谁学发现了一位好老师高老师，来自汉通国际教育，有3年SSAT教学经验，自我评价：毕业于对外汉语专业，半年以上对外汉语教学...",
+                "url": "https://m.genshuixue.com/375209228?source=",
+                "img": "https://imgs.genshuixue.com/31525468_0jvv6ikm.jpg@300w_300h"
+            },
+            "share_pyq": {
+                "title": "我在跟谁学发现了一位好老师高老师，来自汉通国际教育，有3年SSAT教学经验",
+                "content": "我在跟谁学发现了一位好老师高老师，来自汉通国际教育，有3年SSAT教学经验",
+                "url": "https://m.genshuixue.com/375209228?source=",
+                "img": "https://imgs.genshuixue.com/31525468_0jvv6ikm.jpg@300w_300h"
+            },
+            "share_qq": {
+                "title": "高老师在跟谁学开课啦",
+                "content": "我在跟谁学发现了一位好老师高老师，来自汉通国际教育，有3年SSAT教学经验，自我评价：毕业于对外汉语专业，半年以上对外汉语教学...",
+                "url": "https://m.genshuixue.com/375209228?source=",
+                "img": "https://imgs.genshuixue.com/31525468_0jvv6ikm.jpg@300w_300h"
+            },
+            "share_qzone": {
+                "title": "高老师在跟谁学开课啦",
+                "content": "我在跟谁学发现了一位好老师高老师，来自汉通国际教育，有3年SSAT教学经验，自我评价：毕业于对外汉语专业，半年以上对外汉语教学...",
+                "url": "https://m.genshuixue.com/375209228?source=",
+                "img": "https://imgs.genshuixue.com/31525468_0jvv6ikm.jpg@300w_300h"
+            },
+            "share_weibo": {
+                "title": "",
+                "content": "我在跟谁学发现了一位好老师高老师，来自汉通国际教育，有3年SSAT教学经验，自我评价：毕业于对外汉语专业，半年以上对外汉语教学...",
+                "url": "http://gensx.cn/9nCaSD",
+                "img": "https://imgs.genshuixue.com/31525468_0jvv6ikm.jpg@300w_300h"
+            },
+            "share_sms": {
+                "title": "",
+                "content": "我在跟谁学发现了一位好老师高老师，来自汉通国际教育，有3年SSAT教学经验，自我评价：毕业于对外汉语专业，半年以上对外汉语教学...",
+                "url": "http://gensx.cn/9nCaSD",
+                "img": "https://imgs.genshuixue.com/31525468_0jvv6ikm.jpg@300w_300h"
+            }
+        },
+        "im_online_status": 0,
+        "im_data": {
+            "c_id": "373724659",
+            "c_role": 6,
+            "group_id": ""
+        },
+        "declare_tpl": "v2/resources/page/newTeacher/index",
+        "lbs": {
+            "province": "北京",
+            "city": "北京",
+            "coord": {
+                "lng": 116.39564503788,
+                "lat": 39.92998577808
+            }
+        }
+    },
+    "ts": 1499656601,
+    "declare_config": {
+        "declareTpl": "v2/resources/page/newTeacher/index"
+    }
+}

@@ -1,0 +1,103 @@
+body {
+    background: #EBEDEE;
+}
+
+.container {
+    .img-content {
+        text-align: center;
+        width: 100%;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 30%;
+        left: 50%;
+        .empty-img {
+            height: rem(70);
+            margin-bottom: rem(15);
+        }
+        .empty-text {
+            font-family: PingFang-SC-Regular;
+            font-size: rem(17);
+            color: #6D6D6E;
+        }
+    }
+    .cross-line {
+        position: absolute;
+        top: 58%;
+        width: 100%;
+        .left-line {
+            height: rem(1);
+            width: 23%;
+            background: #CDCDCE;
+            position: absolute;
+            top: 50%;
+            left: 16%;
+            transform: translateX(-50%);
+        }
+        .cross-text {
+            width: 40%;
+            margin-left: 30%;
+            text-align: center;
+            font-family: PingFang-SC-Regular;
+            font-size: rem(15);
+            color: #9D9D9E;
+        }
+        .rightee-line {
+            height: rem(1);
+            width: 23%;
+            background: #CDCDCE;
+            position: absolute;
+            top: 50%;
+            right: -6%;
+            transform: translateX(-50%);
+        }
+    }
+    .user-content {
+        position: absolute;
+        top: 65%;
+        width: 90%;
+        margin-left: 5%;
+        background: #FFFFFF;
+        height: rem(70);
+        .user-avtar {
+            height: rem(45);
+            width: rem(45);
+            border-radius: 50%;
+            position: absolute;
+            transform: translateY(-50%);
+            top: 50%;
+            left: rem(10);
+        }
+        .user-infos {
+            position: absolute;
+            left: rem(68);
+            transform: translateY(-50%);
+            top: 50%;
+            .user-info {
+                height: rem(20);
+                .user-name {
+                    font-family: PingFang-SC-Regular;
+                    font-size: rem(15);
+                    color: #3D3D3E;
+                    line-height: rem(20);
+                    float: left;
+                }
+                .user-tag {
+                    font-family: PingFang-SC-Regular;
+                    font-size: rem(14);
+                    color: #FF9100;
+                    line-height: rem(20);
+                    float: left;
+                    margin-left: rem(10);
+                }
+            }
+            .user-date {
+                font-family: PingFang-SC-Regular;
+                font-size: rem(14);
+                color: #9D9D9E;
+                line-height: rem(24);
+                height: rem(24);
+                margin-top: rem(4);
+            }
+        }
+    }
+}

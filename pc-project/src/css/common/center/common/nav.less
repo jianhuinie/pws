@@ -1,0 +1,49 @@
+/**
+ * @file 个人中心导航
+ * @author zhujialu
+ */
+#nav {
+
+    background-color: @brand-primary;
+    .wrapper {
+        width: @page-width;
+        margin: 0 auto;
+    }
+
+    .feedback {
+        color: #fff;
+        float: right;
+        a {
+            color: #FFF;
+            display: inline-block;
+            font-size: 16px;
+            padding: 10px 0;
+        }
+    }
+
+    .tab {
+        color: #FFF;
+        display: inline-block;
+        font-size: 16px;
+        padding: 10px 20px;
+        position: relative;
+
+        &:hover {
+            background-color: #f29100;
+            .transition(0.2s background-color);
+        }
+
+        &.active {
+            &:after {
+                content: ' ';
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                margin-left: -8px;
+                border: 8px solid transparent;
+                border-bottom-color: #f8f8f8;
+            }
+        }
+
+    }
+}

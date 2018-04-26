@@ -1,0 +1,13 @@
+{{ extends file="./common/teacherRank.html" }}
+
+{{ block name="data" }}
+
+{{ $smarty.block.parent }}
+{{ include file="teacher_center/data/teacherRank/rank2015.html" scope=parent }}
+
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/teacherCenter/teacherRank4.less">
+{{ /block }}
+

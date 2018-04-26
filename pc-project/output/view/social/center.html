@@ -1,0 +1,74 @@
+{{ *
+
+@file 活动主页
+@author zengcheng
+
+* }}
+{{ extends file="social/common/base.html" }}
+
+{{ block name="data" }}
+
+    {{ * 需要im * }}
+    {{ $need_im = false }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $nav_config.active = '' }}
+    {{ $nav_config.hidden = 1 }}
+    {{ $flotage_config.hidden = true }}
+
+    {{ $script_path = "social/center_9774583ffe" }}
+
+{{ /block }}
+
+{{ block name = "style" }}
+    <link rel="stylesheet" href="{{ $static_origin }}/asset/css/social/center_c679100204.css">
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+<div id="main">
+    <div class="center-nav">
+        {{ include file="./common/nav.html" data=[['link' => '', 'name' => '社区个人中心']] }}
+    </div>
+    <div class="wrapper">
+        {{ $active = $tpl_data.active|default:'1' }}
+        <div class="content">
+            <div class="user-wrapper">
+                {{ include file="./center/user.html" }}
+            </div>
+            <div class="user-post-wrapper">
+                <div class="post-nav-wrapper">
+                    {{ include file="./center/postNav.html" active=$active }}
+                </div>
+                <div class="post-content-wrapper">
+
+                    <div class="post-content-list post-module-list" data-module-path="social/center/post_e59be86692"{{ if $active != '1' }} style="display:none"{{ /if }}>
+                        {{ if $active == '1' }}
+                        {{ include file="./center/myPost.html" data=$tpl_data.posts_list pager=$tpl_data.pager }}
+                        {{ /if }}
+                    </div>
+                    <div class="post-content-list favor-module-list" data-module-path="social/center/favor_bca98c23e4"{{ if $active != '2' }} style="display:none"{{ /if }}>
+                        {{ if $active == '2' }}
+                        {{ include file="./center/myFavor.html" data=$tpl_data.collect_list pager=$tpl_data.pager }}
+                        {{ /if }}
+                    </div>
+                    <div class="post-content-list group-module-list" data-module-path="social/center/group_612702d90c"{{ if $active != '3' }} style="display:none"{{ /if }}>
+                        {{ if $active == '3' }}
+                        {{ include file="./center/myGroup.html" data=$tpl_data.group_list pager=$tpl_data.pager }}
+                        {{ /if }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slider-bar">
+            {{ foreach [] as $item }}
+            <div class="ad-wrapper">
+                {{ include file="./common/adText.html" }}
+            </div>
+            {{ /foreach }}
+        </div>
+    </div>
+</div>
+{{ /strip }}
+{{ /block }}

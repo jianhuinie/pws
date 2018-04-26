@@ -1,0 +1,33 @@
+{{ *
+
+@file 课表操作
+@author zhujialu
+
+参数：
+    use_plat_ensure: 是否开启平台支付保障 默认true
+
+* }}
+{{ strip }}
+
+{{ if !isset($use_plat_ensure) }}
+    {{ $use_plat_ensure = true }}
+{{ /if }}
+
+{{ $scheduleAction = [] }}
+{{ $scheduleAction[] = [ 'enter_classroom', '进入教室' ] }}
+{{ $scheduleAction[] = [ 'accept_request', '确认约课' ] }}
+
+{{ if $use_plat_ensure }}
+    {{ $scheduleAction[] = [ 'pay', '确认课酬' ] }}
+{{ else }}
+    {{ $scheduleAction[] = [ 'pay', '确认上课' ] }}
+{{ /if }}
+
+{{ $scheduleAction[] = [ 'modify_time', '修改时间' ] }}
+{{ $scheduleAction[] = [ 'cancel_classroom', '取消约课' ] }}
+{{ $scheduleAction[] = [ 'appeal', '我要申诉' ] }}
+{{ $scheduleAction[] = [ 'reject_request', '拒绝约课' ] }}
+{{ $scheduleAction[] = [ 'download_courseware', '下载课件' ] }}
+{{ $scheduleAction[] = [ 'enter_comment', '评价课节' ] }}
+
+{{ /strip }}

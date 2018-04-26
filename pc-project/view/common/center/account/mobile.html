@@ -1,0 +1,118 @@
+{{ *
+
+@file 手机绑定
+@author wangyujie
+
+* }}
+{{ strip }}
+
+<div class="item item-mobile">
+
+    <div class="item-header">
+        <strong>
+            <i class="icon icon-check-circle"></i>
+            手机绑定
+        </strong>
+        <p>
+            修改绑定手机需要验证当前手机号与新手机号，如果当前手机号遗失或无法收到验证码，请致电客服4000-910-910，010-86448910协助修改
+        </p>
+        <div class="action">
+            <button class="btn btn-link btn-toggle">
+                修改绑定手机
+            </button>
+        </div>
+    </div>
+
+    <div class="item-body">
+
+        <div class="form-result">
+            <div>
+                已绑定手机号：
+                <strong class="star-mobile">
+                    {{ $tpl_data.mobile }}
+                </strong>
+
+                <a href="#" class="passport text-info">
+                    手机号不再使用
+                </a>
+            </div>
+            <b class="btn btn-primary btn-change">
+                更改号码
+            </b>
+        </div>
+
+        <form id="form-mobile" class="form old-form">
+
+            <div class="form-group">
+                <label class="form-label">当前手机号：</label>
+                <div class="form-controls">
+                    <div class="form-static">
+                        {{ $tpl_data.mobile }}
+                        <input type="hidden" name="old_mobile" value="{{ $user_data.mobile }}" />
+                    </div>
+                    <a href="#" class="passport text-info">
+                        手机号不再使用
+                    </a>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">校验码：</label>
+                <div class="form-controls">
+                    <input type="text" class="form-text" name="verify_code" required />
+                    <button type="button" id="mobile-send" class="btn btn-info">
+                        获取校验码
+                    </button>
+                    <span class="error"></span>
+                </div>
+            </div>
+
+            <div class="voice-code-link hidden">
+                <span class="btn-link text-info">没有收到校验码？</span>
+            </div>
+
+            <div class="form-action">
+                <button type="button" id="mobile-submit" class="btn btn-primary">下一步</button>
+                <button type="button" class="btn btn-default btn-cancel">取消</button>
+            </div>
+        </form>
+
+        <form id="form-newMobile" class="form new-form">
+
+            <div id="binding-mobile">
+                {{ include file="common/component/mobileInput.html" is_international=false show_label=true label_name='新手机号' }}
+                <div class="switch-international form-static form-inline text-info">非中国大陆手机号，请点此进入</div>
+            </div>
+
+            <div class="form-group captcha-auth">
+            {{ include file="common/component/captcha.html" captcha_name='wyj' }}
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">校验码：</label>
+                <div class="form-controls">
+                    <input type="text" class="form-text" name="verify_code" required />
+                    <button type="button" id="new-mobile-send" class="btn btn-info" disabled="disabled">
+                        获取校验码
+                    </button>
+                    <span class="error"></span>
+                </div>
+            </div>
+
+            <div class="voice-code-link hidden">
+                <span class="btn-link text-info">没有收到校验码？</span>
+            </div>
+
+            <input type="hidden" name="old_mobile" />
+            <input type="hidden" name="old_code" />
+
+            <div class="form-action">
+                <button type="button" id="new-mobile-submit" class="btn btn-primary">绑定手机</button>
+                <button type="button" class="btn btn-default btn-cancel">取消</button>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+{{ /strip }}

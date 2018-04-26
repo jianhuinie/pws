@@ -1,0 +1,7 @@
+[
+    {
+        "tpl": "./index.tpl",
+        "router": "/coupon/getCoupon",
+        "mock_data": "./mock/index.json"
+    }
+]

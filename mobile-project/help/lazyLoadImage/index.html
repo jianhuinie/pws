@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LazyLoadImage Demo List</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1, maximum-scale=1">
+
+</head>
+<body>
+<h1>LazyLoadImage Demo List</h1>
+<ol>
+    <li>
+        <h2>
+            方式一:
+        </h2>
+        <p>外层容器定宽高(或固定宽高比), 图片裁剪, 铺满容器</p>
+        <p>用法:外层div定宽高或用padding-bottom固定宽高比, 可以设置默认背景图, 里面的img标签absolute定位, 宽高都是100%</p>
+        <a href="./demo1.html">demo</a>
+    </li>
+    <li>
+        <h2>
+            方式二:
+        </h2>
+        <p>外层容器指定宽高, 图片等比缩放, 居中展示</p>
+        <a href="./demo2.html">demo</a>
+    </li>
+    <li>
+        <h2>
+            方式三:
+        </h2>
+        <p>不定宽高, 图片最大宽度100%, 通常用于图文详情</p>
+        <a href="./demo3.html">demo</a>
+    </li>
+    <li>
+        <h2>
+            方式四:
+        </h2>
+        <p>控制局部图片懒加载,例如tab切换时</p>
+        <p>使用方式: </p>
+        <p>1. 如果没有新tab的内容没有变动, 激活新tab时重新调用lazyLoadImage.refresh()即可</p>
+        <p>2. 如果tab内容为动态创建, 插入dom节点后需要调用lazyLoadImage.init传入局部容器重新查找需要懒加载的图片</p>
+        <a href="./demo4.html">demo</a>
+    </li>
+    <li>
+        <h2>
+            方式五:
+        </h2>
+        <p>在IScroll中实现图片懒加载</p>
+        <p>使用说明: 局部滚动容器增加data-scroll-wrap属性, 并在滚动时触发lazyLoadImage.refresh()</p>
+        <a href="demo5.html">demo</a>
+    </li>
+</ol>
+</body>
+</html>

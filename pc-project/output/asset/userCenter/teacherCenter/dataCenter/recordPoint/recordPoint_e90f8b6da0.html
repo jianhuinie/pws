@@ -1,0 +1,157 @@
+<div id="content" class="card">
+    <div id="content-header"></div>
+
+    <div class="title">
+        <div class="block">当前违规扣分：</div>
+        <div class="badge error">
+        {{#if current_deduct_points == 0}}
+            0
+        {{else}}
+            -{{current_deduct_points}}
+        {{/if}}
+        </div>
+
+        {{#if total_deduct_points >= 36}}
+            <div class="tips">
+                您在今年的累计扣分已满36分，老师主页及课程已被永久搜索屏蔽
+            </div>
+        {{else}}
+            {{#if current_deduct_points == 0}}
+                <div class="tips">
+                    表现优秀！继续保持哦~
+                </div>
+            {{elseif current_deduct_points >= 1 && current_deduct_points <= 11}}
+                <div class="tips">
+                    小心哦~再扣{{12 - current_deduct_points}}分你的主页及课程将被搜索屏蔽
+                </div>
+            {{elseif current_deduct_points >= 12 && current_deduct_points <= 35}}
+                <div class="tips">
+                    您的扣分已满12分，老师主页及课程已被搜索屏蔽
+                </div>
+            {{/if}}
+        {{/if}}
+    </div>
+
+    <div class="points-detail">
+        <strong>扣分明细</strong>
+        <table class="table cell-bordered" style="width: 715px ">
+            <thead>
+                <tr>
+                    <th style="width: 120px">日期</th>
+                    <th style="width: 60px">扣分</th>
+                    <th style="width: 180px">扣分原因</th>
+                    <th style="width: 165px">纪录清除时间</th>
+                    <th style="width: 115px">状态</th>
+                </tr>
+            </thead>
+            {{#if list}}
+            <tbody>
+                {{#each showlist:index}}
+                <tr>
+                    <td>{{start_time}}</td>
+                    <td>-{{deduct_point}}</td>
+                    <td>{{deduct_reason}}</td>
+                    <td class="{{#if time}} grey{{/if}}">{{bottom_tip}}</td>
+                    <td style="padding: 0; cursor: pointer;">
+                        {{#if status == 0}}
+                            <!-- 1申诉中、2申诉成功、3申诉失败 -->
+                            <button class="btn{{#if time}} grey{{else}} primary{{/if}}" {{#if time}} disabled {{/if}} on-click="allege(this)">申诉</button>
+                        {{elseif status == 1}}
+                            <button class="btn primary" on-click="reasult(this)">申诉中</button>
+                        {{elseif status == 2}}
+                            <button class="btn primary" on-click="reasult(this)">申诉成功</button>
+                        {{elseif status == 3}}
+                            <button class="btn primary" on-click="reasult(this)">申诉失败</button>
+                        {{/if}}
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+            {{/if}}
+        </table>
+
+        {{#if length == 0}}
+            <div class="no-record">无扣分记录</div>
+        {{/if}}
+
+        {{#if pager > 1}}
+            <div class="pagination tight primary">
+
+                <a class="item button{{#if upisdisable}} disabled{{/if}}" on-click="flipUp()">上一页</a>
+
+                    {{#each pagers:value}}
+                        <a class="item button {{#if currentpage == value+1 }} active{{/if}}" on-click="flip(this)">{{value+1}}</a>
+                    {{/each}}
+
+                <a class="item button{{#if downisdisable}} disabled{{/if}}" on-click="flipDown()">下一页</a>
+
+            </div>
+        {{/if}}
+    </div>
+
+    <div class="points-illustrate">
+        <strong>扣分说明</strong>
+        <table class="table cell-bordered" style="width: 737px;">
+            <thead>
+                <tr>
+                    <th style="width: 30%">扣分行为</th>
+                    <th style="width: 50%">判定规则</th>
+                    <th style="width: 20%">扣分</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>线上直播课程迟到</td>
+                    <td>课程开课后5分钟未进入教室。</td>
+                    <td>1</td>
+                </tr>
+                <!-- <tr>
+                    <td>线上直播课程缺课</td>
+                    <td>直播课开课期间老师、学生均未进入教室。</td>
+                    <td>2</td>
+                </tr> -->
+                <tr>
+                    <td>线上直播课程旷课</td>
+                    <td>直播课开课期间老师未进入教室，学生进入教室。</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>虚假交易</td>
+                    <td>恶意刷单等行为</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>恶意骚扰</td>
+                    <td>老师用户在跟谁学平台课程评价、IM群聊、直播教室聊天区等区域对其他老师用户实施侮辱、诽谤的行为。</td>
+                    <td>
+                        第一次扣6分<br/>
+                        第二次扣12分<br/>
+                        第三次扣36分<br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>频繁修改班课时间</td>
+                    <td>班课有学生报名后，按照班课总课节数除以15，取结果整数部分，乘2，所得结果为可修改班课时间的次数。超过这个次数每次修改会被扣2分。修改课节内容、课程时长或添加新课节不扣分。</td>
+                    <td>
+                        2
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <strong>惩罚措施与解除条件</strong>
+        <div class="text end">
+            <div>
+                每次扣分的有效期为90天，自扣分发生时刻起，90天后相应扣分将失效。<br/>
+                对有效扣分达到12分的老师，平台将采取如下惩罚措施：<br/>
+            </div>
+            <span class="error">
+            ◆ 老师主页及所有课程搜索屏蔽<br/>
+            </span>
+            <div>
+            当有效期内的扣分小于12分时，以上惩罚措施将被解除。<br/>
+            一个自然年内，累计扣分达到36分，将对老师主页及所有课程无限期搜索屏蔽，会员费不退。
+            </div>
+        </div>
+    </div>
+</div>

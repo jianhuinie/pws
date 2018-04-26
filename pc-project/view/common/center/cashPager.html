@@ -1,0 +1,72 @@
+{{ *
+
+@file 钱包管理 - 翻页
+@author caoying
+
+* }}
+
+{{ strip }}
+
+{{ $page = $tpl_data.history_list_tpl.pager.page }}
+{{ $count = $tpl_data.history_list_tpl.pager.amount }}
+{{ $page_size = $tpl_data.history_list_tpl.pager.size }}
+{{ $page_count = ($count / $page_size)|ceil }}
+{{ $show_count = 6 }}
+
+{{ if $page_count > 1 }}
+<div class="pager-block">
+
+    <div class="pager">
+
+    {{ if $page > 1 }}
+    <a data-page="{{ $page-1 }}" >
+        <i class="icon icon-chevron-left"></i> 上一页
+    </a>
+    {{ /if }}
+
+    {{ if $page_count <= $show_count + 1 }}
+        {{ $start = 1 }}
+        {{ $end = $page_count }}
+    {{ elseif $page_count <= $page + $show_count  }}
+        {{ $end = $page_count }}
+        {{ $start = $page_count - $show_count }}
+    {{ elseif $page <= ($show_count/2) }}
+        {{ $start = 1 }}
+        {{ $end = 1 + $show_count }}
+    {{ else }}
+        {{ $start = $page - $show_count/2  }}
+        {{ $end = $page + $show_count/2 }}
+    {{ /if }}
+
+    {{ if $start > 2 }}
+        <a data-page="1">1</a>
+        <b class="ellipsis">...</b>
+    {{ /if }}
+
+
+    {{ for $item=$start to $end }}
+
+    {{ $replace_to = "page="|cat:$item }}
+
+    {{ if $item != $page }}
+        <a data-page="{{ $item }}">{{ $item }}</a>
+    {{ else }}
+        <a class="active">{{ $item }}</a>
+    {{ /if }}
+    {{ /for }}
+
+    {{ if $end < $page_count }}
+        <b class="ellipsis">...</b>
+        <a data-page="{{ $page_count }}">{{ $page_count }}</a>
+    {{ /if }}
+
+    {{ if $page < $page_count }}
+        <a data-page="{{ $page+1 }}">
+          下一页 <i class="icon icon-chevron-right"></i>
+        </a>
+    {{ /if }}
+
+    </div>
+</div>
+{{ /if }}
+{{ /strip }}

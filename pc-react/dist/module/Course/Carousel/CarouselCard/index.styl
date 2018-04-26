@@ -1,0 +1,29 @@
+@import '../../../../resource/css/default.styl';
+    
+.carousel-card {
+    background: $grey_40;
+    border: 1px solid $grey_100; 
+    color: $grey_600;
+    width: 600px;
+    &-title {
+        margin: 15px 0 15px 10px;    
+    }
+    &-add {
+        padding: 15px;
+        &-button {
+            padding: 9px 0;
+            width: 100%;
+            color: $pink;
+            &:active, &:hover, &:focus {
+                color: $pink;
+            }
+        }
+        &-tip {
+            display: block;
+            font-size: 12px;
+            color: $grey_400;
+            line-height: 12px;
+            margin-top: 10px;
+        }
+    }
+}

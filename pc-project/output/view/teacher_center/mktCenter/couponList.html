@@ -1,0 +1,89 @@
+{{ *
+
+@file 老师优惠券列表 - 列表模板
+@author wangyujie
+
+* }}
+
+{{ strip }}
+
+<table class="table coupon-list">
+    <thead>
+        <tr>
+            <th>面额</th>
+            <th class="th-time">有效期</th>
+            <th class="th-cond">条件</th>
+            <th class="th-recv">已领取</th>
+            <th class="th-remark">备注</th>
+            <th class="th-sync">
+                放置到主页
+                <i class="icon icon-question-circle" data-title="发布后学生可在你的个人主页领取，最多可以发布3个哦~" data-width="16em"></i>
+            </th>
+            <th class="th-option">操作</th>
+        </tr>
+    </thead>
+    <tbody>
+    {{ foreach $tpl_data.coupons as $item }}
+        <tr data-serial={{ $item.serial_num }} >
+            <td class="balance {{ if $item.status == 1 }}text-primary{{ /if }}">
+                ￥{{ $item.balance }}
+            </td>
+            <td>
+                {{ $item.effect_time|date_format:'%Y-%m-%d' }}
+                <br />至{{ $item.expire_time|date_format:'%Y-%m-%d' }}
+            </td>
+            <td>
+                {{ if $item.cond_threshold == 0 }}
+                    不限
+                {{ else }}
+                    满{{ $item.cond_threshold }}元
+                {{ /if }}
+            </td>
+            <td>
+                {{ $item.recv_count }}/{{ $item.total_count }}个
+                {{ $progress = $item.recv_count * 100 / $item.total_count }}
+                <div class="progress" data-title="已使用：{{ $item.used_num }}<br />未使用：{{ $item.unused_num }}<br />已过期：{{ $item.expired_num }}<br />">
+                    <div class="progress-bar-primary" style="width:{{ $progress }}%;"></div>
+                </div>
+            </td>
+            <td>
+                <span data-title="{{ $item.remark }}" data-width="10em">
+                    {{ $item.remark|cn_truncate: 10 }}
+                </span>
+            </td>
+            <td>
+                <input type="checkbox" name="sync" value="1" {{ if $item.sync }} checked="checked" {{ /if }} />
+            </td>
+            <td>
+                {{ if $item.status == 0 || $item.status == 1 }}
+                <a class="text-info" href='/teacher_center/addCouponSuccess?serial={{ $item.serial_num }}&qrurl={{ $item.qr_url }}&dturl={{ $item.dt_url }}'>发优惠券</a>
+
+                <div class="more-switch text-info">
+                    更多
+                    <i class="icon icon-caret-down"></i>
+                    <div class="more-action">
+                        <button class="small btn-link btn-more">
+                            增发
+                        </button>
+                        <button class="small btn-link btn-cancel">
+                            不发了
+                        </button>
+                    </div>
+                </div>
+
+                {{ else if $item.status == 2 }}
+                    已过期
+                {{ else if $item.status == 3 || $item.status == 4 }}
+                    已下线
+                {{ else if $item.status == 5 }}
+                    <button class="small btn-primary btn-more">
+                        增发张数
+                    </button>
+                {{ /if }}
+            </td>
+        </tr>
+    {{ /foreach }}
+    </tbody>
+</table>
+
+{{ /strip }}

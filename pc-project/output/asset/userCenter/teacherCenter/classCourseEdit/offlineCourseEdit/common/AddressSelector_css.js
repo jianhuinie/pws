@@ -1,0 +1,1 @@
+define("userCenter/teacherCenter/classCourseEdit/offlineCourseEdit/common/AddressSelector_css", [], function () { return '.address-menu{position:relative;}.address-menu > .icon{position:absolute;right:8px;top:6px;font-size:24px;color:#6d6d6e}'});

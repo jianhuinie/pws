@@ -1,0 +1,297 @@
+{{ *
+
+@file: 单独用一个组件来设置搜索URL
+
+参数：
+condition    现有数据
+condition.query// 搜索词
+condition.course_type// 上课方式
+condition.sub_id_1
+condition.sub_id_2//子科目
+condition.sub_id_3//子子科目
+condition.area//商区
+condition.business/子商区
+condition.sort//排序 priceAsc,priceDesc,popular,comment,distance
+condition.is_free//是否免费
+condition.course_lesson_way// 授课方式 1 可线上授课
+condition.teacher_type// 老师身份 1，专业老师，2在校学生 3达人
+condition.teacher_qualification// 老师资质   “，”分开
+condition.course_lesson_body// 授课主体 2 老师  1 机构
+condition.school_age//教龄，年龄段1:0-5年，2:5-10年 3:10-15年 4:15年以上
+condition.week//上课时间,周一。。。周日 “，”分开
+condition.sex//老师性别
+condition.org_type//机构性质 1，公司  2，工作室 3学校
+condition.begin_time//开课日期  一周内，一月内 2月内
+
+condition.source//来源
+
+@author: wuhongjie
+
+* }}
+
+
+{{ strip }}
+
+{{ $q_param = '' }}
+{{ $course_type_param = '' }}
+{{ $course_param = '' }}
+{{ $area_param = '' }}
+{{ $sort_param = '' }}
+{{ $is_free_param = '' }}
+
+{{ $course_lesson_way_param = '' }}
+{{ $teacher_type_param = '' }}
+{{ $teacher_qualification_param = '' }}
+{{ $course_lesson_body_param = '' }}
+{{ $school_age_param = '' }}
+{{ $week_param = '' }}
+{{ $sex_param = '' }}
+{{ $org_type_param = '' }}
+{{ $begin_time_param = '' }}
+{{ $source_param = '' }}
+{{ $page_param = '' }}
+{{ $city_param = '' }}
+{{ $sd_param = '' }}
+
+{{ * 搜索词 * }}
+{{ if $key == 'q' }}
+    {{ $q_param = $value }}
+{{ else }}
+    {{ if isset($condition.query) && $condition.query }}
+        {{ $q_param = ($condition.query|regex_replace:"/[-]/":""|escape:url) }}
+    {{ /if }}
+{{ /if }}
+
+{{ * 课程类型 * }}
+{{ if $key == 'course_type' }}
+    {{ $course_type_param = $value }}
+{{ elseif isset($condition.course_type) }}
+    {{ $course_type_param = $condition.course_type }}
+{{ /if }}
+
+{{ * 科目参数 * }}
+{{ if $key == 'sub_id_1' }}
+    {{ if $value }}
+        {{ $course_param = $value }}
+    {{ /if }}
+{{ elseif isset($condition.sub_id_1) }}
+    {{ $course_param = $condition.sub_id_1 }}
+
+    {{ * 子科目参数 * }}
+    {{ if $key == 'sub_id_2' }}
+        {{ if $value }}
+            {{ $course_param = $course_param|cat:'_'|cat:$value }}
+        {{ /if }}
+    {{ elseif isset($condition.sub_id_2) }}
+        {{ $course_param = $course_param|cat:'_'|cat: $condition.sub_id_2 }}
+
+        {{ * 子子科目参数 * }}
+        {{ if $key == 'sub_id_3' }}
+            {{ if $value }}
+            {{ $course_param = $course_param|cat:'_'|cat: $value }}
+            {{ /if }}
+        {{ elseif isset($condition.sub_id_3) }}
+            {{ $course_param = $course_param|cat:'_'|cat: $condition.sub_id_3 }}
+        {{ /if }}
+
+    {{ /if }}
+{{ /if }}
+
+
+{{ * 地区参数 * }}
+{{ if $key == 'area' }}
+    {{ if $value }}
+        {{ $area_param = $value }}
+    {{ /if }}
+{{ elseif isset($condition.area) }}
+    {{ $area_param = $condition.area }}
+
+    {{ * 子地区参数 * }}
+    {{ if $key == 'business' }}
+        {{ if $value }}
+        {{ $area_param = $area_param|cat:'_'|cat:$value }}
+        {{ /if }}
+    {{ elseif isset($condition.business) }}
+        {{ $area_param = $area_param|cat:'_'|cat:$condition.business }}
+    {{ /if }}
+{{ /if }}
+
+
+{{ *  排序方式 * }}
+{{ if $key == 'sort' }}
+    {{ $sort_param = $value }}
+{{ elseif isset($condition.sort) }}
+    {{ $sort_param = $condition.sort }}
+{{ /if }}
+
+{{ *  免费 * }}
+{{ if $key == 'is_free' }}
+    {{ $is_free_param = $value }}
+{{ elseif isset($condition.is_free) }}
+    {{ $is_free_param = $condition.is_free }}
+{{ /if }}
+
+
+
+
+{{ * 授课方式参数 * }}
+{{ if $key == 'course_lesson_way' }}
+    {{ if $value }}
+    {{ $course_lesson_way_param = $value }}
+    {{ /if }}
+{{ elseif isset($condition.course_lesson_way) }}
+    {{ $course_lesson_way_param = $condition.course_lesson_way }}
+{{ /if }}
+
+
+
+{{ * 老师身份参数 * }}
+{{ if $key == 'teacher_type' }}
+    {{ if $value }}
+    {{ $teacher_type_param = $value }}
+    {{ /if }}
+{{ elseif isset($condition.teacher_type) }}
+    {{ $teacher_type_param = $condition.teacher_type }}
+{{ /if }}
+
+
+
+{{ * 老师资质参数 * }}
+{{ if $key == 'teacher_qualification' }}
+    {{ if $value }}
+    {{ $teacher_qualification_param = $value }}
+    {{ /if }}
+{{ elseif isset($condition.teacher_qualification) }}
+    {{ $teacher_qualification_param = $condition.teacher_qualification }}
+{{ /if }}
+
+
+
+{{ * 上课方式参数 * }}
+{{ if $key == 'course_lesson_body' }}
+    {{ if $value }}
+    {{ $course_lesson_body_param = $value }}
+    {{ /if }}
+{{ elseif isset($condition.course_lesson_body) }}
+    {{ $course_lesson_body_param = $condition.course_lesson_body }}
+{{ /if }}
+
+{{ * 教龄 * }}
+{{ if $key == 'school_age' }}
+    {{ if $value }}
+    {{ $school_age_param = $value }}
+    {{ /if }}
+{{ elseif isset($condition.school_age) }}
+    {{ $school_age_param = $condition.school_age }}
+{{ /if }}
+
+{{ * 授课主体参数 * }}
+{{ if $key == 'week' }}
+    {{ if $value }}
+    {{ $week_param = $value }}
+    {{ /if }}
+{{ elseif isset($condition.week) }}
+    {{ $week_param = $condition.week }}
+{{ /if }}
+
+{{ * 老师性别 * }}
+{{ if $key == 'sex' }}
+    {{ if $value > -1 }}
+    {{ $sex_param = $value }}
+    {{ /if }}
+{{ elseif isset($condition.sex) }}
+    {{ $sex_param = $condition.sex }}
+{{ /if }}
+
+
+{{ * 机构性质 * }}
+{{ if $key == 'org_type' }}
+    {{ if $value }}
+    {{ $org_type_param = $value }}
+    {{ /if }}
+{{ elseif isset($condition.org_type) }}
+    {{ $org_type_param = $condition.org_type }}
+{{ /if }}
+
+
+{{ * 开课日期 * }}
+{{ if $key == 'begin_time' }}
+    {{ if $value }}
+    {{ $begin_time_param = $value }}
+    {{ /if }}
+{{ elseif isset($condition.begin_time) }}
+    {{ $begin_time_param = $condition.begin_time }}
+{{ /if }}
+
+
+{{ * search debug * }}
+{{ if isset($condition.sd) && $condition.sd }}
+    {{ if $city_param || $page_param }}
+        {{ $sd_param = '&sd='|cat:$condition.sd }}
+    {{ else }}
+        {{ $sd_param = '?sd='|cat:$condition.sd }}
+    {{ /if }}
+{{ /if }}
+
+
+{{ $page_param = $source_param }}
+{{ * 分页 * }}
+{{ if $key == 'page' }}
+    {{ $page_param = '?page='|cat:$value }}
+{{ /if }}
+
+{{ if $sort_param == 'all' }}
+{{ $sort_param = '' }}
+{{ /if }}
+
+{{ if $tpl_data.abtest }}
+    {{ $urlfix = '/'|cat: $tpl_data.city_pinyin|cat: '/sc' }}
+{{ else if isset($tpl_data.is_www) && $tpl_data.is_www }}
+    {{ $urlfix = '/sc/' }}
+{{ else }}
+    {{ $urlfix = '/'|cat: $curr_city.domain|cat: '/sc-' }}
+{{ /if }}
+
+{{ * 如果授课主体选了老师  机构性质参数应清空 * }}
+{{ if $course_lesson_body_param == 2 }}
+    {{ $org_type_param = '' }}
+{{ /if }}
+
+{{ $url_tmp = $urlfix|cat:
+    $q_param|cat:'-'|cat:
+    $course_type_param|cat:'-'|cat:
+    $course_param|cat:'-'|cat:
+    $area_param|cat:'-'|cat:
+    $sort_param|cat:'-'|cat:
+    $is_free_param|cat:'-'|cat:
+    $course_lesson_way_param|cat:'-'|cat:
+    $teacher_type_param|cat:'-'|cat:
+    $teacher_qualification_param|cat:'-'|cat:
+    $course_lesson_body_param|cat:'-'|cat:
+    $school_age_param|cat:'-'|cat:
+    $week_param|cat:'-'|cat:
+    $sex_param|cat:'-'|cat:
+    $org_type_param|cat:'-'|cat:
+    $begin_time_param }}
+{{ $url_final = rtrim($url_tmp,'-') }}
+
+
+{{ if $url_final == $urlfix }}
+{{ $url_final = $urlfix|cat:'-' }}
+{{ /if }}
+
+
+{{ if isset($pager) }}
+    {{ $url = $url_final|cat:
+        '.html'|cat:
+        $page_param|cat:
+        $sd_param scope="parent" }}
+{{ else }}
+    {{ $url = $url_final|cat:
+        '.html'|cat:
+        $page_param|cat:
+        $sd_param }}
+    {{ $url }}
+{{ /if }}
+
+{{ /strip }}

@@ -1,0 +1,88 @@
+/**
+ * @file 活动页模板2
+ * @author zengcheng
+ */
+@import '../main/base.less';
+
+//重写main样式
+body{
+    #main{
+        margin: 0;
+        width: auto;
+        *zoom: 1;
+    }
+    .wrapper {
+        width: 1100px;
+        margin: 0 auto;
+    }
+}
+
+.bottom-banner,
+.top-banner,
+.activity-rule-wrapper {
+    overflow: hidden;
+    text-align: center;
+    background: url('') center no-repeat;
+    min-height: 100px;
+    img {
+        position: relative;
+        z-index: -1;
+        display: block;
+        visibility: hidden;
+    }
+}
+
+
+.footer-wrapper {
+    margin: 30px auto;
+    text-align: center;
+    .share-btn{
+        position: relative;
+        display: inline-block;
+        color: #fff;
+        font-size: 26px;
+        border-radius: 5px;
+        font-family: "FangSong";
+        text-align: center;
+        cursor: pointer;
+        transition: all .5s;
+        .share-btn-img {
+            display: block;
+        }
+        .baidu-share {
+            top: 100%;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    }
+}
+
+.list-wrapper {
+    display: block;
+    .list-item {
+        margin-top: 30px;
+        width: 100%;
+        overflow: hidden;
+        border-radius: 3px;
+        img,
+        a {
+            display: block;
+            width: 100%;
+        }
+    }
+}
+
+.bottom-banner {
+    position: relative;
+    .copyright {
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        margin-left: 20px;
+        z-index: 10;
+        text-align: center;
+        color: #fff;
+    }
+}

@@ -1,0 +1,89 @@
+{{ extends file="common/main/base.html" }}
+
+{{ block name="title" }}
+免费家教活动（武汉）
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/activity/freeTutor_c54583f05e.css">
+{{ /block }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $script_path = "activity/freeTutor_907d86d9ff" }}
+
+    {{ $baidu_share_text = '免费好家教，尽在@跟谁学 ——全网最牛找好老师平台' }}
+
+    {{ $img = '<img src="/asset/img/activity/center/freeTutor/share-banner-198_96effcbebe.png" />' }}
+    {{ $parts = explode('"', $img) }}
+    {{ $urlshare = $parts[1] }}
+
+    {{ $baidu_share_image =  $static_origin|cat: $urlshare }}
+    {{ * $baidu_share_image = "http://img.gsxservice.com/0cms/d/file/content/2015/03/54fa86a803597.png" * }}
+    {{ * $baidu_share_image = "http://img.gsxservice.com/0cms/d/file/content/2015/03/54fadb77763e8.png" * }}
+
+{{ /block }}
+
+
+{{ block name="body" }}
+{{ strip }}
+
+{{ include file="common/siteNav.html" }}
+{{ include file="common/main/common/header.html" }}
+
+{{ include file="common/script.html" }}
+
+<div id="main">
+    <div class="banner-video-outer">
+        <div class="banner-video">
+
+        </div>
+    </div>
+    <div class="video-area">
+        <div class="video-header">
+
+        </div>
+        <div class="video-content">
+            <a class="video-trigger">
+
+            </a>
+        </div>
+    </div>
+    <div class="tutor-content">
+        <div class="tutor-header">
+
+        </div>
+        <div class="tutor-list">
+
+        </div>
+    </div>
+
+    <div class="apply-area">
+        <div class="apply-button">
+
+        </div>
+    </div>
+
+    <div class="share-area">
+        {{ include file="common/component/baiduShare.html" }}
+    </div>
+
+    <div class="tutor-tip-outer">
+        <div class="tutor-tip">
+
+        </div>
+    </div>
+    <div class="footer-pic"></div>
+</div>
+
+
+
+
+{{ include file="common/component/applyTutorDialog.html" onlyShowStudent=1 }}
+{{ include file="common/component/loginDialog.html" }}
+{{ * include file="common/footer.html" * }}
+
+{{ /strip }}
+{{ /block }}

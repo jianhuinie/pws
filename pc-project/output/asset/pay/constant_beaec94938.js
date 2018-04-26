@@ -1,0 +1,1 @@
+define('pay/constant_beaec94938',['require','exports','module'],function(require,exports){'use strict';exports.CARD_TYPE_DEPOSIT='D',exports.CARD_TYPE_CREDIT='C';});

@@ -1,0 +1,257 @@
+{
+    "tpl_data": {
+        "teacher_count": 86,
+        "teacher_info_courses": [{
+            "teacher_info": {
+                "teacher_id": 84,
+                "teacher_number": "371509928",
+                "teacher_name": "曹炜",
+                "avator": "https://imgs.genshuixue.com/5084401_yarca0f6.jpeg",
+                "background_img": "https://imgs.genshuixue.com/1367703_qkno7tkc.jpeg",
+                "short_introduce": "高考数据顶级名师，数学中高考提分专家",
+                "teacher_detail_url": "http://m.genshuixue.com/371509928",
+                "school_age": "12",
+                "city": "北京",
+                "catname": "数学",
+                "video_introduce": true,
+                "video_introduce_url": "http://www.genshuixue.com/video/view/vu607825",
+                "catid": "2959",
+                "xiaobian_intro": "传说中的高分老曹—北京海淀区优秀数学教师，深耕高中数学12年，全国各地的粉丝不计其数，十几年来辅导过的学生500多人，考入清华北大者10多人",
+                "order_num": 12435
+            },
+            "courses": [{
+                "lesson_way": "",
+                "course_name": "二次方程、二次函数线上一对一实录节选",
+                "course_number": 15100368517,
+                "course_type": "video",
+                "course_url": "http://m.genshuixue.com/video_course/getcourseshowdetail?number=15100368517",
+                "course_avatar": "https://imgs.genshuixue.com/11795599_udporohi.jpeg",
+                "price": 0,
+                "students_num": "4266"
+            }, {
+                "lesson_way": "",
+                "course_name": "15分钟搞懂三角函数图像和性质",
+                "course_number": 16031159078,
+                "course_type": "video",
+                "course_url": "http://m.genshuixue.com/video_course/getcourseshowdetail?number=16031159078",
+                "course_avatar": "https://imgs.genshuixue.com/11018470_yve7vfij.jpeg",
+                "price": 0,
+                "students_num": "137153"
+            }]
+        }, {
+            "teacher_info": {
+                "teacher_id": 12046,
+                "teacher_number": "667162178",
+                "teacher_name": " 高考数学杨老师",
+                "avator": "https://imgs.genshuixue.com/1314936_i5blryrf.jpeg",
+                "background_img": "https://imgs.genshuixue.com/1367607_n80wp0yx.jpeg",
+                "short_introduce": "秒杀解题方法，数学轻松突破140分",
+                "teacher_detail_url": "http://m.genshuixue.com/667162178",
+                "school_age": "8",
+                "city": "北京",
+                "catname": "数学",
+                "video_introduce": true,
+                "video_introduce_url": "http://www.genshuixue.com/video/view/vu426466",
+                "catid": "2959",
+                "xiaobian_intro": "原新东方学校高考数学主讲教师，荣获新东方“最佳优秀教师奖“；创办领贤教育教授高考数学，教会学生用秒杀方法迅速提分，屡创高考神话。",
+                "order_num": 7270
+            },
+            "courses": [{
+                "lesson_way": "",
+                "course_name": "10秒钟速解二项式定理1",
+                "course_number": 15100335893,
+                "course_type": "video",
+                "course_url": "http://m.genshuixue.com/video_course/getcourseshowdetail?number=15100335893",
+                "course_avatar": "https://imgs.genshuixue.com/11795765_4tw0trf3.jpeg",
+                "price": 9.9,
+                "students_num": 0
+            }, {
+                "lesson_way": "",
+                "course_name": "5秒钟速解圆锥曲线小题（1分钟可学会）",
+                "course_number": 15100468341,
+                "course_type": "video",
+                "course_url": "http://m.genshuixue.com/video_course/getcourseshowdetail?number=15100468341",
+                "course_avatar": "https://imgs.genshuixue.com/11795861_9xadmniq.jpeg",
+                "price": 0,
+                "students_num": "15190"
+            }]
+        }, {
+            "teacher_info": {
+                "teacher_id": 498458,
+                "teacher_number": "500015158",
+                "teacher_name": "刘杰",
+                "avator": "https://imgs.genshuixue.com/8288905_qdn0w18i.jpeg",
+                "background_img": "https://imgs.genshuixue.com/1367580_lp7i8n2k.jpeg",
+                "short_introduce": "跟清华状元，得物理高分。",
+                "teacher_detail_url": "http://m.genshuixue.com/500015158",
+                "school_age": "10",
+                "city": "北京",
+                "catname": "物理",
+                "video_introduce": true,
+                "video_introduce_url": "http://www.genshuixue.com/video/view/vu541414",
+                "catid": "2963",
+                "xiaobian_intro": "山东济南高考理科状元；原新东方高考物理王牌讲师，现负责北京新东方优能中学全科教师培训和优能中学预设班工作；高考物理大招秒杀法创始人。",
+                "order_num": 6551
+            },
+            "courses": [{
+                "lesson_way": "",
+                "course_name": "高中物理力学实验精讲",
+                "course_number": 15081971776,
+                "course_type": "video",
+                "course_url": "http://m.genshuixue.com/video_course/getcourseshowdetail?number=15081971776",
+                "course_avatar": "https://imgs.genshuixue.com/3290560_c627sgku.jpeg",
+                "price": 299,
+                "students_num": 0
+            }, {
+                "lesson_way": "",
+                "course_name": "刘杰物理秒杀高中必考题（不看少得50分）",
+                "course_number": 16051186960,
+                "course_type": "video",
+                "course_url": "http://m.genshuixue.com/video_course/getcourseshowdetail?number=16051186960",
+                "course_avatar": "https://imgs.genshuixue.com/11448119_e1want7z.jpeg",
+                "price": 0,
+                "students_num": "2517"
+            }]
+        }, {
+            "teacher_info": {
+                "teacher_id": 7804,
+                "teacher_number": "542149618",
+                "teacher_name": "吴玉会",
+                "avator": "https://imgs.genshuixue.com/4612763_vjai1q91.jpeg",
+                "background_img": "https://imgs.genshuixue.com/1367690_82emw9kk.jpeg",
+                "short_introduce": "网络名师，人称“牛人数学吴”",
+                "teacher_detail_url": "http://m.genshuixue.com/542149618",
+                "school_age": "13",
+                "city": "北京",
+                "catname": "数学",
+                "video_introduce": true,
+                "video_introduce_url": "http://www.genshuixue.com/video/view/vu453218",
+                "catid": "2959",
+                "xiaobian_intro": "著名高考数学辅导实战专家，步步高集团与杭州铭师堂网络视频主讲老师；对历年全国卷有深入研究，准确把握高考命题规律，对数学题型有深度把握。 ",
+                "order_num": 1700
+            },
+            "courses": [{
+                "lesson_way": "",
+                "course_name": "第六讲：函数的性质（三）",
+                "course_number": 16021783073,
+                "course_type": "video",
+                "course_url": "http://m.genshuixue.com/video_course/getcourseshowdetail?number=16021783073",
+                "course_avatar": "https://imgs.genshuixue.com/6844545_7viys4nr.jpeg",
+                "price": 0,
+                "students_num": "41"
+            }, {
+                "lesson_way": "",
+                "course_name": "一道利用导数求最值得问题",
+                "course_number": 16022892206,
+                "course_type": "video",
+                "course_url": "http://m.genshuixue.com/video_course/getcourseshowdetail?number=16022892206",
+                "course_avatar": "https://imgs.genshuixue.com/11796117_rzy35fcu.jpeg",
+                "price": 0,
+                "students_num": "891"
+            }]
+        }, {
+            "teacher_info": {
+                "teacher_id": 90,
+                "teacher_number": "371512338",
+                "teacher_name": " 陈凤巧",
+                "avator": "https://imgs.genshuixue.com/5989079_1g0hevhn.jpeg",
+                "background_img": "https://imgs.genshuixue.com/1367554_tgg21shc.jpeg",
+                "short_introduce": "英语领域专家级名师，赏识教育快速提分",
+                "teacher_detail_url": "http://m.genshuixue.com/371512338",
+                "school_age": "10",
+                "city": "北京",
+                "catname": "英语",
+                "video_introduce": true,
+                "video_introduce_url": "http://www.genshuixue.com/video/view/vu608119",
+                "catid": "2960",
+                "xiaobian_intro": "传说中的巧巧老师——从事教育事业近20年，被评为专家级教师，全国各地的学生不计其数，20年来辅导过的学生3000多人",
+                "order_num": 1455
+            },
+            "courses": [{
+                "lesson_way": "",
+                "course_name": "15分钟通透英语简单句5种基本句型",
+                "course_number": 16042797389,
+                "course_type": "video",
+                "course_url": "http://m.genshuixue.com/video_course/getcourseshowdetail?number=16042797389",
+                "course_avatar": "https://imgs.genshuixue.com/10083203_sg00di9h.jpeg",
+                "price": 0,
+                "students_num": "335"
+            }, {
+                "lesson_way": "",
+                "course_name": "国际音标+自然拼读全解决",
+                "course_number": "160119672826",
+                "course_type": "online",
+                "course_url": "http://m.genshuixue.com/teacher/classCourseDetail/160119672826",
+                "course_avatar": "https://imgs.genshuixue.com/5904781_ape0x5p0.jpeg",
+                "price": "0.00",
+                "students_num": 302
+            }]
+        }, {
+            "teacher_info": {
+                "teacher_id": 17454,
+                "teacher_number": "413045938",
+                "teacher_name": " 谭绍维",
+                "avator": "https://imgs.genshuixue.com/11420973_2amotrfw.jpeg",
+                "background_img": "https://imgs.genshuixue.com/1367703_qkno7tkc.jpeg",
+                "short_introduce": "高考物理顶级名师，物理中高考提分专家",
+                "teacher_detail_url": "http://m.genshuixue.com/413045938",
+                "school_age": "6",
+                "city": "北京",
+                "catname": "物理",
+                "video_introduce": true,
+                "video_introduce_url": "http://www.genshuixue.com/video/view/vu1694320",
+                "catid": "2963",
+                "xiaobian_intro": "人称“猴哥”老师——拥有四个国家专利，深耕高中物理6年，辅导过的学生多达600多人，考入顶级学府者多达100多人",
+                "order_num": 1164
+            },
+            "courses": [{
+                "lesson_way": "",
+                "course_name": "【每日一题】精品讲解视频课（猴哥物理）",
+                "course_number": 15111644728,
+                "course_type": "video",
+                "course_url": "http://m.genshuixue.com/video_course/getcourseshowdetail?number=15111644728",
+                "course_avatar": "https://imgs.genshuixue.com/4257523_k88eir9t.jpeg",
+                "price": 0,
+                "students_num": "296"
+            }, {
+                "lesson_way": "",
+                "course_name": "【猴哥物理】高二、高三押题【难，慎入】",
+                "course_number": 15122877745,
+                "course_type": "video",
+                "course_url": "http://m.genshuixue.com/video_course/getcourseshowdetail?number=15122877745",
+                "course_avatar": "https://imgs.genshuixue.com/11422624_5tx825y2.jpeg",
+                "price": 0,
+                "students_num": "567"
+            }]
+        }],
+        "page": {
+            "curr_page": 1,
+            "has_more": 1
+        },
+        "title": {
+            "list": [{
+                "subject_name": "全部",
+                "selected": 0
+            }, {
+                "subject_name": "数学",
+                "selected": 1
+            }, {
+                "subject_name": "语文",
+                "selected": 0
+            }, {
+                "subject_name": "英语",
+                "selected": 0
+            }],
+            "catname":"all"
+        },
+        "lbs": {
+            "province": "北京",
+            "city": "北京",
+            "coord": {
+                "lng": 116.45965271903,
+                "lat": 39.928346510386
+            }
+        }
+    }
+
+}

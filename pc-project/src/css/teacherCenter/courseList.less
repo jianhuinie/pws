@@ -1,0 +1,162 @@
+/**
+ * @file 课程设置
+ * @author zhujialu
+ */
+
+@import '../common/center/common/layout.less';
+@import './course/courseClassify.less';
+@import '../common/center/common/floatHelp.less';
+#content {
+    .card-header {
+        .examine-time {
+            float: right;
+            font-family: MicrosoftYaHei;
+            font-size: 14px;
+            color: #FF9100;
+        }
+    }
+    .card-body {
+        padding-top: 0px;
+        .intro {
+            margin: 0 10px;
+        }
+    }
+
+    .tab-nav-info {
+        margin-bottom: @gap-vertical-medium;
+        .icon {
+            color: @brand-error;
+            margin-left: @gap-horizontal-small;
+        }
+        .nav-item {
+            padding-bottom: 10px;
+        }
+        .one2one-best {
+            display: none;
+        }
+    }
+    .tab-nav-default {
+        text-align: center;
+        .nav-item {
+            width: 246px;
+        }
+    }
+
+    .tab-content {
+        padding-top: @gap-vertical-huge;
+    }
+    .icon-add-primary {
+        margin-right: @gap-horizontal-medium;
+        vertical-align: middle;
+    }
+
+    .course-empty {
+        text-align: center;
+    }
+
+    .form-trigger {
+        margin: 2 * @gap-vertical-medium 0;
+        overflow: hidden;
+        .to-course-date,
+        .to-combo {
+            float: right;
+            .btn {
+                background-color: #fff;
+                border-color: @brand-primary;
+                color: @brand-primary;
+                &:hover {
+                    color: #fff;
+                    background-color: @brand-primary;
+                }
+            }
+        }
+
+        .to-combo {
+            margin-right: 1.5 * @gap-horizontal-medium;
+        }
+
+        .create-course {
+            display: inline-block;
+            .icon-plus {
+                font-size: 12px;
+                margin-right: @gap-horizontal-tiny;
+            }
+        }
+    }
+
+    .subject-form {
+
+        border-bottom: 1px solid @brand-gray;
+        display: none;
+
+        &:first-child {
+            border-top: 1px solid @brand-gray;
+        }
+    }
+
+
+    // 课程列表项
+    .course-list {
+        td {
+            vertical-align: middle;
+        }
+        .course-name {
+            text-align: left;
+            span {
+                font-size: 12px;
+                color: @brand-text-lighter;
+                margin-right: @gap-horizontal-tiny;
+                &:after {
+                    content: '|';
+                    margin-left: @gap-horizontal-tiny;
+                }
+                &:last-child:after {
+                    content: '';
+                }
+            }
+        }
+        .course-status {
+            .icon-question-circle {
+                cursor: pointer;
+                color: @brand-text-light;
+                margin-left: @gap-horizontal-tiny;
+            }
+        }
+        .course-action {
+            a,
+            .btn-link {
+                color: @brand-info;
+                &:hover {
+                    color: @brand-primary;
+                }
+            }
+        }
+
+    }
+
+    .message {
+        display: inline-block;
+        vertical-align: text-bottom;
+        margin-left: @gap-horizontal-large;
+        padding: @gap-vertical-tiny
+                 @gap-horizontal-medium;
+    }
+
+}
+.roster {
+    color: #f90;
+}
+.vip_dialog {
+    .dialog-body {
+        .dialog-action {
+            .btn-default {
+                margin-left: 40px;
+            }
+        }
+    }
+}
+.apple-dialog {
+    .dialog-close {
+        display: block;
+    }
+}

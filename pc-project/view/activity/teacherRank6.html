@@ -1,0 +1,282 @@
+{{ *
+@file 活动 - 综合实力排行榜 （排行榜第六季）
+@author liucong
+* }}
+
+{{ extends file="common/main/base.html" }}
+
+{{ block name="data" }}
+
+{{ $smarty.block.parent }}
+
+{{ $nav_config.hidden = 1 }}
+{{ $footer_config.hidden = 1 }}
+{{ $flotage_config.hidden = 1 }}
+
+{{ $script_path = [] }}
+{{ $script_path = "activity/teacherRank6" }}
+
+{{ $script_data = [] }}
+{{ $script_data.expiredTime = $tpl_data.expired_time }}
+{{ $script_data.currentTime = $tpl_data.current_time }}
+
+{{ $medal_legends = [] }}
+
+{{ $medal_legend = [] }}
+{{ $medal_legend["title"] = "第一名：金质奖章" }}
+{{ $medal_legend["index"] = 0 }}
+{{ $medal_legends[] = $medal_legend }}
+
+{{ $medal_legend = [] }}
+{{ $medal_legend["title"] = "第二名：银质奖章" }}
+{{ $medal_legend["index"] = 1 }}
+{{ $medal_legends[] = $medal_legend }}
+
+{{ $medal_legend = [] }}
+{{ $medal_legend["title"] = "第三名：铜质奖章" }}
+{{ $medal_legend["index"] = 2 }}
+{{ $medal_legends[] = $medal_legend }}
+{{ $course_pay_medals = $medal_legends }}
+
+{{ $cash_legend = [] }}
+{{ $cash_legend["title"] = "第一名" }}
+{{ $cash_legend["money"] = "20000" }}
+{{ $cash_legends[] = $cash_legend }}
+
+{{ $cash_legend = [] }}
+{{ $cash_legend["title"] = "第二名" }}
+{{ $cash_legend["money"] = "15000" }}
+{{ $cash_legends[] = $cash_legend }}
+
+{{ $cash_legend = [] }}
+{{ $cash_legend["title"] = "第三名" }}
+{{ $cash_legend["money"] = "10000" }}
+{{ $cash_legends[] = $cash_legend }}
+
+{{ $cash_legend = [] }}
+{{ $cash_legend["title"] = "第四名" }}
+{{ $cash_legend["money"] = "5000" }}
+{{ $cash_legends[] = $cash_legend }}
+
+{{ $cash_legend = [] }}
+{{ $cash_legend["title"] = "第五名" }}
+{{ $cash_legend["money"] = "3000" }}
+{{ $cash_legends[] = $cash_legend }}
+
+{{ $cash_legend = [] }}
+{{ $cash_legend["title"] = "第六名" }}
+{{ $cash_legend["money"] = "2000" }}
+{{ $cash_legends[] = $cash_legend }}
+
+{{ $script_data.needsShare = 1 }}
+
+{{ $baidu_share_image = "{{ $static_origin }}/asset/img/activity/teacherRank/anniversary/share.jpg" }}
+{{ $baidu_share_text = "暑期大幕拉开，名师尽展风采！跟谁学独立名师综合实力榜炫丽来袭，前六名老师均有现金巨奖哟！" }}
+
+{{ $rules = [] }}
+{{ $rules.desc = [] }}
+{{ $rules.desc[] = "本活动只计入8:00至21:30开课的课程；由于数据统计需要，榜单排名每小时更新一次。" }}
+{{ $rules.desc[] = "同一线下班课学生数最高计入150人；同一线上班课以实际进入跟谁学在线课堂人数为准；授课时间有重合的班课，都不计入该老师的排行榜。" }}
+{{ $rules.desc[] = '活动期间，只有确认支付的课酬才能折算经验值，<span class="text-error">单个学生支付的课酬最高折算200经验值。</span>' }}
+{{ $rules.desc[] = "经验值数相同时，排名先后取决于到达经验值的先后顺序。" }}
+{{ $rules.desc[] = "针对虚假交易行为，跟谁学拥有取消其获奖资格的权利。本活动规则在实施过程中的未尽事宜, 跟谁学在法律规定范围内享有解释权。" }}
+
+{{ $rules.important = "点击手机版活动页下方“我的排名”，登录后可查看你在本活动的排名；电脑版登录后，在老师个人中心里，点击“我的排名”可查看你在本活动排名。目前只展示各榜单前20名的具体名次，其它名次暂不公布。" }}
+
+{{ $rules.way = "获奖老师的奖金将在本活动结束后7个工作日内划入其跟谁学账户。前三名老师的获奖奖章，将展示在其个人主页中。" }}
+
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/activity/teacherRank6.less">
+{{ /block }}
+
+{{ block name="title" }}
+独立名师综合实力榜-活动中心-跟谁学
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+
+{{ function getTeacher }}
+<li class="teacher{{ if $first }} first{{ /if }}">
+    {{ if !empty($teacher) }}
+        <div class="header">
+        </div>
+        <div class="index" style="background-position:0 -{{ $index * 32 }}px"></div>
+        <div class="avatar">
+            {{ include file="common/component/avatar.html" url=$teacher.detail_url target="_blank" type="large" img=$teacher.avatar }}
+        </div>
+
+        <div class="base-info">
+            <div>
+                <div class="name"><span data-title="{{ $teacher.name }}">{{ $teacher.name|cn_truncate:4 }}</span></div>
+
+                <div class="info">
+
+                    <div class="subject"><span data-title="{{ $teacher.subject }}">{{ $teacher.subject|cn_truncate:5 }}</span></div>
+                </div>
+            </div>
+            <div class="total">
+                <i class="icon icon-star-a"></i>{{ $teacher.exp_total }}
+            </div>
+
+
+
+        </div>
+
+    {{ else }}
+    <div>
+        <div class="header"></div>
+        <div class="index" style="background-position:0 -{{ $index * 32 }}px"></div>
+        <div class="empty-avatar">
+            <img src="{{ $static_origin }}/src/img/activity/teacherRank/empty.png">
+        </div>
+
+        <div class="base-info">
+            <div>
+                <div class="name">榜位空缺</div>
+                <div class="info">
+                    <div class="subject">老师加油啊</div>
+                </div>
+            </div>
+            <div class="total">
+                <i class="icon icon-star-a"></i>？
+            </div>
+        </div>
+    </div>
+    {{ /if }}
+</li>
+{{ /function }}
+
+<div id="main">
+
+    <div class="wrapper">
+        <div class="banner"></div>
+
+        <div id="container">
+            <div id="introduction" class="sub-container">
+                <div class="content">
+                    <div class="colum-left">
+                        <div class="intro-header">
+                            <span>秒懂规则</span>
+                        </div>
+                        <p>
+                            <span class="dark"><i class="icon icon-question"></i>何为独立名师？</br></span>
+                            <i class="icon icon-answer"></i>课程性价比高、桃李满天下、好评多如潮的非机构老师</br>
+                            </br>
+                            <span class="dark"><i class="icon icon-question"></i>何为综合实力？</br></span>
+                            <i class="icon icon-answer"></i>当学生确认支付的订单课酬≥100时，按以下规则折算经验值。同一门</br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;课程满足不同经验值兑换规则时，经验值可叠加。</br>
+                            </br>
+                            <span class="dark"><i class="icon icon-question"></i>何为排行榜？</br></span>
+                            <i class="icon icon-answer"></i>按照下方经验值折算规则，经验值前六名的老师均有现金奖励哦！</br>
+                        </p>
+                        <div class="legend">
+                            每500元确认课酬增加1个<i class="icon icon-star-a"></i>（经验值）</br>
+                            1个非首单学生=<i class="icon icon-star-a"></i></br>
+                            1个首单学生=<i class="icon icon-star-a"></i><i class="icon icon-star-a"></i></br>
+                            1节在线课程=<i class="icon icon-star-a"></i></br>
+                            1个20字以上的主动订单评论=<i class="icon icon-star-a"></i></br>
+                        </div>
+                    </div>
+
+                    <div class="column-right">
+                        <div class="anniversary-banner"></div>
+                        <div class="desc">
+                            <p class="big">
+                                <span class="highlight">616学习狂欢节</span>当天下单，并在7月31日前完成确认课酬的部分，</br>
+                                给予 <img class="bang" src="{{ $static_origin }}/src/img/activity/teacherRank/anniversary/bang.png" alt=""> 经验值的奖励！即，每500元确认课酬=20个经验值~
+                            </p>
+                            <p class="splitter"></p>
+                            <p class="small">
+                                例如，在6月16日当天学生向老师支付5000元订单，并在7月31日本活动结束</br>
+                                时确认了3000元的课酬，则老师可获得3000/500*20=120个经验值
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="cash" class="sub-container">
+                <div class="header">现金奖励</div>
+                <div class="content">
+                    <div class="intro">按照以上经验值折算规则，经验值<span class="text-primary">前六名</span>的老师均有现金奖励哦！</div>
+                    <div>
+                        {{ foreach $cash_legends as $cash }}
+                        <div class="legend-container">
+                            <span class="index">NO.{{ $cash@index + 1 }}</span>
+                            <div class="legend">￥{{ $cash.money }}</div>
+                            <div class="label">{{ $cash.title }}：{{ $cash.money }}元</div>
+                        </div>
+                        {{ /foreach }}
+                    </div>
+                </div>
+            </div>
+
+            <div id="medal" class="sub-container">
+                <div class="header">专享奖章</div>
+                <div class="content">
+                    <div class="intro">活动结束时，榜单的<span class="text-primary">前三名</span>老师，皆可获得相应的“综合实力奖章”</div>
+                    <div>
+                        {{ foreach $medal_legends as $medal }}
+                        <div class="medal-container">
+                            <div class="medal" style="background-position:-{{ ($medal@index) * 100 }}px 0"></div>
+                            <div class="label">{{ $medal.title }}</div>
+                        </div>
+                        {{ /foreach }}
+                    </div>
+                </div>
+            </div>
+
+            <div id="noorg-teacher" class="sub-container">
+                <div class="header">独立老师综合实力榜</div>
+                <div class="content">
+                    <div class="intro count-down">
+                        <span class="text">距离活动结束时间：</span>
+                        <span class="time"></span>
+                    </div>
+                    <div class="teacher-list">
+                    {{ foreach $tpl_data.top_teacher_noorg as $teacher }}
+                        {{ getTeacher teacher = $teacher first = ($teacher@index == 0 || $teacher@index == 5) index=$teacher@index }}
+                    {{ /foreach }}
+                    </div>
+                </div>
+            </div>
+
+            <div id="rule" class="sub-container">
+                <div class="header">活动说明</div>
+                <div class="content">
+                    <h3>活动规则</h3>
+                    {{ if !empty($rules.desc) }}
+                    <p>
+                    {{ foreach $rules.desc as $desc }}
+                        <div class="index" style="background-position: 0 -{{ ($desc@index + 1) * 20 }}px"></div>{{ $desc }}</br>
+                    {{ /foreach }}
+                    {{ if !empty($rules.important) }}
+                        <div class="important"></div><span class="text-primary">{{ $rules.important }}</span>
+                    {{ /if }}
+                    </p>
+                    {{ /if }}
+                    <h3>领奖方式</h3>
+                    {{ $rules.way }}
+                </div>
+            </div>
+
+        </div>
+    {{ include file="common/component/baiduShare.html" }}
+    </div>
+</div>
+
+<div class="share">
+    <div>
+        <i class="icon icon-share"></i>
+        &nbsp;分享榜单
+    </div>
+</div>
+
+<div class="copy-right">
+    Copyright © 2014 - 2017 北京百家互联科技有限公司版权所有. 京公网安备11010802015210号 | 京ICP备14027590号-1
+</div>
+{{ /strip }}
+{{ /block }}

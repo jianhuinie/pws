@@ -1,0 +1,84 @@
+.living-wrapper {
+    display: inline-flex;
+    height: rem(10);
+    width: rem(18);
+    justify-content: space-between;
+    align-items: flex-end;
+    &-item {
+        width: rem(2);
+        background: #F95D5D;
+        &.item1 {
+            animation: mymove2 0.4s infinite 0.3s alternate;
+        }
+        &.item2 {
+            animation: mymove 0.4s infinite 0.2s alternate;
+        }
+        &.item3 {
+            animation: mymove 0.4s infinite 0.1s alternate;
+        }
+        &.item4 {
+            animation: mymove 0.4s infinite 0.4s alternate;
+        }
+        &.item5 {
+            animation: mymove2 0.4s infinite 0.5s alternate;
+        }
+    }
+}
+
+@keyframes mymove {
+    from {
+        height: rem(0);
+    }
+    to {
+        height: rem(10);
+    }
+}
+@keyframes mymove2 {
+    from {
+        height: rem(0);
+    }
+    to {
+        height: rem(7);
+    }
+}
+
+.main-living {
+    height: rem(250);
+    width: rem(129);
+    .living-wrapper-item {
+        width: rem(12);
+        background: #F95D5D;
+        .living-wrapper-item.item1 {
+            animation: mymove8 0.4s infinite 0.3s alternate;
+        }
+        .living-wrapper-item.item2 {
+            animation: mymove4 0.4s infinite 0.2s alternate;
+        }
+        .living-wrapper-item.item3 {
+            animation: mymove4 0.4s infinite 0.1s alternate;
+        }
+        .living-wrapper-item.item4 {
+            animation: mymove4 0.4s infinite 0.4s alternate;
+        }
+        .living-wrapper-item.item5 {
+            animation: mymove8 0.4s infinite 0.5s alternate;
+        }
+    }
+}
+
+@keyframes mymove4 {
+    from {
+        height: rem(0);
+    }
+    to {
+        height: rem(250);
+    }
+}
+@keyframes mymove8 {
+    from {
+        height: rem(0);
+    }
+    to {
+        height: rem(180);
+    }
+}

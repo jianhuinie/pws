@@ -1,0 +1,1 @@
+define('social/detail/tools_c25942eaeb',['require','exports'],function(require,exports){var i,t;exports.init=function(o){i=$(this),t=o,i.on('click','.tool',function(){var i=$(this),o='detail-'+i.data('tool');t.emit(o);});};});

@@ -1,0 +1,74 @@
+{{ *
+@file 班课状态展示icon list
+    参数
+        lesson_way      2线上/4线下
+        retire_flag     0随时可退/1或2限时可退/100不可退
+        chaban_flag     3随时插班/2限时插班/1不可插班
+        show_certi      否是展示“师资审核”
+        show_safe       是否展示“安全支付”
+        show_class_course 是否展示“班课”
+
+@author liucong
+* }}
+
+{{ strip }}
+<div class="class-course-icon">
+
+    {{ if isset($show_class_course) }}
+        <div class="label class-course">班课</div>
+    {{ /if }}
+
+    {{ if isset($lesson_way) }}
+        {{ if $lesson_way == 2 }}
+            <div class="label online">在线直播</div>
+        {{ else if $lesson_way == 4 }}
+            <div class="label offline">线下课程</div>
+        {{ /if }}
+    {{ /if }}
+
+    {{ if isset($chaban_flag) }}
+        {{ if $chaban_flag != 1 }}
+            {{ * 随时插班 * }}
+            {{ if $chaban_flag == 3 }}
+        <a href="http://www.genshuixue.com/guide/guarantee?a=guarantee" target="_blank" rel="nofollow">
+            <i class="icon icon-anytime-joinclass"></i>
+        </a>
+            {{ * 限时插班 * }}
+            {{ else }}
+        <a href="http://www.genshuixue.com/guide/guarantee?a=guarantee" target="_blank" rel="nofollow">
+            <i class="icon icon-limit-joinclass"></i>
+        </a>
+            {{ /if }}
+        {{ /if }}
+    {{ /if }}
+
+    {{ if isset($retire_flag) }}
+        {{ if $retire_flag == 0 }}
+            {{ * 随时退课 * }}
+            <a href="http://www.genshuixue.com/guide/guarantee?a=guarantee" target="_blank" rel="nofollow">
+                <i class="icon icon-anytime-quitclass"></i>
+            </a>
+        {{ else if $retire_flag == 100 }}
+            {{ * 不可退 * }}
+            <!--a href="http://www.genshuixue.com/guide/guarantee?a=guarantee" target="_blank" class="icon icon-noway-retire" rel="nofollow"></a-->
+        {{ else }}
+            {{ * 限时退课 * }}
+            <a href="http://www.genshuixue.com/guide/guarantee?a=guarantee" target="_blank" rel="nofollow">
+                <i class="icon icon-limit-quitclass"></i>
+            </a>
+        {{ /if }}
+    {{ /if }}
+
+    {{ if isset($show_certi) && $show_certi }}
+        <a href="http://www.genshuixue.com/guide/guarantee?a=guarantee" target="_blank" rel="nofollow">
+            <i class="icon icon-certification-o"></i>
+        </a>
+    {{ /if }}
+
+    {{ if isset($show_safe) && $show_safe }}
+        <a href="http://www.genshuixue.com/guide/guarantee?a=guarantee" target="_blank" rel="nofollow">
+            <i class="icon icon-safety-money-o"></i>
+        </a>
+    {{ /if }}
+</div>
+{{ /strip }}

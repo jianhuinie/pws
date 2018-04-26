@@ -1,0 +1,40 @@
+@import "../../../resource/css/default.styl";
+
+.course-search {
+    .ant-input {
+        background: $white;
+        border: 1px solid $grey_100;
+        border-radius: 2px;
+        font-size: 12px;
+        color: $grey_400;
+        line-height: 12px;
+        height: 28px;
+        &:focus {
+            border-color: $pink;
+            box-shadow: 0 0 4px 0 $pink;
+        }
+        &:hover {
+            border-color: $pink;
+        }
+    }
+    // 去掉搜索按钮的样式
+    .ant-input-suffix {
+        .ant-btn.ant-input-search-button {
+            color: $white;
+            height: 19px;
+            background-color: transparent;
+            border: none;
+            &:hover, &:focus, &:active {
+                background-color: transparent;
+            }
+            &.ant-btn-clicked:after {
+                border-color: transparent;
+            }
+        }
+    }
+    &:hover {
+        .ant-input:not(.ant-input-disabled) {
+            border-color: $pink;
+        }
+    }
+}

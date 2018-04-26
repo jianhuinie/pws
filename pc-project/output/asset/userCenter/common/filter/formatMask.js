@@ -1,0 +1,1 @@
+define("userCenter/common/filter/formatMask",["require","exports","module"],function(){"use strict";return function(r,e,n,t){if("string"!==$.type(r))r=""+r;if(null==e)e=0;if(null==n)n=r.length-1;var i="";if(e>0)i+=r.substr(0,e);if(n-e>0)i+=new Array(n-e+1).join(t||"*");if(n>0)i+=r.substr(n);return i}});

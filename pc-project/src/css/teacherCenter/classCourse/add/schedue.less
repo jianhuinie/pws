@@ -1,0 +1,171 @@
+@import './schedue/quickTeachingPlanDialog.less';
+@import './schedue/singleTeachingPlanDialog.less';
+@import './schedue/notInRegularTimeDialog.less';
+#class-course-schedue {
+    .plan-item {
+        .input-tip-container {
+            padding-left: 60px;
+            color: #f00;
+            font-size: 12px;
+            display: none;
+            &.invalid {
+                display: block;
+                .icon-check-circle {
+                    display: none;
+                }
+            }
+            .icon-info-circle:before {
+                margin-right: 5px;
+            }
+        }
+        .input-desc {
+            color: #aaa;
+            font-size: 12px;
+            padding-left: 59px;
+        }
+    }
+    .margin-top {
+        margin-top: 10px;
+    }
+
+    .course-date {
+        height: 36px;
+        line-height: 36px;
+        margin-right: 10px;
+        display: inline-block;
+    }
+    .course-end-date {
+        height: 36px;
+        line-height: 36px;
+        margin-right: 10px;
+        display: inline-block;
+    }
+
+    .plan-container {
+
+        .form-controls {
+            width: 550px;
+            line-height: 36px;
+        }
+
+    }
+    .start-time, .end-time, .selected-teacher {
+        height: 36px;
+        line-height: 36px;
+        display: inline-block;
+    }
+    .added-content {
+        word-break: break-word;
+        overflow: hidden;
+        max-width: 680px;
+        word-wrap: break-word;
+        line-height: 36px;
+        display: inline-block;
+    }
+    .schedule-required-error, .description-error {
+        margin-top: 10px;
+    }
+
+    .form-group {
+        &.class-line {
+            margin-bottom: -10px;
+            margin-top: 10px;
+        }
+        margin-top: 0;
+
+        .delete-class-plan {
+            background: #f90;
+            color: #fff;
+            padding: 8px 10px;
+            border-radius: 2px;
+            cursor: pointer;
+            float: right;
+        }
+
+        .edit-class-plan {
+            background: #567ed2;
+            color: #fff;
+            padding: 8px 10px;
+            border-radius: 2px;
+            cursor: pointer;
+            float: right;
+            margin-right: 10px;
+        }
+    }
+
+    .class-plan-index-container {
+        border-bottom: 1px dashed;
+        position: relative;
+        width: 600px;
+
+        & > div {
+            position: absolute;
+            left: 50%;
+            top: -10px;
+            margin-left: -51px;
+            padding: 0 20px;
+            background: #fff;
+
+            .class-course-index {
+                padding: 5px 10px;
+                background: #999;
+                color: #fff;
+            }
+        }
+    }
+
+    .add-class-course {
+
+        position: relative;
+        display: inline-block;
+        vertical-align: top;
+        padding-top: 40px;
+        border: 1px dashed #ccc;
+        background: #efefef;
+        text-align: center;
+        width: 160px;
+        height: 120px;
+    }
+
+    .more-class-course {
+
+        cursor: pointer;
+
+        margin-right: 10px;
+
+        .more-class-border {
+            position: absolute;
+            border: 4px solid #6d6d6d;
+            width: 20px;
+            height: 20px;
+            left: 63px;
+            top: 36px;
+        }
+
+        .more-class-border-mask {
+            position: absolute;
+            background: #efefef;
+            width: 25px;
+            height: 25px;
+            top: -2px;
+            left: -2px;
+        }
+
+        .icon {
+            position: relative;
+            font-size: 24px;
+        }
+
+    }
+
+    .single-class-course {
+
+        cursor: pointer;
+
+        .icon {
+            position: relative;
+            font-size: 24px;
+        }
+
+    }
+}

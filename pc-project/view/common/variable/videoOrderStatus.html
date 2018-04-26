@@ -1,0 +1,15 @@
+{{ *
+
+@file 视频订单状态
+@author liucong
+
+* }}
+{{ strip }}
+
+{{ $videoOrderStatus['wait_for_pay'] = [ "wait-for-pay", "待支付" ] }}
+{{ $videoOrderStatus['canceled'] = [ "canceled", "已取消" ] }}
+{{ $videoOrderStatus['closed'] = [ "closed", "已关闭" ] }}
+{{ $videoOrderStatus['pay_failed'] = [ "pay-failed", "待支付" ] }}
+{{ $videoOrderStatus['pay_success'] = [ "pay-success", "已支付" ] }}
+
+{{ /strip }}

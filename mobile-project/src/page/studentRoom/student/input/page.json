@@ -1,0 +1,6 @@
+[
+    {
+        "tpl": "./index.tpl",
+        "router": "/studentRoom/student/input/index"
+    }
+]

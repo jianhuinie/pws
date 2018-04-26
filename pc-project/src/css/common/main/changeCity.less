@@ -1,0 +1,208 @@
+/**
+ * @file 城市切换页
+ * @author liucong
+ */
+
+@import '../../main/base.less';
+
+@import '../layout.less';
+
+#nav {
+    background-color: #fff;
+}
+
+#main {
+    background-color: #FFF;
+
+    .wrapper {
+        margin: 20px 45px 20px 45px;
+
+        & > div {
+            padding: 20px 0;
+            border-bottom: 1px solid @brand-gray-light;
+            margin: 0 15px 0 15px;
+        }
+
+        & > div:last-child {
+            border-bottom: none;
+        }
+    }
+
+    .search-header {
+        .clearfix();
+    }
+    .form-group {
+        float: left;
+        margin-top: 0;
+
+
+        .dropdown + .dropdown {
+            margin-right: 6px;
+        }
+        .form-controls {
+            float: left;
+            .btn {
+                width: 90px;
+            }
+            .btn-comfirm {
+                background: @brand-primary;
+                border-color: @brand-primary;
+            }
+            .btn-comfirm:hover {
+                background: #f29100;
+                border-color: #f29100;
+            }
+            .dropdown {
+                width: 115px;
+                float: left;
+            }
+            .dropdown-menu {
+                max-height: 300px;
+            }
+            & > .btn {
+                float: left;
+                margin-left: 10px;
+            }
+            & > input {
+                width: 230px;
+                float: left;
+                position: relative;
+            }
+        }
+
+    }
+    .city-select {
+        label {
+            margin-right: 15px;
+        }
+    }
+    .city-search {
+        margin-left: 50px;
+        label {
+            margin-right: 10px;
+        }
+    }
+
+    .search-suggestion {
+
+        background-color: #fff;
+        border: 1px solid @brand-gray;
+        border-top: none;
+
+        display: none;
+        width: 230px;
+        top: 41px;
+        box-shadow: 1px 1px 3px #ededed;
+        z-index: @zindex-medium;
+        max-height: 287px;
+        position: absolute;
+        overflow-y: auto;
+        li {
+            color: @brand-text;
+            cursor: pointer;
+            padding: 10px;
+            line-height: 21px;
+        }
+
+        .item-hover,
+        .item-active {
+            background-color: @brand-gray-lighter;
+        }
+
+        .pinyin {
+            float: right;
+            color: @brand-text-lighter;
+        }
+    }
+
+    .list {
+        .clearfix();
+        & > div {
+            .clearfix();
+            padding: 20px 0 0 0;
+        }
+        & > div:first-child {
+            padding-top: 0;
+        }
+        span, dl, dt, li {
+            float: left;
+        }
+        dd, a {
+            margin-right: 13px;
+            padding: 0 3px;
+        }
+        ul {
+            display: block;
+            .clearfix();
+        }
+        dd {
+            margin-left: 40px;
+            a {
+                display: inline-block;
+                line-height: 28px;
+                //width: 40px;
+            }
+            .hot,.star {
+                font-weight: bold;
+            }
+            a:hover {
+                background-color: #ff9900;
+                color: white;
+                border-radius: 3px;
+            }
+        }
+        dl:hover {
+            border: 1px solid #f5f5f5;
+            background-color: #F9F9F9;
+        }
+        dl:hover dt{
+            background-color: #ff9900;
+        }
+        dl {
+            .clearfix();
+            padding: 20px 0 20px 10px;
+            width: 100%;
+            border: 1px solid #FFF;
+        }
+        dt {
+            background-color: @brand-gray;
+            color: #FFF;
+            width: 24px;
+            height: 24px;
+            text-align: center;
+            line-height: 24px;
+        }
+    }
+    .cities-list {
+        margin: 0 !important;
+        border-bottom: none !important;
+    }
+    .alphabet-list {
+        margin: 0 15px 0 15px;
+    }
+    .hot-cities {
+        ul {
+            margin-left: 80px;
+        }
+
+        li {
+            font-weight: bold;
+        }
+
+        li .hover {
+            color: @brand-primary;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+    .alphabet-list {
+        ul {
+            margin-left: 140px;
+        }
+    }
+    .reminder {
+        padding-left: 10px;
+    }
+}

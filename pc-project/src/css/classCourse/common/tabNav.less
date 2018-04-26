@@ -1,0 +1,32 @@
+.tabs {
+    margin-top: 15px;
+    border-top: 1px solid #e4e4e4;
+    border-bottom: 1px solid #e4e4e4;
+    .tabNav {
+        display: flex;
+        li {
+            flex-grow: 1;
+            display: inline-block;
+            line-height: 60px;
+            text-align: center;
+            font-size: 18px;
+            color: #6d6d6e;
+            border-right: 1px solid #e4e4e4;
+            cursor: pointer;
+            &:last-child {
+                border: none;
+            }
+            &:hover {
+                color: #ff9900;
+            }
+        }
+        .selected {
+            background-color: #ff9900;
+            color: #ffffff;
+            &:hover {
+                color: #ffffff;
+            }
+        }
+    }
+
+}

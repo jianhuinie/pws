@@ -1,0 +1,1 @@
+define("cc/function/eventPage",["require","exports","module"],function(){"use strict";return function(e){var n=e.pageX,t=e.pageY;if("number"!==$.type(n)){var r=document.documentElement;n=e.clientX+r.scrollLeft,t=e.clientY+r.scrollTop}return{x:n,y:t}}});

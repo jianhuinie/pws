@@ -1,0 +1,37 @@
+
+{{ extends file="../common/base.html" }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/userCenter/teacherCenter/invitation/invite.styl" />
+{{ /block }}
+{{ block name="title" }}
+我的邀请 - 跟谁学
+{{ /block }}
+
+{{ block name="script" }}
+<script>
+require(
+    [
+        'userCenter/teacherCenter/common/layout',
+        'userCenter/teacherCenter/invitation/invite'
+    ],
+    function (layout, invite) {
+        {{ $php_data = $tpl_data }}
+
+        {{ if isset($tpl_data.is_huike_teacher) }}
+            {{ $is_huike_teacher = $tpl_data.is_huike_teacher }}
+        {{ else }}
+            {{ $is_huike_teacher = 0 }}
+        {{ /if }}
+
+        layout.init({
+            topMenu: 'userCenter',
+            sideMenu: 'myInvite',
+            isHuikeTeacher: {{ $is_huike_teacher }}
+        });
+
+        invite.init({{ json_encode($php_data, 77) }});
+    }
+);
+</script>
+{{ /block }}

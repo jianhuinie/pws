@@ -1,0 +1,302 @@
+{
+
+    "tpl_data": {
+        "top_lesson_pay": [
+            {
+                "lastSubmitPayTime": "2014-11-22 20:00:04",
+                "tid": 971,
+                "totalLessonPay": 10271.1,
+                "user_id": 971,
+                "name": "小小怂",
+                "avatar": "http://test-img.gsxservice.com/headpic_woman.png",
+                "subject": "言语理解与表达",
+                "org": null,
+                "detail_url": "/t/370879138",
+                "medal": [
+                    {
+                    "type": "11",
+                    "desc": "金质跟谁学名师最具人气奖"
+                    }
+                ]
+            },
+            {
+                "lastSubmitPayTime": "2014-11-25 16:00:03",
+                "tid": 1250,
+                "totalLessonPay": 4672,
+                "user_id": 1250,
+                "name": "fengde",
+                "avatar": "http://test-img.gsxservice.com/6990_w0b7cok3.jpeg",
+                "subject": "人力资源培训",
+                "org": null,
+                "detail_url": "/t/371104008",
+                "medal": [
+                    {
+                    "type": "12",
+                    "desc": "金质跟谁学名师最具人气奖"
+                    }
+                ]
+            },
+            {
+                "lastSubmitPayTime": "2014-11-25 14:40:09",
+                "tid": 973,
+                "totalLessonPay": 4000.6785,
+                "user_id": 973,
+                "name": "杨杨",
+                "avatar": "http://test-img.gsxservice.com/6650_eahoe3a8.jpeg",
+                "subject": "钢琴",
+                "org": null,
+                "detail_url": "/t/370876738",
+                "medal": [
+                    {
+                    "type": "13",
+                    "desc": "金质跟谁学名师最具人气奖"
+                    }
+                ]
+            },
+            {
+                "lastSubmitPayTime": "2014-11-25 17:00:03",
+                "tid": 987,
+                "totalLessonPay": 3535.3333333333,
+                "user_id": 987,
+                "name": "netbit",
+                "avatar": "http://test-img.gsxservice.com/headpic_man.png",
+                "subject": "跆拳道",
+                "org": null,
+                "detail_url": "/t/371534498"
+            },
+            {
+                "lastSubmitPayTime": "2014-11-25 17:25:53",
+                "tid": 720,
+                "totalLessonPay": 3192.7272727273,
+                "user_id": 720,
+                "name": "王惠亮",
+                "avatar": "http://test-img.gsxservice.com/5385_ri9zwzuh.jpeg",
+                "subject": "一年级数学",
+                "org": {
+                    "id": "1007",
+                    "name": "辉煌国际",
+                    "url": "/i/371043139",
+                    "description": "努力成就你我，辉煌展现国际"
+                },
+                "detail_url": "/t/371511368"
+            },
+            {
+                "lastSubmitPayTime": "2014-11-10 23:45:28",
+                "tid": 980,
+                "totalLessonPay": 2775,
+                "user_id": 980,
+                "name": "萌萌",
+                "avatar": "http://test-img.gsxservice.com/6769_u0vukwu3.jpeg",
+                "subject": "口语",
+                "org": null,
+                "detail_url": "/t/371511608"
+            },
+            {
+                "lastSubmitPayTime": "2014-11-22 15:00:05",
+                "tid": 938,
+                "totalLessonPay": 500.8,
+                "user_id": 938,
+                "name": "屈也笑",
+                "avatar": "http://test-img.gsxservice.com/5694_t7ivmoub.png",
+                "subject": "考研数学",
+                "org": {
+                    "id": "1",
+                    "name": "跟谁学",
+                    "url": "/i/664455689",
+                    "description": "雅思培训"
+                },
+                "detail_url": "/t/329079458"
+            },
+            {
+                "lastSubmitPayTime": "2014-11-07 16:40:04",
+                "tid": 48,
+                "totalLessonPay": 300,
+                "user_id": 48,
+                "name": "wangjuelun",
+                "avatar": "http://test-img.gsxservice.com/2994_j3ptjt2n.jpeg",
+                "subject": "初三英语",
+                "org": null,
+                "detail_url": "/t/329730568"
+            },
+            {
+                "lastSubmitPayTime": "2014-11-22 15:30:03",
+                "tid": 770,
+                "totalLessonPay": 260.13,
+                "user_id": 770,
+                "name": "蒋介石",
+                "avatar": "http://test-img.gsxservice.com/5326_miiv9fs6.jpeg",
+                "subject": "初二数学",
+                "org": {
+                    "id": "1",
+                    "name": "跟谁学",
+                    "url": "/i/664455689",
+                    "description": "雅思培训"
+                },
+                "detail_url": "/t/328914328"
+            },
+            {
+
+            }
+        ],
+        "top_student_count": [
+            {
+                "lastSubmitPayTime": "2014-11-12 20:00:02",
+                "tid": 971,
+                "studentCount": 26,
+                "user_id": 971,
+                "name": "小小怂",
+                "avatar": "http://test-img.gsxservice.com/headpic_woman.png",
+                "subject": "言语理解与表达",
+                "org": null,
+                "detail_url": "/t/370879138",
+                "medal": [
+                    {
+                    "type": "21",
+                    "desc": "金质跟谁学名师最具人气奖"
+                    }
+                ]
+            },
+            {
+                "lastSubmitPayTime": "2014-11-10 23:45:28",
+                "tid": 980,
+                "studentCount": 8,
+                "user_id": 980,
+                "name": "萌萌",
+                "avatar": "http://test-img.gsxservice.com/6769_u0vukwu3.jpeg",
+                "subject": "口语",
+                "org": null,
+                "detail_url": "/t/371511608",
+                "medal": [
+                    {
+                    "type": "22",
+                    "desc": "金质跟谁学名师最具人气奖"
+                    }
+                ]
+            },
+            {
+                "lastSubmitPayTime": "2014-11-25 14:40:09",
+                "tid": 973,
+                "studentCount": 8,
+                "user_id": 973,
+                "name": "杨杨",
+                "avatar": "http://test-img.gsxservice.com/6650_eahoe3a8.jpeg",
+                "subject": "钢琴",
+                "org": null,
+                "detail_url": "/t/370876738",
+                "medal": [
+                    {
+                    "type": "23",
+                    "desc": "金质跟谁学名师最具人气奖"
+                    }
+                ]
+            },
+            {
+                "lastSubmitPayTime": "2014-11-25 15:13:48",
+                "tid": 987,
+                "studentCount": 4,
+                "user_id": 987,
+                "name": "netbit",
+                "avatar": "http://test-img.gsxservice.com/headpic_man.png",
+                "subject": "跆拳道",
+                "org": null,
+                "detail_url": "/t/371534498"
+            },
+            {
+                "lastSubmitPayTime": "2014-11-23 07:00:02",
+                "tid": 1250,
+                "studentCount": 3,
+                "user_id": 1250,
+                "name": "fengde",
+                "avatar": "http://test-img.gsxservice.com/6990_w0b7cok3.jpeg",
+                "subject": "人力资源培训",
+                "org": null,
+                "detail_url": "/t/371104008"
+            },
+            {
+                "lastSubmitPayTime": "2014-11-22 15:00:05",
+                "tid": 938,
+                "studentCount": 2,
+                "user_id": 938,
+                "name": "屈也笑",
+                "avatar": "http://test-img.gsxservice.com/5694_t7ivmoub.png",
+                "subject": "考研数学",
+                "org": {
+                    "id": "1",
+                    "name": "跟谁学",
+                    "url": "/i/664455689",
+                    "description": "雅思培训"
+                },
+                "detail_url": "/t/329079458"
+            },
+            {
+                "lastSubmitPayTime": "2014-11-25 17:25:53",
+                "tid": 720,
+                "studentCount": 2,
+                "user_id": 720,
+                "name": "王惠亮",
+                "avatar": "http://test-img.gsxservice.com/5385_ri9zwzuh.jpeg",
+                "subject": "一年级数学",
+                "org": {
+                    "id": "1007",
+                    "name": "辉煌国际",
+                    "url": "/i/371043139",
+                    "description": "努力成就你我，辉煌展现国际"
+                },
+                "detail_url": "/t/371511368"
+            },
+            {
+                "lastSubmitPayTime": "2014-11-07 16:40:04",
+                "tid": 48,
+                "studentCount": 1,
+                "user_id": 48,
+                "name": "wangjuelun",
+                "avatar": "http://test-img.gsxservice.com/2994_j3ptjt2n.jpeg",
+                "subject": "初三英语",
+                "org": null,
+                "detail_url": "/t/329730568"
+            },
+            {
+                "lastSubmitPayTime": "2014-11-07 16:40:04",
+                "tid": 770,
+                "studentCount": 1,
+                "user_id": 770,
+                "name": "蒋介石",
+                "avatar": "http://test-img.gsxservice.com/5326_miiv9fs6.jpeg",
+                "subject": "初二数学",
+                "org": {
+                    "id": "1",
+                    "name": "跟谁学",
+                    "url": "/i/664455689",
+                    "description": "雅思培训"
+                },
+                "detail_url": "/t/328914328"
+            },
+            {
+                "lastSubmitPayTime": "2014-11-23 14:57:02",
+                "tid": 1196,
+                "studentCount": 1,
+                "user_id": 1196,
+                "name": "飞跃",
+                "avatar": "http://test-img.gsxservice.com/7470_66lqg8fd.jpeg",
+                "subject": "幼升小简历",
+                "org": null,
+                "detail_url": "/t/329158578"
+            }
+        ],
+        "rules": {
+            "time": "2014年12月1日至2014年12月31日",
+            "desc": [
+                "1. 活动期间, 产生订单并且实际支付课酬大于等于50元的学生，方可计入学生数榜。",
+                "2. 活动期间, 打入老师账户的课酬计入课酬排行榜。单次课酬最高计入2000元，单个学生支付的课酬最高计入10000元。",
+                "3. 学生数相同的老师，最先达到此学生数的，排名靠前；课酬相同的老师，最先达到此课酬的，排名靠前。",
+                "4. 单一老师同时进入两个榜单前六, 奖金只发一份，取高发放, 奖章同时发放。",
+                "5.  本活动规则在实施过程中的未尽事宜, 跟谁学在法律规定范围内享有解释权"
+            ],
+            "way": "本活动结束后7个工作日内，奖金划入获取老师的跟谁学账户，并在获奖老师主页中展示获奖奖章。<br> 注：机构老师的奖金划入所在机构的跟谁学账户。"
+        },
+        "expired_time": "1234000",
+        "current_time": "1220000"
+    },
+    "ts": 1416907651
+
+}

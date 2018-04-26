@@ -1,0 +1,336 @@
+{{ extends file="common/main/base.html" }}
+
+{{ block name="title" }}
+支付问题 - 用户指南 - 跟谁学
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/guide/pay_774f2e01ee.css">
+{{ /block }}
+
+{{ block name="data" }}
+{{ $smarty.block.parent }}
+{{ $script_path = "guide/pay_00f22e0c4f" }}
+{{ /block }}
+
+{{ block name="main" }}
+
+{{ strip }}
+
+
+<div id="main">
+
+    {{ function getIcons }}
+    <i class="icon icon-caret-down"></i><i class="icon icon-caret-up"></i>
+    {{ /function }}
+
+    {{ include file="./common/sidebar.html" }}
+
+    {{ *
+    <!--右-->
+    <div class="btright">
+        <h2>支付方式</h2>
+        <p class="foreword">
+            跟谁学提供支付宝第三方平台支付，同时支持国内十余家主流银行机构的储蓄卡、信用卡的网上付款。
+        </p>
+        <p>
+            <img src="{{ $static_origin }}/asset/img/guide/pay_7ba60d56e7.png" alt="支付方式" />
+        </p>
+    </div>
+    <!--右 over-->
+    * }}
+    <div id="content">
+        <ul class="nav">
+            <li><a href="#pay">支付</a></li>
+            <li><a href="#refund">退款</a></li>
+            <li><a href="#withdraw">提现</a></li>
+            <li><a href="#bind">绑定银行卡</a></li>
+        </ul>
+
+        <div class="section" id="pay">
+            <h2>支付</h2>
+            <div class="sub-section">
+                <h3>可以使用哪些方式支付{{ getIcons }}</h3>
+                <div>
+                    <p>(1) PC用户可以使用快捷支付（信用卡/储蓄卡）、支付宝、网上银行、微信等方式支付。</p>
+                    <p>(2) M站用户可以使用快捷支付（信用卡/储蓄卡）、支付宝方式支付。</p>
+                    <p>(3) APP用户可以使用快捷支付（信用卡/储蓄卡）、支付宝、微信、银联等方式支付。</p>
+                    <p>(4) 此外，各端用户均可使用跟谁学平台账户余额支付，同时可以使用有效优惠券。</p>
+                </div>
+            </div>
+            <div class="sub-section">
+                <h3>提交订单后需要在多长时间内完成支付{{ getIcons }}</h3>
+                <div>
+                    <p>一对一课程需要在提交订单后7天内完成支付，班课则需在提交订单后45分钟内完成支付。超过支付时限后系统会自动取消订单。</p>
+                </div>
+            </div>
+            <div class="sub-section">
+                <h3>开通快捷支付时关联银行卡和绑定银行卡有什么区别{{ getIcons }}</h3>
+                <div>
+                    <p>
+                        快捷支付关联的银行卡不支持提现操作，只有绑定银行卡后，用户才能进行提现。
+                    </p>
+                </div>
+            </div>
+            <div class="sub-section">
+                <h3>支付中遇到问题如何解决{{ getIcons }}</h3>
+                <div>
+                    <p>支付过程中若遇到问题，可拨打客服电话（<span class="text-error">4000-910-910</span>）咨询，或点击支付页面底部“查看帮助”链接跳转到“支付说明”页面自助搜索解决方案。</p>
+                    <p class="img"><img src="{{ $static_origin }}/asset/img/guide/pay/step0_5cccc16425.png" width="700px" alt=""></p>
+                </div>
+            </div>
+            <div class="sub-section">
+                <h3>第三方支付手续费{{ getIcons }}</h3>
+                <div>
+                    <p>为了提供更优质的服务，跟谁学对2016年4月15日24:00后支付的订单，代第三方支付渠道（银联、支付宝、微信等），对老师、机构收取学生实际支付金额0.7%的支付手续费（苹果学币支付除外，苹果学币支付手续费依旧为30%），即：</p>
+                    <br>
+                    <p>
+                        支付手续费（除苹果支付外）＝ 实际支付金额 * 0.7%<br>
+                        苹果学币支付手续费 ＝ 实际支付金额 * 30%
+                    </p>
+                    <br>
+                    <p>
+                        例：A学生使用一张5元优惠券在跟谁学平台购买了B老师的一门售价为105元的在线直播课，则该笔订单中，B老师所应缴纳的支付手续费及实际收入为：<br>
+                        支付手续费 ＝（105-5）* 0.7% ＝ 0.7元<br>
+                        实际收入 ＝ 105 － 5 － 0.7 ＝ 99.3元<br>
+                    </p>
+                    <br>
+                    <p>
+                        与跟谁学平台签订特殊支付及分成协议的课程不收取第三方支付手续费，详情请参照协议或联系您的运营专员，您也可以致电4000-910-910，010-86448910进行咨询。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="refund">
+            <h2>退款</h2>
+            <div class="sub-section">
+                <h3>在什么情况下可以申请退款{{ getIcons }}</h3>
+                <div>
+                    <p>
+                        (1) 一对一课程（平台支付保障开启）：未消费时可以无条件申请退款；第一节课试听不满意，在课后24小时内，并在第二次课开课前申请退款；如对第二节课及之后的课节不满意，可申请退款，所有剩余课程的课酬将会退回。
+                    </p>
+                    <p>
+                        (2) 班课（平台支付保障开启）：未消费时可以无条件申请退款；第一节课试听不满意，在课后24小时内，并在第二次课开课前申请退款；如对第二节课及之后的课节不满意，在可退时限内（老师会自定义班课为"随时可退"、"开班前1小时不可退"和"第X节课开始后不可退"），可申请退款，所有剩余课程的课酬将退回。
+                    </p>
+                </div>
+            </div>
+            <div class="sub-section">
+                <h3>哪些情况不支持随时退款{{ getIcons }}</h3>
+                <div>
+                    <p>
+                        (1) 支付订单时关闭了平台支付保障，课酬将不通过平台而直接支付给授课老师，该类订单不支持退款申请。
+                    </p>
+                    <p>
+                        (2)当某节课处于"申诉"状态时，该订单不可以申请退款（客服接到申诉后24小时内处理申诉）。
+                    </p>
+                    <p>
+                        (3) 视频课暂不支持退款申请。
+                    </p>
+                </div>
+            </div>
+            <div class="sub-section">
+                <h3>退款会退回至哪个账户{{ getIcons }}</h3>
+                <div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th colspan="3">支付方式</th>
+                                <th>退款方式</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="3">钱包余额</td>
+                                <td>退回余额</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="3">快捷支付</td>
+                                <td colspan="2">信用卡</td>
+                                <td>退回原支付卡</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2">储蓄卡</td>
+                                <td class="banks">招商银行、中国工商银行、中国建设银行、中国农业银行、中国银行
+                                浦发银行、兴业银行、华夏银行、广发银行、中国光大银行、平安银行、中国民生银行、中信银行</td>
+                                <td>退回余额</td>
+                            </tr>
+                            <tr>
+                                <td class="banks">中国邮政储蓄银行、杭州银行、江苏银行、上海银行、宁波银行、南昌银行</td>
+                                <td>退回原支付卡</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">网上银行</td>
+                                <td>退回余额</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">支付宝</td>
+                                <td>退回支付宝</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">微信</td>
+                                <td>退回微信</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">银联支付</td>
+                                <td>退回原支付卡</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="sub-section">
+                <h3>退款会在多长时间后到账{{ getIcons }}</h3>
+                <div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th colspan="3" rowspan="2">支付方式</th>
+                                <th colspan="2">退款说明</th>
+                            </tr>
+                            <tr>
+                                <th>跟谁学处理周期</th>
+                                <th>银行/支付平台退款处理周期</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="3">钱包余额</td>
+                                <td>即时到账</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td rowspan="3">快捷支付</td>
+                                <td colspan="2">信用卡</td>
+                                <td>1个工作日</td>
+                                <td>1-7个工作日</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2">储蓄卡</td>
+                                <td class="bank">招商银行、中国工商银行、中国建设银行、中国农业银行、中国银行
+                                浦发银行、兴业银行、华夏银行、广发银行、中国光大银行、平安银行、中国民生银行、中信银行</td>
+                                <td>即时到账</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="bank">中国邮政储蓄银行、杭州银行、江苏银行、上海银行、宁波银行、南昌银行</td>
+                                <td>1个工作日</td>
+                                <td>1-7个工作日</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">网上银行</td>
+                                <td>即时到账</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">支付宝</td>
+                                <td>1个工作日</td>
+                                <td>3-10个工作日</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">微信</td>
+                                <td>1个工作日</td>
+                                <td>3-10个工作日</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">银联支付</td>
+                                <td>1个工作日</td>
+                                <td>3-10个工作日</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="sub-section">
+                <h3>退款时是否会退回优惠券{{ getIcons }}</h3>
+                <div>
+                    <p>退款时若同时满足以下两个条件则退回优惠券</p>
+                    <p>(1) 全单退款。即使用优惠券的订单中所有课程都申请退款。</p>
+                    <p>(2) 优惠券未过期。</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="section" id="withdraw">
+            <h2>提现</h2>
+            <div class="sub-section">
+                <h3>可以通过哪些方式提现{{ getIcons }}</h3>
+                <div>
+                    <p>(1) 用户可通过PC和APP两种方式进行提现。</p>
+                    <p>(2) APP提现不收取手续费，PC端每笔提现收取1元手续费。</p>
+                </div>
+            </div>
+            <div class="sub-section">
+                <h3>提现流程是怎样的{{ getIcons }}</h3>
+                <div>
+                    <p>
+                        进入“个人中心”→“钱包管理”，点击“提现”，选择相应的银行卡，输入提现金额，进行提现。
+                    </p>
+                    <p class="img"><img src="{{ $static_origin }}/asset/img/guide/pay/step1_7366bffd4a.png" width="700px" alt=""></p>
+                </div>
+            </div>
+            <div class="sub-section">
+                <h3>提现的账款会存入哪个账户{{ getIcons }}</h3>
+                <div>
+                    <p>提取的账款会存入用户绑定的银行卡。</p>
+                </div>
+            </div>
+            <div class="sub-section">
+                <h3>提现是否有限制{{ getIcons }}</h3>
+                <div>
+                    <p>个人用户单笔提现金额需在5万以内，每周可以提现1次。</p>
+                    <p>机构用户单笔提现金额需在50万以内，每周可提现2次。</p>
+                </div>
+            </div>
+            <div class="sub-section">
+                <h3>提现后多长时间我可以收到提款{{ getIcons }}</h3>
+                <div>
+                    <p>如无特殊情况，自申请日起 3-5个工作日内，指定账户将收到提款。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="bind">
+            <h2>绑定银行卡</h2>
+            <div class="sub-section">
+                <h3>如何绑定银行卡{{ getIcons }}</h3>
+                <div>
+                    <p>(1) 通过“个人中心”→“钱包管理”→“添加银行卡”路径，进入“绑定银行卡”界面。</p>
+                    <p class="img"><img src="{{ $static_origin }}/asset/img/guide/pay/step2_3388474575.png" width="700px" alt=""></p>
+                    <p>(2) 填写姓名、身份证、开户银行和卡号等信息，并通过在银行柜台预留的手机号码进行短信验证。</p>
+                    <p class="img"><img src="{{ $static_origin }}/asset/img/guide/pay/step3_4c3187df64.png" width="700px" alt=""></p>
+                    <p>(3) 为了验证银行卡的有效性，在绑定银行卡时会从您的账户中扣除0.01元，绑定成功后将返还至您的平台账户余额</p>
+                </div>
+            </div>
+            <div class="sub-section">
+                <h3>绑定银行卡时出现问题如何解决{{ getIcons }}</h3>
+                <div>
+                    <p>绑定银行卡时若未通过验证，页面将弹出温馨提示窗口。若核实信息后仍无法通过验证，请请拨打客服电话咨询（<span class="text-error">4000-910-910</span>）。</p>
+                    <p class="img"><img src="{{ $static_origin }}/asset/img/guide/pay/step4_f73e2aaa0a.png" width="500px" alt=""></p>
+                </div>
+            </div>
+            <div class="sub-section">
+                <h3>支持绑定哪些种类的银行卡{{ getIcons }}</h3>
+                <div>
+                    <p>目前平台可支持招商银行、中国工商银行、中国建设银行、中国农业银行、中国银行、浦发银行、兴业银行、华夏银行、中国邮政储蓄银行、广发银行、中国光大银行、平安银行、中国民生银行、中信银行、江苏银行、上海银行、宁波银行、杭州银行、南昌银行19家国内主流银行。</p>
+                </div>
+            </div>
+            <div class="sub-section">
+                <h3>如何解除绑定的银行卡{{ getIcons }}</h3>
+                <div>
+                    <p>进入“个人中心” → “钱包管理”→ “解除绑定”，解除绑定时需输入平台支付密码。</p>
+                    <p class="img"><img src="{{ $static_origin }}/asset/img/guide/pay/step5_c628a05661.png" width="700px" alt=""></p>
+                </div>
+            </div>
+            <div class="sub-section">
+                <h3>如何修改绑定的银行卡{{ getIcons }}</h3>
+                <div>
+                    <p>修改绑定银行卡信息前，需解除当前绑定的银行卡。解除绑定后，重新按照绑定银行卡的流程操作。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{ /strip }}
+{{ /block }}

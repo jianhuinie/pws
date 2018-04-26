@@ -1,0 +1,45 @@
+@import "module/index.styl";
+.gift-detail {
+    background: #fff;
+    height: 100%;
+    &-logo {
+        width: 100%;
+    }
+    &-desc {
+        color: #6d6d6e;
+        text-align: center;
+        font-size: rem(14);
+    }
+    &-button.ws-btn-red {
+        display: block;
+        width: rem(180);
+        margin: rem(24) auto 0;
+    }
+
+    &-title {
+        display: flex;
+        margin: rem(32) 0 rem(9) rem(15);
+        align-items: center;
+        font-size: rem(14);
+        color: #6d6d6e;
+        height: rem(15);
+        margin-bottom: rem(8);
+        &::before {
+            display: inline-block;
+            margin-right: rem(5);
+            content: '';
+            width: rem(4);
+            height: rem(15);
+            background: #f95d5d;
+            border-radius: rem(100);
+        }
+    }
+    &-content {
+        border-top: rem(1) solid #f6f6f6;
+        list-style: none;
+        padding: 0;
+    }
+}
+
+
+

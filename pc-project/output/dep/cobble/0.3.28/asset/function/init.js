@@ -1,0 +1,1 @@
+define("cobble/function/init",["require","exports","module"],function(){"use strict";return function(e){return function(n,t){var u=[];return n.each(function(){u.push(new e($.extend({element:$(this)},t)))}),u}}});

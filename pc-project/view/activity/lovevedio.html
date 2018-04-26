@@ -1,0 +1,257 @@
+{{ *
+
+@file 爱视恒恩录课专题
+@author wuhongjie
+
+* }}
+
+{{ extends file="common/main/base.html" }}
+
+{{ block name="data" }}
+{{ strip }}
+{{ $smarty.block.parent }}
+
+{{ $script_path = "activity/lovevedio" }}
+{{ $nav_config.hidden = 1 }}
+{{ $nav_config.active = '' }}
+
+{{ **是否登陆** }}
+{{ if !empty($user_data) }}
+{{ $script_data.hasLogin = true }}
+{{ else }}
+{{ $script_data.hasLogin = false }}
+{{ /if }}
+
+{{ $script_data.isBeijing = $tpl_data.is_beijing }}
+{{ $script_data.vedio_count = $tpl_data.excellent_video_list|count }}
+{{ /strip }}
+{{ /block }}
+
+{{ block name="title" }}
+爱视恒恩录课专题
+{{ /block }}
+
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/activity/lovevedio.less" xmlns="http://www.w3.org/1999/html">
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+
+
+<div id="main">
+<div class="topContent">
+    <div class="imgDiv">
+        <img src="{{ $static_origin }}/src/img/activity/lovevedio/topimg.jpg">
+        <div class="content">
+            <div class="have">每天限<span>&nbsp;5&nbsp;</span>名 &nbsp;剩余<span>&nbsp;{{ $tpl_data.remainder }}&nbsp;</span>名</div>
+            <div class="join_love"><button class="btn join_love_btn">我要报名</button></div>
+            <div class="joinArea">仅限北京地区教师参加</div>
+        </div>
+    </div>
+</div>
+<div class="centerContent" id="join-us">
+    <div class="passstyle">
+        <div class="title"> 参与方式 </div>
+        <div class="passbu">
+            <div class="pass"> <i class="icon pass1"></i></div>
+            <div class="pass"><div class="passcontent content1">登录后<br>填写报名表</div> </div>
+            <div class="pass"> <div class="passdao"></div> </div>
+            <div class="pass"><i class="icon pass2"></i></div>
+            <div class="pass"><div class="passcontent content2">等待爱视恒恩<br>客服人员短信<br>或电话通知</div></div>
+            <div class="pass"> <div class="passdao"></div> </div>
+            <div class="pass"><i class="icon pass3"></i></div>
+            <div class="pass"> <div class="passcontent content3">查收邮件并仔<br>细阅读录课须知</div> </div>
+            <div class="pass"> <div class="passdao"></div> </div>
+            <div class="pass"><i class="icon pass4"></i></div>
+            <div class="pass"><div class="passcontent content4">准备录课</div></div>
+
+        </div>
+    </div>
+    <br>
+    <div class="passform">
+        <div class="formtitle">
+            <img src="{{ $static_origin }}/src/img/activity/lovevedio/tianxie.jpg"><div class="titles">填写录课申请表</div>
+        </div>
+        <div class="formcontent">
+                <div class="name {{ if isset($tpl_data.name) && $tpl_data.name }} gray {{ /if }}">
+                    姓名 &nbsp;&nbsp;
+                    <input type="text" id="name" {{ if isset($tpl_data.name) && $tpl_data.name }} disabled {{ /if }} value="{{ $tpl_data.name }}"><span>*必填</span>
+                </div>
+                <div class="phone gray"> 电话 &nbsp;&nbsp;<input type="tel" disabled value="{{ $tpl_data.mobile }}"><span>*必填</span></div>
+                <div class="email"> 邮箱 &nbsp;&nbsp;<input type="email" id="email"><span>*必填</span></div>
+        </div>
+        <div class="tishi">请核对信息无误后提交</div>
+        <div class="btn submit" id="submit">点击提交</div>
+    </div>
+    <br>
+    <div class="teacher-list">
+        <div class="teacher-title">
+            <img src="{{ $static_origin }}/src/img/activity/lovevedio/mingdan.jpg">
+            <div class="titles">&nbsp;幸运老师名单</div>
+        </div>
+        <div class="teachers">
+            {{ if $tpl_data.teacher_list }}
+            <div class="teacher-left"><i class="icon icon-chevron-left"></i></div>
+            {{ /if }}
+            <div class="allteacher">
+                {{ $defaultAvatar = $static_origin|cat:'/asset/img/headori.png' }}
+                {{ $defaultAvatarlocal = $static_origin|cat:'/src/img/headori.png' }}
+                {{ if isset($tpl_data.teacher_list) && $tpl_data.teacher_list }}
+                {{ for $num =0; $num<$tpl_data.teacher_list|count;$num=$num }}
+                    <div class="teacher-oneday" style="{{ if $num!=0 }} display:none;{{ /if }}">
+                        {{ for $i=0;$i<5;$i++ }}
+                        {{ if isset($tpl_data.teacher_list[$num]) }}
+                        {{ $val = $tpl_data.teacher_list[$num++] }}
+                        <div class="teacher">
+                            <a href="{{ $val.teacher_url }}" target="_blank">
+                            <div class="teacher-info">
+                                {{ * include file="common/component/avatar.html" img=$val.avatar type=small alt=$val.teacher_name * }}
+                                <img src="{{ $val.avatar }}" width="60">
+                                <div class="info-border">
+                                    {{ $teacher_name = $val.teacher_name|cn_truncate:6 }}
+                                <span class="teacher-name" {{ if $teacher_name != $val.teacher_name }} data-title="{{ $val.teacher_name }}" {{ /if }}>{{ $teacher_name }}</span><br>
+                                <span class="join-time">{{ $val.time }}</span>
+                                </div>
+                            </div>
+                            </a>
+                        </div>
+                        {{ else }}
+                        <div class="teacher">
+                            <a href="#{{ if !empty($user_data) }}join-us {{ else }}main {{ /if }}">
+                                <div class="teacher-info">
+                                    <img src="{{ $defaultAvatar }}" width="60">
+                                    <div class="info-border">
+                                        <span class="teacher-name">虚位以待</span><br>
+                                        <span class="join-time">快来参加</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        {{ /if }}
+                        {{ /for }}
+
+                    </div>
+                    {{ /for }}
+                {{ else }}
+                <div class="teacher-oneday">
+                {{ for $i=0; $i<5; $i++ }}
+                    <div class="teacher">
+                        <a href="#{{ if !empty($user_data) }}join-us {{ else }}main {{ /if }}">
+                            <div class="teacher-info">
+                                <img src="{{ $defaultAvatar }}" width="60">
+                                <div class="info-border">
+                                    <span class="teacher-name">虚位以待</span><br>
+                                    <span class="join-time">快来参加</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                {{ /for }}
+                </div>
+                {{ /if }}
+            </div>
+            {{ if $tpl_data.teacher_list }}
+            <div class="teacher-right"><i class="icon icon-chevron-right"></i></div>
+            {{ /if }}
+        </div>
+    </div>
+    <br>
+    <div class="rules">
+        <div class="rules-title"> 活动规则</div>
+        <ul class="rule-content">
+            <li class="info"><i class="info-head">1</i><p>报名成功后即可<span class="important">免费享受价值1000元的2小时</span>录课超值体验</p></li>
+            <li class="info"><i class="info-head">2</i><p>本次活动体验仅限于北京地区注册教师</p></li>
+            <li class="info"><i class="info-head">3</i><p>活动时间：2015年11月28日-12月6日，每天上午10点准时开抢</p></li>
+            <li class="info"><i class="info-head">4</i><p>“30小时免费录课”获取方式</p>
+                <p>关注爱视恒恩官方微信将本次活动转发至朋友圈，并将“转发截图+姓名+手机号”发送至官方微信，即</p><p>可参加“线下聚会”并参与抽奖；
+                100%中奖，更有机会赢取“<span class="important">30小时免费录课</span>”大礼包！
+                </p>
+            </li>
+            <li class="info"><i class="info-head">5</i><p>本次活动的最终解释权归跟谁学、爱视恒恩联合所有。录课事宜如有疑问，请咨询010-66490503转219</p></li>
+        </ul>
+    </div>
+    <br>
+    <div class="vedios" id="teacher-media">
+        <div class="vedios-title">精品录课视频</div>
+        <div class="media-player-box">
+            <div class="player" data-image="{{ $tpl_data.excellent_video_list[0].preface_url }}" data-video="{{ $tpl_data.excellent_video_list[0].video_url }}" data-name="{{ $tpl_data.excellent_video_list[0].video_name }}">
+                <div class="wrapper-video" style="width: 700px;height: 436px;">
+                    {{ include file="common/variable/photo.html" url=$tpl_data.excellent_video_list[0].preface_url  width=682 height=418 raw_width=1 raw_height=1 }}
+                    <img class="player-img" src="{{ $tpl_data.excellent_video_list[0].preface_url }}" alt="{{ $tpl_data.excellent_video_list[0].video_name }}">
+                </div>
+                <div class="title"><span class="player-title">{{ $tpl_data.excellent_video_list[0].video_name }}</span></div>
+                <i class="teacher-player" style="left: 391px;"></i>
+            </div>
+            <div class="bar-box"
+                {{ $final_video_count = count($tpl_data.excellent_video_list) }}
+                {{ if $final_video_count < 5 }}
+                style="display:none;"
+                {{ /if }}>
+                <div class="bar leftbar" style="display:none;left: 30px;">
+                    <i class="icon icon-chevron-left"></i>
+                </div>
+                <div class="bar rightbar" style="right: 30px;">
+                    <i class="icon icon-chevron-right"></i>
+                </div>
+            </div>
+
+
+        <div class="media-box" style="width: 750px;" {{ if $tpl_data.excellent_video_list == 1 }} style="display:none;"{{ /if }}>
+             <ul class="media-list">
+
+            {{ foreach $tpl_data.excellent_video_list as $val }}
+            {{ include file="common/variable/photo.html" url=$val.preface_url width=682 height=418 raw_width=1 raw_height=1 }}
+            {{ $videoImgUrl = $photo }}
+            {{ include file="common/variable/photo.html" url=$val.preface_url width=130 height=98 raw_width=1 raw_height=1 }}
+            {{ $videoImgUrl_mini = $photo }}
+            <li class="video{{ if $val@first }} active{{ /if }} {{ if $val@last }}last{{ /if }}" data-image="{{ $videoImgUrl }}" data-video="{{ $val.video_url }}" data-name="{{ $val.video_name }}" >
+                <img src="{{ $videoImgUrl_mini }}" alt="{{ $val.video_name }}">
+                {{ $final_name = $val.video_name|cn_truncate:11 }}
+                <div class="text" {{ if $final_name != $val.video_name }}data-title="{{ $val.video_name }}"{{ /if }}>{{ $final_name }}</div>
+            <div class="item-mask"></div>
+            <div class="video-player-icon"></div>
+            </li>
+            {{ /foreach }}
+            </ul>
+        </div>
+
+
+
+        </div>
+    </div>
+    <br>
+    <div class="descript">
+        <div class="descript-title">爱视恒恩简介</div>
+        <div class="jianjie">
+            <div class="desc1 descs">
+                <div class="desc-title">成立早</div>
+                <div class="desc-content">爱视恒恩成立于2007年，国内首家专注于高清在线教育整体方案的企业，为亿万网络学习者提供高品质课件。</div>
+            </div>
+            <div class="desc2 descs">
+                <div class="desc-title">技术新</div>
+                <div class="desc-content">国家级高新技术企业，致力于高清视频与互动技术在互联网教育行业中的应用，是中国高清视频课件技术的开创者与领导者。</div>
+            </div>
+            <div class="desc3 descs">
+                <div class="desc-title">用户多</div>
+                <div class="desc-content">500+家顶级教育机构与院校的共同选择,超过100万课时的视频课件来自于爱视恒恩高清课件制作解决方案，高清课件市场占有率超80%。</div>
+            </div>
+        </div>
+        <div class="join_love"><button class="btn join_love_btn">我要报名</button></div>
+    </div>
+
+</div>
+
+<div class="footer">
+    Copyright © 2014 - 2017 跟谁学版权所有. 京公网安备11010802015210号 | 京ICP备14027590号-1
+</div>
+</div>
+{{ /strip }}
+{{ /block }}
+
+{{ block name="script" }}
+{{ strip }}
+{{ include file="common/component/loginDialog.html" onlyShowTeacher=1 }}
+{{ /strip }}
+{{ /block }}

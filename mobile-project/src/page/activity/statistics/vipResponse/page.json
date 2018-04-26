@@ -1,0 +1,7 @@
+[
+    {
+        "tpl": "./vipResponse.tpl",
+        "router": "/teacher/teacherVipResponse",
+        "mock_data": "./mock/index.json"
+    }
+]

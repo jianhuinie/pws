@@ -1,0 +1,77 @@
+{{ *
+
+@file 钱包管理
+@author zhujialu
+
+* }}
+{{ extends file="common/center/base.html" }}
+
+{{ block name="data" }}
+    {{ $need_im = false }}
+    {{ $smarty.block.parent }}
+    {{ $smarty.block.child }}
+    {{ $flotage_config.hidden = 1 }}
+    {{ if isset($tpl_data.bank_card.id) && $tpl_data.bank_card.id }}
+        {{ $card_id = $tpl_data.bank_card.id }}
+    {{ else }}
+        {{ $card_id = '' }}
+    {{ /if }}
+
+    {{ $script_path = "common/center/cash_90e23db9d2" }}
+    {{ $script_data.bindPage = $bind_page }}
+    {{ $script_data.withdrawPage = $withdraw_page }}
+    {{ $script_data.rechargePage = '/pay/recharge' }}
+    {{ $script_data.bankCardId = $card_id }}
+    {{ $script_data.balance = $tpl_data.account.balance }}
+
+    {{ if isset($tpl_data.settlement) }}
+        {{ $script_data.settlement = $tpl_data.settlement }}
+    {{ /if }}
+
+{{ /block }}
+
+{{ block name="title" prepend }}
+钱包管理 -
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/common/center/cash_8bc3fa0235.css">
+{{ $smarty.block.parent }}
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+    {{ block name="floatHelp" }}{{ /block }}
+    {{ block name="sidebar" }}{{ /block }}
+
+    <div id="content" class="card">
+        <div class="card-header">
+            {{ block name="cardheader" }}{{ /block }}
+
+            {{ *
+            <a href="{{ $origin_http }}/video/view/ebbd39c0a9" class="cash-guide-link" target="_blank">
+                <i class="icon icon-camera"></i>
+                提现操作指南
+            </a>
+            * }}
+        </div>
+
+        <div class="card-body">
+            {{ block name="overview" }}{{ /block }}
+        </div>
+
+        <div class="card-header history-header">
+            {{ $history_text }}
+            <span class="tip">
+                <b class="text-success">绿色</b>为余额增加，
+                <b class="text-error">红色</b>为余额减少
+            </span>
+        </div>
+
+        <div class="card-body" id="cash-history">
+        </div>
+
+    </div>
+
+{{ /strip }}
+{{ /block }}

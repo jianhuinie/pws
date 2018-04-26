@@ -1,0 +1,164 @@
+.recommend-org {
+
+    .recommend-org-header {
+        width: 1100px;
+        margin: 50px auto 10px;
+        h3 {
+            color: #333;
+            display: inline-block;
+            font-size: 24px;
+            margin-right: 25px;
+        }
+        .hint {
+            color: @brand-text-lighter;
+            font-size: 14px;
+        }
+    }
+
+    .recommend-org-content {
+        background-color: #33b0f4;
+        padding: 4 * @gap-vertical-medium;
+    }
+
+    .recommend-org-tab {
+        width: 1100px;
+        margin: 0 auto;
+        text-align: center;
+        background: #4b32ab;
+        height: 62px;
+        line-height: 55px;
+        color: #fff;
+        font-size: 20px;
+        border-top-left-radius: @gap-vertical-medium;
+        border-top-right-radius: @gap-vertical-medium;
+        .tab-nav {
+            width: 178px;
+            height: 68px;
+            cursor: pointer;
+            display: inline-block;
+            margin-right: @gap-vertical-medium;
+            background: url(../../../img/sem/tabBtn.png) no-repeat 0 -69px;
+            position: relative;
+            top: -7px;
+        }
+        .active {
+            background: url(../../../img/sem/tabBtn.png) no-repeat 0 0;
+        }
+    }
+
+    .recommend-org-box {
+        width: 1100px;
+        margin: 0 auto;
+        background-color: #f6c271;
+        padding: 35px 30px;
+        .search-box {
+            background-color: #f8e6cb;
+        }
+        .org-list {
+            margin-top: 2 * @gap-vertical-medium;
+            ul {
+                .clearfix();
+            }
+            .org {
+                float: left;
+                width: 204px;
+                background-color: #fff;
+                border: 1px solid #eee;
+                border-radius: 5px;
+                margin-right: 5px;
+                &:last-child {
+                    margin-right: 0;
+                }
+
+                .org-name {
+                    text-align: center;
+                    height: 50px;
+                    line-height: 50px;
+                    border-bottom: 1px solid #eee;
+                }
+
+                .icon-type {
+                    font-size: 12px;
+                    margin-left: 10px;
+                }
+                .org-icon {
+                    background: url(../../../img/org/org_icon.png) no-repeat;
+                    width: 16px;
+                    height: 16px;
+                    display: inline-block;
+                    margin-right: 5px;
+                }
+
+                .work {
+                    background-position: -45px 0;
+                }
+
+                .school {
+                    background-position: -23px 0;
+                }
+
+                .company {
+                    background-position: 0 0;
+                }
+
+                .org-avatar {
+                    text-align: center;
+                    padding: 15px @gap-horizontal-medium;
+                }
+
+                .org-intro {
+                    text-align: center;
+                    font-size: 12px;
+                    .org-star {
+                        margin-right: @gap-horizontal-medium;
+                    }
+                    .star-shine {
+                        color: @brand-primary;
+                    }
+                    .star-half {
+                        display: inline-block;
+                        position: relative;
+                        line-height: 0;
+                        .icon-star-half {
+                            color: @brand-primary;
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                        }
+                    }
+
+                }
+
+                .org-detail {
+                    ul {
+                        font-size: 12px;
+                        width: 100px;
+                        text-align: center;
+                        margin: 2 * @gap-vertical-medium auto;
+                    }
+                }
+
+                .org-action {
+                    padding: @gap-vertical-medium;
+                    padding-top: 0;
+                    text-align: center;
+                    .icon {
+                        margin-left: @gap-horizontal-medium;
+                    }
+                }
+
+            }
+        }
+        .more {
+            font-size: 12px;
+            margin: 3 * @gap-vertical-medium auto 0;
+            width: 120px;
+        }
+    }
+
+    .high {
+        display: none;
+    }
+
+
+}

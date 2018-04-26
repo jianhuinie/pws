@@ -1,0 +1,189 @@
+{{ *
+
+@file 活动主页
+@author zengcheng
+
+* }}
+{{ extends file="common/main/base.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $nav_config.active = '' }}
+    {{ $nav_config.hidden = 1 }}
+    {{ $flotage_config.hidden = true }}
+
+    {{ $script_path = "activity/template_1_0b41f2dc80" }}
+
+    {{ **顶部搜索去掉placeholder支持空query** }}
+    {{ $current_page = '' }}
+
+    {{ * 需要im * }}
+    {{ $need_im = true }}
+
+    {{ * 不需要底部 * }}
+    {{ $footer_config.hidden = true }}
+
+    {{ * 百度分享 * }}
+    {{ $baidu_share_text = $tpl_data.share_content|default:"跟谁学" }}
+    {{ $baidu_share_image = $tpl_data.share_img|default:"" }}
+
+{{ /block }}
+
+{{ block name = "title" }}
+{{ $tpl_data.title }}
+{{ /block }}
+
+{{ block name = "style" }}
+    <link rel="stylesheet" href="{{ $static_origin }}/asset/css/activity/template_1_f15a3e54b4.css">
+{{ /block }}
+
+{{ block name="main" }}
+
+{{ strip }}
+{{ $zn = $smarty.request.source|default:$tpl_data.zn|default:'zn_gsx' }}
+{{ include file="./common/getClickMonitorUrl.html" }}
+<div id="main" style="background-color:{{ $tpl_data.bg_color|default:'#fff' }}">
+    {{ if !empty($tpl_data.bg_head) }}
+    <div class="top-banner" style="background-image:url('{{ $tpl_data.bg_head }}')">
+        <img src="{{ $tpl_data.bg_head }}"/>
+    </div>
+    {{ /if }}
+
+    <div class="wrapper">
+        {{ $types = ['1' => ['cls' => 'course-list'], '2' => ['cls' => 'teacher-list'], '3' => ['cls' => 'org-list']] }}
+        {{ foreach $tpl_data.tab as $mod }}
+        <div class="mod {{ $types[$mod.type].cls }}">
+            <h4 class="mod-title">
+                {{ $mod.title }}
+            </h4>
+            <ul class="mod-list" style="background-color:{{ $tpl_data.content_color|default:'' }}">
+                {{ foreach $mod.list as $item }}
+                    {{ if $mod.type == '1' }}
+                    <li class="mod-item course-item">
+                        <a class="mod-item-link" href="{{ $item.button_url }}" target="_blank" data-click-monitor="1" data-href="{{ getClickMonitorUrl number=$item.number zn=$zn url=$item.button_url attach='class_number='|cat:$item.number }}">
+                            <div class="course-img">
+                                {{ include file="common/component/image.html" url=$item.preface width=260 height=146 lazy_load=true }}
+                                <div class="course-name ellipsis" title="{{ $item.name|escape:'html' }}">
+                                     {{ $item.name|escape:'html' }}
+                                </div>
+                            </div>
+                            <div class="course-info">
+                                <div class="course-time">
+                                    {{ if empty($item.type) || $item.type != '2' }}
+                                    开课时间：{{ $item.time }}<br/>{{ $item.hour }}
+                                    {{ else }}
+                                    上课地址：{{ $item.address|default:'' }}
+                                    {{ /if }}
+                                </div>
+                                 {{ if empty($item.type) || $item.type != '2' }}
+                                <div class="course-teacher ellipsis" title="{{ $item.teacher_name|escape:'html' }}">
+                                    主讲老师：{{ $item.teacher_name|escape:'html' }}
+                                </div>
+                                {{ else }}
+                                 <div class="course-teacher ellipsis" title="{{ $item.subject_name|escape:'html' }}">
+                                    课程类目：{{ $item.subject_name|escape:'html' }}
+                                </div>
+                                {{ /if }}
+                            </div>
+                            <div class="course-other">
+                                <div class="course-price">
+                                    <span class="course-price-desc">
+                                        价格：
+                                    </span>
+                                    <span class="course-price-number">
+                                        ￥{{ $item.price }}
+                                    </span>
+                                </div>
+                                <div class="course-pay-des">
+                                    {{ if !empty($item.intro) }}
+                                    <span class="course-leave-number">
+                                        {{ $item.intro }}
+                                    </span>
+                                    {{ /if }}
+                                    {{ if !empty($item.original_price) }}
+                                    <span class="course-original-price">
+                                        原价{{ $item.original_price }}元
+                                    </span>
+                                    {{ /if }}
+                                </div>
+                                <div class="course-pay">
+                                    {{ if !$item.is_over }}
+                                        {{ if $item.pay_student < $item.max_student }}
+                                        <span class="pay-btn">
+                                            立即报名
+                                            <i class="icon icon-lightning"></i>
+                                        </span>
+                                        {{ else }}
+                                        <span class="pay-btn disable" >
+                                            已报满
+                                        </span>
+                                        {{ /if }}
+                                    {{ else }}
+                                        <span class="pay-btn disable" >
+                                            已完成
+                                        </span>
+                                    {{ /if }}
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    {{ else if $mod.type == '2' }}
+                    <li class="mod-item teacher-item">
+                        <a class="mod-item-link" href="{{ $item.button_url }}" target="_blank" data-click-monitor="1" data-href="{{ getClickMonitorUrl number=$item.number zn=$zn url=$item.button_url attach='teacher_number='|cat:$item.number }}">
+                            <div class="teacher-avatar">
+                                {{ include file="common/component/image.html" url=$item.avatar width=120 height=120 alt=$item.name lazy_load=true }}
+                            </div>
+                            <h4 class="teacher-name ellipsis" title="{{ $item.name|escape:'html' }}">
+                                {{ $item.name|escape:'html' }}
+                            </h4>
+                            <p class="teacher-brief">
+                                {{ $item.slogan|cn_truncate:62|escape:'html' }}
+                            </p>
+                            <div class="teacher-pay">
+                                <span class="teacher-get-coupon">
+                                    {{ $item.button_name|default:'查看详情' }}
+                                </span>
+                            </div>
+                        </a>
+                    </li>
+                    {{ else if $mod.type == '3' }}
+                    <li class="mod-item org-item">
+                        <a class="mod-item-link" href="{{ $item.button_url }}" target="_blank" data-click-monitor="1" data-href="{{ getClickMonitorUrl number=$item.number zn=$zn url=$item.button_url attach='org_number='|cat:$item.number }}">
+                            <div class="org-avatar">
+                                {{ include file="common/component/image.html" url=$item.avatar width=110 height=110 alt="机构logo" lazy_load=true }}
+                            </div>
+                            <div class="org-pay">
+                                <span class="org-get-coupon">
+                                    {{ $item.button_name|default:'查看详情' }}
+                                </span>
+                            </div>
+                        </a>
+                    </li>
+                    {{ /if }}
+                {{ /foreach }}
+            </ul>
+        </div>
+       {{ /foreach }}
+        <div class="footer-wrapper">
+            {{ if !empty($tpl_data.share_button) }}
+                <div id="share-btn" class="share-btn" >
+                    <img class="share-btn-img" src="{{ $tpl_data.share_button }}" />
+                    {{ include file="common/component/baiduShare.html" }}
+                </div>
+            {{ /if }}
+            <div class="copyright">
+                 Copyright © 2014 - 2017 北京百家互联科技有限公司版权所有. 京公网安备11010802015210号 | 京ICP备14027590号-1
+            </div>
+        </div>
+    </div>
+
+    {{ if !empty($tpl_data.bg_foot) }}
+    <div class="bottom-banner" style="background-image:url('{{ $tpl_data.bg_foot }}')">
+        <img src="{{ $tpl_data.bg_foot }}"/>
+    </div>
+    {{ /if }}
+</div>
+{{ /strip }}
+{{ /block }}

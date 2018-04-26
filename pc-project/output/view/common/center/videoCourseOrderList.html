@@ -1,0 +1,28 @@
+{{ *
+@file 视频课订单列表
+@author liucong
+* }}
+
+{{ extends file="common/center/base.html" }}
+
+{{ block name="data" }}
+    {{ $smarty.block.parent }}
+{{ /block }}
+
+{{ block name="title" prepend }}
+我的订单 -
+{{ /block }}
+
+{{ block name="main" }}
+    {{ block name="sidebar" }}{{ /block }}
+    <div id="content" class="card">
+        <div class="card-header">
+            <h2>我的订单</h2>
+        </div>
+        <div class="card-body">
+        {{ block name="course_type_nav" }}{{ /block }}
+        {{ block name="order_list" }}{{ /block }}
+        </div>
+    </div>
+
+{{ /block }}

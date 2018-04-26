@@ -1,0 +1,141 @@
+<!--课程模块-->
+<div id="course-box">
+    {{ if !empty($tpl_data.imgCourses.zxx) }}
+    <div class="course">
+        <div class="category">
+            <span>中小学</span>
+            <ul>
+                <li><a href="http://www.genshuixue.com/sc/-107_108.html" target="_blank">数学</a></li>
+                <li><a href="http://www.genshuixue.com/sc/-161_187.html" target="_blank">物理</a></li>
+                <li><a href="http://www.genshuixue.com/sc/-161_172.html" target="_blank">英语</a></li>
+                <li><a href="http://www.genshuixue.com/sc/-161_192.html" target="_blank">化学</a></li>
+                <li><a href="http://www.genshuixue.com/sc/-161_167.html" target="_blank">语文</a></li>
+            </ul>
+            <a href="/sc/-107,140,161,237,266,342,373.html" class="more" target="_blank">更多></a>
+        </div>
+
+        <ul class="list">
+            {{ foreach $tpl_data.imgCourses.zxx as $val }}
+            <li class="item {{ if $val@last }}last{{ /if }}">
+                <a class="cover" href="{{ $val.course_url }}" target="_blank" title="{{ $val.name }}">
+                    <img src="{{ $val.img }}@1e_207w_116h_1c_0i_1o_90Q_1x">
+                    {{ if $val.type == 3 }}
+                    <i class="icon"></i>
+                    {{ /if }}
+                    <span class="title">{{ $val.name|cn_truncate: 12 }}{{ if !empty($val.plan)&&($val.type != 3) }}<i>{{ $val.plan }}</i>{{ /if }}</span>
+                </a>
+            </li>
+            {{ /foreach }}
+        </ul>
+    </div>
+    {{ /if }}
+    {{ if !empty($tpl_data.imgCourses.cglx) }}
+    <div class="course">
+        <div class="category">
+            <span>出国留学</span>
+            <ul>
+                <li><a href="http://www.genshuixue.com/sc/-783_784_785.html" target="_blank">托福</a></li>
+                <li><a href="http://www.genshuixue.com/sc/-783_784_787.html" target="_blank">雅思</a></li>
+                <li><a href="http://www.genshuixue.com/sc/-783_784_793.html" target="_blank">GRE</a></li>
+                <li><a href="http://www.genshuixue.com/sc/-783_784_788.html" target="_blank">SAT</a></li>
+            </ul>
+            <a href="/sc/-783,376.html" class="more" target="_blank">更多></a>
+        </div>
+
+        <ul class="list">
+            {{ foreach $tpl_data.imgCourses.cglx as $val }}
+            <li class="item {{ if $val@last }}last{{ /if }}">
+                <a class="cover" href="{{ $val.course_url }}" target="_blank" title="{{ $val.name }}">
+                    <img src="{{ $val.img }}@1e_207w_116h_1c_0i_1o_90Q_1x">
+                    {{ if $val.type == 3 }}
+                    <i class="icon"></i>
+                    {{ /if }}
+                    <span class="title">{{ $val.name|cn_truncate: 12 }}{{ if !empty($val.plan)&&($val.type != 3) }}<i>{{ $val.plan }}</i>{{ /if }}</span>
+                </a>
+            </li>
+            {{ /foreach }}
+        </ul>
+    </div>
+    {{ /if }}
+    {{ if !empty($tpl_data.imgCourses.ytxq) }}
+    <div class="course">
+        <div class="category">
+            <span>艺体兴趣</span>
+            <ul>
+                <li><a href="http://www.genshuixue.com/sc/-975_1061_1063.html" target="_blank">素描</a></li>
+                <li><a href="http://www.genshuixue.com/sc/-975_1061_1065.html" target="_blank">国画</a></li>
+                <li><a href="http://www.genshuixue.com/sc/-975_1070.html" target="_blank">雕塑</a></li>
+            </ul>
+            <a href="/sc/-975,921,897,878.html" class="more" target="_blank">更多></a>
+        </div>
+
+        <ul class="list">
+            {{ foreach $tpl_data.imgCourses.ytxq as $val }}
+            <li class="item {{ if $val@last }}last{{ /if }}">
+                <a class="cover" href="{{ $val.course_url }}" target="_blank" title="{{ $val.name }}">
+                    <img src="{{ $val.img }}@1e_207w_116h_1c_0i_1o_90Q_1x">
+                    {{ if $val.type == 3 }}
+                    <i class="icon"></i>
+                    {{ /if }}
+                    <span class="title">{{ $val.name|cn_truncate: 12 }}{{ if !empty($val.plan)&&($val.type != 3) }}<i>{{ $val.plan }}</i>{{ /if }}</span>
+                </a>
+            </li>
+            {{ /foreach }}
+        </ul>
+    </div>
+    {{ /if }}
+    {{ if !empty($tpl_data.imgCourses.yypx) }}
+    <div class="course">
+        <div class="category">
+            <span>语言培训</span>
+            <ul>
+                <li><a href="http://www.genshuixue.com/sc/-714_715.html" target="_blank">英语</a></li>
+                <li><a href="http://www.genshuixue.com/sc/-714_743_744.html" target="_blank">日语</a></li>
+                <li><a href="http://www.genshuixue.com/sc/-714_743.html" target="_blank">小语种</a></li>
+            </ul>
+            <a href="/sc/-714.html" class="more" target="_blank">更多></a>
+        </div>
+
+        <ul class="list">
+            {{ foreach $tpl_data.imgCourses.yypx as $val }}
+            <li class="item {{ if $val@last }}last{{ /if }}">
+                <a class="cover" href="{{ $val.course_url }}" target="_blank" title="{{ $val.name }}">
+                    <img src="{{ $val.img }}@1e_207w_116h_1c_0i_1o_90Q_1x">
+                    {{ if $val.type == 3 }}
+                    <i class="icon"></i>
+                    {{ /if }}
+                    <span class="title">{{ $val.name|cn_truncate: 12 }}{{ if !empty($val.plan)&&($val.type != 3) }}<i>{{ $val.plan }}</i>{{ /if }}</span>
+                </a>
+            </li>
+            {{ /foreach }}
+        </ul>
+    </div>
+    {{ /if }}
+    {{ if !empty($tpl_data.imgCourses.jnks) }}
+    <div class="course">
+        <div class="category">
+            <span>技能考试</span>
+            <ul>
+                <li><a href="http://www.genshuixue.com/sc/-573_588_592.html" target="_blank">网页设计</a></li>
+                <li><a href="http://www.genshuixue.com/sc/-573_588_597.html" target="_blank">ui</a></li>
+                <li><a href="http://www.genshuixue.com/sc/-455_456_457.html" target="_blank">管理技能</a></li>
+            </ul>
+            <a href="/sc/-573,455,472,817,502,852,634,387.html" class="more" target="_blank">更多></a>
+        </div>
+
+        <ul class="list">
+            {{ foreach $tpl_data.imgCourses.jnks as $val }}
+            <li class="item {{ if $val@last }}last{{ /if }}">
+                <a class="cover" href="{{ $val.course_url }}" target="_blank" title="{{ $val.name }}">
+                    <img src="{{ $val.img }}@1e_207w_116h_1c_0i_1o_90Q_1x">
+                    {{ if $val.type == 3 }}
+                    <i class="icon"></i>
+                    {{ /if }}
+                    <span class="title">{{ $val.name|cn_truncate: 12 }}{{ if !empty($val.plan)&&($val.type != 3) }}<i>{{ $val.plan }}</i>{{ /if }}</span>
+                </a>
+            </li>
+            {{ /foreach }}
+        </ul>
+    </div>
+    {{ /if }}
+</div>

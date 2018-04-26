@@ -1,0 +1,1 @@
+define("userCenter/common/component/DateSelect_css", [], function () { return '.date-select > .dropdown{width:90px;}.date-select > .dropdown:first-child{width:100px}'});

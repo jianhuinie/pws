@@ -1,0 +1,132 @@
+.images-upload-dialog {
+    background: #fff;
+    .dialog-body {
+        padding-bottom: 0;
+    }
+    &.dialog {
+        .dialog-close {
+            outline: none;
+            border: none;
+            display: block;
+            cursor: pointer;
+            z-index: 1;
+        }
+    }
+    .img-list-header {
+        color: #666;
+        font-size: 18px;
+        position: relative;
+        top: -10px;
+    }
+    .error-tip {
+        color: #f00;
+    }
+    .error-tip-wrapper {
+        display: none;
+    }
+    .images-wrapper {
+        max-height: 415px;
+        overflow-y: auto;
+        margin: 0 -20px;
+        padding: 0 10px;
+        background: #f4f4f4;
+        .image-item {
+            width: 182px;
+            vertical-align: top;
+            display: inline-block;
+            position: relative;
+            margin: 15px 10px;
+            background: #ececec;
+            .icon-recycle-bin {
+                width: 25px;
+                height: 25px;
+                line-height: 25px;
+                right: 0;
+                top: 0;
+                cursor: pointer;
+                position: absolute;
+                display: none;
+                text-align: center;
+                background-color: #ccc;
+                &:hover {
+                    color: #f90;
+                }
+            }
+            .img-wrapper {
+                width: 182px;
+                height: 136px;
+                border: solid 1px #ddd;
+                border-bottom: none;
+                &.error-bg {
+                    background: url('../../../img/teacher-center/upload_error.png') no-repeat center;
+                }
+                &.loading-bg {
+                    background: url('../../../img/loading.gif') no-repeat center;
+                }
+            }
+            img {
+                display: block;
+            }
+            &:hover {
+                .icon-recycle-bin {
+                    display: block;
+                }
+            }
+            &.empty {
+                .input-mark-wrapper {
+                    border-color: #f00;
+                }
+            }
+        }
+        .input-mark-wrapper {
+            border: solid 1px #ddd;
+        }
+        .input-mark {
+            border: none;
+            outline: none;
+            box-shadow: none;
+            display: block;
+            width: 100%;
+            padding: 0 5px;
+            height: 32px;
+            line-height: 30px;
+        }
+        .add-btn {
+            position: relative;
+            border: solid 1px #ddd;
+            input[name="files"],
+            object {
+                .opacity(0);
+                width: 182px;
+                height: 167px;
+                position: absolute;
+                left: 0;
+                top: 0;
+                cursor: pointer;
+            }
+            .icon-plus {
+                font-weight: bold;
+                color: #aaa;
+                font-size: 60px;
+                display: block;
+                text-align: center;
+                margin-top: 35px;
+            }
+            .text-tip {
+                color: #aaa;
+                text-align: center;
+                margin-top: 15px;
+                margin-bottom: 35px;
+            }
+        }
+    }
+    .upload-actions {
+        margin: 0 -20px;
+        padding: 10px;
+        background: #fff;
+        text-align: right;
+        .btn {
+            margin-left: 10px;
+        }
+    }
+}

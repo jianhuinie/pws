@@ -1,0 +1,1 @@
+define("userCenter/common/constant",["require","exports","module"],function(require,exports){"use strict";exports.USER_TYPE_TEACHER=0,exports.USER_TYPE_STUDENT=2});

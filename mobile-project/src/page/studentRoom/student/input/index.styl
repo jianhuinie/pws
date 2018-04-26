@@ -1,0 +1,138 @@
+@import "page/_base/base.styl";
+@import "page/_common/nav_bar/nav_bar.styl";
+@import "./suggestion.styl";
+
+.container {
+    margin-top: rem(10);
+    font-size: rem(15);
+    .item {
+        width: 100%;
+        padding: rem(10);
+        background: #fff;
+        line-height: rem(28);
+        box-shadow: 0 0 0 0 #f3f4f5;
+        border-top: 1px solid #f3f4f5;
+        position: relative;
+        .label {
+            width: 22%;
+            float: left;
+        }
+        input, textarea, .information {
+            display: inline-block;
+            width: 77%;
+            border: none;
+            outline: medium;
+            &.hide {
+                display: none;
+            }
+        }
+        .placeholder {
+            color: #9d9d9e;
+        }
+        input:-webkit-autofill {
+            -webkit-box-shadow: 0 0 rem(0) rem(1000) white inset;
+        }
+        .icon {
+            position: absolute;
+            right: rem(10);
+            top: 0;
+            line-height: rem(48);
+            border: 0;
+        }
+        .a-icon {
+            position: absolute;
+            right: rem(25);
+            bottom: 0;
+            line-height: rem(48);
+            border: 0;
+            color: #f00;
+            display: none;
+            &.sms-icon {
+                right: rem(150);
+            }
+        }
+        .sms-code {
+            position: absolute;
+            right: 0;
+            padding: 0 rem(20);
+            top: rem(12);
+            height: rem(25);
+            line-height: ren(14);
+            border: 0;
+            font-size: rem(14);
+            color: #37a4f5;
+            border-left: 1px solid #d8d8d8;
+            &.disabled {
+                color: #9d9d9e;
+            }
+        }
+        .empty-icon {
+            position: absolute;
+            right: rem(20);
+            color: #9d9e9e;
+            display: none;
+            &.sms-close {
+                right: rem(150);
+            }
+        }
+    }
+}
+
+.tip {
+    font-size: rem(13);
+    color: #9d9d9e;
+    margin: rem(10);
+}
+
+.button {
+    width: 92%;
+    margin: rem(10) auto;
+    text-align: center;
+    padding: rem(8);
+    background: #37a4f5;
+    border-radius: rem(3);
+    color: #fff;
+}
+
+.info {
+    height: rem(40);
+    font-size: rem(14);
+    color: #6d6d6e;
+    line-height: rem(40);
+    text-align: center;
+    background: #f8f8f8;
+}
+
+.select-item, .cancel {
+    height: rem(47);
+    font-size: rem(16);
+    color: #3D3D3E;
+    line-height: rem(47);
+    text-align: center;
+    border-top: 1px solid #ebeced;
+    position: relative;
+    .icon {
+        position: absolute;
+        right: rem(10);
+        top: 0;
+        line-height: rem(48);
+        border: 0;
+        display: none;
+    }
+    &.selected {
+        color: #37a4f5;
+        .icon {
+            display: block;
+        }
+    }
+    .suggestion {
+        height: rem(47);
+        color: red;
+        position: absolute;
+        right: 20%;
+    }
+}
+
+.cancel {
+    color: #9d9d9e;
+}

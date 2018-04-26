@@ -1,0 +1,198 @@
+{{ extends file="./base.html" }}
+
+{{ block name="variable" }}
+
+{{ $menu = "index" }}
+
+{{ /block }}
+
+{{ block name="content" }}
+
+<div class="uk-main">
+
+    <div class="block-title">赛事介绍</div>
+    <div class="block-content match-des">
+
+        <div>
+            <p>为加深国内外优秀文化的交流，传播和弘扬中华文化的精髓，促进学生积极参与国际交流拓展国际化视野，跟谁学特举办“2016年中英文化交流大使招募大赛“。本次大赛将选拔出一批拥有突出才艺和技能的优秀学生代表，作为中外文化交流的使者，参与一系列的文化交流活动，深化中英关系。</p>
+            <p>本次大赛将选拔出最多100名优秀学生代表，授予“中英文化交流大使”称号，提供寒假英国游学的机会和外语培训课程，并颁发获奖证书。还将选拔出400名优秀学生，颁发“中英文化交流优秀奖”证书，提供中英文化交流冬令营的机会和外语培训课程。</p>
+        </div>
+
+        <img src="{{ $static_origin }}/src/img/activity/uk/activity.jpg"/>
+    </div>
+
+    <div class="block-title">
+        大赛动态
+        <a class="right-link" href="http://bbs.genshuixue.com/forum/threadBrowse/76" target="_blank">查看更多&gt;</a>
+    </div>
+
+    <div class="block-content match-update">
+
+        {{ foreach $tpl_data.active as $act }}
+
+        <div class="update-item">
+            {{ if $act@index <= 1 }}
+            <label>Hot</label>
+            {{ /if }}
+            <p>
+                <a target="_blank" href="{{ $act.url }}">{{ $act.title }}</a>
+            </p>
+            <div class="summary">{{ $act.summary }}</div>
+        </div>
+
+        {{ /foreach }}
+
+        <div class="line"></div>
+    </div>
+
+    <div class="block-title">我可以参加么?</div>
+    <div class="block-content match-condition">
+
+        <p>1.  6-25岁的全日制在校大中小学生。</p>
+        <p>2.  活动设立小学组、初中组、高中组和大学组，每个组单独设定评选办法。</p>
+        <p>3.  参赛者按照所就读年级报名对应组别，不允许跨年级段报名，如高中生报名至初中组、初中生报名至小学组等情况。</p>
+
+    </div>
+
+    <div class="sub-line"></div>
+
+    <div class="block-title">大赛流程</div>
+
+    <div class="uk-process">
+
+        <div class="line"></div>
+
+        <div class="item" style="border-color: #76ccfb">
+            <div class="tag down step1">
+                <div>报名</div>
+                <div>4.8－5.21</div>
+            </div>
+        </div>
+
+        <div class="item" style="border-color: #31a5e0">
+            <div class="tag up step2">
+                <div>初赛</div>
+                <div>4.8-5.21</div>
+            </div>
+        </div>
+
+        <div class="item" style="border-color: #7ccf41">
+            <div class="tag down step3">
+                <div>复赛</div>
+                <div>5.28-6.30</div>
+            </div>
+        </div>
+
+        <div class="item" style="border-color: #f1a501">
+            <div class="tag up step4">
+                <div>决赛</div>
+                <div>8.18-8.27</div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="award">
+    <div class="uk-main">
+        <div class="block-title">你将收获</div>
+
+        <div class="award-item">
+            <div class="award-icon"></div>
+            <div>“中英文化交流大使”荣誉称号</div>
+            <div>价值40000元的2017年寒假公费英国游学机会</div>
+            <div>跟谁学外语培训课程（价值1500元）＋荣誉证书</div>
+        </div>
+
+        <div class="award-item">
+            <div class="award-icon second"></div>
+            <div>价值3000元的2017年北京中英文化交流</div>
+            <div>冬令营活动参与机会</div>
+            <div>外语课程培训奖励（价值1500元）＋荣誉证书</div>
+        </div>
+
+        <div class="award-item">
+            <div class="award-icon third"></div>
+            <div>免费赛前辅导（价值600元）＋荣誉证书</div>
+        </div>
+
+        <div class="award-item">
+            <div class="award-icon fourth"></div>
+            <div>免费赛前辅导（价值300元）</div>
+        </div>
+
+    </div>
+</div>
+
+<div class="uk-main">
+
+    <div class="activity-owner">
+
+        <div class="block-title owner">支持单位</div>
+
+        <a href="http://www.englishuk.com/" target="_blank">
+            <img class="logo" title="英国国家英语学会（English UK）" src="{{ $static_origin }}/src/img/activity/uk/uk.gif">
+        </a>
+
+        <div class="block-title owner">主办单位</div>
+
+        <a href="www.genshuixue.com" target="_blank">
+            <img class="logo" title="跟谁学" src="{{ $static_origin }}/src/img/logo-release2.png">
+        </a>
+
+        <div class="block-title owner">协办单位</div>
+
+        <a href="http://www.firstuk.com/" target="_blank">
+            <img class="logo" height="50px" title="First UK" src="{{ $static_origin }}/src/img/activity/uk/first-uk.png">
+        </a>
+
+        <div class="block-title owner">媒体支持</div>
+
+        <a href="http://www.china.com.cn/" target="_blank">
+            <img class="logo" height="60px" title="中国网" src="{{ $static_origin }}/src/img/activity/uk/zhongguowang.gif">
+        </a>
+
+        <a href="http://www.youth.cn/" target="_blank">
+            <img class="logo" height="60px" title="中国青年网" src="{{ $static_origin }}/src/img/activity/uk/zhongguoqingnian.jpg">
+        </a>
+
+        <a href="http://www.sohu.com/" target="_blank">
+            <img class="logo" height="60px" title="搜狐" src="{{ $static_origin }}/src/img/activity/uk/souhu.jpeg">
+        </a>
+
+        <a href="http://www.163.com/" target="_blank">
+            <img class="logo" height="60px" title="网易" src="{{ $static_origin }}/src/img/activity/uk/163.png">
+        </a>
+
+        <a href="http://www.sina.com.cn/" target="_blank">
+            <img class="logo" height="60px" title="新浪" src="{{ $static_origin }}/src/img/activity/uk/sina.jpeg">
+        </a>
+
+        <a href="http://www.qq.com/" target="_blank">
+            <img class="logo" height="60px" title="腾讯" src="{{ $static_origin }}/src/img/activity/uk/qq.jpg">
+        </a>
+
+        <a href="http://www.globaltimes.cn/" target="_blank">
+            <img class="logo" height="60px" title="环球时报" src="{{ $static_origin }}/src/img/activity/uk/times.gif">
+        </a>
+
+        <a href="http://www.bjnews.com.cn/" target="_blank">
+            <img class="logo" height="60px" title="新京报" src="{{ $static_origin }}/src/img/activity/uk/xinjingbao.jpg">
+        </a>
+
+        <div class="block-title owner">特别支持</div>
+
+        <a href="http://www.airchina.com.cn/" target="_blank">
+            <img class="logo" height="70px" title="中国国际航空公司" src="{{ $static_origin }}/src/img/activity/uk/airchina.jpg">
+        </a>
+
+        <a href="http://www.britishairways.com/" target="_blank">
+            <img class="logo" height="100px" title="英国航空公司" src="{{ $static_origin }}/src/img/activity/uk/airuk.jpeg">
+        </a>
+    </div>
+
+</div>
+
+
+{{ /block }}

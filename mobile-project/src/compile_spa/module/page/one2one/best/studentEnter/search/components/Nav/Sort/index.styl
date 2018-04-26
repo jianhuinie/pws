@@ -1,0 +1,35 @@
+.sort-content {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: rem(40);
+    z-index: 10;
+    background: white;
+    .item {
+        padding: 0 rem(15);    
+        height: rem(44);
+        line-height: rem(44);
+        color: #3D3D3E;
+        border-bottom: 1px solid #ededed;
+        .text {
+            font-family: PingFang-SC-Regular;
+            font-size: rem(15);
+            &.text-active {
+                color: #ff9100;
+            }
+        }
+        .icon-checkmark {
+            float: right;
+            position: relative;
+            top: rem(18);
+            color: #ff9100;
+            font-size: rem(12);
+            &.hide {
+                display: none;
+            }
+        }
+    }
+    &.hide {
+        display: none;
+    }
+}

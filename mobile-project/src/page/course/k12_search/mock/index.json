@@ -1,0 +1,710 @@
+{
+    "code": 0,
+    "msg": "succ",
+    "tpl_data": {
+        "city": {
+            "id": "17039360",
+            "name": "北京",
+            "pinyin": "bei'jing",
+            "province": "北京",
+            "province_id": "16777216",
+            "alpha": "b",
+            "order": "2",
+            "is_center": "1",
+            "domain": "bj",
+            "display_order": "2"
+        },
+        "lunbo": [
+            {
+                "imgUrl": "https://imgs.genshuixue.com/17156961_wn2flqjz.jpeg",
+                "webUrl": "http://pandora.genshuixue.com/ap/info.json?id=24&u=http%3A%2F%2Fm.genshuixue.com%2Fvideo_course%2Fzhishi-2048-0-3415%2F&k=d7ROxg/XjbsXHKd1WKR30S/TnQ0wjCmrjg01Wg/rjbHrVKnA0gs8VIhJMIRcjKmcZQn8MQROxKHwVb0XZINaHIhEtgsaHXOmVb6q0Sy8tgsanbdhZILzjbmhHX6q0gROxKyqMIRcjKmhZQnzjbmvnbHmZQRXjU9aHUhOMbmhnANrHA/hHs=="
+            },
+            {
+                "imgUrl": "https://imgs.genshuixue.com/17668657_1g9igjd5.jpg",
+                "webUrl": "http://pandora.genshuixue.com/ap/info.json?id=24&u=http%3A%2F%2Fm.genshuixue.com%2Factivity%2Fmodel5%2Fall_xiaoxuesheng%3Fzn%3Dzn_cn_0818_xx_msite&k=d7ROxg/XjbsXHKd1WKR30S/TnQ0wjCmrjg01Wg/rjbHrVKnA0gs8VIhJMIRcjKmcZQn8MQROxKscHbYhZINaHIhEtgsaHXO7HXuq0Sy8tgsanbd8ZILzjbmhHX6q0gROxKyqMIRcjKmhZQnzjbmvnbHmZQRXjU9aHUhOMbmhnANrHA/hHs=="
+            },
+            {
+                "imgUrl": "https://imgs.genshuixue.com/17676591_d04fli89.jpg",
+                "webUrl": "http://pandora.genshuixue.com/ap/info.json?id=24&u=http%3A%2F%2Fm.genshuixue.com%2Factivity%2Fmodel5%2Fall_huihua_0812%3Fzn%3Dzn_hh_0818_xx_msite&k=d7ROxg/XjbsXHKd1WKR30S/TnQ0wjCmrjg01Wg/rjbHrVKnA0gs8VIhJMIRcjKmcZQn8MQROxKscHbdrZINaHIhEtgsaHXO7nA5q0Sy8tgsanbdXZILzjbmhHX6q0gROxKyqMIRcjKmhZQnzjbmvnbHmZQRXjU9aHUhOMbmhnANrHA/hHs=="
+            }
+        ],
+        "yxms": {
+            "more_url": "k12/choseBetterTeacher?grade=xiaoxue",
+            "teacher": {
+                "top": {
+                    "avatar": "https://imgs.genshuixue.com/1762354_achqtxaf.jpeg",
+                    "name": "罗芳兰",
+                    "subject": "",
+                    "school_age": "-1",
+                    "url": "/370936728lfl",
+                    "desc": "小升初数学特级教师罗老师，任去教研室教研员，教师培训科主任数十年，总结一套因材施教 、快乐教学方法，精准把握教材重点，巧解难点，能使复杂的问题简单化，抽象的问题生活化。",
+                    "student_count": "1241"
+                },
+                "list": []
+            }
+        },
+        "zsdjj": {
+            "more_url": "/video_course/store_house?condition=-2048-0-3415",
+            "xueke": {
+                "0": {
+                    "name": "数学",
+                    "bg_color": "1db991",
+                    "num": null,
+                    "url": "/video_course/store_house?condition=-2048-0-3415"
+                },
+                "2": {
+                    "name": "英语",
+                    "bg_color": "c87e51",
+                    "num": null,
+                    "url": "/video_course/store_house?condition=-2528-0-3412"
+                },
+                "3": {
+                    "name": "语文",
+                    "bg_color": "1db954",
+                    "num": null,
+                    "url": "/video_course/store_house?condition=-2641-0-3498"
+                }
+            },
+            "data": {
+                "class_name": "",
+                "list": []
+            }
+        },
+        "ztjj": null,
+        "local_course": null,
+        "mrtj": [
+            {
+                "distance": "",
+                "title": "二年级数学新课预习",
+                "img": "https://imgs.genshuixue.com/17834981_8nwm6j5u.jpeg",
+                "total_pay": 8,
+                "price": "99.00",
+                "begin_time_desc": "8月27日上课",
+                "url": "http://beta-m.genshuixue.com/teacher/classCourseDetail/160812976158",
+                "course_number": "160812976158",
+                "type": "8"
+            },
+            {
+                "title": "跟着高老师快速写好字——自学十二篇",
+                "img": "https://imgs.genshuixue.com/13994730_yz68a7vy.jpeg",
+                "total_pay": "10",
+                "price": "1",
+                "begin_time_desc": "共5节课",
+                "url": "http://beta-m.genshuixue.com/video_course/getcourseshowdetail?number=16060476122",
+                "course_number": "16060476122",
+                "type": "3"
+            },
+            {
+                "title": "一分钟快速牢记单词",
+                "img": "https://imgs.genshuixue.com/11798071_jrs5vrva.jpeg",
+                "total_pay": "1697",
+                "price": "0",
+                "begin_time_desc": "共1节课",
+                "url": "http://beta-m.genshuixue.com/video_course/getcourseshowdetail?number=16022750990",
+                "course_number": "16022750990",
+                "type": "3"
+            }
+        ],
+        "seyt": {
+            "list": [
+                {
+                    "course_number": "16071277085",
+                    "type": "3",
+                    "title": "赏析三步曲——10分钟提升艺术格调",
+                    "img": "https://imgs.genshuixue.com/15394211_gx480dnm.jpeg",
+                    "url": "http://beta-m.genshuixue.com/video_course/getcourseshowdetail?number=16071277085",
+                    "total_pay": 0,
+                    "price": "1.99",
+                    "begin_time_desc": "共1节课",
+                    "distance": 0
+                },
+                {
+                    "course_number": "16051154248 ",
+                    "type": "3",
+                    "title": "《欧阳询九成宫醴泉铭》书写技法",
+                    "img": "https://imgs.genshuixue.com/12377686_pod0407r.jpeg",
+                    "url": "http://beta-m.genshuixue.com/video_course/getcourseshowdetail?number=16051154248",
+                    "total_pay": "1115",
+                    "price": "0",
+                    "begin_time_desc": "共8节课",
+                    "distance": 0
+                },
+                {
+                    "course_number": "16012373399 ",
+                    "type": "3",
+                    "title": "不一样的声乐课",
+                    "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/08/57a9523dc128d.jpg",
+                    "url": "http://beta-m.genshuixue.com/video_course/getcourseshowdetail?number=16012373399",
+                    "total_pay": 223,
+                    "price": "20",
+                    "begin_time_desc": "共2节课",
+                    "distance": 0
+                },
+                {
+                    "course_number": "16021774445 ",
+                    "type": "3",
+                    "title": "漫画基本画法，让孩子记录眼中的可爱",
+                    "img": "https://imgs.genshuixue.com/6850126_x3on6zyh.jpeg",
+                    "url": "http://beta-m.genshuixue.com/video_course/getcourseshowdetail?number=16021774445",
+                    "total_pay": 307,
+                    "price": "10",
+                    "begin_time_desc": "共1节课",
+                    "distance": 0
+                }
+            ],
+            "more_url": "/k12/getClassifyCourses?grade=xiaoxue&class_name=artistic"
+        },
+        "jyz": {
+            "list": [
+                {
+                    "course_number": "16072447757",
+                    "type": "3",
+                    "title": "小学奥数 找规律填数",
+                    "img": "https://imgs.genshuixue.com/17954497_4bwp625e.jpeg",
+                    "url": "http://beta-m.genshuixue.com/video_course/getcourseshowdetail?number=16072447757",
+                    "total_pay": "137",
+                    "price": "0",
+                    "begin_time_desc": "共1节课",
+                    "distance": 0
+                },
+                {
+                    "course_number": "16072439581",
+                    "type": "3",
+                    "title": "小学奥数 数图形",
+                    "img": "https://imgs.genshuixue.com/17954459_pjefjr0j.jpeg",
+                    "url": "http://beta-m.genshuixue.com/video_course/getcourseshowdetail?number=16072439581",
+                    "total_pay": "126",
+                    "price": "0",
+                    "begin_time_desc": "共1节课",
+                    "distance": 0
+                },
+                {
+                    "course_number": "16072439573",
+                    "type": "3",
+                    "title": "小学奥数 找规律填数",
+                    "img": "https://imgs.genshuixue.com/16131860_8wjletio.jpeg",
+                    "url": "http://beta-m.genshuixue.com/video_course/getcourseshowdetail?number=16072439573",
+                    "total_pay": "133",
+                    "price": "0",
+                    "begin_time_desc": "共1节课",
+                    "distance": 0
+                },
+                {
+                    "course_number": "16071680365",
+                    "type": "3",
+                    "title": "五年级奥数常考热点行程问题—相遇追及问题",
+                    "img": "https://imgs.genshuixue.com/15528576_x3jpdxgt.jpeg",
+                    "url": "http://beta-m.genshuixue.com/video_course/getcourseshowdetail?number=16071680365",
+                    "total_pay": "72",
+                    "price": "0",
+                    "begin_time_desc": "共1节课",
+                    "distance": 0
+                }
+            ],
+            "more_url": "/k12/getClassifyCourses?grade=xiaoxue&class_name=gas_station"
+        },
+        "whk": {
+            "list": [
+                {
+                    "course_number": "16072372277",
+                    "type": "3",
+                    "title": "小学生作文辅导（中高年级）第2节回放",
+                    "img": "https://imgs.genshuixue.com/16075322_gll6090x.jpeg",
+                    "url": "http://beta-m.genshuixue.com/video_course/getcourseshowdetail?number=16072372277",
+                    "total_pay": 38,
+                    "price": "25",
+                    "begin_time_desc": "共1节课",
+                    "distance": 0
+                },
+                {
+                    "course_number": "160527708947",
+                    "type": "8",
+                    "title": "2017小升初、分班考英语高分宝典独家秘",
+                    "img": "https://imgs.genshuixue.com/11950092_k0t2g69p.jpeg",
+                    "url": "http://beta-m.genshuixue.com/teacher/classCourseDetail/160527708947",
+                    "total_pay": 207,
+                    "price": "0.00",
+                    "begin_time_desc": "明天21:15上课",
+                    "distance": 0
+                },
+                {
+                    "course_number": "16073173247",
+                    "type": "3",
+                    "title": "百分数的应用（2）商品打折",
+                    "img": "https://imgs.genshuixue.com/16671910_p0iqtfxc.jpeg",
+                    "url": "http://beta-m.genshuixue.com/video_course/getcourseshowdetail?number=16073173247",
+                    "total_pay": "49",
+                    "price": "0",
+                    "begin_time_desc": "共1节课",
+                    "distance": 0
+                },
+                {
+                    "course_number": "16073072983",
+                    "type": "3",
+                    "title": "百分数的应用题（1）",
+                    "img": "https://imgs.genshuixue.com/16634066_ed7qpg65.jpeg",
+                    "url": "http://beta-m.genshuixue.com/video_course/getcourseshowdetail?number=16073072983",
+                    "total_pay": "41",
+                    "price": "0",
+                    "begin_time_desc": "共1节课",
+                    "distance": 0
+                }
+            ],
+            "more_url": "/k12/getClassifyCourses?grade=xiaoxue&class_name=literacy_class"
+        },
+        "math": {
+            "list": [
+                {
+                    "course_number": "16071277085",
+                    "type": "3",
+                    "title": "赏析三步曲——10分钟提升艺术格调",
+                    "img": "https://imgs.genshuixue.com/15394211_gx480dnm.jpeg",
+                    "url": "http://beta-m.genshuixue.com/video_course/getcourseshowdetail?number=16071277085",
+                    "total_pay": 0,
+                    "price": "1.99",
+                    "begin_time_desc": "共1节课",
+                    "distance": 0
+                },
+                {
+                    "course_number": "16051154248 ",
+                    "type": "3",
+                    "title": "《欧阳询九成宫醴泉铭》书写技法",
+                    "img": "https://imgs.genshuixue.com/12377686_pod0407r.jpeg",
+                    "url": "http://beta-m.genshuixue.com/video_course/getcourseshowdetail?number=16051154248",
+                    "total_pay": "1115",
+                    "price": "0",
+                    "begin_time_desc": "共8节课",
+                    "distance": 0
+                },
+                {
+                    "course_number": "16012373399 ",
+                    "type": "3",
+                    "title": "不一样的声乐课",
+                    "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/08/57a9523dc128d.jpg",
+                    "url": "http://beta-m.genshuixue.com/video_course/getcourseshowdetail?number=16012373399",
+                    "total_pay": 223,
+                    "price": "20",
+                    "begin_time_desc": "共2节课",
+                    "distance": 0
+                },
+                {
+                    "course_number": "16021774445 ",
+                    "type": "3",
+                    "title": "漫画基本画法，让孩子记录眼中的可爱",
+                    "img": "https://imgs.genshuixue.com/6850126_x3on6zyh.jpeg",
+                    "url": "http://beta-m.genshuixue.com/video_course/getcourseshowdetail?number=16021774445",
+                    "total_pay": 307,
+                    "price": "10",
+                    "begin_time_desc": "共1节课",
+                    "distance": 0
+                }
+            ],
+            "more_url": "/k12/getClassifyCourses?grade=xiaoxue&class_name=artistic"
+        },
+        "xingainian": {
+            "list": [
+                {
+                    "course_number": "16071277085",
+                    "type": "3",
+                    "title": "赏析三步曲——10分钟提升艺术格调",
+                    "img": "https://imgs.genshuixue.com/15394211_gx480dnm.jpeg",
+                    "url": "http://beta-m.genshuixue.com/video_course/getcourseshowdetail?number=16071277085",
+                    "total_pay": 0,
+                    "price": "1.99",
+                    "begin_time_desc": "共1节课",
+                    "distance": 0
+                },
+                {
+                    "course_number": "16051154248 ",
+                    "type": "3",
+                    "title": "《欧阳询九成宫醴泉铭》书写技法",
+                    "img": "https://imgs.genshuixue.com/12377686_pod0407r.jpeg",
+                    "url": "http://beta-m.genshuixue.com/video_course/getcourseshowdetail?number=16051154248",
+                    "total_pay": "1115",
+                    "price": "0",
+                    "begin_time_desc": "共8节课",
+                    "distance": 0
+                },
+                {
+                    "course_number": "16012373399 ",
+                    "type": "3",
+                    "title": "不一样的声乐课",
+                    "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/08/57a9523dc128d.jpg",
+                    "url": "http://beta-m.genshuixue.com/video_course/getcourseshowdetail?number=16012373399",
+                    "total_pay": 223,
+                    "price": "20",
+                    "begin_time_desc": "共2节课",
+                    "distance": 0
+                },
+                {
+                    "course_number": "16021774445 ",
+                    "type": "3",
+                    "title": "漫画基本画法，让孩子记录眼中的可爱",
+                    "img": "https://imgs.genshuixue.com/6850126_x3on6zyh.jpeg",
+                    "url": "http://beta-m.genshuixue.com/video_course/getcourseshowdetail?number=16021774445",
+                    "total_pay": 307,
+                    "price": "10",
+                    "begin_time_desc": "共1节课",
+                    "distance": 0
+                }
+            ],
+            "more_url": "/k12/getClassifyCourses?grade=xiaoxue&class_name=artistic"
+        },
+        "memory": {
+            "list": [
+                {
+                    "course_number": "16071277085",
+                    "type": "3",
+                    "title": "赏析三步曲——10分钟提升艺术格调",
+                    "img": "https://imgs.genshuixue.com/15394211_gx480dnm.jpeg",
+                    "url": "http://beta-m.genshuixue.com/video_course/getcourseshowdetail?number=16071277085",
+                    "total_pay": 0,
+                    "price": "1.99",
+                    "begin_time_desc": "共1节课",
+                    "distance": 0
+                },
+                {
+                    "course_number": "16051154248 ",
+                    "type": "3",
+                    "title": "《欧阳询九成宫醴泉铭》书写技法",
+                    "img": "https://imgs.genshuixue.com/12377686_pod0407r.jpeg",
+                    "url": "http://beta-m.genshuixue.com/video_course/getcourseshowdetail?number=16051154248",
+                    "total_pay": "1115",
+                    "price": "0",
+                    "begin_time_desc": "共8节课",
+                    "distance": 0
+                },
+                {
+                    "course_number": "16012373399 ",
+                    "type": "3",
+                    "title": "不一样的声乐课",
+                    "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/08/57a9523dc128d.jpg",
+                    "url": "http://beta-m.genshuixue.com/video_course/getcourseshowdetail?number=16012373399",
+                    "total_pay": 223,
+                    "price": "20",
+                    "begin_time_desc": "共2节课",
+                    "distance": 0
+                },
+                {
+                    "course_number": "16021774445 ",
+                    "type": "3",
+                    "title": "漫画基本画法，让孩子记录眼中的可爱",
+                    "img": "https://imgs.genshuixue.com/6850126_x3on6zyh.jpeg",
+                    "url": "http://beta-m.genshuixue.com/video_course/getcourseshowdetail?number=16021774445",
+                    "total_pay": 307,
+                    "price": "10",
+                    "begin_time_desc": "共1节课",
+                    "distance": 0
+                }
+            ],
+            "more_url": "/k12/getClassifyCourses?grade=xiaoxue&class_name=artistic"
+        },
+        "home_education": {
+            "list": [
+                {
+                    "course_number": "16071277085",
+                    "type": "3",
+                    "title": "赏析三步曲——10分钟提升艺术格调",
+                    "img": "https://imgs.genshuixue.com/15394211_gx480dnm.jpeg",
+                    "url": "http://beta-m.genshuixue.com/video_course/getcourseshowdetail?number=16071277085",
+                    "total_pay": 0,
+                    "price": "1.99",
+                    "begin_time_desc": "共1节课",
+                    "distance": 0
+                },
+                {
+                    "course_number": "16051154248 ",
+                    "type": "3",
+                    "title": "《欧阳询九成宫醴泉铭》书写技法",
+                    "img": "https://imgs.genshuixue.com/12377686_pod0407r.jpeg",
+                    "url": "http://beta-m.genshuixue.com/video_course/getcourseshowdetail?number=16051154248",
+                    "total_pay": "1115",
+                    "price": "0",
+                    "begin_time_desc": "共8节课",
+                    "distance": 0
+                },
+                {
+                    "course_number": "16012373399 ",
+                    "type": "3",
+                    "title": "不一样的声乐课",
+                    "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/08/57a9523dc128d.jpg",
+                    "url": "http://beta-m.genshuixue.com/video_course/getcourseshowdetail?number=16012373399",
+                    "total_pay": 223,
+                    "price": "20",
+                    "begin_time_desc": "共2节课",
+                    "distance": 0
+                },
+                {
+                    "course_number": "16021774445 ",
+                    "type": "3",
+                    "title": "漫画基本画法，让孩子记录眼中的可爱",
+                    "img": "https://imgs.genshuixue.com/6850126_x3on6zyh.jpeg",
+                    "url": "http://beta-m.genshuixue.com/video_course/getcourseshowdetail?number=16021774445",
+                    "total_pay": 307,
+                    "price": "10",
+                    "begin_time_desc": "共1节课",
+                    "distance": 0
+                }
+            ],
+            "more_url": "/k12/getClassifyCourses?grade=xiaoxue&class_name=artistic"
+        },
+        "english": {
+            "list": [
+                {
+                    "course_number": "16071277085",
+                    "type": "3",
+                    "title": "赏析三步曲——10分钟提升艺术格调",
+                    "img": "https://imgs.genshuixue.com/15394211_gx480dnm.jpeg",
+                    "url": "http://beta-m.genshuixue.com/video_course/getcourseshowdetail?number=16071277085",
+                    "total_pay": 0,
+                    "price": "1.99",
+                    "begin_time_desc": "共1节课",
+                    "distance": 0
+                },
+                {
+                    "course_number": "16051154248 ",
+                    "type": "3",
+                    "title": "《欧阳询九成宫醴泉铭》书写技法",
+                    "img": "https://imgs.genshuixue.com/12377686_pod0407r.jpeg",
+                    "url": "http://beta-m.genshuixue.com/video_course/getcourseshowdetail?number=16051154248",
+                    "total_pay": "1115",
+                    "price": "0",
+                    "begin_time_desc": "共8节课",
+                    "distance": 0
+                },
+                {
+                    "course_number": "16012373399 ",
+                    "type": "3",
+                    "title": "不一样的声乐课",
+                    "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/08/57a9523dc128d.jpg",
+                    "url": "http://beta-m.genshuixue.com/video_course/getcourseshowdetail?number=16012373399",
+                    "total_pay": 223,
+                    "price": "20",
+                    "begin_time_desc": "共2节课",
+                    "distance": 0
+                },
+                {
+                    "course_number": "16021774445 ",
+                    "type": "3",
+                    "title": "漫画基本画法，让孩子记录眼中的可爱",
+                    "img": "https://imgs.genshuixue.com/6850126_x3on6zyh.jpeg",
+                    "url": "http://beta-m.genshuixue.com/video_course/getcourseshowdetail?number=16021774445",
+                    "total_pay": 307,
+                    "price": "10",
+                    "begin_time_desc": "共1节课",
+                    "distance": 0
+                }
+            ],
+            "more_url": "/k12/getClassifyCourses?grade=xiaoxue&class_name=artistic"
+        },
+        "chinese": {
+            "list": [
+                {
+                    "course_number": "16071277085",
+                    "type": "3",
+                    "title": "赏析三步曲——10分钟提升艺术格调",
+                    "img": "https://imgs.genshuixue.com/15394211_gx480dnm.jpeg",
+                    "url": "http://beta-m.genshuixue.com/video_course/getcourseshowdetail?number=16071277085",
+                    "total_pay": 0,
+                    "price": "1.99",
+                    "begin_time_desc": "共1节课",
+                    "distance": 0
+                },
+                {
+                    "course_number": "16051154248 ",
+                    "type": "3",
+                    "title": "《欧阳询九成宫醴泉铭》书写技法",
+                    "img": "https://imgs.genshuixue.com/12377686_pod0407r.jpeg",
+                    "url": "http://beta-m.genshuixue.com/video_course/getcourseshowdetail?number=16051154248",
+                    "total_pay": "1115",
+                    "price": "0",
+                    "begin_time_desc": "共8节课",
+                    "distance": 0
+                },
+                {
+                    "course_number": "16012373399 ",
+                    "type": "3",
+                    "title": "不一样的声乐课",
+                    "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/08/57a9523dc128d.jpg",
+                    "url": "http://beta-m.genshuixue.com/video_course/getcourseshowdetail?number=16012373399",
+                    "total_pay": 223,
+                    "price": "20",
+                    "begin_time_desc": "共2节课",
+                    "distance": 0
+                },
+                {
+                    "course_number": "16021774445 ",
+                    "type": "3",
+                    "title": "漫画基本画法，让孩子记录眼中的可爱",
+                    "img": "https://imgs.genshuixue.com/6850126_x3on6zyh.jpeg",
+                    "url": "http://beta-m.genshuixue.com/video_course/getcourseshowdetail?number=16021774445",
+                    "total_pay": 307,
+                    "price": "10",
+                    "begin_time_desc": "共1节课",
+                    "distance": 0
+                }
+            ],
+            "more_url": "/k12/getClassifyCourses?grade=xiaoxue&class_name=artistic"
+        },
+        "science": {
+            "list": [
+                {
+                    "course_number": "16071277085",
+                    "type": "3",
+                    "title": "赏析三步曲——10分钟提升艺术格调",
+                    "img": "https://imgs.genshuixue.com/15394211_gx480dnm.jpeg",
+                    "url": "http://beta-m.genshuixue.com/video_course/getcourseshowdetail?number=16071277085",
+                    "total_pay": 0,
+                    "price": "1.99",
+                    "begin_time_desc": "共1节课",
+                    "distance": 0
+                },
+                {
+                    "course_number": "16051154248 ",
+                    "type": "3",
+                    "title": "《欧阳询九成宫醴泉铭》书写技法",
+                    "img": "https://imgs.genshuixue.com/12377686_pod0407r.jpeg",
+                    "url": "http://beta-m.genshuixue.com/video_course/getcourseshowdetail?number=16051154248",
+                    "total_pay": "1115",
+                    "price": "0",
+                    "begin_time_desc": "共8节课",
+                    "distance": 0
+                },
+                {
+                    "course_number": "16012373399 ",
+                    "type": "3",
+                    "title": "不一样的声乐课",
+                    "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/08/57a9523dc128d.jpg",
+                    "url": "http://beta-m.genshuixue.com/video_course/getcourseshowdetail?number=16012373399",
+                    "total_pay": 223,
+                    "price": "20",
+                    "begin_time_desc": "共2节课",
+                    "distance": 0
+                },
+                {
+                    "course_number": "16021774445 ",
+                    "type": "3",
+                    "title": "漫画基本画法，让孩子记录眼中的可爱",
+                    "img": "https://imgs.genshuixue.com/6850126_x3on6zyh.jpeg",
+                    "url": "http://beta-m.genshuixue.com/video_course/getcourseshowdetail?number=16021774445",
+                    "total_pay": 307,
+                    "price": "10",
+                    "begin_time_desc": "共1节课",
+                    "distance": 0
+                }
+            ],
+            "more_url": "/k12/getClassifyCourses?grade=xiaoxue&class_name=artistic"
+        },
+        "literature": {
+            "list": [
+                {
+                    "course_number": "16071277085",
+                    "type": "3",
+                    "title": "赏析三步曲——10分钟提升艺术格调",
+                    "img": "https://imgs.genshuixue.com/15394211_gx480dnm.jpeg",
+                    "url": "http://beta-m.genshuixue.com/video_course/getcourseshowdetail?number=16071277085",
+                    "total_pay": 0,
+                    "price": "1.99",
+                    "begin_time_desc": "共1节课",
+                    "distance": 0
+                },
+                {
+                    "course_number": "16051154248 ",
+                    "type": "3",
+                    "title": "《欧阳询九成宫醴泉铭》书写技法",
+                    "img": "https://imgs.genshuixue.com/12377686_pod0407r.jpeg",
+                    "url": "http://beta-m.genshuixue.com/video_course/getcourseshowdetail?number=16051154248",
+                    "total_pay": "1115",
+                    "price": "0",
+                    "begin_time_desc": "共8节课",
+                    "distance": 0
+                },
+                {
+                    "course_number": "16012373399 ",
+                    "type": "3",
+                    "title": "不一样的声乐课",
+                    "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/08/57a9523dc128d.jpg",
+                    "url": "http://beta-m.genshuixue.com/video_course/getcourseshowdetail?number=16012373399",
+                    "total_pay": 223,
+                    "price": "20",
+                    "begin_time_desc": "共2节课",
+                    "distance": 0
+                },
+                {
+                    "course_number": "16021774445 ",
+                    "type": "3",
+                    "title": "漫画基本画法，让孩子记录眼中的可爱",
+                    "img": "https://imgs.genshuixue.com/6850126_x3on6zyh.jpeg",
+                    "url": "http://beta-m.genshuixue.com/video_course/getcourseshowdetail?number=16021774445",
+                    "total_pay": 307,
+                    "price": "10",
+                    "begin_time_desc": "共1节课",
+                    "distance": 0
+                }
+            ],
+            "more_url": "/k12/getClassifyCourses?grade=xiaoxue&class_name=artistic"
+        },
+        "wuhua": {
+            "list": [
+                {
+                    "course_number": "16071277085",
+                    "type": "3",
+                    "title": "赏析三步曲——10分钟提升艺术格调",
+                    "img": "https://imgs.genshuixue.com/15394211_gx480dnm.jpeg",
+                    "url": "http://beta-m.genshuixue.com/video_course/getcourseshowdetail?number=16071277085",
+                    "total_pay": 0,
+                    "price": "1.99",
+                    "begin_time_desc": "共1节课",
+                    "distance": 0
+                },
+                {
+                    "course_number": "16051154248 ",
+                    "type": "3",
+                    "title": "《欧阳询九成宫醴泉铭》书写技法",
+                    "img": "https://imgs.genshuixue.com/12377686_pod0407r.jpeg",
+                    "url": "http://beta-m.genshuixue.com/video_course/getcourseshowdetail?number=16051154248",
+                    "total_pay": "1115",
+                    "price": "0",
+                    "begin_time_desc": "共8节课",
+                    "distance": 0
+                },
+                {
+                    "course_number": "16012373399 ",
+                    "type": "3",
+                    "title": "不一样的声乐课",
+                    "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/08/57a9523dc128d.jpg",
+                    "url": "http://beta-m.genshuixue.com/video_course/getcourseshowdetail?number=16012373399",
+                    "total_pay": 223,
+                    "price": "20",
+                    "begin_time_desc": "共2节课",
+                    "distance": 0
+                },
+                {
+                    "course_number": "16021774445 ",
+                    "type": "3",
+                    "title": "漫画基本画法，让孩子记录眼中的可爱",
+                    "img": "https://imgs.genshuixue.com/6850126_x3on6zyh.jpeg",
+                    "url": "http://beta-m.genshuixue.com/video_course/getcourseshowdetail?number=16021774445",
+                    "total_pay": 307,
+                    "price": "10",
+                    "begin_time_desc": "共1节课",
+                    "distance": 0
+                }
+            ],
+            "more_url": "/k12/getClassifyCourses?grade=xiaoxue&class_name=artistic"
+        },
+        "org": null,
+        "lbs": {
+            "province": "北京",
+            "city": "北京",
+            "coord": {
+                "lng": 116.39564503788,
+                "lat": 39.92998577808
+            }
+        }
+    },
+    "ts": 1471835082,
+    "declare_config": {
+        "declareTpl": "v2/resources/page/course/k12_search/index"
+    }
+}

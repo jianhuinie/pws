@@ -1,0 +1,175 @@
+{{ *
+
+@file 班课课表项
+@author zhujialu
+
+* }}
+{{ strip }}
+
+{{ include file="common/variable/courseStatus.html" scope=parent }}
+
+<div class="class-course">
+
+    <div class="bar">
+        <!-- {{ if !($tpl_data.class_course.lesson_way == 2 && floatval($tpl_data.class_course.price) == 0) }}
+            <a class="btn-link small roster" href="/class_course/roster?class_course_number={{ $tpl_data.class_course.number }}" target="_blank">
+                查看班级花名册
+            </a>
+        {{ /if }} -->
+
+        <span class="course-date">
+            <label>
+                上课日期：
+            </label>
+            {{ $tpl_data.class_course.class_info.start_time|date_format: '%Y年%m月%d日' }}
+        </span>
+
+        <span class="course-number">
+            <label>
+                班级编号：
+            </label>
+            {{ $tpl_data.class_course.number }}
+        </span>
+    </div>
+
+    <table>
+
+        <tbody>
+            <tr>
+                <td class="col1">
+
+                    {{ $cover = $tpl_data.class_course.photos[0] }}
+
+                    {{ include file="common/component/image.html" url=$cover.url class="thumbnail" width=78 }}
+
+                    <div class="course-info">
+
+                        {{ $name = $tpl_data.class_course.name }}
+                        {{ $name_cut = $name|cn_truncate: 10 }}
+
+                        <h5 class="course-name"{{ if $name != $name_cut }} data-title="{{ $name }}"{{ /if }}>
+                            {{ $name_cut }}
+                        </h5>
+
+                        <div class="lesson-way">
+
+                            {{ include file="common/variable/lesson.html" scope=parent }}
+                            {{ $lesson_way = $lessonMap[$tpl_data.class_course.lesson_way] }}
+
+                            {{ if $lesson_way == '在线授课' }}
+                                在线授课
+                            {{ else }}
+                                线下授课
+                            {{ /if }}
+
+                        </div>
+
+                        <label class="label">
+                            班课
+                        </label>
+                    </div>
+                </td>
+
+                <td class="col2">
+
+                    {{ $tpl_data.class_course.class_info.start_time|date_format: '%m月%d日' }}
+
+                    <div class="time-range">
+
+                        {{ $tpl_data.class_course.class_info.start_time|date_format: '%H:%M' }}
+                        -
+                        {{ $tpl_data.class_course.class_info.end_time|date_format: '%H:%M' }}
+                    </div>
+
+                    <label class="label-default small">
+                        {{ ($tpl_data.length / 60)|number_format: 2 }} 小时
+                    </label>
+                </td>
+
+                <td class="col3">
+
+                    班级人数：
+                    <div class="course-person">
+                        <i class="text-primary">
+                            {{ $tpl_data.student_count }}
+                        </i>
+                        人/
+                        {{ $tpl_data.class_course.max_student }}
+                        人
+                    </div>
+                </td>
+
+                <td class="col4"
+                {{ if isset($tpl_data.online_data) }}
+                data-online='{{ json_encode($tpl_data.online_data, 77) }}'
+                {{ /if }}
+                >
+
+                    <p>
+                        {{ $tpl_data.row_operation.label }}
+                    </p>
+
+                    {{ include file="common/variable/scheduleAction.html" scope=parent }}
+
+                    {{ $actions = $tpl_data.row_operation.actions }}
+
+                    {{ foreach $scheduleAction as $item }}
+
+                        {{ if isset($actions[$item[0]]) && $actions[$item[0]] }}
+
+                            {{ $target = $actions[$item[0]] }}
+
+                            {{ if $target.name == 'enter_classroom' && $target.disabled }}
+                                {{ if $smarty.now - strtotime($tpl_data.class_course.class_info.end_time) > 10800 }}
+                                    <a class="btn-default small" data-title="下课超过3小时无法进入课堂">
+                                        {{ $item[1] }}
+                                    </a>
+                                {{ else }}
+                                    <a class="btn-default small" data-width="15em" data-title="课前4小时可以进入，如需提前备课或上传课件，请进入
+                                    <a class='title-link' href='http://www.genshuixue.com/live/teacher_trial?number={{ $user_data.user_number }}' target='_blank'>体验教室</a>">
+                                        {{ $item[1] }}
+                                    </a>
+                                {{ /if }}
+                            {{ /if }}
+
+                            {{ if !isset($target.disabled) || !$target.disabled }}
+                                <button class="btn-link small action-{{ $item[0] }}" data-url="{{ $target.action }}" data-json="{{ json_encode($target.data, 77) }}">
+                                    {{ $item[1] }}
+                                </button>
+                            {{ /if }}
+
+                        {{ /if }}
+
+                    {{ /foreach }}
+                </td>
+
+            </tr>
+            {{ if !empty($tpl_data.class_course.location) }}
+                {{ $address_cut = $tpl_data.class_course.location|cn_truncate: 40 }}
+                <tr class="location">
+                    <td colspan="4" class="address"
+                    {{ if $address_cut != $tpl_data.class_course.location }}
+                        data-title="{{ $tpl_data.class_course.location }}"
+                        data-width="30em"
+                    {{ /if }}
+                    >
+                    课程地址：
+                    {{ if !$tpl_data.class_course.country }}
+                        {{ $address_cut }}
+                        {{ if isset($tpl_data.class_course.offline_poi) && $tpl_data.class_course.offline_poi.lng }}
+                        <span data-offline='{{ json_encode($tpl_data.class_course.offline_poi, 77) }}' data-address="{{ $tpl_data.class_course.location }}" data-index="{{ $tpl_data.class_course.number }}">
+                            查看地图位置
+                        </span>
+                        {{ /if }}
+                    {{ else }}
+                        {{ $tpl_data.class_course.country }}-
+                        {{ $address_cut }}
+                    {{ /if }}
+                    </td>
+                </tr>
+            {{ /if }}
+
+        </tbody>
+    </table>
+
+</div>

@@ -1,0 +1,103 @@
+/**
+ * @file 卡片，统一处理内外边距和阴影
+ * @author zhujialu
+ */
+
+
+.card {
+    background-color: #FFF;
+    box-shadow: 0 1px 1px #D5D5D5;
+}
+
+.card-header {
+    background-color: #FBFBFB;
+    border-bottom: 1px solid @brand-gray-light;
+    font-family: @font-family-title;
+    font-size: @font-size-medium;
+    // overflow: hidden;
+    position: relative;
+    a {
+        font-size: @font-size-small;
+    }
+
+    h2 {
+        .inline-block();
+        color: @brand-text-light;
+        font-weight: bold;
+    }
+
+    a + h2 {
+        vertical-align: middle;
+        margin-left: @gap-horizontal-large;
+    }
+
+    h2 + span {
+        color: #AAA;
+        font-weight: normal;
+        font-size: @font-size-tiny;
+        padding-left: @gap-horizontal-large;
+    }
+
+    h2 + a {
+        margin-left: @gap-horizontal-medium;
+    }
+
+    strong {
+        float: right;
+        font-size: @font-size-small;
+    }
+}
+
+.card-header,
+.card-body {
+    padding: @padding-vertical-content
+             @padding-horizontal-content;
+}
+
+
+.sub-card-body {
+    padding-bottom: 2 * @padding-vertical-content;
+}
+
+.sub-card-header {
+    font-size: @font-size-medium;
+    border-bottom: 1px solid @brand-gray-light;
+    h2 {
+        .inline-block();
+        color: @brand-text-light;
+        font-weight: bold;
+        border-bottom: 2px solid @brand-primary;
+        padding: @gap-vertical-medium 0;
+    }
+
+}
+
+.sub-card-body {
+
+}
+
+
+#sidebar {
+    .card-header,
+    .card-body {
+        padding: @padding-vertical-sidebar
+                 @padding-horizontal-sidebar;
+    }
+    .sitebar-count {
+        color: @brand-primary;
+        padding-left: 5px;
+    }
+    .active {
+        .sitebar-count {
+            color: #FFFFFF;
+            padding-left: 5px;
+        }
+    }
+
+}
+
+.ie6,
+.ie7,
+.ie8 {
+    border: 1px solid @brand-gray-light;
+}

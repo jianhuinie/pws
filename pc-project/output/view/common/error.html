@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<!-- 纯静态页，不走php zengcheng -->
+<html lang="zh-CN" xmlns:wb="http://open.weibo.com/wb">
+    <head>
+        <meta name="renderer" content="webkit|ie-stand|ie-comp"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <meta charset="utf-8"/>
+        <meta http-equiv="Cache-Control" content="no-siteapp"/>
+        <meta property="qc:admins" content="3464026660675630510556375"/>
+        <meta property="wb:webmaster" content="4658769fd343afda"/>
+        <link rel="dns-prefetch" href="http://cdn.bootcss.com"/>
+        <link rel="dns-prefetch" href="http://apps.bdimg.com"/>
+        <link rel="dns-prefetch" href="http://su.bdimg.com"/>
+        <link rel="dns-prefetch" href="http://s1.bdstatic.com"/>
+        <link rel="dns-prefetch" href="http://api.map.baidu.com"/>
+        <link rel="dns-prefetch" href="http://storage.genshuixue.com"/>
+        <meta name="keywords" content="跟谁学, "/>
+        <meta name="description" content="跟谁学, "/>
+        <title>跟谁学 - 找好老师，上跟谁学</title>
+        <link rel="shortcut icon" href="http://cdn.gsxservice.com/asset/img/logo.ico">
+        <style type="text/css">
+            body{
+                margin: 0;
+                padding: 0;
+            }
+            .main{
+                padding: 15px 15px 0 15px;
+                background-color: #f5f5f5;
+            }
+
+            .main .content{
+                width: 1190px;
+                margin: 0 auto;
+            }
+
+            .main .footer{
+                margin: 60px -15px 0;
+                padding: 25px 0;
+                background-color: #fff;
+            }
+
+            .header .img-wrapper{
+                display: inline-block;
+            }
+            .header .img-wrapper .logo{
+                display: block;
+            }
+
+            .content .img-wrapper .img-holder{
+                width: 473px;
+                height: 330px;
+                margin: 0 auto;
+                background: url('http://img.gsxservice.com/0cms/d/file/content/2015/06/5577f17babc5c.png') no-repeat;
+            }
+
+            .content .attach-tip .tip{
+                margin-top: 16px;
+                text-align: center;
+            }
+
+            .btn{
+                display: inline-block;
+                padding: 0 20px;
+                background-color: #f90;
+                color: #fff;
+                height: 35px;
+                line-height: 35px;
+                text-decoration: none;
+                border-radius: 5px;
+            }
+
+            .btn:hover{
+                background-color: #f29100;
+                border-color: #e68a00;
+                color: #fff;
+                -webkit-transition: background-color .2s;
+                transition: background-color .2s;
+            }
+
+            a{
+                color: #6d6d6d;
+            }
+
+            a:hover{
+                color: #f90;
+            }
+
+            .footer .list-wrapper{
+                width: 1100px;
+                margin: 0 auto;
+                padding-top: 30px;
+                border-top: solid 1px #eee;
+                overflow: hidden;
+            }
+
+            .footer .list{
+                min-width: 160px;
+                min-height: 145px;
+                margin-right: 25px;
+                float: right;
+                border-right: solid 1px #ddd;
+            }
+
+            .list ul{
+                padding: 0;
+                margin: 0;
+                list-style: none;
+            }
+
+            .list h4{
+                margin: 0;
+                font-size: 16px;
+                margin-bottom: 8px;
+                color: #000;
+                font-weight: normal;
+            }
+
+            .list a{
+                text-decoration: none;
+                font-size: 14px;
+            }
+
+            .list .show-wechat{
+                font-size: 14px;
+                color: #6d6d6d;
+                cursor: pointer;
+            }
+
+            .list .show-wechat:hover{
+                color: #f90;
+            }
+
+            .list ul li{
+                padding: 0;
+                margin: 0;
+                height: 24px;
+                line-height: 24px;
+            }
+
+            .list.tel{
+                border-right: none;
+                min-width: 218px;
+                margin-right: 70px;
+            }
+
+            .list.tel h4{
+                font-family: 'PingHei', 'Hiragino Sans GB', 'Microsoft YaHei', 'arial', 'sans-serif';
+                text-align: center;
+                font-size: 30px;
+                line-height: 48px;
+                color: #000;
+            }
+
+            .list.tel div{
+                text-align: center;
+            }
+
+            .tel .icon{
+                display: block;
+                margin: 0 auto;
+            }
+
+            .dialog-mask{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                background-color: #000;
+                border-color: transparent;
+                opacity: 0.3;
+                overflow: hidden;
+                z-index: 5;
+                display: none;
+                filter: alpha(opacity=30);
+            }
+
+            .dialog-wrapper{
+                position: fixed;
+                width: 100%;
+                top: 100px;
+                min-height: 300px;
+                z-index: 6;
+                display: none;
+            }
+
+            .dialog-wrapper .dialog{
+                width: 768px;
+                margin: 0 auto;
+            }
+
+            .dialog .dialog-header{
+                position: relative;
+                background-color: #f5f5f5;
+                border-color: #ccc;
+                color: #555;
+                border-bottom: solid 1px #ccc;
+                font-size: 16px;
+                font-family: "PingHei", "Hiragino Sans GB", "Microsoft YaHei";
+                height: 44px;
+                line-height: 44px;
+                padding: 0 20px;
+            }
+
+            .dialog .dialog-header .dialog-close{
+                position: absolute;
+                top: 0;
+                right: 20px;
+                z-index: 1;
+                font-size: 30px;
+                line-height: 44px;
+                height: 44px;
+                color: #ccc;
+                cursor: pointer;
+                font-family: "sans-serif";
+                font-style: inherit;
+            }
+
+            .dialog .dialog-header .dialog-close:hover{
+                color: #999;
+            }
+
+            .dialog .dialog-body{
+                padding: 20px;
+                background-color: #fff;
+            }
+
+            .column{
+                width: 318px;
+                display: inline-block;
+                text-align: center;
+            }
+
+            .column .subscribe{
+                color: #56b02a;
+            }
+
+            .column .service{
+                color: #f90;
+            }
+
+            .column h4{
+                height: 34px;
+                line-height: 34px;
+                margin: 0;
+                font-size: 22px;
+            }
+
+            .column p{
+                margin: 0;
+                margin-top: 5px;
+                font-size: 12px;
+                line-height: 18px;
+                height: 18px;
+                color: #6d6d6d;
+            }
+
+            .dialog-body img{
+                display: block;
+            }
+
+        </style>
+        <script type="text/javascript">
+            window.onload = function () {
+                var clientHeight = document.documentElement.clientHeight || document.body.clientHeight;
+                var height = document.documentElement.scrollHeight || document.body.clientHeight;
+                var mask = document.getElementById('dialogMask');
+                var dialog = document.getElementById('dialogQrcode');
+                mask.style.height = height + 'px';
+                dialog.style.top = ((clientHeight - 463) / 2) + 'px';
+
+                document.getElementById('showWechat').onclick = function () {
+                    mask.style.display = 'block';
+                    dialog.style.display = 'block';
+                };
+
+                document.getElementById('closeDialog').onclick = function () {
+                    mask.style.display = 'none';
+                    dialog.style.display = 'none';
+                };
+            }
+        </script>
+    </head>
+    <body>
+        <div class="main">
+            <div class="header">
+                <a class="img-wrapper" href="http://www.genshuixue.com">
+                    <img class="logo" src="http://img.gsxservice.com/0cms/d/file/content/2015/06/55782df9d4fb6.png" />
+                </a>
+            </div>
+            <div class="content">
+                <div class="img-wrapper">
+                    <div class="img-holder"></div>
+                </div>
+                <div class="attach-tip">
+                    <div class="tip">网页被熊猫吃掉了-_-!</div>
+                    <div class="tip">
+                        <a class="btn" href="http://www.genshuixue.com">回到主页</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <div class="list-wrapper">
+                    <div class="list tel">
+                        <img class="icon" src="http://img.gsxservice.com/0cms/d/file/content/2015/06/557808a266089.jpg"/>
+                        <h4>4000-910-910</h4>
+                        <h4>010-86448910</h4>
+                        <div>周一至周日&nbsp;9:00-23:00</div>
+                    </div>
+                    <div class="list">
+                        <h4>关注我们</h4>
+                        <ul>
+                            <li>
+                                <span class="show-wechat" id="showWechat">
+                                    官方微信
+                                </span>
+                            </li>
+                            <li class="weibo">
+                                <a href="http://weibo.com/genshuixue" target="_blank">
+                                    新浪微博
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="list">
+                        <h4>关于跟谁学</h4>
+                        <ul>
+                            <li>
+                                <a href="/guide/about?a=about" target="_blank">了解我们</a>
+                            </li>
+                            <li>
+                                <a href="/guide/business?a=business" target="_blank">联系我们</a>
+                            </li>
+                            <li>
+                                <a href="/guide/join?a=join" target="_blank">加入我们</a></li>
+                            <li>
+                                <a href="/guide/clause?a=clause" target="_blank">网站条款</a></li>
+                            <li>
+                                <a href="/guide/notice?a=notice" target="_blank">
+                                    活动公告
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="list">
+                        <h4>服务支持</h4>
+                        <ul>
+                             <li>
+                                <a href="/guide/guarantee?a=guarantee" target="_blank">
+                                    平台保障
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/guide/video?a=video" target="_blank">
+                                    视频拍摄
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/guide/pay?a=pay" target="_blank">
+                                    支付问题
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/guide/feedback?a=feedback" target="_blank">
+                                    意见反馈
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/guide/tort?a=tort" target="_blank">
+                                    侵权投诉
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="list">
+                        <h4>帮助中心</h4>
+                        <ul>
+                            <li>
+                                <a href="/guide/process?a=process" target="_blank">
+                                    平台流程
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/guide/entering?a=entering" target="_blank">
+                                    老师入驻
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/guide/teacher?a=teacher" target="_blank">
+                                    老师帮助
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/guide/student?a=student" target="_blank">
+                                    学生帮助
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="dialogMask" class="dialog-mask"></div>
+        <div id="dialogQrcode" class="dialog-wrapper">
+            <div class="dialog">
+                <div class="dialog-header">
+                    跟谁学官方微信
+                    <i class="dialog-close" id="closeDialog">×</i>
+                </div>
+                <div class="dialog-body">
+                    <div class="column">
+                        <h4 class="subscribe">微信订阅号</h4>
+                        <p>更多动态，更全资讯，更酷图文，更炫内容</p>
+                    </div>
+                    <div class="column" style="margin-left:82px">
+                        <h4 class="service">学生服务号</h4>
+                        <p>在线咨询，奖学金返现，名师点评，等你来互动</p>
+                    </div>
+                    <div class="img-wrapper">
+                        <img src="http://img.gsxservice.com/0cms/d/file/content/2015/06/55782d9d24443.png" width="727px" heigh="321px"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,55 @@
+
+{{ *
+
+@file 帮助中心 - 服务规则 － 平台服务费细则
+@author wangyujie
+
+* }}
+
+{{ strip }}
+
+{{ include file="common/variable/videoDivide.html" scope=parent }}
+
+<div class="service-fee">
+
+    <h2>平台服务费细则</h2>
+
+    <p>平台服务费的收取规则如下（分为学生购买时使用优惠或未使用优惠）：</p>
+
+    <h3>一、学生购买录播课（视频课）时使用了优惠</h3>
+
+    <p>1. 当学生使用平台入驻机构、平台入驻个体老师发放的优惠券或参与平台入驻机构、平台入驻老师的优惠活动时：</p>
+    <p class="indent">订单实际收入 ＝ 订单价格 － 平台服务费；</p>
+    <p class="indent">平台服务费 ＝（订单价格 － 优惠金额）* {{ $video_divide_gsx_service_fee_percent }}%。</p>
+
+    <p>如果该学生是通过您自己分享录播课（视频课）的课程链接产生的购买：</p>
+    <p class="indent">平台服务费（只含技术服务费） ＝（订单价格 － 优惠金额）* {{ $video_divide_self_share_gsx_service_fee_percent }}%。</p>
+
+    <p>2. 当学生使用跟谁学平台发放的优惠券或参与平台的优惠活动时：</p>
+    <p class="indent">订单实际收入 ＝ 订单价格 － 平台服务费；</p>
+    <p class="indent">平台服务费 ＝ 订单价格 * {{ $video_divide_gsx_service_fee_percent }}%。</p>
+
+    <p>如果该学生是通过您自己分享录播课（视频课）的课程链接产生的购买：</p>
+    <p class="indent">平台服务费（只含技术服务费）＝ 订单价格 * {{ $video_divide_self_share_gsx_service_fee_percent }}%。</p>
+
+    <h3>二、学生购买录播课（视频课）时未使用优惠</h3>
+    <p>1. 学生通过跟谁学App的iOS版本（苹果手机或iPad）下单，并且在App内进行支付时：</p>
+
+    <p class="indent">订单实际收入 ＝ 订单价格 － 苹果公司的服务费 － 平台服务费；</p>
+    <p class="indent">苹果公司的服务费 ＝ 订单价格 * {{ $video_divide_ios_apple_service_fee_percent }}%（苹果公司抽取的服务费）；
+    <p class="indent">平台服务费 ＝（订单价格 － 苹果公司的服务费）* {{ $video_divide_gsx_service_fee_percent }}%。
+
+    <p>如果该学生是通过您自己分享录播课（视频课）的课程链接产生的购买：</p>
+    <p class="indent">平台服务费（只含技术服务费） ＝（订单价格 － 苹果公司的服务费）* {{ $video_divide_self_share_gsx_service_fee_percent }}%。</p>
+
+    <p>2. 学生通过非苹果设备的跟谁学App或PC等渠道（如跟谁学安卓版，PC版，微信版等）下单，进行支付时： </p>
+    <p class="indent">订单实际收入 ＝ 订单价格 － 平台服务费；</p>
+    <p class="indent">平台服务费 ＝ 订单价格 * {{ $video_divide_gsx_service_fee_percent }}%。</p>
+
+    <p>如果该学生是通过您自己分享录播课（视频课）的课程链接产生的购买：</p>
+    <p class="indent">平台服务费（只含技术服务费）＝ 订单价格 * {{ $video_divide_self_share_gsx_service_fee_percent }}%。</p>
+
+</div>
+
+
+{{ /strip }}

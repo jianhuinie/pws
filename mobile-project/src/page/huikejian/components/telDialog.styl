@@ -1,0 +1,48 @@
+
+.fsdlg-body {
+    padding: rem(16) 5%;
+    border-radius: rem(5);
+    >li {
+        text-align: center;
+        &:first-child {
+            padding: 0;
+        }
+
+        &:last-child {
+            border-bottom: 1px solid #ccc;
+        }
+
+        border-bottom: 0;
+    }
+
+
+    >.btn {
+        border-radius: rem(6);
+        height: rem(40);
+        line-height: rem(40);
+        padding: 0;
+
+        >.icon {
+            margin-right: rem(2);
+        }
+    }
+
+    >.btn-primary {
+        background: $brand-primary;
+        color: #fff;
+        border: 1px solid darken($brand-primary, 10%);
+        margin-bottom: rem(10);
+    }
+
+    >.btn-normal {
+        color: #555;
+        backgound: #fff;
+        border: 1px solid #ccc;
+
+        >a {
+            color: #555;
+            display: block;
+            width: 100%;
+        }
+    }
+}

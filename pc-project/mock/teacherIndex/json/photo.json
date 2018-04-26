@@ -1,0 +1,248 @@
+{
+    "code": 0,
+    "data": {
+        "one_on_one_teacher_mobile" : 1232323,
+        "video_list": [
+            {
+                "id": "12093",
+                "video_id": "0",
+                "video_unique": "vu70910",
+                "name": "66",
+                "img": "http://test-img.gsxservice.com/00-upload/image-test/68613_3b49f527c1cc5f26d69212c085651cfe_ekPOclFF.jpg",
+                "preface_url": "http://test-img.gsxservice.com/00-upload/image-test/68613_3b49f527c1cc5f26d69212c085651cfe_ekPOclFF.jpg",
+                "preface_url_prefix": "http://test-img.gsxservice.com/00-upload/image-test/68613_3b49f527c1cc5f26d69212c085651cfe_ekPOclFF",
+                "video": "/video/view/12093",
+                "status": "70",
+                "verify_status": "0",
+                "reasons": []
+            }
+        ],
+        "photo_list": [
+            {
+                "id": "44901",
+                "name": "2121",
+                "img": "http://test-img.gsxservice.com/421985_m0q901r3.jpeg",
+                "width": 1680,
+                "height": 1050,
+                "create_time": "2016-01-12 11:42:00"
+            },
+            {
+                "id": "44903",
+                "name": "2",
+                "img": "http://test-img.gsxservice.com/421983_f1wkm0bl.jpeg",
+                "width": 510,
+                "height": 318,
+                "create_time": "2016-01-12 11:42:00"
+            },
+            {
+                "id": "44902",
+                "name": "21",
+                "img": "http://test-img.gsxservice.com/421984_dxzlcv64.jpeg",
+                "width": 1680,
+                "height": 1050,
+                "create_time": "2016-01-12 11:42:00"
+            },
+            {
+                "id": "44904",
+                "name": "12",
+                "img": "http://test-img.gsxservice.com/421982_b43qblex.jpeg",
+                "width": 1680,
+                "height": 1050,
+                "create_time": "2016-01-12 11:42:00"
+            },
+            {
+                "id": "44900",
+                "name": "3闻风丧胆都是都是身份都",
+                "img": "http://test-img.gsxservice.com/421986_s32qlgz9.jpeg",
+                "width": 600,
+                "height": 375,
+                "create_time": "2016-01-12 11:42:00"
+            }
+        ],
+        "video_count": 2,
+        "photo_count": 5,
+        "declare_tpl": "skin101",
+        "title": "【一九七四四三相册视频】一九七四四三照片_图片_视频_教程-跟谁学",
+        "keywords": "一九七四四三照片,一九七四四三视频",
+        "description": "跟谁学为您提供一九七四四三老师小升初语文课程的在线直播、线下班课、1对1课程，一九七四四三相册视频，个人资料，学生评价，一九七四四三课程数量，学生数量，教学时长，好评率，方便学生和家长全方位了解一九七四四三。找好老师，上跟谁学！",
+        "profile": {
+            "is_one_on_one_teacher": true,
+            "name": "一九七四四三",
+            "avatar": "http://test-img.gsxservice.com/411152_gzufcmjs.jpeg",
+            "sex": "0",
+            "slogan": "416098428",
+            "area": "北京-朝阳区",
+            "address": "3333",
+            "vip_level": 1,
+            "template_level": 1,
+            "user_home": "http://wangjun-www.test.genshuixue.com/416098428",
+            "like_count": 0,
+            "view_count": 14,
+            "school_age": "1",
+            "user_id": "346647",
+            "user_number": "416098428",
+            "domain": "416098428",
+            "has_activity_auth": false,
+            "subject_name": null,
+            "can_order": true,
+            "org_type": "",
+            "org_address": "",
+            "flag_course": 1
+        },
+        "teach": {
+            "subject": [
+                {
+                    "name": "高一语文",
+                    "path": [
+                        {
+                            "id": "266",
+                            "name": "高中",
+                            "level": "1",
+                            "subnodes": "17",
+                            "display_order": "502",
+                            "hidden": "0",
+                            "parent_id": "0",
+                            "remark_name": "高中",
+                            "subject_type": "0",
+                            "verify_status": "1",
+                            "tag": "中学 中小学",
+                            "image": "http://img.gsxservice.com/0app/index3/icon_category_5.png",
+                            "teacher_count": "1",
+                            "is_deleted": "2",
+                            "remark": null
+                        },
+                        {
+                            "id": "272",
+                            "name": "语文",
+                            "level": "2",
+                            "subnodes": "4",
+                            "display_order": "11",
+                            "hidden": "0",
+                            "parent_id": "266",
+                            "remark_name": "高中语文",
+                            "subject_type": "0",
+                            "verify_status": "1",
+                            "tag": null,
+                            "image": "http://img.gsxservice.com/88014_wzjrzb9q.png",
+                            "teacher_count": "1",
+                            "is_deleted": "2",
+                            "remark": null
+                        },
+                        {
+                            "id": "274",
+                            "name": "高一",
+                            "level": "3",
+                            "subnodes": "0",
+                            "display_order": "3",
+                            "hidden": "0",
+                            "parent_id": "272",
+                            "remark_name": "高一语文",
+                            "subject_type": "0",
+                            "verify_status": "1",
+                            "tag": "一年级",
+                            "image": "http://img.gsxservice.com/108548_9onc2xah.png",
+                            "teacher_count": "1",
+                            "is_deleted": "2",
+                            "remark": null
+                        }
+                    ],
+                    "id": "49715",
+                    "price": {
+                        "teacher": "1",
+                        "student": "1",
+                        "discuss": "1",
+                        "online": "1"
+                    }
+                }
+            ],
+            "school_age": "1",
+            "approach": {
+                "1": "discuss",
+                "2": "online",
+                "4": "student",
+                "8": "teacher"
+            },
+            "access_area": [
+                "北京-北京-朝阳区"
+            ],
+            "skill": [
+                "受学生喜欢"
+            ],
+            "min_price": "1",
+            "max_price": "1"
+        },
+        "is_favored": 0,
+        "crumb": {
+            "list": {
+                "1": {
+                    "id": "140",
+                    "name": "小升初",
+                    "level": "1",
+                    "subnodes": "10",
+                    "display_order": "505",
+                    "hidden": "0",
+                    "parent_id": "0",
+                    "remark_name": "小升初",
+                    "subject_type": "0",
+                    "verify_status": "1",
+                    "tag": null,
+                    "image": "http://img.gsxservice.com/0app/index3/icon_category_4.png",
+                    "teacher_count": "1",
+                    "is_deleted": "2",
+                    "remark": null
+                },
+                "2": {
+                    "id": "143",
+                    "name": "语文",
+                    "level": "2",
+                    "subnodes": "1",
+                    "display_order": "6",
+                    "hidden": "0",
+                    "parent_id": "140",
+                    "remark_name": "小升初语文",
+                    "subject_type": "0",
+                    "verify_status": "1",
+                    "tag": null,
+                    "image": "http://img.gsxservice.com/87789_2d8cu2lz.png",
+                    "teacher_count": "1",
+                    "is_deleted": "2",
+                    "remark": null
+                },
+                "3": {
+                    "id": "144",
+                    "name": "语文",
+                    "level": "3",
+                    "subnodes": "0",
+                    "display_order": "1",
+                    "hidden": "0",
+                    "parent_id": "143",
+                    "remark_name": "小升初语文",
+                    "subject_type": "0",
+                    "verify_status": "1",
+                    "tag": null,
+                    "image": "http://img.gsxservice.com/87934_73skaxks.jpeg",
+                    "teacher_count": "1",
+                    "is_deleted": "2",
+                    "remark": null
+                }
+            },
+            "city": {
+                "id": "17039360",
+                "name": "北京",
+                "display_order": "0",
+                "level": "2",
+                "hidden": "0",
+                "bid": "131",
+                "bname": "北京市",
+                "tid": "110100"
+            }
+        },
+        "trial_course": {
+            "type": 5,
+            "status": -1,
+            "data": false
+        }
+    },
+    "ts": 1453531010,
+    "msg": "succ"
+}

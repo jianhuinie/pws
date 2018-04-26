@@ -1,0 +1,47 @@
+{{ *
+
+@file 老师用户中心 - 课程中心
+@author wangyujie
+
+* }}
+
+{{ extends file="../../common/base.html" }}
+
+{{ block name="title" }}
+课程排序 － 主页管理 － 跟谁学
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/userCenter/teacherCenter/courseSort/courseSort.styl" />
+{{ /block }}
+
+{{ block name="script" }}
+<script>
+require(
+    [
+        'userCenter/teacherCenter/common/layout',
+        'userCenter/teacherCenter/courseSort/courseSort'
+    ],
+    function (layout, courseList) {
+
+        {{ $php_data = $tpl_data }}
+
+        {{ if isset($tpl_data.is_huike_teacher) }}
+            {{ $is_huike_teacher = $tpl_data.is_huike_teacher }}
+        {{ else }}
+            {{ $is_huike_teacher = 0 }}
+        {{ /if }}
+
+        layout.init({
+            topMenu: 'userCenter',
+            sideMenu: 'courseSort',
+            isHuikeTeacher: {{ $is_huike_teacher }}
+        });
+
+        courseList.init(
+            {{ json_encode($php_data, 77) }}
+        );
+    }
+);
+</script>
+{{ /block }}

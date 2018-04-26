@@ -1,0 +1,170 @@
+/**
+ *
+ * @file 视频课详情页
+ * @author jixiaohui
+ *
+ */
+
+@import '../main/base.less';
+@import '../common/card.less';
+
+@import './common/layout.less';
+@import './detail/profile.less';
+@import './detail/author.less';
+@import './detail/summary.less';
+@import './detail/section.less';
+@import './detail/comment.less';
+@import '../common/component/recoverDialog.less';
+@import '../common/component/loginDialog.less';
+
+body {
+    background: #fff;
+}
+
+#nav {
+    box-shadow: none;
+}
+
+#main {
+    margin-top: 5px;
+}
+
+input[type="checkbox"] {
+    -webkit-appearance: checkbox;
+}
+
+#sidebar {
+    width: 266px;
+
+    .card {
+        margin-bottom: @gap-vertical-medium;
+    }
+
+    #sidebar-box {
+        width: 266px;
+    }
+
+    .fixed {
+        position: fixed;
+        top: 0;
+        z-index: 4;
+    }
+}
+
+#video-profile {
+    margin-bottom: @gap-vertical-medium;
+    box-shadow: none;
+    border-bottom: 1px solid #EBEBEB;
+}
+
+#favor {
+    .icon-favor {
+        margin-right: @gap-horizontal-tiny;
+    }
+    .hasfavored {
+        color: @brand-primary;
+    }
+}
+
+#content {
+    width: 820px;
+    box-shadow: none;
+
+    .card-body {
+        padding-right: 0;
+        padding-left: 0;
+        .activity-photo{
+            margin-top: -16px;
+            width: 100%;
+        }
+
+    }
+}
+
+#video-section,
+#video-content,
+#video-tags {
+    margin-top: @padding-vertical-content;
+}
+
+#video-content {
+    margin-top: 27px;
+    .content {
+        padding-top: 8px;
+        word-wrap: break-word;
+        word-break: break-all;
+        position: relative;
+        overflow: hidden;
+    }
+}
+
+#video-tags {
+    margin-top: 22px;
+
+    ul {
+        width: 100%;
+        height: 100%;
+        margin-top: 14px;
+        overflow: hidden;
+    }
+
+    li {
+        float: left;
+        color: #6187dc;
+        background: #E9F3FA;
+        padding: 3px 6px;
+        font-size: 12px;
+        border-radius: 5px;
+        margin: 0 10px 10px 0;
+    }
+}
+
+.mask {
+
+    z-index: 10;
+
+    &,
+    .alpha-mask,
+    .half-alpha-mask {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+
+    .half-alpha-mask {
+        background-color: #000;
+        .opacity(0.5);
+        bottom: auto;
+        height: 148px;
+    }
+
+    p {
+
+        color: #FFF;
+        font-size: 24px;
+        position: absolute;
+        top: 30px;
+        left: 50%;
+        text-align: center;
+
+        margin-left: -450px;
+
+        span {
+            font-size: 1.3em;
+        }
+    }
+
+}
+.change-usertype-dialog {
+    div {
+        text-align: center;
+    }
+}
+.msg-content-title-error {
+    color: @brand-error;
+}
+.write-comment-form {
+    margin-left: 35px;
+}

@@ -1,0 +1,52 @@
+{{ *
+
+@file 文章草稿列表
+@author zengcheng
+
+* }}
+
+{{ strip }}
+<div class="article-list">
+    {{ foreach $tpl_data.drafts as $draft }}
+    <div class="article" data-id="{{ $draft.id }}">
+        <div class="article-header">
+            {{ if $draft.top == 1 }}
+                <span class="article-label">顶</span>
+            {{ /if }}
+            <span class="article-title">
+                {{ $draft.title|cn_truncate:21|escape:"html" }}
+                {{ if $draft.has_img == 1 }}
+                    <i class="icon icon-picture"></i>
+                {{ /if }}
+            </span>
+            <span class="icon icon-img"></span>
+            <span class="article-operation">
+                <a class="operation operation-edit" href="javascript:void(0)">编辑</a>
+                <span class="operation-divider">|</span>
+                <a class="operation operation-del" href="javascript:void(0)">删除</a>
+            </span>
+        </div>
+        <div class="article-info">
+            分类: {{ $draft.category_name|escape:"html" }}
+        </div>
+        <div class="article-content">
+            {{ $draft.content|default:"..."|escape:"html"|truncate:222:"...":true }}
+        </div>
+        <div class="article-footer">
+            最后保存日期{{ $draft.publish_time }}
+        </div>
+    </div>
+    {{ foreachelse }}
+    <div class="no-article">
+        <div class="img-wrapper">
+            <div class="img"></div>
+        </div>
+        <div class="text-center">您的草稿箱是空的!</div>
+        <div class="text-center">
+            <a class="btn-small btn-primary btn-writer" href="javascript:void(0)">我要写文章</a>
+        </div>
+    </div>
+    {{ /foreach }}
+</div>
+{{ include "common/component/clientPager.html" show_count=8 count=$tpl_data.page.total page_size=10 page=$tpl_data.page.cp hide_jump=true }}
+{{ /strip }}

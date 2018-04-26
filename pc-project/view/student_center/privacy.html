@@ -1,0 +1,75 @@
+{{ *
+
+@file 学生隐私设置
+@author jiahuayan
+
+* }}
+
+{{ extends file="common/center/base.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $script_path = "studentCenter/privacy" }}
+    {{ $nav_active_tab = 'account' }}
+    
+{{ /block }}
+
+{{ block name="title" prepend }}
+隐私设置 -
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/common/center/privacy.less">
+{{ $smarty.block.parent }}
+{{ /block }}
+
+{{ block name="main" }}
+
+{{ strip }}
+
+{{ include file="student_center/common/privacySidebar.html" active="privacy" }}
+
+
+<div id="content" class="card">
+
+    <div class="card-header">
+        <h2>隐私设置</h2>
+    </div>
+
+    <div class="card-body">
+
+        <div class="settings">
+            <div class="item">
+                <div class="item-header">
+                    <strong>学习轨迹</strong>
+                    <p>设置个人学习轨迹他人是否可见</p>
+                    <div class="action">
+                        <button class="btn btn-link btn-toggle">设置</button>
+                    </div>
+                </div>
+                <div class="item-body">
+                    <form id="form-privacy" class="form">
+                        学习轨迹他人是否可见
+                        <div class="form-group">
+                            <label class="form-radio">
+                                <input type="radio" name="show" value="0" {{ if !$tpl_data.trajectory_hide }}checked {{ /if }}>公开，所有人可见
+                            </label>
+                            <label class="form-radio"><input type="radio" name="show" value="1" {{ if $tpl_data.trajectory_hide }}checked {{ /if }}>仅自己可见</label>
+
+                        </div>
+                        <div class="form-actioon">
+                            <button type="button" id="privacy-submit" class="btn btn-primary btn-save">保存</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{{ /strip }}
+{{ /block }}
+

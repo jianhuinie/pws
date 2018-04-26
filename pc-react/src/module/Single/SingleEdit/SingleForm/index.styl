@@ -1,0 +1,159 @@
+@import '../../../../resource/css/default.styl';
+
+.single {
+    &-confirm {
+        .ant-modal-body {
+            padding: 20px;
+        }
+        .ant-confirm-body {
+            > .anticon {
+                margin-right: 8px;
+                font-size: 12px;
+                color: $blue_400;
+                margin-top: 7px;
+                &:before {
+                    content: "\E62C";
+                }
+            }
+            .ant-confirm-title {
+                font-size: 12px;
+                color: #3C3D3E;
+                line-height: 12px;
+            }
+            .ant-confirm-content {
+                font-size: 12px;
+                color: #6D6D6E;
+                margin-left: 17px;
+            }
+        }
+        .ant-confirm-btns {
+            .ant-btn {
+                border-radius: 2px;
+                height: auto;
+                font-weight: normal;
+                font-size: 12px;
+                line-height: 12px;
+                padding: 5px 8px;
+            }
+            .ant-btn:first-child {
+                color: $grey_600;
+                border-color: $grey_100;
+                &:active, &:hover, &:focus {
+                    background-color: $white;
+                    color: $grey_600;
+                    border-color: $grey_100;    
+                }
+            }
+            .ant-btn:last-child {
+                background-color: $pink;
+                border-color: $pink;
+                color: $white;
+                &:active, &:hover, &:focus {
+                    background-color: $pink;
+                    border-color: $pink;
+                    color: $white;
+                }
+            }
+        }
+    }
+    &-form {
+        margin-top: 40px;
+        &-content {
+            &-cover {
+                .image-upload .ant-upload-list-picture-card{
+                    width: 375px;
+                    height: 211px;
+                }
+            }
+            & &-pay-type.ant-form-item {
+                margin-bottom: 30px;
+                .carousel-auto-complete {
+                    background: $white;
+                    border: 1px solid $grey_100;
+                    border-radius: 2px;
+                    height: 35px;
+                    width: 375px;
+                    .ant-select-selection {
+                        background-color: $white;
+                        height: 33px;
+                    }
+                    .ant-select-search {
+                        .ant-input {
+                            height: 33px;
+                        }
+                    }
+                }   
+            }
+            & &-start.ant-form-item {
+                .ant-form-explain {
+                    position: absolute;    
+                }
+            }
+            & &-end.ant-form-item {
+                margin-bottom: 0;
+                .ant-form-explain {
+                    position: relative;
+                    left: 194px;
+                    bottom: 22px;
+                }
+            }
+            & &-pay-sell {
+                margin-top: -30px;
+                .ant-checkbox-wrapper:hover .ant-checkbox-inner, .ant-checkbox:hover .ant-checkbox-inner, .ant-checkbox-input:focus + .ant-checkbox-inner {
+                    border-color: $pink;
+                }
+                .ant-checkbox-checked .ant-checkbox-inner {
+                    background-color: $pink;
+                    border-color: $pink;
+                }
+                .ant-checkbox-checked:after {
+                    border-color: $pink;
+                }
+            }
+            & &-sell {
+                margin-top: -20px;
+                .ant-input-affix-wrapper {
+                    width: 241px;
+                    font-size: 12px; 
+                    &:hover .ant-input:not(.ant-input-disabled) {
+                        border-color: $pink;
+                    }
+                }
+            }
+            & &-intro {
+                margin-bottom: 24px;
+                .ant-form-item-label {
+                    line-height: 32px;
+                }
+                &-operate {
+                    display: flex;
+                    &-btn {
+                        color: $grey_400;
+                        border: 1px solid $grey_100;
+                        border-radius: 2px;
+                        > span {
+                            display: inline-block;
+                            padding-right: 8px;
+                        }
+                        &:hover {
+                            color: $pink;
+                            border-color: $pink;
+                            span {
+                                &:before {
+                                    color: $pink;
+                                }
+                            }
+                        }  
+                    }
+                }
+            }
+            .form-operate-tip {
+                display: block;
+                font-size: 12px;
+                color: $grey_400;
+                line-height: 12px;
+                margin-top: 10px;
+            }
+        }
+    }
+}

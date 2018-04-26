@@ -1,0 +1,55 @@
+{
+    "code": 0,
+    "msg": "succ",
+    "data": [
+        {
+            "user_id": "341946",
+            "user_role": 0,
+            "user_number": "833133878",
+            "im_user_name": "31f683b42e33b4b31a688134dc9d0f45",
+            "avatar": "http://test-img.gsxservice.com/178732_jaqklapu.jpeg",
+            "status": "online",
+            "user_name": "陈枫",
+            "mobile": "18811469186",
+            "subject": [
+                "小升初语文",
+                "高考英语-英语"
+            ]
+        },
+        {
+            "user_id": "371",
+            "user_role": 0,
+            "user_number": "371696728",
+            "im_user_name": "8b6ae80X",
+            "avatar": "http://test-img.gsxservice.com/13870_8tu8ruo6.jpeg",
+            "status": "offline",
+            "user_name": "纪冰心",
+            "mobile": "13552611827",
+            "subject": [
+                "高考数学-数学（10-40人）"
+            ]
+        },
+        {
+            "user_id": "342075",
+            "user_role": 0,
+            "user_number": "835692198",
+            "im_user_name": "b140d7d615a982288862aeeaf8d2245a",
+            "avatar": "http://test-img.gsxservice.com/179855_xo0gktgn.jpeg",
+            "status": "offline",
+            "user_name": "丹丹new机构老师",
+            "mobile": "19999999995",
+            "has_pay": true,
+            "institution": {
+                "im_user_name": "ef2b2579934b8a31accecff957497478",
+                "user_name": "丹丹工作室简称"
+            },
+            "subject": [
+                "散打",
+                "烘焙",
+                "作曲",
+                "其他"
+            ]
+        }
+    ],
+    "ts": 1425362159
+}

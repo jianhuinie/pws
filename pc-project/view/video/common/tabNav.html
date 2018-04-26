@@ -1,0 +1,17 @@
+{{ strip }}
+
+<div class="tabs card">
+    <a href="#courseIntro" class="selected" data-log="introductions">简介</a>
+
+    <a href="#courseCatalog" data-log="contents">目录</a>
+
+    <a href="#courseDetail" data-log="detail">详情</a>
+
+    {{ if $tpl_data.material_info.total_count > 0 }}
+    <a href="#courseMaterial" data-log="data">资料</a>
+    {{ /if }}
+
+    <a href="#courseComment" data-log="commentab">评价</a>
+</div>
+
+{{ /strip }}

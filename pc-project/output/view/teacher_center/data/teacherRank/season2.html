@@ -1,0 +1,26 @@
+{{ $ranks = [] }}
+
+{{ $rank = [] }}
+{{ $rank.id = "pay-school" }}
+{{ $rank.header = "K12课酬榜" }}
+{{ $rank.data = $tpl_data.lesson_pay_school_rank }}
+{{ $rank.prompt = "打入老师账户的课酬,才能计入此排行榜。" }}
+{{ $ranks[] = $rank }}
+
+{{ $rank = [] }}
+{{ $rank.id = "pay-other" }}
+{{ $rank.header = "混合课酬榜" }}
+{{ $rank.data = $tpl_data.lesson_pay_other_rank }}
+{{ $rank.prompt = "打入老师账户的课酬,才能计入此排行榜。" }}
+{{ $ranks[] = $rank }}
+
+{{ $rank = [] }}
+{{ $rank.id = "student" }}
+{{ $rank.header = "学生数榜" }}
+{{ $rank.data = $tpl_data.student_count_rank }}
+{{ $rank.prompt = "单个订单实际支付课酬大于等于100元的学生，方可计入学生数排行榜。" }}
+{{ $ranks[] = $rank }}
+
+{{ $rank = [] }}
+
+{{ $activity_link = "/activity/teacherRank2" }}

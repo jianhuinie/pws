@@ -1,0 +1,34 @@
+{{ *
+
+@file 老师中心 - 我的消息
+@author zhangjiayi
+
+* }}
+
+{{ extends file="common/center/message.html" }}
+
+{{ block name="sidebar" }}
+    {{ include file="./common/sidebar.html" active="message" }}
+{{ /block }}
+
+{{ block name="content" }}
+{{ strip }}
+
+<div class="tab">
+    <div class="tab-nav-primary">
+        <b class="nav-item active" data-panel="user">用户消息</b>
+        <b class="nav-item" data-panel="sys">系统通知</b>
+        <b class="nav-item" data-panel="setting">短信通知设置</b>
+    </div>
+
+    <div class="tab-content">
+        <div class="tab-panel"></div>
+        <div class="tab-panel"></div>
+        <div class="tab-panel">
+            {{ include file="teacher_center/message/setting.html" }}
+        </div>
+    </div>
+</div>
+
+{{ /strip }}
+{{ /block }}

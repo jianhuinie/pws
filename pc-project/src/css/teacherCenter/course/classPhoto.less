@@ -1,0 +1,202 @@
+/**
+ * @file 课程照片
+ * @author wangyujie
+ */
+.info-body {
+    .clearfix();
+}
+
+.photo-showcase {
+    .info-header {
+        margin-bottom: 5px;
+        .edit {
+            min-width: 80px;
+            position: relative;
+            input[name="files"],
+            object {
+                .opacity(0);
+                width: 69px;
+                height: 29px;
+                position: absolute;
+                left: 0;
+                top: 0;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .info-body {
+        .drag-tip {
+            height: 35px;
+            line-height: 35px;
+            color: #c2a362;
+            background: #ffe9c7;
+            border: solid 1px #c2a362;
+            text-align: center;
+        }
+    }
+    .photo-list {
+        .icon-question-circle {
+            display: none;
+        }
+    }
+}
+
+.photo {
+    .save-order {
+        display: none;
+    }
+    .cancel-order {
+        display: none;
+    }
+    .drag-tip {
+        display: none;
+    }
+    .photo-list {
+        .caption {
+            visibility: hidden;
+        }
+        .first {
+            .img-thumbnail {
+                border-color: #f90;
+            }
+            .caption {
+                color: #f90;
+                visibility: visible;
+            }
+        }
+    }
+    &.enable-rank {
+        .save-order {
+            display: inline-block;
+        }
+        .cancel-order {
+            display: inline-block;
+        }
+        .drag-tip {
+            display: block;
+        }
+        .action-edit {
+            display: none;
+        }
+        .enable-order {
+            display: none;
+        }
+        .photo-list {
+            .img-thumbnail {
+                cursor: move;
+                &:after {
+                    background: transparent;
+                }
+                .action {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+.photo-list {
+    .clearfix();
+    overflow: hidden;
+    margin-left: -6px;
+    padding-top: @gap-vertical-medium;
+    -webkit-user-select: none;
+
+    > li {
+        float: left;
+        margin-bottom: @gap-vertical-small;
+        margin-left: 2px;
+    }
+
+    .message {
+        display: inline-block;
+        width: 144px;
+        vertical-align: text-bottom;
+        padding: @gap-vertical-tiny;
+        padding-left: 3 * @gap-horizontal-medium;
+        i {
+            top: 6px;
+        }
+    }
+    .message-audit {
+        border: 1px solid #f90;
+    }
+    .message-error {
+        border: 1px solid #fc5600;
+    }
+
+    .clearfix { // 第5、9个照片，清浮换行
+        clear: both;
+    }
+
+    .img-thumbnail,
+    .video-thumbnail {
+        border: solid 2px transparent;
+        width: 184px;
+        height: 105px;
+    }
+
+}
+
+.photo-form {
+
+    .wrapper {
+
+        .clearfix();
+        margin-top: 20px;
+
+        .image-uploader-wrapper,
+        .image-info {
+            float: left;
+        }
+
+        .form-group {
+            margin-top: @gap-vertical-huge;
+        }
+
+        .image-info {
+            padding-top: 10px;
+            width: 436px;
+
+            p {
+                line-height: 1.8em;
+            }
+        }
+
+        .image-uploader {
+            .image-preview {
+                background-color: @brand-text-lighter;
+            }
+            .image-preview, img {
+                width: 200px;
+                height: 112.5px;
+            }
+        }
+        .image-uploader-wrapper {
+            margin-right: @gap-horizontal-huge;
+            .form-hint {
+                font-size: 12px;
+                color: @brand-text-lighter;
+            }
+        }
+
+        .image-list {
+            text-align: center;
+            margin-top: 20px;
+            img + img {
+                margin-left: 16px;
+            }
+            img {
+                width: 188px;
+                height: 106px;
+            }
+            line-height: 0;
+        }
+    }
+
+    .form-text {
+        width: 12em;
+    }
+}
+

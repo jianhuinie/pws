@@ -1,0 +1,96 @@
+{{ *
+
+@file 搜索结果页 留单
+@author wangtianhua
+
+* }}
+
+{{ strip }}
+<div id="seek-teacher" class="card seek-teacher">
+    {{ if isset($title) }}
+    <div class="title">
+        {{ $title }}
+    </div>
+    {{ /if }}
+    <div class="form">
+        <div class="form-group">
+            <input type="text" placeholder="想学什么" name="subject" class="form-text" pattern="^[\u4d00-\u9fa5a-zA-Z][\u4d00-\u9fa5a-zA-Z\s\.·]*,*[\u4d00-\u9fa5a-zA-Z\s\.·]*$" required/>
+            <div class="subject-suggestion"></div>
+            <span class="error"></span>
+        </div>
+
+        <div class="form-group">
+            <input type="text" placeholder="您的姓名" name="name" class="form-text"pattern="^[\u4d00-\u9fa5a-zA-Z][\u4d00-\u9fa5a-zA-Z\s\.·]{1,}$" required />
+            <span class="error"></span>
+        </div>
+
+        <div class="form-group">
+
+            <input class="form-text" name="mobile" required placeholder="您的手机号" pattern="^1[34578](\d){9}$" />
+
+            <button class="btn btn-info form-get-smscode" disabled style="display: none">
+                获取校验码
+            </button>
+
+            <span class="error"></span>
+        </div>
+
+        <div class="form-group exp-price-group">
+            <div class="dropdown exp-price" required>
+                <button class="btn-default">
+                    <i class="caret"></i>
+                    <span>期望的价格</span>
+                </button>
+                <ul class="dropdown-menu">
+                    {{ include file="common/variable/expPrice.html" scope=parent }}
+                    {{ foreach $expPriceMap as $key => $name }}
+                        {{ if $name == '¥100-¥200' }}
+                            <div>
+                                <li data-value="{{ $name }}">
+                                    {{ $name }}
+                                </li>
+                                <span class="suggestion">建议</span>
+                            </div>
+                        {{ else }}
+                            <li data-value="{{ $name }}">
+                                {{ $name }}
+                            </li>
+                        {{ /if }}
+                    {{ /foreach }}
+                </ul>
+            </div>
+            <span class="error"></span>
+        </div>
+
+        <div class="form-group">
+            <input type="text" placeholder="请描述您的找老师详细需求" name="detail_info" class="form-text" required />
+            <span class="error"></span>
+        </div>
+
+        <div class="form-group support-online on">
+            接受线上授课
+        </div>
+
+        <div class="form-group form-sms">
+            <input class="form-text sms" name="verifycode" placeholder="请输入短信校验码" required pattern="^\d*$" />
+            <span class="error" ></span>
+        </div>
+
+        <div class="form-group captcha-box">
+            <input class="captcha-input form-text" type="text" name="captcha" required="" minlength="4" maxlength="4" placeholder="请输入图中的文字">
+            <span class="input-group-addon">
+                <img class="captcha-image" src="/captcha?captcha_name=signin&amp;1452326775555">
+            </span>
+            <span class="error" style="position: absolute; width: 119px; left: 213px; top: -19px;">
+                <i class="icon icon-times-circle"></i>
+                &nbsp;请输入验证码
+            </span>
+        </div>
+
+        <div class="buttons">
+            <button class="btn-save btn-primary">立即找好老师</button>
+        </div>
+    </div>
+</div>
+
+{{ /strip }}

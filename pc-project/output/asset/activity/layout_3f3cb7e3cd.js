@@ -1,0 +1,1 @@
+define('activity/layout_3f3cb7e3cd',['require','exports'],function(require,exports){'use strict';exports.init=function(){};});

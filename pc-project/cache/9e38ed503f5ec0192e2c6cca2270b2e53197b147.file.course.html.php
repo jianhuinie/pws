@@ -1,0 +1,17 @@
+<?php /* Smarty version Smarty-3.1.19, created on 2016-06-25 18:30:53 compiled from "/Users/bjhl/workspace/web-fe/view/common/siteNav/course.html" */ ?>
+<?php /*%%SmartyHeaderCode:275098369576e5d5d0faab9-25694824%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array ( 'file_dependency' => array ( '9e38ed503f5ec0192e2c6cca2270b2e53197b147' => array ( 0 => '/Users/bjhl/workspace/web-fe/view/common/siteNav/course.html', 1 => 1466835415, 2 => 'file', ), ), 'nocache_hash' => '275098369576e5d5d0faab9-25694824', 'function' => array ( ), 'variables' => array ( 'course' => 0, 'name' => 0, 'text' => 0, 'lessonMap' => 0, ), 'has_nocache_code' => false, 'version' => 'Smarty-3.1.19', 'unifunc' => 'content_576e5d5d118147_56623878',
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_576e5d5d118147_56623878')) {function content_576e5d5d118147_56623878($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_date_format')) include '/Users/bjhl/workspace/web-fe/mock/smarty/plugins/modifier.date_format.php';
+?> <a class="course"><?php if ($_smarty_tpl->tpl_vars['course']->value['lesson']['course_name_cut']!=$_smarty_tpl->tpl_vars['course']->value['lesson']['course_name']) {?><?php $_smarty_tpl->tpl_vars['text'] = new Smarty_variable(((' data-title="').($_smarty_tpl->tpl_vars['course']->value['lesson']['course_name'])).('"'), null, 0);?><?php } else { ?><?php $_smarty_tpl->tpl_vars['text'] = new Smarty_variable('', null, 0);?><?php }?><?php if ($_smarty_tpl->tpl_vars['course']->value['user']['name_cut']!=$_smarty_tpl->tpl_vars['course']->value['user']['name']) {?><?php $_smarty_tpl->tpl_vars['name'] = new Smarty_variable(((' data-title="').($_smarty_tpl->tpl_vars['course']->value['user']['name'])).('"'), null, 0);?><?php } else { ?><?php $_smarty_tpl->tpl_vars['name'] = new Smarty_variable('', null, 0);?><?php }?><div class="course-content"><div><span class="course-title"<?php echo $_smarty_tpl->tpl_vars['name']->value;?>
+><?php echo $_smarty_tpl->tpl_vars['course']->value['user']['name_cut'];?>
+</span><span class="course-name"<?php echo $_smarty_tpl->tpl_vars['text']->value;?>
+><?php echo $_smarty_tpl->tpl_vars['course']->value['lesson']['course_name_cut'];?>
+</span><span class="course-status"><?php echo $_smarty_tpl->tpl_vars['course']->value['lesson']['status_display'];?>
+</span></div><div><span class="course-date"><?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['course']->value['lesson']['start_time'],"%G-%m-%d");?>
+</span><span class="course-time"><?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['course']->value['lesson']['start_time'],"%H:%M-");?>
+<?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['course']->value['lesson']['end_time'],"%H:%M");?>
+</span><span class="course-way"><?php echo $_smarty_tpl->getSubTemplate ("common/variable/lesson.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 1);?>
+<?php echo $_smarty_tpl->tpl_vars['lessonMap']->value[$_smarty_tpl->tpl_vars['course']->value['lesson']['lesson_way']];?>
+</span></div></div><div class="avatar"><?php echo $_smarty_tpl->getSubTemplate ("common/component/image.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array('class'=>"avatar-small",'url'=>$_smarty_tpl->tpl_vars['course']->value['user']['avatar'],'width'=>60), 0);?>
+</div></a><?php }} ?>

@@ -1,0 +1,93 @@
+.right-nav-wrapper.on {
+    bottom: 0;
+    width: 100%;
+    font-size: rem(14);
+    z-index: 10000;
+    .wrapper {
+        background-color: rgba(255, 255, 255, 0.6);
+        height: 100%;
+        .content {
+	        -webkit-transform: translateX(rem(10));
+	        -moz-transform: translateX(rem(10));
+	        transform: translateX(rem(10));
+	        height: 100%;
+	    }
+    }
+}
+.right-nav-wrapper {
+	position: fixed;
+    z-index: 10;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    .wrapper {
+    	position: relative;
+        -webkit-transition: background-color 0.4s;
+        transition: background-color 0.4s;
+        background-color: transparent;
+        background-color: rgba(255,255,255,.6);
+    	height: 100%;
+    	.content {
+	    	box-shadow: 0 0 rem(30) rgba(0, 0, 0, 0.5);
+	        display: block;
+	        position: absolute;
+	        top: 0;
+	        right: 0;
+	        -webkit-transition: transform 0.4s cubic-bezier(0.175, .885, .32, 1.1) 0s;
+	        -moz-transition: transform 0.4s cubic-bezier(0.175, .885, .32, 1.1) 0s;
+	        transition: transform 0.4s cubic-bezier(0.175, .885, .32, 1.1) 0s;
+	        width: rem(270);
+	        height: 100%;
+	        -webkit-transform: translateX(rem(280));
+	        -moz-transform: translateX(rem(280));
+	        transform: translateX(rem(280));
+	        background-color: #fff;
+	        .header {
+	        	height: rem(200);
+	        	position: relative;
+	        	img {
+	        		position: absolute;
+				    top: rem(60);
+				    left: rem(95);
+				    width: rem(80);
+	        	}
+	        }
+	        .body {
+	        	ul {
+	        		li {
+	        			background:#ffffff;
+						box-shadow:rem(0) rem(0) rem(0) rem(0) #ebeced, rem(0) rem(0) rem(0) rem(0) #ebeced;
+						width: 100%;
+						height: rem(44);
+						font-size: rem(14);
+						color:#3d3d3e;
+						letter-spacing:rem(0.15);
+						line-height: rem(44);
+						border-bottom: rem(1) solid #f5f5f6;
+						position: relative;
+						.title {
+							margin-left: rem(16);
+						}
+						.icon-chevron-thin-right {
+							position: absolute;
+						    right: rem(16);
+						    top: rem(14);
+						    color: #9d9e9e;
+						}
+	        		}
+	        	}
+	        }
+	        .footer {
+	        	position: absolute;
+	        	bottom: rem(40);
+	        	width: 100%;
+				font-size: rem(12);
+				color:#9d9d9e;
+				letter-spacing:rem(0.12);
+				text-align:center;
+	        }
+	    }
+    }
+
+}

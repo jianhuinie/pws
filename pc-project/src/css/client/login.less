@@ -1,0 +1,146 @@
+/**
+ * @file 客户端登录页
+ * @author zhangliyuan
+ */
+
+@import './main.less';
+
+body {
+    background: url(../../img/client/client-background.jpeg) no-repeat center top;
+    overflow: hidden;
+    font-family: "PingHei","Hiragino Sans GB","Microsoft YaHei";
+}
+
+.client-login-form {
+    background: url(../../img/client/client-login.png) no-repeat;
+    width: 430px;
+    height: 310px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -215px;
+    margin-top: -155px;
+    padding-top: 139px;
+    padding-left: 103px;;
+}
+
+@input-width: 167px;
+@input-height: 29.8px;
+
+.client-login-phone,
+.client-login-password {
+    width: @input-width;
+    height: @input-height;
+    font-size: 90%;
+    border-width: 1px;
+    border-color: #ccc;
+    padding-left: 9px;
+}
+
+.client-login-phone {
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+    height: 29px;
+}
+
+.client-login-password {
+    border-style: none solid solid solid;
+    border-width: 0px 1px 1px 1px;
+    height: 29px;
+}
+
+.client-input {
+    margin-top: 28px;
+}
+
+.client-action {
+    width: 297px;
+    margin-top: 18px;
+}
+
+.btn-primary {
+    width: 70%;
+}
+
+@info-text-space: -1px;
+@info-text-margin-left: 12px;
+
+.text-success,
+.text-info {
+    letter-spacing: @info-text-space;
+    margin-left: @info-text-margin-left;
+    font-size: 90%;
+}
+
+.text-info {
+    display: none;
+}
+
+.icon {
+    background: none repeat scroll 0 0 #e6e4e1;
+    float: left;
+    font-size: 110%;
+    padding: 7px 5px 6px 5px;
+    border-color: #ccc;
+}
+
+.icon-mobile,
+.icon-lock {
+    float: left;
+    width: 19px;
+    height: 19px;
+    padding: 6px 5px 6px 5px;
+
+    border-color: #ccc;
+    background: #E6E4E1;
+}
+
+.icon-mobile {
+    border-width: 1px 0px 1px 1px;
+    border-style: solid none solid solid;
+}
+
+.icon-lock {
+    border-width: 0px 0px 1px 1px;
+    border-style: none none solid solid;
+}
+
+.icon.icon-mobile {
+    border-style: solid none solid solid;
+    border-width: 1px 0px 1px 1px;
+}
+
+.icon.icon-lock {
+    border-style: none none solid solid;
+    border-width: 0px 0px 1px 1px;
+}
+
+.text-error {
+    color: #f00;
+    font-size: 90%;
+    left: 14%;
+    position: relative;
+    top: 6.5%;
+}
+
+.login-icon {
+    height: 17px;
+    width: 17px;
+    margin-left: 4px;
+    margin-bottom: -2px;
+}
+
+.toggle-role {
+    cursor: pointer;
+}
+
+.form-group {
+    padding: 0;
+    clear: both;
+    float: none;
+}
+
+.form-container {
+    clear: both;
+    float: none;
+}

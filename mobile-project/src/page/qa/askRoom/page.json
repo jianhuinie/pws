@@ -1,0 +1,7 @@
+[
+    {
+        "tpl": "./index.tpl",
+        "router": "/qa/askroom",
+        "mock_data": "./mock/index.json"
+    }
+]

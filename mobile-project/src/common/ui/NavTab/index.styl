@@ -1,0 +1,29 @@
+.nav-tab-container {
+	width: 100%;
+    display: inline-flex;
+    background: #fff;
+    height: rem(44);
+    line-height: rem(44);
+    font-size: rem(17);
+    color: #6D6D6E;
+    border-bottom: 1px solid #edf0f0;
+	.nav-tab-item {
+		flex: 1;
+		text-align: center;
+		position: relative;
+	}
+	.active {
+		color: #ff9100;
+		&:after {
+			content: '';
+		    border: 1px solid #ff9100;
+		    width: 60%;
+		    display: block;
+		    /* margin-bottom: 10px; */
+		    position: absolute;
+		    bottom: rem(0);
+		    left: 50%;
+    		transform: translate(-50%, 0);
+		}
+	}
+}

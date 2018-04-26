@@ -1,0 +1,256 @@
+{{ *
+
+@file 选择平台支付方式
+@author zhujialu, liucong
+
+* }}
+
+{{ strip }}
+
+{{ function getCouponList }}
+<tr>
+    <td class="label left" width="20%">
+        {{ if $is_radio }}
+        <label>
+            <input type="radio" name="available-coupon" value="{{ $item.usable_money }}" data-id="{{ $item.coupon_id }}" data-value="{{ $item.balance }}"/>
+            {{ if $item.type == '11' }}
+                {{ $item.balance }}元
+            {{ else if $item.type == '13' }}
+                {{ if $item.discount != 0 }}
+                    {{ $item.discount }}折
+                {{ else }}
+                    免单券
+                {{ /if }}
+            {{ /if }}
+        </label>
+        {{ else }}
+            {{ if $item.type == '11' }}
+            {{ $item.balance }}元
+            {{ else if $item.type == '13' }}
+                {{ if $item.discount != 0 }}
+                    {{ $item.discount }}折
+                {{ else }}
+                    免单券
+                {{ /if }}
+            {{ /if }}
+        {{ /if }}
+    </td>
+
+    <td class="discount left" width="35%">
+    {{ * 使用条件 * }}
+
+    {{ * 一般情况下 有啥限制条件就显示啥
+         course_type会融合到teacher和org里面显示
+         如果有且仅有course_type的限制
+         那么course_type需要单独显示 * }}
+
+    {{ if empty($item.cond_video) }}
+        {{ $only_has_course_type_cond = (empty($item.cond_teacher) && empty($item.cond_organization)) && !empty($item.cond_course_type) }}
+
+        {{ if $item.is_common == '0' }}
+            {{ if isset($item.cond_plat_limit) && $item.cond_plat_limit == "1" }}
+            带<span class="icon-new-coupon"></span>标识的老师可使用<br/>
+            {{ else }}
+            不限<br/>
+            {{ /if }}
+        {{ /if }}
+
+        {{ * 最多抵扣 * }}
+
+        {{ if isset($item.threshold) && $item.threshold > 0 }}
+            满{{ $item.threshold }}<br/>
+        {{ /if }}
+
+        {{ if !empty($item.max_discount_money) }}
+            最多抵扣{{ $item.max_discount_money }}<br/>
+        {{ /if }}
+
+        {{ if !empty($item.cond_teacher) }}
+        {{ foreach $item.cond_teacher as $teacher }}
+        {{ $teacher.name_cut }}
+        {{ if !$teacher@last }}
+        、
+        {{ /if }}
+        {{ /foreach }}
+        主讲的
+        {{ if !empty($item.cond_course_type) }}
+            {{ foreach $item.cond_course_type as $course_type }}
+            {{ $course_type }}
+            {{ if !$course_type@last }}
+            、
+            {{ /if }}
+            {{ /foreach }}
+        {{ /if }}
+        课程<br/>
+        {{ /if }}
+
+        {{ if !empty($item.cond_organization) }}
+        {{ foreach $item.cond_organization as $org }}
+        {{ $org.name }}
+        {{ if !$org@last }}
+        、
+        {{ /if }}
+        {{ /foreach }}
+        的
+        {{ if !empty($item.cond_course_type) }}
+            {{ foreach $item.cond_course_type as $course_type }}
+            {{ $course_type }}
+            {{ if !$course_type@last }}
+            、
+            {{ /if }}
+            {{ /foreach }}
+        {{ /if }}
+        课程<br/>
+        {{ /if }}
+
+        {{ if $item.cond_tid == 1 }}
+        APP专享<br/>
+        {{ /if }}
+
+        {{ if !empty($item.cond_subject) }}
+        {{ foreach $item.cond_subject as $subject }}
+        {{ $subject.name }}
+        {{ if !$subject@last }}
+        、
+        {{ /if }}
+        {{ /foreach }}
+        类课程<br/>
+        {{ /if }}
+
+        {{ if $only_has_course_type_cond }}
+            {{ if !empty($item.cond_course_type) }}
+            {{ foreach $item.cond_course_type as $course_type }}
+            {{ $course_type }}
+            {{ if !$course_type@last }}
+            、
+            {{ /if }}
+            {{ /foreach }}
+            课程<br/>
+            {{ /if }}
+        {{ /if }}
+
+        {{ if !empty($item.cond_class) }}
+            {{ if $item.cond_course_type == 4 }}
+                <a class="text-info" href="{{ $origin_http }}/org_class_course/detail/{{ $item.cond_class[0].number }}" data-title="{{ $item.cond_class[0].name }}">
+                    {{ $item.cond_class[0].name|truncate:12 }}等班课
+                </a>
+            {{ else }}
+                <a class="text-info" href="{{ $origin_http }}/teacher/classCourseDetail?number={{ $item.cond_class[0].number }}" data-title="{{ $item.cond_class[0].name }}">
+                    {{ $item.cond_class[0].name|truncate:12 }}等班课
+                </a>
+            {{ /if }}
+        {{ /if }}
+
+    {{ else }}
+        {{ if $item.is_common == '0' }}
+            {{ if isset($item.cond_plat_limit) && $item.cond_plat_limit == "1" }}
+            带<span class="icon-new-coupon"></span>标识的老师可使用<br/>
+            {{ else }}
+            不限<br/>
+            {{ /if }}
+        {{ /if }}
+        购买【{{ $item.cond_video[0].name|truncate:12 }}】等视频课可用
+    {{ /if }}
+    </td>
+
+    <td class="effect-time right" width="45%">
+    有效期：{{ $item.effect_time|truncate:10:'' }}至{{ $item.expire_time|truncate:10:'' }}
+    </td>
+</tr>
+{{ /function }}
+
+<div class="order-money">
+    <div class="pay-select">
+        <div class="way">
+            <div class="account-other{{ if (!empty($coupon) && !empty($coupon.available)) || (isset($account.valid_prize) && $account.valid_prize > 0) }} can-be-used{{ /if }}">
+                {{ include file="common/ui/checkbox.html" disabled=false text="使用优惠券" }}
+
+                <div>
+                    <div class="account-coupon" >
+
+                        <div class="box">
+                            <ul class="box-tabs">
+                                <li class="active" data-for="available">可用优惠券</li>
+                                <li data-for="code">输入优惠码</li>
+                                <li class="last" data-for="unavailable">不可用优惠券</li>
+                            </ul>
+                            <div class="box-body">
+                                <div class="available{{ if empty($coupon) || empty($coupon.available) }} no-coupon{{ /if }}">
+                                    {{ if !empty($coupon) && !empty($coupon.available) }}
+                                    <table>
+                                        {{ foreach $coupon.available as $available_coupon }}
+                                            {{ getCouponList item=$available_coupon is_radio=true }}
+                                        {{ /foreach }}
+                                    </table>
+                                    {{ else }}
+                                    暂时没有优惠码哦~
+                                    {{ /if }}
+                                </div>
+
+                                <div class="code">
+                                    <div>
+                                        <input class="form-text" type="text" name="coupon-code" id="coupon-code">
+                                    </div>
+                                    <div class="action">
+                                        <button class="btn-default" id="disuse-coupon" disabled="true">取消</button>
+                                        <button class="btn-primary" id="use-coupon">使用</button>
+                                    </div>
+                                    <span class="coupon-tips"></span>
+                                </div>
+
+                                <div class="unavailable{{ if empty($coupon) || empty($coupon.unavailable) }} no-coupon{{ /if }}">
+                                    {{ if !empty($coupon) && !empty($coupon.unavailable) }}
+                                    <table>
+                                        {{ foreach $coupon.unavailable as $unavailable_coupon }}
+                                            {{ getCouponList item=$unavailable_coupon is_radio=false }}
+                                        {{ /foreach }}
+                                    </table>
+                                    {{ else }}
+                                    暂时没有优惠码哦~
+                                    {{ /if }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="result">
+            {{ *<div>奖学金抵扣：<strong>-￥<span id="prize-deducts">0</span></strong></div>* }}
+            <div>优惠券抵扣：<strong>-￥<span id="coupon-deducts">0</span></strong></div>
+        </div>
+    </div>
+
+    <div class="pay-amount">
+        应付总额：
+        <span class="text-error">
+            ￥
+            <strong class="pay-amount-value">
+            {{ $order.pay_money|number_format:2 }}
+            </strong>
+        </span>
+    </div>
+
+    <div class="stage">
+        {{ if $tpl_data.choice_fenqi == 1 }}
+            {{ if isset($tpl_data.fenqi_data) && !empty($tpl_data.fenqi_data) }}
+                {{ include file="common/ui/checkbox.html" disabled=false checked=true text="花呗分期" }}
+                <span class="stage-detail">¥
+                    <span class="repayment-period">{{ $tpl_data.fenqi_data.every_periods_repayment }}</span> x
+                    <span class="periods">{{ $tpl_data.fenqi_data.periods }}</span>
+                     期
+                </span>
+                <span class="change-stage">修改分期</span>
+            {{ else }}
+                {{ include file="common/ui/checkbox.html" disabled=true text="花呗分期" }}
+                <span class="warning">订单金额低于500不能进行分期</span>
+            {{ /if }}
+        {{ else }}
+
+        {{ /if }}
+    </div>
+
+</div>
+{{ /strip }}

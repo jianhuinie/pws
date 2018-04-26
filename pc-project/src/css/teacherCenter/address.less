@@ -1,0 +1,103 @@
+/**
+ * @file 地址管理
+ * @author wangyujie
+ */
+
+@import '../common/center/common/layout.less';
+@import './component/form.less';
+@import './component/form-address.less';
+
+#content {
+
+    .card-body {
+        min-height: 165px;
+    }
+
+    .inland-address {
+    }
+
+    .foreign-address {
+        display: none;
+        .country-select {
+            // width: 135px;
+            background-color: #fff;
+            border-right: none;
+            border-top-left-radius: 2px;
+            border-bottom-left-radius: 2px;
+            position: relative;
+            cursor: pointer;
+            .icon-region-flag {
+                background: url(../../img/icon/region_flags.png) no-repeat;
+                width: 16px;
+                height: 11px;
+                margin-right: 5px;
+            }
+            .dropdown-menu {
+                width: 201px;
+                top: 36px;
+                text-align: left;
+                li {
+                    position: relative;
+                }
+            }
+            .alphabet {
+                background-color: #E4E4E4;
+                color: @brand-text;
+                font-weight: bold;
+            }
+        }
+        .foreign-editor {
+            position: relative;
+            textarea {
+                width: 320px;
+                height: 80px;
+            }
+            .form-hint {
+                position: absolute;
+                right: 0;
+            }
+        }
+    }
+
+    .address-list {
+        .summary {
+            margin-bottom: @gap-vertical-small;
+        }
+
+        th,td {
+            text-align: left;
+        }
+
+        .pca {
+            min-width: 170px;
+            span {
+                margin-right: @gap-vertical-tiny;
+            }
+        }
+
+        .op {
+            text-align: center;
+        }
+
+        .operation {
+            width: 180px;
+            .line {
+                margin: 0 2px;
+            }
+            .btn-link {
+                color: @brand-info;
+            }
+            .label {
+                margin-left: @gap-horizontal-small;
+            }
+        }
+    }
+
+    .no-data {
+        .vertical-middle(150px);
+        text-align: center;
+        width: 100%;
+    }
+}
+
+

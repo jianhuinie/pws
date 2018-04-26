@@ -1,0 +1,82 @@
+/**
+ * @file 批量添加课节
+ * @author wangtianhua
+ */
+.add-more-course {
+    .date-schedule-form {
+        margin-top: 10px;
+        padding: 14px 0;
+        .group {
+            vertical-align: -webkit-baseline-middle;
+            margin-left: 10px;
+            &.date-list {
+                margin-left: 20px;
+                .texts > .text + .text.fluid {
+                    margin-top: 0;
+                }
+            }
+            &.delete-group {
+                margin-left: 25px;
+            }
+        }
+    }
+    .group {
+        margin-left: 10px;
+        &.floated {
+            margin-left: 185px !important;
+        }
+        .controls {
+            display: inline-block;
+            .org-teachers-select {
+                width: 160px;
+                margin-bottom: 20px;
+            }
+            .minute-select,
+            .hour-select {
+                width: 80px;
+            }
+            .hour-select {
+                width: 100px;
+            }
+            .duration-select {
+                width: 102px;
+            }
+            .button {
+                background-color: $grey;
+            }
+            .checkboxes {
+
+                .label {
+                    width: 30px;
+                }
+            }
+        }
+        .label {
+            vertical-align: top;
+        }
+    }
+    .add-new-lesson {
+        border-top: 1px solid #f8f8f8;
+        padding: 20px 0;
+        width: 124px;
+        .icon-plus-o {
+            padding-right: 10px;
+        }
+    }
+    .icon-exclamation-o {
+        padding-right: 10px;
+    }
+    .footer {
+        text-align: center;
+        margin: 10px 0;
+        .button {
+            width: 120px;
+            height: 40px;
+            font-size: 16px;
+            line-height: 24px;
+        }
+        .block {
+            margin: 10px;
+        }
+    }
+}

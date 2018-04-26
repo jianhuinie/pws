@@ -1,0 +1,99 @@
+ .promotion-slider-container {
+    width: 730px;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+
+    &:hover {
+        .promotion-slider-left,
+        .promotion-slider-right {
+            display: block;
+        }
+    }
+
+    .promotion-slideritem {
+        b {
+            cursor: pointer;
+        }
+    }
+
+    .promotion-slider-left,
+    .promotion-slider-right {
+        color: #fff;
+        background-color: #000;
+        .opacity(0.3);
+        display: none;
+
+
+        &:hover {
+            .opacity(0.6);
+        }
+
+        position: absolute;
+        top: 50%;
+        margin-top: -20px;
+        width: 30px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 20px;
+        text-align: center;
+
+        i {
+            position: relative;
+            top: 2px;
+            right: 2px;
+        }
+    }
+    .promotion-slider-left {
+        left: 0px;
+    }
+    .promotion-slider-right {
+        right: 0px;
+
+        i {
+            left: 1px;
+        }
+    }
+    .promotion-slider {
+        position:absolute;
+        .clearfix();
+
+        a {
+            display: block;
+        }
+
+        li {
+            float: left;
+            height: 278px;
+        }
+    }
+
+    .promotion-slider-nav {
+        display: inline-block;
+        .clearfix();
+        margin-top: 278px;
+
+        li {
+            float: left;
+        }
+
+        span {
+            text-indent: -9999px;
+            display: block;
+            width: 10px;
+            height: 10px;
+            border-radius: 5px;
+            background: @brand-gray;
+            margin-left: @gap-horizontal-tiny;
+            opacity: 0.9;
+            cursor: pointer;
+
+            &.active {
+                opacity: 1;
+                background: @brand-primary;
+                position: relative;
+            }
+        }
+    }
+}

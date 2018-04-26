@@ -1,0 +1,46 @@
+{{ *
+    汇课间登录
+    author：wangtianhua
+* }}
+
+{{ extends file="../common/base.html" }}
+
+{{ block name="data" }}
+    {{ $smarty.block.parent }}
+    {{ $need_baidu_map = false }}
+{{ /block }}
+
+{{ block name="keywords" }}{{ $tpl_data.keywords }}{{ /block }}
+{{ block name="description" }}{{ $tpl_data.description }}{{ /block }}
+{{ block name="baidu-site-verification" }}ZdXouUVHvV{{ /block }}
+{{ block name="title" }}
+    {{ $tpl_data.title }}
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/userCenter/login/login_6597b89046.css">
+{{ /block }}
+
+{{ block name="script" }}
+<script>
+require(
+    [
+        'userCenter/teacherCenter/common/layout_fca6630c9a',
+        'userCenter/login/login_d3074ef512'
+    ],
+    function (layout, login) {
+        layout.init({
+            topMenu: 'userCenter',
+            sideMenu: 'indexDecorate',
+            isIframe: false
+        });
+
+        {{ $script_data = $tpl_data }}
+
+        login.init(
+            {{ json_encode($script_data, 77) }}
+        );
+    }
+);
+</script>
+{{ /block }}

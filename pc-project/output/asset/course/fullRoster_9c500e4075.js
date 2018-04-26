@@ -1,0 +1,1 @@
+define('course/fullRoster_9c500e4075',['require','exports'],function(require,exports){'use strict';exports.init=function(){$(document).ready(function(){window.print();});};});

@@ -1,0 +1,110 @@
+{{ *
+
+@file 评论列表
+@author wangyujie
+
+* }}
+
+{{ strip }}
+
+
+<div class="list">
+    {{ foreach $tpl_data.comments as $item }}
+    <div class="item">
+
+        <dl>
+            <dt>
+                <a href="/x/{{ $item.student_number }}?source={{ $tpl_data.params.source }}&plan={{ $tpl_data.params.plan }}&group={{ $tpl_data.params.group }}&keyword={{ $tpl_data.params.keyword }}&q={{ $tpl_data.params.q }}" target="_blank">
+                    {{ include file="common/component/avatar.html" type="small" img=$item.student_avatar }}
+                </a>
+            </dt>
+        </dl>
+
+        <div class="comment">
+            <div class="user-name">
+                {{ $item.student_name }}
+            </div>
+
+            <div class="score-info">
+
+                <span class="score-face">
+                    {{ if $item.face_type == 1 }}
+                        <i class="icon icon-smile-o"></i>好评
+                    {{ else if $item.face_type == 2 }}
+                        <i class="icon icon-neutral-o"></i>中评
+                    {{ else if $item.face_type == 3 }}
+                        <i class="icon icon-frown-o"></i>差评
+                    {{ /if }}
+                </span>
+
+                <!-- 2015-04-22 邀请评价不展示描述情况-->
+                {{ include file="common/component/starScore.html" score=5 fr=3 }}
+                <span>
+                    描述相符：{{ $item.desc_match }}
+                </span>
+                <span>
+                    教学态度：{{ $item.service_attitude }}
+                </span>
+                <span>
+                    响应速度：{{ $item.teach_result }}
+                </span>
+            </div>
+
+            <div class="content">
+                {{ $item.info }}
+            </div>
+
+
+            {{ if !empty($item.photo_list) }}
+            <div class="comment-photo-box">
+                <ul class="comment-photo-list">
+                    {{ foreach $item.photo_list as $ones }}
+                    <li class="photo-item" data-image="{{ $ones.url }}" data-name="{{ $ones.title }}" {{ include file="common/variable/zoomPhoto.html" url=$ones.url raw_width=$ones.width raw_height=$ones.height width=400 height=300 }} data-horizontal="{{ $photo }}" data-hheight="{{ $fit_height }}"
+
+                    {{ include file="common/variable/zoomPhoto.html" url=$ones.url raw_width=$ones.height raw_height=$ones.width width=300 height=400 }} data-vertical="{{ $photo }}" data-vheight="{{ $fit_height }}"
+
+                    >
+                        {{ include file="common/variable/photo.html" url=$ones.url raw_width=$ones.width raw_height=$ones.height width=80 height=60 }}
+                        <img src="{{ $photo }}">
+                    </li>
+                    {{ /foreach }}
+                </ul>
+                <div class="comment-photo-player" style="display:none;">
+                    <ul class="photo-action">
+                        <li class="packup"><i class="photo-icon photo-packup"></i>收起</li>
+                        <li class="sourse"><i class="photo-icon photo-sourse"></i>原图</li>
+                        <li class="left"><i class="photo-icon photo-left"></i>向左转</li>
+                        <li class="right"><i class="photo-icon photo-right"></i>向右转</li>
+                    </ul>
+                    <div class="photo-wrapper">
+                    {{ *垂直居中* }}
+                    {{ *margin-bottom:-{{ $fit_height/2 }}px;* }}
+                        <div class="floater" style=""></div>
+                        <img src="" class="rotate-img">
+                    </div>
+                    <div class="photo-name">
+                    </div>
+                </div>
+            </div>
+            {{ /if }}
+
+            <div class="order-info">
+                <span data-title="{{ $item.course_name }}" data-width="10em">
+                    班课：{{ $item.course_name|cn_truncate:8 }}
+                </span>
+                <span>在线授课</span>
+                <span>{{ $item.course_len }} 小时</span>
+                <span class="date">{{ $item.create_time }}</span>
+                <span class="">价格：{{ $item.price }}元</span>
+                <a class="btn-link" href="/teacher/classCourseDetail/{{ $item.course_number }}?source={{ $tpl_data.params.source }}&plan={{ $tpl_data.params.plan }}&group={{ $tpl_data.params.group }}&keyword={{ $tpl_data.params.keyword }}&q={{ $tpl_data.params.q }}" target="_blank">顺便看看</a>
+            </div>
+        </div>
+
+    </div>
+    {{ /foreach }}
+</div>
+
+
+{{ include file="common/component/pager.html" page=$tpl_data.pager.page page_size=$tpl_data.pager.page_size count=$tpl_data.pager.count nofollow=true }}
+
+{{ /strip }}

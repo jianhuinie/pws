@@ -1,0 +1,371 @@
+{{ *
+
+@file 支付订单
+@author zhujialu, liucong
+
+* }}
+
+{{ extends file="common/main/base.html" }}
+
+{{ block name="data" }}
+
+    {{ $need_im = false }}
+    {{ $smarty.block.parent }}
+    {{ $flotage_config.hidden = 1 }}
+
+    {{ $script_path = "pay/pay" }}
+
+    {{ $purchase_id = $tpl_data.purchase_id }}
+    {{ $purchase_type = $tpl_data.purchase_type }}
+
+    {{ $script_data.purchaseId = $purchase_id }}
+    {{ $script_data.purchaseType = $purchase_type }}
+    {{ $script_data.money = $tpl_data.need_pay_money }}
+
+    {{ $has_bind_card = isset($tpl_data.bank_info) && count($tpl_data.bank_info) > 0 }}
+
+    {{ $script_data.hasBindCard = $has_bind_card }}
+
+    {{ $script_data.hasPasswd = $tpl_data.has_passwd }}
+
+    {{ if $has_bind_card }}
+        {{ $script_data.bankInfoList = $tpl_data.bank_info }}
+    {{ /if }}
+
+    {{ if isset($tpl_data.balance_pay) && $tpl_data.balance_pay }}
+        {{ $pay_by_balance_default = $tpl_data.balance_pay.balance >= $tpl_data.need_pay_money }}
+        {{ if $pay_by_balance_default && !$tpl_data.balance_pay.can_use_balance }}
+            {{ $pay_by_balance_default = false }}
+        {{ /if }}
+    {{ else }}
+        {{ $pay_by_balance_default = false }}
+    {{ /if }}
+
+    {{ $script_data.payByBalanceDefault = $pay_by_balance_default }}
+
+{{ /block }}
+
+
+{{ * SKU统计上报 * }}
+{{ block name='sku_id' }}
+{{ $sku_id=$tpl_data.purchase_id }}
+{{ /block }}
+
+
+{{ block name="title" prepend }}
+支付 -
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/pay/pay.less">
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+
+
+<div id="main" class="card">
+
+    {{ if isset($tpl_data.notice) && $tpl_data.notice }}
+        <div class="message-error pay-notice">
+            公告：
+            <span>
+              {{ $tpl_data.notice  }}
+            </span>
+        </div>
+    {{ /if }}
+
+    <div class="pay-tip">
+        <div class="wrapper">
+            <div class="pay-money">
+                <div>支付金额：</div>
+                <div class="money text-error">
+                    ￥{{ $tpl_data.need_pay_money }}
+                </div>
+            </div>
+            <div class="purchase-info">
+                <div class="result">订单提交成功！付款喽~</div>
+                <div>
+                    <span class="purchase-id">
+                        订单号：{{ $purchase_id }}
+                    </span>
+
+                    {{ * 老师会员订单不需要显示这句话 * }}
+                    {{ if $purchase_type != 22 }}
+                    <span>
+                        请您在提交订单后<strong>
+                        {{ if $purchase_type == 25 || $purchase_type == 29 }}
+                            {{ * 考研联报课、组合课 * }}
+                            24小时
+                        {{ else if $tpl_data.course_type == 2 }}
+                            {{ * 班课 * }}
+                            {{ if $tpl_data.in_activity == 1 }}
+                                10分钟
+                            {{ else }}
+                                45分钟
+                            {{ /if }}
+                        {{ else if $tpl_data.course_type == 3 }}
+                            {{ * 视频课 * }}
+                            {{ if $tpl_data.in_activity == 1 }}
+                                10分钟
+                            {{ else }}
+                                7天
+                            {{ /if }}
+                        {{ else }}
+                            7天
+                        {{ /if }}</strong>内完成支付，否则订单会自动取消
+                    </span>
+                    {{ /if }}
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{ $show_balance_pay = isset($tpl_data.balance_pay) && $tpl_data.balance_pay }}
+    {{ $show_card_pay = isset($tpl_data.show_bind_card) && $tpl_data.show_bind_card }}
+
+    <div class="pay-way">
+
+        <h4>选择支付方式</h4>
+
+        {{ if $show_balance_pay || $show_card_pay }}
+        <div class="normal-pay">
+
+            {{ function balancePay }}
+                {{ if $show_balance_pay }}
+                <div class="pay-row pay-selector">
+                    <label class="form-radio pay-radio">
+                        <input type="radio" name="payWay" value="1"
+                        {{ if $pay_by_balance_default }}
+                            checked
+                        {{ /if }}
+                        {{ if !$tpl_data.balance_pay.can_use_balance }}
+                            disabled
+                        {{ /if }}
+                        >
+                        账户余额
+                    </label>
+                    <small>
+                        ￥ {{ $tpl_data.balance_pay.balance }}
+                        {{ if $tpl_data.balance_pay.help }}
+                            <span class="balance-help-info">
+                                {{ $tpl_data.balance_pay.help }}
+                            </span>
+                        {{ /if }}
+                    </small>
+                </div>
+                {{ /if }}
+            {{ /function }}
+
+            {{ function cardPay }}
+                {{ if $show_card_pay }}
+                <div class="pay-row">
+                    <table>
+                        <tr>
+                            <td class="pay-selector">
+                                <label class="form-radio pay-radio">
+                                    <input type="radio" name="payWay" value="0"
+                                    {{ if !$pay_by_balance_default }}
+                                        checked
+                                    {{ /if }}
+                                    >
+                                    快捷支付
+                                </label>
+                                <small>
+                                    无需网银，安全快捷
+                                </small>
+                            </td>
+                            <td>
+
+                                {{ include file="./component/bankList.html" bank_list=$tpl_data.bank_info }}
+
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
+                {{ /if }}
+            {{ /function }}
+
+
+            {{ if $pay_by_balance_default }}
+                {{ balancePay }}
+                {{ cardPay }}
+            {{ else }}
+                {{ cardPay }}
+                {{ balancePay }}
+            {{ /if }}
+
+
+
+            <div class="pay-form form">
+                {{ if $has_bind_card }}
+                <div class="one-key-pay-container">
+                    <div class="nouse-password-tip">
+                        温馨提示：小额免密支付已开启，<br>
+                        单笔订单金额不超过200元、单日支付次数不超过10次时无需输入支付码
+                        <div class="form-action">
+                            <button class="btn-primary btn-pay">
+                                立即支付
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form-group platform-password-container">
+                        <div class="form-label">
+                            支付密码：
+                        </div>
+                        <div class="form-controls">
+                            <input type="password" class="form-text" name="pswd" required pattern="^[\d\D]{6,}$" autocomplete="off">
+                            <span class="error"></span>
+                            <a href="{{ $origin_https }}/static/forget_pay_password">
+                                忘记密码
+                            </a>
+                        </div>
+                        <div class="card-tip over-max-fee">
+                            该卡已开通一键支付，请输入平台支付密码确认支付
+                            <i class="icon icon-info-circle"></i>
+                        </div>
+                        <div class="card-tip use-password-pay">
+                            小额免密支付已关闭，请输入平台支付密码确认支付
+                            <i class="icon icon-info-circle"></i>
+                        </div>
+                        <div class="form-action">
+                            <button class="btn-primary btn-pay">
+                                立即支付
+                            </button>
+                        </div>
+                    </div>
+                    <div class="no-setting-password-container">
+                        <div>
+                            您还未设置平台支付密码，请设置后支付
+                        </div>
+                        <div class="notice-tip">
+                            温馨提示：该卡已开通一键支付，请输入平台支付密码确认
+                            <i class="icon icon-info-circle"></i>
+                        </div>
+                        <div class="form-action">
+                            <button class="btn-primary set-password">
+                                设置支付密码
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="quick-pay-container">
+                    <div class="form-group group-cvv">
+                        <div class="form-label">
+                            卡验证码：
+                        </div>
+                        <div class="form-controls">
+                            <input type="text" class="form-text" name="cvv" required pattern="^\d{3}$" />
+                            <span class="error"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-label">
+                            短信验证码：
+                        </div>
+                        <div class="form-controls">
+                            <input type="text" class="form-text" name="code" required />
+                            <button class="btn-info btn-send-code">
+                                发送验证码
+                            </button>
+                            <span class="error"></span>
+
+                            <small>
+                                已绑定手机 <strong class="mobile"></strong>
+                            </small>
+                        </div>
+                    </div>
+                    <div class="form-action">
+                        <button class="btn-primary btn-pay">
+                            立即支付
+                        </button>
+                    </div>
+                </div>
+                {{ /if }}
+                <div class="balance-pay-container">
+                    {{ if $tpl_data.has_passwd }}
+                    <div class="form-group platform-password-container">
+                        <div class="form-label">
+                            支付密码：
+                        </div>
+                        <div class="form-controls">
+                            <input type="password" class="form-text" name="pswd" required pattern="^[\d\D]{6,}$" autocomplete="off">
+                            <span class="error"></span>
+                            <a href="{{ $origin_https }}/static/forget_pay_password">
+                                忘记密码
+                            </a>
+                        </div>
+                        <div class="form-action">
+                            <button class="btn-primary btn-pay">
+                                立即支付
+                            </button>
+                        </div>
+                    </div>
+                    {{ else }}
+                    <div class="no-setting-password-container">
+                        <div>
+                            您还未设置平台支付密码，请设置后支付
+                        </div>
+                        <div class="form-action">
+                            <button class="btn-primary set-password">
+                                设置支付密码
+                            </button>
+                        </div>
+                    </div>
+                    {{ /if }}
+                </div>
+            </div>
+
+        </div>
+        {{ /if }}
+
+        <div class="other-pay">
+            {{ if $show_balance_pay || $show_card_pay }}
+            <div class="header">
+                <h5>其他支付方式</h5>
+            </div>
+            {{ /if }}
+            <div class="body">
+
+                {{ include file="common/ui/radio.html" name="approach" value="ALIPAY" class="bank-card alipay" text='<span class="icon icon-bank-alipay" title="支付宝"></span>' }}
+
+                {{ include file="common/ui/radio.html" name="approach" value="ALIPAY" class="bank-card ebank" text='<span class="icon icon-ebank" text="网上银行"><span>网上银行</span></span>' }}
+
+                <div class="bank-card">
+                    <div class="wechat">
+                        <span class="icon icon-bank-wechat"></span>
+                    </div>
+                </div>
+
+                {{ if $tpl_data.can_use_fenqi }}
+                <div class="bank-card">
+                    <div class="huabei">
+                        <span class="icon icon-bank-huabei"></span>
+                        <span class="text">花呗分期</span>
+                    </div>
+                </div>
+                {{ /if }}
+
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+
+        <span></span>
+
+        支付有问题？<a href="/guide/pay?a=pay" target="_blank">查看帮助</a>请拨打客服热线 4000-910-910，010-86448910
+
+    </div>
+
+
+    {{ include file="./component/bindCardDialog.html" }}
+    {{ include file="./component/ebankDialog.html" }}
+
+</div>
+
+{{ /strip }}
+{{ /block }}

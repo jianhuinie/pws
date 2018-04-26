@@ -1,0 +1,119 @@
+{{ extends file="./base.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $script_path = "activity/uk/member_32326c2f26" }}
+
+    {{ $script_data.number = $tpl_data.number }}
+    {{ $script_data.name = $tpl_data.name }}
+    {{ $script_data.description = $tpl_data.description }}
+    {{ $script_data.avatar = $tpl_data.avatar }}
+    {{ $script_data.frozen = $tpl_data.frozen }}
+    {{ $script_data.has_pay = $tpl_data.has_pay }}
+
+{{ /block }}
+
+{{ block name="variable" }}
+
+    {{ $menu = "memberList" }}
+
+{{ /block }}
+
+{{ block name="content" }}
+
+
+    <div class="uk-main">
+
+        <div class="member-header">
+
+            <div class="sub-nav">
+                <span>{{ $tpl_data.grade }}</span>
+                &gt;
+                {{ $tpl_data.name }}
+            </div>
+
+            <div class="member-search">
+                <form id="search-form" method="get" action="/uk/rank#uk-nav">
+                    <input id="search-input" name="query" type="text" placeholder="请输入选手姓名或编号"/>
+                    <i class="icon icon-search" onclick="$('#search-form').submit()"></i>
+                </form>
+            </div>
+
+        </div>
+
+        <div class="profile-wrapper">
+
+            <div class="left-box member-profile">
+                <img class="photo member-photo" data-src="{{ $tpl_data.avatar }}" />
+
+                <div class="name">{{ $tpl_data.name }}</div>
+
+                <ul class="fields">
+                    <li>编号：{{ $tpl_data.number }}</li>
+                    <li>组类：{{ $tpl_data.grade }}</li>
+                    <li>才艺：{{ $tpl_data.talent }}</li>
+                    <li class="des">
+                        <div>个人简述：</div>
+                        {{ $tpl_data.description }}
+                    </li>
+                </ul>
+
+            </div>
+
+            <div class="right-box member-profile member-vote">
+                <div class="block-title">参赛视频</div>
+                {{ if $tpl_data.video_status == 70 }}
+                <iframe id="frame-player" src="/video/view/{{ $tpl_data.video_id }}" frameborder="0"></iframe>
+
+                {{ else if $tpl_data.video_status == 30 }}
+                <div class="video_empty">
+                    视频正在转码中，暂时不能播放，请稍后查看
+                </div>
+                {{ else if $tpl_data.video_status == 50 }}
+                <div class="video_empty">
+                    视频转码失败，无法播放
+                </div>
+                {{ else }}
+                <div class="video_empty">
+                    视频处理失败，无法播放
+                </div>
+                {{ /if }}
+
+                <div class="stats">
+                    当前排名：<span id="label-rank">{{ $tpl_data.rank }}</span>
+                    当前票数：<span class="vote-count">{{ $tpl_data.vote_count }}</span>
+                </div>
+
+                <div class="btns">
+
+                    {{ if $tpl_data.proccess <= 2 || $tpl_data.can_vote == false || ($tpl_data.proccess == 3 && $tpl_data.process_status == 0) }}
+                        <button class="uk-btn disable">
+                            投ta一票
+                        </button>
+                    {{ else }}
+                        <div class="uk-btn vote-btn" data-number="{{ $tpl_data.number }}" >
+                            投ta一票
+                        </div>
+                    {{ /if }}
+
+                    <div id="report-btn" class="uk-btn light">举报</div>
+
+                    <div class="share">
+                        分享：
+                        <a href="javascript:" data-share class="wechat"><i class="icon icon-wechat"></i></a>
+                        <a href="javascript:" data-share class="qq"><i class="icon icon-qq"></i></a>
+                        <a href="javascript:" data-share class="weibo"><i class="icon icon-weibo"></i></a>
+                        <a href="javascript:" data-share class="qzone"><i class="icon icon-qzone"></i></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+{{ /block }}

@@ -1,0 +1,49 @@
+{{ strip }}
+
+{{ if $tpl_data.course_info.lesson_way == 2 }}
+    {{ * $tabType用于标识跳转到特定的课程搜索页标签 * }}
+    {{ $tabType = 3 }}
+{{ else }}
+    {{ $tabType = 2 }}
+{{ /if }}
+
+<div class="crumb">
+    <a href="{{ $tpl_data.crumb.host }}">
+        跟谁学{{ $tpl_data.crumb.city.name }}站
+    </a>
+    <span class="splitter">&nbsp;&gt;&nbsp;</span>
+
+    <a href="{{ $tpl_data.crumb.host }}sc--{{ $tabType }}.html">
+        {{ $tpl_data.crumb.city.name }}课程
+    </a>
+    <span class="splitter">&nbsp;&gt;&nbsp;</span>
+
+    <a href="{{ $tpl_data.crumb.host }}sc--{{ $tabType }}-{{ $tpl_data.course_path['1'].id }}.html">
+        {{ $tpl_data.course_path['1'].name }}培训
+    </a>
+    <span class="splitter">&nbsp;&gt;&nbsp;</span>
+
+    <a href="{{ $tpl_data.crumb.host }}sc--{{ $tabType }}-{{ $tpl_data.course_path['1'].id }}_{{ $tpl_data.course_path['2'].id }}.html">
+        {{ $tpl_data.course_path['2'].name }}培训
+    </a>
+    <span class="splitter">&nbsp;&gt;&nbsp;</span>
+
+    <div class="related-a">
+        <a href="{{ $tpl_data.crumb.host }}sc--{{ $tabType }}-{{ $tpl_data.course_path['1'].id }}_{{ $tpl_data.course_path['2'].id }}_{{ $tpl_data.course_path['3'].id }}.html">
+            {{ $tpl_data.course_path['3'].name }}培训
+        </a>
+
+        {{ if isset($tpl_data.course_related) }}
+            <ul class="related">
+            {{ foreach $tpl_data.course_related as $related }}
+                <li>
+                    <a href="{{ $tpl_data.crumb.host }}sc--{{ $tabType }}-{{ $tpl_data.course_path['1'].id }}_{{ $tpl_data.course_path['2'].id }}_{{ $related.id }}.html" target="_blank">
+                        {{ $related.name }}
+                    </a>
+                </li>
+            {{ /foreach }}
+            </ul>
+        {{ /if }}
+    </div>
+</div>
+{{ /strip }}

@@ -1,0 +1,1 @@
+define("teacherCenter/netdisk/formatFileType",["require","exports"],function(){"use strict";function e(e){if(-1!=$.inArray(e,r))return e;else return"other"}var r=["folder","other","txt","zip","rar","doc","docx","ppt","pptx","xls","xlsx","pdf","jpg","png","mp4","avi","flv","mkv","mp3","wav","all"];return e});

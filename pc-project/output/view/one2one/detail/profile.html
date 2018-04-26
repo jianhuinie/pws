@@ -1,0 +1,257 @@
+{{ *
+
+@file 一对一课程详情页 － 课程头信息
+@author wangyujie
+
+* }}
+
+{{ strip }}
+
+<div id="course-profile">
+
+    <div class="content">
+
+        {{ if isset($teacher.photos.photo_list) || isset($teacher.photos.video_list) }}
+        <div id="teacher-media" class="main-banner-promotion loading">
+            <div class="show-teacher-media">
+                <div class="slider-container"></div>
+            </div>
+
+            <ul class="action">
+                <li id="favor" data-coursenum="{{ $course.number }}">
+                    <i class="icon icon-favor"></i>
+                    <span>
+                        收藏
+                        {{ if $favorite.favored_count != 0 }}
+                            （{{ $favorite.favored_count }}人）
+                        {{ /if }}
+                    </span>
+                </li>
+
+                <li class="use-mobile">
+                    <div class="qrcode"></div>
+                    <i class="icon icon-qr-code"></i>
+                    手机观看
+                </li>
+
+                <li class="social-share">
+                    <i class="icon icon-share"></i>
+                    分享
+                    {{ include file="common/component/baiduShare.html" }}
+                </li>
+
+                <li class="correct">
+                    <i class="icon icon-warning"></i>
+                    纠错
+                </li>
+            </ul>
+        </div>
+        {{ /if }}
+
+        <div class="baseinfo">
+
+            <h1>
+                {{ $course.name|cn_truncate: 18 }}
+                <i class="course-tag">一对一</i>
+            </h1>
+
+            <ul class="info">
+                <li class="price">
+                    <span class="label"><!--价格--></span>
+                    <span class="content">
+                        {{ if $course.min_price != $course.max_price }}
+                            <strong>￥</strong>{{ $course.min_price }} - {{ $course.max_price }}<em>/小时</em>
+                        {{ else }}
+                            <strong>￥</strong>{{ $course.min_price }}<em>/小时</em>
+                        {{ /if }}
+                    </span>
+                    {{ if isset($course.min_cashback) && $course.max_cashback != 0 }}
+                        <span class="cps-scholarship">
+                            返奖学金：
+                            {{ if $course.min_cashback != $course.max_cashback }}
+                                <strong>￥</strong>{{ $course.min_cashback }} - {{ $course.max_cashback }}<em>/小时</em>
+                            {{ else }}
+                                <strong>￥</strong>{{ $course.min_cashback }}<em>/小时</em>
+                            {{ /if }}
+                        </span>
+                    {{ /if }}
+
+                    {{ if $course.min_price || $course.max_price }}
+                    <a href="/activity/fee_safe_guard" target="_blank">
+                        <i class="icon icon-safety-money"></i>
+                    </a>
+                    {{ /if }}
+
+                    {{ if $tpl_data.fenqi }}
+                        <span class="can-stage" data-title="课程实际支付金额大于500元可支持分期支付" data-width="150px">
+                            {{ $tpl_data.fenqi.tag_name }}
+                        </span>
+                    {{ /if }}
+
+                    <span class="view-prices text-info">查看详细价格</span>
+
+                    {{ if isset($coupon) && count($coupon) > 0 }}
+                    <div class="get-coupon">
+                        <i class="icon icon-coupons"></i>
+                        领取优惠券
+                        <div class="coupon">
+                            <span class="small-arrow"></span>
+                            <span class="big-arrow"></span>
+                            <ul class="coupon-list">
+                                {{ foreach $coupon as $item }}
+                                <li class="coupon-color" data-num="{{ $item.serial_num }}">
+                                    <div class="coupon-info">
+                                        <div class="balance">
+                                            ￥<em>{{ $item.balance }}</em>
+                                        </div>
+                                        <div class="threshold">
+                                            {{ if $item.cond_course_type != 0 }}
+                                                指定课程可用
+                                            {{ else if $item.cond_threshold == 0 }}
+                                                不限
+                                            {{ else }}
+                                                满{{ $item.cond_threshold }}使用
+                                            {{ /if }}
+                                        </div>
+                                    </div>
+                                    <div class="status">
+                                        {{ include file="common/variable/couponStatus.html" scope=parent }}
+                                        {{ $couponStatusMap[1] }}
+                                    </div>
+
+                                </li>
+                                {{ /foreach }}
+                            </ul>
+                        </div>
+                    </div>
+                    {{ /if }}
+                </li>
+
+                <li class="main-teacher">
+                    <span class="label">
+                        <i class="icon icon-student"></i>
+                    </span>
+                    <span class="content">
+                        <em>
+                            <a href="{{ $root_http }}/{{ $teacher.number }}" target="_blank">
+                                {{ $teacher.name|cn_truncate: 14 }}
+                            </a>
+                        </em>
+
+                        {{ if isset($course.scale_count) && $course.scale_count != 0 }}
+                            <em>
+                                90天授{{ $course.scale_count }}课时
+                            </em>
+                        {{ /if }}
+
+                        <!--em>{{ $course.total_pay|default:0 }}人在学习</em-->
+
+                        <em>
+                            {{ include file="common/component/starScore.html" score=$teacher.score }} {{ $teacher.score }}分
+                        </em>
+                    </span>
+                </li>
+
+                <li class="course-type">
+                    <span class="label"><!--课程类型-->
+                        <i class="icon icon-screen-o"></i>
+                    </span>
+                    <span class="content">
+                        {{ if $course.support_online && $course.support_offline }}
+                            支持线上、线下课
+                        {{ else if $course.support_online }}
+                            支持线上课
+                        {{ else if $course.support_offline }}
+                            支持线下课
+                        {{ /if }}
+                    </span>
+                </li>
+
+                <li class="address">
+                    <span class="label">
+                        <i class="icon icon-location-o"></i>
+                    </span>
+                    {{ if !$teacher.country }}
+                        <span class="content" data-title="{{ $teacher.location|escape }}">
+                            {{ $teacher.location|escape|cn_truncate:30 }}
+                        </span>
+                        {{ if isset($teacher.position.lng) && $teacher.position.lng }}
+                        <a class="detail map" data-offline='{{ json_encode($teacher.position, 77) }}' data-map="">查看具体位置</a>
+                        {{ /if }}
+                    {{ else }}
+                        {{ $teacher.country }}-
+                        {{ $teacher.location|escape|cn_truncate:22 }}
+                    {{ /if }}
+                </li>
+
+                <li class="promise">
+                    <span class="label"><!--服务承诺--></span>
+                    {{ include file="common/component/classCourseIcon.html" retire_flag=0 show_certi=true show_safe=true }}
+                </li>
+
+                <li class="enroll">
+
+                    <div class="enroll-listen">
+                        <button class="reserve-listen">预约试听</button>
+                    </div>
+
+                    <div class="enroll-action">
+                        <button class="btn-primary reserve-course">购买课时</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+<script type="text/template" id="show-teacher-media">
+    <ul class="promotion-slider">
+    <!-- for: ${promotionList} as ${item}, ${index} -->
+
+        <li class="promotion-slideritem" data-index="${index}">
+            <!-- if: ${item.type} == "video" -->
+            <div class="wrapper-video" title="${item.hover}" data-video="${item.videoUrl}">
+                <img class="player-img" src="${item.img}" width="480" height="270" alt="${item.hover}" />
+                <i class="video-player"></i>
+            </div>
+            <!-- else  -->
+            <div class="wrapper-photo" title="${item.hover}">
+                <img class="player-img" src="${item.img}" width="480" height="270" alt="${item.hover}" />
+            </div>
+            <!-- /if -->
+        </li>
+
+    <!-- /for -->
+    </ul>
+
+    <!-- if: ${promotionList.length} > 1 -->
+    <a href="javascript:;" class="promotion-slider-left" title="上一个">
+        <i class="icon icon-chevron-left"></i>
+    </a>
+    <a href="javascript:;" class="promotion-slider-right" title="下一张">
+        <i class="icon icon-chevron-right"></i>
+    </a>
+    <!-- /if -->
+</script>
+
+{{ if isset($user_data) }}
+    {{ $mobile = $user_data.mobile }}
+    {{ $username = $user_data.display_name }}
+{{ else }}
+    {{ $mobile = '' }}
+    {{ $username = '' }}
+{{ /if }}
+
+{{ if empty($teacher.org) }}
+    {{ $kf = 'true' }}
+    {{ $object_name = '' }}
+{{ else }}
+    {{ $kf = 'false' }}
+    {{ $object_name = $teacher.name }}
+{{ /if }}
+
+{{ include file="common/component/advisoryDialog.html" object_name=$object_name dialog_name='预约' mobile=$mobile username=$username kf=$kf }}
+
+
+{{ /strip }}

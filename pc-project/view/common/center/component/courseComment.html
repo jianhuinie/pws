@@ -1,0 +1,163 @@
+{{ *
+
+@file 订单评价 - 单个机构班课订单元素
+@author jixiaohui
+
+* }}
+{{ strip }}
+
+<div class="form course-comment-box" id="comment-form">
+    {{ **radio的name加上编号以防止互相干扰** }}
+    {{ $first = true }}
+
+    {{ foreach $tpl_data as $val }}
+        <div class="item">
+
+            {{ include file="common/component/avatar.html" url=$val.teacher_detail_url target="_blank" type="medium" img=$val.teacher_avatar }}
+
+            <div class="box">
+
+                <h1 class="title">
+                    <a href="{{ $val.teacher_detail_url }}" target="_blank">{{ $val.teacher_user_name }}</a>
+                    {{ if !$val.reviewed }}
+                        <a class="comment"
+                            {{ if $first }}
+                                style="display:none;"
+                            {{ /if }}
+                        >发表评论</a>
+                    {{ /if }}
+                </h1>
+
+                {{ if $val.reviewed }}
+                    <div class="info">
+                        <div class="face">
+                            {{ if $val.face_type == 1 }}
+                                <i class="icon icon-smile-o"></i>
+                                好评
+                            {{ else if $val.face_type == 2 }}
+                                <i class="icon icon-neutral-o"></i>
+                                中评
+                            {{ else }}
+                                <i class="icon icon-frown-o"></i>
+                                差评
+                            {{ /if }}
+                        </div>
+                        <ul class="score reviewed">
+                            <li>
+                                描述相符：{{ include file="common/component/starScore.html" score=$val.desc_match }}
+                            </li>
+                            <li>
+                                教学态度：{{ include file="common/component/starScore.html" score=$val.service_attitude }}
+                            </li>
+                            <li>
+                                响应速度：{{ include file="common/component/starScore.html" score=$val.teach_result }}
+                            </li>
+                        </ul>
+                        <span class="status">已评价</span>
+                    </div>
+                    <div class="content">
+                        心声：{{ if isset($val.fr) && ($val.fr == 1 || $val.fr == 3) }}该学生未及时做出评价，系统默认好评！{{ else }}{{ $val.info|escape }}{{ /if }}
+
+                        {{ if isset($val.photo_list) && !empty($val.photo_list) }}
+                        <div class="comment-photo-box">
+                            <ul class="comment-photo-list">
+                                {{ foreach $val.photo_list as $ones }}
+                                <li class="photo-item" data-image="{{ $ones.url }}" data-name="{{ $ones.title }}" {{ include file="common/variable/zoomPhoto.html" url=$ones.url raw_width=$ones.width raw_height=$ones.height width=400 height=300 }} data-horizontal="{{ $photo }}" data-hheight="{{ $fit_height }}"
+
+                                {{ include file="common/variable/zoomPhoto.html" url=$ones.url raw_width=$ones.height raw_height=$ones.width width=300 height=400 }} data-vertical="{{ $photo }}" data-vheight="{{ $fit_height }}"
+
+                                >
+                                    {{ include file="common/variable/photo.html" url=$ones.url raw_width=$ones.width raw_height=$ones.height width=80 height=60 }}
+                                    <img src="{{ $photo }}">
+                                </li>
+                                {{ /foreach }}
+                            </ul>
+                            <div class="comment-photo-player" style="display:none;">
+                                <ul class="photo-action">
+                                    <li class="packup"><i class="photo-icon photo-packup"></i>收起</li>
+                                    <li class="sourse"><i class="photo-icon photo-sourse"></i>原图</li>
+                                    <li class="left"><i class="photo-icon photo-left"></i>向左转</li>
+                                    <li class="right"><i class="photo-icon photo-right"></i>向右转</li>
+                                </ul>
+                                <div class="photo-wrapper">
+                                {{ *垂直居中* }}
+                                {{ *margin-bottom:-{{ $fit_height/2 }}px;* }}
+                                    <div class="floater" style=""></div>
+                                    <img src="" class="rotate-img">
+                                </div>
+                                <div class="photo-name">
+                                </div>
+                            </div>
+                        </div>
+                        {{ /if }}
+                    </div>
+
+                {{ else }}
+                    <div class="info" style="display:none;"></div>
+                    <div class="content" style="display:none;"></div>
+                    {{ if $first }}
+                    <div class="action">
+                        {{ $first = false }}
+                    {{ else }}
+                    <div class="action" style="display:none;">
+                    {{ /if }}
+                        <div class="judge">
+                            <label class="form-radio checked">
+                                好评：
+                                <input type="radio" name="judge{{ $val@index }}" value="1" checked="checked" />
+                                <i></i>
+                                <span class="icon icon-smile-o"></span>
+                            </label>
+                            <label class="form-radio">
+                                中评：
+                                <input type="radio" name="judge{{ $val@index }}" value="2" />
+                                <i></i>
+                                <span class="icon icon-neutral-o"></span>
+                            </label>
+                            <label class="form-radio">
+                                差评：
+                                <input type="radio" name="judge{{ $val@index }}" value="3" />
+                                <i></i>
+                                <span class="icon icon-frown-o"></span>
+                            </label>
+                        </div>
+                        <div class="score">
+                            <ul>
+                                <li>描述相符  {{ include file="common/component/starScore.html" score=5 }}</li>
+                                <li>教学态度  {{ include file="common/component/starScore.html" score=5 }}</li>
+                                <li>响应速度  {{ include file="common/component/starScore.html" score=5 }}</li>
+                            </ul>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="form-editor">
+                                <textarea name="info" type="text" class="form-text" placeholder="
+                                {{ if isset($extra) && isset($extra.comment) }}
+                                {{ $extra.comment.content }}
+                                {{ else }}
+                                快来写下你对老师的评价吧，还可以点击下方的“晒照片”秀几张图哦！
+                                {{ /if }}
+                                " required>
+                                </textarea>
+                                <span class="form-hint">
+                                    可以输入<strong>500</strong>字
+                                </span>
+                            </div>
+                            <span class="error"></span>
+                        </div>
+
+                        {{ include file="common/component/moreImageUploader.html" }}
+
+                        <div class="form-action">
+                            <button class="btn btn-info btn-comment" data-tid="{{ $val.teacher_user_id }}" data-pid="{{ $pid }}">评论并继续</button>
+                        </div>
+                    </div>
+                {{ /if }}
+
+            </div>
+
+        </div>
+    {{ /foreach }}
+
+</div>
+{{ /strip }}

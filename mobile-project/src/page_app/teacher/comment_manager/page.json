@@ -1,0 +1,12 @@
+[
+    {
+        "tpl": "./comment_mana.tpl",
+        "router": "/comment_manager",
+        "mock_data": ""
+    },
+    {
+        "tpl": "./comment_comm.tpl",
+        "router": "/comment_comm",
+        "mock_data": ""
+    }
+]

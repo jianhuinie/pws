@@ -1,0 +1,1 @@
+define('userCenter/common/extension/getElement_d4dde17733',['require','exports','module'],function(){'use strict';return function(e){return e.fragment.items[0].node;};});

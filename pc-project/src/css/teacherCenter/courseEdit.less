@@ -1,0 +1,127 @@
+/**
+ * @file 课程设置 - 添加或编辑一对一课程
+ * @author wangyujie
+ */
+
+@import '../common/center/common/layout.less';
+@import './course/courseClassify.less';
+@import '../common/component/addressDialog.less';
+
+
+#content {
+
+    .subject-form {
+
+        background-color: @brand-gray-lighter;
+        text-align: left;
+        padding: @gap-vertical-huge
+                 2 * @gap-horizontal-huge;
+        .clearfix();
+
+        h3 {
+            color: @brand-text;
+            font-weight: bold;
+            margin-bottom: @gap-vertical-large;
+            margin-top: 1.5 * @gap-vertical-large;
+
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+
+        .dropdown {
+            float: left;
+            margin-right: @gap-horizontal-small;
+            margin-bottom: @gap-vertical-small;
+
+            .btn-default {
+                width: 130px;
+            }
+        }
+
+        .form-checkbox {
+            margin-right: @gap-horizontal-medium;
+            vertical-align: top;
+        }
+
+        .form-block {
+            clear: both;
+        }
+
+        .form-hint {
+            strong {
+                color: @brand-info;
+            }
+        }
+
+        .form-action {
+            margin-top: 3 * @gap-vertical-large;
+        }
+
+        input[type="money"] {
+            width: 7em;
+        }
+
+        .form-way {
+            float: left;
+
+            .btn-success {
+                float: right;
+
+                .icon {
+                    margin-left: @gap-horizontal-tiny;
+                }
+            }
+        }
+
+        .form-wayonline-guidelink {
+
+            color: @brand-info;
+            font-weight: bold;
+            position: relative;
+            top: 10px;
+
+            .icon-camera {
+                margin-right: @gap-horizontal-tiny;
+            }
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        .form-prompt {
+            float: right;
+            width: 350px;
+            font-size: 12px;
+            h4 {
+                color: @brand-info;
+                font-weight: bold;
+            }
+            p {
+                margin-top: @gap-vertical-medium;
+            }
+        }
+
+        .reasons {
+            color: @brand-error;
+            .icon {
+                padding-right: @gap-horizontal-tiny;
+            }
+        }
+
+        .form-error {
+            border: 1px solid @brand-error;
+        }
+
+        textarea[name="course_name"] {
+            width: 650px;
+        }
+        textarea[name="course_remark"] {
+            width: 650px;
+            height: 80px;
+        }
+    }
+
+}
+

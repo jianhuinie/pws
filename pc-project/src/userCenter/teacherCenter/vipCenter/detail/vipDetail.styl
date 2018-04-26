@@ -1,0 +1,223 @@
+/**
+ * @file 老师个人中心 会员中心-特权
+ * @author wuhongjie
+ */
+@import '../../../common/layout.styl';
+
+#breadcrumb{
+}
+
+#header {
+    h1 {
+        display: none;
+    }
+}
+
+#menu {
+    display: none;
+}
+
+#content{
+    .content-left{
+        width: 230px;
+        float: left;
+        .left_menu{
+            width: 100%;
+            background: #FFFFFF;
+            cursor: pointer;
+            margin-top: 1px;
+            text-align: center;
+            padding:20px;
+            .menu-title {
+                font-size: 14px;
+                color: #222222;
+                position: relative;
+                text-align: left;
+                padding-left: 65px;
+                .icon{
+                    display: inline-block;
+                    position: absolute;
+                    width: 17px;
+                    height: 17px;
+                    left: 40px;
+                    top: 2px;
+                    background: url("img/icon-left.png");
+                }
+                .icon-down{
+                    background: url("img/icon-down.png");
+                }
+            }
+            .sub-menu-item{
+                padding-top: 20px;
+                font-size: 12px;
+                color: #555555;
+                text-align: left;
+                padding-left: 65px;
+            }
+            .active{
+              color: #f90;
+            }
+            .hide{
+                display: none;
+            }
+        }
+    }
+    .content-right{
+        width: 750px;
+        min-height: 745px;
+        float: right;
+        background: #FFFFFF;
+        margin-left: 20px;
+        .content-page {
+            padding: 20px;
+            display: none;
+            .page-item-img{
+                position: relative;
+                width: 100%;
+                height: 140px;
+                .page-img{
+                  width: 690px;
+                  height: 140px;
+                }
+                .page-img-ye{
+                    background: url("img/banner-ye.jpg");
+                }
+                .page-img-biao{
+                    background: url("img/banner-biao.jpg");
+                }
+                .page-img-roster{
+                    background: url("img/banner-hua.jpg");
+                }
+                .page-img-shu{
+                    background: url("img/banner-shu.jpg");
+                }
+                .page-img-pai{
+                    background: url("img/banner-pai.png");
+                }
+                .page-img-tui{
+                    background: url("img/banner-tui.jpg");
+                }
+                .page-img-dai{
+                    background: url("img/banner-dai.jpg");
+                }
+            }
+            .page-title {
+                font-size: 20px;
+                color: #000000;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                .vip-red{
+                    width: 5px;
+                    height: 20px;
+                    background: #f95710;
+                    display: inline-block;
+                    position: relative;
+                    top: 2px;
+                    margin-right: 10px;
+                }
+            }
+            .page-p{
+                margin-left: 25px;
+            }
+            .page-table{
+                width 100%;
+                table{
+                    width: 100%;
+                    border: 2px solid #d5d5d5;
+                    text-align: center;
+                    thead,tr{
+                        border: 1px solid #d5d5d5;
+                        td{
+                            border: 1px solid #d5d5d5;
+                            .icon-select{
+                                display: inline-block;
+                                width: 16px;
+                                height: 12px;
+                                background url("img/select.png") no-repeat
+                            }
+                        }
+                    }
+                    thead td{
+                        height: 45px;
+                        text-align: center;
+                        vertical-align: text-top;
+                        padding-top: 10px;
+                        .icon{
+                            width: 35px;
+                            display: inline-block;
+                            height: 32px;
+                            vertical-align: bottom;
+                            margin-right: 5px;
+                        }
+                        .vip-icon{
+                          background: url("img/vip.png") no-repeat;
+                        }
+                        .gvip-icon{
+                          background: url("img/gvip.png") no-repeat;
+                        }
+                        .cvip-icon{
+                          background: url("img/cvip.png") no-repeat;
+                        }
+                    }
+                    tr td {
+                        padding: 5px 0;
+                        vertical-align: middle;
+                        .icon{
+                            display: inline-block;
+                            width:50px;
+                            height:40px;
+                        }
+                        .vip-icon{
+                            background: url("img/vip.png") no-repeat;
+                        }
+                        .gvip-icon{
+                            background: url("img/gvip.png") no-repeat;
+                        }
+                        .cvip-icon{
+                            background: url("img/cvip.png") no-repeat;
+                        }
+                    }
+                    .td-p{
+                        text-align: left;
+                        vertical-align: top;
+                        padding: 5px;
+                    }
+                }
+            }
+            .page-descript {
+                .jieshao-item {
+                    margin-left: 66px;
+                    margin-top: -20px;
+                    padding-bottom: 20px;
+                    .inner-p {
+                        margin-left: 24px;
+                    }
+                }
+            }
+            .tobevip{
+                text-align: center;
+                margin: 20px;
+                .button{
+                  width:144px;
+                  border-radius: 25px;
+                  margin: 50px 0 20px 0;
+                }
+            }
+        }
+        .show{
+            display: inline-block;
+        }
+    }
+    .error {
+        margin-right: 3px;
+    }
+    .hint {
+        margin-top: 10px;
+    }
+    .not-price {
+        color: #aaa;
+        font-size: 12px;
+        margin-left: 3px;
+        text-decoration: line-through;
+    }
+}

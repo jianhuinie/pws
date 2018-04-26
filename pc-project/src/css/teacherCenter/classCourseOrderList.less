@@ -1,0 +1,40 @@
+/**
+ * @file 班课订单
+ * @author zhujialu
+ */
+
+@import '../common/center/common/layout.less';
+@import './classCourse/orderItem.less';
+
+.class-course-icon {
+    .icon {
+        font-size: 72px;
+        margin-right: 5px;
+        line-height: 0.1;
+        vertical-align: -webkit-baseline-middle;
+    }
+}
+.class-course {
+    &:first-child {
+        border-top: none;
+    }
+}
+#content {
+    .card-header {
+        .text-error {
+            display: inline;
+            font-size: 14px;
+            .icon {
+                margin: 0 15px;
+            }
+            .intro {
+                margin-right: 25px;
+            }
+        }
+    }
+    .card-body {
+        .nav-item {
+            padding: 12px 57px;
+        }
+    }
+}

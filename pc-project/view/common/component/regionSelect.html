@@ -1,0 +1,53 @@
+{{ *
+
+@file 省市区商圈选择器
+
+      参数：
+      province_required 省是否必选
+      city_required     市是否必选
+      area_required     区期是否必选
+      country_required  商圈是否必选
+
+@author zhujialu
+
+* }}
+
+{{ strip }}
+
+<div class="dropdown province" {{ if isset($province_required) && $province_required }} required{{ /if }}>
+    <b class="btn-default">
+        <i class="caret"></i>
+        <span>- 省 -</span>
+    </b>
+    <ul class="dropdown-menu">
+    </ul>
+</div>
+
+<div class="dropdown city" {{ if isset($city_required) && $city_required }} required{{ /if }}>
+    <b class="btn-default">
+        <i class="caret"></i>
+        <span>- 市 -</span>
+    </b>
+    <ul class="dropdown-menu">
+    </ul>
+</div>
+
+<div class="dropdown area" {{ if isset($area_required) && $area_required }} required{{ /if }}>
+    <b class="btn-default">
+        <i class="caret"></i>
+        <span>- 区 -</span>
+    </b>
+    <ul class="dropdown-menu">
+    </ul>
+</div>
+
+<div class="dropdown country">
+    <b class="btn-default">
+        <i class="caret"></i>
+        <span>- 商圈 -</span>
+    </b>
+    <ul class="dropdown-menu">
+    </ul>
+</div>
+
+{{ /strip }}

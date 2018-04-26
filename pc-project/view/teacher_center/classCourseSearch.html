@@ -1,0 +1,85 @@
+{{ *
+
+@file 课程设置 - 班课设置
+@author wangyujie
+
+* }}
+
+{{ extends file="common/center/base.html" }}
+
+{{ block name="data" }}
+    {{ $smarty.block.parent }}
+    {{ $nav_active_tab = 'index' }}
+    {{ $script_path = "teacherCenter/classCourseSearch" }}
+    {{ $script_data.hasData = $tpl_data.class_course_count > 0 }}
+    {{ $script_data.vip_level = $user_data.vip_level }}
+
+{{ /block }}
+
+{{ block name="title" prepend }}
+课程设置 - 班课设置 -
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/teacherCenter/classCourseSearch.less">
+{{ /block }}
+
+{{ block name="main" }}
+
+{{ strip }}
+    {{ include file="teacher_center/course/variable/displayStatus2.html" scope=parent }}
+
+    {{ include file="teacher_center/common/sidebar.html" active="courseSettings" }}
+
+    <div id="content" class="card">
+
+        <div class="card-header">
+            <h2>
+                <a href="/teacher_course/list_admin" class="text-info">课程设置</a>
+                &nbsp;&gt;&nbsp;
+                班课
+            </h2>
+        </div>
+
+        <div class="card-body">
+
+            <div class="tab">
+
+                <div class="tab-nav-info">
+                    <a href="/teacher_course/list_admin" class="nav-item">一对一</a>
+                    <a class="nav-item active">
+                        班课
+                        {{ if isset($tpl_data.is_complete) && $tpl_data.is_complete == false }}
+                        <i class="icon icon-info-circle"></i>
+                        {{ /if }}
+                    </a>
+                    <a href="/video_course/getcourselist?type=1&page=1&page_size=10" class="nav-item">视频课</a>
+                </div>
+
+                <div class="tab-content">
+
+                    <div class="class-course">
+
+                        {{ if count($tpl_data.subject_list) < $tpl_data.max_class_course }}
+                        <div class="form-trigger">
+                            <a class="btn-info medium add-course" href="/tcenter/courses/class-courses/form?lesson_way=4">
+                                <i class="icon icon-plus"></i>
+                                添加班课
+                            </a>
+                        </div>
+                        {{ /if }}
+
+                        {{ include file="teacher_center/course/classCourseSearchForm.html" }}
+
+                        {{ include file="teacher_center/course/classCourseSearchList.html" count=$tpl_data.class_course_count has_roster=$tpl_data.has_roster }}
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+{{ /strip }}
+{{ /block }}

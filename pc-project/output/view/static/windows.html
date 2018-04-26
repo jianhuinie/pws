@@ -1,0 +1,115 @@
+{{ extends file="common/main/base.html" }}
+{{ block name="data" }}
+{{ $smarty.block.parent }}
+{{ $script_path = 'static/windows_d75e9eb902' }}
+{{ $nav_config.active = 'windows' }}
+{{ /block }}
+{{ block name="title" }}
+玩转直播 - 跟谁学
+{{ /block }}
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/static/windows_15615376cf.css">
+{{ /block }}
+
+{{ block name="main" }}
+{{ if isset($user_data.user_type) && $user_data.user_type == 0 }}
+    {{ $has_login = 1 }}
+{{ else }}
+    {{ $has_login = 0 }}
+{{ /if }}
+{{ $download = 0 }}
+{{ if isset($smarty.get.download) }}
+    {{ $download = $smarty.get.download }}
+{{ /if }}
+{{ $script_data.download = $download }}
+{{ if isset($smarty.server.HTTP_USER_AGENT) }}
+    {{ $ua = $smarty.server.HTTP_USER_AGENT }}
+{{ else }}
+{{ $ua = '' }}
+{{ /if }}
+{{ $oldIEExpr = "/msie ([\w.]+)/i" }}
+{{ $uachar = "/(nokia|sony|ericsson|mot|samsung|sgh|lg|sie|philips|panasonic|alcatel|lenovo|cldc|midp|wap|mobile)/i" }}
+{{ if ($ua == '' || preg_match($uachar, $ua))&& !strpos(strtolower($smarty.server.REQUEST_URI),'wap') && !preg_match($oldIEExpr, $ua) }}
+{{ $is_wap = '1' }}
+{{ else }}
+{{ $is_wap = '0' }}
+{{ /if }}
+
+{{ if $is_wap == 1 }}
+{{ block name="meta" }}
+{{ $smarty.block.parent }}
+<!--<meta http-equiv="refresh" content="0; url=http://m.genshuixue.com/app" />-->
+{{ /block }}
+{{ /if }}
+{{ $script_data.is_wap = $is_wap }}
+<div id="main">
+    <div class="banner">
+
+        <a class="download {{ if $has_login }}special{{ /if }}" href="http://www.baijiacloud.com/default/home/liveclientDownload?partner_id=32891392&type=windows" target="">
+            <span id="baidu" style='display: none' >baidu</span>
+        </a>
+        <a class="experience" href="" target="_blank"></a>
+    </div>
+    <div  class="explain">
+        <ul>
+            <li>
+                <div class="item-1"></div>
+                <div class="title">生动视频</div>
+                <span>音频视频灵活调试文字表情完美配合</span>
+            </li>
+            <li>
+                <div class="item-2"></div>
+                <div class="title">课件白板</div>
+                <span class="special">
+                    板书、 画图随心所欲
+                    <span>图片、Office通通支持</span>
+                </span>
+            </li>
+
+            <li>
+                <div class="item-3"></div>
+                <div class="title">多人互动</div>
+                <span>发言模式维护秩序小测功能帮助统计</span>
+            </li>
+            <li  class="last">
+                <div class="item-4"></div>
+                <div class="title">课堂录制</div>
+                <span>老师录制学生共享精彩内容轻松温习</span>
+            </li>
+        </ul>
+    </div>
+    <div class="typical">
+        <h1>如何使用直播助手?</h1>
+        <ul>
+            <li>
+                <h2>
+                    <i>1</i>
+                    下载，打开安装
+                </h2>
+                <img src="{{ $static_origin }}/asset/img/static/windows/1_80291b3515.jpg" alt="step1" />
+            </li>
+            <li class="item-2">
+                <h2>
+                    <i>2</i>
+                    允许修改
+                </h2>
+                <img src="{{ $static_origin }}/asset/img/static/windows/2_41e6e7422f.jpg" alt="step2" />
+            </li>
+            <li>
+                <h2>
+                    <i>3</i>
+                    完成后，从网页进教室
+                </h2>
+                <img src="{{ $static_origin }}/asset/img/static/windows/3_bfc9c54c19.jpg" alt="step3" />
+            </li>
+            <li class="item-4">
+                <h2>
+                    <i>4</i>
+                    弹窗选择客户端
+                </h2>
+                <img src="{{ $static_origin }}/asset/img/static/windows/4_abe7181fc9.png" alt="step4" />
+            </li>
+        </ul>
+    </div>
+</div>
+{{ /block }}

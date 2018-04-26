@@ -1,0 +1,38 @@
+{{ *
+
+@file 资询详情
+@author tangrongyan
+* }}
+
+{{ strip }}
+
+
+<div class="crumb">
+
+    {{ if isset($tpl_data)  }}
+
+    <h1 class="title">{{ $tpl_data.title }}</h1>
+
+    {{ if isset($tpl_data.is_teacher) && $tpl_data.is_teacher == '1' }}
+    <span class="from">作者：<a class="from" href="{{ $tpl_data.url_teacher }}">{{ $tpl_data.author }}</a></span>
+    {{ else if  isset($tpl_data.author) }}
+    <span class="from">作者：{{ $tpl_data.author }}</span>
+    {{ /if  }}
+
+
+    <span class="from">来源：{{ $tpl_data.source }}</span>
+    <span class="date">时间：{{ $tpl_data.time }}</span>
+
+    {{ if isset($tpl_data.is_teacher) && $tpl_data.is_teacher == '1'  }}
+    <a class="go-class" href="{{ $tpl_data.url_teacher }}">向他约课</a>
+    {{ /if  }}
+
+    {{ /if }}
+
+</div>
+
+<div class="content">
+    {{ $tpl_data.content }}
+</div>
+
+{{ strip }}

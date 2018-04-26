@@ -1,0 +1,327 @@
+/**
+ * @file 商学院 - 首页
+ * @author wangyujie
+ */
+
+@import './common.less';
+
+.course-wrapper,
+.hot-courses,
+.student-wrapper,
+.lecturers,
+.cooper-partners {
+    width: 1100px;
+    margin: 10px auto;
+}
+
+.course-wrapper {
+    #hot-course-banner {
+        float: left;
+        .show-hot-course-banner,
+        .player-img {
+            width: 800px;
+            height: 450px;
+        }
+    }
+
+    .recent-courses {
+        margin-left: 828px;
+        .title {
+            font-size: 20px;
+            color: #dddbd4;
+            line-height: 22px;
+            text-align: center;
+            margin-bottom: 10px;
+            .icon {
+                color: #ffd764;
+                margin-right: 15px;
+            }
+        }
+        .course-img {
+            width: 272px;
+            height: 358px;
+        }
+        .free-consult {
+            .opacity(0.95);
+            background: #ffd764;
+            border: 1px solid rgba(196, 158, 57, 0.75);
+            color: #3e3e3e;
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 44px;
+            text-align: center;
+        }
+    }
+}
+
+.student-wrapper {
+    .panel-title {
+        background: url(../../../img/activity/businessSchool/student_wrapper_bg.png) top right no-repeat;
+    }
+    #student-photos {
+        float: left;
+        .show-student-photos,
+        .player-img {
+            width: 556px;
+            height: 320px;
+        }
+    }
+
+    .student-docs {
+        background: #ffffff;
+        height: 320px;
+        overflow-y: scroll;
+        padding: 25px 40px;
+        .doc-item {
+            margin-bottom: 20px;
+            font-size: 13px;
+            .content {
+                color: #6d6d6e;
+                line-height: 18px;
+            }
+            .author {
+                color:#c49e3a;
+                text-align: right;
+                margin-top: 5px;
+            }
+        }
+    }
+}
+
+#student-photos,
+#hot-course-banner {
+    .show-contant {
+        margin-bottom: 2px;
+        overflow: hidden;
+        position: relative;
+        text-align: center;
+        &:hover {
+            .promotion-slider-left,
+            .promotion-slider-right {
+                display: block;
+            }
+        }
+
+        .promotion-slideritem {
+            b {
+                cursor: pointer;
+            }
+        }
+    }
+    .promotion-slider-left,
+    .promotion-slider-right {
+        color: #fff;
+        background-color: #000;
+        .opacity(0.3);
+
+        &:hover {
+            .opacity(0.6);
+        }
+
+        position: absolute;
+        top: 50%;
+        margin-top: -20px;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 20px;
+        text-align: center;
+
+        i {
+            position: relative;
+            top: 2px;
+            right: 2px;
+        }
+    }
+    .promotion-slider-left {
+        left: 10px;
+    }
+    .promotion-slider-right {
+        right: 10px;
+
+        i {
+            left: 1px;
+        }
+    }
+    .promotion-slider {
+        position:absolute;
+        .clearfix();
+
+        li {
+            float: left;
+            height: 270px;
+        }
+    }
+}
+
+.hot-courses {
+    .panel-content {
+        width: 1100px;
+        height: 314px;
+        margin: 0 auto;
+        overflow: hidden;
+        position: relative;
+        .icon-pager {
+            .icon {
+                position: absolute;
+                top: 127px;
+                cursor: pointer;
+                padding: 17px 8px;
+                font-size: 26px;
+                color: #fff;
+                background-color: #2c2c2c;
+                z-index: 1;
+            }
+            .icon-chevron-left {
+                left: 0;
+            }
+            .icon-chevron-right {
+                right: 0;
+            }
+            .disable {
+                // .opacity(0.4);
+                // cursor: not-allowed;
+            }
+        }
+    }
+
+    .slider-ul {
+        position: absolute;
+        .slider-li {
+            width: 1100px;
+            float: left;
+            display: block;
+        }
+    }
+
+    .inner-space {
+        width: 70px;
+        height: 100px;
+        float: left;
+    }
+
+    .inner-ul {
+        .course-item {
+            background-color: #ffffff;
+            display: inline-block;
+            margin: 0 5px;
+            vertical-align: top;
+            a, img {
+                display: inline-block;
+                width: 310px;
+                height: 176px;
+            }
+            .course-info {
+                border-bottom: 8px solid #c49e3a;
+                width: 310px;
+                height: 132px;
+                padding: 15px;
+                overflow: hidden;
+                .title {
+                    font-size: 16px;
+                    font-weight: bold;
+                    color: #3c3c3c;
+                    margin-bottom: 10px;
+                }
+                .description {
+                    color: #646464;
+                    line-height: 18px;
+                }
+            }
+        }
+        .line-last {
+            margin-right: 0;
+        }
+    }
+}
+
+.lecturers {
+    background: url(../../../img/activity/businessSchool/lecturers_bg.png) center no-repeat;
+    .panel-content {
+        width: 1100px;
+        height: 260px;
+        margin: 0 auto;
+        overflow: hidden;
+        position: relative;
+        .icon-pager {
+            .icon {
+                position: absolute;
+                top: 100px;
+                cursor: pointer;
+                padding: 17px 8px;
+                font-size: 26px;
+                color: #fff;
+                background-color: #2c2c2c;
+                z-index: 1;
+            }
+            .icon-chevron-left {
+                left: 0;
+            }
+            .icon-chevron-right {
+                right: 0;
+            }
+            .disable {
+                // .opacity(0.4);
+                // cursor: not-allowed;
+            }
+        }
+    }
+
+    .slider-ul {
+        position: absolute;
+        .slider-li {
+            width: 1100px;
+            float: left;
+            display: block;
+        }
+    }
+
+    .inner-space {
+        width: 120px;
+        height: 100px;
+        float: left;
+    }
+
+    .inner-ul {
+        .lecture-item {
+            display: inline-block;
+            width: 170px;
+            text-align: center;
+            margin-right: 60px;
+            vertical-align: top;
+            img {
+                border: 2px solid #c49e3a;
+                border-radius: 100%;
+            }
+            .lecture-name {
+                font-size: 16px;
+                color: #c49e3a;
+            }
+            .lecture-description {
+                color: #ffffff;
+                line-height: 24px;
+                text-align: left;
+                height: 75px;
+                overflow: hidden;
+            }
+        }
+        .line-last {
+            margin-right: 0;
+        }
+    }
+}
+
+.cooper-partners {
+    padding: 0 108px;
+    .panel-title {
+        padding-top: 40px;
+    }
+    .cooper-list {
+        text-align: center;
+        li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+    }
+}

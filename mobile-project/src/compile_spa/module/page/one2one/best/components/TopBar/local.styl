@@ -1,0 +1,65 @@
+.one-top-bar {
+    background: #fff;
+    /*background: #ff9100;*/
+    min-height: rem(44);
+    -webkit-transition: height .3s;
+    transition: height .3s;
+    top: 0;
+    z-index: 200;
+    border-bottom: 1px solid #ebeced;
+    position: fixed;
+    left: 0;
+    right: 0;
+    .change-city {
+        padding-left: rem(5);
+        padding-right: rem(7);
+        line-height: rem(44);
+        .top-bar-logo {
+            width: rem(75);
+            height: rem(25);
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 rem(14);
+            img {
+                display: block;
+                width: rem(75);
+                height: rem(25);
+            }
+        }
+        span {
+            color: #6d6d6e;
+        }
+        .icon-angle-down {
+            margin-left: rem(4);
+            font-size: rem(12);
+        }
+        a {
+            display: inline-block;
+            vertical-align: middle;
+            text-decoration: none;
+            font-size: rem(15);
+        }
+    }
+    .menu-nav-button {
+        display: inline-block;
+        position: absolute;
+        right: 0;
+        width: rem(45);
+        top: 50%;
+        margin-top: rem(-10);
+        text-align: center;
+        font-size: rem(20);
+        .icon {
+            display: block;
+        }
+        /*.text {
+            font-size: rem(12);
+        }*/
+    }
+}
+.hide {
+    display: none;
+}
+ul {
+    padding: 0;
+}

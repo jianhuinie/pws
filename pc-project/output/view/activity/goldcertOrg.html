@@ -1,0 +1,312 @@
+{{ *
+
+@file 金牌机构宣传页
+@author niejianhui
+
+* }}
+
+{{ extends file="common/main/base.html" }}
+
+{{ block name="data" }}
+
+{{ $need_im = false }}
+{{ $smarty.block.parent }}
+
+{{ $flotage_config.hidden = 1 }}
+{{ $nav_config.hidden = 1 }}
+
+{{ $script_path = "activity/goldcertOrg_3847c2f08b" }}
+
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/activity/goldcertOrg_3a58d32967.css">
+{{ /block }}
+
+{{ block name="title" }}
+金牌机构 - 跟谁学
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+
+<div id="cert-org">
+    <div class="page-top">
+        <div class="content">
+            <div class="logo-gsx"></div>
+            <div class="inner-box">
+                <div class="logo-jinpai"></div>
+                <div class="title">
+                    金牌认证机构
+                </div>
+                <div class="text-intro">让您的机构，面向您的潜在精准学生用户，进行广告曝光</div>
+                <a href="#apply-form" class="btn apply-btn">立即申请</a>
+                <div class="btn consult-btn">免费咨询</div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="what-goldorg">
+        <div class="content">
+            <div class="title">
+                什么是金牌认证机构？
+            </div>
+            <div class="text-keywords">线上广告 · 品牌认证 · 高效转化 · 助力招生</div>
+            <div class="text-intro">金牌认证机构，是跟谁学和瑞士权威认证机构SGS联合推出的广告产品，专为优质教育机构提供面向精准学生的广告宣传，生源的高效转化工具和机构品牌的权威认证</div>
+            <div class="text-intro">解决机构发展中招生扩张难、线下广告又贵又低效、品牌得不到学生家长认可等关键痛点，助力优质机构跨品类、跨地域招生扩张</div>
+
+            <div class="circle-chart">
+                <div class="circle-large">
+                    <div class="circle-middle">
+                        <div class="circle-small">
+                            <div class="jinpai-cert"></div>
+                        </div>
+                    </div>
+                    <div class="circle-tiny enroll">
+                        <span>学员咨询</span>
+                        <span>报名</span>
+                    </div>
+                    <div class="circle-tiny ad">
+                        <span>全年</span>
+                        <span>广告特权</span>
+                    </div>
+                    <div class="circle-tiny openclass">
+                        <span>公开课</span>
+                        <span>转化</span>
+                    </div>
+                    <div class="circle-tiny famousclass">
+                        <span>品牌课价</span>
+                        <span>双丰收</span>
+                    </div>
+                    <div class="circle-tiny rebuy">
+                        <span>促销</span>
+                        <span>复购传播</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <div class="what-for">
+        <div class="content">
+            <div class="title">金牌认证机构适合哪些品类的教培机构？</div>
+            <div class="text-info">跟谁学作为全球最大的找好老师学习服务平台，覆盖上千品类，</div>
+            <div class="text-info">8000万学生用户，50万老师，6万机构</div>
+            <div class="kind-items">
+                <div class="item">
+                    <span class="kind-icon xueqian"></span>
+                    <span class="text">学前教育</span>
+                </div>
+                <div class="item">
+                    <span class="kind-icon xiaoxue"></span>
+                    <span class="text">中小学辅导</span>
+                </div>
+                <div class="item">
+                    <span class="kind-icon liuxue"></span>
+                    <span class="text">出国留学</span>
+                </div>
+                <div class="item">
+                    <span class="kind-icon yuyan"></span>
+                    <span class="text">语言培训</span>
+                </div>
+            </div>
+            <div class="kind-items">
+                <div class="item">
+                    <span class="kind-icon kaoyan"></span>
+                    <span class="text">大学考研</span>
+                </div>
+                <div class="item">
+                    <span class="kind-icon yiti"></span>
+                    <span class="text">艺体兴趣</span>
+                </div>
+                <div class="item">
+                    <span class="kind-icon zhiye"></span>
+                    <span class="text">职业技能</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="how-develop">
+        <div class="content">
+            <div class="title">金牌认证机构如何助力机构招生发展？</div>
+            <div class="list-item ad-show">
+                <div class="title-banner">
+                    <span class="banner-first">杀器一</span>
+                    <span class="banner-second">广告曝光</span>
+                </div>
+                <div class="text-info">
+                    长达一年的跟谁学站内核心位置广告特权，随招生季节更换内容，全面配合机
+                </div>
+                <div class="text-info">构招生发展的节奏，定向城市和品类投放，指哪打哪！</div>
+                <div class="caseimgs-box">
+                    <div class="imgs-slider">
+                        <div class="inner-slider">
+                            {{ for $foo= 1 to 4 }}
+                                <div class="img-item item-{{ $foo }}">
+                                    
+                                </div>
+                            {{ /for }}
+                        </div>
+                    </div>
+                    <div class="slider-btns">
+                        {{ for $foo= 1 to 4 }}
+                            <span class="btn-item">
+                                
+                            </span>
+                        {{ /for }}
+                    </div>
+                    <span class="pre-img">
+                        
+                    </span>
+                    <span class="next-img">
+                        
+                    </span>
+                </div>
+            </div>
+            <div class="list-item more-famous">
+                <div class="title-banner">
+                    <span class="banner-first">杀器二</span>
+                    <span class="banner-second">品牌提升</span>
+                </div>
+                <div class="text-intro">线上线下双认证，品牌客单价双丰收</div>
+                <div class="text-info">                                             跟谁学全站金牌认证机构尊贵logo，专属机构官网页面，跟谁学官方推荐认可，学员线上支付不再担心
+                </div>
+                <div class="text-info">                                             瑞士权威认证机构SGS实地考察认证和官方证书，证明机构实力，线下宣传更容易让家长接受
+                </div>
+                <div class="text-info">                                             跟谁学平台数据积累，学生数、评价数彰显教学效果，让潜在的学生家长不再犹豫
+                </div>
+                <div class="cert"></div>
+                <div class="sgs-cert">[ 瑞士SGS官方权威认证 ]</div>
+                <div class="text-intro">全球最大的第三方认证机构，质量和诚信的基准</div>
+                <div class="text-info">
+                    跟谁学联合sgs，将国际权威认证体系引入中国教育培训行业，让您的机构成为中国第一批接受国际认证的教育培训机构。
+                </div>
+                <div class="text-info">
+                    SGS创建于1878年，集团总部位于瑞士日内瓦，是目前全球最大的第三方认证机构，发展至今，作为行业的领跑者，
+                </div>
+                <div class="text-info">
+                    SGS具有无与伦比的声誉，成为各行各业应对每日挑战的解决方案提供者，是全球公认的质量和诚信的基准。
+                </div>
+            </div>
+            <div class="list-item student-enroll">
+                <div class="title-banner">
+                    <span class="banner-first">杀器三</span>
+                    <span class="banner-second">招生转化</span>
+                </div>
+                <div class="text-info">
+                    学员咨询电话、免费公开直播课、精品视频课等多种线上广告形式，一次线上公开课，轻松获取海量高质量学员线索
+                </div>
+                <div class="text-info">
+                    直播课互动、优惠券促销、限时折扣引爆、课程邀请卡诱导学员传播分享，多种营销工具助力转化高价班课和一对一生源
+                </div>
+                <div class="outer-box">
+                    <div class="inner-circle">
+                        招生转化
+                    </div>
+                    <div class="circle-tiny freeclass">
+                        <span>免费公开</span>
+                        <span>直播课</span>
+                    </div>
+                    <div class="circle-tiny consult">
+                        <span>学员</span>
+                        <span>咨询电话</span>
+                    </div>
+                    <div class="circle-tiny videoclass">
+                        <span>精品</span>
+                        <span>视频课</span>
+                    </div>
+                    <div class="circle-tiny invitecard">
+                        <span>课程</span>
+                        <span>邀请卡</span>
+                    </div>
+                    <div class="circle-tiny coupon">
+                        <span>优惠券</span>
+                        <span>促销</span>
+                    </div>
+                    <div class="circle-tiny limitcount">
+                        <span>限时折扣</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="success-cases">
+        <div class="content">
+            <div class="title">成功案例</div>
+            <div class="left-bar">
+                <div class="logo-jinyou"></div>
+                <div class="name">金囿学堂</div>
+                <div class="item">
+                    <span class="count">60+</span>
+                    <span>精品课程</span>
+                </div>
+                <div class="item">
+                    <span class="count">80843</span>
+                    <span>人看过</span>
+                </div>
+                <div class="item">
+                    <span class="count">43336</span>
+                    <span>位学员</span>
+                </div>
+                <div class="item">
+                    <span class="count">487</span>
+                    <span>条评论</span>
+                </div>
+                <a href="http://www.genshuixue.com/i/jinyou" target="_blank">金囿学堂主页></a>
+            </div>
+            <div class="success-app"></div>
+            <div class="success-pc"></div>
+        </div>
+    </div>
+    <div id="apply-form">
+        <div class="content">
+            <div class="text-bold">现在申请</div>
+            <div class="title">立送价值<span>5000</span>元聚惠学</div>
+            <div class="text-bold">现在申请</div>
+            <form id="userinfo-form" class="form">
+                <div class="form-group">
+                    <div class="form-controls">
+                        <input type="text" name="orgname" placeholder="请输入您的机构名称">
+                        <span class="error"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-controls">
+                        <input type="text" name="telephone" 
+                        placeholder="请输入您的联系方式">
+                        <span class="error"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-controls">
+                        <input type="text" name="cityname" 
+                        placeholder="请输入您所在的城市">
+                        <span class="error"></span>
+                    </div>
+                </div>
+            </form>
+            <div class="submit-apply">提交申请</div>
+            <div class="text-info">我们将会对您的信息保密，敬请放心！</div>
+            <div class="text-info">信息提交后，跟谁学专属客户经理将会第一时间与您联系，请注意接听！</div>
+        </div>
+    </div>
+
+    <div class="fixed-bar">
+        <div class="inner-box">
+            <div class="cert-hover"></div>
+            <div class="title">金牌机构</div>
+            <div class="text-info">全面助力广告曝光</div>
+        </div>
+        <a href="#apply-form" class="apply-btn">立即申请</a>
+        <div class="consult-btn">免费咨询</div>
+    </div>
+</div>
+
+
+{{ /strip }}
+{{ /block }}

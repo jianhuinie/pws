@@ -1,0 +1,219 @@
+
+@import '../../../client/courseList.less';
+
+.online-classroom {
+    float: right;
+    border: 1px solid #5cab5c;
+    font-size: 13px;
+    padding: @gap-vertical-tiny
+             @gap-horizontal-tiny;
+    color: #5cab5c;
+    cursor: pointer;
+    line-height: 1em;
+    &:hover {
+        color: #fd9826;
+        border-color: #fd9826;
+    };
+
+    .icon {
+        font-size: 16px;
+        margin-right: 4px;
+        vertical-align: top;
+    }
+
+}
+.online-classroom.teacher {
+    margin-top: 8px;
+}
+
+.online-iframe {
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    z-index: 10;
+    display: none;
+}
+
+.timeline {
+    margin: 0 auto;
+    padding-top: 0px;
+    background-color: transparent;
+    min-height: 420px;
+    margin-left: -15px;
+    overflow: hidden;
+    .enter-online-room {
+        .clearfix();
+        cursor: pointer;
+        &:hover {
+            color: #f2973e;
+            background-color: #E6E6E6;
+            .header-enter {
+                display: block;
+            }
+        };
+        margin: 0 0 0 185px;
+        padding-left: 7px;
+        img {
+            float: left;
+            margin-right: 10px;
+        }
+        p {
+            float: left;
+            text-align: center;
+            margin-top: 27px;
+            font-size: 14px;
+        }
+        .header-enter {
+            float: right;
+            margin-right: 40px;
+            margin-top: 26px;
+            font-size: 12px;
+            display: none;
+
+        }
+    }
+    .course-list {
+        height: 400px;
+        overflow-y: auto;
+        .icon-circle {
+            right: -15px;
+            bottom: 0px;
+        }
+        .course-list-inner:before {
+            top: 56px;
+            bottom: 63px;
+        }
+        .course-item:hover {
+            .icon-circle {
+                right: -15px;
+                bottom: 0px;
+            }
+        }
+        .course-text {
+            line-height: 1.5;
+            margin-top: -12px;
+        }
+        .course-text p.course-no {
+            margin-top: 0;
+        }
+    }
+
+    .contacts-list-con {
+        display: none;
+        .clearfix();
+        .back {
+            float: left;
+            height: 40px;
+            width: 40px;
+            background: url(../../../../img/teacher-center/back.png);
+            cursor: pointer;
+            &:hover {
+                background: url(../../../../img/teacher-center/back-hover.png);
+            };
+            img {
+                width: 35px;
+                height: 35px;
+                margin-right: 10px;
+                cursor: pointer;
+            }
+        }
+        .contacts-content {
+            margin-left: 50px;
+        }
+        .tab-menu {
+            height: 35px;
+            .tab-item {
+                border: 1px solid #ccc;
+                cursor: pointer;
+                padding: 6px;
+                display: inline-block;
+                width: 135px;
+                text-align: center;
+                &:hover {
+                    color: #f2973e;
+                };
+            }
+            .tab-item.active {
+                color: #f2973e;
+            }
+        }
+        .course-list {
+            border: 1px solid #ccc;
+            .course-list-inner {
+                &:before {
+                    background: transparent;
+                    width: 0;
+                }
+            }
+        }
+        .course-info {
+            margin: 0 auto;
+        }
+        .course-text {
+            width: 400px;
+            p {
+                margin-bottom: 5px;
+            }
+            .subject-content {
+                max-width: 400px;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+                cursor: pointer;
+                display: inline-block;
+                &:hover {
+                    color: #f2973e;
+                };
+            }
+            font-size: 14px;
+        }
+        .contacts-item {
+            display: none;
+        }
+        .contacts-item.selected {
+            display: block;
+        }
+    }
+
+    .course-list-inner.no-course {
+        height: 300px;
+        background: url(../../../../img/teacher-center/no-course.png) 50% 30% no-repeat;
+        padding-top: 200px;
+        &:before {
+            background: transparent;
+            width: 0;
+        }
+
+        .no-course-info {
+            margin: 0 auto;
+            width: 260px;
+            text-align: center;
+            line-height: 2;
+            p {
+                font-size: 16px;
+            }
+            .btn-primary {
+                margin-top: 10px;
+            }
+        }
+    }
+}
+
+p.date-text {
+    text-align: right;
+}
+
+.footer-info {
+    width: 540px;
+    margin: 4px auto -4px;
+    color: rgb(99,131,212);
+    .clearfix();
+    .icon.icon-info-circle {
+        float: left;
+        line-height: 1.6;
+    }
+    p {
+        float: left;
+    }
+}
+

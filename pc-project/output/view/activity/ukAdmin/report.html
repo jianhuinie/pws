@@ -1,0 +1,69 @@
+{{ extends file="./base.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $script_path = "activity/ukAdmin/report_f8cc412485" }}
+
+    {{ $menu = 'report' }}
+
+{{ /block }}
+
+{{ block name="content" }}
+<div class="member-search">
+    <form id="search-form" method="get" action="/uk/cms_report">
+        <input id="search-input" name="query" type="text" placeholder="请输入选手编号"/>
+        <i class="icon icon-search" onclick="$('#search-form').submit()"></i>
+    </form>
+</div>
+ {{ if $tpl_data == null }}
+     <div class="no-result">无搜索结果</div>
+{{ else }}
+<table class="main-grid">
+    <thead>
+        <tr>
+            <td>举报序号</td>
+            <td>被举报选手编号</td>
+            <td>举报选手编号</td>
+            <td>举报时间</td>
+            <td>举报类型</td>
+            <td>附加内容</td>
+            <td>操作项</td>
+        </tr>
+    </thead>
+    {{ foreach $tpl_data.reports as $rec }}
+    <tr>
+        <td>{{ $rec.id }}</td>
+        {{ if $rec.ed_color == 0 }}
+        <td>{{ $rec.player_number }}</td>
+        {{ else }}
+        <td class="color-status">{{ $rec.player_number }}</td>
+        {{ /if }}
+
+        {{ if $rec.er_color == 0 }}
+        <td>{{ $rec.reporter_number }}</td>
+        {{ else }}
+        <td class="color-status">{{ $rec.reporter_number }}</td>
+        {{ /if }}
+
+        <td>{{ $rec.date }}</td>
+        <td>{{ $rec.type }}</td>
+        {{ if strlen($rec.description)>30 }}
+
+        <td data-title="{{ $rec.description }}" data-width="150px">{{ $rec.description|cn_truncate:9 }}</td>
+
+        {{ else }}
+        <td>{{ $rec.description }}</td>
+        {{ /if }}
+        <td>
+            <a href="/uk/detail/{{ $rec.player_number }}" target="_blank" class="action">查看选手</a>
+        </td>
+    </tr>
+    {{ /foreach }}
+</table>
+
+{{ include file="common/component/pager.html" page=$tpl_data.page_info.now_page page_size=$tpl_data.page_info.page_size count=$tpl_data.page_info.page_numbers }}
+{{ /if }}
+
+{{ /block }}

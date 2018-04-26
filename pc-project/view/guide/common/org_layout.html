@@ -1,0 +1,102 @@
+{{ extends file="common/main/base.html" }}
+
+{{ block name="data" }}
+
+{{ $smarty.block.parent }}
+
+{{ $script_path = "guide/teacher_layout" }}
+
+{{ /block }}
+
+{{ block name="title" }}
+机构帮助- 帮助中心 - 跟谁学
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/guide/teacher_layout.less">
+{{ /block }}
+
+{{ block name="main" }}
+
+{{ strip }}
+
+
+
+<div id="main">
+
+    {{ include file="./sidebar.html" }}
+
+
+    <!--右-->
+
+    <div class="btright" id="item">
+        <div class="crumb">
+            <a id="back" href="/guide/org?a=org">机构帮助</a> >
+            <span id="current" ></span>
+        </div>
+
+        {{ if isset($smarty.get.op) }}
+            {{ $_GET['op'] = $smarty.get.op }}
+        {{ else }}
+            {{ $_GET['op'] = 'guide' }}
+        {{ /if }}
+
+        {{ if isset($smarty.get.ex) }}
+            {{ $_GET['ex'] = $smarty.get.ex }}
+        {{ else }}
+            {{ $_GET['ex'] = 'extend' }}
+        {{ /if }}
+
+        {{ **机构入驻（注册签约，生效设置，下载APP）** }}
+        {{ if $_GET['op'] == 'register' }}
+            {{ include file="../org/register.html" }}
+
+        {{ else if $_GET['op'] == 'valid' }}
+            {{ include file="../org/valid.html" }}
+
+        {{ else if $_GET['op'] == 'download' }}
+            {{ include file="../org/download.html" }}
+
+        {{ **网校装修（焦点图和自定义区，照片和视频，校区地图）** }}
+        {{ else if $_GET['op'] == 'focus' }}
+            {{ include file="../org/focus.html" }}
+
+        {{ else if $_GET['op'] == 'photo' }}
+            {{ include file="../org/photo.html" }}
+
+        {{ else if $_GET['op'] == 'map' }}
+            {{ include file="../org/map.html" }}
+
+        {{ **市场销售（黑板报，优惠券，订单管理）** }}
+        {{ else if $_GET['op'] == 'black' }}
+            {{ include file="../org/black.html" }}
+
+        {{ else if $_GET['op'] == 'coupon' }}
+            {{ include file="../org/coupon.html" }}
+
+        {{ else if $_GET['op'] == 'order' }}
+            {{ include file="../org/order.html" }}
+
+        {{ **教务财务（教务管理，财务管理）** }}
+        {{ else if $_GET['op'] == 'education' }}
+            {{ include file="../org/education.html" }}
+
+        {{ else if $_GET['op'] == 'money' }}
+            {{ if isset($smarty.get.ex) && $_GET['ex'] == 'extend' }}
+                {{ include file="../org/money.html" extend = 'extend' }}
+            {{ else }}
+                {{ include file="../org/money.html" }}
+            {{ /if }}
+
+        {{ **短信相关（短信中心）** }}
+        {{ else if $_GET['op'] == 'sms-center' }}
+            {{ include file="../teacher/sms-center.html" }}
+
+
+
+
+        {{ /if }}
+    </div>
+</div>
+{{ /strip }}
+{{ /block }}

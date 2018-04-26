@@ -1,0 +1,116 @@
+$O600 = #ff6c00;
+$Orange = #ff9100;
+$g600 = #3c3d3d;
+$g500 = #6d6d6e;
+$g400 = #9d9e9e;
+$g300 = #dcddde;
+$g200 = #ebeced;
+$g100 = #f2f4f5;
+@import "page/_base/base.styl";
+@import "page/_common/nav_bar/nav_bar.styl";
+@import "./component/commentList.styl";
+@import "../commentDetail/component/starScore.styl"
+
+ul {
+  padding: 0;
+  margin: 0;
+  li {
+    list-style: none;
+  }
+}
+
+.comment-main {
+  font-size: rem(14);
+  height: 100%;
+  text-align: center;
+
+  .comment-title {
+    height: rem(44);
+    line-height: rem(44);
+    background-color: #F8F9FB;
+  }
+  .comment-list {
+    background-color: #fff;
+    height: rem(132);
+    overflow: hidden;
+
+    .comment-item {
+      height: rem(44);
+      line-height: rem(44);
+      position: relative;
+
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border-top: 1px solid #E6E6E6;
+        -webkit-transform: scaley(0.5);
+        -wenkit-transform-orgin: 0 0;
+      }
+      a {
+        display: block;
+      }
+    }
+  }
+}
+
+.mask-p {
+  position: fixed;
+  width: 100%;
+  top: rem(44);
+  left: 0;
+  bottom: 0;
+  z-index: 4;
+  display: none;
+
+  .mask {
+    position: fixed;
+    width: 100%;
+    top: rem(44);
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  .content-panel {
+    width: 100%;
+    position: relative;
+    max-height: rem(150);
+  }
+  .content {
+    height: 100%;
+  }
+  .content-wap {
+    background-color: #fff;
+    width: 100%;
+    max-height: rem(150);
+    position: absolute;
+    top: rem(50);
+  }
+  .bottom-corner {
+    position: absolute;
+    height: rem(8);
+    width: rem(8);
+    top: rem(-4);
+    background-color: #fff;
+    right: rem(20);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+}
+
+.single-line {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.more-comment {
+  font-size: rem(14);
+  color: $g400;
+  text-align: center;
+  margin: 0;
+  padding: rem(15) 0;
+  background-color: $g100;
+}

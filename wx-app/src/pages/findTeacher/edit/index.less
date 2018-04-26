@@ -1,0 +1,124 @@
+@import "../../../css/mixin/position";
+@import "../../../css/variable/common";
+@import "../../../css/variable/color";
+@import "../../components/suggestion/index";
+@height: 100rpx;
+page {
+	background-color: #efeff4;
+}
+.find-teacher-public {
+	textarea, picker, input {
+		display: inline-block;
+	}
+	box-sizing: content-box;
+	font-size: 34rpx;
+	.item {
+		border-bottom: 1rpx solid @border-color;
+		width: 95%;
+		padding: 0 20rpx;
+		position: relative;
+		display: inline-block;
+		.placeholder {
+			color: #8a8a8a;
+		}
+		label {
+			width: 25%;
+			display: inline-block;
+		}
+		.warning {
+			.v-center(absolute);
+			right: 20rpx;
+		}
+		.right {
+			width: 75%;
+			display: inline-block;
+			position: relative;
+			input {
+				vertical-align: middle;
+				width: 100%;
+			}
+			picker {
+				width:100%;
+				height:100%;
+			}
+		}
+		.detail-info {
+			textarea,.ta-view {
+				height: 200rpx;
+				width: 100%;
+			}
+			.ta-view {
+				line-height: 40rpx;
+				height: 205rpx;
+			}
+		}
+	}
+	.one-line {
+		height: @height;
+		line-height: @height;
+	}
+	.mult-line {
+		padding: 20rpx;
+		label {
+			vertical-align: top;
+		}
+	}
+	.question,.user-info {
+		background-color: #fff;
+	}
+	.user-info {
+		margin-top: 54rpx;
+		.phone-container {
+			vertical-align: top;
+			height: 100%;
+			.phone {
+				display: inline-block;
+				width: 60%;
+				input {
+					width: 100%;
+				}
+			}
+			.smsCode {
+				display: inline-block;
+				font-size: 32rpx;
+				height: 100%;
+				line-height: @height;
+				color: #08B806;
+				border-left: 1rpx solid @border-color;
+				text-align: center;
+				width: 39%;
+			}
+			.timer {
+				color: #b2b2b2;
+			}
+		}
+		.img-val {
+			display: none;
+		}
+	}
+	.btn {
+		margin-top: 20rpx;
+		width: 100%;
+		button {
+			width: 90%;
+			margin: 0 auto;
+		}
+	}
+	.img-code {
+		.right {
+			input {
+				width: 60%;
+				display: inline-block;
+			}
+			.img {
+				width: 39%;
+				display: inline-block;
+				image {
+					width: 100%;
+					height: 100%;
+					vertical-align:middle;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,95 @@
+/**
+ * @file 黑板报活动报名
+ * @author wangtianhua
+ */
+.report {
+    margin: 30px 0 0 20px;
+    overflow: hidden;
+    img {
+        float: left;
+    }
+    .report_detail {
+        margin-left: 20px;
+        float: left;
+        label {
+            display: block;
+            color: #9d9d9d;
+            line-height: 35px;  
+            margin-bottom: 7px;
+            font-size: 16px;
+            &.start_time {
+                margin-top: 10px;
+            }
+            strong {
+                color: #6d6d6d;
+                margin-left: 10px;
+            }
+        }
+        button {
+            width: 230px;
+            height: 45px;
+            &.succ {
+                display: none;
+                background-color: #6eb321;
+                border: none;
+            }
+            &.reported {
+                background-color: #6eb321;
+                border: none;
+            }
+            &.end {
+                background-color: #9d9e9e;
+                color: #fff;
+            }
+        }
+    }
+    .check_box {
+        clear: both;
+        width: 480px;
+        display: none;
+        padding-top: 3 * @gap-vertical-medium;
+        h3 {
+            font-size: 18px;
+        }
+        .form-label {
+            width: 75px;
+            text-align: left;
+        }
+        .btn {
+            margin-left: 10px;
+            width: 130px;
+        }
+        .back {
+            background-color: #9d9d9d;
+        }
+        .form-get-smscode {
+            width: 140px;
+        }
+        .form-text {
+            width: 280px;
+            &.mobile {
+                width: 130px;
+            }
+        }
+        .mobile-input{
+            .show{
+                display: inline-block;
+            }
+        }      
+    }
+}
+.dialog-close {
+    display: block !important;
+}
+.dialog-body {
+    margin-top: 25px;
+    .btn-primary {
+        display: none;
+    }
+    .icon {
+        color: #f95710;
+        display: block;
+        font-size: 58px;
+        margin-top: 20px;
+    }
+}

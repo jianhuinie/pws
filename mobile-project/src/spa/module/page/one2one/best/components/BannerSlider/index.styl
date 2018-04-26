@@ -1,0 +1,116 @@
+.top-slider {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    .slide_group {
+        .slide {
+            position: relative;
+            .icon {
+                position: absolute;
+                top: 40%;
+                left: 44%;
+                height: rem(40);
+                width: rem(40);
+            }
+            .text {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                display: block;
+                width: 100%;
+                background: black;
+                opacity: 0.5;
+                color: white;
+                text-align: center;
+            }
+        }
+    }
+    z-index: 0;
+    background-color: #EDF0F0;
+    .img {
+        width: 100%;
+        vertical-align: top;
+    }
+    ul.slide_position {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        height: rem(24);
+        right: 0;
+        bottom: 0;
+        padding-right: rem(7);
+        li.on {
+            span {
+                background-color: #FFF;
+            }
+        }
+        span {
+            text-indent: rem(-9999);
+            width: rem(8);
+            height: rem(8);
+            border: 1px solid rgb(255, 255, 255);
+            border-radius: rem(4);
+            display: inline-block;
+            margin: rem(2) rem(1.5);
+            background-color: transparent;
+        }
+        li {
+            display: inline-block;
+            padding: 0 rem(2);
+            width: auto;
+        }
+    }
+    .slide_group {
+        position: relative;
+        font-size: 0;
+        white-space: nowrap;
+        height: 100%;
+        p {
+            padding-right: rem(65);
+            padding-left: rem(15);
+            font-size: rem(12);
+            line-height: rem(30);
+        }
+        .slide {
+            display: inline-block;
+            font-size: rem(14);
+            vertical-align: top;
+            >div {
+                padding-top:60%;
+                position : relative;
+                display : block;
+                >img {
+                    position : absolute;
+                    top:0;
+                    right:0;
+                    left:0;
+                    bottom:0;
+                    width:100%;
+                    height : 100%;
+                }
+            }
+        }
+    }
+}
+.top-sliders-container {
+    position: relative;
+    width: 90%;
+    z-index: 0;
+    overflow: hidden;
+    ul {
+        position: relative;
+        height: 100%;
+        li {
+            position: relative;
+            height: 100%;
+            width: 100%;
+        }
+    }
+    .slider-control {
+        position: absolute;
+        bottom: rem(5);
+        right: rem(8);
+        z-index: 99;
+    }
+}

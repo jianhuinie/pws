@@ -1,0 +1,44 @@
+{{ *
+    @file 底部内链 for seo
+    @author  jixiaohui
+* }}
+{{ strip }}
+
+{{ if $tpl_data.base_info.domain }}
+    {{ $org_serial = $tpl_data.base_info.domain }}
+{{ else }}
+    {{ $org_serial = $tpl_data.base_info.number }}
+{{ /if }}
+    <div id="org-inner-link">
+        <ul>
+            <li>
+                <a href="http://www.genshuixue.com/i/{{ $org_serial }}">{{ $tpl_data.base_info.name }}</a>
+            </li>
+            <li>
+                <a href="http://www.genshuixue.com/i/black/{{ $org_serial }}" target="_blank">{{ $tpl_data.base_info.name }}黑板报</a>
+            </li>
+            <li>
+                <a href="http://www.genshuixue.com/i/course/{{ $org_serial }}" target="_blank">{{ $tpl_data.base_info.name }}课程页面</a>
+            </li>
+            <li>
+                <a href="http://www.genshuixue.com/i/teacher/{{ $org_serial }}" target="_blank">{{ $tpl_data.base_info.name }}老师</a>
+            </li>
+            <li>
+                <a href="http://www.genshuixue.com/i/video/{{ $org_serial }}" target="_blank">{{ $tpl_data.base_info.name }}视频</a>
+            </li>
+            <li>
+                <a href="http://www.genshuixue.com/i/photo/{{ $org_serial }}" target="_blank">{{ $tpl_data.base_info.name }}相册</a>
+            </li>
+            <li>
+                <a href="http://www.genshuixue.com/i/area/{{ $org_serial }}" target="_blank">{{ $tpl_data.base_info.name }}校区</a>
+            </li>
+            <li>
+                <a href="http://www.genshuixue.com/i/comment/{{ $org_serial }}" target="_blank">{{ $tpl_data.base_info.name }}怎么样</a>
+            </li>
+            <li>
+                <a href="http://www.genshuixue.com/i/intro/{{ $org_serial }}" target="_blank">{{ $tpl_data.base_info.name }}简介</a>
+            </li>
+        </ul>
+        {{ include file="common/innerlink/searchList.html" data=$tpl_data.pageInnerLinks mod="机构" inner_type="org" }}
+    </div>
+{{ /strip }}

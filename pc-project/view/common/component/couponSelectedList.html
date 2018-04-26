@@ -1,0 +1,36 @@
+{{ *
+    @file 替换首页优惠券的对话框
+    @author zengcheng
+* }}
+
+<script type="text/template" id="coupon-selected-list-template">
+    <div class="coupon-selected-list-dialog">
+        <div class="coupon-selected-topic">
+            ${data.topic|raw}
+        </div>
+        <div class="coupon-list">
+            <!-- for: ${data.couponList} as ${coupon}, ${index} -->
+            <div class="coupon-item" data-index="${index}">
+                <div class="coupon-price">￥${coupon.value}</div>
+                <div>
+                     <!-- if: !${coupon.cond_threshold} || ${coupon.cond_threshold} == -1 -->
+                        不限
+                    <!-- else -->
+                        满${coupon.cond_threshold}使用
+                    <!-- /if -->
+                </div>
+                <div>
+                    ${coupon.effect_time | truncate(10)}至${coupon.expire_time | truncate(10)}
+                </div>
+                <div>每人限领${coupon.max_recv_count}张</div>
+                <span class="tip-tag"></span>
+                <i class="icon icon-check"></i>
+            </div>
+            <!-- /for -->
+        </div>
+        <div class="coupon-action">
+            <button class="btn btn-primary btn-replace">确定替换</button>
+            <button class="btn btn-default btn-cancel">取消</button>
+        </div>
+    </div>
+</script>

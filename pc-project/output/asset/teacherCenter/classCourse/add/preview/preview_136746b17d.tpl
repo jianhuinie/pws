@@ -1,0 +1,313 @@
+{{ -- tpl:privew -- }}
+<%
+    var basicData = _this.basicData;
+    var detailData = _this.detailData;
+    var photoData = _this.photoData;
+    var quitData = _this.quitData;
+    var schedueData = _this.schedueData;
+    var tplData = _this.tplData;
+ %>
+    <div id="preview">
+        <div class="preview_box">
+            <div id="preview_cover"></div>
+
+            <div class="crumb">
+                <%
+                    var categoryLabels = basicData.categoryLabels;
+                    var len = categoryLabels.length;
+                    for (var i = 0; i < len; i++) {
+
+                %>
+                        <a><%= categoryLabels[i] %></a>
+                <%
+                        if (i < len - 1) {
+                %>
+                            <span class="splitter"> > </span>
+                <%
+                        }
+                %>
+                <%
+                    }
+                %>
+            </div>
+            <div id="course-profile">
+                <div>
+                    <div class="course-number">班课编号：<%= basicData.course_number %></div>
+                    <h1><%= basicData.name %></h1>
+                    <div class="content">
+                        <div class="imgshow">
+                            <div class="image">
+                                <img src="<%= photoData.cover.url %>">
+                            </div>
+                            <div class="box less-image">
+                                <ul>
+                                    <%
+                                        var photos = photoData.photos;
+                                        for (var i = 0; i < photos.length; i++) {
+                                            var photo = photos[i];
+                                            var licss = '';
+                                            if (photo.storage_id == photoData.cover.id) {
+                                                licss = 'active';
+                                            }
+                                    %>
+                                    <li class="<%= licss %>" data-id="<%= photo.storage_id %>">
+                                        <img src="<%= photo.src %>">
+                                    </li>
+                                    <%
+                                        }
+                                    %>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="baseinfo">
+                            <ul class="action">
+                                <li id="favor"><i class="icon icon-favor"></i><span>收藏</span></li>
+                                <li class="popularity">（<span>0</span>人气）</li>
+                                <li class="social-share"><i class="icon icon-share"></i>分享</li>
+                                <li class="correct"><i class="icon icon-warning"></i>纠错</li>
+                            </ul>
+                            <ul class="info">
+                                <li class="price">课程价格：
+                                    <span class="show">￥ <strong><%= basicData.price %></strong></span>
+                                    <% if (basicData.original_price) {%>
+                                    <span class="original-price">￥<%= basicData.original_price %></span>
+                                    <%} %>
+                                </li>
+                                <li>班级人数：<span><%= basicData.max_student %>人</span><span>（已报<span class="show"><%= basicData.total_pay %></span>人）</span></li>
+                                <li class="length">课程时长：<span><%= schedueData.planList.courseLength %></span></li>
+                                <li class="time">课程安排：<span><%= schedueData.description %></span><a class="detail">查看详细时间</a></li>
+                                <li class="address">上课方式：<span><%= basicData.lesson_way %></span></li>
+                                <li class="enroll">
+                                    <div class="enroll-action enrolling show">
+                                        <div class="primary-small reserve-course">立即报名</div>
+                                    </div>
+                                    <div class="chat-label chat-to-teacher">在线咨询</div>
+                                </li>
+                                <li class="promise">
+                                    <span class="label">服务承诺：</span>
+                                    <div class="class-course-icon">
+                                        <a class="icon icon-anytime-retire"></a>
+                                        <a class="icon icon-anytime-chaban"></a>
+                                        <a class="icon icon-certi"></a>
+                                        <a class="icon icon-safe"></a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="sidebar">
+                <div id="sidebar-box">
+                    <div class="app-download">
+                        <img src="http://cdn.gsxservice.com/asset/img/course/app-download_a4f1330fde.jpg">
+                        <div class="info">
+                            <h3>跟谁学手机版</h3>
+                            <a class="btn-primary">立即下载</a>
+                        </div>
+                    </div>
+                </div>
+                <%
+                if (tplData.isOrganization) {
+                %>
+                <div id="course-org">
+                    <h1 class="header">机构信息</h1>
+                    <div class="body">
+                        <div class="avatar">
+                            <a class="avatar-small">
+                                <img src="<%= tplData.organization.avatar %>" width="60" height="60">
+                            </a>
+                        </div>
+                        <div class="info">
+                            <h1>
+                                <a><%= tplData.organization.name %></a>
+                            </h1>
+                            <span class="chat-label">
+                                <i class="icon icon-chat"></i>
+                                <b>马上交谈</b>
+                            </span>
+                            <div class="intro"><%= tplData.organization.brief %></div>
+                            <div class="score">
+                                <span class="star-score">
+                                    <%
+                                        var score = tplData.organization.score;
+                                        score = Math.floor(score);
+                                        for (var i = 0; i < 5; i++) {
+                                            if (i < score) {
+                                    %>
+                                            <i class="icon icon-star star-shine"></i>
+                                    <%
+                                            } else if (tplData.organization.score - score >= 0.5) {
+                                    %>
+                                            <span class="star-half">
+                                            <i class="icon icon-star-half"></i>
+                                                <i class="icon icon-star"></i>
+                                            </span>
+                                    <%
+                                            } else {
+                                    %>
+                                            <i class="icon icon-star"></i>
+                                    <%
+                                            }
+                                        }
+
+                                    %>
+
+                                </span><%= tplData.organization.score %>分
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <%
+                }
+                %>
+
+                <div id="course-teacher">
+                    <h1 class="header">主讲老师</h1>
+                    <div class="body">
+                        <div class="box">
+                            <div class="avatar">
+                                <a class="avatar-small">
+                                    <img src="<%= tplData.teacherInfo.photo_url %>" width="60" height="60">
+                                </a>
+                            </div>
+                            <div class="info">
+                                <h1><a><%= tplData.teacherInfo.display_name %></a></h1>
+                                <span class="chat-label">
+                                    <i class="icon icon-chat"></i><b>马上交谈</b>
+                                </span>
+                                <div class="age-comment">
+                                    <span class="school-age">
+                                        <i class="icon icon-clock-o"></i><%= tplData.teacherInfo.school_age %>年教龄
+                                    </span>
+                                    <a class="comment-num">
+                                        <%
+                                        var comment_count = parseInt(tplData.teacherInfo.order_comment_count) + parseInt(tplData.teacherInfo.invite_comment_count);
+                                        %>
+                                        <i class="icon icon-comment"></i><%= comment_count %>
+                                    </a>
+                                </div>
+                                <div class="score">
+                                    <span class="star-score">
+                                        <%
+                                            var score = tplData.teacherInfo.score;
+                                            score = Math.floor(score);
+                                            for (var i = 0; i < 5; i++) {
+                                                if (i < score) {
+                                        %>
+                                                <i class="icon icon-star star-shine"></i>
+                                        <%
+                                                } else if (tplData.teacherInfo.score - score >= 0.5) {
+                                        %>
+                                                <span class="star-half">
+                                                    <i class="icon icon-star-half"></i>
+                                                    <i class="icon icon-star"></i>
+                                                </span>
+                                        <%
+                                                } else {
+                                        %>
+                                                <i class="icon icon-star"></i>
+                                        <%
+                                                }
+                                            }
+
+                                        %>
+                                    </span><%= tplData.teacherInfo.score %>分
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="content">
+                <div class="header">
+                    <div class="wrapper tab-nav tab-nav-primary">
+                        <div class="nav-action-container"></div>
+                        <div class="nav-item-container">
+                            <a class="nav-item active"> <div>课程简介</div></a>
+                            <a class="nav-item"><div>课程详情</div></a>
+                            <a class="nav-item"><div>教学大纲</div></a>
+                            <a class="nav-item"><div>课程评价</div></a>
+                            <a class="nav-item"><div>直播须知</div></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="body" style="margin-top: 0px;">
+                    <div id="course-summary">
+                        <h3><span>课程简介</span></h3>
+                        <table class="content table">
+                            <colgroup>
+                                <col width="20%">
+                                <col width="80%">
+                            </colgroup>
+                            <thead></thead>
+                            <tbody>
+                                <tr>
+                                    <td>课程信息</td>
+                                    <td><%= basicData.information %></td>
+                                </tr>
+                                <tr>
+                                    <td>退班规则</td>
+                                    <td><span><%= quitData.retire_flag %></span></td>
+                                </tr>
+                                <tr>
+                                    <td>能否插班</td>
+                                    <td><span><%= quitData.chaban_flag %></span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="course-introduction">
+                        <h3><span>课程详情</span></h3>
+                        <div class="content">
+                            <%= detailData.introduction %>
+                        </div>
+                    </div>
+                    <div id="course-plan">
+                        <h3><span>教学大纲</span></h3>
+                        <table class="table content">
+                            <colgroup>
+                                <col width="20%">
+                                <col width="80%">
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <td>课程安排</td>
+                                    <td><%= schedueData.description %></td>
+                                </tr>
+                                <%
+                                    var planList = schedueData.planList;
+                                    for (var i = 0; i < planList.length; i++) {
+                                        var idx = parseInt(i + 1);
+                                        var plan = planList[i];
+                                %>
+                                    <tr>
+                                        <td style="vertical-align:middle">第 <%= idx %> 节</td>
+                                        <td>
+                                            <div class="plan-info">
+                                                <div>
+                                                    <span class="td-label">课程时间：</span><%= plan.time %>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <span class="td-label">主讲老师：</span>
+                                                    <a><%= plan.teacher %></a>
+                                                </div>
+                                                <div>
+                                                    <span class="td-label">课程内容：</span><%= plan.content %>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                <%
+                                    }
+                                %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+{{ -- /tpl -- }}

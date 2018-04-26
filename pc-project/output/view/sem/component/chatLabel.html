@@ -1,0 +1,18 @@
+{{ *
+
+@file 咨询老师 标签
+      参数
+      user_number
+      user_type
+
+@author wangyujie
+
+* }}
+{{ strip }}
+
+<button class="register-to-chat btn-success" data-user-number="{{ $user_number }}" data-user-type="{{ $user_type }}">
+    <i class="icon icon-chat-large-o"></i>
+    <b>咨询老师</b>
+</button>
+{{ /strip }}
+

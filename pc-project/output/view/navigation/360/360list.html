@@ -1,0 +1,82 @@
+{{ *
+
+@file  360导航-a
+@author tangrongyan
+
+* }}
+
+{{ strip }}
+
+
+
+{{ $courses = $tpl_data }}
+
+
+
+
+
+
+            {{ * foreach $courses[0].content as $exam_w }}
+                {{ if $exam_w@first * }}
+                  {{ foreach $courses as $exam }}
+            <li class="course-item">
+                <div class="cover">
+                    <a class="cover-url" href="{{ $exam.course_url }}?source=gsx_360daohan_pc" target="_blank">
+                        <img src="{{ $exam.cover }}@1e_127h_1c_0i_1o_90Q_1x">
+                    </a>
+                    <p class="title-bg"></p>
+                    <div class="title">
+                        <a href="{{ $exam.course_url }}?source=gsx_360daohan_pc" target="_blank" title="{{ $exam.name }}">{{ $exam.name }}</a>
+                    </div>
+                </div>
+                <div class="info-area">
+                    <div class="detail-area">
+                        <div class="price">
+                            <span class="price-current">¥{{ $exam.price }}</span>
+                                {{ if isset($exam.original_price) }}
+                                <span class="price-original">
+                                    ¥{{ $exam.original_price }}
+                                </span>
+                            {{ /if }}
+                        </div>
+
+                      {{ if $exam.is1to1 == 0 }}
+                        <span class="date">{{ $exam.begin_time }}</span>
+                      {{ /if }}
+
+                        {{ if $exam.org_name != null }}
+                        <div class="org-outter">
+                            <a class="institution" title="{{ $exam.org_name }}" href="{{ $exam.org_url }}?source=gsx_360daohan_pc" target="_blank">{{ $exam.org_name }}</a>
+                        </div>
+                        {{ else }}
+                        <div class="teacher-outter">
+                            <a class="institution teacher-single" title="{{ $exam.teacher_name }}" href="{{ $exam.teacher_url }}?source=gsx_360daohan_pc" target="_blank">{{ $exam.teacher_name }}</a>
+                        </div>
+                        {{ /if }}
+                    </div>
+                    <div class="button-area">
+                        <a class="button" href="{{ $exam.course_url }}?source=gsx_360daohan_pc" target="_blank">
+                          {{ if $exam.is1to1 == 0 }}
+                            查看详情
+                          {{ else if $exam.is1to1 == 1 }}
+                            咨询报名
+                          {{ /if }}
+
+                        </a>
+                    </div>
+                </div>
+            </li>
+                 {{ /foreach }}
+               {{ * /if }}
+            {{ /foreach * }}
+
+
+
+
+
+
+
+
+
+
+{{ /strip }}

@@ -1,0 +1,46 @@
+{{ *
+
+@file 个人中心头部
+@author zhujialu
+
+* }}
+
+{{ strip }}
+<div id="header">
+
+    <div class="wrapper">
+        {{ if (isset($tpl_data.is_huike_teacher) && $tpl_data.is_huike_teacher)
+              || (isset($tpl_data.huike.is_huike_student) && $tpl_data.huike.is_huike_student) }}
+            <a class="logo-huikejian"></a>
+        {{ else }}
+            <a class="logo" href="{{ $origin_http }}"></a>
+        {{ /if }}
+
+        <h1>
+            {{ if $identity == 'teacher' }}
+
+            <a href="{{ $origin_http }}/teacher_center/index">
+            老师个人中心
+            </a>
+
+            {{ else }}
+
+            学生个人中心
+
+            {{ /if }}
+
+        </h1>
+
+        <!--div class="teacher-qr-container">
+            <div><img style="width: 80px;" src="http://cdn.gsxservice.com/asset/img/app/pc/teacher-qr.png" /></div>
+            <div>
+                <div class="teacher-app-title">老师版APP</div>
+                <div>随时接收学生留言</div>
+                <div>随时查看主页浏览量</div>
+            </div>
+        </div-->
+
+    </div>
+
+</div>
+{{ /strip }}

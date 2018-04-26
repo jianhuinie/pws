@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for unit/ngService/timezoneService/timezoneServiceSpec.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../prettify.css">
+    <link rel="stylesheet" href="../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header high">
+    <h1>Code coverage report for <span class="entity">unit/ngService/timezoneService/timezoneServiceSpec.js</span></h1>
+    <h2>
+        Statements: <span class="metric">100% <small>(26 / 26)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">100% <small>(0 / 0)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">100% <small>(11 / 11)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">100% <small>(26 / 26)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">unit/ngService/timezoneService/</a> &#187; timezoneServiceSpec.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
+ * @file ajax service
+ * @author hanrui
+ * @date   2015/11/03
+ */
+define(function (require) {
+    describe('timezoneService', function() {
+        require('src/ngService/timezoneService/index');
+        beforeEach(module('library.services'));
+&nbsp;
+        var timezoneService;
+        var date;
+        var zoneIndex;
+&nbsp;
+        beforeEach(inject(function(_timezoneService_) {
+            timezoneService = _timezoneService_;
+            date = new Date('2015-10-10 00:00:00');
+            zoneIndex = -8;
+        }));
+&nbsp;
+        describe('公共 方法', function() {
+            it('equalTranfer method', function() {
+                expect(timezoneService.equalTranfer).toBeDefined();
+            });
+&nbsp;
+            it('tranfer method', function() {
+                expect(timezoneService.tranfer).toBeDefined();
+            });
+        });
+&nbsp;
+        describe('equalTranfer 方法', function() {
+            describe('非东8区', function() {
+                // // 东京
+                // it('东9区', function() {
+                //     expect(timezoneService.equalTranfer(date, -8)).toBe(1444406400000);
+                // });
+&nbsp;
+                // 纽约，每年夏天固定夏令时
+                describe('西5区', function() {
+                    it('夏令时，减一小时', function() {
+                        expect(timezoneService.equalTranfer(date, -8)).toBe(1444406400000);
+                        expect(date.getTimezoneOffset() / 60).toBe(4);
+                    });
+&nbsp;
+                    it('非夏令时', function() {
+                        var tempDate = new Date('2015-12-10 00:00:00');
+                        expect(timezoneService.equalTranfer(tempDate, -8)).toBe(1449676800000);
+                        expect(tempDate.getTimezoneOffset() / 60).toBe(5);
+                    });
+                });
+&nbsp;
+            });
+&nbsp;
+            // /**
+            //  * 1986年至1991年，中华人民共和国在全国范围实行了六年夏时制，
+            //  * 每年从4月中旬的第一个星期日2时整（北京时间）到9月中旬第一个星期日
+            //  * 的凌晨2时整（北京夏令时）。除1986年因是实行夏时制的第一年，
+            //  * 从5月4日开始到9月14日结束外，其它年份均按规定的时段施行。
+            //  * 由于省电效果不抵需要适应时间的弊端，1992年4月5日后不再实行；
+            //  */
+            // describe('东8区', function() {
+            //     it('夏令时，加一小时', function() {
+            //         var tempDate = new Date('1986-06-19 00:00:00');
+            //         expect(timezoneService.equalTranfer(tempDate, -8)).toBe(519494400000);
+            //         expect(tempDate.getTimezoneOffset() / 60).toBe(-9);
+            //     });
+&nbsp;
+            //     it('非夏令时', function() {
+            //         expect(timezoneService.equalTranfer(date, -8)).toBe(1444406400000);
+            //         expect(date.getTimezoneOffset() / 60).toBe(-8);
+            //     });
+            // });
+&nbsp;
+            // });
+&nbsp;
+            // describe('tranfer 方法', function() {
+            //     it('定义', function() {
+            //         expect(timezoneService.tranfer).toBeDefined();
+            //     });
+&nbsp;
+            //     it('tranfer method', function() {
+            //         expect(timezoneService.send).toBeDefined();
+            //     });
+            // });
+        });
+    });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 03 2015 18:31:24 GMT+0900 (JST)</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

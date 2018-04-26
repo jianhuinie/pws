@@ -1,0 +1,121 @@
+
+//课程安排
+.arrangement {
+  margin-top: rem(15)
+  background-color: #fff;
+  padding-top: rem(25);
+  .arr-title {
+    font-size: rem(18);
+    color: #3c3d3d;
+    margin-left: rem(15);
+    padding-left: rem(5);
+    border-left: 2px solid #ff9100;
+    line-height: 1;
+  }
+  .plan-content {
+    background-color: #fff;
+    padding-bottom: rem(15);
+  }
+  .line1 {
+    overflow: hidden;
+    margin: 0 rem(15);
+    position: relative;
+  }
+  .course-plan {
+    float: left;
+    font-size: rem(15);
+    color: #3c3d3d;
+    padding: rem(15) 0;
+    width: 80%;
+  }
+  .course-count {
+    float: right;
+    padding: rem(15) 0;
+    font-size: rem(15);
+    color: #9d9e9e;
+    text-align: right;
+  }
+  .line2 {
+    overflow: hidden;
+    margin: 0 rem(15);
+    border-top: 1px solid #ebeced;
+  }
+  .address {
+    float: left;
+    font-size: rem(15);
+    color: #3c3d3d;
+    width: 80%;
+    padding: rem(15) 0;
+  }
+  .distance {
+    float: right;
+    color: #9d9e9e;
+    margin-top: rem(20);
+  }
+}
+
+.plan-list {
+
+  margin: 0 rem(15) rem(15);
+  li {
+    &:first-child {
+      border-top-color: #ebeced;
+    }
+    overflow: hidden;
+    padding: rem(13) 0;
+    border-top: 1px solid #f7f9fa;
+    position: relative;
+  }
+  .index {
+    float: left;
+    font-size: rem(15);
+    color: #ff6c00;
+    margin-right: rem(8);
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  .course-content {
+    float: left;
+    width: 90%;
+    margin-left: rem(20);
+  }
+  .plan-title {
+    font-size: rem(15);
+    color: #6d6d6e;
+
+  }
+  .plan-time, .finish {
+    font-size: rem(14);
+    color: #9d9e9e;
+  }
+  #one-div {
+    color: #6d6d6e;
+    .finish {
+      color: #6d6e6e;
+    }
+  }
+  .finish {
+    margin-left: rem(3);
+  }
+
+}
+
+.all-plan {
+  margin: 0 rem(15);
+  padding-top: rem(13);
+  font-size: rem(16);
+  color: #6d6d6e;
+  border-top: 1px solid #f7f9fa;
+  text-align: center;
+
+  .all-class {
+    width: rem(120);
+    height: rem(40);
+    line-height: rem(40);
+    margin: 0 auto;
+    border: 1px solid #ebeced;
+    border-radius: rem(2);
+  }
+}

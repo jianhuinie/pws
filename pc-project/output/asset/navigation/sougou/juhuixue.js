@@ -1,0 +1,1 @@
+define("navigation/sougou/juhuixue",["require","exports"],function(require,exports){"use strict";var i=$("#juhuixue");exports.init=function(){i.on("mouseenter",".course-nav li",function(){var e=$(this),n=e.data("cat");i.find(".course-nav li").removeClass("active"),e.addClass("active"),i.find(".list").hide(),i.find(".course-content ."+n).show()})}});

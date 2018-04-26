@@ -1,0 +1,238 @@
+{
+    "code": 0,
+    "msg": "succ",
+    "tpl_data": {
+        "channel_name": "宝爸宝妈看过来!",
+        "share_title": "宝爸宝妈看过来!",
+        "share_content": "激发您宝贝的无限潜能",
+        "share_img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/08/57b8397d873db.png",
+        "color": "",
+        "more": {
+            "keyword": "学前",
+            "report_name": "ps_more"
+        },
+        "bubble_url": "",
+        "list": [
+            {
+                "template": "fiveTab",
+                "report_name": "ps_category",
+                "data": [
+                    {
+                        "title": "钢琴",
+                        "sub": "弹奏肖邦夜曲",
+                        "imgUrl": "https://imgs.genshuixue.com/0cms/d/file/content/2016/08/57b57bf861633.png",
+                        "webUrl": "https://m.genshuixue.com/k12/getClassifyCourses?grade=preschool&class_name=yiti&catid=3832&subject_name=%E9%92%A2%E7%90%B4&course_type=all",
+                        "is_search": 0
+                    },
+                    {
+                        "title": "早教",
+                        "sub": "培养超能宝贝",
+                        "imgUrl": "https://imgs.genshuixue.com/0cms/d/file/content/2016/08/57b7c53a3ccdb.png",
+                        "webUrl": "https://m.genshuixue.com/k12/getClassifyCourses?grade=preschool&class_name=zaojiao",
+                        "is_search": 0
+                    },
+                    {
+                        "title": "吉他",
+                        "sub": "激发音乐热爱",
+                        "imgUrl": "https://imgs.genshuixue.com/0cms/d/file/content/2016/08/57b57bf7c26a1.png",
+                        "webUrl": "https://m.genshuixue.com/k12/getClassifyCourses?grade=preschool&class_name=yiti&catid=3833&subject_name=%E5%90%89%E4%BB%96&course_type=all",
+                        "is_search": 0
+                    },
+                    {
+                        "title": "绘画",
+                        "sub": "画出童年快乐",
+                        "imgUrl": "https://imgs.genshuixue.com/0cms/d/file/content/2016/08/57b57bf842933.png",
+                        "webUrl": "https://m.genshuixue.com/k12/getClassifyCourses?grade=preschool&class_name=yiti&catid=3836&subject_name=%E7%BB%98%E7%94%BB&course_type=all",
+                        "is_search": 0
+                    },
+                    {
+                        "title": "古筝",
+                        "sub": "开启聪慧音符",
+                        "imgUrl": "https://imgs.genshuixue.com/0cms/d/file/content/2016/08/57b57bf7e56a0.png",
+                        "webUrl": "https://m.genshuixue.com/k12/getClassifyCourses?grade=preschool&class_name=yiti&catid=3839&subject_name=%E5%8F%A4%E7%AD%9D&course_type=all",
+                        "is_search": 0
+                    }
+                ]
+            },
+            {
+                "template": "courseCardThree",
+                "report_name": "ps_ course5",
+                "more_url": "/k12/getClassifyCourses?grade=preschool&class_name=bianshou",
+                "keyword": "",
+                "data": {
+                    "title": "辣妈变瘦修炼记",
+                    "sub": "瑜伽  健身  舞蹈",
+                    "list": [
+                        {
+                            "distance": "",
+                            "title": "【体验课】传统瑜伽 实用功法大全（整年）",
+                            "img": "https://imgs.genshuixue.com/27987233_6w1jc0il.jpeg",
+                            "total_pay": 2975,
+                            "price": 99,
+                            "begin_time_desc": "今天17:00上课",
+                            "url": "https://beta-m.genshuixue.com/teacher/classCourseDetail/170121571739",
+                            "course_number": "170121571739",
+                            "type": "8"
+                        }
+                    ]
+                }
+            },
+            {
+                "template": "courseCardFour",
+                "report_name": "ps_ course2",
+                "more_url": "/k12/getClassifyCourses?grade=preschool&class_name=yiti",
+                "keyword": "",
+                "data": {
+                    "title": "艺体兴趣加油站",
+                    "sub": "绘画  书法  钢琴  围棋",
+                    "list": [
+                        {
+                            "distance": "",
+                            "title": "弹《小汤》，就是这么简单",
+                            "img": "https://imgs.genshuixue.com/25824731_svyoxj1k.jpeg",
+                            "total_pay": 724,
+                            "price": "0.00",
+                            "begin_time_desc": "6月24日上课",
+                            "url": "https://beta-m.genshuixue.com/teacher/classCourseDetail/161220558418",
+                            "course_number": "161220558418",
+                            "type": "8"
+                        },
+                        {
+                            "distance": "",
+                            "title": "0基础家长也能改作业（书法篇）",
+                            "img": "https://imgs.genshuixue.com/26985649_tjr8685p.jpeg",
+                            "total_pay": 827,
+                            "price": "0.00",
+                            "begin_time_desc": "6月26日上课",
+                            "url": "https://beta-m.genshuixue.com/teacher/classCourseDetail/161229495516",
+                            "course_number": "161229495516",
+                            "type": "8"
+                        }
+                    ]
+                }
+            },
+            {
+                "template": "selectedTeacher",
+                "report_name": "ps_teacher",
+                "more_url": "https://m.genshuixue.com/bj/st-%E5%AD%A6%E5%89%8D.html?source=search",
+                "data": {
+                    "title": "优选名师",
+                    "sub": "为您的宝贝挑选最优质的老师",
+                    "list": {
+                        "top": {
+                            "avatar": "https://img.genshuixue.com/8001775_wp195py9.jpeg",
+                            "name": "郑滢轩  速读",
+                            "subject": "",
+                            "school_age": "20",
+                            "url": "/625453548",
+                            "desc": "北京大学硕士，中科院心理所在职博士。自1994年开始研究快速阅读，是我国快速阅读、快速记忆、学习力训练领域的领头羊，被誉为“阅读教改的拓荒牛”、“神童点灯人“。她20年如一日，常年战斗在教学第一线，不仅帮大量差生转优，还培养出众多超优生、跳级生和名校生。与潘厚霖共同开设的“潘郑学习法”学能训练课程，在北京历时13年，好评如潮。",
+                            "student_count": "7508"
+                        },
+                        "list": [
+                            {
+                                "avatar": "https://imgs.genshuixue.com/13625229_tft9m75u.jpeg",
+                                "name": "赵老师",
+                                "subject": "记忆力",
+                                "school_age": "8",
+                                "url": "/bjxzt719719",
+                                "desc": "记忆力",
+                                "student_count": "4706"
+                            },
+                            {
+                                "avatar": "https://img.genshuixue.com/2438471_sux42xj5.jpeg",
+                                "name": "张帆",
+                                "subject": "古筝",
+                                "school_age": "12",
+                                "url": "/352720968",
+                                "desc": "古筝",
+                                "student_count": "140"
+                            },
+                            {
+                                "avatar": "https://imgs.genshuixue.com/890926_y3zr3inr.jpeg",
+                                "name": "卢毅",
+                                "subject": "素描",
+                                "school_age": "10",
+                                "url": "/709863688",
+                                "desc": "素描",
+                                "student_count": "230"
+                            },
+                            {
+                                "avatar": "https://imgs.genshuixue.com/13498960_ahwsb0yg.jpeg",
+                                "name": "谢怡晨 ",
+                                "subject": "钢琴",
+                                "school_age": "11",
+                                "url": "/yicheng51",
+                                "desc": "钢琴",
+                                "student_count": "1513"
+                            },
+                            {
+                                "avatar": "https://imgs.genshuixue.com/8035717_geo1y2aj.jpeg",
+                                "name": "Danger",
+                                "subject": "美术",
+                                "school_age": "11",
+                                "url": "/danger",
+                                "desc": "美术",
+                                "student_count": "1069"
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "template": "orgSelection",
+                "report_name": "ns_org",
+                "data": {
+                    "title": "优选机构",
+                    "sub": "为您推荐最优质的机构",
+                    "keyword": null,
+                    "list": [
+                        {
+                            "name": "乐教音乐工作室",
+                            "logo": "https://img.genshuixue.com/1153880_on274hff.jpg",
+                            "url": "https://beta-m.genshuixue.com/i/lejiao",
+                            "total_comments": "894",
+                            "teacher_count": 41
+                        },
+                        {
+                            "name": "东方爱婴教育集团",
+                            "logo": "https://img.genshuixue.com/6585097_zmwfw44x.jpg",
+                            "url": "https://beta-m.genshuixue.com/i/dongfangaiying",
+                            "total_comments": "20",
+                            "teacher_count": 3
+                        },
+                        {
+                            "name": "孙虹烨魔方",
+                            "logo": "https://img.genshuixue.com/5344072_7nsu42xk.jpg",
+                            "url": "https://beta-m.genshuixue.com/i/329160179",
+                            "total_comments": "131",
+                            "teacher_count": 13
+                        }
+                    ]
+                }
+            },
+            {
+                "template": "addQQ",
+                "report_name": "ps_ Qr code",
+                "data": {
+                    "url": "https://jq.qq.com/?_wv=1027&k=42zxByF&oMPd5BmiTrIpseybxrNz9I-E_mbEPCu3",
+                    "img": "https://imgs.genshuixue.com/0cms/d/file/content/2016/12/58635b151898f.png",
+                    "name": "学前家长交流群",
+                    "number": "434470506",
+                    "android_key": "lQ7shxSB8CUfgieYM9npWaPu-myvdfxw"
+                }
+            }
+        ],
+        "lbs": {
+            "province": "北京",
+            "city": "北京",
+            "coord": {
+                "lng": 116.39564503788,
+                "lat": 39.92998577808
+            }
+        }
+    },
+    "ts": 1498029601,
+    "declare_config": {
+        "declareTpl": "v2/resources/page/k12Channel/index/index"
+    }
+}

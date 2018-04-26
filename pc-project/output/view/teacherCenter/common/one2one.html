@@ -1,0 +1,69 @@
+{{ $course_url = $val.detail_url }}
+
+<div class="course-item">
+    <a class="course-link" href="{{ {{ $course_url }} }}" target="_blank">
+        <img src="{{ $val.cover_url }}@1e_200w_112h_1c_0i_1o_90Q_1x" alt="{{ $val.name }}">
+        <div class="course-remark">
+            {{ $course_name = $val.name|cn_truncate:20 }}
+            {{ $course_name }}
+        </div>
+    </a>
+
+    <ul class="course-item-info">
+        {{ $course_name = $val.name|cn_truncate:25 }}
+        <li class="course-title">
+            <a class="title" href="{{ {{ $course_url }} }}" target="_blank" {{ if $course_name != $val.name }}data-title="{{ $val.name }}"{{ /if }}>
+            <span class="course-lesson-way">一对一</span>
+            {{ $course_name }}
+            </a>
+        </li>
+        {{ *课程安排* }}
+        {{ if !empty($val.remark) }}
+        {{ $remark = $val.remark|cn_truncate:25 }}
+        <li class="course-time" {{ if $remark != $val.remark }}data-title="{{ $val.remark }}" data-width="20em"{{ /if }}>
+        {{ $remark }}
+        </li>
+        {{ /if }}
+
+        <li class="course-time">
+            {{ if $val.support_online != 0 }}
+            支持线上
+                {{ if $val.support_offline != 0 }}、线下授课{{ /if }}
+            {{ else if $val.support_offline != 0 }}
+            支持线下授课
+            {{ /if }}
+        </li>
+        {{ if !empty($val.total_pay) }}
+        <li class="course-time">
+            {{ $val.total_pay }}人学习
+        </li>
+        {{ /if }}
+    </ul>
+    <div class="course-price">
+        {{ if count($val.price) > 1 }}
+            {{ $min_price = 99999999 }}
+            {{ $max_price = 0 }}
+            {{ foreach $val.price as $v }}
+            {{ if $v && $v > $max_price }}
+            {{ $max_price = $v }}
+            {{ /if }}
+            {{ /foreach }}
+
+            {{ foreach $val.price as $v }}
+            {{ if $v && $v < $min_price }}
+            {{ $min_price = $v }}
+            {{ /if }}
+            {{ /foreach }}
+        {{ else }}
+            {{ $min_price = $val.price[0] }}
+        {{ /if }}
+
+        <span class="price">￥{{ $min_price }}<i class="price-qi">起</i></span>
+
+    </div>
+    <div class="course-button">
+        <a href="{{ $course_url }}" target="_blank" class="btn btn-primary yellow">购买课时</a>
+    </div>
+
+
+</div>

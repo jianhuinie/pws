@@ -1,0 +1,26 @@
+<import src="tpl/image/index.wxml" />
+<import src="tpl/slider/index.wxml" />
+<import src="tpl/video/index.wxml" />
+<import src="tpl/bottom/index.wxml" />
+<import src="../../components/habo/index.wxml" />
+<view>
+    <scroll-view
+        scroll-y="true"
+        class="find-teacher-order {{!isHiddenBottom? 'find-teacher-order-btm' : ''}}"
+        bindscroll="bindScroll"
+        scroll-into-view="{{toView}}"
+        enable-back-to-top="true"
+        style="{{'height: ' + contentHeight + 'rpx;'}}"
+    >
+        <block wx:for="{{tpl_info}}">
+            <block wx:if="{{item.type == 'form'}}">
+                <include src="tpl/form/index.wxml" />
+            </block>
+            <block wx:else>
+                <template is="{{item.type}}" data="{{item,isShowVideo,autoplay}}"/>
+            </block>
+        </block>
+        <template is="habo" data="{{logParams}}"/>
+    </scroll-view>
+    <include src="tpl/bottom/index.wxml" />
+</view>

@@ -1,0 +1,210 @@
+/**
+ * @file 免费午餐
+ * @author tangrongyan
+ */
+
+@import '../main/base.less';
+@import '../common/layout.less';
+
+#main {
+    background-color: #FFF;
+    width: 970px;
+    margin: 0 auto;
+    position: relative;
+
+    .banner {
+        height: 600px;
+        position: relative;
+        overflow: hidden;
+
+        //ul
+        .promotion {
+            width: 970px;
+            height: 600px;
+            position: absolute;
+            left:-970px;
+        }
+        .promotion li {
+            float: left;
+        }
+
+        .promotion li.active {
+            display: block;
+        }
+    }
+}
+
+
+
+#controls {
+    a {
+        color: @brand-gray;
+        cursor: pointer;
+        font-size: 48px;
+        position: absolute;
+        top: 17%;
+    }
+    a:hover {
+        color: #666666;
+    }
+    .prev {
+        left: -50px;
+    }
+    .next {
+        right: -50px;
+    }
+}
+
+
+
+
+#main .click {
+    text-align: center;
+    .mutual {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -o-user-select: none;
+        user-select:none;
+        margin-bottom: 30px;
+        margin-top: 53px;
+        /*
+                .counter {
+                    color: #ff3333;
+                    font-size: 18px;
+                    margin-right: 30px;
+                    line-height: 226px;
+                    vertical-align: bottom;
+                }*/
+        .centre {
+            background: url(../../img/activity/lunch/click.png) no-repeat;
+            display: inline-block;
+            width: 226px;
+            height: 226px;
+            cursor: pointer;
+        }
+        .on {
+            background: url(../../img/activity/lunch/on.png) no-repeat;
+        }
+        img {
+            margin-right: -74px;
+        }
+    }
+
+
+    .counter {
+        color: #333333;
+        font-size: 34px;
+        span {
+            color: #ff3333;
+            margin-top: -30px;
+        }
+    }
+
+
+    p {
+        color: #333333;
+        font-size: 25px;
+        margin: 25px auto 33px;
+        width: 26em;
+        a {
+            color: #cc381e;
+        }
+    }
+    .legend {
+        background: url(../../img/activity/lunch/rice.png);
+        width: 301px;
+        height: 56px;
+        margin: 0 auto 63px;
+    }
+}
+
+#main .footer {
+    border-top: 1px solid @brand-gray-light;
+    padding: 80px 272px 76px 290px;
+    color: #000;
+    font-size: 18px;
+
+    .clearfix();
+
+    img {
+        float: left;
+    }
+    div {
+        display: inline-block;
+        float: right;
+        margin-right: 99px;
+        margin-top: 43px;
+        vertical-align: top;
+    }
+    .feature {
+        color: @brand-primary;
+    }
+
+}
+
+#main  .slogan {
+    text-align: center;
+    color: #333333;
+    height: 62px;
+    font-size: 16px;
+    background: #eeeeee;
+    line-height: 62px;
+}
+
+#main .statement {
+    text-align: center;
+    color: #333333;
+    height: 26px;
+    font-size: 16px;
+    background: #eeeeee;
+    line-height: 62px;
+
+}
+
+.dialog-body {
+    color: #666;
+    font-size:24px;
+    text-align:center;
+    .success{
+        color:#5da912;
+        margin: 100px 0 10px;
+    }
+    .reminder {
+        /*font-size: 17px;*/
+        /*color: #999;*/
+        margin-bottom: 54px;
+        /*margin-top: 52px;*/
+    }
+    .apply {
+        color: #FFF;
+        font-size: 28px;
+        display: block;
+        margin: 0 auto 35px;
+        /*height: 38px;*/
+        border: 1px solid #ff9900;
+
+        /*bottom: 62px;*/
+        width: 120px;
+        font-family: @font-family-base;
+
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -khtml-border-radius: 10px;
+        box-sizing: content-box;
+
+    }
+
+    .baidu-share {
+        right: 310px;
+        top: 320px;
+    }
+
+}
+.dialog {
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+}

@@ -1,0 +1,91 @@
+{{ *
+
+@file 账户绑定
+@author zhujialu
+
+* }}
+{{ strip }}
+<div class="item item-bind-account">
+
+    <div class="item-header">
+        <strong>
+
+            {{ if $tpl_data.account_list.sina || $tpl_data.account_list.wechat || $tpl_data.account_list.qq || $tpl_data.account_list.alipay || $tpl_data.account_list.renren || $tpl_data.account_list.baidu }}
+                <i class="icon icon-check-circle"></i>
+            {{ else }}
+                <i class="icon icon-info-circle"></i>
+            {{ /if }}
+            第三方帐号绑定
+        </strong>
+        <p>绑定第三方网站，使用第三方帐号登录跟谁学</p>
+
+    </div>
+
+    <div class="item-body">
+
+        {{ $wechat = [] }}
+        {{ $wechat['name'] = 'wechat' }}
+        {{ $wechat['text'] = '微信' }}
+        {{ $wechat['icon'] = 'wechat-circle' }}
+        {{ $wechat['bind'] = $tpl_data.account_list['wechat'] }}
+
+        {{ $qq = [] }}
+        {{ $qq['name'] = 'qq' }}
+        {{ $qq['text'] = 'QQ' }}
+        {{ $qq['icon'] = 'qq-circle' }}
+        {{ $qq['bind'] = $tpl_data.account_list['qq'] }}
+
+        {{ $alipay = [] }}
+        {{ $alipay['name'] = 'alipay' }}
+        {{ $alipay['text'] = '支付宝' }}
+        {{ $alipay['icon'] = 'alipay-circle' }}
+        {{ $alipay['bind'] = $tpl_data.account_list['alipay'] }}
+
+        {{ $weibo = [] }}
+        {{ $weibo['name'] = 'sina' }}
+        {{ $weibo['text'] = '微博' }}
+        {{ $weibo['icon'] = 'weibo-circle' }}
+        {{ $weibo['bind'] = $tpl_data.account_list['sina'] }}
+
+        {{ $renren = [] }}
+        {{ $renren['name'] = 'renren' }}
+        {{ $renren['text'] = '人人' }}
+        {{ $renren['icon'] = 'renren-circle' }}
+        {{ $renren['bind'] = $tpl_data.account_list['renren'] }}
+
+        {{ $baidu = [] }}
+        {{ $baidu['name'] = 'baidu' }}
+        {{ $baidu['text'] = '百度' }}
+        {{ $baidu['icon'] = 'baidu-circle' }}
+        {{ $baidu['bind'] = $tpl_data.account_list['baidu'] }}
+
+        {{ $account_list = [ ] }}
+        {{ $account_list[] = $wechat }}
+        {{ $account_list[] = $qq }}
+        {{ $account_list[] = $alipay }}
+        {{ $account_list[] = $weibo }}
+        {{ $account_list[] = $renren }}
+        {{ $account_list[] = $baidu }}
+
+        {{ foreach $account_list as $item }}
+        <dl{{ if $item.bind }} class="active"{{ /if }}>
+
+            <dt>
+                <i class="icon icon-{{ $item.icon }}"></i>
+                <strong>{{ $item.text }}</strong>
+            </dt>
+
+            <dd>
+                {{ if $item.bind }}
+                    已绑定 | <b class="btn-link tiny unbind-account" data-way="{{ $item.name }}">取消绑定</b>
+                {{ else }}
+                    <b class="btn-link tiny bind-account" data-way="{{ $item.name }}">点击绑定</b>
+                {{ /if }}
+            </dd>
+        </dl>
+        {{ /foreach }}
+
+    </div>
+
+</div>
+{{ /strip }}

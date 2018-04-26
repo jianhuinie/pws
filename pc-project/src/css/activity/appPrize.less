@@ -1,0 +1,178 @@
+/**
+ * @file 活动 App登录奖学金
+ * @author liucong
+ */
+
+@import '../main/base.less';
+@import '../common/layout.less';
+@import '../common/component/loginDialog.less';
+
+.gradient-vertical(@startColor, @endColor) {
+    background-color: @endColor;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@startColor), to(@endColor)); // Safari 4+, Chrome 2+
+    background-image: -webkit-linear-gradient(top, @startColor, @endColor); // Safari 5.1+, Chrome 10+
+    background-image: -moz-linear-gradient(top, @startColor, @endColor); // FF 3.6+
+    background-image: linear-gradient(to bottom, @startColor, @endColor); // Standard, IE10
+    background-repeat: repeat-x;
+}
+
+#main {
+    width: 100%;
+    margin: 0 auto;
+
+    .banner {
+        background: url(../../img/activity/appPrize/banner.jpg) 50% 0 no-repeat;
+        width: 100%;
+        height: 492px;
+    }
+    .share {
+        background: url(../../img/activity/appPrize/share.jpg) 50% 0 no-repeat;
+        width: 100%;
+
+        padding-top: 470px;
+        padding-bottom: 25px;
+        .share-btn {
+            background: url(../../img/activity/appPrize/share_btn.png) 0 0 no-repeat;
+            width: 313px;
+            height: 70px;
+            margin: 0 auto;
+            cursor: pointer;
+            position: relative;
+            &:hover {
+                background-position: 0 -73px;
+            }
+        }
+        .baidu-share {
+            top: 70px;
+            right: 40px;
+        }
+    }
+    .expired {
+        background: url(../../img/activity/appPrize/expired.jpg) 50% 0 no-repeat;
+        width: 100%;
+        height: 671px;
+        padding-top: 470px;
+    }
+    .content {
+        width: 100%;
+        .gradient-vertical(#EF3817, #F8C72E);
+        & > .wrapper {
+            width: 1001px;
+            margin: 0 auto;
+            padding-bottom: 115px;
+
+            & > div {
+                padding-top: 40px;
+            }
+        }
+    }
+    .header {
+        background: url(../../img/activity/appPrize/headers.png) no-repeat;
+        height: 63px;
+        width: 479px;
+        margin: 0 auto;
+    }
+    .prize {
+        background-color: #FFFBD1;
+        padding-bottom: 50px;
+        .header {
+            background-position: 0 0;
+        }
+        h3 {
+            color: #D40011;
+            font-size: 22px;
+            line-height: 40px;
+            font-weight: bold;
+        }
+        .has-got-prize, .get-prize {
+            margin: 20px auto 0 auto;
+        }
+        .has-got-prize {
+            width: 100%;
+            text-align: center;
+        }
+        .get-prize {
+            width: 70%;
+            .clearfix();
+            & > div {
+                float: left;
+                width: 50%;
+                text-align: center;
+            }
+            .app-code {
+                margin-top: 65px;
+            }
+        }
+    }
+    .star-teachers {
+        background-color: #FFFFFF;
+        .header {
+            background-position: 0 -63px;
+        }
+        .star-teacher {
+            margin-top: 30px;
+            a {
+                .clearfix();
+            }
+            ul {
+                width: 820px;
+                margin: 0 auto;
+                .clearfix();
+
+            }
+            li {
+                width: 125px;
+                float: left;
+                margin-right: 45px;
+                margin-bottom: 30px;
+            }
+            .last {
+                margin-right: 0;
+            }
+            p {
+                text-align: center;
+                font-size: 16px;
+                color: black;
+            }
+            .course-name {
+                font-size: 20px;
+            }
+            .avatar {
+                img {
+                    border-radius: 50%;
+                    height: 120px;
+                    width: 120px;
+                }
+            }
+        }
+    }
+    .rules {
+        background-color: #F2421C;
+        padding-bottom: 30px;
+        .header {
+            background-position: 0 -126px;
+        }
+        color: #FFFCDA;
+        font-size: 18px;
+        text-align: center;
+        h3 {
+            margin-top: 20px;
+            font-size: 20px
+        }
+        ol {
+            margin: 0 auto;
+            width: 50%;
+            text-align: left;
+
+            li {
+                text-indent: -20px;
+            }
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 14px;
+            color: @brand-text;
+        }
+    }
+}

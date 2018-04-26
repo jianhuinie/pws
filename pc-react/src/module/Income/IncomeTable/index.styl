@@ -1,0 +1,44 @@
+@import '../../../resource/css/default.styl';
+
+.income-table {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+    &-operation  {
+        height: 34px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .selection {
+        width: 156px;
+        height: 32px;
+        &-content {
+            .ant-select-selection {
+                background-color: $white;
+                border: 1px solid $grey_50;
+                border-radius: 2px;
+                height: 32px;
+                .ant-select-selection__rendered {
+                    line-height: 31px;
+                }
+            }
+        }
+    }
+    &-list {
+        flex-grow: 1;
+        margin-top: 14px;
+        .ant-table-content {
+            .ant-table-tbody {
+                .ant-table-row {
+                    td {
+                        padding: 24px 10px;
+                    }
+                }
+            }
+            .income-table-list-num {
+                text-align: right;
+            }
+        }
+    }
+}

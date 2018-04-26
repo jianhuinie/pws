@@ -1,0 +1,314 @@
+{{ *
+
+@file 赢在校园【预报名】
+@author zhengjunxin
+
+* }}
+{{ extends file="common/main/base.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $nav_config.active = '' }}
+    {{ $nav_config.hidden = 1 }}
+    {{ $flotage_config.hidden = true }}
+
+    {{ $script_path = "activity/xiaoyuan" }}
+    {{ $script_data.originHttps = $origin_https }}
+    {{ $script_data.status = $tpl_data.win_in_school }}
+
+
+{{ /block }}
+
+
+
+{{ block name="title" }}
+赢在校园职场精英挑战赛
+{{ /block }}
+
+{{ block name="style" }}
+    <link rel="stylesheet" href="{{ $static_origin }}/src/css/activity/xiaoyuan.less">
+{{ /block }}
+
+
+{{ block name="main" }}
+
+
+{{ strip }}
+<div class="content">
+    <div class="banner">
+        <div class="intro">
+            <div class="my-wrapper">
+                <div class="title">
+                    大赛简介
+                </div>
+                <div class="desc">
+                    <p>
+                        2015“跟谁学”赢在校园——职场精英挑战赛，是面向全国大学生职场技能考核的赛事（全国200所重点院校）,旨在搭建一个展示大学生求职能力及软实力的平台，为企业选拔优秀人才。
+                    </p>
+                    <p>
+                        赢在校园项目让同学们通过自我认知，简历制作，笔试，面试，职场潜力等相关职场技能考核了解校园招聘的流程和内容，在真实的企业招聘过程中明确自己的优势和不足。让大学生了解企业实习的重要性，了解企业工作内容，帮助中国的大学生认识自己的未来职场发展之路，切实帮助大学生自信求职，成功就业。
+                    </p>
+                    <p>
+                        赢在校园比赛已经成功举办五届，收到了众多企业的好评，得到了学生们充分的认可，口碑效应一直都是赢在校园的核心。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="video">
+        <div class="my-wrapper">
+
+            <div class="video-thumbnail" data-video="http://www.genshuixue.com/video/view/14709" data-name="视频">
+                {{ include file="common/component/image.html" url="http://img.gsxservice.com/0cms/d/file/content/2015/04/5523603f09fa6.jpg" width=1063 height=148 alt="视频封面" }}
+                <i class="icon icon-play-o"></i>
+                <!-- <img src="http://img.gsxservice.com/0cms/d/file/content/2015/04/5523603f09fa6.jpg"> -->
+            </div>
+
+
+        </div>
+    </div>
+    <div class="floatge">
+
+        <div class="icon-title">
+
+        </div>
+        <div class="sign icon-enroll">
+
+        </div>
+        <a class="icon-vote" href="/activity/vote" target="_blank">
+        </a>
+
+    </div>
+
+    <div class="prize">
+        <div class="my-wrapper">
+            <div class="title">
+                大赛奖励
+            </div>
+            <div class="prize-bg">
+            </div>
+        </div>
+    </div>
+    <div class="cultivate">
+        <div class="my-wrapper">
+            <div class="title">
+                不只是比赛
+            </div>
+            <div class="more">
+                ——给你更多职场机会
+            </div>
+            <div class="title-sm">
+                <p>
+                    特约老师跟踪指导
+                </p>
+                <p>
+                    实战式学习
+                </p>
+                <p>
+                    更多收获
+                </p>
+            </div>
+            <div class="cultivate-bg">
+            </div>
+        </div>
+    </div>
+    <div class="teachers">
+        <div class="my-wrapper">
+            <div class="title">
+                大赛特约指导老师
+            </div>
+            <div class="teacher-list">
+
+                <a target="_blank" href="http://www.genshuixue.com/751008828" class="teacher">
+
+                    <div class="teacher-title">
+                        职业规划
+                    </div>
+                    <span class="thumbnail circle large">
+
+                        {{ include file="common/component/image.html" url="http://img.gsxservice.com/786319_yglnu8hy.jpeg" width=120 height=120 alt="头像" }}
+                       <!--  <img src="http://img.gsxservice.com/0cms/d/file/content/2015/04/5523be83ca46a.png"> -->
+
+                    </span>
+                    <p>
+                        张强
+                    </p>
+                    <p class="desc">
+                        教育部信息中心特聘高级职业发展指导专家，工信部信息中心培训中心特聘创业指导专家。国家高级人力资源管理师，中国品牌建设十大杰出经理人，中国人民大学职业发展企业导师。曾在著名企业三星集团和中国石油等多家中央企业担任重要管理职务
+                    </p>
+
+                </a>
+                <a target="_blank" href="http://www.genshuixue.com/499346758" class="teacher">
+
+                    <div class="teacher-title">
+                        能量管理
+                    </div>
+                    <span class="thumbnail circle large">
+
+                        {{ include file="common/component/image.html" url="http://img.gsxservice.com/787440_jf6hpbfv.jpeg" width=120 height=120 alt="头像" }}
+                        <!-- <img src="http://img.gsxservice.com/0cms/d/file/content/2015/04/5523be83ec491.png"> -->
+
+                    </span>
+                    <p>
+                        邓臻
+                    </p>
+                    <p class="desc">
+                        博纳中美总经理，高中毕业后赴美留学，亚杰商会(AAMA)摇篮计划二期创业家，新产品进市场专家；在十年内引进十个网络安全新产品，并成功地推动了这些产品在中国本土的应用和品牌建立，其中Netscreen在2004年以40亿美金被Juniper收购。
+                    </p>
+
+                </a>
+
+                <a target="_blank" href="http://www.genshuixue.com/622720818" class="teacher">
+                    <div class="teacher-title">
+                        职业形象
+                    </div>
+                    <span class="thumbnail circle large">
+
+                        {{ include file="common/component/image.html" url="http://img.gsxservice.com/706862_672fhd42.jpeg" width=120 height=120 alt="头像" }}
+                        <!-- <img src="http://img.gsxservice.com/0cms/d/file/content/2015/04/5523be83aaa81.png"> -->
+
+                    </span>
+                    <p>
+                        戴梅
+                    </p>
+                    <p class="desc">
+                        国家一级形象设计师，中国著名时尚造型师，哈秀时尚网、太平洋女性网、中国时尚网专访造型师。
+                    </p>
+
+                </a>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="apply">
+        <!-- <p class="apply-text">
+            扫二维码预报名，抢实习名额
+        </p>
+        <div class="apply-bg">
+        </div> -->
+
+        {{ if $tpl_data.win_in_school === 2 && isset($user_data.user_id) && $user_data.user_type == 2 }}
+        <button class="sign complete">
+            我要报名
+            {{ include file="common/component/image.html" url="http://img.gsxservice.com/0cms/d/file/content/2015/04/5525097e438a6.png" width=163 height=164 alt="已报名" }}
+
+        </button>
+
+        {{ else }}
+            <button class="sign processing">
+                我要报名
+            </button>
+        {{ /if }}
+
+        {{ if isset($user_data.user_id) }}
+        <div class="message">
+            <p class="info">
+                以下三项资料完整才有报名资格哦
+            </p>
+            <div class="icons">
+                <a target="_blank" href="/student_center/profile#baseInfo">
+                    <span>
+                        基本信息
+                            <i class="icon {{ if $tpl_data.verify_basic == "fail" }}icon-info-circle {{ else }}icon-check-circle {{ /if }}"></i>
+                    </span>
+                </a>
+                <a target="_blank" href="/student_center/profile#schoolInfo">
+                    <span>
+                        学校信息
+                            <i class="icon {{ if $tpl_data.verify_school == "fail" }}icon-info-circle {{ else }}icon-check-circle {{ /if }}"></i>
+                    </span>
+                </a>
+                <a target="_blank" href="/student_center/account">
+                    <span>
+                        邮箱认证
+                            <i class="icon {{ if $tpl_data.verify_email == "fail" }}icon-info-circle {{ else }}icon-check-circle {{ /if }}"></i>
+                    </span>
+                </a>
+            </div>
+
+        </div>
+        {{ /if }}
+        <!-- <p class="begining">
+            —— 即将开启，敬请期待 ——
+        </p> -->
+
+    </div>
+    <div class="process">
+        <div class="my-wrapper">
+            <div class="title">
+                大赛流程
+            </div>
+            <div class="process-bg">
+                <!-- {{ include file="common/component/image.html" url="http://img.gsxservice.com/0cms/d/file/content/2015/04/552284c7a441d.png" width=1059 height=359 alt="流程" }} -->
+                <a class="book" target="_blank" href="http://d.gsxservice.com/www/2015赢在校园职场精英挑战赛任务书.pdf">
+
+                </a>
+                <a class="book-second" target="_blank" href="http://d.gsxservice.com/www/【复赛晋级任务书】2015“跟谁学”赢在校园——职场精英挑战赛.pdf">
+
+                </a>
+                <a class="book-third" target="_blank" href="http://d.gsxservice.com/www/【晋级总决赛任务书】2015“跟谁学”赢在校园——职场精英挑战赛新.pdf">
+
+                </a>
+
+                <!-- <img src="http://img.gsxservice.com/0cms/d/file/content/2015/04/552284c7a441d.png" usemap="#book" alt="流程" />
+
+                <map name="book" id="book">
+                    <area shape="rect" coords="830,46,1060,112" href ="www.baidu.com" target ="_self" alt="任务书" />
+                </map>
+ -->
+                <!-- <img src="http://img.gsxservice.com/0cms/d/file/content/2015/04/552284c7a441d.png" alt=""> -->
+            </div>
+        </div>
+    </div>
+    <div class="contact">
+        <div class="my-wrapper">
+            <div class="title">
+                联系我们
+            </div>
+            <div class="contact-bg">
+
+            </div>
+        </div>
+    </div>
+    <div class="spon">
+        <div class="my-wrapper">
+            <span class="sponsor">
+                发起、主办单位：
+                <span>
+                </span>
+            </span>
+            <span class="unite">
+                联合主办：
+                <span>
+                </span>
+            </span>
+            <p class="spon-desc">
+                承办单位：各高校团委/创业、就业指导中心
+            </p>
+            <p>
+                专家顾问：陈向东、张怀亭、李钢江、苏伟、罗斌、宋欲晓
+            </p>
+            <p>
+                企业支持：百度、华为、联想、GE、优职英才、微游学、1号店、课程格子、Dreamore、好未来、嘉和一品、宜信、爱思益、博纳中美、功夫乌龟、e袋洗、校联帮、
+                <i>
+                    小麦公社、社团派、香蕉活动、彩色熊猫、创业管家、创享岛、和君、北大纵横、品牌中国、送姜钱包
+                </i>
+            </p>
+            <p>
+                校园执行：国际大学生职业发展联盟Career Insider Club及高校创就业社团等
+            </p>
+        </div>
+        <p class="copyright">
+            Copyright © 2014 - 2017 北京百家互联科技有限公司版权所有. 京公网安备11010802015210号 | 京ICP备14027590号-1
+        </p>
+    </div>
+</div>
+
+{{ include file="common/component/loginDialog.html" }}
+{{ /strip }}
+
+
+{{ /block }}

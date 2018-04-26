@@ -1,0 +1,165 @@
+/**
+ * @file 按钮
+ * @author zhujl
+ */
+
+/**
+ * @param @bg 背景颜色
+ * @param @color 字体颜色
+ * @param @border 边框颜色
+ */
+.button-variant(@bg, @color, @border) {
+
+    background-color: @bg;
+    border-color: @border;
+    color: @color;
+
+    &:hover,
+    &:focus,
+    &:active {
+
+        background-color: darken(@bg, 4%);
+        border-color: darken(@border, 4%);
+        color: @color;
+
+        .transition(
+            background-color 0.2s,
+            border-color 0.2s,
+            color 0.2s
+        );
+    }
+}
+
+.button(@padding-vertical, @padding-horizontal, @font-size) {
+
+    border: 1px solid transparent;
+    border-radius: @btn-border-radius;
+    cursor: pointer;
+    display: inline-block;
+
+    font-size: @font-size;
+    font-family: @btn-font-family;
+    font-weight: @btn-font-weight;
+
+    margin: 0;
+    padding: @padding-vertical
+             @padding-horizontal;
+
+    line-height: 20px;
+
+    text-align: center;
+    white-space: nowrap;
+
+    .button-variant(@btn-bg, @btn-color, @btn-border);
+    .box-sizing(border-box);
+    .user-select(none);
+
+    &:hover {
+        text-decoration: none;
+    }
+
+    &:focus,
+    &:active {
+        outline: 0;
+    }
+
+    &[disabled] {
+        cursor: not-allowed;
+    }
+}
+
+
+.btn {
+
+    .button(@btn-padding-vertical, @btn-padding-horizontal, @btn-font-size);
+
+}
+.btn-small {
+
+    .button(@btn-small-padding-vertical, @btn-small-padding-horizontal, @btn-small-font-size);
+
+}
+
+// 默认按钮
+.btn-default {
+
+    .button-variant(
+        @btn-bg-default,
+        @btn-color-default,
+        @btn-border-default
+    );
+
+}
+
+// 主色按钮
+.btn-primary {
+
+    .button-variant(
+        @btn-bg-primary,
+        @btn-color-primary,
+        @btn-border-primary
+    );
+
+}
+
+// 信息按钮
+.btn-info {
+    .button-variant(
+        @btn-bg-info,
+        @btn-color-info,
+        @btn-border-info
+    );
+}
+
+// 成功按钮
+.btn-success {
+    .button-variant(
+        @btn-bg-success,
+        @btn-color-success,
+        @btn-border-success
+    );
+}
+
+.btn,
+.btn-default,
+.btn-primary,
+.btn-info {
+    &[disabled],
+    &[disabled]:hover {
+        background-color: @btn-bg-disabled;
+        border-color: @btn-border-disabled;
+        color: @btn-color-disabled;
+    }
+}
+.btn-link {
+    &[disabled],
+    &[disabled]:hover {
+        background-color: transparent;
+        border-color: transparent;
+        color: @btn-bg-disabled;
+    }
+}
+
+// 链接按钮
+.btn-link {
+
+    .button-variant(
+        @btn-bg-link,
+        @btn-color-link,
+        @btn-border-link
+    );
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+// 块级按钮，需要用块级元素实现
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+.btn-block + .btn-block {
+    margin-top: @gap-vertical-medium;
+}

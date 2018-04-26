@@ -1,0 +1,7 @@
+[
+    {
+        "tpl": "./index.tpl",
+        "router": "/k12Channel/index",
+        "mock_data": "./mock/index.json"
+    }
+]

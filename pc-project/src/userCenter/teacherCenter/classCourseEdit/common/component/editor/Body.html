@@ -1,0 +1,44 @@
+<div class="editor-body editor-content">
+    <div class="wrapper">
+    {{#if options.isEditing}}
+
+        <div class="input-group fluid" data-index="{{index}}">
+            <i class="draggable-icon icon floated icon-text-o"></i>
+            <Input options="{{inputOptions}}" />
+            <div class="button floated icon-close" on-click="remove()"></div>
+        </div>
+        <div class="toolbar fluid">
+            <span class="button switer-bold icon-bold{{#if options.isBold}} active{{/if}}" on-click="toggle('options.isBold')"></span>
+            <span class="button change-size icon-font{{#if options.isBig}} active{{/if}}" on-click="toggle('options.isBig')"></span>
+            <span class="button switer-center icon-align-left{{#if !options.isCenter}} active{{/if}}" on-click="set('options.isCenter', false)"></span>
+            <span class="button switer-center icon-align-center{{#if options.isCenter}} active{{/if}}" on-click="set('options.isCenter', true)"></span>
+
+            <ul class="color-list inline">
+                {{#each colorList}}
+                <li class="button tiny{{#if options.color == this}} active{{/if}}" style="background-color: {{this}}" on-click="set('options.color', this)"></li>
+                {{/each}}
+            </ul>
+        </div>
+    {{else}}
+
+        <div class="button-switch input-group fluid" on-click="openEdit()">
+            <i class="draggable-icon icon icon-text-o"></i>
+            <div class="button fluid edit-button">
+                编辑正文
+            </div>
+            <div class="button button-remove icon-close" on-click="remove()"></div>
+        </div>
+
+    {{/if}}
+    </div>
+
+    <style>
+    {{style}}
+    .input-group[data-index="{{index}}"] .body-input textarea {
+        color: {{options.color}};
+        font-weight: {{#if options.isBold}}bold{{else}}normal{{/if}};
+        font-size: {{#if options.isBig}}17px{{else}}15px{{/if}};
+        text-align: {{#if options.isCenter}}center{{else}}left{{/if}};
+    }
+    </style>
+</div>

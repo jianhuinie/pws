@@ -1,0 +1,35 @@
+.qrcode-page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 600;
+    &-mask {
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+        background-color: rgba(0,0,0,0.50);
+    }
+    &-dialog {
+        width: rem(200);
+        height: rem(200);
+        position: absolute;
+        left: 50%;
+        top: rem(210);
+        margin-left: rem(-100);
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+.hide {
+    display: none;
+}
+#app.no-scroll-page {
+    position: fixed;
+    overflow: hidden;
+    width: 100%;
+}

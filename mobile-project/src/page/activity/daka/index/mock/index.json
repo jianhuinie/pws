@@ -1,0 +1,186 @@
+{
+    "code": 0,
+    "msg": "succ",
+    "tpl_data": {
+        "total_credit": 0,
+        "score_market": "/duiba/login",
+        "has_sign": false,
+        "sign_info": {
+            "fit_tag": "宜健康",
+            "is_mine": false,
+            "now_day": "7月5日",
+            "now_time": "15:21",
+            "now_week": "星期三",
+            "knowledge": {
+                "title": "光阴为何用“寸”量",
+                "content": "“寸”是计量长度的单位，可为何人们常说“一寸光阴一寸金”？因为古代没有钟表，人们是用日晷来计时的。日晷是在有刻度的盘中央安装一根垂直金属棒，人们根据太阳对金属棒投影的移动距离来计时。所谓“一寸光阴”，就是投影在刻度盘上移动一寸所耗费的时间。"
+            },
+            "my_info": {
+                "avatar": "https://imgs.genshuixue.com/30549_yj79j04b.jpeg",
+                "name": "黄小猛",
+                "tag": "口语 初二 幼升小",
+                "url": "https://beta-m.genshuixue.com/x/981734808"
+            },
+            "get_up_num": 1090,
+            "integral": "5"
+        },
+        "share_info": {
+            "title": "[微知识］光阴为何用“寸”量",
+            "content": "每天一个微知识，一年就是365个哎",
+            "url": "https://beta-m.genshuixue.com/punch_sign/rank",
+            "avatar": "http://img.gsxservice.com/0cms/d/file/content/2016/07/57830ab385680.png",
+            "user_name": "黄小猛"
+        },
+        "list": [
+            {
+                "user_id": "4228635",
+                "avatar": "https://imgs.genshuixue.com/21001829_2is8ro9i.jpeg",
+                "name": "城里的外乡人",
+                "url": "https://beta-m.genshuixue.com/x/330009938",
+                "tag": "形体礼仪 职业技能 化妆"
+            },
+            {
+                "user_id": "4025098",
+                "avatar": "https://imgs.genshuixue.com/34139674_c67egyni.jpeg",
+                "name": "Tony One",
+                "url": "https://beta-m.genshuixue.com/x/773249118",
+                "tag": "托福 演讲 公务员"
+            },
+            {
+                "user_id": "5420877",
+                "avatar": "https://imgs.genshuixue.com/31859289_dyd6nuls.jpeg",
+                "name": "會心的微笑",
+                "url": "https://beta-m.genshuixue.com/x/875963458",
+                "tag": ""
+            },
+            {
+                "user_id": "3870786",
+                "avatar": "https://img.genshuixue.com/16277524_7vvzhzte.jpeg",
+                "name": "蝴蝶仙子",
+                "url": "https://beta-m.genshuixue.com/x/560952388",
+                "tag": "初中 初中英语 初中数学"
+            },
+            {
+                "user_id": "3926755",
+                "avatar": "https://imgs.genshuixue.com/30563_r6g3yf28.jpeg",
+                "name": "放飞梦想SILENCE",
+                "url": "https://beta-m.genshuixue.com/x/815428228",
+                "tag": "高中英语 高中物理 吉他"
+            },
+            {
+                "user_id": "1965072",
+                "avatar": "https://img.genshuixue.com/3876294_iwhtchtt.jpeg",
+                "name": "红玉老师",
+                "url": "https://beta-m.genshuixue.com/x/941765788",
+                "tag": "街舞 出国留学 高考"
+            },
+            {
+                "user_id": "4430543",
+                "avatar": "https://imgs.genshuixue.com/28820357_lin3c9eq.jpeg",
+                "name": "宇泰",
+                "url": "https://beta-m.genshuixue.com/x/541651718",
+                "tag": "篮球 初一"
+            },
+            {
+                "user_id": "3742920",
+                "avatar": "https://img.genshuixue.com/28890992_enga2jjt.jpeg",
+                "name": "AI乐享",
+                "url": "https://beta-m.genshuixue.com/x/563613518",
+                "tag": ""
+            },
+            {
+                "user_id": "4180212",
+                "avatar": "https://imgs.genshuixue.com/20401997_165a5bfq.jpeg",
+                "name": "晴栀菀歌_",
+                "url": "https://beta-m.genshuixue.com/x/480516708",
+                "tag": "古筝 初一 音乐"
+            },
+            {
+                "user_id": "5858429",
+                "avatar": "https://imgs.genshuixue.com/36652224_6r4no5sb.jpeg",
+                "name": "152****9125",
+                "url": "https://beta-m.genshuixue.com/x/813816518",
+                "tag": "美声 原生态 民族"
+            },
+            {
+                "user_id": "1371810",
+                "avatar": "https://img.genshuixue.com/30536_8w8340jy.jpeg",
+                "name": "听不懂",
+                "url": "https://beta-m.genshuixue.com/x/752534728",
+                "tag": "高考 职业技能 学前"
+            },
+            {
+                "user_id": "3264683",
+                "avatar": "https://imgs.genshuixue.com/30515_w1wm1i7w.jpeg",
+                "name": "159****8019",
+                "url": "https://beta-m.genshuixue.com/x/582078798",
+                "tag": "资格考试"
+            },
+            {
+                "user_id": "4960549",
+                "avatar": "https://imgs.genshuixue.com/27915670_x6zzn9xs.jpeg",
+                "name": "baolong_mei",
+                "url": "https://beta-m.genshuixue.com/x/853762828",
+                "tag": "四六级"
+            },
+            {
+                "user_id": "1747604",
+                "avatar": "https://imgs.genshuixue.com/30515_w1wm1i7w.jpeg",
+                "name": "明",
+                "url": "https://beta-m.genshuixue.com/x/690067688",
+                "tag": "资格考试"
+            },
+            {
+                "user_id": "6117315",
+                "avatar": "https://imgs.genshuixue.com/30575_1x43nmcq.jpeg",
+                "name": "群子丫头",
+                "url": "https://beta-m.genshuixue.com/x/645229868",
+                "tag": "家常菜 音乐 围棋"
+            },
+            {
+                "user_id": "5858728",
+                "avatar": "https://img.genshuixue.com/30522_mgynyzkc.jpeg",
+                "name": "151****3305",
+                "url": "https://beta-m.genshuixue.com/x/771198838",
+                "tag": ""
+            },
+            {
+                "user_id": "3484969",
+                "avatar": "https://imgs.genshuixue.com/30121530_32prdmx1.jpeg",
+                "name": "茉莉",
+                "url": "https://beta-m.genshuixue.com/x/668654878",
+                "tag": "记忆力 魔术 小学"
+            },
+            {
+                "user_id": "5311561",
+                "avatar": "https://imgs.genshuixue.com/31766927_mxd1iglp.jpeg",
+                "name": "SARITA♚ÅTÎЯÄÇ",
+                "url": "https://beta-m.genshuixue.com/x/375216678",
+                "tag": "夏令营 瑜伽 钢琴"
+            },
+            {
+                "user_id": "4869378",
+                "avatar": "https://imgs.genshuixue.com/37162991_7k8s99m1.jpeg",
+                "name": "平凡一生",
+                "url": "https://beta-m.genshuixue.com/x/436843608",
+                "tag": "职业技能"
+            },
+            {
+                "user_id": "1564",
+                "avatar": "https://imgs.genshuixue.com/111366_hvswg14k.jpeg",
+                "name": "Ryantian",
+                "url": "https://beta-m.genshuixue.com/x/329649138",
+                "tag": "爵士 高考 高中"
+            }
+        ],
+        "pager": {
+            "total": 1177,
+            "next_page": 1,
+            "has_more": 1
+        }
+    },
+    "ts": 1499245859,
+    "declare_config": {
+        "declareTpl": "v2/resources/page/activity/daka/index/index"
+    }
+}

@@ -1,0 +1,84 @@
+@import "page/_common/swiper/swiper.styl";
+
+.day-good {
+    background: white;
+    padding: rem(10);
+    margin-bottom: rem(10);
+
+    .swiper-container {
+        width: 100%;
+        padding: rem(20) 0;
+    }
+
+    .swiper-slide {
+        background-position: center;
+        background-size: cover;
+        width: 70%;
+    }
+
+    .swiper-slide-active {
+        width: 70% !important;
+    }
+
+    .total {
+        width: rem(220);
+        margin: 0 auto;
+        border-radius: rem(5);
+        border: 1px solid #f4f4f4;
+        box-shadow: rem(2) rem(2) rem(9) rem(2) #E0E0E0;
+
+        .img-phone {
+            width: 100%;
+            height: 100%;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+
+            img {
+                display: block;
+                height: rem(130);
+                width: 100%;
+                /*position: absolute;
+                top: 0;
+                left: 0;*/
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+            }
+            .course-info {
+                padding: 0 rem(12);
+                margin-top: rem(6);
+                line-height: rem(22);
+                .course-icon {
+                    font-family: PingFang-SC-Regular;
+                    font-size: rem(10);
+                    color: #ff9100;
+                    border-radius:rem(1);
+                    border: 1px solid #ff9100;
+                    padding: rem(2) rem(4);
+                }
+                .course-title {
+                    font-family: PingFang-SC-Regular;
+                    font-size:rem(14);
+                    color:#6d6d6e;
+                }
+            }
+
+            .pay-number {
+                font-family:PingFang-SC-Regular;
+                font-size:rem(11);
+                color:#9d9e9e;
+                line-height:rem(40);
+                height: rem(40)
+                padding: 0 rem(12);
+            }
+
+            .img-phone:before {
+
+                content: " ";
+                width: 100%;
+                display: block;
+            //padding-top: 100%;
+            }
+        }
+    }
+}

@@ -1,0 +1,22 @@
+{
+	"tpl_data": {
+		"teacher1": {
+			"display_name": "aaa",
+			"sex": 0,
+			"organization_name": "机构名称",
+			"short_introduce": "机构名称",
+			"school_age": "5年教龄",
+			"avatar": "https://imgs.genshuixue.com/1337874_mio0xhro.jpeg",
+			"vip_level": 2
+		},
+		"organization": {
+			"display_name": "机构",
+			"score": 1.5,
+			"short_introduce": "简介",
+			"avatar": "https://imgs.genshuixue.com/1337874_mio0xhro.jpeg",
+			"vip_level": 1
+		},
+		"dispatch_id": 1111,
+		"feedback_status": 1
+	}
+}

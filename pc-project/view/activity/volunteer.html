@@ -1,0 +1,139 @@
+{{ extends file="common/main/base.html" }}
+
+{{ block name="title" }}
+公益志愿老师
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/activity/volunteer.less">
+{{ /block }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+
+{{ /block }}
+
+
+{{ block name="body" }}
+{{ strip }}
+
+{{ include file="common/siteNav.html" }}
+{{ include file="common/main/common/header.html" }}
+
+{{ include file="common/script.html" }}
+
+<script>
+
+require(
+    [
+        'cobble/helper/Popup',
+        'common/component/baiduShare'
+    ],
+    function (Popup, baiduShare) {
+
+        'use strict';
+
+        $(function () {
+            var shareText = '牵手流浪儿童，共圆艺术之梦。@跟谁学 公开招募志愿老师，共赴爱心之旅，快来报名吧！';
+            baiduShare.init({
+                text: shareText,
+                image: 'http://img.gsxservice.com/0cms/d/file/content/2015/01/54b50d9db879a.jpg',
+                element: $('.baidu-share')
+            });
+
+            var container = $('#main');
+
+            var popup = new Popup({
+                element: container.find('.press'),
+                layer: container.find('.baidu-share'),
+                show: {
+                    trigger: 'click'
+                },
+                hide: {
+                    trigger: 'click'
+                }
+            });
+        });
+    }
+);
+</script>
+
+<div id="main">
+    <div id="layout"></div>
+    <div class="details">
+        <div class="title">
+            <hr>
+            <span>活动内容</span>
+        </div>
+        <div class="photo">
+            <img src="http://img.gsxservice.com/0cms/d/file/content/2015/01/54b4832e14542.jpg" />
+            <p>跟谁学现面向北京地区公开招募志愿者老师，组成"<em>跟谁学爱心接力艺术支教团</em>"，组织安排志愿者老师前往光爱学校展开爱心支教活动。</p>
+        </div>
+        <div class="title">
+            <hr/>
+            <span>教师需求</span>
+        </div>
+        <div class="arts">
+            <p>舞蹈、声乐、钢琴、小提琴、架子鼓、吉他、手风琴、美术老师 各1名</p>
+            <img src="http://img.gsxservice.com/0cms/d/file/content/2015/01/54b4831f3fe4f.jpg" />
+        </div>
+        <div class="title">
+            <hr>
+            <span>报名方式</span>
+        </div>
+        <div class="scan">
+            <p>扫描下方二维码，添加<em>跟谁学</em>微信公众号，回复"<em>公益+姓名+电话</em>"。收到报名后，会有专人电话回访。</p>
+            <img src="http://img.gsxservice.com/0cms/d/file/content/2015/01/54b483308667a.jpg" />
+        </div>
+    </div>
+    <div class="introduction">
+        <div class="outer">
+            <p>最后成功入选的8位老师，将和跟谁学一起踏上爱心之旅，让我们心手相连，为孩子创造更美好的明天~</p>
+        </div>
+        <div class="inner">
+            <p>为了表达对各位志愿者老师崇高的敬意！我们承诺:</p>
+            <ol>
+                <li>
+                    跟谁学会对本次爱心活动参与者进行实时跟踪宣传报道
+                </li>
+                <li>
+                    跟谁学为参与此次爱心活动的老师提供：
+                    <ol>
+                        <li>
+                            <span>1</span>拍摄宣传视频，颁发跟谁学爱心荣誉证书，配备跟谁学爱心制服
+                        </li>
+                        <li>
+                            <span>2</span>平台“爱心认证”，会在其跟谁学主页上显示爱心活动的时长、类型、成果等
+                        </li>
+                        <li>
+                            <span>3</span>公益课程的听课学生人数、课时数会计入教师个人数据，对其个人等级给予相应加分
+                        </li>
+                        <li>
+                            <span>4</span>跟谁学将承担志愿者老师爱心支教全部交通费用
+                        </li>
+                    </ol>
+                </li>
+
+                <li>
+                    本次活动全部报名老师均会进入我们公益教师候选库，后续公益活动享有优先权
+                </li>
+            </ol>
+
+        </div>
+    </div>
+    <div class="footer">
+        <div class="press">
+        </div>
+        <div class="baidu-share"></div>
+    </div>
+
+
+</div>
+
+
+
+{{ include file="common/footer.html" }}
+
+{{ /strip }}
+{{ /block }}

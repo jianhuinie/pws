@@ -1,0 +1,1236 @@
+{{ *
+
+@file 老师主页课程模版
+@author wuhongjie
+
+* }}
+{{ strip }}
+{{ $courseType = $tpl_data.course_type }}
+{{ $profile = $tpl_data.profile }}
+{{ * 用户类型，true为班主任，否则为其他 * }}
+
+{{ $userType = $tpl_data.is_headmaster }}
+
+{{ if $courseType == 'offline' }}
+    {{ if $userType == true }}
+        <ul class="offline-course">
+            {{ foreach $tpl_data.course_infos as $val }}
+                {{ **班课url** }}
+                {{ **3810** }}
+                {{ if $val.course_type == 4 }}
+                    {{ $course_url = '/org_class_course/detail/'|cat:$val.number }}
+                {{ else }}
+                    {{ $course_url = '/teacher/classCourseDetail/'|cat:$val.number }}
+                {{ /if }}
+                <li class="item  {{ if $val@last }}last{{ /if }}">
+                    <a href="{{ $course_url }}" target="_blank">
+                        <img src="{{ $val.cover_url }}@1e_175w_100h_1c_0i_1o_90Q_1x" alt="{{ $val.name }}-{{ $profile.name }}">
+                    </a>
+                    <div class="info">
+                        {{ if !empty($val.discount) }}
+                            {{ $course_name = $val.name|cn_truncate:13 }}
+                        {{ else }}
+                            {{ $course_name = $val.name }}
+                        {{ /if }}
+                        <div class="new-title">
+                            <a class="title" href="{{ $course_url }}" target="_blank" {{ if $course_name != $val.name }}data-title="{{ $val.name }}"{{ /if }}>
+                                {{ $course_name }}
+                            </a>
+                            {{ if $val.fenqi }}
+                                <span class="fenqi_tag">{{ $val.fenqi.tag_name }}</span>
+                            {{ /if }}
+                        </div>
+
+                        <ul class="course-info">
+                            <li>课程长度：
+                                {{ $course_length = $val.course_len/3600 }}
+                                {{ if $course_length == abs(floor($course_length)) }}
+                                    {{ $course_length }}小时
+                                {{ else }}
+                                    {{ abs(($val.course_len/3600))|number_format: 1 }}小时
+                                {{ /if }}
+                            </li>
+                            <li>班级人数：{{ $val.max_student }}人</li>
+                            <li>课程安排：
+                                {{ $arrange = $val.arrangement|cn_truncate:12 }}
+                                <span {{ if $arrange != $val.arrangement }} data-title="{{ $val.arrangement }}" data-width="20em"{{ /if }}>
+                                    {{ $arrange }}
+                                </span>
+                            </li>
+                            <li>上课方式：
+                                {{ if $val.lesson_way == 4 }}
+                                    线下授课
+                                    <div class="address">
+                                        上课地点：
+                                        {{ $address = '' }}
+
+                                        {{ if isset($val.address_area) }}
+                                            {{ $area = $val.address_area }}
+
+                                            {{ if isset($area.province)&&$area.province }}
+                                                {{ $address = $address|cat:$area.province.name }}
+                                            {{ /if }}
+
+                                            {{ if isset($area.city)&&$area.city }}
+                                                {{ if !(!empty($area.province) && $area.province.name == $area.city.name)  }}
+                                                    {{ $address = $address|cat:$area.city.name }}
+                                                {{ /if }}
+                                            {{ /if }}
+
+                                            {{ if isset($area.area)&&$area.area }}
+                                                {{ $address = $address|cat:$area.area.name }}
+                                            {{ /if }}
+
+                                            {{ if isset($area.country)&&$area.country }}
+                                                {{ $address = $address|cat:$area.country.name }}
+                                            {{ /if }}
+
+                                            {{ if isset($area.location_addr)&&$area.location_addr }}
+                                                {{ $address = $address|cat:$area.location_addr }}
+                                            {{ /if }}
+
+                                            {{ **3810的课程** }}
+                                            {{ if $val.course_type == 4 && !empty($val.address_area) && !empty($val.address_area.full_address) }}
+                                                {{ $address = $val.address_area.full_address }}
+                                            {{ /if }}
+                                        {{ /if }}
+
+                                        {{ $final_address = $address|cn_truncate: 12 }}
+                                        <span {{ if $final_address != $address }}data-title="{{ $address }}" data-width="20em"{{ /if }}>
+                                            {{ $final_address }}
+                                        </span>
+
+                                        {{ if false && isset($val.offline_poi) && $val.offline_poi.lng }}
+                                            <a class="detail map"  data-offline='{{ json_encode($val.offline_poi, 77) }}' data-index="{{ $val@index+1 }}" data-address="{{ $val.location }}">
+                                                查看地图位置
+                                            </a>
+                                        {{ /if }}
+                                    </div>
+                                {{ else if $val.lesson_way == 2 }}
+                                    在线授课
+                                    {{ if $val.class_type == 1 }}
+                                        （支持手机观看）
+                                    {{ else }}
+                                        （支持手机APP观看）
+                                    {{ /if }}
+                                {{ /if }}
+                            </li>
+                        </ul>
+
+                        {{ $show_price_tip = false }}
+
+                        {{ ** 非限时折扣执行原来逻辑 ** }}
+                        {{ if !empty($val.discount) }}
+                            {{ if $val.discount.type == 1 }}
+                                {{ $show_price_tip = true }}
+                                <div class="price-tip-box">
+                                    <div class="price-tip price-tip-end">
+                                        <span class="name">
+                                            限额折扣
+                                        </span>
+                                        剩余{{ $val.discount.remain_amount }}个优惠名额
+                                    </div>
+
+                                    <span class="price">
+                                        <i>课程总价：</i>
+                                        ￥{{ $val.discount.discount_price }}
+                                    </span>
+
+                                    <span class="original-price">
+                                        ￥{{ $val.discount.pre_price }}
+                                    </span>
+                                </div>
+                            {{ else if $val.discount.type == 2 }}
+                                {{ **获取当前时间** }}
+                                {{ $cur_time = $smarty.now }}
+                                {{ $start_time = strtotime($val.discount.start_time) }}
+                                {{ $end_time = strtotime($val.discount.end_time) }}
+
+                                {{ ** 距离活动开始一天内 ** }}
+                                {{ if ($start_time - $cur_time) < (24*60*60) && ($start_time - $cur_time > 0) }}
+                                    {{ $show_price_tip = true }}
+                                    <div class="price-tip-box">
+                                        <div class="price-tip price-tip-begin" data-cur="{{ $cur_time }}" data-start="{{ $start_time }}">
+                                            <span class="name">
+                                                限时折扣
+                                            </span>
+                                            距抢购开始
+                                            <span class="time">
+                                                {{ include file='common/component/countDown.html' time=($start_time - $cur_time) }}
+                                            </span>
+                                        </div>
+
+                                        <span class="price">
+                                            <i>课程总价：</i>
+                                            ￥{{ $val.discount.pre_price }}
+                                        </span>
+
+                                        <span class="rob-price">
+                                            抢购价：￥{{ $val.discount.discount_price }}
+                                        </span>
+                                    </div>
+                                {{ ** 距离活动结束时间内 ** }}
+                                {{ else if ($start_time < $cur_time) && ($cur_time < $end_time) }}
+                                    {{ $show_price_tip = true }}
+                                    <div class="price-tip-box">
+                                        <div class="price-tip price-tip-end" data-cur="{{ $cur_time }}" data-end="{{ $end_time }}">
+                                            <span class="name">
+                                                限时折扣
+                                            </span>
+                                            距抢购结束
+                                            <span class="time">
+                                                {{ include file='common/component/countDown.html' time=($end_time - $cur_time) }}
+                                            </span>
+                                        </div>
+
+                                        <span class="price">
+                                            <i>课程总价：</i>
+                                            ￥{{ $val.discount.discount_price }}
+                                        </span>
+
+                                        <span class="original-price">
+                                            ￥{{ $val.discount.pre_price }}
+                                        </span>
+                                    </div>
+                                {{ /if }}
+                            {{ /if }}
+                        {{ /if }}
+                        <div class="button-box" data-coursenum="{{ $val.number }}">
+
+                            {{ ** 非限时折扣执行原来逻辑 ** }}
+                            {{ if empty($val.discount) || !$show_price_tip }}
+                                <div class="price">
+                                    课程总价：<span>￥{{ $val.price }}</span>
+                                </div>
+                            {{ else }}
+                                <div class="price" style="height:36px;"></div>
+                            {{ /if }}
+
+                            {{ $display_status = $val.display_status }}
+                            {{ **如果审核未通过则状态置为暂停招生** }}
+                            {{ if $val.verify_status == 2 }}
+                                {{ $display_status = 3 }}
+                            {{ /if }}
+
+                            {{ if $display_status == 2 }}
+
+                                {{ if $val.max_student <= $val.total_pay }}
+                                    <a target="_blank" href="{{ $course_url }}" class="btn btn-default">
+                                        还有机会，其中<i>{{ $val.total_pay-$val.succ_pay }}</i>人待付款
+                                    </a>
+                                {{ else }}
+                                    <a target="_blank" href="{{ $course_url }}" class="btn btn-primary reserve-course {{ if !$profile.can_order }}disabled-order{{ /if }}" data-coursenum="{{ $val.number }}" {{ if !$profile.can_order }}disabled{{ /if }}>
+                                        还剩{{ $val.max_student - $val.total_pay }}个名额&nbsp;&nbsp;|&nbsp;&nbsp;立即报名
+                                    </a>
+                                {{ /if }}
+                            {{ else if $display_status == 3 }}
+
+                                <a target="_blank" href="{{ $course_url }}" class="btn btn-default">暂停招生</a>
+                            {{ else if $display_status == 4 }}
+
+                                <a target="_blank" href="{{ $course_url }}" class="btn btn-default">
+                                    满班&nbsp;&nbsp;|&nbsp;&nbsp;可以联系老师增加名额
+                                </a>
+                            {{ else if $display_status == 5 }}
+
+                                {{ **加入插班判断** }}
+                                {{ if $val.can_chaban }}
+                                    {{ if $val.is_full }}
+                                        <a target="_blank" href="{{ $course_url }}" class="btn btn-default">
+                                            课程已开始，可联系老师增加名额插班
+                                        </a>
+                                    {{ else if $show_price_tip }}
+                                        <a target="_blank" href="{{ $course_url }}" class="btn btn-primary reserve-course {{ if !$profile.can_order }}disabled-order{{ /if }}" data-coursenum="{{ $val.number }}" {{ if !$profile.can_order }}disabled{{ /if }}>
+                                            还剩{{ $val.max_student - $val.total_pay }}个名额&nbsp;&nbsp;|&nbsp;&nbsp;立即报名
+                                        </a>
+                                    {{ else }}
+                                        <a target="_blank" href="{{ $course_url }}" class="btn btn-primary reserve-course {{ if !$profile.can_order }}disabled-order{{ /if }}" data-coursenum="{{ $val.number }}" {{ if !$profile.can_order }}disabled{{ /if }}>
+                                            插班价￥{{ $val.realtime_price }}&nbsp;&nbsp;|&nbsp;&nbsp;立即报名
+                                        </a>
+                                    {{ /if }}
+                                {{ else }}
+                                    <a target="_blank" href="{{ $course_url }}" class="btn btn-default">进行中</a>
+                                {{ /if }}
+                            {{ else if $display_status == 6 }}
+
+                                <a target="_blank" href="{{ $course_url }}" class="btn btn-default">已完成</a>
+                            {{ else if $display_status == 8 }}
+
+                                <a target="_blank" href="{{ $course_url }}" class="btn btn-default">审核中</a>
+                            {{ else if $display_status == 12 }}
+
+                                <a target="_blank" href="{{ $course_url }}" class="btn btn-default">已失效</a>
+                            {{ else if $display_status == 13 }}
+
+                                <a target="_blank" href="{{ $course_url }}" class="btn btn-default">进行中</a>
+                            {{ /if }}
+                        </div>
+                    </div>
+                </li>
+            {{ /foreach }}
+        </ul>
+    {{ else }}
+        <ul class="offline-course">
+            {{ foreach $tpl_data.course_infos as $val }}
+                {{ **班课url** }}
+                {{ **3810** }}
+                {{ if $val.course_type == 4 }}
+                    {{ $course_url = '/org_class_course/detail/'|cat:$val.number }}
+                {{ else }}
+                    {{ $course_url = '/teacher/classCourseDetail/'|cat:$val.number }}
+                {{ /if }}
+                <li class="item  {{ if $val@last }}last{{ /if }}" >
+                    <a href="{{ $course_url }}" target="_blank">
+                        <img src="{{ $val.cover_url }}@1e_175w_100h_1c_0i_1o_90Q_1x" alt="{{ $val.name }}-{{ $profile.name }}">
+                    </a>
+                    <div class="info">
+                        {{ if !empty($val.discount) }}
+                            {{ $course_name = $val.name|cn_truncate:13 }}
+                        {{ else }}
+                            {{ $course_name = $val.name }}
+                        {{ /if }}
+                        <div class="new-title">
+                            <a class="title" href="{{ $course_url }}" target="_blank" {{ if $course_name != $val.name }}data-title="{{ $val.name }}"{{ /if }}>
+                                {{ $course_name }}
+                            </a>
+                            {{ if $val.fenqi }}
+                                <span class="fenqi_tag">{{ $val.fenqi.tag_name }}</span>
+                            {{ /if }}
+                        </div>
+
+                        <ul class="course-info">
+                            {{ **3810项目** }}
+                            {{ if $val.course_type == 4 }}
+                                <li>课程次数：
+                                    {{ $val.freq }}次
+                                </li>
+                            {{ else }}
+                                {{ if !empty($val.course_len) }}
+                                    <li>课程长度：
+                                        {{ $course_length = $val.course_len/3600 }}
+                                        {{ if $course_length == abs(floor($course_length)) }}
+                                            {{ $course_length }}小时
+                                        {{ else }}
+                                            {{ abs(($val.course_len/3600))|number_format: 1 }}小时
+                                        {{ /if }}
+                                    </li>
+                                {{ /if }}
+                            {{ /if }}
+                            <li>班级人数：{{ $val.max_student }}人</li>
+                            {{ if !empty($val.arrangement) }}
+                                <li>课程安排：
+                                    {{ $arrange = $val.arrangement|cn_truncate:12 }}
+                                    <span {{ if $arrange != $val.arrangement }} data-title="{{ $val.arrangement }}" data-width="20em"{{ /if }}>{{ $arrange }}</span>
+                                </li>
+                            {{ else }}
+                                <li>
+                                    课程安排：<span>待定</span>
+                                </li>
+                            {{ /if }}
+
+                            <li>
+                                上课方式：
+                                {{ if $val.lesson_way == 4 }}
+                                    线下授课
+                                    <div class="address">
+                                        上课地点：
+                                        {{ $address = '' }}
+                                        {{ if isset($val.address_area) }}
+                                        {{ $area = $val.address_area }}
+                                        {{ if isset($area.province)&&$area.province }}
+                                        {{ $address = $address|cat:$area.province.name }}
+                                        {{ /if }}
+                                        {{ if isset($area.city)&&$area.city }}
+                                        {{ if !(!empty($area.province) && $area.province.name == $area.city.name)  }}
+                                        {{ $address = $address|cat:$area.city.name }}
+                                        {{ /if }}
+                                        {{ /if }}
+                                        {{ if isset($area.area)&&$area.area }}
+                                        {{ $address = $address|cat:$area.area.name }}
+                                        {{ /if }}
+                                        {{ if isset($area.country)&&$area.country }}
+                                        {{ $address = $address|cat:$area.country.name }}
+                                        {{ /if }}
+                                        {{ if isset($area.location_addr)&&$area.location_addr }}
+                                        {{ $address = $address|cat:$area.location_addr }}
+                                        {{ /if }}
+                                        {{ **3810的课程** }}
+                                        {{ if $val.course_type == 4 && !empty($val.address_area) && !empty($val.address_area.full_address) }}
+                                        {{ $address = $val.address_area.full_address }}
+                                        {{ /if }}
+                                        {{ /if }}
+                                        {{ $final_address = $address|cn_truncate: 12 }}
+                                        <span {{ if $final_address != $address }}data-title="{{ $address }}" data-width="20em"{{ /if }}>{{ $final_address }}</span>
+                                        {{ if false && isset($val.offline_poi) && $val.offline_poi.lng }}
+                                        <a class="detail map"  data-offline='{{ json_encode($val.offline_poi, 77) }}' data-index="{{ $val@index+1 }}" data-address="{{ $val.location }}">查看地图位置</a>
+                                        {{ /if }}
+                                    </div>
+                                {{ else if $val.lesson_way == 2 }}
+                                    在线授课
+                                    {{ if $val.class_type == 1 }}
+                                        （支持手机观看）
+                                    {{ else }}
+                                        （支持手机APP观看）
+                                    {{ /if }}
+                                {{ /if }}
+                            </li>
+                            {{ if !empty($val.student_desc) }}
+                            {{ /if }}
+                        </ul>
+
+                        {{ $show_price_tip = false }}
+
+                        {{ ** 非限时折扣执行原来逻辑 ** }}
+                        {{ if !empty($val.discount) }}
+                            {{ if $val.discount.type == 1 }}
+                                {{ $show_price_tip = true }}
+                                <div class="price-tip-box">
+                                    <div class="price-tip price-tip-end">
+                                        <span class="name">
+                                            限额折扣
+                                        </span>
+                                        剩余{{ $val.discount.remain_amount }}个优惠名额
+                                    </div>
+
+                                    <span class="price">
+                                        <i>课程总价：</i>
+                                        ￥{{ $val.discount.discount_price }}
+                                    </span>
+
+                                    <span class="original-price">
+                                        ￥{{ $val.discount.pre_price }}
+                                    </span>
+                                </div>
+                            {{ else if $val.discount.type == 2 }}
+                                {{ **获取当前时间** }}
+                                {{ $cur_time = $smarty.now }}
+                                {{ $start_time = strtotime($val.discount.start_time) }}
+                                {{ $end_time = strtotime($val.discount.end_time) }}
+
+                                {{ ** 距离活动开始一天内 ** }}
+                                {{ if ($start_time - $cur_time) < (24*60*60) && ($start_time - $cur_time > 0) }}
+                                    {{ $show_price_tip = true }}
+                                    <div class="price-tip-box">
+                                        <div class="price-tip price-tip-begin" data-cur="{{ $cur_time }}" data-start="{{ $start_time }}">
+                                            <span class="name">
+                                                限时折扣
+                                            </span>
+                                            距抢购开始
+                                            <span class="time">
+                                                {{ include file='common/component/countDown.html' time=($start_time - $cur_time) }}
+                                            </span>
+                                        </div>
+                                        <span class="price">
+                                            <i>课程总价：</i>
+                                            ￥{{ $val.discount.pre_price }}
+                                        </span>
+                                        <span class="rob-price">
+                                            抢购价：￥{{ $val.discount.discount_price }}
+                                        </span>
+                                    </div>
+                                {{ ** 距离活动结束时间内 ** }}
+                                {{ else if ($start_time < $cur_time) && ($cur_time < $end_time) }}
+                                    {{ $show_price_tip = true }}
+                                    <div class="price-tip-box">
+                                        <div class="price-tip price-tip-end" data-cur="{{ $cur_time }}" data-end="{{ $end_time }}">
+                                            <span class="name">
+                                                限时折扣
+                                            </span>
+                                            距抢购结束
+                                            <span class="time">
+                                                {{ include file='common/component/countDown.html' time=($end_time - $cur_time) }}
+                                            </span>
+                                        </div>
+
+                                        <span class="price">
+                                            <i>课程总价：</i>
+                                            ￥{{ $val.discount.discount_price }}
+                                        </span>
+
+                                        <span class="original-price">
+                                            ￥{{ $val.discount.pre_price }}
+                                        </span>
+                                    </div>
+                                {{ /if }}
+                            {{ /if }}
+                        {{ /if }}
+                        <div class="button-box" data-coursenum="{{ $val.number }}">
+
+                            {{ ** 非限时折扣执行原来逻辑 ** }}
+                            {{ if empty($val.discount) || !$show_price_tip }}
+                                <div class="price">
+                                    课程总价：<span>￥{{ $val.price }}</span>
+                                </div>
+                            {{ else }}
+                                <div class="price" style="height:36px;"></div>
+                            {{ /if }}
+
+                            {{ $display_status = $val.display_status }}
+                            {{ **如果审核未通过则状态置为暂停招生** }}
+                            {{ if $val.verify_status == 2 }}
+                                {{ $display_status = 3 }}
+                            {{ /if }}
+
+                            {{ if $display_status == 2 }}
+                                {{ if $val.max_student <= $val.total_pay }}
+                                    <a target="_blank" href="{{ $course_url }}" class="btn btn-default">还有机会，其中<i>{{ $val.total_pay-$val.succ_pay }}</i>人待付款</a>
+                                {{ else }}
+                                    <a target="_blank" href="{{ $course_url }}" class="btn btn-primary reserve-course {{ if !$profile.can_order }}disabled-order{{ /if }}" data-coursenum="{{ $val.number }}" {{ if !$profile.can_order }}disabled{{ /if }}>
+                                        还剩{{ $val.max_student - $val.total_pay }}个名额&nbsp;&nbsp;|&nbsp;&nbsp;立即报名
+                                    </a>
+                                {{ /if }}
+                            {{ else if $display_status == 3 }}
+                                <a target="_blank" href="{{ $course_url }}" class="btn btn-default">暂停招生</a>
+                            {{ else if $display_status == 4 }}
+                                <a target="_blank" href="{{ $course_url }}" class="btn btn-default">满班&nbsp;&nbsp;|&nbsp;&nbsp;可以联系老师增加名额</a>
+                            {{ else if $display_status == 5 }}
+                                {{ **加入插班判断** }}
+                                {{ if $val.can_chaban }}
+                                    {{ if $val.is_full }}
+                                        <a target="_blank" href="{{ $course_url }}" class="btn btn-default">课程已开始，可联系老师增加名额插班</a>
+                                    {{ else if $show_price_tip }}
+                                        <a target="_blank" href="{{ $course_url }}" class="btn btn-primary reserve-course {{ if !$profile.can_order }}disabled-order{{ /if }}" data-coursenum="{{ $val.number }}" {{ if !$profile.can_order }}disabled{{ /if }}>
+                                            还剩{{ $val.max_student - $val.total_pay }}个名额&nbsp;&nbsp;|&nbsp;&nbsp;立即报名
+                                        </a>
+                                    {{ else }}
+                                        <a target="_blank" href="{{ $course_url }}" class="btn btn-primary reserve-course {{ if !$profile.can_order }}disabled-order{{ /if }}" data-coursenum="{{ $val.number }}" {{ if !$profile.can_order }}disabled{{ /if }}>
+                                        插班价￥{{ $val.realtime_price }}&nbsp;&nbsp;|&nbsp;&nbsp;立即报名
+                                        </a>
+                                    {{ /if }}
+                                {{ else }}
+                                    <a target="_blank" href="{{ $course_url }}" class="btn btn-default">进行中</a>
+                                {{ /if }}
+                            {{ else if $display_status == 6 }}
+                                <a target="_blank" href="{{ $course_url }}" class="btn btn-default">已完成</a>
+                            {{ else if $display_status == 8 }}
+                                <a target="_blank" href="{{ $course_url }}" class="btn btn-default">审核中</a>
+                            {{ else if $display_status == 12 }}
+                                <a target="_blank" href="{{ $course_url }}" class="btn btn-default">已失效</a>
+                            {{ else if $display_status == 13 }}
+                                <a target="_blank" href="{{ $course_url }}" class="btn btn-default">已完成</a>
+                            {{ /if }}
+                        </div>
+                    </div>
+                </li>
+            {{ /foreach }}
+        </ul>
+    {{ /if }}
+{{ else if $courseType == 'online' }}
+    {{ if $userType == '1' }}
+        <ul class="online-course">
+            {{ foreach $tpl_data.course_infos as $val }}
+
+            <li class="item  {{ if $val@last }}last{{ /if }}">
+            <a href="/teacher/classCourseDetail/{{ $val.number }}" target="_blank">
+                <img src="{{ $val.cover_url }}@1e_175w_100h_1c_0i_1o_90Q_1x" alt="{{ $val.name }}-{{ $profile.name }}">
+            </a>
+            <div class="info">
+                {{ if !empty($val.discount) }}
+                    {{ $course_name = $val.name|cn_truncate:13 }}
+                {{ else }}
+                    {{ $course_name = $val.name }}
+                {{ /if }}
+                <div class="new-title">
+                    <a class="title" href="/teacher/classCourseDetail/{{ $val.number }}" target="_blank" {{ if $course_name != $val.name }}data-title="{{ $val.name }}"{{ /if }}>
+                        {{ $course_name }}
+                    </a>
+                    {{ if $val.fenqi }}
+                        <span class="fenqi_tag">{{ $val.fenqi.tag_name }}</span>
+                    {{ /if }}
+                </div>
+
+                <ul class="course-info">
+
+                    <li>课程长度：
+                        {{ $course_length = $val.course_len/3600 }}
+                        {{ if $course_length == abs(floor($course_length)) }}
+                        {{ $course_length }}小时
+                        {{ else }}
+                        {{ abs(($val.course_len/3600))|number_format: 1 }}小时
+                        {{ /if }}
+                    </li>
+                    <li>班级人数：{{ $val.max_student }}人</li>
+                    <li>课程安排：
+                        {{ $arrange = $val.arrangement|cn_truncate:12 }}
+                        <span {{ if $arrange != $val.arrangement }} data-title="{{ $val.arrangement }}" data-width="20em"{{ /if }}>{{ $arrange }}</span>
+                    </li>
+                    <li>上课方式：
+                        {{ if $val.lesson_way == 4 }}
+                        线下授课
+                        <div class="address">
+                            上课地点：
+                            {{ $address = '' }}
+                            {{ if isset($val.address_area) }}
+                            {{ $area = $val.address_area }}
+                            {{ if isset($area.province)&&$area.province }}
+                            {{ $address = $address|cat:$area.province.name }}
+                            {{ /if }}
+                            {{ if isset($area.city)&&$area.city }}
+                            {{ if !(!empty($area.province) && $area.province.name == $area.city.name)  }}
+                            {{ $address = $address|cat:$area.city.name }}
+                            {{ /if }}
+                            {{ /if }}
+                            {{ if isset($area.area)&&$area.area }}
+                            {{ $address = $address|cat:$area.area.name }}
+                            {{ /if }}
+                            {{ if isset($area.country)&&$area.country }}
+                            {{ $address = $address|cat:$area.country.name }}
+                            {{ /if }}
+                            {{ if isset($area.location_addr)&&$area.location_addr }}
+                            {{ $address = $address|cat:$area.location_addr }}
+                            {{ /if }}
+                            {{ /if }}
+                            <span>{{ $address|escape }}</span>
+                            {{ if isset($val.offline_poi) && $val.offline_poi.lng }}
+                            <a class="detail map" data-offline='{{ json_encode($val.offline_poi, 77) }}' data-map="{{ $address|escape }}">查看地图位置</a>
+                            {{ /if }}
+                        </div>
+                        {{ else if $val.lesson_way == 2 }}
+                        在线授课
+                        {{ if $val.class_type == 1 }}
+                        （支持手机观看）
+                        {{ else }}
+                        （支持手机APP观看）
+                        {{ /if }}
+                        {{ /if }}
+                    </li>
+                </ul>
+
+                {{ ** 限时折扣 ** }}
+                {{ $show_price_tip = false }}
+                {{ if !empty($val.discount) }}
+                    {{ if $val.discount.type == 1 }}
+                        {{ $show_price_tip = true }}
+                        <div class="price-tip-box">
+                            <div class="price-tip price-tip-end" data-cur="{{ $cur_time }}" data-end="{{ $end_time }}">
+                                <span class="name">
+                                    限额折扣
+                                </span>
+                                剩余{{ $val.discount.remain_amount }}个优惠名额
+                            </div>
+
+                            <span class="price">
+                                <i>课程总价：</i>
+                                ￥{{ $val.discount.discount_price }}
+                            </span>
+
+                            <span class="original-price">
+                                ￥{{ $val.discount.pre_price }}
+                            </span>
+                        </div>
+                    {{ else if $val.discount.type == 2 }}
+                        {{ $show_price_tip = true }}
+                        {{ **获取当前时间** }}
+                        {{ $cur_time = $smarty.now }}
+                        {{ $start_time = strtotime($val.discount.start_time) }}
+                        {{ $end_time = strtotime($val.discount.end_time) }}
+
+                        {{ ** 距离活动开始一天内 ** }}
+                        {{ if ($start_time - $cur_time) < (24*60*60) && ($start_time - $cur_time > 0) }}
+                            {{ $show_price_tip = true }}
+                            <div class="price-tip-box">
+                                <div class="price-tip price-tip-begin" data-cur="{{ $cur_time }}" data-start="{{ $start_time }}">
+                                    <span class="name">
+                                        限时折扣
+                                    </span>
+                                    距抢购开始
+                                    <span class="time">
+                                        {{ include file='common/component/countDown.html' time=($start_time - $cur_time) }}
+                                    </span>
+                                </div>
+                                <span class="price">
+                                    <i>课程总价：</i>
+                                    ￥{{ $val.discount.pre_price }}
+                                </span>
+                                <span class="rob-price">
+                                    抢购价：￥{{ $val.discount.discount_price }}
+                                </span>
+                            </div>
+                        {{ ** 距离活动结束时间内 ** }}
+                        {{ else if ($start_time < $cur_time) && ($cur_time < $end_time) }}
+                            {{ $show_price_tip = true }}
+                            <div class="price-tip-box">
+                                <div class="price-tip price-tip-end" data-cur="{{ $cur_time }}" data-end="{{ $end_time }}">
+                                    <span class="name">
+                                        限时折扣
+                                    </span>
+                                    距抢购结束
+                                    <span class="time">
+                                        {{ include file='common/component/countDown.html' time=($end_time - $cur_time) }}
+                                    </span>
+                                </div>
+
+                                <span class="price">
+                                    <i>课程总价：</i>
+                                    ￥{{ $val.discount.discount_price }}
+                                </span>
+
+                                <span class="original-price">
+                                    ￥{{ $val.discount.pre_price }}
+                                </span>
+                            </div>
+                        {{ /if }}
+                    {{ /if }}
+                {{ /if }}
+                <div class="button-box" data-coursenum="{{ $val.number }}">
+
+                    {{ ** 非限时折扣执行原来逻辑 ** }}
+                    {{ if empty($val.discount) || !$show_price_tip }}
+                        <div class="price">
+                            课程总价：<span>￥{{ $val.price }}</span>
+                        </div>
+                    {{ else }}
+                        <div class="price" style="height:36px;"></div>
+                    {{ /if }}
+
+                    {{ $display_status = $val.display_status }}
+                    {{ **如果审核未通过则状态置为暂停招生** }}
+                    {{ if $val.verify_status == 2 }}
+                        {{ $display_status = 3 }}
+                    {{ /if }}
+
+                    {{ if $display_status == 2 }}
+                        {{ if $val.max_student <= $val.total_pay }}
+                            <a target="_blank" href="/teacher/classCourseDetail/{{ $val.number }}" class="btn btn-default">
+                                还有机会，其中<i>{{ $val.total_pay-$val.succ_pay }}</i>人待付款
+                            </a>
+                        {{ else }}
+                            <a target="_blank" href="/teacher/classCourseDetail/{{ $val.number }}" class="btn btn-primary reserve-course {{ if !$profile.can_order }}disabled-order{{ /if }}" data-coursenum="{{ $val.number }}" {{ if !$profile.can_order }}disabled{{ /if }}>
+                                还剩{{ $val.max_student - $val.total_pay }}个名额&nbsp;&nbsp;|&nbsp;&nbsp;立即报名
+                            </a>
+                        {{ /if }}
+                    {{ else if $display_status == 3 }}
+                        <a target="_blank" href="/teacher/classCourseDetail/{{ $val.number }}" class="btn btn-default">
+                            暂停招生
+                        </a>
+                    {{ else if $display_status == 4 }}
+                        <a target="_blank" href="/teacher/classCourseDetail/{{ $val.number }}" class="btn btn-default">
+                            满班&nbsp;&nbsp;|&nbsp;&nbsp;可以联系老师增加名额
+                        </a>
+                    {{ else if $display_status == 5 }}
+                        {{ **加入插班判断** }}
+                        {{ if $val.can_chaban }}
+                            {{ if $val.is_full }}
+                                <a target="_blank" href="/teacher/classCourseDetail/{{ $val.number }}" class="btn btn-default">
+                                    课程已开始，可联系老师增加名额插班
+                                </a>
+                            {{ else if $show_price_tip }}
+                                <a target="_blank" href="/teacher/classCourseDetail/{{ $val.number }}" class="btn btn-primary reserve-course {{ if !$profile.can_order }}disabled-order{{ /if }}" data-coursenum="{{ $val.number }}" {{ if !$profile.can_order }}disabled{{ /if }}>
+                                    还剩{{ $val.max_student - $val.total_pay }}个名额&nbsp;&nbsp;|&nbsp;&nbsp;立即报名
+                                </a>
+                            {{ else }}
+                                <a target="_blank" href="/teacher/classCourseDetail/{{ $val.number }}" class="btn btn-primary reserve-course {{ if !$profile.can_order }}disabled-order{{ /if }}" data-coursenum="{{ $val.number }}" {{ if !$profile.can_order }}disabled{{ /if }}>
+                                    插班价￥{{ $val.realtime_price }}&nbsp;&nbsp;|&nbsp;&nbsp;立即报名
+                                </a>
+                            {{ /if }}
+                        {{ else }}
+                            <a target="_blank" href="/teacher/classCourseDetail/{{ $val.number }}" class="btn btn-default">
+                                进行中
+                            </a>
+                        {{ /if }}
+                    {{ else if $display_status == 6 }}
+                    <a target="_blank" href="/teacher/classCourseDetail/{{ $val.number }}" class="btn btn-default">已完成</a>
+                    {{ else if $display_status == 8 }}
+                    <a target="_blank" href="/teacher/classCourseDetail/{{ $val.number }}" class="btn btn-default">审核中</a>
+                    {{ else if $display_status == 12 }}
+                    <a target="_blank" href="/teacher/classCourseDetail/{{ $val.number }}" class="btn btn-default">已失效</a>
+                    {{ else if $display_status == 13 }}
+                    <a target="_blank" href="/teacher/classCourseDetail/{{ $val.number }}" class="btn btn-default">进行中</a>
+                    {{ /if }}
+                </div>
+            </div>
+            </li>
+            {{ /foreach }}
+        </ul>
+    {{ else }}
+        <ul class="online-course">
+            {{ foreach $tpl_data.course_infos as $val }}
+            <li class="item  {{ if $val@last }}last{{ /if }}">
+            <a href="/teacher/classCourseDetail/{{ $val.number }}" target="_blank">
+                <img src="{{ $val.cover_url }}@1e_175w_100h_1c_0i_1o_90Q_1x" alt="{{ $val.name }}-{{ $profile.name }}">
+            </a>
+            <div class="info">
+                {{ if !empty($val.discount) }}
+                    {{ $course_name = $val.name|cn_truncate:13 }}
+                {{ else }}
+                    {{ $course_name = $val.name }}
+                {{ /if }}
+
+                <div class="new-title">
+                    <a class="title" href="/teacher/classCourseDetail/{{ $val.number }}" target="_blank" {{ if $course_name != $val.name }}data-title="{{ $val.name }}"{{ /if }}>
+                        {{ $course_name }}
+                    </a>
+                    {{ if $val.fenqi }}
+                        <span class="fenqi_tag">{{ $val.fenqi.tag_name }}</span>
+                    {{ /if }}
+                </div>
+
+                <ul class="course-info">
+                    <li>课程长度：
+                        {{ $course_length = $val.course_len/3600 }}
+                        {{ if $course_length == abs(floor($course_length)) }}
+                        {{ $course_length }}小时
+                        {{ else }}
+                        {{ abs(($val.course_len/3600))|number_format: 1 }}小时
+                        {{ /if }}
+                    </li>
+                    <li>班级人数：{{ $val.max_student }}人</li>
+                    <li>课程安排：
+                        {{ $arrange = $val.arrangement|cn_truncate:12 }}
+                        <span {{ if $arrange != $val.arrangement }} data-title="{{ $val.arrangement }}" data-width="20em"{{ /if }}>{{ $arrange }}</span>
+                    </li>
+                    <li>上课方式：
+                        {{ if $val.lesson_way == 4 }}
+                        线下授课
+                        <div class="address">
+                            上课地点：
+                            {{ $address = '' }}
+                            {{ if isset($val.address_area) }}
+                                {{ $area = $val.address_area }}
+                                {{ if isset($area.province)&&$area.province }}
+                                    {{ $address = $address|cat:$area.province.name }}
+                                {{ /if }}
+                                {{ if isset($area.city)&&$area.city }}
+                                    {{ if !(!empty($area.province) && $area.province.name == $area.city.name)  }}
+                                        {{ $address = $address|cat:$area.city.name }}
+                                    {{ /if }}
+                                {{ /if }}
+                                {{ if isset($area.area)&&$area.area }}
+                                    {{ $address = $address|cat:$area.area.name }}
+                                {{ /if }}
+                                {{ if isset($area.country)&&$area.country }}
+                                {{ $address = $address|cat:$area.country.name }}
+                                {{ /if }}
+                                {{ if isset($area.location_addr)&&$area.location_addr }}
+                                {{ $address = $address|cat:$area.location_addr }}
+                                {{ /if }}
+                            {{ /if }}
+                            <span>{{ $address|escape }}</span>
+                            {{ if isset($val.offline_poi) && $val.offline_poi.lng }}
+                            <a class="detail map" data-offline='{{ json_encode($val.offline_poi, 77) }}' data-map="{{ $address|escape }}">查看地图位置</a>
+                            {{ /if }}
+                        </div>
+                        {{ else if $val.lesson_way == 2 }}
+                        在线授课
+                        {{ if $val.class_type == 1 }}
+                        （支持手机观看）
+                        {{ else }}
+                        （支持手机APP观看）
+                        {{ /if }}
+                        {{ /if }}
+                    </li>
+                </ul>
+
+                {{ ** 限时折扣 ** }}
+                {{ $show_price_tip = false }}
+                {{ if !empty($val.discount) }}
+                    {{ if $val.discount.type == 1 }}
+                        {{ $show_price_tip = true }}
+                        <div class="price-tip-box">
+                            <div class="price-tip price-tip-end" data-cur="{{ $cur_time }}" data-end="{{ $end_time }}">
+                                <span class="name">
+                                    限额折扣
+                                </span>
+                                剩余{{ $val.discount.remain_amount }}个优惠名额
+                            </div>
+
+                            <span class="price">
+                                <i>课程总价：</i>￥{{ $val.discount.discount_price }}
+                            </span>
+
+                            <span class="original-price">
+                                ￥{{ $val.discount.pre_price }}
+                            </span>
+                        </div>
+                    {{ else if $val.discount.type == 2 }}
+                        {{ **获取当前时间** }}
+                        {{ $cur_time = $smarty.now }}
+                        {{ $start_time = strtotime($val.discount.start_time) }}
+                        {{ $end_time = strtotime($val.discount.end_time) }}
+
+                        {{ ** 距离活动开始一天内 ** }}
+                        {{ if ($start_time - $cur_time) < (24*60*60) &&
+                        ($start_time - $cur_time > 0) }}
+                            {{ $show_price_tip = true }}
+                            <div class="price-tip-box">
+                                <div class="price-tip price-tip-begin" data-cur="{{ $cur_time }}" data-start="{{ $start_time }}">
+                                    <span class="name">
+                                        限时折扣
+                                    </span>
+                                    距抢购开始
+                                    <span class="time">
+                                        {{ include file='common/component/countDown.html' time=($start_time - $cur_time) }}
+                                    </span>
+                                </div>
+                                <span class="price">
+                                    <i>课程总价：</i>
+                                    ￥{{ $val.discount.pre_price }}
+                                </span>
+                                <span class="rob-price">
+                                    抢购价：
+                                    ￥{{ $val.discount.discount_price }}
+                                </span>
+                            </div>
+
+                        {{ ** 距离活动结束时间内 ** }}
+                        {{ else if ($start_time < $cur_time) && ($cur_time < $end_time) }}
+                            {{ $show_price_tip = true }}
+                            <div class="price-tip-box">
+                                <div class="price-tip price-tip-end" data-cur="{{ $cur_time }}" data-end="{{ $end_time }}">
+                                    <span class="name">
+                                        限时折扣
+                                    </span>
+                                    距抢购结束
+                                    <span class="time">
+                                        {{ include file='common/component/countDown.html' time=($end_time - $cur_time) }}
+                                    </span>
+                                </div>
+
+                                <span class="price">
+                                    <i>课程总价：</i>￥{{ $val.discount.discount_price }}
+                                </span>
+
+                                <span class="original-price">
+                                    ￥{{ $val.discount.pre_price }}
+                                </span>
+                            </div>
+                        {{ /if }}
+                    {{ /if }}
+                {{ /if }}
+                <div class="button-box" data-coursenum="{{ $val.number }}">
+
+                    {{ ** 非限时折扣执行原来逻辑 ** }}
+                    {{ if empty($val.discount) || !$show_price_tip }}
+                        <div class="price">
+                            课程总价：<span>￥{{ $val.price }}</span>
+                        </div>
+                    {{ else }}
+                        <div class="price" style="height:36px;"></div>
+                    {{ /if }}
+
+
+                    {{ $display_status = $val.display_status }}
+                    {{ **如果审核未通过则状态置为暂停招生** }}
+                    {{ if $val.verify_status == 2 }}
+                    {{ $display_status = 3 }}
+                    {{ /if }}
+
+                    {{ if $display_status == 2 }}
+                        {{ if $val.max_student <= $val.total_pay }}
+                            <a target="_blank" href="/teacher/classCourseDetail/{{ $val.number }}" class="btn btn-default">
+                                还有机会，其中<i>{{ $val.total_pay-$val.succ_pay }}</i>人待付款
+                            </a>
+                        {{ else }}
+                            <a target="_blank" href="/teacher/classCourseDetail/{{ $val.number }}" class="btn btn-primary reserve-course {{ if !$profile.can_order }}disabled-order{{ /if }}" data-coursenum="{{ $val.number }}" {{ if !$profile.can_order }}disabled{{ /if }}>
+                                还剩{{ $val.max_student - $val.total_pay }}个名额&nbsp;&nbsp;|&nbsp;&nbsp;立即报名
+                            </a>
+                        {{ /if }}
+                    {{ else if $display_status == 3 }}
+                        <a target="_blank" href="/teacher/classCourseDetail/{{ $val.number }}" class="btn btn-default">暂停招生</a>
+                    {{ else if $display_status == 4 }}
+                        <a target="_blank" href="/teacher/classCourseDetail/{{ $val.number }}" class="btn btn-default">满班&nbsp;&nbsp;|&nbsp;&nbsp;可以联系老师增加名额</a>
+                    {{ else if $display_status == 5 }}
+                        {{ **加入插班判断** }}
+                        {{ if $val.can_chaban }}
+                            {{ if $val.is_full }}
+                                <a target="_blank" href="/teacher/classCourseDetail/{{ $val.number }}" class="btn btn-default">
+                                    课程已开始，可联系老师增加名额插班
+                                </a>
+                            {{ else if $show_price_tip }}
+                                <a target="_blank" href="/teacher/classCourseDetail/{{ $val.number }}" class="btn btn-primary reserve-course {{ if !$profile.can_order }}disabled-order{{ /if }}" data-coursenum="{{ $val.number }}" {{ if !$profile.can_order }}disabled{{ /if }}>
+                                    还剩{{ $val.max_student - $val.total_pay }}个名额&nbsp;&nbsp;|&nbsp;&nbsp;立即报名
+                                </a>
+                            {{ else }}
+                                <a target="_blank" href="/teacher/classCourseDetail/{{ $val.number }}" class="btn btn-primary reserve-course {{ if !$profile.can_order }}disabled-order{{ /if }}" data-coursenum="{{ $val.number }}" {{ if !$profile.can_order }}disabled{{ /if }}>
+                                    插班价￥{{ $val.realtime_price }}&nbsp;&nbsp;|&nbsp;&nbsp;立即报名
+                                </a>
+                            {{ /if }}
+                        {{ else }}
+                            <a target="_blank" href="/teacher/classCourseDetail/{{ $val.number }}" class="btn btn-default">
+                                进行中
+                            </a>
+                        {{ /if }}
+                    {{ else if $display_status == 6 }}
+                    <a target="_blank" href="/teacher/classCourseDetail/{{ $val.number }}" class="btn btn-default">已完成</a>
+                    {{ else if $display_status == 8 }}
+                    <a target="_blank" href="/teacher/classCourseDetail/{{ $val.number }}" class="btn btn-default">审核中</a>
+                    {{ else if $display_status == 12 }}
+                    <a target="_blank" href="/teacher/classCourseDetail/{{ $val.number }}" class="btn btn-default">已失效</a>
+                    {{ else if $display_status == 13 }}
+                    <a target="_blank" href="/teacher/classCourseDetail/{{ $val.number }}" class="btn btn-default">已完成</a>
+                    {{ /if }}
+                </div>
+            </div>
+            </li>
+            {{ /foreach }}
+        </ul>
+    {{ /if }}
+{{ else if $courseType == 'video' }}
+    {{ include file="common/variable/videoLanguage.html" scope=parent }}
+    <ul class="video-course">
+        {{ foreach $tpl_data.course_infos as $val }}
+
+        <li class="item {{ if $val@last }}last{{ /if }}" >
+        <a href="/video_course/getcourseshowdetail?number={{ $val.number }}" target="_blank">
+            {{ include file="common/variable/photo.html" url=$val.portrait raw_width=300 raw_height=200 width=185 height=130 }}
+            <img src="{{ $photo }}" alt="{{ $val.title }}-{{ $profile.name }}">
+        </a>
+        <div class="info">
+            <div class="new-title">
+                {{ $share_text = "#跟谁学# 分享一门精致视频课程给你哦~"|cat:$val.name }}
+                {{ $share_text = $share_text|cat: "，还在等什么？找好老师，上跟谁学，快来开启寻师之旅吧！" }}
+
+                {{ $share_data = [] }}
+                {{ $share_data.url = $root_http|cat: '/video_course/getcourseshowdetail?number='|cat: $val.number }}
+                {{ $share_data.title = $share_text }}
+                {{ $share_data.content = ' ' }}
+                {{ $share_data.img = $val.portrait }}
+
+                <span class="social-share">
+                    {{ $is_self_share = isset($val.self_share_info) && $val.self_share_info }}
+
+                    <span data-share='{{ json_encode($share_data, 77) }}'
+                    {{ if $is_self_share }} data-query='{"sf": 1}'{{ /if }}
+                    >
+                        <i class="icon icon-share"></i>
+                        分享
+                    </span>
+                    {{ if $is_self_share }}
+                    <small>
+                        {{ $val.self_share_info }}
+                    </small>
+                    {{ /if }}
+                </span>
+
+                <a  class="title" href="/video_course/getcourseshowdetail?number={{ $val.number }}" target="_blank">{{ $val.title }}</a>
+                {{ if $val.price == 0 }}
+                <span class="tip">免费课</span>
+                {{ /if }}
+                {{ if $val.fenqi }}
+                    <span class="fenqi_tag">{{ $val.fenqi.tag_name }}</span>
+                {{ /if }}
+            </div>
+            <ul class="course-info">
+                <li>主讲老师：{{ $val.user_name }}</li>
+                <li>课节数：{{ $val.course_items_count }}</li>
+                <li>课程类别：{{ foreach $val.subjects as $v }}{{ if !$v@last }}{{ $v }}/{{ else }}{{ $v }}{{ /if }}{{ /foreach }}</li>
+                <li>课程语言：{{ $video_language[$val.language] }}</li>
+                <li>{{ if $val.price == 0 }}学习人数：{{ else }}购买人数：{{ /if }}{{ $val.payers_count }}</li>
+            </ul>
+
+            {{ $show_price_tip = false }}
+
+            {{ ** 限时折扣 ** }}
+            {{ if isset($val.discount) && !empty($val.discount) }}
+                {{ if $val.discount.type == 1 }}
+                    {{ $show_price_tip = true }}
+                    {{ $class='price-tip-end' }}
+                    <div class="price-tip-box">
+                        <div class="price-tip {{ $class }}">
+                            <span class="name">
+                                限额折扣
+                            </span>
+                            剩余{{ $val.discount.remain_amount }}个优惠名额
+                        </div>
+                    </div>
+                {{ else if $val.discount.type == 2 }}
+                    {{ **获取当前时间** }}
+                    {{ $cur_time = $smarty.now }}
+                    {{ $start_time = strtotime($val.discount.start_time) }}
+                    {{ $end_time = strtotime($val.discount.end_time) }}
+
+                    {{ ** 距离活动开始一天内 ** }}
+                    {{ if ($start_time - $cur_time) < (24*60*60) && ($start_time - $cur_time > 0) }}
+                        {{ $show_price_tip = true }}
+                        {{ $class='price-tip-begin' }}
+                        <div class="price-tip-box">
+                            <div class="price-tip {{ $class }}" data-cur="{{ $cur_time }}" data-start="{{ $start_time }}">
+                                <span class="name">
+                                    限时折扣
+                                </span>
+                                距抢购开始
+                                <span class="time">
+                                    {{ include file='common/component/countDown.html' time=($start_time - $cur_time) }}
+                                </span>
+                            </div>
+                        </div>
+                    {{ ** 距离活动结束时间内 ** }}
+                    {{ else if ($start_time - $cur_time) && ($cur_time < $end_time) }}
+                        {{ $show_price_tip = true }}
+                        {{ $class='price-tip-end' }}
+                        <div class="price-tip-box">
+                            <div class="price-tip {{ $class }}" data-cur="{{ $cur_time }}" data-end="{{ $end_time }}">
+                                <span class="name">
+                                    限时折扣
+                                </span>
+                                距抢购结束
+                                <span class="time">
+                                    {{ include file='common/component/countDown.html' time=($end_time - $cur_time) }}
+                                </span>
+                            </div>
+                        </div>
+                    {{ /if }}
+                {{ /if }}
+            {{ /if }}
+
+            <div class="button-box" data-link="/video_course/getcourseshowdetail?number={{ $val.number }}">
+                {{ if $val.price == 0 }}
+                    <button class="btn btn-default start">开始学习</button>
+                {{ else }}
+                    {{ if $val.section_id }}
+                        <button class="btn btn-default try-listen">
+                            <i class="icon icon-camera"></i>试听
+                        </button>
+                    {{ /if }}
+                    <button class="btn btn-default buy {{ if !$profile.can_order }}disabled-order{{ /if }}" {{ if !$profile.can_order }}disabled{{ /if }}>
+                        {{ ** 限时折扣 ** }}
+                        {{ if $show_price_tip }}
+                            {{ if $class == 'price-tip-begin' }}
+                                {{ $val.discount.pre_price }}元
+                                <span>{{ $val.discount.discount_price }}元</span>
+                                &nbsp;|&nbsp;购买课程
+                            {{ else if $class == 'price-tip-end' }}
+                                {{ $val.discount.discount_price }}元
+                                <span>{{ $val.discount.pre_price }}元</span>
+                                &nbsp;|&nbsp;购买课程
+                            {{ /if }}
+                        {{ else }}
+                            {{ $val.price }}元&nbsp;|&nbsp;购买课程
+                        {{ /if }}
+                    </button>
+                {{ /if }}
+            </div>
+        </div>
+        </li>
+        {{ /foreach }}
+    </ul>
+{{ else if $courseType == 'one' }}
+    <ul class="one-course">
+        {{ foreach $tpl_data.course_infos as $key => $val }}
+        <li class="item">
+            {{ if count($val.price) > 1 }}
+            {{ $min_price = 99999999 }}
+            {{ $max_price = 0 }}
+            {{ foreach $val.price as $v }}
+            {{ if $v && $v > $max_price }}
+            {{ $max_price = $v }}
+            {{ /if }}
+            {{ /foreach }}
+
+            {{ foreach $val.price as $v }}
+            {{ if $v && $v < $min_price }}
+            {{ $min_price = $v }}
+            {{ /if }}
+            {{ /foreach }}
+
+            {{ if $min_price != $max_price }}
+            {{ $final_price = "￥"|cat:$min_price|cat:" - ￥"|cat:$max_price|cat:"/小时" }}
+            {{ else }}
+            {{ $final_price = "￥"|cat:$min_price|cat:"/小时" }}
+            {{ /if }}
+            {{ else }}
+            {{ foreach $val.price as $v }}
+            {{ if $v }}
+            {{ $final_price = "￥"|cat:$v|cat:"/小时" }}
+            {{ /if }}
+            {{ /foreach }}
+            {{ /if }}
+            <div class="base-info" {{ if count($tpl_data.course_infos) == 1 }}style="display:none;"{{ /if }}>
+                <img src="{{ $static_origin }}/asset/img/teacher/course_icon_58c7e4b678.png">
+                {{ $final_name = $val.name|cn_truncate:10 }}
+                <div class="sub-new-title" {{ if $final_name != $val.name }}data-title="{{ $val.name }}"{{ /if }}>
+                    <a href="{{ $val.detail_url }}" target="_blank">{{ $final_name }}</a>
+                </div>
+                <a>购买课程</a>
+                <span>{{ $final_price }}</span>
+            </div>
+            {{ include file="common/variable/lesson.html" scope=parent }}
+            {{ $subjectLessonWay = [] }}
+            {{ if !empty($val.price.teacher) }}
+            {{ $subjectLessonWay[] = [ 'teacher-'|cat:$val.price.teacher, $lessonMap.teacher|cat:'- ￥'|cat:$val.price.teacher|cat:'/小时', 'teacher', $val.price.teacher ] }}
+            {{ /if }}
+            {{ if !empty($val.price.student) }}
+            {{ $subjectLessonWay[] = [ 'student-'|cat:$val.price.student, $lessonMap.student|cat:'- ￥'|cat:$val.price.student|cat:'/小时', 'student', $val.price.student ] }}
+            {{ /if }}
+            {{ if !empty($val.price.discuss) }}
+            {{ $subjectLessonWay[] = [ 'discuss-'|cat:$val.price.discuss, $lessonMap.discuss|cat:'- ￥'|cat:$val.price.discuss|cat:'/小时', 'discuss', $val.price.discuss ] }}
+            {{ /if }}
+            {{ if !empty($val.price.online) }}
+            {{ $subjectLessonWay[] = [ 'online-'|cat:$val.price.online, $lessonMap.online|cat:'- ￥'|cat:$val.price.online|cat:'/小时', 'online', $val.price.online ] }}
+            {{ /if }}
+            <div class="detail-info form" data-number="{{ $val.number }}" data-index="{{ $key+1 }}" data-course="{{ $val.id }}"  data-lessonway="{{ $subjectLessonWay[0][2] }}" data-lessonvalue="{{ $subjectLessonWay[0][3] }}" {{ if count($tpl_data.course_infos) > 1 }}style="display:none;"{{ /if }}>
+
+                <div class="new-title">
+                    {{ $final_name_inner = $val.name|cn_truncate:30 }}
+                    <span {{ if $final_name_inner != $val.name }}data-title="{{ $val.name }}"{{ /if }}>
+                        <a href="{{ $val.detail_url }}" target="_blank">
+                            {{ $final_name_inner }}
+                        </a>
+                    </span>
+                    &nbsp;&nbsp;{{ $final_price }}
+                    <a class="packup"{{ if count($tpl_data.course_infos) == 1 }}style="display:none;"{{ /if }}>
+                        收起购买
+                    </a>
+                </div>
+
+                {{ if !empty($val.remark) }}
+                <div class="professional-intro">
+                    <span class="professional-intro-text">专业背景介绍：</span>
+                    <div class="professional-intro-detail">
+                        {{ $val.remark|regex_replace: "/\\n/": '<br/>' }}
+                    </div>
+                </div>
+                {{ /if }}
+
+                <div class="lesson-way">
+
+                    <span class="lesson-way-text">选择上课方式：</span>
+                    <div class="dropdown">
+                        <span class="btn-default">
+                            <i class="caret"></i>
+                            <span>{{ $subjectLessonWay[0][1] }}</span>
+                        </span>
+                        <ul class="dropdown-menu">
+                            {{ foreach $subjectLessonWay as $val }}
+                            <li data-value="{{ $val[0] }}">{{ $val[1] }}</li>
+                            {{ /foreach }}
+                        </ul>
+                    </div>
+                    <span class="error" style="display:none;"><i class="icon icon-times-circle"></i>&nbsp;请选择上课方式</span>
+                </div>
+
+                <div class="course-time">
+                    <span class="course-time-text">设置课程时长：</span>
+                    <a class="set-time custom active">自定义时长</a>
+                    <a class="set-time combo">课时优惠包</a>
+                </div>
+
+                <div class="custom-box form-group">
+                    <div class="custom-box-text">填写购买课时：</div>
+                    <input name="hours" class="form-text hours" type="int" required min="1" max="999" >
+                    <span>小时</span>
+                    <span class="form-hint">
+                        <i class="icon icon-info-circle"></i>
+                        请填写整数（1-999）
+                    </span>
+                    <span class="error"></span>
+                </div>
+
+                <div class="course-list-box form-group">
+                    <span class="error" style="display:none;"><i class="icon icon-times-circle"></i>&nbsp;请选择课时优惠包</span>
+                    <ul class="course-list">
+                    </ul>
+                </div>
+
+                <div class="button-box">
+                    <div class="price">总价：<span class="total-price">￥0</span></div>
+                    <div class="stage-pay">分期购买</div>
+                    <button class="btn btn-primary {{ if !$profile.can_order }}disabled-order{{ /if }}" {{ if !$profile.can_order }}disabled{{ /if }}>购买课时</button>
+                </div>
+            </div>
+        </li>
+        {{ /foreach }}
+    </ul>
+{{ /if }}
+
+{{ /strip }}

@@ -1,0 +1,60 @@
+{{ *
+
+@file 海外地址
+@author wangyujie
+
+* }}
+{{ strip }}
+
+{{ if isset($addressList) && $addressList }}
+    {{ $count = count($addressList) }}
+{{ else }}
+    {{ $count = 0 }}
+{{ /if }}
+
+
+<div class="form-col">
+
+    <div class="form-group">
+        <div class="country-select">
+            <button class="btn-default trigger">
+                <i class="icon icon-region-flag flag" style="background-position: 12px 12px;"></i>
+                <span>请选择国家</span>
+                <i class="icon icon-caret-down"></i>
+            </button>
+            <input type="hidden" name="country_id" required />
+            <span class="error"></span>
+            <ul class="dropdown-menu"></ul>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="foreign-editor">
+            <textarea class="form-text" name="foreign_addr" placeholder="请输入详细地址" required></textarea>
+            <div class="form-hint">
+                还可以输入 <strong>50</strong> 个字
+            </div>
+        </div>
+        <span class="error"></span>
+    </div>
+
+    <div class="form-group regular-addr">
+        <div class="form-controls">
+            {{ if $user_data.user_type == 0 }}
+            <label class="form-checkbox">
+                <input type="checkbox" name="regular_address" value=1 {{ if $count == 0 }} checked="checked" disabled="disabled" {{ /if }} />
+                设置为常用地址
+            </label>
+            {{ /if }}
+        </div>
+    </div>
+</div>
+
+<input type="hidden" name="id" />
+
+<div class="form-action">
+    <button class="btn btn-primary btn-save-foreign">保存</button>
+</div>
+
+
+{{ /strip }}

@@ -1,0 +1,102 @@
+/**
+ * @file 资讯详情页
+ * @author tangrongyan
+ */
+
+@import '../common/layout.less';
+@import '../common/main/common/header.less';
+@import '../common/main/common/nav.less';
+@import '../common/footer.less';
+
+@import './infoDetail/new-nav.less';
+@import './infoDetail/new.less';
+@import './infoDetail/ranklist.less';
+@import  './infoDetail/share.less';
+@import './infoDetail/new-comment.less';
+
+#main {
+    margin-top: 0px;
+}
+
+#main #sidebar {
+    width: 228px;
+    float: right;
+    margin: 0;
+}
+
+#main #content {
+    width: 793px;
+    padding: 0 32px 50px;
+
+}
+#main .card {
+    background-color: #ffffff;
+    box-shadow: 0 1px 1px #d5d5d5;
+}
+
+#show-list {
+    color: #3d3d3d;
+    .card-header {
+        border-bottom: 1px solid #dedede;
+        padding-bottom: 8px;
+        margin-bottom: 24px;
+
+    }
+    .card-body {
+        .clearfix();
+        min-height: 0;
+        overflow: hidden;
+        ul {
+            float: left;
+            width: 360px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        a {
+            margin-left: 3px;
+            vertical-align: text-bottom;
+            
+            display: inline-block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 350px;
+        }
+    }
+    .layout-l { 
+        margin-right: 72px;
+
+    }
+    .layout-r {
+
+    }
+}
+
+.comment {
+    margin-top: 35px;
+    h1 {
+        margin-bottom: 12px;
+    }
+    textarea {
+        width: 787px;
+        height: 164px;
+        resize:none;
+        margin-bottom: 14px;
+    }
+    .btn-info {
+        float: right;
+    }
+    span a {
+        color: #6187dc;
+        margin-right: 3px;
+        &:hover {
+            color: #ff9900;
+        }
+    }
+}
+
+
+
+
+

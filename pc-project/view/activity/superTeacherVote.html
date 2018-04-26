@@ -1,0 +1,250 @@
+{{ *
+
+@file 风云老师大赛 2016 - 老师排行榜
+@author wangyujie
+
+* }}
+{{ extends file="common/main/base.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $nav_config.active = '' }}
+    {{ $nav_config.hidden = 1 }}
+    {{ $flotage_config.hidden = true }}
+
+    {{ $script_path = "activity/superTeacherVote" }}
+
+    {{ $baidu_share_text = "超级老师视频风采大赛。我在参加跟谁学首届超级老师视频风采大赛，快来帮我投下宝贵的一票吧。@跟谁学" }}
+    {{ $baidu_share_image = $static_origin|cat:"/asset/img/share.jpg" }}
+
+
+    {{ **顶部搜索去掉placeholder支持空query** }}
+    {{ $current_page = '' }}
+
+    {{ * 需要im * }}
+    {{ $need_im = true }}
+
+    {{ * 不需要底部 * }}
+    {{ $footer_config.hidden = true }}
+
+{{ /block }}
+
+{{ block name = "title" }}
+    互联网风云老师排行榜
+{{ /block }}
+
+{{ block name="description" }}
+    互联网风云老师排行榜
+{{ /block }}
+
+{{ block name="keywords" }}
+    互联网风云老师排行榜
+{{ /block }}
+
+{{ block name = "style" }}
+    <link rel="stylesheet" href="{{ $static_origin }}/src/css/activity/superTeacherVote.less">
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+<div class="main">
+
+    {{ $search = '' }}
+    {{ if isset($smarty.get.search) }}
+        {{ $search = 1 }}
+    {{ /if }}
+
+    <div class="content">
+        <div class="banner"></div>
+
+        <div class="search">
+            <div class="form-controls">
+                <input class="form-text" type="text" name="username" placeholder="输入老师姓名进行搜索" />
+                <button class="btn-small btn-primary" id="student-search">
+                    搜索
+                </button>
+            </div>
+        </div>
+
+        <div class="vote-list">
+            {{ if $tpl_data.teacher_info }}
+                <ul class="vote-picture">
+                    {{ foreach $tpl_data.teacher_info as $item }}
+                    <li>
+
+                        <div class="vote-rank">
+                            {{ if $item.rank < 11 }}TOP&nbsp;{{ /if }}
+                            {{ $item.rank }}
+                        </div>
+
+                        <a href="/activity/superTeacherPersonal?number={{ $item.number }}" target="_blank" class="teacher-avatar" >
+                            {{ include file="common/component/image.html" url=$item.avatar_url width=143 height=142 }}
+                        </a>
+
+                        <div class="vote-result">
+                            <div class="teacher-name">
+                                {{ $item.display_name|cn_truncate: 4 }}
+                            </div>
+
+                            <div class="vote-acount" >
+                                <span>{{ $item.vote_acount }}</span>票
+                            </div>
+
+                            <div class="pv">
+                                <span>浏览量 {{ $item.pv }}</span>
+                                <span>学生数 {{ $item.student_count }}</span>
+                            </div>
+
+                            <button class="btn-small btn-vote" data-number="{{ $item.number }}" data-acount="{{ $item.vote_acount + 1 }}">
+                                投票
+                            </button>
+
+                            {{ if $item.coupon_count > 0 }}
+                                <div class="coupon">
+                                    券
+                                </div>
+                            {{ /if }}
+                        </div>
+                    </li>
+                    {{ /foreach }}
+                </ul>
+
+                {{ include file="common/component/pager.html" page=$tpl_data.pager.current_page page_size=$tpl_data.pager.per_page count=$tpl_data.pager.total hide_jump=1 }}
+            {{ else }}
+                <div class="empty">
+                    <img src="http://img.gsxservice.com/0cms/d/file/content/2015/11/564e8ec7c7e9c.png" alt=""/>
+                    <p>
+                        {{ if isset($search) && $search == 1 }}
+                            哎呀...没有找到这个老师
+                            <a href="/activity/superTeacherVote">
+                                查看全部老师
+                            </a>
+                        {{ else }}
+                            暂时还没有老师报名哦！
+                        {{ /if }}
+                    </p>
+                </div>
+            {{ /if }}
+        </div>
+    </div>
+
+    {{ include file="common/component/loginDialog.html" }}
+
+    <div class="vote-rule">
+        <div class="rule-font">
+            <span>投票规则</span>
+        </div>
+        <ul class="rule">
+            <li>
+                1. 投票起止时间为2016年11月26日至2016年12月9日；
+            </li>
+            <li>
+                2. 为防止虚假刷票行为，投票前需在跟谁学平台完成学生身份注册；
+            </li>
+            <li>
+                3. 每位学生每天可为同一老师投一次票，但可同时为多个老师投票；
+            </li>
+            <li>
+                4. 如出现虚假、恶意刷票行为，一经发现立即取消该老师参赛资格并关闭其投票通道；
+            </li>
+            <li>
+                5. 当老师在跟谁学平台设置了课程优惠券后，学生投票即有机会抽取老师的课程优惠券。
+            </li>
+        </ul>
+    </div>
+
+    <div class="for-index">
+        <a href="/activity/superTeacher">
+            查看大赛介绍
+        </a>
+    </div>
+
+    <div class="customer-footer">
+        <div class="tip">
+            <span>主办方：
+                <span class="bottom-logo"></span>
+            </span>
+            <span>本活动最终解释权归跟谁学所有</span>
+        </div>
+        <div class="copyright">
+            Copyright © 2014 - 2017 北京百家互联科技有限公司版权所有. 京公网安备11010802015210号 | 京ICP备14027590号-1
+        </div>
+    </div>
+
+    <div class="backup">
+        <a class="tip-icon" rel="nofollow" href="javascript:void(0)">
+            <i class="icon icon-up"></i>
+        </a>
+        <a class="tip" rel="nofollow" href="javascript:void(0)">
+            回到顶部
+        </a>
+    </div>
+</div>
+
+<div class="fixed-nav">
+    <div class="qrcode-wrapper">
+        <img src="{{ $static_origin }}/src/img/activity/superTeacher/superteacher_qrcode.jpg" width="85" height="85"/>
+    </div>
+    <div class="fixed-nav-wrapper">
+        <ul>
+
+            {{ if $tpl_data.status == '1' }}
+                <li>
+                    <a class="action" href="/activity/superTeacherPersonal?number={{ $user_data.user_number }}">
+                        个人中心
+                    </a>
+                </li>
+            {{ else }}
+                <li>
+                    <a href="#mod_5" class="action join-btn">注册有礼</a>
+                </li>
+            {{ /if }}
+            <li>
+                <a href="/activity/superTeacherVote" class="action vote-btn">老师风采</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script type="text/html" id="teacher_template">
+/*
+    <!-- for: ${teacherList} as ${item} -->
+        <li>
+            <div class="vote-rank">
+                TOP&nbsp;{{ $item.rank }}
+            </div>
+
+            <a href="/activity/superTeacherPersonal?number=${item.number}" target="_blank" class="teacher-avatar">
+                <img src="${item.avatar_url}@1e_143w_142h_1c_0i_1o_90Q_1x.jpeg" >
+            </a>
+
+            <div class="vote-result">
+                <div class="teacher-name">
+                    ${item.display_name | truncate(4)}
+                </div>
+                <div class="vote-acount" >
+                    <span>${item.vote_acount}</span>票
+                </div>
+                <span class="pv">
+                    ${item.number}
+                    <span>浏览量 ${item.pv}</span>
+                    <span>学生数 ${item.student_count}</span>
+                </span>
+                <button class="btn-small btn-vote">
+                    投票
+                </button>
+                <!-- if: ${item.coupon_count} > 0 -->
+                    <div class="coupon">
+                        券
+                    </div>
+                <!-- /if -->
+            </div>
+        </li>
+    <!-- /for -->
+*/
+</script>
+
+{{ /strip }}
+{{ /block }}

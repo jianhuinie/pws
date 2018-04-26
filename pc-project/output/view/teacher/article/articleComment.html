@@ -1,0 +1,61 @@
+{{ *
+
+@file 老师文章明细页 - 评论
+@author caoying
+
+* }}
+
+{{ if !empty($tpl_data.items) }}
+    {{ foreach $tpl_data.items as $comment }}
+    <div class="detail" data-delete="{{ $comment.can_delete }}" data-cid="{{ $comment.id }}">
+        <div class="user-img">
+            <a href="{{ $comment.url }}" target="_blank">
+                <img src="{{ $comment.avatar }}@40w_40h_1c_1e">
+            </a>
+        </div>
+        <div class="user-content">
+            <div class="user">
+                <a href="{{ $comment.url }}" target="_blank" class="user-name" >{{ $comment.name }}</a>
+                <span class="comment-time">{{ $comment.create_time }}</span>
+                <span class="on-delete">删除</span>
+                <span class="on-report">举报</span>
+            </div>
+            <div class="comment-reply">
+                <div class="comment-content">
+                    <div class="content-detail">{{ $comment.content }}</div>
+                </div>
+                <div class="reply">
+                    <div class="on-reply">
+                        <span class="reply-detail"><span class="answer">回复</span>&nbsp;|</span>
+                        <div class="on-thumbs-up">
+                            <i class="icon icon-thumbs-up {{ if $comment.can_support == 1 }}cancel{{ else }}support{{ /if }}"></i>
+                            <span class="count">{{ $comment.support }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="current-line"></hr>
+        <div class="detail-comment-input">
+            <div class="user-img">
+                <a href="{{ $comment.url }}" target="_blank">
+                    <img src="{{ $comment.avatar }}">
+                </a>
+            </div>
+            <div class="form-group" data-txt="回复{{ $comment.name }}：">
+                <div class="form-controls">
+                    <textarea class="form-text" type="text" name="message" required></textarea>
+                    <div class="form-hint">还可以输入<strong>500</strong>个字</div>
+                    <span class="error"></span>
+                </div>
+
+                <div class="form-action" data-cid="{{ $comment.id }}">
+                    <button class="btn-comment btn-small btn-info btn-replay" >评论</button>
+                    <button class="btn btn-default" >取消</button>
+                </div>
+            </div>
+            <hr class="comment-line"></hr>
+        </div>
+    </div>
+    {{ /foreach }}
+{{ /if }}

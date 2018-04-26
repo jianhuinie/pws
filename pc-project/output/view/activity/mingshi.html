@@ -1,0 +1,152 @@
+{{ extends file="common/pc/base.html" }}
+
+{{ block name="title" }}
+名校家教团，第4期强势来袭|华中师范大学专场|家教|好家教|武汉家教|暑期家教|华师家教|跟谁学
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/activity/mingshi_9593fd3dd0.css">
+{{ /block }}
+
+{{ block name="data" }}
+
+{{ $need_im = false }}
+{{ $smarty.block.parent }}
+
+{{ $script_path = "activity/mingshi_90084c4a75" }}
+
+{{ $flotage_config.hidden = 1 }}
+{{ $rave_config.hidden = 1 }}
+{{ $nav_config.hidden = 1 }}
+{{ $amd_more = [ 'common/main/component/header_40e06bdd81' ] }}
+
+
+{{ $baidu_share_text = "武汉名校家教团第4期强势来袭！华中师范大学专场，找靠谱家教的不二之选！" }}
+
+{{ $baidu_share_image = "http://img.gsxservice.com/0cms/d/file/content/2015/08/55d5724a93b44.jpg" }}
+
+{{ /block }}
+
+
+{{ block name="description" }}
+     武汉最强家教团免费试听，满意付款，多种授课方式任你选！
+{{ /block }}
+
+{{ block name="keywords"  }}
+
+    {{ $smarty.block.parent }}
+     武汉家教,暑期家教,好家教,上门家教,在线教学,名校家教,武汉家教,家教,华师家教
+{{ /block }}
+
+{{ strip }}
+{{ block name="body" }}
+
+{{ $smarty.block.parent }}
+
+{{ include file="common/siteNav.html" }}
+{{ include file="common/main/common/header.html" }}
+{{ include file="common/script.html" }}
+<div id="main">
+
+    <div class="side-nav">
+        <div class="wrapper">
+            <div class="container">
+                <ul>
+                    <li class="applay" >
+                        <div class="content"></div>
+                        <div id="share">{{ include file="common/component/baiduShare.html" }}</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout"></div>
+
+    <!--[if lt IE 9]>
+    <style>
+        .teacher-info .list li {
+            width: 189px;
+            }
+
+        .teacher-info .list li .school {
+            background: #1dbb6f;
+            height: 26px;
+
+        }
+
+    </style>
+    <![endif]-->
+
+    <div class="teacher-info">
+
+        <div class="tab-head"> <b class="tab-nav active">高中家教</b> <b class="tab-nav">初中家教</b>
+            <b class="tab-nav">小学家教</b>
+        </div>
+
+        <div class="tab-content">
+            {{ foreach $tpl_data as $subject }}
+            <ul class="list" {{ if $subject@index == 0 }}style="display: block" {{ /if }}>
+                {{ foreach $subject as $sigle }}
+                <li {{ if ($sigle@index+1) % 5 == 0 }}class="last-li"{{ /if }}>
+                    <span class="school">
+                        <span>{{ $sigle.school }}</span>
+                    </span>
+                    <a href="{{ $sigle.url }}" target="_blank">
+                        <img src="{{ $sigle.avatar }}@1e_120w_120h_1c_0i_1o_90Q_1x.jpeg" alt="{{ $sigle.name }}" />
+                    </a>
+                    <div class="teacher-baseinfo"> <em><a href="{{ $sigle.url }}">{{ $sigle.name }}</a></em>  <strong class="teacher-subject">{{ $sigle.subject }}</strong>
+                        <div class="teacher-intro">{{ $sigle.intro }}</div>
+                    </div>
+                    <div class="teacher-mask">
+                        <a target="_blank" href="{{ $sigle.url }}"></a>
+                    </div>
+                </li>
+                {{ /foreach }}
+                <li class="last-add">
+                    {{ if $subject@index == 0 }}
+                    <a href="http://wh.genshuixue.com/st/高中家教.html">
+                    {{ else if $subject@index == 1 }}
+                    <a href="http://wh.genshuixue.com/st/初中家教.html">
+                    {{ else }}
+                    <a href="http://wh.genshuixue.com/st/小学家教.html">
+                    {{ /if }}
+                        <img src="http://img.gsxservice.com/0cms/d/file/content/2015/06/55910dcc20db7.png" alt="add" />
+                        <div>更多好老师</div>
+                    </a>
+                </li>
+            </ul>
+            {{ /foreach }}
+        </div>
+
+    </div>
+
+    <div class="img">
+
+
+        <div>
+            <img src="http://img.gsxservice.com/0cms/d/file/content/2015/07/5593d9098d520.png" alt="img1" />
+
+        </div>
+
+        <div>
+            <img src="http://img.gsxservice.com/0cms/d/file/content/2015/07/5593d909bff84.png" alt="img2" />
+        </div>
+
+        <div>
+            <img src="http://img.gsxservice.com/0cms/d/file/content/2015/06/559110d9a873b.png" alt="img3" />
+        </div>
+
+    </div>
+
+
+
+    <div id="last">
+        <p>
+            Copyright © 2014 - 2017 跟谁学版权所有. 京公网安备11010802015210号 | 京ICP备14027590号-1
+        </p>
+    </div>
+
+</div>
+{{ /block }}
+{{ /strip }}

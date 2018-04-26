@@ -1,0 +1,48 @@
+{{ *
+@file 班课详情 - 上课地址
+@author liucong
+* }}
+
+{{ strip }}
+<div id="course-address">
+    <h3><span>上课地址</span></h3>
+    <div class="content">
+        <div class="info">
+            <div class="address">
+                <h4>详细地址</h4>
+                <div>
+                    {{ $tpl_data.location|cn_truncate:20 }}
+                    {{ if !empty($tpl_data.offline_poi) }}
+                    <a class="detail map" data-offline='{{ json_encode($tpl_data.offline_poi, 77) }}' data-map="{{ $tpl_data.location|escape }}">查看地图</a>
+                    {{ /if }}
+                </div>
+            </div>
+            <div class="route-query">
+                <h4>查询上课路线</h4>
+                <div class="form">
+                    <div class="form-group">
+                        <div class="form-label">选择出行方式：</div>
+                        <div class="form-controls">
+                        {{ include file="common/ui/radio.html" name="way" value=1 text="公交" checked=1 }}
+                        {{ include file="common/ui/radio.html" name="way" value=2 text="驾车" }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-label">出发地点：</div>
+                        <div class="form-controls">
+                            <input class="form-text" type="text" name="departure" required>
+                            <span class="error"></span>
+                        </div>
+                    </div>
+                    <div class="form-action">
+                        <button class="btn-primary">查询线路</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="course-address-map"{{ if !empty($tpl_data.offline_poi) }} data-offline='{{ json_encode($tpl_data.offline_poi, 77) }}'{{ /if }} data-address="{{ $tpl_data.location|escape }}"></div>
+        
+    </div>
+</div>
+{{ /strip }}
+

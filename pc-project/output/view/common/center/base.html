@@ -1,0 +1,89 @@
+{{ *
+
+@file 个人中心母版
+@author zhujialu
+
+* }}
+
+{{ extends file="common/pc/base.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $amd_more = [ 'common/main/component/overview_637ce02eb8' ] }}
+
+    {{ if $user_data.user_type == 0 }}
+        {{ $identity = "teacher" }}
+    {{ else }}
+        {{ $identity = "student" }}
+    {{ /if }}
+
+    {{ $page_class = $identity|cat: '-center' }}
+
+{{ /block }}
+
+
+{{ block name="style" }}
+{{ strip }}
+{{ if isset($tpl_data.huike.is_huike_student) && $tpl_data.huike.is_huike_student }}
+    <style type="text/css">
+        #site-nav .status-info li:nth-child(3){
+            display: none;
+        }
+
+        .user-info li {
+            display: none;
+        }
+        .user-info .my-course,
+        .user-info .custom-service {
+            display: inline-block;
+        }
+        #site-nav .course-menu {
+            left: -100px;
+        }
+        #site-nav .course-menu:before, #site-nav .course-menu:after {
+            left: 13em;
+        }
+        #footer .wrapper > div {
+            display: none;
+        }
+        #footer .wrapper .copyright {
+            display: block;
+        }
+    </style>
+{{ /if }}
+{{ /strip }}
+{{ /block }}
+
+
+{{ block name="title" }}
+{{ if isset($tpl_data.huike.is_huike_student) && $tpl_data.huike.is_huike_student }}
+    汇课间
+{{ else }}
+    跟谁学
+{{ /if }}
+{{ /block }}
+
+
+{{ block name="body" }}
+{{ strip }}
+
+    {{ $smarty.block.parent }}
+
+    {{ include file="common/siteNav.html" }}
+    {{ include file="common/center/common/header.html" }}
+    {{ include file="common/center/common/nav.html" }}
+
+    <div id="main">
+    {{ block name="main" }}{{ /block }}
+    </div>
+
+    {{ include file="common/script.html" }}
+
+    {{ block name="script" }}{{ /block }}
+
+    {{ include file="common/footer.html" }}
+
+{{ /strip }}
+{{ /block }}

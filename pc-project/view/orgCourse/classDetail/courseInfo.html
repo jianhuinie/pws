@@ -1,0 +1,279 @@
+{{ strip }}
+
+{{ $coupons = $tpl_data.coupons }}
+{{ $dialog_name = '预约试听' }}
+{{ $display_status = $tpl_data.course_info.display_status }}
+
+{{ **如果审核未通过则状态置为暂停招生** }}
+{{ if $tpl_data.course_info.verify_status == 2 }}
+    {{ $display_status = 3 }}
+{{ /if }}
+
+{{ if $tpl_data.course_info.course_type == 4 }}
+    {{ $sku_type="3810" }}
+{{ else }}
+    {{ $sku_type="class" }}
+{{ /if }}
+
+{{ if isset($smarty.get.action) }}
+    {{ $url = $smarty.get.action }}
+{{ else }}
+    {{ $url = '' }}
+{{ /if }}
+
+<div id="courseInfo">
+
+    <div class="left">
+        <div class="img">
+            <div class="lists">
+                {{ include file="common/component/image.html" width=480 height=270 url=$tpl_data.course_info.cover.url }}
+            </div>
+        </div>
+        <ul class="icons">
+            <li id="favor" data-coursenum="{{ $tpl_data.course_info.number }}" {{ if $tpl_data.course_info.course_type == 4 }}style="display:none;"{{ /if }}>
+                <i class="icon icon-favor"></i>
+                <span class="text">收藏</span>
+                (<span class="popularity">0</span>人)&nbsp;&nbsp;&nbsp;
+            </li>
+            <li class="social-share" data-click="share" data-sku="{{ $sku_type }}|{{ $tpl_data.course_info.number }}">
+                <i class="icon icon-share"></i>
+                <span>&nbsp;分享</span>
+                {{ if $tpl_data.course_info.course_type != 4 }}
+                    {{ include file="common/component/baiduShare.html" }}
+                {{ else }}
+                    {{ include file="common/component/baiduShare.html" }}
+                {{ /if }}
+            </li>
+
+        </ul>
+    </div>
+
+    <div class="right">
+        {{ $name = $tpl_data.course_info.name|cn_truncate: 18 }}
+        <div class="title" {{ if $name != $tpl_data.course_info.name }} data-title="{{ $tpl_data.course_info.name }}" {{ /if }} data-width="200px">
+            {{ $name }}
+            {{ if $tpl_data.course_info.lesson_way == 2 }}
+                <i class="course-tag">直播课</i>
+            {{ else if $tpl_data.course_info.lesson_way == 4 }}
+                <i class="course-tag-big">线下班课</i>
+            {{ /if }}
+        </div>
+
+        <ul class="price">
+
+            <li class="now">
+                &nbsp;￥
+                <span>
+                    {{ $tpl_data.course_info.price }}
+                </span>
+            </li>
+
+            {{ if $tpl_data.course_info.price != 0 && $tpl_data.course_info.retire_flag == 0 }}
+            <a href="/activity/fee_safe_guard" target="_blank">
+                <i class="icon icon-safety-money"></i>
+            </a>
+            {{ /if }}
+
+            {{ if $display_status == 2 || $display_status == 5 }}
+                {{ if $tpl_data.is_staging == 1 }}
+                    <li class="can-stage">
+                        <span class="stage-desc">
+                            {{ $tpl_data.staging.desc }}
+                        </span>
+                        <span class="stage-pay">
+                            分期付款&nbsp;&gt;
+                        </span>
+                    </li>
+                {{ /if }}
+            {{ /if }}
+        </ul>
+
+        {{ if isset($coupons) && count($coupons) > 0 }}
+        <div class="get-coupon text-primary">
+            <div class="coupons">
+                <i class="icon icon-coupons"></i><span>&nbsp;领取优惠券</span>
+            </div>
+            <div class="coupon">
+                <span class="small-arrow"></span>
+                <span class="big-arrow"></span>
+                <ul class="coupon-list">
+                    {{ foreach $coupons as $item }}
+                    <li class="coupon-color" data-num="{{ $item.serial_num }}">
+                        <div class="coupon-info">
+                            <div class="balance">
+                                ￥<em>{{ $item.balance }}</em>
+                            </div>
+                            <div class="threshold">
+                                {{ if $item.cond_course_type != 0 }}
+                                指定课程可用
+                                {{ else if $item.cond_threshold == 0 }}
+                                不限
+                                {{ else }}
+                                满{{ $item.cond_threshold }}使用
+                                {{ /if }}
+                            </div>
+                        </div>
+                        <div class="status">
+                            {{ include file="common/variable/couponStatus.html" scope=parent }}
+                            {{ $couponStatusMap[1] }}
+                        </div>
+
+                    </li>
+                    {{ /foreach }}
+                </ul>
+            </div>
+        </div>
+        {{ /if }}
+
+        <div class="numbers">
+            <i class="icon icon-group-o"></i>
+            <span>
+                可报{{ $tpl_data.course_info.max_student }}人
+                &nbsp;｜&nbsp;
+                已报<span class="applied">{{ $tpl_data.course_info.total_pay }}</span>人
+            </span>
+        </div>
+
+        <div class="arrange">
+            <i class="icon icon-clock-o"></i>
+            {{ if $tpl_data.course_info.arrangement }}
+                <span>
+                    {{ $tpl_data.course_info.arrangement }}
+                </span>
+                <span class="viewPlan" data-link="#teachOutline">
+                    查看详细安排
+                </span>
+            {{ else }}
+                与机构协商上课时间
+            {{ /if }}
+        </div>
+
+        {{ if $tpl_data.course_info.lesson_way == 2 || $tpl_data.course_info.address }}
+        <div class="address">
+            <i class="icon icon-location-o"></i>
+            <span>
+                {{ if $tpl_data.course_info.lesson_way == 4 }}
+                    {{ $tpl_data.course_info.address|escape|cn_truncate:30 }}
+                {{ else }}
+                    在线授课
+                {{ /if }}
+            </span>
+        </div>
+        {{ /if }}
+
+        {{ if $tpl_data.course_info.code }}
+        <div class="course-number">
+            <span>课程编码：</span>
+            {{ $tpl_data.course_info.code }}
+        </div>
+        {{ /if }}
+
+        <div class="course-length">
+            <span>课时数：</span>
+            {{ $tpl_data.course_info.class_hour }}课时
+        </div>
+
+        <div class="buttons">
+            {{ if $display_status == 2 }}
+                {{ if $tpl_data.course_info.max_student <= $tpl_data.course_info.total_pay }}
+                    <div class="btn-default hugeBtn">
+                        还有机会，<i>{{ $tpl_data.course_info.total_pay-$tpl_data.course_info.succ_pay }}</i>人待付款
+                    </div>
+                {{ else }}
+                    <div class="btn-primary
+                    {{ if $url != 'shenhe' }} reserve-course{{ else }} disabled{{ /if }}
+                    {{ if $tpl_data.course_info.total_pay != 0 }} hugeBtn{{ /if }}"
+                    data-number="{{ $tpl_data.course_info.number }}" data-lessonway="{{ $tpl_data.course_info.lesson_way }}" data-price="{{ $tpl_data.course_info.price }}">
+                        {{ if $tpl_data.course_info.total_pay == 0 }}
+                            立即报名
+                        {{ else }}
+                            已报{{ $tpl_data.course_info.total_pay }}人&nbsp;&nbsp;|&nbsp;&nbsp;立即报名
+                        {{ /if }}
+                    </div>
+                {{ /if }}
+            {{ else if $display_status == 3 || ( $display_status == 5 && $tpl_data.course_info.status == 3) }}
+                <div class="btn-default">暂停招生</div>
+            {{ else if $display_status == 4 }}
+                <div class="btn-default">已满班</div>
+            {{ else if $display_status == 5 || $display_status == 17 }}
+                <div class="btn-default">进行中</div>
+            {{ else if $display_status == 6 || $display_status == 13 }}
+                <div class="btn-default">已完成</div>
+            {{ else if $display_status == 8 }}
+                <div class="btn-default">审核中</div>
+            {{ else if $display_status == 14 }}
+                <div class="btn-default">已下架</div>
+            {{ else if $display_status == 15 }}
+                <div class="btn-success primary-enter-room" data-click="order_1" data-sku="{{ $sku_type }}|{{ $tpl_data.course_info.number }}">进入教室</div>
+            {{ else if $display_status == 16 }}
+                <div class="btn-default">即将开课</div>
+            {{ /if }}
+
+            {{ $org = $tpl_data.organization }}
+            {{ if isset($org.city_filter) && $org.city_filter && isset($org.extension) && $org.extension }}
+            <div class="phone">
+                <p>免费咨询</p>
+                <p class="number">{{ $org.extension }}</p>
+            </div>
+            {{ /if }}
+        </div>
+
+        <div class="service-items">
+            <span>提供服务</span>
+
+            <span>
+                <i class="icon icon-check-o"></i>
+                {{ if $tpl_data.course_info.retire_flag == 0 }}
+                    随时可退
+                {{ else if $tpl_data.course_info.retire_flag == 100 }}
+                    报名后不可退
+                {{ /if }}
+            </span>
+
+            {{ if $tpl_data.course_info.increment_service }}
+                {{ foreach $tpl_data.course_info.increment_service as $key => $service }}
+                    {{ if $key < 3 }}
+                        <span>
+                            <i class="icon icon-check-o"></i>
+                            {{ $service }}
+                        </span>
+                    {{ else if $key == 3 }}
+                        <div class="show-more-service">
+                            更多服务
+                            <i class="icon icon-caret-down"></i>
+                            <div class="more-service">
+                                <div class="title">
+                                    服务说明
+                                </div>
+                                {{ foreach $tpl_data.course_info.increment_service as $service }}
+                                    <div>
+                                        <i class="icon icon-check-o"></i>
+                                        {{ $service }}
+                                    </div>
+                                {{ /foreach }}
+                            </div>
+                        </div>
+                    {{ /if }}
+                {{ /foreach }}
+            {{ /if }}
+        </div>
+
+        <div class="promises class-course-icon">
+            <span>平台保障</span>
+            <a rel="nofollow" href="http://www.genshuixue.com/guide/guarantee?a=guarantee" target="_blank">
+                <i class="icon icon-certification-o"></i>
+            </a>
+
+            <a href="http://www.genshuixue.com/guide/guarantee?a=guarantee" target="_blank" rel="nofollow">
+                <i class="icon icon-safety-money-o"></i>
+            </a>
+
+            <a href="http://www.genshuixue.com/guide/guarantee?a=guarantee" target="_blank" rel="nofollow">
+                <i class="icon icon-true-comment-o"></i>
+            </a>
+        </div>
+
+    </div>
+</div>
+
+{{ /strip }}

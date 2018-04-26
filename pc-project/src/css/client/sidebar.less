@@ -1,0 +1,106 @@
+/**
+ * @file 客户端左侧边栏
+ * @author zhangliyuan
+ */
+
+body {
+
+    background: url(../../img/client/client-background.jpeg) no-repeat center top;
+    padding: 4% 0;
+    font-family: "PingHei","Hiragino Sans GB","Microsoft YaHei";
+}
+
+.sidebar {
+
+    background: url(../../img/client/sidebar.png) no-repeat;
+
+    float: left;
+    font-size: 14px;
+    height: 620px;
+    width: 199px;
+    position: relative;
+
+    .user-name {
+        color: #fff;
+        left: 10px;
+        position: absolute;
+        top: 53px;
+        margin: 45px;
+        .thumbnail {
+            border: 3px solid #fff;
+        }
+        .user-text {
+            left: -20%;
+            margin-left: 6%;
+            position: relative;
+            text-align: center;
+            width: 125%;
+            p:first-child {
+                margin-bottom: 0px;
+                margin-top: 20px;
+            }
+            p {
+                margin-top: 6px;
+            }
+        }
+        em {
+            font-style: normal;
+            font-size: 16px;
+        }
+
+    }
+    .menu {
+        position: absolute;
+        top: 300px;
+        left: 0px;
+        width: 199px;
+        background: #253450;
+    }
+    .menu-item {
+        height: 34px;
+        padding: 12px 1px 0px 25px;
+        a {
+            color: rgb(97,185,220);
+            text-decoration: none;
+        }
+        a.logout-link {
+            color: rgb(112,152,173);
+            font-size: 100%;
+        }
+        a.logout-link:hover {
+            color: rgb(97,185,220);
+        }
+        .icon {
+            margin-right: 6%;
+        }
+    }
+
+    .set-menu {
+        bottom: 34px;
+        position: absolute;
+        width: 199px;
+        .menu-item {
+            margin-bottom: 10px;
+            &:hover {
+                background: #253450;
+            }
+        }
+    }
+
+    .footpage {
+        position: absolute;
+        left: 16px;
+        bottom: 0px;
+        color: #929CA6;
+    }
+
+    .logout-icon,
+    .icon-file-o {
+        float: left;
+        width: 17px;
+        height: 17px;
+        margin-right: 12px;
+    }
+}
+
+

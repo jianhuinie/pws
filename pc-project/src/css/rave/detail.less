@@ -1,0 +1,304 @@
+/**
+ * @file 616活动详情页
+ * @author caoying
+ */
+@import '../main/base.less';
+@import './coupondialog.less';
+
+
+//重置背景色
+body{
+     background: #fff;
+}
+
+#main {
+    width: 100%;
+    margin: 0 auto;
+}
+.content-header {
+    height: 252px;
+
+}
+.content-footer {
+    height: 392px;
+
+}
+
+.content {
+
+    margin: 0 auto;
+    width: 1100px;
+    .fire-course {
+        .detail {
+            li {
+
+                .detail-img {
+                    position: relative;
+
+                     img {
+                         height: 176px;
+                         width: 100%;
+                         display: block;
+                     }
+
+                    span {
+                        display: inline-block;
+                        background: #ececec;
+
+                    }
+                    .img-tip {
+                        position: absolute;
+                        bottom: 0px;
+                        left: 0px;
+                        padding-left: 18px;
+                        width: 100%;
+                        height: 45px;
+                        line-height: 45px;
+                        font-size: 18px;
+                        background: rgba(0, 0, 0, 0.3);
+                        color: #ffffff;
+                        text-align: left;
+                        overflow: hidden;
+                    }
+                    .img-tip {
+                        cursor: pointer;
+                    }
+                    .class-number {
+                        display: none;
+                    }
+
+                }
+                .course-info {
+                    //height: 50px;
+                    background: #ececec;
+                    padding: 8px 18px;
+                    .open,.time,.name {
+                        display: block;
+                        text-align: left;
+                    }
+                }
+                .course-price {
+                    padding: 8px 18px;
+                    background: #fff;
+                    text-align: left;
+                    .label-title {
+                        font-size: 18px;
+                        color: red;
+
+                    }
+                    .price {
+                        font-size: 24px;
+                        font-weight: 800;
+                        color: red;
+                        margin-left: 10px;
+
+                    }
+                }
+                .course-other-price {
+                    line-height:24px;
+                    color: #9a9a9a;
+                    .old-price {
+                        text-align: left;
+                        text-decoration: line-through;
+                    }
+                    .join-number {
+                        float: right;
+                        span {
+                            color:red;
+                            font-size: 16.65px;
+                            font-weight: 600;
+                        }
+
+                    }
+                }
+                .course-sec-btn {
+                    .full {
+                        background: #939393;
+                        border-color: #939393;
+                    }
+                    .full:hover{
+                        cursor: not-allowed;
+                    }
+                }
+            }
+        }
+    }
+
+    .senior-teacher {
+
+        padding-top: 30px;
+        background: #c3f3e3;
+
+        .detail {
+            li {
+                vertical-align: middle;
+                .detail-img {
+                    img {
+                        width: 120px;
+                        height: 120px;
+                        margin-top:38px;
+                        display: block;
+                    }
+                    .teacher-summary {
+                        padding: 8px 18px;
+                        .name {
+                            font-size: 16.65px;
+                            .teacher-name {
+                                display: inline-block;
+                            }
+                            .subject {
+                                display: inline-block;
+                                font-size: 14px;
+                                color: #6d6d6d;
+                                margin-left: 6px;
+                            }
+                        }
+                        .summary {
+                            font-size: 16px;
+                            margin-top: 23px;
+                            line-height: 1.5;
+                            margin-bottom: 35px;
+                            height: 40px;
+                        }
+                        .disable {
+                            background: #939393;
+                            border-color: #939393;
+                        }
+                        .disable:hover {
+                            cursor: not-allowed;
+                        }
+                        .btn-primary {
+                            display: none;
+                        }
+                    }
+
+                }
+
+            }
+        }
+    }
+
+    .inst-discount {
+
+        padding-top: 30px;
+        background: #c6f4e4;
+
+        .detail {
+
+            li {
+                vertical-align: middle;
+                width: 206.6px;
+                img {
+                    width: 109px;
+                    height: 109px;
+                    margin:18px auto;
+                    display: block;
+                }
+                .inst-summary {
+                    padding: 8px 18px;
+                    .name {
+                        font-size: 16.65px;
+                    }
+                }
+
+                .coupon {
+                    margin: 18px 0px;
+                }
+
+                .btn {
+                    width: 163px;
+                }
+                .disable {
+                            background: #939393;
+                            border-color: #939393;
+                        }
+                .disable:hover {
+                    cursor: not-allowed;
+                }
+                .btn-primary {
+                    display: none;
+                }
+
+            }
+
+        }
+    }
+
+    .btn {
+        position: relative;
+        width: 225px;
+        height: 45px;
+        background: #ee1c1b;
+        border-color: #ee1c1b;
+        font-size: 22px;
+        border-radius: 5px;
+
+        &:hover {
+            background: #CB1615;
+        }
+
+        .icon {
+            color: #fffd40;
+        }
+    }
+
+    .title {
+        background: #313131;
+        margin: 0 auto;
+        color: #ffffff;
+        font-size: 30px;
+        text-align: center;
+        font-weight: 600;
+    }
+
+    .detail {
+        padding: 25px 11px ;
+        //background: #91e7c9;
+    }
+
+    li {
+        display: inline-block;
+        margin: 4.5px 4.5px;
+        width: 260.5px;
+        text-align: center;
+        background: #ffffff;
+    }
+
+}
+.content-footer {
+    margin: 0 auto;
+    text-align: center;
+
+    .back {
+        padding-top: 30px;
+        .btn-primary {
+            border-radius: 5px;
+            width: 300px;
+            height: 60px;
+            box-shadow: 0 3px rgba(0,0,0,0.3);
+            font-size: 24px;
+            font-weight: bold;
+            color:#404040;
+            border-color: #ffe339;
+            .gradient-vertical(#ffea4b, #ffe339);
+            span {
+                display: inline-block;
+                color: #dd4e4b;
+                margin: 0px 10px;
+                font-size: 30px;
+            }
+            &:hover {
+                .gradient-vertical(#fff163, #ffec4b);
+            }
+            &:active {
+                .gradient-vertical(#ffe63b, #ffdd2e);
+            }
+        }
+
+    }
+    .copyright {
+        text-align: center;
+        padding-top: 140px;
+    }
+}
+

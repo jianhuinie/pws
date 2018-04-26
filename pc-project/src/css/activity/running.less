@@ -1,0 +1,434 @@
+/**
+ * @file 名师高校团
+ * @author tangrongyan
+ */
+
+@import '../main/base.less';
+
+
+
+
+        #main {
+            margin: 0px auto;
+            width: 100%;
+            background: #6ab93e;
+        }
+
+        // last
+        #main #last {
+            background: #358b42;
+            height: 134px;
+            line-height: 134px;
+            clear: both;
+            p {
+            color: #fff;
+            text-align: center;
+             }
+        }
+
+        // layout
+        #main #layout {
+            overflow: hidden;
+            background: #6ab93e url(http://img.gsxservice.com/0cms/d/file/content/2015/08/55c5b1792f250.png) 50% 0 no-repeat;
+            height: 668px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+
+
+
+#main {
+
+    .free-btn {
+        background: #ff9900;
+        &:hover {
+            background: #e48601;
+        }
+    }
+
+    .on-btn {
+        background: #f95607;
+        &:hover {
+            background: #e24e06;
+        }
+    }
+
+    img {
+        border: solid 1px #ddd;
+    }
+
+    // 复用
+    .wrap {
+
+        width: 890px;
+        margin: 0 auto;
+        // text-align: center;
+    }
+
+    .title {
+        background: url(http://img.gsxservice.com/0cms/d/file/content/2015/08/55c5d82c7e798.png) no-repeat;
+        font-size: 22px;
+        color: #fff;
+        height: 52px;
+        line-height: 52px;
+        em {
+            font-weight: bold;
+            font-size: 30px;
+            color: #fff000;
+            margin-left: 24px;
+            margin-right: 20px;
+        }
+    }
+    .tab-head {
+        position: absolute;
+        right: -111px;
+        b {
+            width: 111px;
+            height: 40px;
+            line-height: 40px;
+            background: #358b42;
+            color: #fff;
+            cursor: pointer;
+            display: block;
+            font-size: 16px;
+            text-align: center;
+            border-top-right-radius: 6px;
+            border-bottom-right-radius: 6px;
+            margin-top: 6px;
+            transition: all 0.4s;
+            position: relative;
+            left: -14px;
+            padding-left: 14px;
+            &.active {
+                background: #e1ffd0;
+                color: #358b42;
+                width: 111px;
+                left: 0;
+
+            }
+            &:first-child {
+                margin-top: 2px;
+            }
+            &:hover {
+                background: #e1ffd0;
+                color: #358b42;
+                width: 111px;
+                left: 0;
+            }
+
+        }
+
+    }
+
+    .page-control {
+        bottom: 4px;
+        z-index: 3;
+        // left: 0px;
+        .tab-nav {
+            width: 74px;
+            left: -37px;
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+            padding-left: 0px;
+
+            &.active {
+                width: 74px;
+                left: -37px;
+
+            }
+            &:hover {
+                width: 74px;
+                left: -37px;
+            }
+        }
+    }
+
+    .tab-content {
+        position: relative;
+        background: #fff;
+        z-index: 4;
+        box-shadow: 2px -1px 11px #358b42;
+
+        .page-ul {
+            display: none;
+            position: relative;
+            z-index: 6;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 2px -1px 11px #358b42;
+            padding-bottom: 30px;
+            &.active {
+                display: block;
+            }
+        }
+        .list {
+            overflow: hidden;
+        }
+
+        .list > li:last-child {
+            margin-bottom: 30px;
+        }
+
+
+    }
+    .tab-content li {
+            height: 186px;
+            padding-left: 51px;
+            padding-top: 20px;
+            padding-right: 40px;
+            color: #333;
+            background: #fff;
+
+
+            .avatar {
+                float: left;
+                position: relative;
+                margin-right: 24px;
+                img {
+                     margin-top: 4px;
+                }
+            }
+            .school {
+                background: url(http://img.gsxservice.com/0cms/d/file/content/2015/08/55c80f566e32a.png) no-repeat;
+                width: 58px;
+                height: 58px;
+                display: inline-block;
+                position: absolute;
+                top: 0;
+                left: -4px;
+                color: #fff;
+                span {
+                -webkit-transform: translateY(8px) translateX(7px) rotate(-44deg);
+                   -moz-transform: translateY(8px) translateX(7px) rotate(-44deg);
+                    -ms-transform: translateY(8px) translateX(7px) rotate(-44deg);
+                     -o-transform: translateY(8px) translateX(7px) rotate(-44deg);
+                        transform: translateY(8px) translateX(7px) rotate(-44deg);
+
+                   display: inline-block;
+
+                        &.three {
+                        -webkit-transform: translateY(10px) translateX(0px) rotate(-44deg);
+                           -moz-transform: translateY(10px) translateX(0px) rotate(-44deg);
+                            -ms-transform: translateY(10px) translateX(0px) rotate(-44deg);
+                             -o-transform: translateY(10px) translateX(0px) rotate(-44deg);
+                                transform: translateY(10px) translateX(0px) rotate(-44deg);
+                   }
+            }
+        }
+
+            .class-baseinfo {
+                margin-left: 174px;
+                h6 {
+                    font-size: 18px;
+                    color: #6ab93e;
+                    margin-top: 2px;
+                    margin-bottom: 4px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                }
+                em {
+                    color: #666;
+                    font-size: 16px;
+                    display: inline-block;
+                    margin-top: 20px;
+                }
+
+                .date {
+                    margin-left: 10px;
+                }
+                .time {
+                    margin-left: 5px;
+                }
+                .link-btn {
+                    width: 128px;
+                    height: 40px;
+                    font-size: 18px;
+                    margin-top: 18px;
+                    float: right;
+                    border: none;
+                    border-radius: 4px;
+                    .icon {
+                        font-size: 20px;
+                        vertical-align: middle;
+                        margin-left: 2px;
+                    }
+                }
+            }
+     }
+
+
+
+    // one
+    .class-info {
+        background: #fff;
+        position: relative;
+
+        .tab-content li {
+            background: url(http://img.gsxservice.com/0cms/d/file/content/2015/08/55c80b813af34.png) no-repeat;
+            background-position: 18px 0;
+
+            &:first-child {
+                background: url(http://img.gsxservice.com/0cms/d/file/content/2015/08/55c80b816b8f7.png) no-repeat;
+                    background-position: 18px 0;
+            }
+            &.active {
+                background: url(http://img.gsxservice.com/0cms/d/file/content/2015/08/55c80b816b8f7.png) no-repeat;
+            }
+
+            .head {
+
+                .date {
+                    font-size: 18px;
+                    color: #6ab93e;
+                    margin-right: 10px;
+                }
+                .time {
+                    font-size: 14px;
+                    color: #66;
+                }
+            }
+
+
+        }
+
+    }
+
+    //two
+    .news-info {
+        p.message {
+            font-size: 22px;
+            color: #fff;
+            margin-top: 20px;
+            margin-bottom: 4px;
+            .more {
+                float: right;
+                font-size: 18px;
+                color: #fff;
+                &:hover {
+                    color: #f90;
+                }
+            }
+        }
+        .artical {
+            width: 100%;
+            padding: 20px 20px;
+            background: #fff;
+            overflow: hidden;
+            li {
+                width: 47%;
+                float: left;
+                overflow: hidden;
+                white-space: nowrap;
+                line-height: 24px;
+                &.even {
+                    margin-left: 5%;
+                }
+                a {
+                    color: #333;
+                    &:hover {
+                        color: #6ab93e;
+                        text-decoration: underline;
+                    }
+                }
+
+            }
+            .list-tag-before {
+              display: inline-block;
+              margin-right: 10px;
+              width: 3px;
+              height: 3px;
+              background: #68b041;
+              vertical-align: middle;
+            }
+
+        }
+    }
+
+
+
+
+    //three
+    .break {
+        margin-top: 50px;
+    }
+    .break-through {
+        background: #fff;
+        position: relative;
+        min-height: 400px;
+
+        .page-control {
+            bottom: 0;
+            display: none;
+        }
+
+        .tab-content li {
+            width: 49%;
+            height: 144px;
+            float: left;
+            padding-left: 30px;
+            padding-right: 0px;
+
+            h6 {
+                white-space: normal;
+                font-size: 16px;
+                color: #333;
+                height: 50px;
+                overflow: hidden;
+            }
+            .class-baseinfo {
+                em {
+                    margin-top: 2px;
+                    font-size: 14px;
+                }
+                .link-btn {
+                    float: none;
+                    margin-top: 8px;
+                    width: 118px;
+                    height: 36px;
+                    line-height: 1.3;
+                }
+            }
+        }
+        .list {
+            display: none;
+            min-height: 400px;
+        }
+        .page-ul {
+            min-height: 440px;
+        }
+
+    }
+
+    // four
+    .org {
+        margin-bottom: 62px;
+        overflow: hidden;
+        p.message {
+            font-size: 22px;
+            color: #fff;
+            margin-top: 20px;
+            margin-bottom: 4px;
+        }
+        li {
+            width: 25%;
+            float: left;
+            margin-top: 10px;
+        }
+        img:hover {
+            -webkit-filter: brightness(72%);
+               -moz-filter: brightness(72%);
+                -ms-filter: brightness(72%);
+                 -o-filter: brightness(72%);
+                    filter: brightness(72%);
+        }
+
+
+    }
+
+
+
+
+
+
+}

@@ -1,0 +1,18 @@
+<div class="module-content-header">
+    班课详情描述
+</div>
+<div class="module-content-form">
+    {{ if $tpl_data.basic_info.display_status == 2 }}
+    <div class="upload-tip-detail">修改班课详情需要再次审核</div>
+    {{ /if }}
+    <div class="input-tip-container invalid"> 
+        <span class="icon icon-info-circle">课程详情不能为空</span> 
+    </div>
+    <div class="class-course-detail-editor">
+        <div class="u-editor" style="height:600px;"></div>
+        <div class="u-editor-tip">
+            请不要在内容中留电话、QQ、和网址哦，仅支持5M以内的jpg、png、jpeg格式图片，最大宽度不要超过760像素
+        </div>
+    </div>
+</div>
+{{ include file="common/component/ueditor.html" }}

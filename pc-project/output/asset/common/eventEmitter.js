@@ -1,0 +1,1 @@
+define("common/eventEmitter",["require","exports"],function(require,exports){var n=$({});exports.emit=function(){n.trigger.apply(n,arguments)},exports.on=function(){n.on.apply(n,arguments)},exports.un=function(){n.off.apply(n,arguments)},exports.once=function(){n.one.apply(n,arguments)}});

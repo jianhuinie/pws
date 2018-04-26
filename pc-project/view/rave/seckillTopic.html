@@ -1,0 +1,49 @@
+{{ *
+
+@file 活动主页
+@author zengcheng
+
+* }}
+{{ extends file="common/main/base.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $nav_config.active = '' }}
+    {{ $nav_config.hidden = 1 }}
+    {{ $flotage_config.hidden = true }}
+
+    {{ $script_path = "rave/seckillTopic" }}
+    {{ $script_data = [] }}
+    {{ $script_data.originHttps = $origin_https }}
+    {{ $script_data.rave = $tpl_data }}
+    {{ $script_data.rave_activity_host = $rave_activity_host }}
+
+    {{ **顶部搜索去掉placeholder支持空query** }}
+    {{ $current_page = '' }}
+
+    {{ * 专题页隐藏互动 * }}
+    {{ $rave_config.hidden = 1 }}
+
+{{ /block }}
+
+{{ block name = "title" }}
+狂欢节秒杀
+{{ /block }}
+
+{{ block name = "style" }}
+    <link rel="stylesheet" href="{{ $static_origin }}/src/css/rave/secKillTopic.less">
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+<div id="main">
+    <div class="main-wrapper">
+        <div class="sec-kill" id="sec-kill-wrapper">
+            {{ include file="rave/secKill.html" }}
+        </div>
+    </div>
+</div>
+{{ /strip }}
+{{ /block }}

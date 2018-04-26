@@ -1,0 +1,18 @@
+{{ *
+
+@file 订单操作的一些映射map
+@author niejianhui
+订单操作以后后端统一返回actions数组 内含name=>展示文案 和action=>标识 两个字段 
+前端不用关心展示逻辑 但是涉及到样式和交互的一些逻辑我们需要根据action去做映射  详见引用页面
+这次只针对老师班课订单操作  后续扩展之
+数组元素点含义依次是    是否是点击操作 样式类名 操作类名 取对应的操作url的key 操作说明
+这些值为了兼容之前的样式和交互 需要对照之前的/view/common/center/orderDetail/order.html取值
+
+* }}
+
+{{ strip }}
+
+{{ $orderActionsMap['seller_cancel_order'] = [1, 'btn-link', 'cancel-order', 'cancel_order_url', '老师取消订单'] }}
+{{ $orderActionsMap['modify_pay_money'] = [1, 'btn-link', 'edit-price', 'modify_paymoney_url', '修改价格'] }}
+
+{{ /strip }}

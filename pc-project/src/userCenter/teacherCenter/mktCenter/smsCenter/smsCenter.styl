@@ -1,0 +1,127 @@
+@import '../../../common/layout.styl';
+
+.card {
+    border: 1px solid #ddd;
+}
+
+#basic-info > .header {
+    height: 40px;
+    line-height: 40px;
+    background-color: #FBFBFB;
+    border-bottom: 1px solid #ddd;
+    .floated {
+        float: right;
+        margin-right: 20px;
+    }
+    .title {
+        color: #6D6D6D;
+        padding: 6px 30px;
+        font-weight: bold;
+    }
+    .icon-question-circle {
+        color: $brand-primary;
+        margin-left: 5px;
+    }
+}
+
+.info-box {
+    padding: 10px 20px;
+    overflow: hidden;
+
+    .num {
+        font-size: 50px;
+    }
+    .sms-warning {
+        vertical-align: top;
+        color: white;
+        background-color: #FD5B5C;
+        margin-left: 10px;
+    }
+    .floated {
+        float: right;
+        > .pay {
+            background-color: white;
+            color: $brand-primary;
+            width: 180px;
+            font-size: 18px;
+            .unit {
+                font-size: 120%;
+                margin-right: 3px;
+            }
+        }
+        > .notice {
+            margin-top: 25px;
+        }
+        .switch-icon {
+            background: url(./img/switch.png) no-repeat;
+            cursor: pointer;
+            width: 53px;
+            height: 22px;
+            display: inline-block;
+            vertical-align: bottom;
+            margin-left: 5px;
+            &.on {
+                background-position: 0 0;
+            }
+            &.off {
+                background-position: 0 -22px;
+            }
+        }
+    }
+}
+
+#sms-detail {
+    padding: 15px 30px;
+
+    .no-sms {
+        text-align: center;
+        margin-bottom: 30px;
+        .wenzai {
+            background-image: url(./img/noresult.png);
+            width: 126px;
+            height: 153px;
+            margin: 80px auto 20px;
+            background-repeat: no-repeat;
+        }
+    }
+    .tip {
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+    .detail-box {
+        padding: 0;
+        margin: 0;
+        li {
+            list-style: none;
+            padding 10px 0;
+            border-bottom: 1px solid $brand-muted;
+            overflow: hidden;
+            min-height: 82px;
+            .left {
+                float: left;
+            }
+            .right {
+                float: right;
+                text-align: right;
+                .send-icon {
+                    background: url('./img/send-icon.png') no-repeat;
+                    display: inline-block;
+                    width: 18px;
+                    height: 17px;
+                    background-size: contain;
+                    vertical-align: top;
+                    margin-right: 5px;
+                }
+            }
+            .time {
+                color: #9D9D9D;
+                margin-top: 20px;
+            }
+        }
+    }
+}
+
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}

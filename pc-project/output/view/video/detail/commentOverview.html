@@ -1,0 +1,30 @@
+{{ *
+
+@file 视频课评价 － overview
+@author wangyujie
+
+* }}
+
+{{ strip }}
+
+
+{{ if isset($tpl_data.comment_data.additional) }}
+    {{ $additional = $tpl_data.comment_data.additional }}
+{{ /if }}
+
+{{ if isset($additional.average) && $additional.average == 0  }}
+    {{ $average = 0 }}
+{{ else }}
+    {{ $average = $additional.average }}
+{{ /if }}
+
+<div class="score">
+    {{ if $additional.user_total_number > 0 }}
+        <strong>{{ $average|number_format: 1 }}</strong>
+        {{ include file="common/component/starScore.html" score=$average }}
+    {{ else }}
+        <strong class="no-comment">暂无评分</strong>
+    {{ /if }}
+</div>
+
+{{ /strip }}

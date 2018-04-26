@@ -1,0 +1,46 @@
+/**
+ * @file mock data
+ * @author autoresponse
+ */
+
+/* eslint-disable fecs-camelcase */
+
+/**
+ * 获取 mock 响应数据
+ *
+ * @param {string} path 请求路径名
+ * @param {Object} queryParam 查询参数信息
+ * @param {Object} postParam post 的查询参数信息
+ * @return {Object}
+ */
+module.exports = function (path, queryParam, postParam) {
+    return {
+        // 可以通过该属性来设置响应的延时，也可以设为值为'0,100'，表示随机 0-100ms 的延时，默认 0
+        _timeout: 0,
+
+        // 通过该状态来设置响应的 http 的状态码，默认 200
+        _status: 200,
+
+        // 对于要响应的 json 数据可以统一放在该字段里，也可以不使用该字段，直接跟 _xx 属性平级放
+        _data: {
+            code: 200,
+            data: {
+                nickName: '插画，意指照亮之意', 
+                avatarUrl: 'https://imgs.genshuixue.com/0cms/d/file/content/2018/01/5a4b32697982c.png',  // 头像url
+                isTeacher: true,    // 是否是老师
+                canReceiveGift: true,  // 是否可以领取新手礼包
+                intro: '插画，意指照亮之意，也就是说插画可以使文字意...',
+                followClassNum: 123,   // 关注课堂数
+                balance: 12,
+                classroom: {
+                    classId: 1234,  // 课堂id
+                    name: 'hh',   // 课堂名称
+                    headUrl: 'https://imgs.genshuixue.com/0cms/d/file/content/2018/01/5a4b32697982c.png',  // 课堂头像
+                    authStatus: 0  // 课堂认证状态 0:待认证，1:待审核， 2:认证通过 3:认证失败
+                }
+            }
+        }
+    };
+};
+
+/* eslint-enable fecs-camelcase */

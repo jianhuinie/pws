@@ -1,0 +1,43 @@
+{{ *
+
+@file 老师个人中心侧边栏 - 签到日历
+@author wangyujie
+
+* }}
+
+{{ strip }}
+
+<div class="sign-close">&times;</div>
+<div class="sign-body">
+
+    <div class="someday">
+
+        <img class="bigExp" src="/asset/img/im/expression-{{ $tpl_data.checkin.today.mood }}.png" alt="" />
+
+        <p class="status">
+            <i class="icon icon-check-circle text-success"></i>
+            今日签到成功！
+        </p>
+
+        <p class="credit text-error">
+            学分：+{{ $tpl_data.checkin.today.integral }}
+            <span class="interval-line">|</span>
+            已签到 {{ $tpl_data.checkin.today.serial_day }} 天
+        </p>
+
+        <p class="tips">
+            {{ if $tpl_data.checkin.today.serial_day < 3 }}
+            继续签到 {{ 3 - $tpl_data.checkin.today.serial_day }} 天获得&lt;活跃老师&gt;勋章
+            <img src="http://img.gsxservice.com/0medal/101.png" alt="活跃老师" />
+            {{ else }}
+            你已获得&lt;活跃老师&gt;勋章
+            <img src="http://img.gsxservice.com/0medal/101.png" alt="活跃老师" />
+            {{ /if }}
+        </p>
+    </div>
+
+    <div class="sign-calendar"></div>
+
+</div>
+
+{{ /strip }}

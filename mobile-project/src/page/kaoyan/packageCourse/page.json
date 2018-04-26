@@ -1,0 +1,5 @@
+[{
+    "tpl": "./packageCourse.tpl",
+    "router": "/abc",
+    "mock_data": "./mock/packageCourse.json"
+}]

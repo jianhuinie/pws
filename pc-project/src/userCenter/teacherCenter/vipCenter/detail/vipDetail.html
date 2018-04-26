@@ -1,0 +1,1247 @@
+{{#partial button}}
+    {{#if !level}}
+        <a class="button error" target="_blank" href="https://www.genshuixue.com/pay/vip?vip_type=2&op_type=1">
+            开通会员
+        </a>
+    {{elseif level < 3}}
+        <a class="button error" target="_blank" href="https://www.genshuixue.com/pay/vip?vip_type={{level+1}}&op_type=2">
+            升级会员
+        </a>
+    {{else}}
+        <button class="button error" disabled>
+            开通会员
+        </button>
+    {{/if}}
+{{/partial}}
+
+<div id="content">
+    <div class="content-left">
+        <div class="left_menu">
+            <div class="menu-title {{#if active=='all'}} active {{/if}}" data-target="all">
+                全部特权
+            </div>
+        </div>
+
+        <div class="left_menu">
+            <div class="menu-title">
+                <i class="icon {{#if active=='pageDress' || active=='vipLogo'}} icon-down{{/if}}"></i>
+                展示特权
+            </div>
+            <div class="menu-subs {{#if active!='pageDress' && active!='vipLogo'}} hide {{/if}}">
+                <div class="sub-menu-item {{#if active=='pageDress'}} active {{/if}}"  data-target="pageDress">
+                    页面装扮
+                </div>
+                <div class="sub-menu-item {{#if active=='vipLogo'}} active {{/if}}" data-target="vipLogo">
+                    会员标签
+                </div>
+            </div>
+        </div>
+
+        <div class="left_menu">
+            <div class="menu-title">
+                <i class="icon {{#if active=='videoPrivilege' || active=='seeRoster' || active=='dataMof' || active=='freeLive' || active=='cloudSave' || active=='sortFirst' || active=='liveTool' || active=='oneLimit'}} icon-down{{/if}}"></i>
+                产品特权
+            </div>
+            <div class="menu-subs {{#if active!='videoPrivilege' && active!='seeRoster' && active!='dataMof' && active!='freeLive' && active!='cloudSave' && active!='sortFirst' && active!='liveTool' && active!='oneLimit'}} hide{{/if}}">
+                <div class="sub-menu-item {{#if active=='videoPrivilege'}} active {{/if}}" data-target="videoPrivilege">
+                    视频特权
+                </div>
+                <div class="sub-menu-item {{#if active=='seeRoster'}} active {{/if}}" data-target="seeRoster">
+                    查看花名册
+                </div>
+                <div class="sub-menu-item {{#if active=='dataMof'}} active {{/if}}" data-target="dataMof">
+                    数据魔方
+                </div>
+                <div class="sub-menu-item {{#if active=='freeLive'}} active {{/if}}" data-target="freeLive">
+                    免费直播课人数
+                </div>
+                <div class="sub-menu-item {{#if active=='cloudSave'}} active {{/if}}" data-target="cloudSave">
+                    更多云存储空间
+                </div>
+                <div class="sub-menu-item {{#if active=='sortFirst'}} active {{/if}}" data-target="sortFirst">
+                    更多流量
+                </div>
+                <div class="sub-menu-item {{#if active=='liveTool'}} active {{/if}}" data-target="liveTool">
+                    直播工具
+                </div>
+                <div class="sub-menu-item {{#if active=='oneLimit'}} active {{/if}}" data-target="oneLimit">
+                    一对一课程数量上限
+                </div>
+            </div>
+        </div>
+
+        <div class="left_menu">
+            <div class="menu-title">
+                <i class="icon {{#if active=='imAsk' || active=='studentRecommend' || active=='customerManager' || active=='firstCheck' || active=='freeContact' || active=='autoReply' || active=='courseForVip'}} icon-down{{/if}}"></i>
+                运营推广特权
+            </div>
+            <div class="menu-subs {{#if active!='imAsk' && active!='studentRecommend' && active!='customerManager' && active!='firstCheck' && active!='freeContact' && active!='autoReply' && active!='courseForVip'}} hide{{/if}}">
+                <!--<div class="sub-menu-item {{#if active=='imAsk'}} active {{/if}}" data-target="imAsk">
+                    生源大厅
+                </div>-->
+                <div class="sub-menu-item {{#if active=='studentRecommend'}} active {{/if}}" data-target="studentRecommend">
+                    推广优先
+                </div>
+                <div class="sub-menu-item {{#if active=='customerManager'}} active {{/if}}" data-target="customerManager">
+                    专属客户经理
+                </div>
+                <div class="sub-menu-item {{#if active=='firstCheck'}} active {{/if}}" data-target="firstCheck">
+                    优先审核
+                </div>
+                <div class="sub-menu-item {{#if active=='freeContact'}} active {{/if}}" data-target="freeContact">
+                    免费短信和通话时长
+                </div>
+                <div class="sub-menu-item {{#if active=='autoReply'}} active {{/if}}" data-target="autoReply">
+                    自动回复和快捷回复
+                </div>
+                <div class="sub-menu-item {{#if active=='courseForVip'}} active {{/if}}" data-target="courseForVip">
+                    会员专属培训课程
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-right">
+        <div class="content-page page-all {{#if active=='all'}} show {{/if}}">
+            <div class="page-table">
+                <table>
+                    <thead  style="border-bottom: 2px solid #d5d5d5">
+                        <td colspan="2" width="280">会员权益</td>
+                        <td>免费会员</td>
+                        <!-- <td>
+                            <i class="icon vip-icon"></i>
+                            普通会员<br />
+                            <span class="error">1980／年</span>
+                        </td> -->
+                        <td>
+                            <i class="icon gvip-icon"></i>
+                            高级会员<br />
+                            <span class="error">3980／年</span>
+                        </td>
+                        <td>
+                            <i class="icon cvip-icon"></i>
+                            超级会员<br />
+                            <span class="error">7980／年</span>
+                        </td>
+                    </thead>
+
+                    <tr style="border-top: 2px solid #d5d5d5">
+                        <td width="110" rowspan="3">展示特权</td>
+                        <td width="170">老师会员标识</td>
+                        <td></td>
+                        <!-- <td><i class="icon-select"></i></td> -->
+                        <td><i class="icon-select"></i></td>
+                        <td><i class="icon-select"></i></td>
+                    </tr>
+                    <tr>
+                        <td>老师主页专属包装模板</td>
+                        <td></td>
+                        <!-- <td><i class="icon-select"></i></td> -->
+                        <td><i class="icon-select"></i></td>
+                        <td><i class="icon-select"></i></td>
+                    </tr>
+                    <tr>
+                        <td>课程页专属包装模板</td>
+                        <td></td>
+                        <!-- <td><i class="icon-select"></i></td> -->
+                        <td><i class="icon-select"></i></td>
+                        <td><i class="icon-select"></i></td>
+                    </tr>
+
+                    <tr style="border-top: 2px solid #d5d5d5">
+                        <td rowspan="4">排序&审核特权</td>
+                        <td>会员排序绝对优先</td>
+                        <td></td>
+                        <td>高</td>
+                        <!-- <td>更高</td> -->
+                        <td>最高</td>
+                    </tr>
+                    <tr>
+                        <td>1对1课程数量上限</td>
+                        <td>10</td>
+                        <!-- <td>12</td> -->
+                        <td>15</td>
+                        <td>20</td>
+                    </tr>
+                    <tr>
+                        <td>个人资料优先审核</td>
+                        <td></td>
+                        <!-- <td>优先审核</td> -->
+                        <td>快速审核</td>
+                        <td>极速审核</td>
+                    </tr>
+                    <tr>
+                        <td>课程优先审核</td>
+                        <td></td>
+                        <!-- <td>优先审核</td> -->
+                        <td>快速审核</td>
+                        <td>极速审核</td>
+                    </tr>
+
+                    <tr style="border-top: 2px solid #d5d5d5">
+                        <td rowspan="5">推广特权</td>
+                        <td>生源大厅优先使用权</td>
+                        <td></td>
+                        <!-- <td><i class="icon-select"></i></td> -->
+                        <td><i class="icon-select"></i></td>
+                        <td><i class="icon-select"></i></td>
+                    </tr>
+                    <tr>
+                        <td>学员分享课程有奖功能</td>
+                        <td></td>
+                        <!-- <td></td> -->
+                        <td></td>
+                        <td>6次</td>
+                    </tr>
+                    <tr>
+                        <td>全国会员专题活动参与权</td>
+                        <td></td>
+                        <!-- <td></td> -->
+                        <td>1次</td>
+                        <td>2次</td>
+                    </tr>
+                    <tr>
+                        <td>聚惠学专区课程位展示（满足条件）</td>
+                        <td></td>
+                        <!-- <td></td> -->
+                        <td>1次</td>
+                        <td>2次</td>
+                    </tr>
+                    <tr>
+                        <td>学生端消息精准推送</td>
+                        <td></td>
+                        <!-- <td></td> -->
+                        <td>1次</td>
+                        <td>2次</td>
+                    </tr>
+
+                    <tr style="border-top: 2px solid #d5d5d5">
+                        <td rowspan="4">便捷沟通</td>
+                        <td>IM咨询自动回复</td>
+                        <td>2条</td>
+                        <!-- <td>300分钟</td> -->
+                        <td>5条</td>
+                        <td>5条</td>
+                    </tr>
+                    <tr>
+                        <td>IM咨询快捷回复</td>
+                        <td>2条</td>
+                        <!-- <td>500条</td> -->
+                        <td>10条</td>
+                        <td>10条</td>
+                    </tr>
+                    <tr>
+                        <td>免费赠送通话时长</td>
+                        <td>100分钟</td>
+                        <!-- <td>300分钟</td> -->
+                        <td>500分钟</td>
+                        <td>1000分钟</td>
+                    </tr>
+                    <tr>
+                        <td>免费赠送短信</td>
+                        <td>200条</td>
+                        <!-- <td>500条</td> -->
+                        <td>1000条</td>
+                        <td>2000条</td>
+                    </tr>
+
+                    <tr style="border-top: 2px solid #d5d5d5">
+                        <td rowspan="7">直播视频工具</td>
+                        <td>免费直播课人数上限</td>
+                        <td>500人/班</td>
+                        <!-- <td>1000人/班</td> -->
+                        <td>3000人/班</td>
+                        <td>不限</td>
+                    </tr>
+                    <tr>
+                        <td>视频点播清晰度</td>
+                        <td>标清&高清</td>
+                        <!-- <td>标清&高清&超清</td> -->
+                        <td>标清&高清&超清</td>
+                        <td>标清&高清&超清</td>
+                    </tr>
+                    <tr>
+                        <td>自定义视频水印</td>
+                        <td></td>
+                        <!-- <td></td> -->
+                        <td></td>
+                        <td><i class="icon-select"></i></td>
+                    </tr>
+                    <tr>
+                        <td>直播教室助教人数上限</td>
+                        <td>1人</td>
+                        <!-- <td>2人</td> -->
+                        <td>3人</td>
+                        <td>5人</td>
+                    </tr>
+                    <tr>
+                        <td>直播教室抽奖功能</td>
+                        <td></td>
+                        <!-- <td></td> -->
+                        <td><i class="icon-select"></i></td>
+                        <td><i class="icon-select"></i></td>
+                    </tr>
+                    <tr>
+                        <td>视频课程优先转码上线</td>
+                        <td></td>
+                        <!-- <td><i class="icon-select"></i></td> -->
+                        <td><i class="icon-select"></i></td>
+                        <td><i class="icon-select"></i></td>
+                    </tr>
+                    <tr>
+                        <td>视频课中qq、微信号展示</td>
+                        <td></td>
+                        <!-- <td></td> -->
+                        <td></td>
+                        <td><i class="icon-select"></i></td>
+                    </tr>
+
+                    <tr style="border-top: 2px solid #d5d5d5">
+                        <td rowspan="5">学员花名册</td>
+                        <td>付费直播课&线下课花名册</td>
+                        <td><i class="icon-select"></i></td>
+                        <!-- <td><i class="icon-select"></i></td> -->
+                        <td><i class="icon-select"></i></td>
+                        <td><i class="icon-select"></i></td>
+                    </tr>
+                    <tr>
+                        <td>免费直播课花名册</td>
+                        <td></td>
+                        <!-- <td></td> -->
+                        <td><i class="icon-select"></i></td>
+                        <td><i class="icon-select"></i></td>
+                    </tr>
+                    <tr>
+                        <td>免费线下课花名册</td>
+                        <td><i class="icon-select"></i></td>
+                        <!-- <td><i class="icon-select"></i></td> -->
+                        <td><i class="icon-select"></i></td>
+                        <td><i class="icon-select"></i></td>
+                    </tr>
+                    <tr>
+                        <td>付费视频课花名册</td>
+                        <td></td>
+                        <!-- <td><i class="icon-select"></i></td> -->
+                        <td><i class="icon-select"></i></td>
+                        <td><i class="icon-select"></i></td>
+                    </tr>
+                    <tr>
+                        <td>免费视频课花名册</td>
+                        <td></td>
+                        <!-- <td></td> -->
+                        <td></td>
+                        <td><i class="icon-select"></i></td>
+                    </tr>
+
+                    <tr style="border-top: 2px solid #d5d5d5">
+                        <td rowspan="7">数据中心</td>
+                        <td>流量分析</td>
+                        <td><i class="icon-select"></i></td>
+                        <!-- <td><i class="icon-select"></i></td> -->
+                        <td><i class="icon-select"></i></td>
+                        <td><i class="icon-select"></i></td>
+                    </tr>
+                    <tr>
+                        <td>来源构成</td>
+                        <td></td>
+                        <!-- <td><i class="icon-select"></i></td> -->
+                        <td><i class="icon-select"></i></td>
+                        <td><i class="icon-select"></i></td>
+                    </tr>
+                    <tr>
+                        <td>地域构成</td>
+                        <td></td>
+                        <!-- <td><i class="icon-select"></i></td> -->
+                        <td><i class="icon-select"></i></td>
+                        <td><i class="icon-select"></i></td>
+                    </tr>
+                    <tr>
+                        <td>本地同行排名</td>
+                        <td><i class="icon-select"></i></td>
+                        <!-- <td><i class="icon-select"></i></td> -->
+                        <td><i class="icon-select"></i></td>
+                        <td><i class="icon-select"></i></td>
+                    </tr>
+                    <tr>
+                        <td>排名因素分析</td>
+                        <td><i class="icon-select"></i></td>
+                        <!-- <td><i class="icon-select"></i></td> -->
+                        <td><i class="icon-select"></i></td>
+                        <td><i class="icon-select"></i></td>
+                    </tr>
+                    <tr>
+                        <td>转化统计</td>
+                        <td><i class="icon-select"></i></td>
+                        <!-- <td><i class="icon-select"></i></td> -->
+                        <td><i class="icon-select"></i></td>
+                        <td><i class="icon-select"></i></td>
+                    </tr>
+                    <tr>
+                        <td>扣分记录</td>
+                        <td><i class="icon-select"></i></td>
+                        <!-- <td><i class="icon-select"></i></td> -->
+                        <td><i class="icon-select"></i></td>
+                        <td><i class="icon-select"></i></td>
+                    </tr>
+
+                    <tr style="border-top: 2px solid #d5d5d5">
+                        <td rowspan="2">云存储空间</td>
+                        <td>基础云存储空间</td>
+                        <td>10G</td>
+                        <!-- <td>20G</td> -->
+                        <td>50G</td>
+                        <td>100G</td>
+                    </tr>
+                    <tr>
+                        <td>购买云存储空间优惠</td>
+                        <td>42元/G•年</td>
+                        <!-- <td>32元/G•年</td> -->
+                        <td>26元/G•年</td>
+                        <td>22元/G•年</td>
+                    </tr>
+
+                    <tr style="border-top: 2px solid #d5d5d5">
+                        <td rowspan="2">服务特权</td>
+                        <td>会员专属客户经理</td>
+                        <td></td>
+                        <!-- <td><i class="icon-select"></i></td> -->
+                        <td><i class="icon-select"></i></td>
+                        <td><i class="icon-select"></i></td>
+                    </tr>
+                    <tr>
+                        <td>会员专享线上全年系统培训课程</td>
+                        <td></td>
+                        <!-- <td>1套</td> -->
+                        <td>1套</td>
+                        <td>1套</td>
+                    </tr>
+                </table>
+                <div class="hint error">
+                    注：机构老师的会员权益与机构内其他老师共享。
+                </div>
+            </div>
+            <div class="tobevip">
+                {{>button}}
+            </div>
+        </div>
+
+        <div class="content-page page-pageDress {{#if active=='pageDress'}} show {{/if}}">
+            <div class="page-item-img">
+                <div class="page-img page-img-ye"></div>
+            </div>
+            <div class="page-title"><div class="vip-red"></div>特权介绍</div>
+            <div class="page-descript">
+                <p>服务用户：高级会员、超级会员</p>
+                <div class="jieshaos"><span>特权介绍：</span>
+                    <div class="jieshao-item">
+                        会员专享个性化装扮模板，多种主题任意切换，从几十万老师中脱颖而出，不做千篇一律的大多数！随性装扮，就是要与众不同。
+                        <p> 1）多套详情页装扮模板随意选择；</p>
+                        <p> 2）老师个人主页、课程详情页模板应有尽有；</p>
+                        <p> 3）一键选择即刻使用。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-table">
+                <table>
+                    <thead>
+                        <td width="140">特权名称</td>
+                        <td width="140">非会员</td>
+                        <!-- <td width="140">会员</td> -->
+                        <td width="140">高级会员</td>
+                        <td width="140">超级会员</td>
+                    </thead>
+                    <tr>
+                        <td>页面装扮</td>
+                        <td>缺省普通模板</td>
+                        <!-- <td class="td-p">
+                            <p>为老师提供多套精美会员模板，提高老师页面竞争力：</p>
+                            <p>1、老师个人主页模板</p>
+                            <p>2、课程页模板</p>
+                        </td> -->
+                        <td class="td-p">
+                            <p>为老师提供多套精美会员模板，提高老师页面竞争力：</p>
+                            <p>1、老师个人主页模板</p>
+                            <p>2、课程页模板</p>
+                        </td>
+                        <td class="td-p">
+                            <p>为老师提供多套精美会员模板，提高老师页面竞争力：</p>
+                            <p>1、老师个人主页模板</p>
+                            <p>2、课程页模板</p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="page-title"><div class="vip-red"></div>特权规则</div>
+            <div class="page-descript">
+                   <p> 会员开通后，老师在后台编辑自己主页或课程的时候，允许更换模板，编辑完之后，直接生效。</p>
+                   <p>    会员到期后，模板将恢复为默认模板。</p>
+            </div>
+            <div class="tobevip">
+                {{>button}}
+            </div>
+        </div>
+
+        <div class="content-page page-vipLogo {{#if active=='vipLogo'}} show {{/if}}">
+            <div class="page-item-img">
+                <div class="page-img page-img-biao"></div>
+            </div>
+            <div class="page-title"><div class="vip-red"></div>特权介绍</div>
+            <div class="page-descript">
+                <p>服务用户：高级会员、超级会员</p>
+                <div class="jieshaos"><span>特权介绍：</span>
+                    <div class="jieshao-item">
+                        名师、大咖、达人，不要再隐藏你的身份了！亮出你的身份“铭牌”，让学生一眼锁定目标。不被海量的老师所淹没，会员专享还等什么！
+                    </div>
+                </div>
+            </div>
+            <div class="page-table">
+                <table>
+                    <thead>
+                        <td width="140">特权名称</td>
+                        <td width="140">非会员</td>
+                        <!-- <td width="140">会员</td> -->
+                        <td width="140">高级会员</td>
+                        <td width="140">超级会员</td>
+                    </thead>
+                    <tr>
+                        <td>会员标签</td>
+                        <td>无</td>
+                        <!-- <td><i class="icon vip-icon"></i></td> -->
+                        <td><i class="icon gvip-icon"></i></td>
+                        <td><i class="icon cvip-icon"></i></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="page-title"><div class="vip-red"></div>特权规则</div>
+            <div class="page-descript">
+                <p>会员开通后，老师主页、搜索结果页等处即可显示对应等级的会员标签。</p>
+                <p>会员到期后，会员标签则不再显示。</p>
+            </div>
+            <div class="tobevip">
+                {{>button}}
+            </div>
+        </div>
+
+        <div class="content-page page-videoPrivilege {{#if active=='videoPrivilege'}} show {{/if}}">
+            <div class="page-title">
+                <div class="vip-red"></div>
+                特权介绍
+            </div>
+            <div class="page-descript">
+                <p>服务用户：高级会员、超级会员</p>
+                <div class="jieshaos">
+                    <span>特权介绍：</span>
+                    <div class="jieshao-item">
+                        视频课上传老是排队等待转码？担心学生看了视频课联系不到自己？会员专属特权帮您解忧。
+                        <p>1）会员上传的视频课优先进行转码，尊享vip插队特权；</p>
+                        <!-- <p>2）超级会员可在自己的视频课中展示qq、微信等个人联系方式，方便学生主动联系。</p> -->
+                    </div>
+                </div>
+            </div>
+            <div class="page-title">
+                <div class="vip-red"></div>
+                特权规则
+            </div>
+            <div class="page-descript">
+                <p>会员开通后，即可享有对应特权。</p>
+                <p>会员到期后，不再享有对应特权。</p>
+            </div>
+            <div class="tobevip">
+                {{>button}}
+            </div>
+        </div>
+
+        <div class="content-page page-seeRoster {{#if active=='seeRoster'}} show {{/if}}">
+            <div class="page-item-img">
+                <div class="page-img page-img-roster"></div>
+            </div>
+            <div class="page-title"><div class="vip-red"></div>特权介绍</div>
+            <div class="page-descript">
+                <p>服务用户：高级会员、超级会员</p>
+                <div class="jieshaos"><span>特权介绍：</span>
+                    <div class="jieshao-item">
+                        众里寻TA千百度，学生却不一定都在灯火阑珊处。手握花名册，电脑前面坐，联络学生来上课！互联网时代的玩法，就是要这么酷。
+                        看过、听过、买过课程的学生都有谁统统想知道，如此任性，我们成全你！
+                    </div>
+                </div>
+            </div>
+            <div class="page-table">
+                <table>
+                    <thead>
+                        <td width="140">特权名称</td>
+                        <td width="140">非会员</td>
+                        <!-- <td width="140">会员</td> -->
+                        <td width="140">高级会员</td>
+                        <td width="140">超级会员</td>
+                    </thead>
+                    <tr>
+                        <td>查看花名册</td>
+                        <td class="td-p">
+                            <p>老师仅可查看以下学生花名册，进行后续主动营销，或者学生留存和服务：</p>
+                            <p>1、付费在线班课</p>
+                            <p>2、付费和免费线下班课</p>
+                            <p>3、付费在线1对1课</p>
+                            <p>4、付费线下1对1课</p>
+
+                            <p>注：以上学生均为购买了老师相应课程的学生</p>
+                        </td>
+                       <!--  <td class="td-p">
+                            <p>老师可查看且可下载以下学生花名册，进行后续主动营销，或者学生留存和服务：</p>
+                            <p>1、付费在线班课</p>
+                            <p>2、付费和免费线下班课</p>
+                            <p>3、付费在线1对1课</p>
+                            <p>4、付费线下1对1课</p>
+                            <p>5、付费视频课</p>
+                            <p>注：以上学生均为购买了老师相应课程的学生</p>
+                        </td> -->
+                        <td class="td-p">
+                            <p>老师可查看且可下载以下学生花名册，进行后续主动营销，或者学生留存和服务：</p>
+                            <p>1、免费和付费在线班课</p>
+                            <p>2、免费和付费线下班课</p>
+                            <p>3、免费和付费在线1对1课</p>
+                            <p>4、免费和付费线下1对1课</p>
+                            <p>5、付费视频课</p>
+                            <p>注：以上学生均为购买了老师相应课程的学生</p>
+                        </td>
+                        <td class="td-p">
+                            <p>老师可查看且可下载以下学生花名册，进行后续主动营销，或者学生留存和服务：</p>
+                            <p>1、免费和付费在线班课</p>
+                            <p>2、免费和付费线下班课</p>
+                            <p>3、免费和付费在线1对1课</p>
+                            <p>4、免费和付费线下1对1课</p>
+                            <p>5、免费和付费视频课</p>
+                            <p>注：以上学生均为购买了老师相应课程的学生</p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="page-title"><div class="vip-red"></div>特权规则</div>
+            <div class="page-descript">
+                <p> 会员开通后，老师即可查看或下载对应等级特权中的花名册。</p>
+                <p> 会员到期后，恢复到非会员老师的查看权限。</p>
+            </div>
+            <div class="tobevip">
+                {{>button}}
+            </div>
+        </div>
+
+        <div class="content-page page-dataMof {{#if active=='dataMof'}} show {{/if}}">
+            <div class="page-item-img">
+                <div class="page-img page-img-shu"></div>
+            </div>
+            <div class="page-title">
+                <div class="vip-red"></div>特权介绍
+            </div>
+            <div class="page-descript">
+                <p>服务用户：非会员、高级会员、超级会员</p>
+                <div class="jieshaos">
+                    <span>特权介绍：</span>
+                    <div class="jieshao-item">
+                        互联网时代最有价值的必是数据无疑！大数据的飞速发展意味着掌握数据就掌握了机遇。如何在海量的数据信息中挖掘出价值，这是一个问题！为了更好的服务于会员，我们提供更专业的数据分析服务。通过数据可视化的结果，找到个人信息设置的短板进行优化，挖掘优势方向进行拓展，提升整体竞争力。
+                    </div>
+                </div>
+            </div>
+            <div class="page-table">
+                <table>
+                    <thead>
+                        <td width="140">特权名称</td>
+                        <td width="140">非会员</td>
+                        <!-- <td width="140">会员</td> -->
+                        <td width="140">高级会员</td>
+                        <td width="140">超级会员</td>
+                    </thead>
+                    <tr>
+                        <td>数据魔方</td>
+                        <td class="td-p">
+                            <p>1.流量分析</p>
+                            <p>2.转化统计</p>
+                            <p>3.本地同行排名</p>
+                            <p>4.排名因素分析</p>
+                            <p>5.扣分记录</p>
+                        </td>
+                        <!-- <td class="td-p">
+                            <p>1.流量分析</p>
+                            <p>2.来源构成</p>
+                            <p>3.地域构成</p>
+                            <p>4.转化统计</p>
+                            <p>5.本地同行排名</p>
+                            <p>6.排名因素分析</p>
+                            <p>7.扣分记录</p>
+                        </td> -->
+                        <td class="td-p">
+                            <p>1.流量分析</p>
+                            <p>2.来源构成</p>
+                            <p>3.地域构成</p>
+                            <p>4.转化统计</p>
+                            <p>5.本地同行排名</p>
+                            <p>6.排名因素分析</p>
+                            <p>7.扣分记录</p>
+                        </td>
+                        <td class="td-p">
+                            <p>1.流量分析</p>
+                            <p>2.来源构成</p>
+                            <p>3.地域构成</p>
+                            <p>4.转化统计</p>
+                            <p>5.本地同行排名</p>
+                            <p>6.排名因素分析</p>
+                            <p>7.扣分记录</p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="page-title">
+                <div class="vip-red"></div>特权规则
+            </div>
+            <div class="page-descript">
+                <p>开通会员后，一般即刻生效。</p>
+                <p>会员失效后，该权益即失效。</p>
+            </div>
+            <div class="tobevip">
+                {{>button}}
+            </div>
+        </div>
+
+        <div class="content-page page-freeLive {{#if active=='freeLive'}} show {{/if}}">
+            <div class="page-title"><div class="vip-red"></div>特权介绍</div>
+            <div class="page-descript">
+                <p>服务用户：非会员、高级会员、超级会员</p>
+                <div class="jieshaos"><span>特权介绍：</span>
+                    <div class="jieshao-item">
+                        或风趣幽默或严谨认真，或温和耐心或声情并茂，个性十足又富有魅力的老师太多了。免费直播课是展示老师个人特色及魅力，以此来吸引更多学生的舞台。上课人数越多意味着课程越受欢迎，老师的人气越高。
+                        会员用户可以享受更高上限的特权，让更多学生来听直播课，来欣赏老师的魅力，并购买老师的课程。
+                    </div>
+                </div>
+            </div>
+            <div class="page-table">
+                <table>
+                    <thead>
+                        <td width="140">特权名称</td>
+                        <td width="140">非会员</td>
+                        <!-- <td width="140">会员</td> -->
+                        <td width="140">高级会员</td>
+                        <td width="140">超级会员</td>
+                    </thead>
+                    <tr>
+                        <td>免费直播课人数上限</td>
+                        <td>500</td>
+                        <!-- <td>1000</td> -->
+                        <td>3000</td>
+                        <td>不限</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="page-title"><div class="vip-red"></div>特权规则</div>
+            <div class="page-descript">
+                <p> 会员开通后，老师即可使用相应功能。</p>
+                <p> 会员到期后，恢复到非会员老师的权限。</p>
+            </div>
+            <div class="tobevip">
+                {{>button}}
+            </div>
+        </div>
+
+        <div class="content-page page-cloudSave {{#if active=='cloudSave'}} show {{/if}}">
+            <div class="page-title">
+                <div class="vip-red"></div>特权介绍
+            </div>
+            <div class="page-descript">
+                <p>服务用户：非会员、高级会员、超级会员</p>
+                <div class="jieshaos">
+                    <span>特权介绍：</span>
+                    <div class="jieshao-item">
+                        视频文件和电子课件太多，每次上传费时又费力。会员轻松享受更大云存储空间，直接调用云文件，方便又省时。
+                        <p>1）所有非会员老师可免费拥有10G云存储空间；</p>
+                        <p>2）云存储空间支持上传视频文件（支持MP4、AVI等格式）、电子课件（支持WORD、PPT、PDF等格式）等。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="page-table">
+                <table>
+                    <thead>
+                        <td>特权名称</td>
+                        <td>非会员</td>
+                        <!-- <td>会员老师</td> -->
+                        <td>高级会员老师</td>
+                        <td>超级会员老师</td>
+                    </thead>
+                    <tr>
+                        <td>更多云存储空间</td>
+                        <td>10G</td>
+                        <!-- <td>20G</td> -->
+                        <td>50G</td>
+                        <td>100G</td>
+                    </tr>
+                    <tr>
+                        <td>购买云存储空间优惠</td>
+                        <td>42元/G•年</td>
+                        <!-- <td>32元/G•年</td> -->
+                        <td>26元/G•年</td>
+                        <td>22元/G•年</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="page-title">
+                <div class="vip-red"></div>特权规则
+            </div>
+            <div class="page-descript">
+                <p>开通会员后，一般实时生效。当会员或空间有效期过期后，则不能上传多于当前有效空间外的内容。但已经上传的内容不会被删除。可以通过购买新的云存储空间来继续上传内容。</p>
+            </div>
+            <div class="tobevip">
+                {{>button}}
+            </div>
+        </div>
+
+        <div class="content-page page-sortFirst {{#if active=='sortFirst'}} show {{/if}}">
+            <div class="page-item-img">
+                <div class="page-img page-img-pai"></div>
+            </div>
+            <div class="page-title"><div class="vip-red"></div>特权介绍</div>
+            <div class="page-descript">
+                <p>服务用户：高级会员、超级会员</p>
+                <div class="jieshaos"><span>特权介绍：</span>
+                    <div class="jieshao-item">
+                        会员排序绝对优先
+                        <p> 1）搜索老师时，超级会员>高级会员>普通会员>非会员；</p>
+                        <p> 2）同等级会员之间的排序，主要参考近期真实交易、付费课程评价和在线im咨询响应速度。	</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="page-table">
+                <table>
+                    <thead>
+                        <td width="140">特权名称</td>
+                        <td width="140">非会员</td>
+                        <td width="140">会员</td>
+                        <td width="140">高级会员</td>
+                        <td width="140">超级会员</td>
+                    </thead>
+                    <tr>
+                        <td>更多流量</td>
+                        <td class="td-p">
+                            <p>在搜索排序中，基于常规排序条件进行综合排序：</p>
+                            <p>1、常规排序条件包括但不限于老师信息丰富度、真实背景、平台活跃度、交易情况、学生评价情况等</p>
+                        </td>
+                        <td class="td-p">
+                            <p>在搜索排序中，为老师提供排序优先机会，提高老师展示机会：</p>
+                            <p>1、常规排序条件包括但不限于老师信息丰富度、真实背景、平台活跃度、交易情况、学生评价情况等</p>
+                            <p>2、在常规综合排序条件相当的情况下，会员老师优先于非会员</p>
+                        </td>
+                        <td class="td-p">
+                            <p>在搜索排序中，为老师提供排序优先机会，提高老师展示机会：</p>
+                            <p>1、常规排序条件包括但不限于老师信息丰富度、真实背景、平台活跃度、交易情况、学生评价情况等</p>
+                            <p>2、在常规综合排序条件相当的情况下，高级会员优先于会员老师和非会员</p>
+                        </td>
+                        <td class="td-p">
+                            <p>在搜索排序中，为老师提供排序优先机会，提高老师展示机会：</p>
+                            <p>1、常规排序条件包括但不限于老师信息丰富度、真实背景、平台活跃度、交易情况、学生评价情况等</p>
+                            <p>2、在常规综合排序条件相当的情况下，超级会员优先于高级会员、会员老师和非会员</p>
+                        </td>
+                    </tr>
+                </table>
+            </div> -->
+            <div class="page-title"><div class="vip-red"></div>特权规则</div>
+            <div class="page-descript">
+                <p> 会员开通后，即可享有对应特权。</p>
+                <p> 会员到期后，不再享有对应特权。</p>
+            </div>
+            <div class="tobevip">
+                {{>button}}
+            </div>
+        </div>
+
+        <div class="content-page page-liveTool {{#if active=='liveTool'}} show {{/if}}">
+            <div class="page-title">
+                <div class="vip-red"></div>
+                特权介绍
+            </div>
+            <div class="page-descript">
+                <p>服务用户：非会员、高级会员、超级会员</p>
+                <div class="jieshaos">
+                    <span>特权介绍：</span>
+                    <div class="jieshao-item">
+                        直播就是需要专注和耐心的工作，为了给老师创造更好的教学体验，平台努力为老师打造更人性化更体贴的专属服务，让老师可以专注于教学，提升课程质量，而不必为教学之外的事务而烦恼。
+                        <p>1）视频点播清晰度支持超清：</p>
+                            <p class="inner-p">a）会员的视频课全面支持超清啦，学生在PC端、学生端APP都可以自由选择视频课的清晰度。</p>
+                            <p class="inner-p">b）非会员老师的视频课暂不支持超清。</p>
+                            <p class="inner-p">c）上传的视频课分辨率至少大于720p，才支持转成超清视频课哦。</p>
+
+                        <p>2）自定义视频课水印(仅支持超级会员)：</p>
+                            <p class="inner-p">a）超级会员支持设置自己的专属的视频课水印</p>
+                            <p class="inner-p">b）水印支持修改。</p>
+                            <p class="inner-p">c）设置入口在，课程设置-视频课中，仅超级会员才能设置。上传的水印图片不宜过小，否则会比较模糊哦。</p>
+
+                        <p>3）直播教室助教人数：</p>
+                            <p class="inner-p">a）老师可根据教学需要自带助教进入直播教室，会员拥有更多的助教人数上限。按照会员等级，非会员老师1人，高级会员3人，超级会员5人。</p>
+
+                        <p>4）直播教室抽奖功能：</p>
+                            <p class="inner-p">a）活跃教室气氛，增加师生互动。会员老师支持在上课的时候，发起抽奖活动啦，目前此权益支持高级会员老师、超级会员老师。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-title">
+                <div class="vip-red"></div>特权规则
+            </div>
+            <div class="page-descript">
+                <p>开通会员后，一般实时生效。</p>
+                <p>直播工具可以从跟谁学官网下载。跟谁学直播助手目前支持Windows和MAC版本。</p>
+            </div>
+            <div class="tobevip">
+                {{>button}}
+            </div>
+        </div>
+
+        <div class="content-page page-oneLimit {{#if active=='oneLimit'}} show {{/if}}">
+            <div class="page-title">
+                <div class="vip-red"></div>
+                特权介绍
+            </div>
+            <div class="page-descript">
+                <p>服务用户：非会员、高级会员、超级会员</p>
+                <div class="jieshaos">
+                    <span>特权介绍：</span>
+                    <div class="jieshao-item">
+                        想开更多的一对一课程？目前的一对一课程数量不够用了？
+                        <p>1）非会员支持设置10门一对一课程，会员老师支持开设更多哦；</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-table">
+                <table>
+                    <thead>
+                        <td>特权名称</td>
+                        <td>一对一课程数量上限</td>
+                    </thead>
+                    <tr>
+                        <td>非会员</td>
+                        <td>10门</td>
+                    </tr>
+                    <!-- <tr>
+                        <td>会员老师</td>
+                        <td>12门</td>
+                    </tr> -->
+                    <tr>
+                        <td>高级会员老师</td>
+                        <td>15门</td>
+                    </tr>
+                    <tr>
+                        <td>超级会员老师</td>
+                        <td>20门</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="page-title">
+                <div class="vip-red"></div>特权规则
+            </div>
+            <div class="page-descript">
+                <p>开通会员后，实时生效。会员过期后，已经发布的课程不会被删除。</p>
+            </div>
+            <div class="tobevip">
+                {{>button}}
+            </div>
+        </div>
+
+        <div class="content-page page-imAsk {{#if active=='imAsk'}} show {{/if}}">
+            <!--div class="page-item-img">
+                <div class="page-img page-img-dai"></div>
+            </div-->
+            <div class="page-title">
+                <div class="vip-red"></div>
+                特权介绍
+            </div>
+            <div class="page-descript">
+                <p>服务用户：非会员、高级会员、超级会员</p>
+                <div class="jieshaos">
+                    <span>特权介绍：</span>
+                    <div class="jieshao-item">
+                        还在为没有学生报名课程而烦恼吗？信息需要获取，机会需要创造。
+                        学生发布找老师需求后，会员用户可以享受优先报名特权，提高获取生源的机会。玩转互联网教育，快人一步你也可以！
+                        <p>1）平台收到的学生找老师的需求都会集中展示在【生源大厅】中，每一个新生源在发布后的30分钟内为会员用户专属报名时间；</p>
+                        <p>2）【生源大厅】的入口在【老师端app】的首页，赶紧打开查看吧。机构会员旗下的老师，同样可以打开老师app进入【生源大厅】获取优先报名权。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="page-title">
+                <div class="vip-red"></div>
+                特权规则
+            </div>
+            <div class="page-descript">
+                <p>会员开通后，即可享有对应特权。</p>
+                <p>会员到期后，不再享有对应特权。</p>
+            </div>
+            <div class="tobevip">
+                {{>button}}
+            </div>
+        </div>
+
+        <div class="content-page page-studentRecommend {{#if active=='studentRecommend'}} show {{/if}}">
+            <div class="page-item-img">
+                <div class="page-img page-img-tui"></div>
+            </div>
+            <div class="page-title">
+                <div class="vip-red"></div>特权介绍
+            </div>
+            <div class="page-descript">
+                <p>服务用户：高级会员、超级会员</p>
+                <div class="jieshaos">
+                    <span>特权介绍：</span>
+                    <div class="jieshao-item">想报名全国首页的活动推广位？想轻松触及跟谁学平台上的千万学生？只要你想获得更多生源，赶快试一下推广优先吧。包括如下三个权益：
+                        <p>1）全国会员专题活动参与权（高级会员、超级会员专享）</p>
+                            <p class="inner-p">a）可以有权参加跟谁学全国会员专题活动，活动将展示在如全国首页广告位，或者地区性活动广告位(需满足审核条件)。其中高级会员1次/年，超级会员2次/年。</p>
+                        <p>2）聚惠学专区课程位展示（高级会员、超级会员专享）</p>
+                            <p class="inner-p">a）可以获得跟谁学平台中的聚惠学专区课程位展示特权，通过低价课程吸引万千目光。(需满足审核条件)。其中高级会员1次/年，超级会员2次/年。</p>
+                        <p>3）学生端消息精准推送（高级会员、超级会员专享）。</p>
+                            <!-- <p class="inner-p">a）可以帮助会员将课程或个人主页精准推送到跟谁学千万学生用户，增加曝光和转化机会。其中高级会员1次/年，超级会员2次/年。</p> -->
+                        <p>4）课程分享有奖功能（超级会员专享）</p>
+                            <p class="inner-p">a）超级会员可以针对希望学生分享的课程设置奖励金额，学生分享此类课程并有人报名后，自动获得老师设定的现金奖励；</p>
+                            <p class="inner-p">b）此项功能的入口在【老师app-发现-营销工具】中，超级会员每年有6次使用机会。</p>
+                        <p>5）课程限额折扣功能（高级会员、超级会员专享）</p>
+                            <p class="inner-p">a）会员可以针对指定课程设置限额折扣数量，最先购买的对应数量学生能够以会员设置的优惠价格购买课程；</p>
+                            <p class="inner-p">b）此项功能的入口在【老师app-发现-招生工具】中。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="page-title">
+                <div class="vip-red"></div>
+                特权规则
+            </div>
+            <div class="page-descript">
+                <p>当参加全国性或区域性活动时，均需要满足审核包装条件。以上四项权益的有效期均为1年。</p>
+            </div>
+            <div class="tobevip">
+                {{>button}}
+            </div>
+        </div>
+
+        <div class="content-page page-customerManager {{#if active=='customerManager'}} show {{/if}}">
+            <div class="page-title">
+                <div class="vip-red"></div>
+                特权介绍
+            </div>
+            <div class="page-descript">
+                <p>服务用户：高级会员、超级会员</p>
+                <div class="jieshaos">
+                    <span>特权介绍：</span>
+                    <div class="jieshao-item">
+                        会员用户享受专属客户经理服务，一键联系、随时沟通。
+                        <p>1）会员用户均可随时联系专属的客户经理，还可定期对其服务进行评价反馈</p>
+                        <p>2）老师会员的客户经理联系入口在【老师app-我】里，机构会员的客户经理联系入口在【机构app-我】里</p>
+                    </div>
+                </div>
+            </div>
+            <div class="page-title">
+                <div class="vip-red"></div>
+                特权规则
+            </div>
+            <div class="page-descript">
+                <p>会员开通后，即可享有对应特权。</p>
+                <p>会员到期后，不再享有对应特权。</p>
+            </div>
+            <div class="tobevip">
+                {{>button}}
+            </div>
+        </div>
+
+        <div class="content-page page-firstCheck {{#if active=='firstCheck'}} show {{/if}}">
+            <div class="page-title">
+                <div class="vip-red"></div>
+                特权介绍
+            </div>
+            <div class="page-descript">
+                <p>服务用户：高级会员、超级会员</p>
+                <div class="jieshaos">
+                    <span>特权介绍：</span>
+                    <div class="jieshao-item">
+                        嫌上传资料后，审核慢？嫌设置课程后，审核慢？当当当，跟谁学会员老师优先审核隆重推出上线啦，只要您是会员老师，即享有优先审核的尊贵特权，审核更快，即时提醒审核人员帮您审核！
+                        <p>1）会员老师的资料或课程的审核优先级，高于非会员老师的审核优先级。同理，高级会员高于普通会员，超级会员高于高级会员。</p>
+                        <p>2）优先审核的内容包括会员老师和会员机构的老师资料、课程信息、机构资料等。工作人员在工作时间内，将会优先审核会员老师或会员机构。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-title">
+                <div class="vip-red"></div>
+                特权规则
+            </div>
+            <div class="page-descript">
+                <p>开通会员后，一般实时生效。</p>
+                <p>会员失效后，权益实时失效。</p>
+            </div>
+            <div class="tobevip">
+                {{>button}}
+            </div>
+        </div>
+
+        <div class="content-page page-freeContact {{#if active=='freeContact'}} show {{/if}}">
+            <div class="page-title">
+                <div class="vip-red"></div>
+                特权介绍
+            </div>
+            <div class="page-descript">
+                <p>服务用户：非会员、高级会员、超级会员</p>
+                <div class="jieshaos">
+                    <span>特权介绍：</span>
+                    <div class="jieshao-item">
+                        想对班课学生做批量通知？那就赶快试试跟谁学的免费短信吧。想给学生或机构打电话免费？没问题。针对会员老师，我们赠送了更多的免费短信和通话时长。使用更流畅，用起来更爽。
+                        <p>1）赠送短信目前主要类型是到课提醒短信，后续可以支持更多类型短信哦；</p>
+                        <p>2）赠送的免费通话时长，目前主要是在租教室等功能中可以使用，后续会拓展到更多入口。</p>
+                        <p>3）权益分为针对老师的，或是针对机构的。针对机构的赠送短信条数和通话时长则计算在整个机构时长中，机构的所有老师共享该权益。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="page-table">
+                <table>
+                    <thead>
+                        <td>特权名称</td>
+                        <td>赠送的免费短信</td>
+                        <td>赠送的免费通话时长</td>
+                    </thead>
+                    <tr>
+                        <td>非会员</td>
+                        <td>200条</td>
+                        <td>100分钟</td>
+                    </tr>
+                    <!-- <tr>
+                        <td>会员老师</td>
+                        <td>500条</td>
+                        <td>300分钟</td>
+                    </tr> -->
+                    <tr>
+                        <td>高级会员老师</td>
+                        <td>1000条</td>
+                        <td>500分钟</td>
+                    </tr>
+                    <tr>
+                        <td>超级会员老师</td>
+                        <td>2000条</td>
+                        <td>1000分钟</td>
+                    </tr>
+                </table>
+                <br>
+                <table>
+                    <thead>
+                        <td>特权名称</td>
+                        <td>赠送的免费短信</td>
+                        <td>赠送的免费通话时长</td>
+                    </thead>
+                    <tr>
+                        <td>普通机构</td>
+                        <td>200条</td>
+                        <td>100分钟</td>
+                    </tr>
+                   <!--  <tr>
+                        <td>会员机构</td>
+                        <td>1000条</td>
+                        <td>500分钟</td>
+                    </tr> -->
+                    <tr>
+                        <td>高级会员机构</td>
+                        <td>2000条</td>
+                        <td>1000分钟</td>
+                    </tr>
+                    <tr>
+                        <td>超级会员机构</td>
+                        <td>4000条</td>
+                        <td>2000分钟</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="page-title">
+                <div class="vip-red"></div>
+                特权规则
+            </div>
+            <div class="page-descript">
+                <p>开通会员后，实时生效。当会员升级时，赠送的免费短信和免费通话时长都按照差额进行赠送，赠送的短信和通话时长为累计有效，如果长年不使用或有垃圾、色情推广等违规操作，则跟谁学有权收回。</p>
+            </div>
+            <div class="tobevip">
+                {{>button}}
+            </div>
+        </div>
+
+        <div class="content-page page-autoReply {{#if active=='autoReply'}} show {{/if}}">
+            <div class="page-title">
+                <div class="vip-red"></div>
+                特权介绍
+            </div>
+            <div class="page-descript">
+                <p>服务用户：非会员、高级会员、超级会员</p>
+                <div class="jieshaos">
+                    <span>特权介绍：</span>
+                    <div class="jieshao-item">
+                        有学生咨询却不在线？想自定义回复给学生的消息？想更加快捷的回复学生的常见咨询？没问题，自动回复和快捷回复功能帮您更加便捷地与学生沟通。会员可享受更多的自动回复和快捷回复特权，让您更加高效的与学生沟通。
+                        <p>1）非会员支持最多2条的自动回复和快捷回复消息，会员支持更多哦；</p>
+                    </div>
+                </div>
+            </div>
+            <div class="page-table">
+                <table>
+                    <thead>
+                        <td>特权名称</td>
+                        <td>非会员</td>
+                        <!-- <td>会员老师</td> -->
+                        <td>高级会员老师</td>
+                        <td>超级会员老师</td>
+                    </thead>
+                    <tr>
+                        <td>自动回复</td>
+                        <td>2条</td>
+                        <!-- <td>5条</td> -->
+                        <td>5条</td>
+                        <td>5条</td>
+                    </tr>
+                    <tr>
+                        <td>快捷回复</td>
+                        <td>2条</td>
+                        <!-- <td>10条</td> -->
+                        <td>10条</td>
+                        <td>10条</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="page-title">
+                <div class="vip-red"></div>
+                特权规则
+            </div>
+            <div class="page-descript">
+                <p>会员开通后，实时生效。</p>
+                <p>会员到期后，则不能添加多于当前有效条数的自动回复和快捷回复内容，已保存的自动回复和快捷回复内容不会被删除，仍然可以编辑。</p>
+            </div>
+            <div class="tobevip">
+                {{>button}}
+            </div>
+        </div>
+
+        <div class="content-page page-courseForVip {{#if active=='courseForVip'}} show {{/if}}">
+            <div class="page-title">
+                <div class="vip-red"></div>
+                特权介绍
+            </div>
+            <div class="page-descript">
+                <p>服务用户：非会员、高级会员、超级会员</p>
+                <div class="jieshaos">
+                    <span>特权介绍：</span>
+                    <div class="jieshao-item">
+                        想学习怎样更好招生？怎么样能吸引更多学生眼光？怎么样能做好学生线索转化？我们专门为会员老师准备了专属课程。赶快来看看吧。
+                        <p>1）专门为会员老师提供专属的培训课程，</p>
+                        <p>2）课程内容包括如何通过跟谁学提升会员老师的互联网宣传能力</p>
+                        <p>3）此课程通过在线方式观看，让会员老师随时随地获取必备知识</p>
+                    </div>
+                </div>
+            </div>
+            <div class="page-title">
+                <div class="vip-red"></div>
+                特权规则
+            </div>
+            <div class="page-descript">
+                <p>开通会员后，实时生效。专属培训课程的入口，在跟谁学老师版APP—发现—跟谁学大学—会员专区中可以查看。</p>
+            </div>
+            <div class="tobevip">
+                {{>button}}
+            </div>
+        </div>
+    </div>
+</div>

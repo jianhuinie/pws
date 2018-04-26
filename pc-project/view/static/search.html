@@ -1,0 +1,45 @@
+{{ extends file="common/main/base.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $script_path = "static/search" }}
+
+{{ /block }}
+
+{{ block name="title" }}
+搜索页 - 跟谁学
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/static/search.less">
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+
+<div id="main">
+    <div class="wrapper">
+
+        <h1></h1>
+
+        <form action="/teacher/search">
+            <i class="icon icon-search"></i>
+            <div class="search-box">
+                <input type="text" name="q" placeholder="请输入科目、老师、地区等" class="form-text" autocomplete="off" speech x-webkit-speech />
+            </div>
+            <button class="btn btn-primary">搜索</button>
+        </form>
+
+        <div class="hot-query">
+            <label>热门搜索：</label>
+            <a href="/teacher/search?q=%E6%95%B0%E5%AD%A6" class="text-primary">数学</a>
+            <a href="/teacher/search?q=%E8%8A%AD%E8%95%BE">芭蕾</a>
+        </div>
+
+    </div>
+</div>
+
+{{ /strip }}
+{{ /block }}

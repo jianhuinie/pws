@@ -1,0 +1,61 @@
+@import "page/_base/base.styl";
+@import "page/_common/nav_bar/nav_bar.styl";
+
+body {
+    background: #ffba02;
+    .header {
+        width: 100%;
+        img {
+            width: 100%;
+        }
+    }
+    .image {
+        width: 90%;
+        margin-left: 5%;
+        margin-bottom: rem(10);
+        img {
+            width: 100%;
+        }
+    }
+    .image.join {
+        text-align: center;
+        margin-bottom: 0;
+        position: relative;
+        .arrow {
+            width: 22%;
+            position: absolute;
+            top: 30%;
+            left: 40%;
+            animation: twinkling 0.5s infinite ease-in-out;
+        }
+        @keyframes twinkling {
+            0% {
+                opacity: 0.2;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        .button {
+            width: 58%;
+            position: absolute;
+            top: 55%;
+            left: 21%;
+        }
+        .leftNumber {
+            font-size: rem(12);
+            position: absolute;
+            top: 77%;
+            width: 100%;
+        }
+    }
+    .right {
+        font-size: rem(12);
+        color: #7a5800;
+        position: relative;
+        top: rem(8);
+        left: 4%;
+        line-height: rem(24);
+        margin-bottom: rem(20);
+    }
+}

@@ -1,0 +1,17 @@
+<!--本周直播-->
+<div id="broadcast">
+    <span class="category">本周直播</span>
+    <ul class="list">
+    {{ foreach $tpl_data.liveCourses as $val }}
+        <li class="item {{ if $val@last }}last{{ /if }}">
+            <a class="cover" href="{{ $val.link }}" target="_blank">
+                <img src="{{ $val.img }}@1e_225w_127h_1c_0i_1o_90Q_1x">
+            </a>
+            <div class="box">
+                <a class="title" href="{{ $val.link }}" target="_blank" title="{{ $val.name }}">{{ $val.name|cn_truncate: 15 }}</a>
+                <span class="date">{{ $val.plan }}开课</span>
+            </div>
+        </li>
+    {{ /foreach }}
+    </ul>
+</div>

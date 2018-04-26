@@ -1,0 +1,82 @@
+/**
+ * @file 一对一课程详情页 - 老师其他课程
+ * @author wangyujie
+ */
+#relatedcourse {
+    text-align: center;
+    background: #fff;
+    box-shadow: none;
+    border: 1px solid @border-color-gray;
+    padding: 15px 0;
+    .title {
+        font-size: 16px;
+        text-align: left;
+        padding-left: 20px;
+        padding-bottom: @gap-vertical-medium;
+
+    }
+    li {
+        border-bottom: 1px solid #eee;
+        padding: 0 20px;
+        margin-bottom: 2 * @gap-vertical-medium;
+        a {
+            position: relative;
+            display: block;
+        }
+        .pic {
+            width: 224px;
+            height: 120px;
+            overflow: hidden;
+            img {
+                transition: 1s ease;
+            }
+            &:hover {
+                img {
+                    transform: scale(1.2);
+                }
+            }
+
+        }
+        .detail {
+            text-align: left;
+        }
+        .course-name {
+            width: 202px;
+            height: 20px;
+            margin-top: @gap-horizontal-tiny;
+            margin-bottom: @gap-horizontal-small;
+            overflow: hidden;
+        }
+        .name {
+            color: #3d3d3d;
+        }
+
+        .info {
+            color: @brand-text-lighter;
+            font-size: 12px;
+            padding-bottom: 2 * @gap-horizontal-medium;
+            em {
+                color: #ccc;
+                margin: 0 @gap-horizontal-small;
+            }
+            .price-success {
+                color: @brand-success;
+            }
+            .price-primary {
+                color: @brand-primary;
+            }
+
+        }
+        .free {
+            color:  #56b02a;
+        }
+
+    }
+    li:last-child {
+        border: none;
+        margin-bottom: -10px
+    }
+
+
+
+}

@@ -1,0 +1,85 @@
+{{ *
+
+@file 检测图片是否是最小的
+@author zhujialu
+
+* }}
+{{ strip }}
+<script>
+    (function () {
+
+        var onload = window.onload;
+
+        var imageList = [ ];
+
+        var expr = /^https?:\/\/[^.]+\.gsxservice\.com/;
+
+        function checkImageSize(data) {
+
+            if (!expr.test(data.url)) {
+                return;
+            }
+
+            var img = new Image();
+            var index = imageList.push(img);
+            var timer;
+
+            img.onload = function () {
+
+                var height = img.height;
+
+                if (height != null && height > 0) {
+
+                    if (data.width < img.width
+                        || data.height < height
+                    ) {
+                        /*alert(
+                            '【警告】图片[<a href="' + data.url  + '" target="_bank">' + data.url + '</a>]未压缩！！'
+                        );*/
+                    }
+
+                    delete imageList[index];
+                    img = null;
+                }
+                else {
+                    timer = setTimeout(img.onload, 10);
+                }
+            };
+
+            img.onerror = function () {
+                if (timer) {
+                    clearTimeout(timer);
+                    delete imageList[index];
+                    img = null;
+                }
+            };
+
+            img.src = data.url;
+
+        };
+
+        window.onload = function () {
+
+            if (typeof onload === 'function') {
+                onload();
+            }
+
+            var imgs = document.getElementsByTagName('img');
+            var len = imgs.length;
+
+            for (var i = 0, img; i < len; i++) {
+                img = imgs[i];
+                if (img.src) {
+                    checkImageSize({
+                        url: img.src,
+                        width: img.width,
+                        height: img.height
+                    });
+                }
+            }
+
+        };
+
+    })();
+</script>
+{{ /strip }}

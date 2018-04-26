@@ -1,0 +1,1 @@
+define("cobble/function/autoScrollUp",["require","exports","module"],function(){"use strict";return function(o,e){var r=o.scrollTop(),t=r+o.height(),c=e.prop("offsetTop");if(r>c||c>t)o.scrollTop(c)}});

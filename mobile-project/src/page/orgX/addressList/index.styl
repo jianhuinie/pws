@@ -1,0 +1,92 @@
+@import "./common.styl";
+
+.address-num-tip {
+    padding: rem(10);
+    background: #feeaeb;
+    color: #fd6268;
+}
+.list {
+    background: #fff;
+    line-height: 1;
+    .unit {
+        .info {
+            display: flex;
+            padding: rem(12) rem(20) 0;
+            .check-wrapper {
+                position: relative;
+                flex: 2;
+                // text-align: center;
+                .icon-checkmark{
+                    display: block;
+                    position: absolute;
+                    top: 50%;
+                    margin-top: rem(-14);
+                }
+            }
+            .text {
+                overflow: hidden;
+                flex: 23;
+                .mobile,
+                .address {
+                    color: #6d6d6e;
+                }
+                .name {
+                    float: left;
+                }
+                .mobile {
+                    float: right;
+                }
+                .address {
+                    line-height: 2.5;
+                }
+            }
+        }
+        .unit-edit-del {
+            overflow: hidden;
+            border-top: rem(1) solid #ededee;
+            border-bottom: rem(1) solid #ededee;
+            padding: rem(12) rem(20);
+            .edit,
+            .del {
+                float: right;
+            }
+            .edit {
+                padding-right: rem(20);
+            }
+        }
+    }
+    .unit-add {
+        padding: rem(12) rem(20);
+        .icon-chevron-thin-right {
+            float: right;
+        }
+    }
+}
+
+.state-receive {
+    // position: fixed;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: rem(15);
+    height: rem(42);
+    line-height: rem(42);
+    font-size: rem(17);
+    text-align: center;
+    .yes,
+    .no {
+        display: block;
+        border-radius: rem(4);
+    }
+    .yes {
+        border: rem(1) solid #cdcdce;
+        background: #ffffff;
+        color: #9d9d9e;
+    }
+    .no {
+        border:rem(1) solid #ff9100;
+        background: #ff9100;
+        color: #fff;
+    }
+}

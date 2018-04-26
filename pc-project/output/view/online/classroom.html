@@ -1,0 +1,160 @@
+{{ *
+
+@file 在线课堂
+@author zhujialu
+
+* }}
+
+{{ extends file="common/pc/base.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $script_path = 'online/classroom_e5e013511c' }}
+
+    {{ $flash_root = 'http://d.gsxservice.com/video/'|cat: $env|cat: '/flash' }}
+
+    {{ $timestamp = '2015-05-13' }}
+
+{{ /block }}
+
+{{ block name="title" prepend }}
+在线课堂 -
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/online/classroom_57646d3037.css">
+{{ /block }}
+
+{{ block name="body" }}
+{{ strip }}
+
+<script src="{{ $flash_root }}/AC_OETags.js?t={{ $timestamp }}"></script>
+
+<script>
+    var requiredMajorVersion = 11;
+    var requiredMinorVersion = 1;
+    var requiredRevision = 0;
+
+    var ConfirmExit = {
+        prompt: true,
+        promptText: "Continue to lose any unsaved work. If not cancel and save your application from the top menu\n",
+        setPrompt: function (value) {
+          if (value) {
+             ConfirmExit.prompt = true;
+          } else if (!value) {
+             ConfirmExit.prompt = false;
+          }
+        },
+        setPromptText: function (value) {
+          ConfirmExit.promptText = value;
+        }
+    };
+    var _t;
+    window.onbeforeunload = function(ev) {
+        ev  = ev || window.event;
+
+        if (ConfirmExit.prompt) {
+
+          InteractiveClassClient.flexuserleave();
+        if (ev) {
+            ev.returnValue = ConfirmExit.promptText;
+          }
+          return ConfirmExit.promptText;
+        }else{
+            thisMovie("mockflow").stopConnection();
+        }
+
+        InteractiveClassClient.flexUnload();
+    };
+
+    var hasProductInstall = DetectFlashVer(11, 1, 0);
+
+    var hasRequestedVersion = DetectFlashVer(requiredMajorVersion, requiredMinorVersion, requiredRevision);
+
+    function closeIFrame(divID){
+        var divRef = document.getElementById(divID);
+        try{
+            divRef.parentNode.removeChild(divRef);
+        }catch(e){
+
+        };
+    }
+    function downLoadOCX(){
+        window.open("http://www.flash.com/upload/package/setup.exe","_blank");
+    }
+    if ( hasProductInstall && !hasRequestedVersion ) {
+
+        var MMPlayerType = (isIE == true) ? "ActiveX" : "PlugIn";
+        var MMredirectURL = window.location;
+        document.title = document.title.slice(0, 47) + " - Flash Player Installation";
+        var MMdoctitle = document.title;
+
+        AC_FL_RunContent(
+            "allowFullScreen", "true",
+            "src", "{{ $flash_root }}/playerProductInstall?t={{ $timestamp }}",
+            "FlashVars", "MMredirectURL="+MMredirectURL+'&MMplayerType='+MMPlayerType+'&MMdoctitle='+MMdoctitle+"",
+            "width", "100%",
+            "height", "100%",
+            "align", "middle",
+            "wmode","window",
+            "id", "InteractiveClassClient",
+            "quality", "high",
+            "bgcolor", "#e6e4e1",
+            "name", "InteractiveClassClient",
+            "allowScriptAccess","sameDomain",
+            "type", "application/x-shockwave-flash",
+            "pluginspage", "http://www.adobe.com/go/getflashplayer"
+        );
+    } else if (hasRequestedVersion) {
+
+        AC_FL_RunContent(
+                "src", "{{ $flash_root }}/InteractiveClassClient?t={{ $timestamp }}",
+                "FlashVars", "{{ $tpl_data.params }}",
+                "allowFullScreen", "true",
+                "width", "100%",
+                "height", "100%",
+                "align", "middle",
+                "wmode","window",
+                "id", "InteractiveClassClient",
+                "quality", "high",
+                "bgcolor", "#e6e4e1",
+                "name", "InteractiveClassClient",
+                "allowScriptAccess","always",
+                "type", "application/x-shockwave-flash",
+                "pluginspage", "http://www.adobe.com/go/getflashplayer"
+        );
+      } else {
+        var alternateContent = 'Alternate HTML content should be placed here. '
+        + 'This content requires the Adobe Flash Player. '
+       + '<a href=http://www.adobe.com/go/getflashplayer>Get Flash</a>';
+        document.write(alternateContent);
+      }
+</script>
+<noscript>
+    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+            id="InteractiveClassClient" width="100%" height="100%"
+            codebase="http://fpdownload.macromedia.com/get/flashplayer/current/swflash.cab">
+            <param name="wmode" value="window" />
+            <param name="movie" value="{{ $flash_root }}/online_video/InteractiveClassClient.swf?t={{ $timestamp }}" />
+            <param name="quality" value="high" />
+            <param name="bgcolor" value="#e6e4e1" />
+            <param name="allowFullScreen" value="true" />
+            <param name="allowScriptAccess" value="always" />
+            <embed src="{{ $flash_root }}/InteractiveClassClient.swf?t={{ $timestamp }}" quality="high" bgcolor="#e6e4e1"
+                width="100%" height="100%" name="InteractiveClassClient" align="middle"
+                wmode="window"
+                play="true"
+                loop="false"
+                quality="high"
+                allowScriptAccess="sameDomain"
+                type="application/x-shockwave-flash"
+                pluginspage="http://www.adobe.com/go/getflashplayer">
+            </embed>
+    </object>
+</noscript>
+    {{ include file="common/script.html" }}
+
+{{ /strip }}
+{{ /block }}

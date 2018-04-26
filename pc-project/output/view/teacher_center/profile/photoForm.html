@@ -1,0 +1,45 @@
+{{ *
+
+@file 我的照片表单
+@author zhujialu
+
+* }}
+{{ strip }}
+<div class="form photo-form">
+
+    <h2>添加照片</h2>
+
+    <div class="wrapper">
+
+        {{ include file="common/component/imageUploader.html" }}
+
+        <div class="image-info">
+
+            <div>
+                生活照或上课的照片都可以上传，展现你的精彩吧 :)
+                <div>但是不能出现广告信息和水印哦~</div>
+            </div>
+
+            <div class="form-block form-hint">
+                <i class="icon icon-info-circle"></i>
+                仅支持 .jpg、.png、.jpeg 格式照片，大小不超过 5M
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">给照片配个名称吧</label>
+                <input class="form-text" type="text" name="title" required maxlength="12" placeholder="名称不要超过 12 个字" />
+
+                <span class="error"></span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="form-action">
+        <button class="btn-primary btn-save" disabled>保存</button>
+        <button class="btn-default btn-cancel">取消</button>
+    </div>
+
+</div>
+{{ /strip }}

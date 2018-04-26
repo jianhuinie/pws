@@ -1,0 +1,142 @@
+/**
+ * @file °à¿ÎÆÀ¼ÛÄ£¿é
+ * @author jixiaohui
+ */
+.course-comment-box {
+
+    .item {
+        width: 100%;
+        height: 100%;
+        display: inline-block;
+        padding: 20px 0;
+        border-top: 1px solid #E5E5E5;
+
+        &:first-child {
+            border-top: none;
+        }
+
+        .avatar-medium {
+            float: left;
+            margin-right: 25px;
+        }
+
+        .box {
+            width: 630px;
+            float: left;
+        }
+    }
+
+    .title {
+        margin-bottom: 10px;
+
+        a {
+            color: #6990e5;
+        }
+
+        .comment {
+            float: right;
+            cursor: pointer;
+        }
+    }
+
+    .info {
+        display: block;
+        height: 100%;
+        margin-bottom: 6px;
+        overflow: hidden;
+
+        .face {
+            float: left;
+            margin-right: 10px;
+
+            .icon {
+                font-size: 18px;
+                margin-right: 10px;
+            }
+        }
+
+        .score {
+            float: left;
+        }
+
+        .status {
+            float: right;
+            color: #999999;
+        }
+    }
+
+    .content {
+        clear: both;
+        word-wrap: break-word;
+        word-break: break-all;
+        color: #333333;
+    }
+
+    .judge {
+        position: relative;
+        top: -10px;
+        color: @brand-text;
+
+        .form-radio {
+            margin-right: @gap-horizontal-medium;
+        }
+
+        .icon {
+            font-size: 25px;
+            vertical-align: middle;
+        }
+
+        .icon-smile-o {
+            color: #F66;
+        }
+
+        .icon-neutral-o {
+            color: #F0C000;
+        }
+
+        .icon-frown-o {
+            color: @brand-text-light;
+        }
+    }
+
+    .form-editor {
+        width: 100%;
+
+        .placeholder-wrapper {
+            width: 100%;
+        }
+
+        textarea {
+            width: 100%;
+            height: 170px;
+        }
+    }
+
+
+    .score {
+        position: relative;
+        top: -10px;
+
+        ul {
+            .clearfix();
+        }
+
+        li {
+            float: left;
+            margin-left: @gap-horizontal-huge;
+
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+    }
+
+    .info {
+        .score {
+            top: 1px;
+        }
+    }
+
+}
+
+

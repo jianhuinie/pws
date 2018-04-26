@@ -1,0 +1,94 @@
+.container {
+    .article-item {
+        background: white;
+        margin: rem(10) 0;
+        padding: rem(15) rem(10) rem(10) rem(10);
+        .first-nav {
+            padding-left: rem(50);
+            position: relative;
+            .avatar {
+                width: rem(40);
+                height: rem(40);
+                border-radius: rem(3);
+                border: 1px solid #ededee;
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+            .name {
+                font-family: PingFang-SC-Regular;
+                font-size: rem(15);
+                color: #3D3D3E;
+                height: rem(20);
+                line-height: rem(20);
+            }
+            .text {
+                font-family: PingFang-SC-Regular;
+                font-size: rem(14);
+                color: #9D9D9E;
+                line-height: rem(20);
+                height: rem(20);
+            }
+        }
+        .second-nav {
+            position: relative;
+            padding-right: rem(116);
+            margin: rem(15) 0;
+            .cover {
+                height: rem(64);
+                width: rem(100);
+                position: absolute;
+                right: rem(10);
+            }
+            .name {
+                font-family: PingFang-SC-Medium;
+                font-size: rem(16);
+                color: #3E3E3E;
+                letter-spacing: rem(-0.39);
+                line-height: rem(20);
+                font-weight: 900;
+            }
+            .info {
+                margin: rem(5) 0;
+                font-family: PingFang-SC-Regular;
+                font-size: rem(14);
+                color: #9D9D9E;
+                letter-spacing: rem(-0.34);
+                line-height: rem(20);
+                text-align: justify;
+            }
+        }
+        .last-nav {
+            position: relative;
+            .time {
+                font-family: PingFang-SC-Regular;
+                font-size: rem(13);
+                color: #9D9D9E;
+                line-height: rem(20);
+                height: rem(20);
+            }
+            .good {
+                position: absolute;
+                right: rem(10);
+                top: 50%;
+                transform: translateY(-50%);
+                img {
+                    height: rem(15);
+                    width: rem(15);
+                    vertical-align: text-bottom;
+                    float: left;
+                    margin-top: rem(2);
+                }
+                .good-number {
+                    font-family: PingFang-SC-Regular;
+                    font-size: rem(13);
+                    color: #9D9D9E;
+                    line-height: rem(20);
+                    height: rem(20);
+                    margin-left: rem(2);
+                    float: left;
+                }
+            }
+        }
+    }
+}

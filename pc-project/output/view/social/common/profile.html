@@ -1,0 +1,66 @@
+{{ strip }}
+{{ $noLink = 1 }}
+{{ if !empty($loginUser) && isset($loginUser.user_id) }}
+{{ $noLink = !($loginUser.user_id == $userInfo.user_id) }}
+{{ /if }}
+<div class="profile" a="{{ $noLink }}">
+    <div class="user-avatar">
+        <a class="avatar-wrapper" {{ if !$noLink }}href="/forum/userCenter"{{ else }}href="{{ $userInfo.homepage }}"{{ /if }} target="_blank" rel="nofollow">
+        {{ include file="common/component/image.html" url=$userInfo.avatar width=100 height=100 }}
+        </a>
+    </div>
+    <div class="user-info">
+        <div class="info-row">
+            <a class="user-name" {{ if !$noLink }}href="/forum/userCenter"{{ else }}href="{{ $userInfo.homepage }}"{{ /if }} target="_blank" rel="nofollow">
+                {{ $userInfo.nick_name }}
+            </a>
+
+            {{ if $userInfo.role == 0 && $userInfo.vip_level }}
+                {{ include file="common/variable/vipLevel.html" scope=parent }}
+                <i class="icon icon-vip-{{ $vipLevelMap[$userInfo.vip_level] }}"
+                data-title="
+                    {{ if $userInfo.vip_level == 1 }}
+                        跟谁学会员
+                    {{ else if $userInfo.vip_level == 2 }}
+                        跟谁学高级会员
+                    {{ else if $userInfo.vip_level == 3 }}
+                        跟谁学超级会员
+                    {{ /if }}
+                "></i>
+            {{ /if }}
+
+        </div>
+        <div class="info-row">
+            <p class="user-des" title="{{ $userInfo.brief|escape:'html' }}">
+                {{ $userInfo.brief|escape:'html' }}
+            </p>
+        </div>
+        <div class="info-row ins">
+            <div class="user-col">
+                <div class="number">{{ $userInfo.score }}</div>
+                <div><a href="/forum/jifen_rules" target="_blank" rel="nofollow">经验</a></div>
+            </div>
+            <div class="user-col">
+                <div class="number">{{ $userInfo.posts_num }}</div>
+                <div>
+                    {{ if !$noLink }}
+                        <a href="/forum/userCenter?active=1" target="_blank" rel="nofollow">发帖</a>
+                    {{ else }}
+                        <span>发帖</span>
+                    {{ /if }}
+                </div>
+            </div>
+            <div class="user-col">
+                <div class="number">{{ $userInfo.collect_num }}</div>
+                <div>
+                    {{ if !$noLink }}
+                        <a href="/forum/userCenter?active=2" target="_blank" rel="nofollow">收藏</a>
+                    {{ else }}
+                        <span>收藏</span>
+                    {{ /if }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{ /strip }}

@@ -1,0 +1,473 @@
+{{ extends file="common/pc/base.html" }}
+
+{{ block name="title" }}
+挑战好声音
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/activity/goodVoice_cfb52bc113.css">
+{{ /block }}
+
+{{ block name="data" }}
+
+{{ $need_im = false }}
+{{ $smarty.block.parent }}
+
+{{ $script_path = "activity/goodVoice_f3f990840b" }}
+
+
+{{ $flotage_config.hidden = 1 }}
+{{ $rave_config.hidden = 1 }}
+{{ $nav_config.hidden = 1 }}
+{{ $amd_more = [ 'common/main/component/header_40e06bdd81' ] }}
+
+
+{{ $baidu_share_text = "武汉名校家教团第3期强势来袭！找靠谱家教的不二之选！比你的想象更有诚意~" }}
+
+{{ $baidu_share_image = "http://img.gsxservice.com/0cms/d/file/content/2015/06/5591152b39afb.jpg" }}
+
+{{ /block }}
+
+
+{{ block name="description" }}
+    超低价格，获得导师专业指导！让你的演唱更有水准！让你的声音更加迷人
+{{ /block }}
+
+{{ block name="keywords"  }}
+
+    {{ $smarty.block.parent }}
+    导师专业指导,好声音
+{{ /block }}
+
+{{ strip }}
+{{ block name="body" }}
+
+{{ $smarty.block.parent }}
+
+{{ include file="common/siteNav.html" }}
+{{ include file="common/main/common/header.html" }}
+{{ include file="common/script.html" }}
+
+<div id="main">
+
+    <div id="layout">
+        <div>
+            <a class="a" href="#first"></a>
+            <a class="b" href="#second"></a>
+            <a class="c" href="#third"></a>
+        </div>
+    </div>
+
+    <div id="container_main">
+        <a id="first"></a>
+        <img class="first-title" src="http://img.gsxservice.com/0cms/d/file/content/2015/07/55af927e76070.png" alt="title" />
+        <div class="important_teacher">
+            <ul>
+                {{ foreach $tpl_data.important_teacher as $important  }}
+                <li class="imp">
+                        <span class="price">
+
+                        {{ if $important.raw_price != 0 || $important.raw_price > 0  }}
+                            <em class="raw_price">原价{{ $important.raw_price }}元</em>
+                        {{ /if }}
+
+                            {{ if $important.price == 0 }}
+                                <em class="now_price">免费</em>
+                            {{ else }}
+                                <em class="now_price">现价{{ $important.price }}元</em>
+                            {{ /if }}
+                        </span>
+                    <img class="poster" src="{{ $important.poster }}" alt="" />
+                    <span class="title">
+                        {{ $important.class_title }}
+                    </span>
+                    <div class="teacher_detail">
+                        {{ $important.teacher_detail }}
+                    </div>
+                    <div class="action">
+                        <a target="_blank" class="url" href="{{ $important.url }}">
+                            参加课程
+                        </a>
+
+                        {{ if isset($important.coupons) && !empty($important.coupons) }}
+                        <span class="discount-coupon coupon-w" data-coupon='{{ json_encode($important.coupons, 77) }}'>
+                            领取TA的优惠券
+
+                        <!--优惠券-->
+
+                            <div class="coupon">
+                                <span class="small-arrow"></span>
+                                <span class="big-arrow"></span>
+                                <ul class="coupon-list">
+                                    {{ foreach $important.coupons as $item }}
+                                    {{ if $item.status==1 }}
+                                    <li class="coupon-color" data-serial_num="{{ $item.serial_num }}" data-source_user_id="{{ $item.source_user_id }}" data-org="{{ $important.org_status }}" data-url="{{ $item.url }}" data-num="{{ $item.serial_num }}">
+                                    {{ else }}
+                                    <li class="coupon-gray">
+                                    {{ /if }}
+                                        <div class="coupon-info">
+                                            <div class="balance">
+                                                ￥<em>{{ $item.value }}</em>
+                                            </div>
+                                            <div class="threshold">
+                                                {{ if $item.cond_threshold == 0 || intval($item.cond_threshold) < 0 }}
+                                                    不限
+                                                {{ else }}
+                                                    满{{ $item.cond_threshold }}使用
+                                                {{ /if }}
+                                            </div>
+                                        </div>
+                                        <div class="status">
+                                            {{ if isset($item.status) }}
+                                                {{ include file="common/variable/couponStatus.html" scope=parent }}
+                                                {{ $couponStatusMap[$item.status] }}
+                                            {{ /if }}
+                                        </div>
+
+                                    </li>
+                                    {{ /foreach }}
+                                    <p class="doc">
+                                        每种优惠券限领1张，仅可购买
+                                        <em>{{ $important.coupon_name }}</em>
+                                        的课程
+                                    </p>
+                                </ul>
+                            </div>
+
+                        <!--优惠券-->
+
+
+                        </span>
+                        {{ /if }}
+                    </div>
+                </li>
+                {{ /foreach }}
+            </ul>
+        </div>
+
+        <div class="four_tab">
+
+                <div class="teacher-info">
+
+                    <div class="tab-head">
+                        <b class="tab-nav active">声音战队</b>
+                        <b class="tab-nav">弹唱战队</b>
+                        <b class="tab-nav">乐器战队</b>
+                        <b class="tab-nav">K歌战队</b>
+                        <div class="bottom-line"></div>
+                    </div>
+
+                    <div class="tab-content">
+                    {{ foreach $tpl_data.four_tab as $four_tab  }}
+                    <ul class="tab-p">
+                        {{ foreach $four_tab as $tab_content  }}
+
+                        <li class="four {{ if ($tab_content@index+1) % 2 != 0 }}first-item{{ /if }}">
+                            <img src="{{ $tab_content.poster }}@1e_100w_100h_1c_0i_1o_90Q_1x.jpeg" alt="" />
+                            <div class="info">
+                                <span class="title">{{ $tab_content.class_title }}</span>
+                                <span class="teacher_name">
+                                    {{ $tab_content.teacher_name }}
+                                    &nbsp;&nbsp;导师
+                                </span>
+                                <span class="price">
+                                    {{ if $tab_content.price == 0 }}
+                                        <em class="now_price">免费</em>
+                                    {{ else }}
+                                        <em class="now_price">现价{{ $tab_content.price }}元</em>
+                                    {{ /if }}
+
+
+                        {{ if $tab_content.raw_price != 0 || $tab_content.raw_price > 0  }}
+                                    <em class="raw_price">原价{{ $tab_content.raw_price }}元</em>
+                        {{ /if }}
+
+
+
+                                </span>
+
+                                <div class="action">
+                                    <a target="_blank" class="url" href="{{ $tab_content.url }}">
+                                        参加课程
+                                    </a>
+                                    {{ if isset($tab_content.coupons) && !empty($tab_content.coupons) }}
+                                    <span class="discount-coupon coupon-w" data-coupon='{{ json_encode($tab_content.coupons, 77) }}'>
+                                        领取TA的优惠券
+                        <!--优惠券-->
+
+                            <div class="coupon">
+                                <span class="small-arrow"></span>
+                                <span class="big-arrow"></span>
+                                <ul class="coupon-list">
+                                    {{ foreach $tab_content.coupons as $item }}
+                                    {{ if $item.status==1 }}
+                                    <li class="coupon-color" data-serial_num="{{ $item.serial_num }}" data-source_user_id="{{ $item.source_user_id }}"  data-org="{{ $tab_content.org_status }}" data-url="{{ $item.url }}" data-num="{{ $item.serial_num }}">
+                                    {{ else }}
+                                    <li class="coupon-gray">
+                                    {{ /if }}
+                                        <div class="coupon-info">
+                                            <div class="balance">
+                                                ￥<em>{{ $item.value }}</em>
+                                            </div>
+                                            <div class="threshold">
+                                                {{ if $item.cond_threshold == 0 || intval($item.cond_threshold) < 0 }}
+                                                    不限
+                                                {{ else }}
+                                                    满{{ $item.cond_threshold }}使用
+                                                {{ /if }}
+                                            </div>
+                                        </div>
+                                        <div class="status">
+                                            {{ if isset($item.status) }}
+                                                {{ include file="common/variable/couponStatus.html" scope=parent }}
+                                                {{ $couponStatusMap[$item.status] }}
+                                            {{ /if }}
+                                        </div>
+
+                                    </li>
+                                    {{ /foreach }}
+                                    <p class="doc">
+                                        每种优惠券限领1张，仅可购买
+                                        <em>{{ $tab_content.coupon_name }}</em>
+                                        的课程
+                                    </p>
+                                </ul>
+                            </div>
+
+                        <!--优惠券-->
+                                    </span>
+                                    {{ /if }}
+                                </div>
+
+                            </div>
+
+                        </li>
+
+
+                        {{ /foreach }}
+                        </ul>
+                    {{ /foreach }}
+                    </div>
+
+                </div>
+        </div>
+
+        <a id="second"></a>
+        <img class="second-title" src="http://img.gsxservice.com/0cms/d/file/content/2015/07/55b09a53c0a58.png" alt="title" />
+
+        <!--评论框-->
+
+        <div class="comment_tab">
+            <div class="tab-head">
+                <div class="wrap-b">
+                    {{ foreach $tpl_data.comment_tab.tab_map as $tab_map  }}
+                        {{ if $tab_map.start == 0 }}
+                        <b class="tab-nav weikaichi " title="敬情期待">{{ $tab_map.number }}</b>
+                        {{ else }}
+                        <b class="tab-nav tab-nav-b {{ if ($tab_map@index) == 0 }}active{{ /if }}">{{ $tab_map.number }}</b>
+                        {{ /if }}
+                    {{ /foreach }}
+                </div>
+            </div>
+
+            <span class="controls">
+                <i class="icon icon-caret-left"></i>
+                <i class="icon icon-caret-right"></i>
+            </span>
+
+
+        {{ if $tpl_data.comment_tab.view_no  }}
+
+            <div class="tab-content">
+            {{ $text_map = [] }}
+            {{ $count = 0 }}
+            {{ $count_r = 0 }}
+
+            {{ foreach $tpl_data.comment_tab.tab_content as $comment_tab  }}
+
+                <ul>
+                {{ foreach $comment_tab as $tab_content  }}
+
+
+                {{ $text_map[$count]['voice_text'] = $tab_content.voice_text }}
+                {{ $text_map[$count]['title'] = $tab_content.title }}
+
+
+                {{ if ($tab_content@index+1) % 2 == 0 }}
+                <li class="{{ if ($tab_content@index+1) % 2 == 0 }}right-item{{ /if }}">
+                    <div class="word">
+                        <i class="tail_red"></i>
+                        <span class="text" data-text="" data-index="{{ $count_r }}">
+                            {{ $tab_content.short }}
+                        </span>
+                    </div>
+                    <div class="nick">
+                        <a href="{{ $tab_content.url }}" class="" target="_blank">
+                            <img src="{{ $tab_content.poster }}@1e_64w_64h_1c_0i_1o_90Q_1x.jpeg" alt="" />
+                        </a>
+                        <span>
+                            {{ $tab_content.name }}
+                        </span>
+                    </div>
+                </li>
+                {{ else }}
+                <li data-index="{{ $count_r }}" class="{{ if ($tab_content@index+1) % 2 == 0 }}right-item{{ /if }}">
+                    <div class="nick">
+                        <a href="{{ $tab_content.url }}" class="" target="_blank">
+                            <img src="{{ $tab_content.poster }}@1e_64w_64h_1c_0i_1o_90Q_1x.jpeg" alt="" />
+                        </a>
+                        <span>
+                            {{ $tab_content.name }}
+                        </span>
+                    </div>
+                    <div class="word">
+                        <i class="tail"></i>
+                        <span class="text" data-text="" data-index="{{ $count_r }}">
+                            {{ $tab_content.short }}
+                        </span>
+                    </div>
+
+                </li>
+
+                {{ /if }}
+
+
+                {{ $count = $count + 1 }}
+                {{ $count_r = $count_r + 1 }}
+
+
+                {{ /foreach }}
+                </ul>
+
+
+            {{ /foreach }}
+            </div>
+
+{{ /if }}
+
+
+
+
+        <!--文章-->
+    <div class="channel">
+        <div>
+            {{ foreach $text_map as $broadcast }}
+
+            <div class="news-item {{ if $broadcast@first }}active {{ /if }} ">
+                <p class="title">
+                    {{ $broadcast.title|cn_truncate:26 }}
+                </p>
+
+                <div class="content">
+
+                    {{ foreach $broadcast.voice_text as $paragraph }}
+                    <p>
+                        {{ $paragraph }}
+                    </p>
+
+                    {{ /foreach }}
+
+                </div>
+            </div>
+
+            {{ /foreach }}
+        </div>
+
+        <div class="pre-next">
+            <span class="pre">上一篇</span>
+            <span class="next">下一篇</span>
+        </div>
+
+    </div>
+        <!--文章-->
+
+    <br/>
+
+</div>
+
+        <a id="third"></a>
+        <img class="third-title" src="http://img.gsxservice.com/0cms/d/file/content/2015/07/55b09a54addf9.png" alt="title" />
+
+        <!--prize-->
+        <div class="prize">
+
+
+<!--            <p>凡在2015.07.20-2015.09.10报名本页面课程并听课的学员 每节导师课程,将有10%学员获得由跟谁</p>
+            <p>学合作伙伴“眨眼”提供的<em>潮流服饰50元代金券</em></p>
+            <br/>
+            <p>每节导师课程,导师选出的“优秀学员”将获得<em>KTV旗舰店体验券</em></p>
+            <br/>
+            <p>活动期间,更有1名幸运学员将获得好声音大奖Apple Watch! 通过跟谁学APP报名听课,更有3台额外</p>
+            <p>Apple Watch等你来赢!</p>-->
+
+
+        {{ foreach $tpl_data.rule as $paragraph }}
+            {{ if $paragraph.status == 1 }}
+              {{ $paragraph.detail }}
+            {{ /if }}
+            {{ if $paragraph.status == 0 }}
+                <em>
+                    {{ $paragraph.detail }}
+                </em>
+            {{ /if }}
+
+
+        {{ /foreach }}
+
+
+
+            <div class="prize-img"></div>
+        </div>
+
+        <!--浅注册-->
+        <div class="reg-log">
+            <form class="form input-group">
+
+            <div class="form-group form-password" id="login-mobile">
+                <label class="phone">
+                    手机号：
+                </label>
+                <div class="form-controls">
+                    <input class="form-text" type="mobile" name="mobile" placeholder="请输入手机号" required autocomplete="off" />
+                    <span class="error"></span>
+                </div>
+            </div>
+
+            <div class="form-group form-sms">
+                <div class="form-controls">
+                    <label class="ma">
+                        验证码：
+                    </label>
+                    <input maxlength="6" class="form-text sms form-sms" type="text" name="verifycode" placeholder="请输入验证码" required pattern="^\d*$" />
+                    <button type="button" class="btn-info form-get-smscode codeBtn">获取验证码</button>
+                    <span class="error" autocomplete="off" ></span>
+                </div>
+            </div>
+
+            <button class="apply">
+                领取礼物
+            </button>
+
+            </form>
+        </div>
+        <!--浅注册-->
+
+
+
+        <!--prize-bottom-->
+        <div class="prize-bottom ">
+            <img src="http://img.gsxservice.com/0cms/d/file/content/2015/07/55b1a3206b766.png" alt="" />
+        </div>
+
+    </div>
+
+
+    <div id="last">
+        <p>
+            Copyright © 2014 - 2017 跟谁学版权所有. 京公网安备11010802015210号 | 京ICP备14027590号-1
+        </p>
+    </div>
+
+</div>
+{{ /block }}
+{{ /strip }}

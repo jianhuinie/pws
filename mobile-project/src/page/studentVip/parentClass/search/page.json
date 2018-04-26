@@ -1,0 +1,7 @@
+[
+    {
+        "tpl": "./index.tpl",
+        "router": "/studentVip/parentClass/search",
+        "mock_data": ""
+    }
+]

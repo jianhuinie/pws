@@ -1,0 +1,11 @@
+[
+    {
+        "tpl": "./result.tpl",
+        "router": "/activity/newYearCheckIn",
+        "mock_data": "./mock/index.json"
+    },
+    {
+        "tpl": "./index.tpl",
+        "router": "/activity/newYearCheckInIndex"
+    }
+]

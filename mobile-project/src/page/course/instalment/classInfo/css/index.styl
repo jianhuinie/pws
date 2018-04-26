@@ -1,0 +1,91 @@
+@import "page/_base/base.styl";
+@import "page/_common/nav_bar/nav_bar.styl";
+
+$bg-font-color = #6d6d6e;
+
+body
+    color $bg-font-color
+    font-size rem(14)
+
+.banner
+    position relative
+    padding-top 56%
+
+    > img
+        position absolute
+        top 0
+        width 100%
+
+.class-info
+    background-color #fff
+    padding 0 rem(15)
+    margin-bottom rem(15)
+    > div:first-child
+        border-top 0
+
+    > div
+        height rem(50)
+        line-height rem(50)
+        color #6d6d6e
+        border-top 1px solid #ebebeb
+
+        > span
+            color $bg-font-color
+
+.org-info
+    background-color #fff
+    padding rem(15)
+    margin-bottom rem(15)
+
+
+    > .title
+        margin-bottom rem(5)
+
+    > .info
+        position relative
+        > img
+            position absolute
+            width rem(72)
+            height rem(72)
+            left 0
+            top rem(5)
+
+        > div
+            margin-left rem(80)
+            min-height rem(72)
+            > .company
+                color #333
+                margin-bottom rem(5)
+
+.instalment-info
+    padding rem(15)
+    background-color #fff
+    line-height 1.8
+    > .info
+        padding rem(10) 0
+
+    > .warn-info
+        color #9d9e9e
+        > .warn
+            color #f95710
+
+/*.submit-wrapper*/
+
+.submit:hover
+    background-color #2C84C6
+
+.submit
+    margin rem(15)
+    display block
+    background-color #3fa5f2
+    border-radius rem(2)
+    height rem(42)
+    line-height rem(42)
+    text-align center
+    border none
+    font-size rem(16)
+    color #fff
+    outline none
+
+
+

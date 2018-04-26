@@ -1,0 +1,137 @@
+{{ extends file="common/main/base.html" }}
+
+{{ block name="data" }}
+{{ strip }}
+    {{ $smarty.block.parent }}
+    {{ $script_path = "sem/k12_2864f1cc8a" }}
+    {{ $script_data.serverTime = $ts }}
+
+    {{ if isset($smarty.get.city) }}
+        {{ $getCity = $smarty.get.city }}
+        {{ $script_data.city = $smarty.get.city }}
+    {{ else }}
+        {{ $getCity = '' }}
+        {{ $script_data.city = '' }}
+    {{ /if }}
+
+    {{ if isset($smarty.get.q) }}
+        {{ $getQuery = $smarty.get.q }}
+        {{ $script_data.query = $smarty.get.q }}
+    {{ else }}
+        {{ $getQuery = '' }}
+        {{ $script_data.query = '' }}
+    {{ /if }}
+
+    {{ if isset($smarty.get.source) }}
+        {{ $getSource = $smarty.get.source }}
+        {{ $script_data.source = $smarty.get.source }}
+    {{ else }}
+        {{ $getSource = '' }}
+        {{ $script_data.source = '' }}
+    {{ /if }}
+
+    {{ if isset($smarty.get.plan) }}
+        {{ $getPlan = $smarty.get.plan }}
+        {{ $script_data.plan = $smarty.get.plan }}
+    {{ else }}
+        {{ $getPlan = '' }}
+        {{ $script_data.plan = '' }}
+    {{ /if }}
+
+    {{ if isset($smarty.get.group) }}
+        {{ $getGroup = $smarty.get.group }}
+        {{ $script_data.group = $smarty.get.group }}
+    {{ else }}
+        {{ $getGroup = '' }}
+        {{ $script_data.group = '' }}
+    {{ /if }}
+
+    {{ if isset($smarty.get.keyword) }}
+        {{ $getKeyword = $smarty.get.keyword }}
+        {{ $script_data.keyword = $smarty.get.keyword }}
+    {{ else }}
+        {{ $getKeyword = '' }}
+        {{ $script_data.keyword = '' }}
+    {{ /if }}
+
+
+{{ /strip }}
+{{ /block }}
+
+{{ block name="title" }}
+{{ strip }}
+    【跟谁学】找好老师，上跟谁学 -专业 简单 智能 安全
+{{ /strip }}
+{{ /block }}
+
+{{ block name="keywords" }}
+{{ strip }}
+    跟谁学,找好老师,艺术,体育,生活,兴趣,出国留学,中小学,问答,社区,在线教育,教育O2O
+{{ /strip }}
+{{ /block }}
+
+{{ block name="description" }}
+{{ strip }}
+    跟谁学是目前全球最大的找好老师学习服务平台,提供100%实名认证老师、课程(线上/线下)、培训机构、问答、社区等学习服务,帮助老师和学生精准对接。
+{{ /strip }}
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/sem/k12_837b6f2851.css">
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+
+<script>
+var _hmt = _hmt || [];
+</script>
+
+<div id="main">
+    <div class="wrapper">
+
+        <div class="main-banner-wrapper"></div>
+
+        <div class="intro-banner-wrapper">
+            {{ include file="sem/component/sliderBannerIntro.html" }}
+        </div>
+
+        <div class="special-wrapper" data-module-path="sem/k12/special_5226db20ad">
+            {{ include file="sem/k12/special.html" juhuixue=$tpl_data.juhuixue }}
+        </div>
+
+        <div class="recommend-wrapper" data-module-path="sem/k12/recommendCourse_8e5739ac55">
+            {{ include file="sem/k12/recommendCourse.html" course=$tpl_data.course }}
+        </div>
+
+        <div class="recommend-wrapper" data-module-path="sem/k12/recommendTeacher_c561346087">
+            {{ include file="sem/k12/recommendTeacher.html" teacher=$tpl_data.teacher }}
+        </div>
+
+        <div class="recommend-wrapper" data-module-path="sem/k12/recommendOrg_cec9a1923e">
+            {{ include file="sem/k12/recommendOrg.html" org=$tpl_data.org }}
+        </div>
+
+        <div class="comment-wrapper" data-module-path="sem/k12/comment_1dfd5fb283">
+            {{ include file="sem/k12/comment.html" comments=$tpl_data.comments }}
+        </div>
+
+        <div class="flow-wrapper">
+            {{ include file="sem/component/flow.html" }}
+        </div>
+
+    </div>
+</div>
+
+{{ include file="common/component/easyRegisterDialog.html" }}
+
+<script type="text/javascript">
+(function () {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?a9a5c6a55b3f19b673c1ac6d232037bc";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+{{ /strip }}
+{{ /block }}

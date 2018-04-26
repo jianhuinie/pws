@@ -1,0 +1,308 @@
+<div id="content" class="card">
+    <div class="card-head">
+            <a href="/teacher_course/list_admin">课程设置</a>
+            &nbsp;&gt;&nbsp;
+            线下班课
+    </div>
+    <div class="card-body">
+
+        <div class="tab-nav">
+            <a href="/teacher_course/list_admin">一对一</a>
+            <a class="active">线下班课</a>
+            <a href="/tcenter/courses/class-courses/list-html?lesson_way=2">直播课</a>
+            <a href="/video_course/getcourselist?type=1&page=1&page_size=10">视频课</a>
+        </div>
+
+        <div class="add-button">
+            <a class="add-course" href="/tcenter/courses/class-courses/form?lesson_way=4">
+                <i class="icon icon-plus"></i>
+                添加线下班课
+            </a>
+        </div>
+
+        <div class="search-form">
+            <label>搜索：</label>
+            <Input options="{{courseNameInputOptions}}" />
+            {{#if showCloseIcon == 1}}
+                <i class=" icon icon-close" on-click="clearInput()"></i>
+            {{/if}}
+            <label>班课状态：</label>
+            <Select options="{{courseStatusSelectOptions}}" />
+            <span class="search-btn" on-click="searchCourse()">搜索</span>
+            <span class="clear-all" on-click="clearAll()">清空筛选条件</span>
+        </div>
+
+        <div class="course-list">
+            <table>
+                <thead>
+                    <td width="310px">班课名称</td>
+                    <td width="78px" >
+                        <span class="sort{{#if priceArrowActive == 1}} active{{/if}}" on-click="sortByPrice()">
+                            价格
+                            <i class="icon {{#if priceArrowActive == 1}}{{#if priceArrowDirection == 0}} icon-arrow-up{{else}} icon-arrow-down{{/if}}{{elseif priceArrowDirection == 0}} icon-arrow-up-o{{else}} icon-arrow-down-o{{/if}}"></i>
+                        </span>
+                    </td>
+                    <td width="90px">
+                        <span class="sort{{#if enrolledArrowActive == 1}} active{{/if}}" on-click="sortByEnrolled()">
+                            已报人数
+                            <i class="icon {{#if enrolledArrowActive == 1}}{{#if enrolledArrowDirection == 0}} icon-arrow-up{{else}} icon-arrow-down{{/if}}{{elseif enrolledArrowDirection == 1}} icon-arrow-down-o{{else}} icon-arrow-up-o{{/if}}"></i>
+                        </span>
+                    </td>
+                    <td width="96px">
+                        <span class="sort{{#if timeArrowActive == 1}} active{{/if}}" on-click="sortByTime()">
+                            课程时间
+                            <i class="icon {{#if timeArrowActive == 1}}{{#if timeArrowDirection == 0}} icon-arrow-up{{else}} icon-arrow-down{{/if}}{{elseif timeArrowDirection == 1}} icon-arrow-down-o{{else}} icon-arrow-up-o{{/if}}"></i>
+                        </span>
+                    </td>
+                    <td width="96px">状态</td>
+                    <td width="80px" class="center">操作</td>
+                </thead>
+                <tbody>
+                    {{#if cacheCourse && !isSearchResult}}
+                        <tr class="course-item" data-start-time="{{cacheCourse.begin_time}}" data-max-student="{{cacheCourse.max_student}}">
+
+                            <td class="basic-info">
+                                <div class="info">
+                                    <div class="photo">
+                                        <a>
+                                            <img src="{{compressImage(cacheCourse.cover_url, 60, 60)}}">
+                                        </a>
+                                    </div>
+                                    <div class="name">
+                                        <a data-title="{{cacheCourse.display_name}}">
+                                            {{cutString(cacheCourse.display_name, 20)}}
+                                        </a>
+                                    </div>
+                                    <div class="icons{{#if !cacheCourse.display_name}} set-position{{/if}}">
+                                        {{#if cacheCourse.chaban_flag != 1}}
+                                            {{#if cacheCourse.chaban_flag == 3}}
+                                                <a href="http://www.genshuixue.com/guide/guarantee?a=guarantee" target="_blank" rel="nofollow">
+                                                    <i class="icon icon-anytime-joinclass"></i>
+                                                </a>
+                                            {{else}}
+                                                <a href="http://www.genshuixue.com/guide/guarantee?a=guarantee" target="_blank" rel="nofollow">
+                                                    <i class="icon icon-limit-joinclass"></i>
+                                                </a>
+                                            {{/if}}
+                                        {{/if}}
+
+                                    {{#if cacheCourse.retire_flag == 0}}
+                                        <a href="http://www.genshuixue.com/guide/guarantee?a=guarantee" target="_blank" rel="nofollow">
+                                            <i class="icon icon-anytime-quitclass"></i>
+                                        </a>
+                                    {{elseif cacheCourse.retire_flag == 100}}
+                                        <!--a href="http://www.genshuixue.com/guide/guarantee?a=guarantee" target="_blank" class="icon icon-noway-retire" rel="nofollow"></a-->
+                                    {{else}}
+                                        <a href="http://www.genshuixue.com/guide/guarantee?a=guarantee" target="_blank" rel="nofollow">
+                                            <i class="icon icon-limit-quitclass"></i>
+                                        </a>
+                                    {{/if}}
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </td>
+
+                            <td>
+                                <span class="text-primary">
+                                    ￥{{cacheCourse.price}}
+                                </span>
+                            </td>
+
+                            <td>
+                                <div>
+                                    <span class="success-pay">
+                                        <span class="text-primary">0</span>/{{cacheCourse.max_student}}
+                                    </span>
+                                </div>
+                            </td>
+
+                            <td>
+                                {{#if cacheCourse.began_at && cacheCourse.ended_at}}
+                                    {{#if formatDate(cacheCourse.began_at) != formatDate(cacheCourse.ended_at)}}
+                                        <span class="date-time">{{formatDate(cacheCourse.began_at)}}</span>
+                                        <br/>到<br/>
+                                        <span class="date-time">{{formatDate(cacheCourse.ended_at)}}</span>
+                                    {{else}}
+                                        <span class="date-time">{{formatDate(cacheCourse.began_at)}}</span>
+                                    {{/if}}
+                                {{/if}}
+                            </td>
+
+                            <td>
+                                <span style="color:#9d9e9e">
+                                    草稿
+                                </span>
+                            </td>
+
+                            <td>
+                                <div class="action">
+                                    <span>
+                                        <a href="/tcenter/courses/class-courses/form?lesson_way=4">
+                                            编辑
+                                        </a>
+                                    </span>
+                                </div>
+                                <div class="action" on-click="deleteCacheCourse()">
+                                    <span>删除课程</span>
+                                </div>
+                            </td>
+                        </tr>
+                    {{/if}}
+                    {{#each courseList}}
+                        <tr class="course-item" data-number="{{number}}" data-start-time="{{time.began_at}}" data-max-student="{{student_amount.max}}" data-total-pay-success="{{total_pay_success}}">
+
+                            <td class="basic-info">
+                                <div class="info">
+                                    <div class="photo">
+                                    {{#if cover_url}}
+                                        <a href="{{pc_dynamic_url}}" target="_blank">
+                                            <img src="{{compressImage(cover_url, 60, 60)}}">
+                                        </a>
+                                    {{/if}}
+                                    </div>
+                                    <div class="name">
+                                        <a href="{{pc_dynamic_url}}" data-title="{{display_name}}" target="_blank">
+                                            {{cutString(display_name, 20)}}
+                                        </a>
+                                    </div>
+                                    <div class="icons{{#if !display_name}} set-position{{/if}}">
+                                        {{#if chaban.flag != 1}}
+                                            {{#if chaban.flag == 3}}
+                                                <a href="http://www.genshuixue.com/guide/guarantee?a=guarantee" target="_blank" rel="nofollow">
+                                                    <i class="icon icon-anytime-joinclass"></i>
+                                                </a>
+                                            {{else}}
+                                                <a href="http://www.genshuixue.com/guide/guarantee?a=guarantee" target="_blank" rel="nofollow">
+                                                    <i class="icon icon-limit-joinclass"></i>
+                                                </a>
+                                            {{/if}}
+                                        {{/if}}
+
+                                    {{#if retire.flag == 0}}
+                                        <a href="http://www.genshuixue.com/guide/guarantee?a=guarantee" target="_blank" rel="nofollow">
+                                            <i class="icon icon-anytime-quitclass"></i>
+                                        </a>
+                                    {{elseif retire.flag == 100}}
+                                        <!--a href="http://www.genshuixue.com/guide/guarantee?a=guarantee" target="_blank" class="icon icon-noway-retire" rel="nofollow"></a-->
+                                    {{else}}
+                                        <a href="http://www.genshuixue.com/guide/guarantee?a=guarantee" target="_blank" rel="nofollow">
+                                            <i class="icon icon-limit-quitclass"></i>
+                                        </a>
+                                    {{/if}}
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </td>
+
+                            <td>
+                                <span class="text-primary">￥{{prices.now}}</span>
+                            </td>
+
+                            <td>
+                                <div>
+                                    {{#if total_pay_success > 0}}
+                                        <a href="/class_course/order_detail?number={{number}}" target="_blank">
+                                            <span class="success-pay">
+                                                <span class="text-primary">{{total_pay_success}}</span>/{{student_amount.max}}
+                                            </span>
+                                        </a>
+                                    {{else}}
+                                        <span class="success-pay">
+                                            <span class="text-primary">{{total_pay_success}}</span>/{{student_amount.max}}
+                                        </span>
+                                    {{/if}}
+
+                                    {{#if total_pay_success > 0}}
+                                        {{#if jigouLogin || (!isOrgTeacher && !shiziLogin)}}
+                                            <span class="view-roster" on-click="viewRoster(this, event)">
+                                                <a href="{{roster_url}}" class="text-info" target="_blank">查看花名册</a>
+                                            </span>
+                                        {{elseif shiziLogin}}
+                                            <span class="text-info" data-title="师资系统无权查看花名册">
+                                                查看花名册
+                                            </span>
+                                        {{else}}
+                                            <span class="text-info" data-title="请通过机构后台进入老师个人<br/>中心查看花名册。">
+                                                查看花名册
+                                             </span>
+                                        {{/if}}
+                                    {{/if}}
+                                </div>
+                            </td>
+
+                            <td>
+                                {{#if time.began_at && time.ended_at}}
+                                    {{#if formatDate(time.began_at) != formatDate(time.ended_at)}}
+                                        <span class="date-time">{{formatDate(time.began_at)}}</span>
+                                        <br/>到<br/>
+                                        <span class="date-time">{{formatDate(time.ended_at)}}</span>
+                                    {{else}}
+                                        <span class="date-time">{{formatDate(time.began_at)}}</span>
+                                    {{/if}}
+                                {{/if}}
+                            </td>
+
+                            <td>
+                                <span style="color:{{display_status.color}}">
+                                    {{display_status.name}}
+                                </span>
+                            </td>
+
+                            <td>
+                                {{#if verify_reasons != null}}
+                                    <div class="action" data-title="
+                                         {{replaceLineBreak(verify_reasons.tips)}}
+                                        " data-max-width="300px">
+                                        <span>查看原因</span>
+                                    </div>
+                                {{/if}}
+                                {{#each allow_actions_pc}}
+                                    <div class="action">
+                                        <span on-click="{{action}}">{{name}}</span>
+                                        {{#if action == "copyCourse"}}
+                                        <i class="icon icon-question-circle" data-title="什么是再开一班？<br />再开一班会依据本堂课自动填写课程信息、课程照片及课程简介，你只需要重新填写教学计划就可以快速再开一班了" data-max-width="300px"></i>
+                                        {{/if}}
+                                    </div>
+                                {{/each}}
+                            </td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+        {{#if isSearchResult == 1}}
+            {{#if !isLoaded}}
+                <div class="loading">
+                    班课数据正在加载中...
+                </div>
+            {{elseif courseList.length == 0}}
+                <div class="no-result{{#if isSearchResult == 0}} hidden{{/if}}">
+                    <img src="{{sourceDir}}/img/teacher-center/no-class-course.jpg" >
+                    <div>抱歉，没有找到符合你筛选条件的班课，<br/>试试在上面去除部分筛选条件吧</div>
+                </div>
+                <div class="empty{{#if isSearchResult == 1}} hidden{{/if}}">
+                    <img src="{{sourceDir}}/img/teacher-center/add-class-course.jpg" >
+                    <div>点击左上角的“添加线下班课”按钮开启你的跟谁学班课之旅吧</div>
+                </div>
+            {{/if}}
+        {{else}}
+            {{#if !cacheCourse && !isLoaded}}
+                <div class="loading">
+                    班课数据正在加载中...
+                </div>
+            {{elseif !cacheCourse && courseList.length == 0}}
+                <div class="no-result{{#if isSearchResult == 0}} hidden{{/if}}">
+                    <img src="{{sourceDir}}/img/teacher-center/no-class-course.jpg" >
+                    <div>抱歉，没有找到符合你筛选条件的班课，<br/>试试在上面去除部分筛选条件吧</div>
+                </div>
+                <div class="empty{{#if isSearchResult == 1}} hidden{{/if}}">
+                    <img src="{{sourceDir}}/img/teacher-center/add-class-course.jpg">
+                    <div>点击左上角的“添加线下班课”按钮开启你的跟谁学班课之旅吧</div>
+                </div>
+            {{/if}}
+        {{/if}}
+        <div class="pager">
+            <Pager options="{{pagerOptions}}" />
+        </div>
+    </div>
+</div>

@@ -1,0 +1,88 @@
+{{ *
+
+@file 支付信息
+@author zhujialu
+
+* }}
+{{ strip }}
+
+{{ $has_balance = $tpl_data.balance != 0 }}
+{{ $has_coupon = $tpl_data.coupon != 0 }}
+{{ $has_prize = $tpl_data.prize != 0 }}
+{{ $has_change = $tpl_data.change != 0 }}
+
+{{ if $has_balance || $has_coupon || $has_prize || $has_change }}
+
+
+{{ function showPrice price=null }}
+    {{ if $price < 0 }}
+        <i class="sign">+</i> ￥{{ (-1 * $price)|number_format: 2 }}
+    {{ else }}
+        <i class="sign">-</i> ￥{{ $price|number_format: 2 }}
+    {{ /if }}
+{{ /function }}
+
+
+<div class="pay">
+
+    <h2>
+        <i class="icon icon-circle"></i>
+        支付信息
+    </h2>
+
+    <div class="content">
+
+        {{ if $has_balance }}
+        <div class="item">
+            账户余额支付：
+            {{ showPrice price=$tpl_data.balance }}
+        </div>
+        {{ /if }}
+
+        {{ if $has_coupon }}
+        <div class="item">
+            优惠券抵扣：
+            {{ showPrice price=$tpl_data.coupon }}
+            <i class="icon icon-question-circle" data-title="{{ if $purchase.progress == '0' }}该订单使用了优惠券，取消订单后优惠券可退回{{ else }}该订单使用了优惠券，因已确认过课酬，取消订单后优惠券不退回{{ /if }}" data-width="15em"></i>
+        </div>
+        {{ /if }}
+
+        {{ if $has_prize }}
+        <div class="item">
+            奖学金抵扣：
+            {{ showPrice price=$tpl_data.prize }}
+            <i class="icon icon-question-circle" data-title="该订单使用了奖学金，取消订单后奖学金将会失效" data-width="15em"></i>
+        </div>
+        {{ /if }}
+
+        {{ if $has_change }}
+        <div class="item">
+            老师改价：
+            {{ showPrice price=$tpl_data.change }}
+
+            <small class="text-muted">
+                （
+                    <span class="price-origin">
+                        订单原价：￥{{ $tpl_data.real_money|number_format: 2 }}
+                    </span>
+                    <span class="price-updated">
+                        改后价格：￥{{ $purchase.pay_money|number_format: 2 }}
+                    </span>
+                ）
+            </small>
+        </div>
+        {{ /if }}
+
+        <div class="total-pay">
+            应付总额：
+            <strong class="text-primary">
+                ￥{{ $purchase.charge_money|number_format: 2 }}
+            </strong>
+        </div>
+
+    </div>
+
+</div>
+{{ /if }}
+
+{{ /strip }}

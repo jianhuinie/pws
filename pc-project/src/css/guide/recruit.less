@@ -1,0 +1,279 @@
+/**
+ * @file 校园招聘
+ * @author jixiaohui
+ */
+
+
+@import './layout.less';
+@import '../common/component/offerDialog.less';
+
+.recruit {
+
+    width: auto!important;
+    padding: 50px 40px!important;
+
+
+    .promotion-slider-container {
+        width: 770px;
+        height: 300px;
+        margin-bottom: 2px;
+        overflow: hidden;
+        position: relative;
+        text-align: center;
+
+        &:hover {
+            .promotion-slider-left,
+            .promotion-slider-right {
+                display: block;
+            }
+        }
+
+        .promotion-slideritem {
+            b {
+                cursor: pointer;
+            }
+        }
+    }
+    .promotion-slider-left,
+    .promotion-slider-right {
+        color: #fff;
+        background-color: #000;
+        .opacity(0.3);
+        display: none;
+
+
+        &:hover {
+            .opacity(0.6);
+        }
+
+        position: absolute;
+        top: 50%;
+        margin-top: -20px;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 20px;
+        text-align: center;
+
+        i {
+            position: relative;
+            top: 2px;
+            right: 2px;
+        }
+    }
+    .promotion-slider-left {
+        left: 10px;
+    }
+    .promotion-slider-right {
+        right: 10px;
+
+        i {
+            left: 1px;
+        }
+    }
+    .promotion-slider {
+        position:absolute;
+        .clearfix();
+
+        a {
+            display: block;
+        }
+
+        li {
+            float: left;
+            height: 300px;
+        }
+    }
+    .promotion-slider-nav {
+        display: inline-block;
+        .clearfix();
+        margin-top: 255px;
+
+        li {
+            float: left;
+        }
+
+        span {
+            text-indent: -9999px;
+            display: block;
+            width: 10px;
+            height: 10px;
+            border-radius: 5px;
+            background: @brand-gray;
+            margin-left: @gap-horizontal-tiny;
+            opacity: 0.9;
+            cursor: pointer;
+
+            &.active {
+                opacity: 1;
+                background: @brand-primary;
+                position: relative;
+            }
+        }
+    }
+
+    .banner {
+        width: 769px;
+        height: 300px;
+        background: url(../../img/guide/recruit_bg.jpg);
+    }
+
+    .nav {
+        width: 322px;
+        height: 100%;
+        overflow: hidden;
+        margin: 40px auto;
+
+        li {
+            float: left;
+            width: 160px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            border: 1px solid #ddd;
+
+            &.active {
+                border: 1px solid #f90;
+                border-left: 2px solid #f90;
+                border-right: 2px solid #f90;
+                color: #fff;
+                background: #f90;
+                position: relative;
+                width: 162px;
+            }
+        }
+
+        .first {
+            border-left: 1px solid #ddd;
+            border-right: none;
+
+            &.active {
+                left: 1px;
+            }
+        }
+        .last {
+            border-left: none;
+            border-right: 1px solid #ddd;
+
+            &.active {
+                left: -1px;
+            }
+        }
+
+    }
+
+    .content {
+
+        .item {
+            width: 769px;
+            display: none;
+
+            .list {
+                color: #3d3d3d;
+                clear: left;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                padding-bottom: 30px;
+
+                h2 {
+                    border-bottom: 1px solid #ddd;
+                    padding-bottom: 8px;
+                    margin-bottom: 25px;
+                    color: #3d3d3d;
+                    font-weight: normal;
+                }
+
+                .nickname {
+                    margin-left: 10px;
+                    color: #999;
+                    font-size: 18px;
+                }
+
+                .sub-list {
+
+                }
+
+                li {
+                    display: inline-block;
+                    vertical-align: top;
+                    width: 344px;
+                    height: 100%;
+                    margin-bottom: 25px;
+                    overflow: hidden;
+                    padding-bottom: 20px;
+
+                    &.rightside {
+                        margin-left: 80px;
+
+                    }
+                }
+
+                .title {
+                    margin-top: 0;
+                    font-size: 20px;
+                    font-weight: normal;
+                }
+
+                .sub-title {
+                    margin-top: 0;
+                    color: #555;
+                    font-weight: normal;
+                }
+
+                .location {
+                    margin: 10px 0;
+                    color: #f90;
+                    display: block;
+                }
+
+                .detail {
+                    color: #555;
+                    width: 300px;
+                    max-height: 190px;
+                    min-height: 190px;
+                    overflow: hidden;
+                }
+
+                .toggle {
+                    max-height: none;
+                    overflow: visible;
+                }
+
+                .btn-box {
+                    width: 224px;
+                    border-top: 1px solid #ddd;
+                    position: relative;
+                    margin-top: 40px;
+                }
+
+                .more {
+                    position: relative;
+                    top: -30px;
+                    color: #999;
+                    cursor: pointer;
+                }
+
+                .icon-angle-down,
+                .icon-angle-up {
+                    margin-left: 5px;
+                }
+
+                .btn-primary {
+                    position: absolute;
+                    right: -120px;
+                    top: -20px;
+                }
+            }
+
+            .empty {
+                text-align: center;
+                padding-top: 80px;
+            }
+        }
+
+        .item1 {
+            display: block;
+        }
+    }
+}

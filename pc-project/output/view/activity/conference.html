@@ -1,0 +1,82 @@
+{{ *
+
+@file 跟谁学发布会
+@author wth
+
+* }}
+
+
+{{ extends file="common/main/base.html" }}
+
+{{ block name="data" }}
+
+{{ $smarty.block.parent }}
+
+{{ $script_path = "activity/conference_9704bd8b68" }}
+
+{{ $nav_config.active = '' }}
+{{ $nav_config.hidden = 1 }}
+
+{{ /block }}
+
+
+{{ block name="title" }}
+发布会-跟谁学
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/activity/conference_48e30ac51d.css">
+{{ /block }}
+
+{{ block name="main" }}
+
+{{ strip }}
+
+<div class="main">
+
+    <div class="form">
+        <div class="form-group">
+            <div class="form-controls">
+                <input class="form-text" type="text" name="name" placeholder="姓名" required pattern="^[\u4d00-\u9fa5a-zA-Z][\u4d00-\u9fa5a-zA-Z\s\.·]*$" />
+                <span class="error"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="form-controls">
+                <input class="form-text" type="text" name="company" placeholder="公司" required pattern="[^0-9]+" />
+                <span class="error"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="form-controls">
+                <input class="form-text" type="text" name="job" placeholder="职位" required pattern="[^0-9]+" />
+                <span class="error"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="form-controls">
+                <input class="form-text mobile" type="mobile" name="mobile" placeholder="手机" required pattern="^1[34578](\d){9}$" />
+                <span class="error" id="mobile-error"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="form-controls">
+                <input class="form-text" type="text" name="email" placeholder="邮箱" required pattern="^[\w.\-]+@(?:[a-z0-9]+(?:-[a-z0-9]+)*\.)+[a-z]{2,6}$" />
+                <span class="error"></span>
+            </div>
+        </div>
+
+        <div class="form-action">
+            <button class="btn btn-primary submit">提交</button>
+        </div>
+
+    </div>
+
+</div>
+
+{{ /strip }}
+{{ /block }}

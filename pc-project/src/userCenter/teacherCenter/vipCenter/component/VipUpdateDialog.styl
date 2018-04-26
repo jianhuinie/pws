@@ -1,0 +1,67 @@
+/**
+ * @file 会员升级弹窗 
+ * @author niejianhui
+ */
+.vip-update-dialog {
+    width: 500px;
+    .header {
+        background-color: #f5f5f5;
+        font-size: 16px;
+        color: #3d3d3e;
+        line-height: 26px;
+    }
+    .body {
+        padding: 20px;
+        .block {
+            font-size: 14px;
+            color: #3d3d3e;
+            span {
+                display: block;
+                margin-left: 360px;
+            }
+            margin-bottom: 14px;
+        }
+        .main-content {
+            text-indent: 28px;
+        }
+        label {
+            font-size: 14px;
+            color: #9d9d9e;
+            cursor: pointer;
+            left: -10px;
+            position: relative;
+            margin-left: 12px;
+            input {
+                opacity: 0;
+                margin-right: 5px;
+            }
+            span {
+                display: inline-block;
+                width: 13px;
+                height: 13px;
+                background: url("../index/img/ic_unselected.png");
+                background-size: contain;
+                position: absolute;
+                top: 2px;
+                left: 0;
+            }
+            span.active {
+                background: url("../index/img/ic_selected.png");
+                background-size: contain;
+            }
+        }
+        .known-btn {
+            background: #ff9a00;
+            border: 1px solid #f49200;
+            border-radius: 2px;
+            width: 73px;
+            line-height: 37px;
+            font-size:15px;
+            color: #ffffff;
+            margin: 0 auto;
+            cursor: pointer;
+            text-align: center;
+        }
+    }
+
+}

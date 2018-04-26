@@ -1,0 +1,7 @@
+[
+    {
+        "tpl": "./articleDetailForApp.tpl",
+        "router": "/kaoyan/articleDetailForApp",
+        "mock_data": "./mock/articleDetailForApp.json"
+    }
+]

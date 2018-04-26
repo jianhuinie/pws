@@ -1,0 +1,7 @@
+[
+    {
+        "tpl": "./index.tpl",
+        "router": "/vip",
+        "mock_data": ""
+    }
+]

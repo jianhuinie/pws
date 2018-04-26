@@ -1,0 +1,177 @@
+/**
+ * @file 课表项
+ * @author zhujialu
+ */
+.schedule-item {
+
+    border: 1px solid #deeaf7;
+    font-size: @font-size-tiny;
+
+    .header {
+        background-color: #f0f7ff;
+
+        padding: 6px 20px;
+    }
+    .footer {
+        border-top: 1px solid #deeaf7;
+        padding: 5px 20px;
+        word-break: break-all;
+    }
+
+    .course-number {
+        margin: 0 1em;
+    }
+
+    .course-teacher {
+        margin-left: 10em;
+        .icon {
+            font-size: 16px;
+            margin-right: @gap-horizontal-small;
+        }
+
+        .icon-lightning-o {
+            color: #9e9e9e;
+            &:hover {
+                cursor: pointer;
+                color: @brand-primary;
+            }
+        }
+
+        .icon-lightning-circle {
+            color: @brand-primary;
+            &:hover {
+                cursor: pointer;
+                color: #d26f0c;
+            }
+        }
+    }
+    .chat-label {
+        margin-left: 10px;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    td {
+        padding: 14px 20px;
+        border-left: 1px solid #deeaf7;
+        text-align: center;
+        vertical-align: middle;
+
+        &:first-child {
+            border-left: none;
+        }
+    }
+    .col1 {
+        width: 22em;
+        text-align: left;
+    }
+    .col2 {
+        width: 9em;
+    }
+    .col3 {
+        width: 10em;
+    }
+
+    .col4 {
+        .btn-success {
+            color: #fff;
+            a {
+                color: #fff;
+            }
+        }
+    }
+
+    .location {
+        border-top: 1px solid #deeaf7;
+    }
+
+    .address {
+        text-align: left;
+        padding: 5px 20px;
+
+        span {
+            color: #6287d5;
+            margin-left: 20px;
+            cursor: pointer;
+        }
+    }
+
+    .avatar {
+        float: left;
+        margin-right: 12px;
+        line-height: 0;
+    }
+    .lesson-way,
+    .student-name {
+        color: @brand-text-lighter;
+    }
+    .lesson-way {
+        margin-right: 1.5em;
+    }
+    .course-name {
+        color: @brand-text;
+        font-size: @font-size-medium;
+        line-height: 1.1;
+        margin-bottom: 9px;
+    }
+    .class-course-label {
+        background-color: @brand-primary;
+        color: #FFF;
+        display: inline-block;
+        font-size: @font-size-tiny;
+        padding: 3px 10px;
+        margin-top: 10px;
+    }
+
+    .time-range {
+        display: block;
+        margin: 5px 0;
+        font-size: 1.3em;
+    }
+    .course-length {
+        color: @brand-text-lighter;
+    }
+
+    .count-down {
+        color: @brand-text-lighter;
+        display: block;
+        margin-top: 5px;
+        .icon-clock {
+            margin-right: 5px;
+        }
+    }
+
+    .action-enter_classroom {
+        color: #fff;
+        border-style: solid;
+        border-width: 1px;
+        border-radius: 2px;
+        background-color: @brand-success;
+    }
+
+    .col4 {
+        .small {
+            margin-top: 5px;
+
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+    }
+
+    .playback-col {
+        padding: 14px 0;
+    }
+
+    .playback {
+        padding: 4px 8px;
+        margin-top: 15px;
+    }
+
+    .media-expire {
+        display: block;
+        margin-top: 10px;
+    }
+}

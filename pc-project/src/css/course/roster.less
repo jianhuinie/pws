@@ -1,0 +1,61 @@
+/**
+ * @file 班级花名册
+ * @author wangyujie
+ */
+@import '../common/center/common/layout.less';
+@import '../common/card.less';
+
+.no-selection {
+    user-select: none;
+}
+#main {
+
+    .card-body {
+        .operation {
+            float: right;
+            .small {
+                margin-left: @gap-horizontal-medium;
+            }
+        }
+
+        .course-info {
+            margin: @gap-vertical-medium 0;
+            li {
+                color: @brand-text;
+                padding-bottom: @gap-vertical-tiny;
+                span {
+                    color: @brand-text-lighter;
+                }
+                &.intro {
+                    color: #9d9d9d;
+                    font-size: 12px;
+                }
+            }
+        }
+
+        .course {
+            .only-local {
+                float: right;
+            }
+            .no-result {
+                text-align: center;
+                padding-top: 50px;
+                div {
+                    border-top: 1px solid #ddd;
+                    padding-top: 15px;
+                }
+            }
+        }
+
+    }
+}
+.vip-dialog{
+    .dialog-close {
+        display: block;
+    }
+    .dialog-action {
+        .btn-default {
+            margin-left: 40px;
+        }
+    }
+}

@@ -1,0 +1,67 @@
+{{ *
+
+@file 下拉菜单
+
+      参数
+
+      class: 可选，类名，如需多个，可写为 "class1 class2"
+      size: 可选，值包括 "tiny" "small" "large" "huge"
+      requried: 可选，是否必选
+      default_text: 可选，默认显示的文本，如 "请选择"
+      data: 可选，下拉菜单列表数据，格式如下
+            [
+                { text: '北京', value: 1 },
+                { text: '上海', value: 2 }
+            ]
+
+@author zhujialu
+
+* }}
+{{ strip }}
+
+
+
+{{ if isset($class) }}
+    {{ $class = " "|cat: $class }}
+{{ else }}
+    {{ $class = "" }}
+{{ /if }}
+
+{{ if isset($size) }}
+    {{ $size = " "|cat: $size }}
+{{ else }}
+    {{ $size = "" }}
+{{ /if }}
+
+{{ if !isset($default_text) }}
+    {{ $default_text = "&nbsp;" }}
+{{ /if }}
+
+{{ if isset($required) }}
+    {{ $required = ' required' }}
+{{ else }}
+    {{ $required = '' }}
+{{ /if }}
+
+<div class="dropdown{{ $class }}{{ $size }}"{{ $required }}>
+
+    <button class="btn-default">
+        <i class="caret"></i>
+        <span>{{ $default_text }}</span>
+    </button>
+
+    <ul class="dropdown-menu">
+        {{ if isset($data) }}
+        {{ foreach $data as $item }}
+
+            <li {{ foreach $item as $key => $value }} data-{{ $key }}="{{ $value }}"
+            {{ /foreach }} >
+                {{ $item.text }}
+            </li>
+
+        {{ /foreach }}
+        {{ /if }}
+    </ul>
+</div>
+
+{{ /strip }}

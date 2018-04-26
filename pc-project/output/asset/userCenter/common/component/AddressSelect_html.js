@@ -1,0 +1,1 @@
+define("userCenter/common/component/AddressSelect_html", [], function () { return '<div class="dropdowns tight{{#if options.className}} {{options.className}}{{/if}}"><Select options={{options.province}} /><Select options={{options.city}} />{{#if options.area}}<Select options={{options.area}} />{{/if}}</div>'});

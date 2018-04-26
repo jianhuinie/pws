@@ -1,0 +1,138 @@
+@import "page/_base/base.styl";
+@import "page/_common/nav_bar/nav_bar.styl";
+
+body {
+    font-size: rem(15);
+    color: #3d3d3e;
+}
+
+clearfix() {
+    &:before,
+    &:after {
+        content: " ";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+    zoom: 1;
+}
+.clearfix {
+    clear: both;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.primary-content {
+    color: #ff9100;
+}
+
+.gray3 {
+    color: #3d3d3e;
+}
+.gray6 {
+    color: #6d6d6e;
+}
+.gray9 {
+    color: #9d9d9e;
+}
+
+.block-status {
+    padding: rem(10);
+    box-shadow: rem(-1) rem(0) rem(3) rem(0) #ddddde, rem(1) rem(1) rem(3) rem(0) #cdcdce;
+    background: #fff;
+    text-align: center;
+    .img-success {
+        display: block;
+        margin: rem(10) auto;
+        width: rem(40);
+        height: rem(40);
+    }
+    .desc {
+        margin: 0 auto rem(20);
+        font-size: rem(16);
+        color: #3c3c3d;
+    }
+    .tip {
+        font-size: rem(13);
+        // color: #6d6d6e;
+    }
+    .head-tip {
+        padding: 0 0 rem(10);
+        font-size: rem(16);
+        text-align: left;
+        .icon {
+            color: #f95b5e;
+        }
+    }
+    .two-way {
+        padding: rem(10) 0 0;
+        font-size: rem(13);
+        text-align: left;
+        .time-remain {
+            color: #f95b5e;
+        }
+    }
+    .actions {
+        .mod,
+        .undo {
+            display: inline-block;
+            margin: rem(15) rem(15) 0;
+            border: 1px solid  #9d9d9e;
+            border-radius: rem(4);
+            padding: rem(6);
+        }
+    }
+}
+
+.block-detail {
+    position: relative;
+    .title {
+        padding: rem(10);
+        // font-size: rem(15);
+        // color: #3d3d3e;
+    }
+    .name,
+    .type,
+    .money,
+    .reason,
+    .num
+    .time
+    .more {
+        padding: rem(10) rem(15);
+        // box-shadow: inset 0 0 0 0 #ededee;
+        border-bottom: 1px solid #ededee;
+        background: #fff;
+        .desc {
+            padding: 0 rem(10) 0 0;
+        }
+
+    }
+    .reason,
+    .time,
+    .more {
+        transform: all .5s;
+    }
+    .name {
+        position: relative;
+        margin: 0 0 rem(10);
+        .contact-phone {
+            position: absolute;
+            top: rem(8);
+            right: rem(10);
+            border: 1px solid #979797;
+            border-radius: rem(4);
+            padding: rem(1) rem(3);
+        }
+    }
+    .more {
+        position: absolute;
+        top: rem(233);
+        width: 100%;
+        font-size: rem(13);
+        text-align: center;
+        // color: #3d3d3e;
+    }
+}

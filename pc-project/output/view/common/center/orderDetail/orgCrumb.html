@@ -1,0 +1,45 @@
+{{ *
+
+@file 面包屑 - 机构班课
+@author zhujialu
+
+* }}
+{{ strip }}
+
+{{ $is_teacher = $identity == 'teacher' }}
+
+{{ if $is_teacher }}
+    {{ $titles = [ '报名班课', '支付班课', '班课进行', '评价学生' ] }}
+{{ else }}
+    {{ $titles = [ '报名班课', '支付班课', '班课进行', '评价老师' ] }}
+{{ /if }}
+
+<div class="crumb">
+
+    <div class="step{{ if $progress.current == 'sign_up' }} active{{ /if }}">
+        1.
+        {{ $titles[0] }}
+        <p class="time">
+        （
+            {{ $progress.steps.sign_up.time_ts|date_format: '%Y-%m-%d %H:%M' }}
+        ）
+        </p>
+    </div>
+
+    <i class="icon icon-chevron-right"></i>
+
+    <div class="step{{ if $progress.current == 'pay' }} active{{ /if }}">
+        2.
+        {{ $titles[1] }}
+        {{ if $progress.steps.pay.time_ts }}
+        <p class="time">
+        （
+            {{ $progress.steps.pay.time_ts|date_format: '%Y-%m-%d %H:%M' }}
+        ）
+        </p>
+        {{ /if }}
+    </div>
+
+</div>
+
+{{ /strip }}

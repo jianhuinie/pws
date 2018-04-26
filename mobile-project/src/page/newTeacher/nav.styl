@@ -1,0 +1,23 @@
+.nav {
+    &.hide {
+        display: none;
+    }
+    display: flex;
+    text-align: center;
+    line-height: rem(50);
+    height: rem(50);
+    background: white;
+    padding: 0 rem(20);
+    border-bottom: 1px solid #ebeced
+    .item {
+        flex: 1;
+        font-family: PingFang-SC-Regular;
+        font-size: rem(16);
+        color: #3D3D3E;
+        letter-spacing: rem(0);
+        &.active {
+            color: #ff9100;
+            border-bottom: 2px solid #ff9100;
+        }
+    }
+}

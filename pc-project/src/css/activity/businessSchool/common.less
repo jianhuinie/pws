@@ -1,0 +1,146 @@
+/**
+ * @file 商学院
+ * @author wangyujie
+ */
+@import '../../main/base.less';
+@import './consultDialog.less';
+
+body,
+html {
+    background-color: #161616;
+}
+
+.bs-header {
+    .top-edge {
+        background: #c49e3a url(../../../img/activity/businessSchool/top_edge.png) 50% 0 repeat-y;
+        height: 16px;
+    }
+    .top-menu {
+        width: 1100px;
+        margin: 20px auto;
+        .logo {
+            float: left;
+        }
+        ul {
+            .clearfix();
+            padding-top: 15px;
+            li {
+                cursor: pointer;
+                float: left;
+                font-weight: bold;
+                font-size: 20px;
+                color: #dddbd4;
+                min-width: 80px;
+                text-align: center;
+                margin-left: 60px;
+                &:hover,
+                &.active {
+                    border-bottom: 3px solid #e8cf80;
+                    a {
+                        color: #ffd764;
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+.panel-title {
+    font-size: 18px;
+    color: #ffd764;
+    text-align: center;
+    padding-top: 70px;
+    padding-bottom: 40px;
+    .title-left {
+        background: url(../../../img/activity/businessSchool/title_leftline.png);
+    }
+    .title-right {
+        background: url(../../../img/activity/businessSchool/title_rightline.png);
+    }
+
+    .title-left,
+    .title-right {
+        display: inline-block;
+        vertical-align: middle;
+        width: 140px;
+        height: 3px;
+        margin: 0 15px;
+    }
+}
+
+.bs-footer {
+    background: url(../../../img/activity/businessSchool/bs_footer_bg.png) bottom no-repeat;
+    width: 1100px;
+    margin: 20px auto;
+    .panel-content {
+        .contact,
+        .intro,
+        .qrcode {
+            display: inline-block;
+        }
+
+        .contact {
+            li {
+                .clearfix();
+                color: #fdfdfd;
+                line-height: 22px;
+                margin-bottom: 28px;
+            }
+            .icon {
+                color: #dabb64;
+                font-size: 20px;
+                float: left;
+            }
+            a,
+            span {
+                color: #ffffff;
+                float: left;
+                margin-left: 8px;
+            }
+        }
+
+        .intro {
+            width: 493px;
+            font-size: 16px;
+            color: #ffffff;
+            margin-left: 60px;
+            margin-right: 108px;
+            vertical-align: top;
+        }
+
+        .qrcode {
+            color: #ffffff;
+            text-align: center;
+            vertical-align: top;
+        }
+    }
+    .copyright {
+        color: #f8f8f8;
+        line-height: 24px;
+        text-align: center;
+        margin-top: 40px;
+    }
+}
+
+.floated-consult {
+    cursor: pointer;
+    position: fixed;
+    right: 0;
+    bottom: 50%;
+    z-index: 5;
+}
+
+.about-us,
+.course-introduce {
+    width: 1100px;
+    margin: 0 auto;
+    img {
+        width: 1100px;
+    }
+}
+
+
+
+
+

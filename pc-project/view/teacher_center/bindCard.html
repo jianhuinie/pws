@@ -1,0 +1,17 @@
+{{ *
+
+@file 教师中心 - 绑定银行卡
+@author zhujialu
+
+* }}
+
+{{ extends file="common/center/bindCard.html" }}
+
+{{ block name="data" }}
+    {{ $smarty.block.parent }}
+    {{ $cash_page = "/teacher_center/cash" }}
+{{ /block }}
+
+{{ block name="sidebar" }}
+    {{ include file="./common/sidebar.html" active="cash" }}
+{{ /block }}

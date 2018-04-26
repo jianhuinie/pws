@@ -1,0 +1,64 @@
+/**
+ * @file 人的详细信息tooltip
+ * @author  peilonghui
+ */
+
+.role-tooltip {
+    padding: 10px;
+
+}
+
+
+.role-tooltip-buttons {
+
+    .chat-label {
+        margin-right: 7px;
+        vertical-align: bottom;
+    }
+
+    a {
+        .inline-block();
+        color: @brand-info;
+        padding: 3px 8px;
+        border: 1px solid @brand-gray-light;
+        vertical-align: bottom;
+
+        &:hover {
+            background-color: darken(#fff, 4%);
+        }
+    }
+
+    a.icon-mail {
+        margin-right: @gap-horizontal-small;
+    }
+
+
+}
+
+
+.role-tooltip-info {
+
+    .thumbnail {
+        float: left;
+    }
+
+    .base-info {
+        margin-left: 90px;
+    }
+
+    strong {
+        display: block;
+        font-size: @font-size-small;
+        font-weight: bold;
+        color: #000;
+        margin-top: @gap-vertical-medium;
+        margin-bottom: @gap-vertical-small;
+        max-height: 44px;
+        overflow: hidden;
+    }
+
+    margin-bottom: @gap-vertical-medium;
+
+    .clearfix();
+}
+

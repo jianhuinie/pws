@@ -1,0 +1,93 @@
+{{ *
+
+@file 老师中心 - 营销中心 - 优惠券
+@author wangyujie
+
+* }}
+
+{{ extends file="common/center/base.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $script_path = "teacherCenter/myCoupons" }}
+    {{ $script_data.page = 1 }}
+    {{ $script_data.hasSync = $tpl_data.has_sync }}
+    {{ $script_data.todayCount = $tpl_data.today_count }}
+
+{{ /block }}
+
+{{ block name="title" prepend }}
+营销中心 - 优惠券 -
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/teacherCenter/myCoupons.less">
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+
+    {{ include file="teacher_center/common/sidebar.html" active="mkt" }}
+
+    <div id="content" class="card">
+
+        <div class="card-header">
+            <h2>优惠券</h2>
+            <span class=""></span>
+        </div>
+
+        <div class="card-body">
+            {{ if $tpl_data.join_org }}
+            <div class="org">
+                <div class="wrapper">
+                    <img class="avatar" src="{{ $static_origin }}/src/img/center/tiaopi.png">
+                    <p>
+                        亲爱的老师，你已加入“<a href="{{ $tpl_data.org_url }}" class="text-primary" target="_blank">{{ $tpl_data.org_name }}</a>”，优惠券需要由{{ $tpl_data.org_name }}进行发放哦！
+                    </p>
+                    <p class="hint">
+                        如有疑问请拨打客服热线：4000-910-910，010-86448910
+                    </p>
+                </div>
+            </div>
+            {{ else }}
+            <div class="coupon-title">
+                <button class="btn-primary btn-add">
+                    <i class="icon icon-plus"></i>
+                    添加优惠券
+                </button>
+                <h3>
+                    我的优惠券
+                    <span>（每人限领1张）</span>
+                    <span class="coupon-direction">
+                        <i class="icon icon-direction"></i>
+                        <span class="direction-text">优惠券使用指南</span>
+                    </span>
+                </h3>
+            </div>
+
+            <div class="coupon-body">
+                {{ if $tpl_data.coupons && $tpl_data.coupons|count > 0 }}
+
+                    {{ include file="teacher_center/mktCenter/couponList.html" }}
+
+                    {{ include file="common/component/pager.html" page=$tpl_data.pager.page count=$tpl_data.pager.count page_size=$tpl_data.pager.page_size hide_jump=1 }}
+
+                {{ else if $tpl_data.coupons|count == 0 }}
+                    <div class="no-data">
+                        <div class="wrapper">
+                            <img class="avatar" src="{{ $static_origin }}/src/img/center/teacherRank/header-avatar.png">
+                            <p>点击“<span class="text-primary">添加优惠券</span>”按钮，添加你在跟谁学的第1张优惠券吧</p>
+                        </div>
+                    </div>
+                {{ /if }}
+            </div>
+            {{ /if }}
+
+        </div>
+    </div>
+{{ include file="common/component/couponUseDirection.html" }}
+{{ /strip }}
+{{ /block }}
+

@@ -1,0 +1,88 @@
+{{ *
+
+@file 充值方式
+@author zhujialu
+
+* }}
+{{ strip }}
+<div class="pay-approach">
+
+    <h3>请选择支付方式</h3>
+
+{{ *
+    <div class="platform">
+        <h4>支付平台</h3>
+        {{ include file="common/component/radio.html" name="approach" value="alipay" text='<span class="icon icon-bank-alipay" title="支付宝"></span>' }}
+
+    </div>
+* }}
+
+    <div class="bank">
+        <h4>网上银行</h4>
+        <p class="tip"><i class="icon icon-info-circle text-info"></i>&nbsp;选择银行卡后请在新窗口的银行页面使用<span class="text-error">网银或银行U盾</span>支付，其他方式会有额度限制。&nbsp;<span class="text-info">建议使用IE浏览器</span></p>
+        <div>
+
+            {{ include file="common/variable/bankIcon.html" scope=parent }}
+
+            {{ $bank_list = [ ] }}
+            {{ $bank_list[] = [ 'CMB', '招商银行' ] }}
+            {{ $bank_list[] = [ 'ICBC', '中国工商银行' ] }}
+            {{ $bank_list[] = [ 'BOC', '中国银行' ] }}
+            {{ $bank_list[] = [ 'CCB', '中国建设银行' ] }}
+            {{ $bank_list[] = [ 'BCOM', '交通银行' ] }}
+
+            {{ foreach $bank_list as $bank }}
+
+                {{ $text = '<span class="icon '|cat: $bank_icon[$bank[0]] }}
+
+                {{ $text = $text|cat: ' title="'|cat: $bank[1]|cat: '"></span>' }}
+
+                {{ include file="common/ui/radio.html" name="approach" value=$bank[0] text=$text }}
+
+            {{ /foreach }}
+
+
+        </div>
+
+        <div>
+
+            {{ $bank_list = [ ] }}
+            {{ $bank_list[] = [ 'PSBC', '中国邮政储蓄银行' ] }}
+            {{ $bank_list[] = [ 'SPDB', '浦发银行' ] }}
+            {{ $bank_list[] = [ 'GDB', '广发银行' ] }}
+            {{ $bank_list[] = [ 'CMBC', '民生银行' ] }}
+            {{ $bank_list[] = [ 'CEB', '光大银行' ] }}
+
+            {{ foreach $bank_list as $bank }}
+
+                {{ $text = '<span class="icon '|cat: $bank_icon[$bank[0]] }}
+
+                {{ $text = $text|cat: ' title="'|cat: $bank[1]|cat: '"></span>' }}
+
+                {{ include file="common/ui/radio.html" name="approach" value=$bank[0] text=$text }}
+
+            {{ /foreach }}
+
+        </div>
+        <div>
+
+            {{ $bank_list = [ ] }}
+            {{ $bank_list[] = [ 'BOB', '北京银行' ] }}
+            {{ $bank_list[] = [ 'BJRCB', '北京农商银行' ] }}
+            {{ $bank_list[] = [ 'SRCB', '上海农商银行' ] }}
+
+            {{ foreach $bank_list as $bank }}
+
+                {{ $text = '<span class="icon '|cat: $bank_icon[$bank[0]] }}
+
+                {{ $text = $text|cat: ' title="'|cat: $bank[1]|cat: '"></span>' }}
+
+                {{ include file="common/ui/radio.html" name="approach" value=$bank[0] text=$text }}
+
+            {{ /foreach }}
+
+        </div>
+    </div>
+
+</div>
+{{ /strip }}

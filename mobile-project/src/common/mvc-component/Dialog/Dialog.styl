@@ -1,0 +1,68 @@
+.GSX_Dialog {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    // margin-left: 10%;
+    background-color: #fff;
+    border-radius: rem(3.2);
+    overflow: hidden;
+    -webkit-box-shadow: 0 0 rem(6.4) #333;
+    .GSX_Dialog_title {
+        text-align: center;
+        display: none;
+    }
+    .GSX_Dialog_content {
+        position: relative;
+    }
+    .GSX_Dialog_buttons {
+        display: flex;
+        width: 100%;
+        height: rem(43);
+        line-height: rem(43);
+        overflow: hidden;
+        font-size: rem(14);
+        border-top: 1px solid #e2e2e2;
+        text-align: center;
+        color: #555;
+    }
+    .GSX_Dialog_closeButton {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: rem(40);
+        height: rem(40);
+        line-height: rem(40);
+        font-size: rem(21);
+        color: #888;
+        text-align: center;
+    }
+    .GSX_Dialog_button {
+        display: block;
+        flex: 1;
+    }
+    .GSX_Dialog_button:nth-child(2) {
+        border-left: 1px solid #e2e2e2;
+    }
+    .GSX_Dialog_skin_ok {
+        color: #f90;
+    }
+    &.GSX_Dialog_default {
+        font-size: rem(14);
+        line-height: rem(24);
+        min-height: rem(85);
+        padding-top: rem(18);
+
+        .GSX_Dialog_title {
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            font-size: rem(15);
+            line-height: rem(25);
+            font-weight: bold;
+        }
+        .GSX_Dialog_content {
+            padding: rem(8) rem(15) rem(18) rem(15);
+        }
+    }
+}
+

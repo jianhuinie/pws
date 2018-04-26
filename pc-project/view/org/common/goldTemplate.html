@@ -1,0 +1,319 @@
+{{ *
+    金牌机构主页模版
+* }}
+{{ strip }}
+    <div class="goldorg-index">
+        {{ if count($tpl_data.rotation_img) > 0 }}
+            <div class="org-carousel">
+                <div class="carousel-inner">
+                    {{ foreach $tpl_data.rotation_img as $img }}
+                        {{ if $img.link }}
+                            <a href="{{ $img.link }}" target="_blank" class="carousel-img-item">
+                                <span style="background-image: url('{{ $img.img_url }}')">
+                                </span>
+                            </a>
+                        {{ elseif $img.video_url }}
+                            <span class="carousel-img-item has-video" 
+                            data-video="{{ $img.video_url }}"
+                            style="background-image: url('{{ $img.img_url }}')">
+                            <i class="play-video-icon"></i>
+                            </span>
+                        {{ else }}
+                            <span class="carousel-img-item" 
+                            style="background-image: url('{{ $img.img_url }}')">
+                            </span>
+                        {{ /if }}
+                    {{ /foreach }}
+                </div>
+                {{ if count($tpl_data.rotation_img) > 1 }}
+                    <ul class="footer-control">
+                        {{ foreach $tpl_data.rotation_img as $img }}
+                            <li class="org-select"></li>
+                        {{ /foreach }}
+                    </ul>
+                {{ /if }}
+                {{ if isset($tpl_data.liudan) 
+                      && !empty($tpl_data.liudan) }}
+                <div class="advisory-box">
+                    <div class="header-advisory">
+                        <div class="inner-box">
+                            <div class="mask"></div>
+                            <div class="advisory-detail">
+                                <div class="title">{{ $tpl_data.liudan.title }}</div>
+                                <form id="advisory-form" class="form">
+                                    <div class="form-group">
+                                        <div class="form-controls">
+                                            <input type="text" name="name" placeholder="上课人姓名">
+                                            <span class="error"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-controls">
+                                            <input type="text" name="telephone" 
+                                            placeholder="手机号，用于接收上课提醒">
+                                            <span class="error"></span>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="get-now">
+                                    {{ $tpl_data.liudan.button_content }}
+                                </div>
+                                <div class="content">
+                                    {{ $tpl_data.liudan.content }}
+                                </div>
+                                <div class="chat-label online-consult" 
+                                     data-user-number="{{ $tpl_data.base_info.number }}" 
+                                     data-user-type="institution">
+                                    <i class="icon icon-customer"></i>
+                                    在线咨询
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ad-detail">
+                            <a href="{{ $tpl_data.start_screen.web_url }}" target="_blank">
+                                {{ $tpl_data.start_screen.content }}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {{ /if }}
+            </div>
+        {{ /if }}
+
+        {{ if count($tpl_data.recommend_course) > 0 }}
+            <div class="recommend-courses">
+                    <div class="head">
+                        <div class="title">推荐课程</div>
+                        <a rel="nofollow" href="{{ $url_course }}" target="_blank" class="more">
+                            全部课程 >
+                        </a>
+                    </div>
+                    <div class="list course-list">
+                        {{ foreach $tpl_data.recommend_course as $val }}
+                            <div class="item">
+                                <div class="course-img">
+                                    <a href="{{ $val.detail_url }}" target="_blank">
+                                        {{ include file="common/component/image.html" url=$val.photo_url  width=260 height=147 }}
+                                    </a>
+                                </div>
+                                <div class="name">
+                                    <a href="{{ $val.detail_url }}" target="_blank">
+                                        {{ $val.name|cn_truncate: 14 }}
+                                    </a>
+                                </div>
+
+                                {{ $show_price_tip = false }}
+                                {{ if !empty($val.discount) }}
+                                    {{ if $val.discount.type == 1 }}
+                                        {{ $show_price_tip = true }}
+                                        <div class="price-tip-box">
+                                            <div class="price-tip price-tip-end" data-cur="{{ $cur_time }}" data-end="{{ $end_time }}">
+                                                剩余{{ $val.discount.remain_amount }}个优惠名额
+                                            </div>
+                                            <span class="price">
+                                                ￥{{ $val.discount.discount_price }}
+                                            </span>
+                                            <span class="original-price">
+                                                ￥{{ $val.discount.pre_price }}
+                                            </span>
+                                        </div>
+                                        <div class="limit-count-e"></div>
+                                    {{ else if $val.discount.type == 2 }}
+                                        {{ **获取当前时间** }}
+                                        {{ $cur_time = $smarty.now }}
+                                        {{ $start_time = strtotime($val.discount.start_time) }}
+                                        {{ $end_time = strtotime($val.discount.end_time) }}
+
+                                            {{ ** 距离活动开始一天内 ** }}
+
+                                        {{ if ($start_time - $cur_time) <(24*60*60) &&($start_time - $cur_time > 0) }}
+                                              {{ $show_price_tip = true }}
+                                            <div class="price-tip-box">
+                                                <span class="price">
+                                                    ￥{{ $val.discount.pre_price }}
+                                                </span>
+                                                <span class="rob-price">抢购价:￥{{ $val.discount.discount_price }}</span>
+                                            </div>
+                                            <div class="price-tip price-tip-begin" data-cur="{{ $cur_time }}" data-start="{{ $start_time }}">
+                                                距抢购开始<span class="time">{{ include file='common/component/countDown.html' time=($start_time - $cur_time) }}</span>
+                                            </div>
+                                            <div class="limit-count"></div>
+                                            {{ ** 距离活动结束时间内 ** }}
+
+                                        {{ else if ($start_time < $cur_time) && ($cur_time < $end_time) }}
+                                            {{ $show_price_tip = true }}
+                                            <div class="price-tip-box">
+                                                <span class="price">
+                                                    ￥{{ $val.discount.discount_price }}
+                                                </span>
+                                                <span class="original-price">
+                                                    ￥{{ $val.discount.pre_price }}
+                                                </span>
+                                            </div>
+                                            <div class="price-tip price-tip-end" data-cur="{{ $cur_time }}" data-end="{{ $end_time }}">
+                                                距抢购结束<span class="time">{{ include file='common/component/countDown.html' time=($end_time - $cur_time) }}</span>
+                                            </div>
+                                            <div class="limit-count"></div>
+                                        {{ /if }}
+                                    {{ /if }}
+                                {{ /if }}
+                                
+                                {{ ** 非限时折扣执行原来逻辑 ** }}
+                                {{ if empty($val.discount) || !$show_price_tip }}
+                                    <div class="org-course-price">
+                                        {{ if $val.price == 0 }}
+                                            <span class="price-free">免费</span>
+                                        {{ else }}
+                                            <span class="price-now">￥{{ $val.price }}</span>
+                                        {{ /if }}
+                                        {{ if $val.original_price }}
+                                            <span class="original-price">原价&nbsp￥{{ $val.original_price }}</span>
+                                        {{ /if }}
+                                    </div>
+                                {{ /if }}
+
+                                {{ if $val.fenqi }}
+                                    <span class="fenqi-tag">{{ $val.fenqi.tag_name }}</span>
+                                {{ /if }}
+
+                                {{ if isset($val.lesson_way) && $val.lesson_way == 2 }}
+                                    {{ $courseType = "直播课" }}
+                                {{ else }}
+                                    {{ if $val.course_type == 1 }}
+                                        {{ $courseType = "一对一" }}
+                                    {{ else if $val.course_type == 2 || $val.course_type == 4 }}
+                                        {{ $courseType = "线下课" }}
+                                    {{ else if $val.course_type == 3 }}
+                                        {{ $courseType = "视频课" }}
+                                    {{ /if }}
+                                {{ /if }}
+
+                                <span class="course-label">
+                                    <span class="inner-box">
+                                        <span class="mask"></span>
+                                        <span class="text">{{ $courseType }}</span>
+                                    </span>
+                                </span>
+                            </div>
+                        {{ /foreach }}
+                    </div>
+            </div>
+        {{ /if }}
+
+        {{ if count($tpl_data.org_video.video) > 0 }}
+            <div class="org-videos">
+                    <div class="head">
+                        <div class="title">介绍视频</div>
+                        <a rel="nofollow" href="{{ $url_video }}" target="_blank">全部视频 ></a>
+                    </div>
+                    <div class="list video-list">
+                        {{ foreach $tpl_data.org_video.video as $val }}
+                            <div class="item">
+                                <div class="video-detail" data-video="{{ $val.video }}" data-name="{{ $val.name }}" data-vid="{{ $val.video_id }}">
+                                    <!-- <img src="{{ $val.img }}" alt="{{ $tpl_data.base_info.name }} {{ if !empty($val.teacher_name) }}{{ $val.teacher_name }}{{ /if }} 视频"> -->
+                                    {{ include file="common/component/image.html" url=$val.img  width=350 height=198 }}
+                                    <i class="play-video-icon"></i>
+                                </div>
+                                <div class="video-intro">{{ $val.name }}</div>
+                            </div>
+                        {{ /foreach }}
+                    </div>
+            </div>
+        {{ /if }}
+        
+        {{ if isset($tpl_data.banner) && $tpl_data.banner.img_url }}
+            <a href="{{ $tpl_data.banner.web_url }}" target="_blank" class="photo-ad">
+                <span style="background-image: url('{{ $tpl_data.banner.img_url }}')">
+                </span>
+            </a>
+        {{ /if }}
+
+        {{ if count($tpl_data.org_teacher) > 0 }}
+            <div class="org-teachers">
+                    <div class="head">
+                        <div class="title">推荐老师</div>
+                        <a rel="nofollow" href="{{ $url_teacher }}" target="_blank">全部老师 ></a>
+                    </div>
+                    <div class="list teacher-list">
+                        {{ foreach $tpl_data.org_teacher as $val }}
+                            {{ if !empty($val.domain) }}
+                                {{ $teacher_url = "http://www.genshuixue.com/"|cat:$val.domain }}
+                            {{ else }}
+                                {{ $teacher_url = "http://"|cat:$env|cat:".genshuixue.com"|cat:$val.url }}
+                            {{ /if }}
+                            <div class="item">
+                                <a href="{{ $teacher_url }}" target="_blank">
+                                    {{ include file="common/component/image.html" url=$val.img width=150 height=150 alt=$val.name }}
+                                </a>
+                                <div class="name">
+                                    {{ $t_name = $val.name }}
+                                    <a href="{{ $teacher_url }}" {{ if $t_name != $val.name }}data-title="{{ $val.name }}" data-width="20em"{{ /if }}>{{ $t_name }}</a>
+                                </div>
+                                <div class="intro">
+                                    {{ $val.intro }}
+                                </div>
+                            </div>
+                        {{ /foreach }}
+                    </div>
+            </div>
+        {{ /if }}
+        {{ if count($tpl_data.custom_area) > 0 }}
+            <div class="org-brief">
+                <div class="head">
+                    <div class="title">图文详情</div>
+                </div>
+                <div class="content">
+                    {{ $tpl_data.custom_area[0] }}
+                </div>
+            </div>
+        {{ /if }}
+
+        {{ if count($tpl_data.coupon) > 0 }}
+            <div class="org-coupons">
+                <div>
+                    <span>免费领取</span>
+                    <span>课程优惠券</span>
+                    <span>¥{{ $tpl_data.coupon[0].total_money|string_format: "%d" }}</span>
+                    <div class="coupon-list">
+                        {{ foreach $tpl_data.coupon as $val }}
+                            <a class="coupon-item" data-url="{{ $val.url }}">
+                                <span class="coupon-money"> ¥{{ $val.total_money }}</span>
+                                <span class="text-info">立即领取</span>
+                            </a>
+                        {{ /foreach }}
+                    </div>
+                </div>
+            </div>
+        {{ /if }}
+
+        <div class="chat-label online-consult-side" 
+             data-user-number="{{ $tpl_data.base_info.number }}" 
+             data-user-type="institution">
+            <i class="icon icon-customer"></i>
+            <br/>
+            在线咨询
+        </div>
+        {{ if isset($tpl_data.start_screen) && !empty($tpl_data.start_screen) }}
+            <div class="start-screen">
+                <a class="photo-screen"
+                href="{{ $tpl_data.start_screen.web_url }}" 
+                target="_blank" 
+                style="background-image: url('{{ $tpl_data.start_screen.img_url }}')">
+                </a>
+                <div class="outer-box">
+                    <span class="close-icon"></span>
+                    <div class="no-remind">
+                        <div class="inner-box">
+                            <span class="mask"></span>
+                            <label>
+                                <span id="checkbox-icon"></span>
+                                <input type="checkbox" name="noremind">
+                                不再提示
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{ /if }}
+    </div>
+{{ /strip }}

@@ -1,0 +1,204 @@
+@import './basicInfo/courseClassify.less';
+
+#class-course-basic {
+
+    .class-address {
+
+        &.hide {
+            display: none;
+        }
+        .select-from {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .add-address {
+            margin-top: 3px;
+        }
+    }
+    .form-short-text {
+        width: 100px;
+        margin-right: 0;
+    }
+
+    .vertical-top {
+        vertical-align: top;
+    }
+
+    .help-find-text {
+        width: 434px;
+    }
+
+    .classify-keyword-container {
+
+        .no-data-message {
+            & > span {
+                color: #567ed2;
+                cursor: pointer;
+            }
+        }
+
+        .input-tip-container {
+            &.invalid {
+                display: block;
+            }
+        }
+    }
+    .invalid {
+        .form-hint {
+            display: none;
+        }
+    }
+
+    .online-tip {
+        display: none;
+        .basic-link {
+            color: #6287d5;
+        }
+    }
+    .for-freecourse {
+        display: none;
+    }
+    .limit-controls {
+        .icon-question-circle {
+            color: #6187dc;
+            margin-left: 5px;
+        }
+    }
+}
+.dialog-lesson-way {
+    .msg-content-title {
+        font-size: 20px;
+        text-align: center;
+        padding-bottom: 10px;
+    }
+    .dialog-content {
+        padding: 0 10px;
+        font-size: 14px;
+    }
+    .dialog-content li {
+        padding: 5px 0;
+    }
+}
+
+.pad-type-tip {
+    color: #6287d5;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 12px;
+    margin-top: 4px;
+    display: none;
+    position: relative;
+    top: 3px;
+    .type-tip-content {
+        position: absolute;
+        left: 0;
+        top: 10px;
+        width: 300px;
+        color: #fff;
+        z-index: 3;
+        display: none;
+        width: 300px;
+        height: 70px;
+        .border-tab {
+            width: 20px;
+            height: 20px;
+            border-width: 0 10px 10px;
+            border-style: solid;
+            border-color: transparent transparent #333;
+            opacity: 0.6;
+            filter: alpha(opacity=60);
+            position: absolute;
+            left: 50px;
+        }
+        .tip-content-bg {
+            width: 300px;
+            height: 50px;
+            background: #000;
+            opacity: .5;
+            filter: alpha(opacity=50);
+            position: absolute;
+            top: 20px;
+        }
+        .tip-content-text {
+            position: absolute;
+            top: 27px;
+            padding-left: 10px;
+            a {
+                color: #fff;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+    &:hover {
+        .type-tip-content {
+            display: block;
+        }
+    }
+    &.show {
+        display: inline-block;
+    }
+}
+.form-group {
+    .textarea {
+        width: 550px;
+        height: 80px;
+    }
+    .form-hint {
+        display: inline-block;
+    }
+    .block {
+        color: #6187dc;
+        font-size: 12px;
+        color: #6187dc;
+        .icon {
+            color: #6187dc;
+        }
+    }
+    .edit-guide {
+        cursor: pointer;
+    }
+}
+.courseInfo-dialog {
+    .dialog-body {
+        .form-title {
+            display: block;
+            .icon {
+                color: #f00;
+                padding-right: 5px;
+            }
+        }
+        .form-controls {
+            margin-top: 10px;
+            .form-text {
+                width: 300px
+            }
+        }
+        .buttons {
+            margin-top: 10px;
+            text-align: center;
+        }
+        .output {
+            border: #ccc solid 1px;
+            color: #222;
+            width: 300px;
+            height: 104px;
+            padding: 10px;
+            overflow-y: scroll;
+            .muted {
+                color: #888;
+            }
+        }
+    }
+}
+.inputRadio {
+    display: inline-block;
+    vertical-align: top;
+}
+.class-course-content .module-content-form .form-group
+.way-tip {
+    margin-top: 7px;
+    display: block;
+}

@@ -1,0 +1,51 @@
+{{ *
+
+@file 机构base页
+@author jixiaohui
+
+* }}
+
+{{ extends file="common/pc/base.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $baidu_share_text = "#跟谁学# "|cat:$tpl_data.base_info.name|cat:"的主页~  每一个机构，都该有更大的梦想！" }}
+    {{ $baidu_share_image = $tpl_data.base_info.avatar }}
+    {{ if !$baidu_share_image || $baidu_share_image=="" }}
+    {{ $baidu_share_image = $static_origin|cat:"/asset/img/share.jpg" }}
+    {{ /if }}
+
+{{ /block }}
+
+{{ block name="body" }}
+{{ strip }}
+
+    {{ $smarty.block.parent }}
+
+    {{ include file="common/siteNav.html" }}
+
+
+    {{ if $tpl_data.base_info.is_gold_certification && $tpl_data.base_info.template_id == 2 }}
+        {{ include file="org/common/goldProfile.html" }}
+    {{ else }}
+        {{ include file="org/common/profile.html" }}
+    {{ /if }}
+
+    {{ include file="org/common/nav.html" active=$active }}
+
+    {{ block name="main" }}{{ /block }}
+
+    {{ include file="common/footer.html" }}
+
+    {{ **include file="org/common/innerLink.html"** }}
+
+    {{ include file="common/script.html" }}
+
+    {{ block name="script" }}{{ /block }}
+
+{{ /strip }}
+{{ /block }}
+
+

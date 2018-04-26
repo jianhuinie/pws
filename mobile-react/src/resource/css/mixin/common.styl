@@ -1,0 +1,31 @@
+word-break() {
+    word-wrap: break-word;
+    word-break: break-all;
+}
+ellipsis() {
+    zoom: 1;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+mult-ellipsis(line) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: line;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    white-space: inherit;
+}
+.clearfix {
+    *zoom: 1;             /* for IE 6/7 */
+    &:before,
+    &:after {
+        display: table;
+        content: "";
+        line-height: 0;     /* for Opera */
+    }
+    &:after {
+        clear: both;
+    }
+}

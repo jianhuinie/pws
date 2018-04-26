@@ -1,0 +1,1 @@
+define("userCenter/common/filter/joinList",["require","exports","module"],function(){"use strict";return function(e,n,r){if(r)e=$.map(e,function(e){return e[r]});return e.join(n)}});

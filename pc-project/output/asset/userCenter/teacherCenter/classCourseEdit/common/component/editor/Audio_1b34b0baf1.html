@@ -1,0 +1,38 @@
+<div class="editor-audio editor-content">
+    <div class="view-audio-wrapper"></div>
+    <div class="wrapper">
+        <div class="edit-button fluid">
+            <i class="draggable-icon icon icon-microphone"></i>
+            <div class="button button-remove icon-close" on-click="remove()"></div>
+
+            {{#if options.url }}
+                <div class="view-audio" on-click="playAudio()">
+                    <div class="thumbnail-audio audio">
+                        {{#if !options.playing}}
+                        <i class="icon icon-recording"></i>
+                        {{else}}
+                        <img class="icon" src="http://img.gsxservice.com/0cms/d/file/content/2016/08/57b69204a2241.gif">
+                        {{/if}}
+                    </div>
+                </div>
+            {{/if}}
+
+            <span class="button upload-wrapper {{#if status === STATUS_IMAGE_UPLOADING}}button-ing-audio{{elseif options.url}}button-has-audio{{else}}button-no-audio audio{{/if}}">
+                <input type="file">
+                {{#if status === STATUS_IMAGE_UPLOADING}}
+                    上传中...{{progress}}
+                {{elseif options.url}}
+                    重新上传
+                {{else}}
+                    <i class="icon-plus"></i>
+                    上传录音
+                {{/if}}
+            </span>
+        </div>
+    </div>
+
+    <style>
+        {{style}}
+    </style>
+
+</div>

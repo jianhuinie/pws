@@ -1,0 +1,258 @@
+@import "page/_base/base.styl";
+@import "page/_common/footer/footer.styl";
+@import "page/activity/ce_contest/_part/menu.styl";
+
+img{
+  height:100%;
+  width:100%;
+}
+.title{
+  font-size:rem(13);
+  color:#0086fd;
+}
+.container{
+  background-color : #fff;
+}
+.header{
+  height: rem(51);
+  background-color : #ff;
+  position :relative;
+  padding-left:rem(93);
+  a{
+    position: absolute;
+    height: rem(40);
+    width: rem(80);
+    left: rem(9);
+    top: rem(6);
+    display: inline-block;
+  }
+
+  .header-info{
+    padding-top rem(12);
+    .header-title{
+      font-size:rem(12);
+      color:#333;
+    }
+    .header-remind{
+      font-family "Arial", "Helvetica", "sans-serif";
+      font-size:rem(6);
+      color:#999;
+
+    }
+  }
+}
+
+.nav-bar{
+  width:100%;
+  line-height: 0;
+  display:block;
+  padding-top: 46.8%;
+  position: relative;
+  img{
+    position:absolute;
+    width: 100%;
+    height:100%;
+    left :0;
+    top :0;
+  }
+
+}
+.introduce{
+  font-size:rem(13);
+  position: relative;
+  color:#333;
+  margin:rem(0) rem(10);
+  .title{
+    margin-top:rem(27);
+    margin-bottom : rem(15);
+  }
+  p{
+    text-indent: rem(25);
+    line-height : 1.6;
+  }
+  .apply{
+    color:#fff;
+    position:fixed;
+    display : inline-block;
+    padding:rem(5);
+    right:rem(10);
+    bottom:rem(118);
+    z-index : 1000;
+    background-color: #ff3360;
+    border-radius:rem(2);
+    .icon-heart{
+      color : #ff6193;
+    }
+  }
+}
+.active{
+  font-size:rem(12);
+  margin:rem(0) rem(10);
+  margin-top:rem(28);
+  position : relative;
+  .more{
+    position : absolute;
+    right:rem(0);
+    font-size:rem(12);
+    color:#999;
+  }
+  .active-title{
+    margin-bottom : rem(11);
+  }
+
+  .active-list{
+    position : relative;
+    background-color : #e3f2fd;
+    padding-bottom : rem(18);
+    padding-top:rem(12);
+    margin: auto;
+    .active-item{
+      padding-left:rem(35);
+      padding-top : rem(6);
+    }
+    .active-item-hot{
+      position : absolute;
+      left:rem(0);
+      margin-top:rem(2);
+      width:rem(35);
+      text-align:center;
+      font-size : rem(11);
+      color:#ff3360;
+    }
+    .active-item-text{
+      line-height : 1.6;
+    }
+    .active-item-date{
+      color:#999;
+    }
+  }
+}
+
+.rewards{
+  margin-top:rem(23);
+  background-color : #1350b7;
+  color:#fff;
+  text-align : center;
+  font-size: rem(12);
+  padding:rem(20) rem(10);
+  .rewards-block{
+    margin-bottom : rem(20);
+  }
+
+  img{
+    width:rem(150);
+    margin-bottom: rem(5);
+  }
+
+  .rewards-title{
+    text-align: left;
+    color:#fff;
+  }
+}
+
+.plan{
+  margin:rem(0) rem(10);
+  margin-top:rem(21);
+  padding-bottom : rem(31);
+  font-size:rem(13);
+  color:#fff;
+
+  .plan-title{
+    margin-bottom:rem(15);
+  }
+
+  .plan-list{
+    border-left:1px solid #ccc;
+    margin: rem(0) rem(22);
+    padding:rem(12) rem(0);
+  }
+  .plan-item{
+    text-align: center;
+    position: relative;
+    height:rem(30);
+    line-height : rem(30);
+    padding-left : rem(15);
+    margin-bottom:rem(12);
+  }
+  .plan-item-icon{
+    border-radius : rem(100);
+    height:rem(9);
+    width:rem(9);
+    position: absolute;
+    left:rem(-5);
+    top:rem(12);
+    background-color:#fff;
+  }
+  .plan-item-text{
+    position:relative;
+  }
+  .plan-item-text:before{
+    content: "";
+    height:rem(10);
+    width:rem(10);
+    background-color: #8cc3fd;
+    transform : rotate(45deg);
+    position:absolute;
+    top:rem(10);
+    left:rem(-2);
+  }
+
+  .plan-item-1{
+    .plan-item-icon{
+      border:1px solid #8cc3fd;
+    }
+    .plan-item-text{
+      background-color : #8cc3fd;
+    }
+  }
+
+  .plan-item-2{
+    .plan-item-icon{
+      border:1px solid #2eb6cf;
+    }
+    .plan-item-text{
+      background-color : #2eb6cf;
+    }
+    .plan-item-text:before{
+      background-color: #2eb6cf;
+    }
+  }
+  .plan-item-3{
+    .plan-item-icon{
+      border:1px solid #bfc11a;
+    }
+    .plan-item-text{
+      background-color : #bfc11a;
+    }
+    .plan-item-text:before{
+      background-color: #bfc11a;
+    }
+  }
+
+  .plan-item-4{
+    margin-bottom : rem(0);
+    .plan-item-icon{
+      border:1px solid #f6a423;
+    }
+    .plan-item-text{
+      background-color : #f6a423;
+    }
+    .plan-item-text:before{
+      background-color: #f6a423;
+    }
+  }
+}
+.logo{
+  background-color : #fff;
+  padding:rem(0) rem(10) rem(20);
+  .title{
+    font-size:rem(12);
+    color:#666;
+  }
+
+  img{
+    width:rem(61);
+    height:rem(48);
+    margin:rem(2);
+  }
+}

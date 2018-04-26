@@ -1,0 +1,98 @@
+{{ *
+
+@file 机构相册页
+@author jixiaohui
+
+* }}
+{{ extends file="./common/base.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $need_im = true }}
+    {{ $script_path = "org/photo_fc0807f466" }}
+    {{ $script_data.orgnumber = $tpl_data.base_info.number }}
+    {{ if not empty($tpl_data.base_info.support_tianxiao) }}
+        {{ $script_data.isTianxiaoOrg = $tpl_data.base_info.support_tianxiao }}
+    {{ /if }}
+    {{ $script_data.orgId = $tpl_data.base_info.id }}
+    {{ $script_data.isFavored = $tpl_data.is_favored }}
+
+    {{ $active = 'photo' }}
+    {{ $flotage_config.hidden = 1 }}
+    {{ $need_location_seo = true }}
+{{ /block }}
+
+
+{{ block name="title" }}
+{{ strip }}
+    {{ $tpl_data.title }}
+{{ /strip }}
+{{ /block }}
+
+{{ block name="keywords" }}
+{{ strip }}
+    {{ $tpl_data.keywords }}
+{{ /strip }}
+{{ /block }}
+
+{{ block name="description" }}
+{{ strip }}
+    {{ $tpl_data.description }}
+{{ /strip }}
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/org/photo_7348f8db1e.css">
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+
+{{ if $tpl_data.base_info.domain }}
+    {{ $domain = $tpl_data.base_info.domain }}
+{{ else }}
+    {{ $domain = $tpl_data.base_info.number }}
+{{ /if }}
+{{ $url_photo = "http://www.genshuixue.com/i/photo/"|cat:$domain }}
+{{ if $tpl_data.abtest }}
+    {{ $url_photo = "http://www.genshuixue.com/i/photo/"|cat:$domain }}
+{{ /if }}
+
+{{ $photos = $tpl_data.photo }}
+{{ $org_id = $tpl_data.base_info.id }}
+<div class="photo">
+    {{ if count($photos) > 0 }}
+        <ul class="list">
+            {{ foreach $photos as $val }}
+                {{ if ($val@index+1) % 5 == 0 }}
+                    <li class="last">
+                {{ else }}
+                    <li>
+                {{ /if }}
+                    <div class="img-thumbnail" data-image="{{ $val.img }}" data-name="{{ $val.name }}">
+                        {{ if !empty($val.name) }}
+                            {{ include file="common/component/image.html" url=$val.img width="200" height="200" alt=$val.name }}
+                        {{ else }}
+                            {{ include file="common/component/image.html" url=$val.img width="200" height="200" alt=$tpl_data.base_info.name }}
+                        {{ /if }}
+                    </div>
+                    <span class="caption">
+                        {{ $val.name }}
+                    </span>
+                </li>
+            {{ /foreach }}
+        </ul>
+        {{ include file="common/component/pager.html" page=$tpl_data.pager.page page_size=$tpl_data.pager.page_size count=$tpl_data.pager.count url=$url_photo }}
+    {{ else }}
+        <div class="no-data">
+            <div class="pic"></div>
+            <span class="text">还没有真相哟！</span>
+        </div>
+    {{ /if }}
+
+</div>
+{{ include file="common/component/loginDialog.html" onlyShowStudent=1 }}
+{{ /strip }}
+{{ /block }}

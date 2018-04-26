@@ -1,0 +1,89 @@
+{{ strip }}
+<div id="inner-link" class="inner-link-wrapper" style="text-align: left;font-size: 14px;">
+
+    <div class="inner-link open">
+        <div class="inner-title">
+            <a class="inner-action search-list" href="javascript:void(0)">
+                <span class="open-action">展开<i class="icon icon-angle-down"></i></span>
+                <span class="close-action">收起<i class="icon icon-angle-up"></i></span>
+            </a>
+            <h2>{{ $data.channel.title }}</h2>
+        </div>
+        <div class="inner-link-content">
+            {{ $data.channel.desc }}
+        </div>
+    </div>
+
+    <div class="inner-link open">
+        <div class="inner-title"><h2>相关推荐</h2></div>
+        <div class="inner-link-content">
+            {{ foreach $data.recommend as $item }}
+                <a class="inner-link-item" href="{{ $item.link }}" target="_blank">
+                    {{ $item.name }}
+                </a>
+            {{ /foreach }}
+        </div>
+    </div>
+
+    {{ if isset($data.around) && $data.around }}
+    <div class="inner-link">
+        <div class="inner-title">
+            <h2>{{ $data.around.title }}</h2>
+        </div>
+        <div class="inner-link-content">
+            {{ foreach $data.around.data as $item }}
+            <a class="inner-link-item" href="{{ $item.link }}" target="_blank">
+                {{ $item.name }}
+            </a>
+            {{ /foreach }}
+        </div>
+    </div>
+    {{ /if }}
+
+    {{ if isset($data.items) && $data.items }}
+    <div class="inner-link">
+        <div class="inner-title"><h2>{{ $data.items.title }}</h2></div>
+        <div class="inner-link-content">
+            <div class="inner-link-content">
+                {{ foreach $data.items.data as $item }}
+                <a  class="inner-link-item" href="{{ $item.link }}"  target="_blank">
+                    {{ $item.name }}
+                </a>
+                {{ /foreach }}
+            </div>
+        </div>
+    </div>
+    {{ /if }}
+
+    <div class="inner-link">
+        <div class="inner-title">
+            <h2>{{ $data.local.title }}</h2>
+        </div>
+        <div class="inner-link-content">
+            {{ foreach $data.local.data as $item }}
+            <a class="inner-link-item" href="{{ $item.link }}" target="_blank">
+                {{ $item.name }}
+            </a>
+            {{ /foreach }}
+        </div>
+    </div>
+
+    <div class="inner-link">
+        <div class="inner-link-content">
+            <div class="letter-list">
+                全部{{ $mod }}: &nbsp;
+                {{ foreach range('A','Z') as $letter }}
+                <a target="_blank" {{ if isset($tpl_data.is_www) && $tpl_data.is_www }}
+                    href="/letter/{{ $letter }}?type={{ $inner_type }}"
+                {{ else }}
+                    href="/{{ $curr_city.domain }}/letter/{{ $letter }}?type={{ $inner_type }}"
+                {{ /if }}>
+                    {{ $letter }}
+                </a>
+                {{ /foreach }}
+            </div>
+        </div>
+    </div>
+
+</div>
+{{ /strip }}

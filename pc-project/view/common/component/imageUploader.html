@@ -1,0 +1,33 @@
+{{ *
+
+@file 图片上传
+      参数：
+      image 可选，默认图片 url
+@author zhujialu
+
+* }}
+{{ strip }}
+<div class="image-uploader">
+
+    <div class="image-preview">
+
+        <div class="image">
+            {{ if isset($image) }}
+            {{ include file="common/component/image.html" url=$image width=150 }}
+            {{ /if }}
+
+            <div class="image-finder"></div>
+            <div class="image-viewport"></div>
+        </div>
+
+        <span class="image-browse">
+            <strong>上传图片</strong>
+            <span class="progress">
+                <span class="progress-bar"></span>
+            </span>
+        </span>
+
+    </div>
+
+</div>
+{{ /strip }}

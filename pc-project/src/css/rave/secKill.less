@@ -1,0 +1,152 @@
+.sec-kill-wrapper{
+    width: 1096px;
+    margin: 0 auto;
+    .sec-kill-top{
+        margin: 0 auto;
+        margin-bottom: -3px;
+        width: 370px;
+        height: 70px;
+        line-height: 70px;
+        text-align: center;
+        background: url('../../img/rave/sec_title.png') no-repeat;
+    }
+    .sec-kill-content{
+        .sec-content-title{
+            height: 65px;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+            border: solid 5px #313131;
+            border-bottom: none;
+            text-align: center;
+            color: #fff;
+            .gradient-vertical(#fe5820, #d82b2a);
+            .sec-kill-tip{
+                display: inline-block;
+                position: relative;
+                margin-right: 16px;
+                font-size: 20px;
+                top: -3px;
+                height: 60px;
+                line-height: 60px;
+            }
+            .sec-kill-time-tip{
+                font-size: 28px;
+                line-height: 54px;
+                font-weight: 900;
+                .sec-time{
+                    margin: 0 12px;
+                    em{
+                        padding: 7px 2px;
+                        margin: 0 1px;
+                        border-radius: 3px;
+                        background: rgba(0, 0, 0, 0.3);
+                    }
+                }
+            }
+        }
+        .sec-content-body{
+            margin-top: -5px;
+            border-radius: 5px;
+            border: solid 10px #3d3d3d;
+            background: #3d3d3d;
+        }
+        .current-sec{
+            background: #fffe9a;
+            border-radius: 5px;
+        }
+        .time-line{
+            position: relative;
+            margin: 0 -10px;
+            height: 140px;
+            background: url('../../img/rave/timeline_bg.jpg') repeat-x;
+            .time-tip-list{
+                padding: 0 18px;
+                color: #fff;
+                .sec-tip-item{
+                    position: relative;
+                    display: inline-block;
+                    width: 88px;
+                    height: 140px;
+                    text-align: center;
+                    cursor: default;
+                    .index-tip{
+                        height: 35px;
+                        line-height: 35px;
+                        font-size: 16px;
+                        margin: 23px 0 0;
+                    }
+                    .time-tip{
+                        height: 35px;
+                        line-height: 35px;
+                        font-size: 12px;
+                        margin: 0 0 23px;
+                    }
+                    .item-circle{
+                        height: 25px;
+                        line-height: 25px;
+                        text-align: center;
+                    }
+                    &.current{
+                        color: #fffd40;
+                        background: rgba(0, 0, 0, 0.3);
+                        &:before{
+                            display: block;
+                        }
+                        .index-tip,
+                        .item-circle{
+                            font-size: 20px;
+                        }
+                        .item-circle{
+                            color: #fe4f33;
+                        }
+                    }
+                    &.next{
+                        color: #65ffc8;
+                        background: rgba(0, 0, 0, 0.3);
+                        &:after{
+                            display: block;
+                        }
+                        .index-tip,
+                        .item-circle{
+                            font-size: 20px;
+                        }
+                    }
+                    &:before{
+                        content: ' ';
+                        position: absolute;
+                        display: none;
+                        border-top: solid 14px #fffe9a;
+                        border-right: solid 13px transparent;
+                        border-left: solid 13px transparent;
+                        border-bottom: none;
+                        left: 31px;
+                        top: 0px;
+                    }
+                    &:after{
+                        content: ' ';
+                        position: absolute;
+                        display: none;
+                        border-bottom: solid 14px #a2ffde;
+                        border-right: solid 13px transparent;
+                        border-left: solid 13px transparent;
+                        border-top: none;
+                        left: 31px;
+                        bottom: 0px;
+                    }
+                }
+            }
+        }
+        .next-sec{
+            background: #a2ffde;
+            border-radius: 5px;
+        }
+        .course-list{
+            padding: 14px;
+            margin: 0 -4px;
+            display: none;
+            &.show{
+                display: block;
+            }
+        }
+    }
+}

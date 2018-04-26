@@ -1,0 +1,107 @@
+{
+    "code": 0,
+    "data": {
+        "list": [
+            {
+                "user_name": "用户1",
+                "avatar": "http://test-img.gsxservice.com/17125_a1673ce0.jpeg",
+                "user_role": 0,
+                "user_number": "user_1",
+                "is_major": 1
+            },
+            {
+                "user_name": "用户2",
+                "avatar": "http://test-img.gsxservice.com/17125_a1673ce0.jpeg",
+                "user_role": 0,
+                "user_number": "user_2",
+                "is_major": 0
+            },
+            {
+                "user_name": "用户3",
+                "avatar": "http://test-img.gsxservice.com/17125_a1673ce0.jpeg",
+                "user_role": 2,
+                "user_number": "user_0",
+                "is_major": 0
+            },
+            {
+                "user_name": "用户4",
+                "avatar": "http://test-img.gsxservice.com/17125_a1673ce0.jpeg",
+                "user_role": 2,
+                "user_number": "user_4",
+                "is_major": 0
+            },
+            {
+                "user_name": "用户5",
+                "avatar": "http://test-img.gsxservice.com/17125_a1673ce0.jpeg",
+                "user_role": 2,
+                "user_number": "user_5",
+                "is_major": 0
+            },
+            {
+                "user_name": "用户3",
+                "avatar": "http://test-img.gsxservice.com/17125_a1673ce0.jpeg",
+                "user_role": 2,
+                "user_number": "user_0",
+                "is_major": 0
+            },
+            {
+                "user_name": "用户4",
+                "avatar": "http://test-img.gsxservice.com/17125_a1673ce0.jpeg",
+                "user_role": 2,
+                "user_number": "user_4",
+                "is_major": 0
+            },
+            {
+                "user_name": "用户5",
+                "avatar": "http://test-img.gsxservice.com/17125_a1673ce0.jpeg",
+                "user_role": 2,
+                "user_number": "user_5",
+                "is_major": 0
+            },
+            {
+                "user_name": "用户3",
+                "avatar": "http://test-img.gsxservice.com/17125_a1673ce0.jpeg",
+                "user_role": 2,
+                "user_number": "user_0",
+                "is_major": 0
+            },
+            {
+                "user_name": "用户4",
+                "avatar": "http://test-img.gsxservice.com/17125_a1673ce0.jpeg",
+                "user_role": 2,
+                "user_number": "user_4",
+                "is_major": 0
+            },
+            {
+                "user_name": "用户5",
+                "avatar": "http://test-img.gsxservice.com/17125_a1673ce0.jpeg",
+                "user_role": 2,
+                "user_number": "user_5",
+                "is_major": 0
+            },
+            {
+                "user_name": "用户3",
+                "avatar": "http://test-img.gsxservice.com/17125_a1673ce0.jpeg",
+                "user_role": 2,
+                "user_number": "user_0",
+                "is_major": 0
+            },
+            {
+                "user_name": "用户4",
+                "avatar": "http://test-img.gsxservice.com/17125_a1673ce0.jpeg",
+                "user_role": 2,
+                "user_number": "user_4",
+                "is_major": 0
+            },
+            {
+                "user_name": "用户5",
+                "avatar": "http://test-img.gsxservice.com/17125_a1673ce0.jpeg",
+                "user_role": 2,
+                "user_number": "user_5",
+                "is_major": 0
+            }
+
+        ],
+        "has_more": 1
+    }
+}

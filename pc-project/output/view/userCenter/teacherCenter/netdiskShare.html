@@ -1,0 +1,53 @@
+{{ *
+    资料共享
+    author：wangtianhua
+* }}
+
+{{ extends file="../common/base.html" }}
+
+{{ block name="data" }}
+    {{ $smarty.block.parent }}
+    {{ $need_baidu_map = false }}
+{{ /block }}
+
+{{ block name="title" prepend }}
+    班课资料共享
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/userCenter/teacherCenter/netdiskShare/netdiskShare_8558d37b71.css">
+{{ /block }}
+
+{{ block name="script" }}
+<script>
+require(
+    [
+        'userCenter/teacherCenter/common/layout_fca6630c9a',
+        'userCenter/teacherCenter/netdiskShare/netdiskShare_49a746ac45'
+    ],
+    function (layout, netdiskShare) {
+
+        {{ $php_data = $tpl_data }}
+
+        {{ if isset($tpl_data.is_huike_teacher) }}
+            {{ $is_huike_teacher = $tpl_data.is_huike_teacher }}
+        {{ else }}
+            {{ $is_huike_teacher = 0 }}
+        {{ /if }}
+
+        layout.init({
+            topMenu: 'userCenter',
+            sideMenu: 'courseSettings',
+            isHuikeTeacher: {{ $is_huike_teacher }},
+            appendBreadcrumb: {
+                text: '班课资料共享'
+            }
+        });
+
+        netdiskShare.init(
+            {{ json_encode($php_data, 77) }}
+        );
+    }
+);
+</script>
+{{ /block }}

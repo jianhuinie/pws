@@ -1,0 +1,30 @@
+{{ *
+
+@file 会员等级变量
+@author wangyujie
+@param 0非会员 1普通会员 2高级会员 3超级会员
+
+@file 机构会员等级标志 membership_level
+@author wangyujie
+@param 1普通(非会员) 2会员 3高级会员 4超级会员
+
+* }}
+
+{{ strip }}
+
+{{ $vipLevelMap = [] }}
+
+{{ $vipLevelMap[0] = 'novip' }}
+{{ $vipLevelMap[1] = 'vip' }}
+{{ $vipLevelMap[2] = 'gvip' }}
+{{ $vipLevelMap[3] = 'cvip' }}
+
+
+{{ $orgVipLevelMap = [] }}
+
+{{ $orgVipLevelMap[1] = 'novip' }}
+{{ $orgVipLevelMap[2] = 'vip' }}
+{{ $orgVipLevelMap[3] = 'gvip' }}
+{{ $orgVipLevelMap[4] = 'cvip' }}
+
+{{ /strip }}

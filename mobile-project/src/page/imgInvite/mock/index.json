@@ -1,0 +1,11 @@
+{
+    "code": 0,
+    "msg": "succ",
+    "tpl_data": {
+        "img": "http://test-img.gsxservice.com/828178_s77nb4vn.png"
+    },
+    "ts": 1479869219,
+    "declare_config": {
+        "declareTpl": ""
+    }
+}

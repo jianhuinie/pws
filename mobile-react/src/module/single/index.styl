@@ -1,0 +1,62 @@
+@import "./common.styl";
+.single-course {
+    background: #f2f3f4;
+    width: 100%;
+    overflow-x: hidden;
+    .single-course-img {
+        height: rem(211);
+        position: relative;
+        .single-course-cover {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+            .page-top-img {
+                z-index: 10;
+            }
+            .single-opt {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                background: rgba(0,0,0,0.70);
+                border-radius: rem(100);
+                width: rem(122);
+                height: rem(16);
+                padding: rem(12) 0;
+                // line-height: rem(40);
+                text-align: center;
+                margin-left: rem(-61);
+                margin-top: rem(-8);
+                font-size: rem(14);
+                color: #fff;
+                z-index: 10;
+                i {
+                    font-size: rem(16);
+                    margin-right: rem(5);
+                    line-height: rem(16);
+                    display: inline-block;
+                    vertical-align: top;
+                }
+                span {
+                    display: inline-block;
+                    vertical-align: top;
+                    line-height: rem(16);
+                    height: 100%;
+                    font-size: rem(14);
+                }
+            }
+        }
+        .player-container {
+            height: 100%;
+        }
+    }
+    // .test-img {
+    //     height: rem(80);
+    //     text-align: center;
+    //     line-height: rem(80);
+    //     font-size: rem(30);
+    //     color: red;
+    // }
+}

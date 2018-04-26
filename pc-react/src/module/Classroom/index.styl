@@ -1,0 +1,65 @@
+@import "../../resource/css/default.styl";
+
+.create-classroom {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    &-content{
+        margin-top: 132px;
+        &-qrcode {
+            border: 1px solid $grey_100;
+            border-radius: 4px;
+            width: 192px;
+            height: 192px;
+        }
+        &-describe {
+            width: 100%;
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+            color: $grey_600;
+            letter-spacing: 0;
+        }
+    }   
+}
+.classroom {
+    flex-grow: 1;
+    padding-left: 30px;
+    background-color: $white;
+    height: 100%;
+    &-title {
+        padding-top: 34px;
+        font-size: 24px;
+        color: $grey_600;
+        line-height: 24px;
+    }
+    &-content {
+        width: 360px;
+        height: 272px;
+        margin-top: 20px;
+        border: 1px solid $grey_100;
+        padding-left: 16px;
+        padding-right: 15px;
+        position: relative;
+        &-name {
+            margin-top: 35px;
+            font-size: 24px;
+            color: $grey_600;
+            line-height: 24px;    
+        }
+        &-intro {
+            font-size: 14px;
+            color: $grey_600;
+            margin-top: 20px;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;           
+        }
+        button {
+            position: absolute;
+            bottom: 35px;
+        }
+    }  
+}

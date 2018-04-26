@@ -1,0 +1,49 @@
+@import '../common/reset.less';
+@import '../common/mixin.less';
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+i,
+a,
+ul,
+ol,
+li,
+div,
+span,
+form,
+input,
+label,
+table {
+    .box-sizing(border-box);
+}
+@import './component/icon.less';
+@import './component/classPanel.less';
+@import './component/mediaPanel.less';
+@import './component/messagePanel.less';
+
+@message-panel-width: 280px;
+@media-panel-width: 280px;
+@input-control-height: 100px;
+
+@padding-vertical: 5px;
+@padding-horizontal: 12px;
+
+html,
+body {
+    background-color: #FFF;
+    height: 100%;
+    font-size: 13px;
+}
+
+.media-panel,
+.message-panel {
+    float: right;
+}
+
+.class-panel {
+    background-color: #4a4c54;
+    height: 100%
+}

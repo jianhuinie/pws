@@ -1,0 +1,22 @@
+<div class="course-section-form-list">
+    {{#each options.list:index}}
+    <div class="video-item">
+        <CourseSectionForm options="{{this}}" sectionIndex="{{index + 1}}" validateVideo="{{validateVideo}}" />
+    </div>
+    {{/each}}
+
+    {{#if options.canAddCourseSection}}
+    <div class="video-item">
+        <div class="add-course-section" on-click="add">
+            <i class="book"></i>
+            <div class="muted small">
+                <i class="icon icon-plus"></i>
+                添加新课节
+            </div>
+        </div>
+    </div>
+    {{/if}}
+    <style>
+        {{style}}
+    </style>
+</div>

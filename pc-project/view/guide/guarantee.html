@@ -1,0 +1,268 @@
+{{ extends file="common/main/base.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+    {{ $show_guarantee = false }}
+
+{{ /block }}
+
+{{ block name="title" }}
+平台保障 - 用户指南 - 跟谁学
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/guide/guarantee.less">
+{{ /block }}
+
+{{ block name="main" }}
+
+{{ strip }}
+
+
+
+<div id="main">
+
+    {{ include file="./common/sidebar.html" }}
+
+    <div class="btright">
+
+        <h2>平台保障</h2>
+
+        <div class="feature-list">
+            <span>
+                <i class="icon icon-safety-money"></i>
+                <span>
+                    资金安全
+                </span>
+            </span>
+
+            <span>
+                <i class="icon icon-quit"></i>
+                <span>
+                    随时可退
+                </span>
+            </span>
+
+            <span>
+                <i class="icon icon-assessment"></i>
+                <span>
+                    真实评价
+                </span>
+            </span>
+
+            <span>
+                <i class="icon icon-certification"></i>
+                <span>
+                    实名认证
+                </span>
+            </span>
+
+            <p>
+                跟谁学作为O2O找好老师学习服务电商平台，公司自成立以来，一直践行“用户第一、诚信、简单、极致、创新”的价值观，努力为学生、老师和机构提供更便捷、更优质的服务。跟谁学对平台上的老师进行严格认证，老师的评价均来自平台真实用户，同时跟谁学建立“随时退”机制，为您提供安信的权益保障。
+            </p>
+        </div>
+
+        <div class="safe">
+            <div class="feature">
+                <div class="title">
+                    <i class="icon icon-safety-money"></i>
+                    <span>
+                        资金安全
+                    </span>
+                </div>
+                <p>
+                    选择平台担保的1对1课程、直播课、线下班课在课程结束前，课酬由跟谁学帮您保管，保证您的资金安全。
+                </p>
+            </div>
+        </div>
+
+        <div class="exist">
+            <div class="feature">
+                <div class="title">
+                    <i class="icon icon-quit"></i>
+                    <span>
+                        随时可退
+                    </span>
+                </div>
+                <em>
+                    随时退流程：
+                </em>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th rowspan="2" colspan="3">支付方式</th>
+                            <th rowspan="2">退款方式</th>
+                            <th colspan="2">退款说明</th>
+                        </tr>
+                        <tr>
+                            <th>跟谁学处理周期</th>
+                            <th>银行/支付平台退款处理周期</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="3">钱包余额</td>
+                            <td>退回余额</td>
+                            <td>即时到账</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2">快捷支付</td>
+                        
+                            <td>信用卡</td>
+                            <td class="banks">招商银行、中国工商银行、中国建设银行、广发银行、中国银行、中国光大银行、中信银行、兴业银行、平安银行、中国民生银行、中国邮政储蓄银行、交通银行</td>
+                            <td>退回原支付卡</td>
+                            <td>3个工作日</td>
+                            <td>3-10个工作日</td>
+                    
+                        </tr>
+                        <tr>
+                            <td>储蓄卡</td>
+                            <td class="banks">中国建设银行、中国工商银行、中国农业银行、招商银行、中国银行、中国光大银行、平安银行、中信银行、中国民生银行、广发银行、浦发银行、华夏银行、兴业银行</td>
+                            <td>退回原支付卡</td>
+                            <td>3个工作日</td>
+                            <td>3-10个工作日</td>
+                        </tr>
+                   
+                        <!--<tr>
+                            <td colspan="3">网上银行</td>
+                            <td>退回余额</td>
+                            <td>即时到帐</td>
+                            <td></td>
+                        </tr>-->
+                        <tr>
+                            <td colspan="3">支付宝</td>
+                            <td>退回支付宝（若超时未收到，请联系支付宝）</td>
+                            <td>3个工作日</td>
+                            <td>3-10个工作日</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">微信</td>
+                            <td>退回微信（若超时未收到，请联系微信）</td>
+                            <td>3个工作日</td>
+                            <td>3-10个工作日</td>
+                        </tr>
+                        <!--<tr>
+                            <td colspan="3">银联支付</td>
+                            <td>退回原支付卡</td>
+                            <td>1个工作日</td>
+                            <td>3-10个工作日</td>
+                        </tr>-->
+                        <tr>
+                            <td colspan="6">
+                            注：对于特殊情况，退款退回余额，请自行前往资金中心进行提现
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>
+                    <em>“随时退”说明：</em>
+                </p>
+                <p>
+                    1. 对于一对一课程和设置了“随时退”的班课,每节课开课前您可
+                    以申请退款,所有剩余课程的课酬将退回给您(第一节课为试听 课,如果您在课后24小时内,并在第二节课开课前申请退款,课 酬将全额退回给您)
+                </p>
+                <p>
+                    2. 如果您使用优惠券购买了课程,在您主动确认(系统在课后24小 时自动确认)第一节课课酬前申请退款,优惠券全额会退回您的 钱包;确认课酬后优惠券则无法退回
+                </p>
+                <p>
+                    3. 支付宝支付时间超过90天的订单、微信支付时间超过360天的订单，申请退款后会进入跟谁学钱包，您可随时提现。
+                </p>
+
+                <div class="warining">
+                    <p>
+                        以下情况下不适用于“随时退款”计划：
+                    </p>
+                    <ul>
+                        <li>(1) 支付订单时关闭了平台支付保障，课酬将不通过平台而直接支付给授课老师，该类订单不支持退款申请。</li>
+                        <li>(2) 当某节课处于"申诉"状态时，该订单不可以申请退款（客服接到申诉后24小时内处理申诉）。</li>
+                        <li>(3) 视频课暂不支持退款申请。</li>
+                    </ul>
+                </div>
+                <p>
+                    <em>
+                        提现说明：
+                    </em>
+                </p>
+                <p>
+                    1. 学生可通过PC电脑和学生APP两种方式进行提现。
+                </p>
+                <p>
+                    2. 进入“学生个人中心”-“钱包管理”，并点击“提现”，选择相应的银行卡，输入提现金额，进行提现。
+                </p>
+                <p>
+                    3. 单笔提现金额在5万以内，每周可以提现一次。
+                </p>
+                <p>
+                    4. 提现申请提交后3-5个工作日内，指定银行卡内将收到提款。
+                </p>
+                <p>
+                    5. 手机APP提现不收取手续费，PC端每笔提现收取1元 手续费。
+                </p>
+            </div>
+        </div>
+
+        <div class="comment">
+            <div class="feature">
+                <div class="title">
+                    <i class="icon icon-assessment"></i>
+                    <span>
+                        真实评价
+                    </span>
+                </div>
+                <p>
+                    平台课程评价均由用户真实填写，部分评价包含图片展示及老师反馈，帮您多维度了解老师及授课效果。
+                </p>
+            </div>
+        </div>
+
+        <div class="certify">
+            <div class="feature">
+                <div class="title">
+                    <i class="icon icon-certification"></i>
+                    <span>
+                        实名认证
+                    </span>
+                </div>
+                <p>
+                    跟谁学平台会对每位老师进行实名认证，包括但不限于身份认证、学历认证、教师资格认证和专业技能认证，确保信息真实可信。
+                </p>
+                <em>
+                    平台上老师的认证种类和标示如下：
+                </em>
+                <p>
+                    <em>1. 身份认证： </em>
+                平台上注册老师可通过身份证或护照进行认证（非大陆居民可用护照进行认证），注册老师通过认证生效后，才能被学生搜到。身份认证确保平台上所有老师真实可信。
+                </p>
+                <p>
+                    <em>2. 学历认证： </em>
+                    老师上传相关学历证明（包括毕业证、学位证或其他学历证明）的清晰大图。学历认证确保老师具有相关教育背景。
+                </p>
+                <p>
+                    <em>3. 教师认证： </em>
+                    老师上传国家承认的教师资格证，或者专业机构颁发的教师资质证书的清晰大图。教师认证确保老师具有相关的教师资质。
+                </p>
+                <p>
+                    <em>4. 其他专业认证： </em>
+                    老师上传其他专业技能证书的清晰大图，确保老师具有相关的专业技能和资质。
+                </p>
+            </div>
+        </div>
+
+    </div>
+    <!--右 over-->
+</div>
+
+
+
+
+
+
+
+
+
+
+
+{{ /strip }}
+{{ /block }}

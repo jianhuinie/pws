@@ -1,0 +1,67 @@
+@import "../../resource/css/default.styl";
+
+.order-table {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    .course-date-picker {
+        display: inline-block;
+        .ant-input {
+            font-size: 12px;
+            border-radius: 2px;
+        }
+    }
+    &-operation {
+        height: 66px;
+        display: flex;
+        padding: 17px 20px;
+        justify-content: space-between;
+        &-canlender {
+            display: flex;    
+        }
+        &-btn {
+            margin-left: 20px;
+            padding: 4px 18px;
+        }    
+    }
+    &-list {
+        flex-grow: 1;
+        padding: 0 20px;
+        &-person {
+            display: flex;
+            align-items: center;
+            img {
+                width: 30px;
+                height: 30px;
+                margin-right: 5px;
+            }
+            span {
+                display: inline-block;
+                width: 120px;
+                overflow: hidden;
+                text-overflow:ellipsis;
+                white-space: nowrap;
+            }
+        }
+        .ant-table-content {
+            .ant-table-tbody {
+                .ant-table-row {
+                    td {
+                        padding: 24px 10px;
+                    }
+                }
+            }
+            .order-table-list-num {
+                text-align: right;
+            }
+            .order-table-list-name {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+            }
+        }
+    }
+}
+

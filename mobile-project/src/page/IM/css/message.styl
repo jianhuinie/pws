@@ -1,0 +1,224 @@
+body {
+  background: #eee;
+
+  color: #000;
+}
+
+#message_container {
+  padding: 0 rem(8);
+}
+
+
+.clearfix:after {
+  content: " ";
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both;
+}
+
+.message {
+  margin-bottom: rem(16);
+  float: left;
+  width: 100%;
+  color: #000;
+  line-height: 1.4;
+  font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", "å¾®è½¯é›…é»‘", Arial, sans-serif;
+
+  .avatar {
+    width: rem(40);
+    height: rem(40);
+    border-radius: rem(2);
+    -moz-border-radius: rem(2);
+    -webkit-border-radius: rem(2);
+    float: left;
+    cursor: pointer;
+  }
+
+  .content {
+    overflow: hidden;
+  }
+
+  .nickname {
+    font-weight: 400;
+    padding-left: rem(10);
+    font-size: rem(12);
+    height: rem(22);
+    line-height: rem(24);
+    color: #4f4f4f;
+    width: rem(350);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+  }
+}
+
+.message.me {
+  float: right;
+  text-align: right;
+  clear: right;
+
+  .avatar {
+    float: right;
+  }
+  .nickname {
+    display: none;
+  }
+}
+
+.bubble {
+  max-width: 85%;
+  min-height: 1em;
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  text-align: left;
+  font-size: rem(14);
+  border-radius: rem(3);
+  -moz-border-radius: rem(3);
+  -webkit-border-radius: rem(3);
+  margin: 0 rem(10);
+
+  &.bubble_default {
+    background-color: #fff;
+  }
+
+  &:before, &:after {
+    position: absolute;
+    top: rem(14);
+    border: 6px solid transparent;
+    content: " "
+  }
+
+  &.left {
+    &:before, &:after {
+      right: 100%
+    }
+    &:after {
+      border-right-color: #FFF;
+      border-right-width: 4px;
+    }
+  }
+  &.right {
+    &:before, &:after {
+      left: 100%
+    }
+    &:after {
+      border-left-color: #59b5f8;
+    }
+  }
+
+  &.bubble_primary {
+    background-color: #59b5f8;
+    font-size:rem(14);
+    color: #fff;
+
+    &.left:after {
+      border-right-color: #b2e281;
+      border-right-width: 4px
+    }
+
+    &.right:after {
+      border-left-color: #59b5f8;
+      border-left-width: 4px
+    }
+  }
+
+  &.no_arrow {
+    &:before, &:after {
+      display: none;
+    }
+  }
+
+  .bubble_body {
+    word-wrap: break-word;
+    word-break: break-all;
+    min-height: rem(25);
+    .plain {
+      padding: rem(9) rem(8);
+      .ico_loading {
+        position: absolute;
+        right: 100%;
+        top: 50%;
+        margin-top: rem(-7);
+        margin-right: rem(5)
+      }
+      .icon-notice {
+        position: absolute;
+        position: absolute;
+        right: 100%;
+        top: 50%;
+        margin-top: rem(-11);
+        margin-right: rem(5);
+        cursor: pointer;
+        font-size: rem(22);
+        color: #e35247;
+      }
+    }
+
+    .picture {
+      border-radius: rem(4);
+      overflow: hidden;
+      position: relative;
+      img {
+        display: block;
+        cursor: pointer;
+        max-width: rem(150);
+        max-height: rem(150);
+      }
+    }
+    img {
+      vertical-align: middle;
+    }
+  }
+}
+
+.message_system {
+  text-align: center;
+  margin: rem(10) auto;
+  max-width: 50%;
+
+  .content {
+    display: inline-block;
+    background-color: #dcdcdc;
+    font-size: rem(12);
+    padding: rem(1) rem(18);
+    color: #fff;
+    border-radius: rem(2);
+    -moz-border-radius: rem(2);
+    -webkit-border-radius: rem(2)
+  }
+}
+ .cardname{
+   text-decoration:none;
+   position:relative;
+   min-height: rem(60);
+   display: inline-block;
+   img{
+     width: rem(65);
+     height: rem(65);
+     border-radius : rem(2);
+     border:1px solid #ccc;
+   }
+
+     .card-layout{
+      position:relative;
+     }
+   .card-title{
+     max-height: rem(40);
+     overflow:hidden;
+     font-size: rem(14);
+     margin-bottom : rem(5);
+     color:#000;
+   }
+   .card-content{
+     position :absolute;
+     left: rem(75);
+     top:rem(0);
+     font-size:rem(12);
+     color :#9d9e9e;
+     overflow: hidden;
+     max-height: rem(65);
+   }
+}

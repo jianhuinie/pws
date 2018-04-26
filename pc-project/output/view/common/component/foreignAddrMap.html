@@ -1,0 +1,24 @@
+{{ *
+
+@file 海外地址展示
+参数
+country  海外国家
+address  详细地址
+type   course 课程详情页  home  老师主页
+@author niejianhui 
+
+* }}
+
+{{ strip }}
+    <div class="foreign-addr-map">
+        {{ if $type == 'home' }}
+            <div class="text-title">常用教学地址</div>
+        {{ /if }}
+        <div class="{{ $type }}">
+            <span class="detail-address">
+                <i class="icon icon-location-o"></i>
+                {{ $country }}-{{ $address }}
+            </span>
+        </div>
+    </div>
+{{ /strip }}

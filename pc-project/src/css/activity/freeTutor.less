@@ -1,0 +1,260 @@
+/**
+ * @file 活动页面 - 免费家教活动（武汉）
+ * @author zhangliyuan
+ */
+
+
+@import '../common/component/loginDialog.less';
+@import '../common/layout.less';
+
+#main {
+    width: 100%;
+}
+.banner-video-outer {
+    width: 100%;
+    background: url(../../img/activity/center/freeTutor/video-banner-bar.png) 50% 0;
+    /*rgb(14,21,51) rgb(32,91,171)*/
+}
+.banner-video {
+    height: 550px;
+    background: url(../../img/activity/center/freeTutor/video-banner.png) 50% 0 no-repeat;
+}
+
+.video-trigger {
+    background: url(../../img/activity/center/freeTutor/video-content.png) no-repeat;
+}
+
+.video-header {
+    height: 90px;
+    background: url(../../img/activity/center/freeTutor/video-title.png) 50% 0 no-repeat;
+}
+
+.video-content {
+    background: url(../../img/activity/center/freeTutor/video-content.png) no-repeat;
+    height: 340px;
+    width: 1030px;
+    margin: 0 auto;
+    cursor: pointer;
+    &:hover {
+        .opacity(0.7);
+    };
+}
+
+.tutor-header {
+    background: url(../../img/activity/center/freeTutor/tutor-title.png) 50% 0 no-repeat;
+    height: 90px;
+}
+
+.tutor-content {
+
+}
+
+.tutor-list {
+    text-align: center;
+}
+.tutor-row {
+    .clearfix();
+    margin: 0 auto;
+    display: inline-block;
+}
+
+.tutor-info {
+    float: left;
+    margin: 0 20px 30px 20px;
+    height: 286px;
+    width: 227px;
+    background-color: #fff;
+    border: 2px solid #d5dfe1;
+    position: relative;
+    cursor: pointer;
+    &:hover {
+        color: #000;
+    }
+    .floor-teacher-mask {
+        position: absolute;
+        display: none;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        .opacity(0);
+
+        &>a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &:hover {
+        .floor-teacher-mask {
+            display: block;
+
+            -webkit-animation: teacherMaskShow 0.5s;
+            -moz-animation: teacherMaskShow 0.5s;
+            -ms-animation: teacherMaskShow 0.5s;
+            -o-animation: teacherMaskShow 0.5;
+            animation: teacherMaskShow 0.5s;
+            .opacity(0.3);
+        }
+    };
+}
+
+.tutor-info.tutor-info-last {
+
+    .rowline {
+        height: 8px;
+        background: #9cb3d2;
+        margin: 0 auto 9px;
+        width: 65px;
+    }
+
+    .more-tutor {
+        font-size: 19px;
+    }
+    cursor: default;
+    color: #9cb3d2;
+}
+
+textarea.form-text.other-need {
+    height: 75px;
+}
+
+.circle-avatar {
+    border-radius: 50%;
+    height: 120px;
+    width: 120px;
+    /*background-color: #fe0000;*/
+    margin: 25px auto 15px;
+    position: relative;
+    z-index: 2;
+}
+
+.teacher-name {
+    margin: 0 auto 5px;
+    width: 50px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.teacher-school {
+    margin: 0 auto;
+    background-color: #1d62c0;
+    display: inline-block;
+    padding: 2px 11px;
+    border-radius: 15px;
+    color: #fff;
+}
+
+.teacher-desc {
+    width: 190px;
+    margin: 7px auto 0;
+    /*text-align: left;*/
+}
+
+.apply-area {
+    /*background-color: #054443;*/
+    height: 100px;
+    padding: 15px 0;
+}
+
+.apply-button {
+    height: 76px;
+    width: 282px;
+    margin: 0 auto;
+    border-radius: 10px;
+    background: url(../../img/activity/center/freeTutor/apply-button.png) no-repeat;
+    cursor: pointer;
+    &:hover {
+        background: url(../../img/activity/center/freeTutor/apply-button-hover.png) no-repeat;
+    };
+}
+
+.share-area {
+    background: url(../../img/activity/center/freeTutor/share-trigger.png) no-repeat;
+    &:hover {
+        background: url(../../img/activity/center/freeTutor/share-trigger-hover.png) no-repeat;
+    }
+    height: 93px;
+    width: 102px;
+    cursor: pointer;
+    position: fixed;
+    border-radius: 10px;
+    top: 200px;
+    right: 10px;
+    z-index: 3;
+    .baidu-share {
+        position: relative;
+        margin-top: 74px;
+        margin-left: -136px;
+        height: 45px;
+    }
+}
+
+.tutor-tip-outer {
+    background: url(../../img/activity/center/freeTutor/footer-bar.png);
+    margin-top: 55px;
+}
+
+.tutor-tip {
+    height: 360px;
+    background: url(../../img/activity/center/freeTutor/footer-info.png) no-repeat;
+    width: 1100px;
+    margin: 0 auto;
+}
+
+.footer-pic {
+    background: url(../../img/activity/center/freeTutor/footer.png) 50% 0 no-repeat;
+    height: 46px;
+}
+
+textarea[name="otherneed"] {
+    width: 337px;
+    resize: none;
+}
+
+.apply-tutor-form .main-label {
+    font-weight: bold;
+    width: 350px;
+    margin: 5px 0;
+}
+.apply-tutor-form .form-group {
+    padding-top: 0;
+    padding-bottom: 0;
+    p em {
+        color: #fe0000;
+        margin-left: 2px;
+    }
+}
+
+.apply-tutor-form .form-checkbox {
+    margin-left: 10px;
+}
+
+.apply-tutor-form .form-text {
+    height: 30px;
+    width: 338px;
+}
+
+.apply-tutor-form .form-controls {
+    /*width: 354px;*/
+    width: 274px;
+    margin-left: -9px;
+    float: left;
+    margin-bottom: 10px;
+}
+
+.apply-tutor-form .btn-primary {
+    float: right;
+    /*margin-bottom: 15px;*/
+    margin-top: 19px;
+}
+
+.dialog-success {
+    max-width: 400px;
+    margin-left: -50px;
+}
+/*.login-form .icon-mobile, .login-form .icon-lock {
+    top: 8px;
+}*/

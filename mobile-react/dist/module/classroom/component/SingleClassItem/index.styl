@@ -1,0 +1,73 @@
+.class-room-item {
+    border-bottom: rem(1) solid #EDEDEE;
+    box-shadow: inset 0 0 0 0 #EDEDEE;
+    background-color: #fff;
+    height: rem(65);
+    padding: rem(15) 0;
+    .sub-item {
+        height: rem(65);
+    }
+    .left-part {
+        width: rem(120);
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border-radius: rem(2);
+        }
+    }
+    .right-part {
+        margin-left: rem(130);
+        position: relative;
+        .class-item-top {
+            overflow: hidden; 
+            text-overflow: ellipsis;
+            display: -webkit-box; 
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            margin-bottom: rem(3);
+            .class-item-title {
+                font-size: rem(14);
+                font-weight: 600;
+                color: #3D3D3E;
+                letter-spacing: 0;
+                line-height: rem(16);
+            }
+        }
+        .class-item-middle {
+            font-size: rem(12);
+            color: #6D6D6E;
+            line-height: rem(12);
+            margin-bottom: rem(4);
+            .live-class-logo {
+                display: inline-block;
+            }
+            .live-class-text {
+                color: #F95D5D;
+                margin-left: rem(4);
+            }
+        }
+        .class-item-footer {
+            .student-cnt {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                font-size: rem(11);
+                color: #9D9D9E;
+                line-height: rem(11);
+                margin-top: rem(3);
+            }
+            .student-price {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                font-size: rem(11);
+                color: #F95D5D;
+                line-height: rem(14);
+            }
+            .free-price {
+                color: #1DB954;
+            }
+        }
+    }
+}

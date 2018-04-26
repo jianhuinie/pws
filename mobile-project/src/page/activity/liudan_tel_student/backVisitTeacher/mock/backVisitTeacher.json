@@ -1,0 +1,18 @@
+{
+	"tpl_data": {
+		"dispatch_id": "820",
+		"subject_name": "会考生物",
+		"price": "￥12-123",
+		"feedback_status": 0,
+		"student": {
+			"display_name": "zhang",
+			"mobile": "185****8016",
+			"avatar": "http://test-img.gsxservice.com/81_xvle7ck2.jpeg"
+		},
+		"lesson_detail": {
+			"lesson_address": "--",
+			"lesson_way": "在线授课",
+			"lesson_time": "sdf"
+		}
+	}
+}

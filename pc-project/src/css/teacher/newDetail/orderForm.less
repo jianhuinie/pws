@@ -1,0 +1,197 @@
+/**
+ * @file 老师详情页 - 订单表单
+ * @author zhujialu
+ */
+.teacher-order-form {
+
+    .header {
+        width: 100%;
+        height: 106px;
+        margin-bottom: @gap-vertical-small;
+    }
+
+    .body {
+        border-top: 1px solid @brand-gray-light;
+        padding: @padding-vertical-sidebar
+                 @padding-horizontal-sidebar;
+    }
+
+    .all-price {
+        position: absolute;
+        right: 0;
+        bottom: 8px;
+    }
+
+    .price-info {
+        margin-bottom: @gap-vertical-tiny;
+        position: relative;
+
+        strong {
+            color: @brand-text;
+            font-size: @font-size-huge;
+        }
+    }
+
+    .dropdown {
+        display: block;
+        margin-bottom: @gap-vertical-medium;
+
+        .btn-default {
+            display: block;
+        }
+    }
+
+    .lesson-way {
+        margin-left: 0;
+    }
+
+    .phone {
+        text-align: center;
+        margin-top: @gap-vertical-medium;
+
+        .icon {
+            margin-right: @gap-horizontal-tiny;
+        }
+
+        .phone-text {
+            display: none;
+        }
+    }
+
+    .close-box {
+        display: none;
+    }
+
+    .disabled-order {
+        background-color: #9e9e9e;
+        border-color: #9e9e9e;
+    }
+}
+
+.teacher-order-form {
+    width: 100%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: @zindex-medium;
+    margin-bottom: 0!important;
+    border-top: 1px solid @brand-gray-light;
+
+    .header {
+        display: none;
+    }
+
+    .body {
+        width: 1100px;
+        margin: 0 auto;
+        border-top: 1px solid transparent;
+        padding: 0;
+
+        .price-info {
+            float: left;
+            width: 230px;
+            margin-right: 10px;
+
+            .price-menu {
+                bottom: 45px;
+                top: inherit;
+                right: -390px;
+            }
+        }
+
+        .dropdown {
+            float: left;
+            margin-right: 10px;
+            margin-top: 10px;
+            width: 140px;
+
+            .dropdown-menu {
+                top: inherit;
+                bottom: 35px;
+            }
+
+            .caret {
+                border-top: none;
+                border-bottom: 5px solid #666;
+                top: 0;
+            }
+        }
+
+        .btn-primary {
+            float: left;
+            margin-right: 10px;
+            margin-top: 10px;
+        }
+
+        .btn-block {
+            float: left;
+            width: auto;
+        }
+
+        .phone {
+            position: relative;
+            margin-top: 15px;
+            height: 33px;
+            float: right;
+
+            .icon {
+                color: #6187DC;
+                font-size: 30px;
+            }
+
+            .phone-text {
+                color: @brand-text;
+                position: relative;
+                display: inline;
+                top: -15px;
+                left: 91px;
+            }
+        }
+
+        .close-box{
+            position: relative;
+            width: 100%;
+            height: 0;
+            right: 0;
+            top: 0;
+            display: block;
+
+            .close {
+                font-size: 35px;
+                position: fixed;
+                right: 15px;
+                color: #ddd;
+                bottom: 10px;
+                cursor: pointer;
+            }
+
+            .close:hover {
+                color: @brand-primary;
+            }
+        }
+    }
+}
+.trial-course-form {
+    .body {
+        .price-info {
+            line-height: 50px;
+            margin-bottom: 0;
+            width: auto;
+            margin-right: 0;
+            strong {
+                font-size: 22px;
+            }
+            .price {
+                font-size: 16px;
+                color: #f90;
+            }
+        }
+        .text-info {
+            float: left;
+            line-height: 50px;
+            margin-right: 10px;
+            font-size: 14px;
+        }
+    }
+
+}

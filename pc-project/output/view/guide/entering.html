@@ -1,0 +1,124 @@
+{{ extends file="common/main/base.html" }}
+
+{{ block name="title" }}
+老师入驻- 帮助中心 - 跟谁学
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/guide/entering_7d2943cdf2.css">
+{{ /block }}
+
+{{ block name="main" }}
+
+{{ strip }}
+
+
+
+<div id="main">
+
+    {{ include file="./common/sidebar.html" }}
+
+
+    <!--右-->
+    <div class="btright">
+        <h2><a name="top">老师入驻</a></h2>
+        <p class="foreword">
+            欢迎来到跟谁学!我们旨在为全民打造一个人人乐用的学习服务平台。<br/>
+            在这里只需四步你就可以成为我们平台上的老师了！
+        </p>
+
+        <h3>第一步<span>注册账号</span></h3>
+        <p>点击网站首页的“免费注册”，并选择“老师注册”，进入到如下页面，根据提示完成注册（跟谁学支持200多个国家的手机号注册，支持第三方社交帐号注册）</p>
+        <img  src="{{ $static_origin }}/asset/img/guide/entering/entering01_165dbd5d25.png" alt="老师注册" />
+
+        <h3>第二步<span>认证设置</span></h3>
+        <p>1. 身份认证</p>
+        <p>点击个人中心首页“身份认证”-“马上去认证”或者到认证设置页面，上传身份证或护照图片</p>
+        <ol>
+            <li>
+                <p>  1）身份证认证</p>
+                <img  src="{{ $static_origin }}/asset/img/guide/entering/identity01_3c8c5eb853.png" alt="身份证认证" />
+            </li>
+            <li>
+                <p>  2) 护照认证</p>
+                <img  src="{{ $static_origin }}/asset/img/guide/entering/identity02_f748b91161.png" alt="护照认证" />
+            </li>
+        </ol>
+
+        <h3>第三步<span>资料设置</span></h3>
+        <p>进入个人中心首页，点击“资料设置”－“马上去设置”。</p>
+        <img style="margin-bottom: 0px;" src="{{ $static_origin }}/asset/img/guide/entering/set_7c50b227f2.jpg" alt="资料设置" />
+
+        <h3>第四步<span>地址管理</span></h3>
+        <p>在个人中心首页选择“地址管理”－“马上去设置”。</p>
+        <img  src="{{ $static_origin }}/asset/img/guide/entering/address_63ce7c346d.jpg" alt="地址管理" />
+        
+        <h3>第五步<span>课程设置（在一对一课，班课和视频课中任意设置一门即可）</span></h3>
+        <p>在个人中心首页点击“课程设置”－“马上去开课”</p>
+        <ol>
+            <li>
+                <p>1、一对一课程设置</p>
+                <ul>
+                    <li>
+                        <p>点击“一对一添加课程”</p>
+                        <img  src="{{ $static_origin }}/asset/img/guide/entering/onetoone01_26cab5db02.png" alt="点击‘一对一添加课程’" />
+                    <li>
+                    <li>
+                        <p>填写相关信息</p>
+                        <img  src="{{ $static_origin }}/asset/img/guide/entering/onetoone02_3a864f5d1f.png" alt="填写相关信息" />
+                    <li>
+                    <li>
+                        <p>在“一对一”课程页面点击“课时优惠包”，还可设置优惠，我们默认提供四种课时优惠包，你也可以根据自己的需要更改或增减，并且可为每个课时优惠包设置折扣</p>
+                        <img  src="{{ $static_origin }}/asset/img/guide/entering/onetoone03_b02cb867d3.png" alt="设置优惠" />
+                    <li>
+                </ul> 
+            </li>
+            <li>
+                <p>2、班课设置</p>
+                <ul>
+                    <li>
+                        <p>点击“课班”－“添加课程”</p>
+                        <img  src="{{ $static_origin }}/asset/img/guide/entering/courseSet01_66dd733e06.png" alt="课班添加课程" />
+                    <li>
+                    <li>
+                        <p>完善相关信息</p>
+                        <img  src="{{ $static_origin }}/asset/img/guide/entering/courseSet02_b183ddb822.png" alt="完善相关信息" />
+                    <li>
+                </ul>
+            </li>
+            <li>
+                <p>3、视频课设置</p>
+                <ul>
+                    <li>
+                        <p>点击“视频课”- “添加课程”</p>
+                        <img  src="{{ $static_origin }}/asset/img/guide/entering/vedio01_720aac223b.png" alt="视频课添加课程" />
+                    <li>
+                    <li>
+                        <p>同意视频上传须知</p>
+                        <img  src="{{ $static_origin }}/asset/img/guide/entering/vedio02_e896b18981.png" alt="同意视频上传须知" />
+                    <li>
+                    <li>
+                        <p>完善视频课信息</p>
+                        <img  src="{{ $static_origin }}/asset/img/guide/entering/vedio03_9bcf5f3890.jpg" alt="完善视频课信息" />
+                    <li>
+                </ul> 
+            </li>
+        </ol>
+
+        <p class="goTop"><a href="#top">返回顶部</a></p>
+    </div>
+    <!--右 over-->
+</div>
+
+
+
+
+
+
+
+
+
+
+
+{{ /strip }}
+{{ /block }}

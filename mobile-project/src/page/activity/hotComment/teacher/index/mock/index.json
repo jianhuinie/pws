@@ -1,0 +1,10 @@
+{
+    "code": 0,
+    "msg": "succ",
+    "tpl_data": {
+    },
+    "ts": 1480302247,
+    "declare_config": {
+        "declareTpl": "v2/resources/page/k12Channel/index/index"
+    }
+}

@@ -1,0 +1,83 @@
+{
+    "is_vip": 1,
+    "deal_statistic": {
+        "tot_today": 777,
+        "tot_yest": 888,
+        "tot_week": 888,
+        "tot_month": 999,
+        "tot_season": 1111,
+        "week": {
+            "12-07": 13,
+            "12-08": 23,
+            "12-09": 13,
+            "12-10": 36,
+            "12-11": 11,
+            "12-12": 103,
+            "12-13": 50
+        },
+        "month": {
+            "12/07-12/11": 123,
+            "12/12-12/16": 113,
+            "12/17-12/21": 13,
+            "12/22-12/26": 23,
+            "12/21-12/26": 33,
+            "12/23-12/26": 43,
+            "12/27-12/31": 93
+        },
+        "season": {
+            "12/07-12/11": 13,
+            "12/12-12/16": 23,
+            "12/17-12/21": 33,
+            "12/22-12/26": 43,
+            "12/24-12/26": 63,
+            "12/21-12/26": 73,
+            "12/27-12/31": 103
+        }
+    },
+    "deal_source": {
+        "week": {
+            "class": 33,
+            "one2one": 20,
+            "video": 30,
+            "trial": 11
+        },
+        "month": {
+            "class": 0,
+            "one2one": 0,
+            "video": 0,
+            "trial": 0
+        },
+        "season": {
+            "class": 15,
+            "one2one": 18,
+            "video": 39,
+            "trial": 40
+        }
+    },
+    "deal_conversion": {
+        "weeks": {
+            "vistor_num": 320,
+            "vistor_rate": "37.2%",
+            "im_num": 222,
+            "im_rate": 40,
+            "order_num": 100,
+            "order_num_rate": 60,
+            "order_money": 100000,
+            "order_money_rate": 70,
+            "pay_num": 80,
+            "pay_num_order": 50,
+            "pay_money": 8000,
+            "pay_money_rate": 70,
+            "rate": 40
+        },
+        "history": {
+            "vistor": 22,
+            "im_num": 11,
+            "order_num": 3,
+            "order_money": 4567,
+            "pay_num": 2,
+            "pay_money": 3333,
+            "rate": 70
+        }
+    }
+}

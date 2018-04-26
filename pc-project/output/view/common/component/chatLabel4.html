@@ -1,0 +1,72 @@
+{{ *
+
+@file IM在线／离线状态 标签
+
+参数
+user_number 用户number
+user_type   用户类型
+size        标签大小  tiny small large huge
+online_status      用户状态   非0－>online   0->offline
+chat_to_student  和学生交谈在线时标签文案为 在线聊天  true  false
+click_type  sku_type 点击上报相关
+
+@author niejianhui
+
+* }}
+
+{{ strip }}
+
+{{ if isset($size) && $size }}
+    {{ $size = " "|cat: $size }}
+{{ else }}
+    {{ $size = "" }}
+{{ /if }}
+
+{{ if isset($chat_to_student) && $chat_to_student }}
+    {{ $chat_to_student = true }}
+{{ else }}
+    {{ $chat_to_student = false }}
+{{ /if }}
+
+{{ if $online_status == 0 }}
+    {{ $online_status_class = " offline" }}
+{{ else }}
+    {{ $online_status_class = " online" }}
+{{ /if }}
+
+{{ *点击上报* }}
+{{ if isset($sku_type) && isset($click_type) }}
+    <div class="chat-wrapper">
+        <span class="chat-label{{ $size }}{{ $online_status_class }}" data-user-number="{{ $user_number }}" data-user-type="{{ $user_type }}">
+            <i class="icon icon-chat"></i>
+            {{ if $online_status == 0 }}
+                <b data-click="{{ $click_type }}" data-sku="{{ $sku_type }}|{{ $user_number }}">
+                    离线留言
+                </b>
+            {{ else }}
+                {{ if $chat_to_student == true }}
+                    <b data-click="{{ $click_type }}" data-sku="{{ $sku_type }}|{{ $user_number }}">在线聊天</b>
+                {{ else }}
+                    <b data-click="{{ $click_type }}" data-sku="{{ $sku_type }}|{{ $user_number }}">在线咨询</b>
+                {{ /if }}
+            {{ /if }}
+        </span>
+    </div>
+{{ else }}
+    <div class="chat-wrapper">
+        <span class="chat-label{{ $size }}{{ $online_status_class }}" data-user-number="{{ $user_number }}" data-user-type="{{ $user_type }}">
+            <i class="icon icon-chat"></i>
+            {{ if $online_status == 0 }}
+                <b>离线留言</b>
+            {{ else }}
+                {{ if $chat_to_student == true }}
+                    <b>在线聊天</b>
+                {{ else }}
+                    <b>在线咨询</b>
+                {{ /if }}
+            {{ /if }}
+        </span>
+    </div>
+{{ /if }}
+
+{{ /strip }}

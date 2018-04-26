@@ -1,0 +1,162 @@
+
+.org-course-style {
+    border-top: 1px solid #e6e6e6;
+    padding-top: rem(15);
+    padding-bottom: rem(15);
+    position: relative;
+    clearfix();
+    .countdown{
+        margin-bottom:rem(5);
+    }
+    .left-side {
+        float: left;
+        width: rem(105);
+        height: rem(60);
+        position: relative;
+        .figure_pic{
+            height:rem(60);
+            display: block;
+            line-height: 0;
+            overflow: hidden;
+            background-image: url("../../../common/image/mascot.png");
+            background-repeat: no-repeat;
+            -webkit-background-size: rem(42) rem(42);
+            background-size: rem(42);
+            background-position: 50%;
+            background-color: #f2f2f2;
+            > img {
+                width: 100%;
+                height :100%;
+            }
+        }
+
+        margin-right: rem(17.6);
+    }
+
+    .right-side {
+        overflow: hidden;
+        padding-right: rem(10);
+        .big-font {
+            font-size: rem(14);
+        }
+        .gray-font {
+            color: #9d9d9e;
+        }
+        .teacher-name {
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+    }
+
+    .bottom-side {
+        clearfix();
+        width: 100%;
+        float: left;
+        .yi-sign {
+            float: left;
+            width: rem(121.008);
+            color: #9d9e9e;
+            line-height: rem(24);
+        }
+
+        .course-price {
+            display: table-cell;
+            position: relative;
+            width: rem(2000);
+            .discount-price {
+                color: #ff6d00;
+                font-size: rem(16);
+                .symbol {
+                    font-size:rem(13)
+                }
+            }
+
+            .origin-price {
+                color: #9d9d9e;
+                font-size: rem(12);
+                text-decoration line-through;
+            }
+
+            .is-online {
+                display: inline-block;
+                position: absolute;
+                color: #45a6ef;
+                border: 1px solid #45a6ef;
+                width: rem(45);
+                height: rem(20);
+                line-height: rem(20);
+                font-size: rem(10);
+                text-align: center;
+                right: rem(10);
+            }
+
+        }
+    }
+    > a {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+    }
+
+}
+
+.org-tow-courses-style {
+    margin-left: rem(10);
+    border-bottom: 1px solid #e6e6e6;
+    .course-type {
+        height: rem(38);
+        line-height: rem(38);
+        position: relative;
+        > a {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+        }
+    }
+    .course-item {
+        padding-right: rem(10);
+        clearfix();
+        .course-detail {
+            width: 48%;
+            float: left;
+            position: relative;
+            padding-bottom: rem(15);
+            p {
+                margin-top: rem(2);
+                margin-bottom: rem(3);
+            }
+            img {
+                width: 100%;
+                height: rem(82);
+            }
+            > a {
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                top: 0;
+                left: 0;
+            }
+            + * {
+                margin-left: 4%;
+            }
+            .fee {
+                color: #ff6d00;
+                font-size: rem(13.008);
+                float: left;
+            }
+            .course-online {
+                color: #45a6ef;
+                font-size: rem(10);
+                border: 1px solid #45a6ef;
+                float: right;
+                padding: rem(0.5) rem(3);
+            }
+        }
+
+    }
+}

@@ -1,0 +1,262 @@
+@import "page/_base/base.styl";
+@import "page/_common/nav_bar/nav_bar.styl";
+@import 'page/course/component/liveTab/liveTab.styl';
+
+.header {
+    //height: rem(240);
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+
+    .cover {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+        height: rem(280);
+    }
+    .cover-mask {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: black;
+        z-index: 2;
+        width: 100%;
+        height: rem(240);
+        opacity: 0.6;
+    }
+    .header-content {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 4;
+        text-align: center;
+        .title {
+            font-family: PingFang-SC-Medium;
+            font-size: rem(20);
+            color: #FFFFFF;
+            line-height: rem(20);
+            margin-top: rem(60);
+        }
+        .toast {
+            font-family: PingFang-SC-Regular;
+            font-size: rem(15);
+            color: #FFFFFF;
+            line-height: rem(15);
+            margin-top: rem(15);
+        }
+        .buttons {
+            margin-top: rem(20);
+            height: rem(40);
+            line-height: rem(40);
+            position: relative;
+            .toast {
+                img {
+                    height: rem(18);
+                    width: rem(18);
+                    position: relative;
+                    top: rem(2);
+                    left: 0;
+                    margin-right: rem(4);
+                }
+                font-family: PingFang-SC-Regular;
+                font-size: rem(16);
+                color: #FFFFFF;
+                letter-spacing: rem(-0.39);
+                line-height: rem(40);
+                height: rem(40);
+                border-radius: rem(4);
+                background: #ff9100;
+                display: inline-block;
+                padding: 0 rem(10);
+            }
+        }
+        .next {
+            position: absolute;
+            bottom: rem(25);
+            width: 60%;
+            margin-left: 20%;
+            font-family: PingFang-SC-Regular;
+            font-size: rem(15);
+            color: #CDCDCE;
+            line-height: rem(15);
+        }
+    }
+}
+.videoContent {
+    width: 100%;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+}
+
+.nav {
+    display: flex;
+    text-align: center;
+    height: rem(40);
+    line-height: rem(40);
+    color: black;
+    font-size: rem(15);
+    box-shadow: 0 rem(1) 0 0 #DDDDDE;
+    position: fixed;
+    z-index: 100;
+    top: rem(240);
+    width: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    .talk {
+        flex: 1;
+        padding: 0 rem(40);
+        .active {
+            border-bottom: 2px solid #ff6c00;
+            height: rem(40);
+            line-height: rem(40);
+            color: #ff6c00;
+        }
+    }
+    .list {
+        flex: 1;
+        padding: 0 rem(40);
+        .active {
+            border-bottom: 2px solid #ff6c00;
+            height: rem(40);
+            line-height: rem(40);
+            color: #ff6c00;
+        }
+    }
+}
+
+.content-box {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow-y: auto;
+}
+.content {
+    background: white;
+    min-height: rem(300);
+    margin-bottom: rem(100);
+    .item {
+        border-bottom: 1px solid #ededed;
+        position: relative;
+        .index {
+            width: rem(30);
+            height: rem(30);
+            background: #ededee;
+            color: #6d6d6e;
+            border-radius: 50%;
+            text-align: center;
+            line-height: rem(30);
+            position: absolute;
+            left: rem(12);
+            top: rem(18);
+            &.active {
+                background: #ff9100;
+                color: white;
+            }
+        }
+        .infos {
+            padding: rem(12) 0 rem(10) rem(55);
+            .title {
+                font-family: PingFang-SC-Regular;
+                font-size: rem(14);
+                color: #3D3D3E;
+                line-height: rem(26);
+                width: 70%;
+                &.active {
+                    color: #ff9100;
+                }
+            }
+            .time-line {
+                display: flex;
+                .time {
+                    flex: 1;
+                }
+            }
+            .time {
+                margin-top: rem(6);
+                font-family: PingFang-SC-Regular;
+                font-size: rem(12);
+                color: #9D9D9E;
+                line-height: rem(16);
+                height: rem(16);
+                &.active {
+                    color: #ff9100;
+                }
+            }
+        }
+        .play-butons {
+            position: absolute;
+            right: rem(10);
+            top: rem(14);
+            border-radius: rem(2);
+            color: #ff9100;
+            font-size: rem(14);
+            padding: rem(2) rem(4);
+            img {
+                width: rem(16);
+                height: rem(16);
+                vertical-align: bottom;
+                margin-right: rem(4);
+            }
+        }
+        .play-text {
+            font-family: PingFang-SC-Regular;
+            font-size: rem(14);
+            color: #9D9D9E;
+            position: absolute;
+            right: rem(10);
+            top: rem(26);
+        }
+    }
+}
+
+.talk-content {
+    min-height: rem(300);
+    width: 100%;
+    display: none;
+    margin-bottom: rem(100);
+    padding-top: rem(10);
+}
+
+.bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #ff9100;
+    display: none;
+    .text {
+        width: 70%;
+        display: inline-block;
+        margin-left: 15%;
+        color: #fff;
+        padding: rem(14) 0;
+        font-family: PingFang-SC-Regular;
+        font-size: rem(14);
+        color: #FFFFFF;
+        text-align: center;
+    }
+    img {
+        width: rem(20);
+        height: rem(20);
+        position: absolute;
+        right: rem(10);
+        top: rem(12);
+    }
+}

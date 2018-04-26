@@ -1,0 +1,54 @@
+<div id="teacher-info-scroll">
+    <div class="teacher-info-scroll">
+        <div class="teacher-info">
+            <div class="teacher-info-avatar">
+                {{ include file="common/component/avatar.html" type="smaller" img=$profile.avatar alt=$profile.name }}
+            </div>
+            <div class="teacher-info-names">
+                {{ $name = $profile.name|cn_truncate:4 }}
+                <span {{ if $name != $profile.name }}data-title="{{ $profile.name }}" {{ /if }}>{{ $name }}</span>
+                <i class="icon-vip-vip vip-level{{ $profile.vip_level }}"
+                   data-title="
+                                {{ if $profile.vip_level == 1 }}
+                                    跟谁学会员
+                                {{ else if $profile.vip_level == 2 }}
+                                    跟谁学高级会员
+                                {{ else if $profile.vip_level == 3 }}
+                                    跟谁学超级会员
+                                {{ /if }}
+                            "></i>
+            </div>
+            <div class="teacher-subject">
+                {{ $profile.subject_name }}
+            </div>
+        </div>
+
+        <ul class="teacher-links">
+            <li class="teacher-link-item"><a {{ if $active == 'index' }} class="active" {{ else }} href="/{{ $profile.domain }}" {{ /if }}>主页</a></li>
+            <li class="teacher-link-item"><a {{ if $active == 'course' }} class="active" {{ else }} href="/{{ $profile.domain }}/course" {{ /if }}>课程</a></li>
+            <li class="teacher-link-item"><a {{ if $active == 'photo' }} class="active" {{ else }} href="/{{ $profile.domain }}/photoVideo" {{ /if }}>视频/照片</a></li>
+            <li class="teacher-link-item"><a {{ if $active == 'article' }} class="active" {{ else }} href="/{{ $profile.domain }}/article" {{ /if }}>文章</a></li>
+            <li class="teacher-link-item"><a {{ if $active == 'experience' }} class="active" {{ else }} href="/{{ $profile.domain }}/intro" {{ /if }}>履历</a></li>
+            <li class="teacher-link-item"><a {{ if $active == 'comment' }} class="active" {{ else }} href="/{{ $profile.domain }}/tcomment" {{ /if }}>评价</a></li>
+        </ul>
+
+        <div class="teacher-buttons">
+            {{ if $profile.user_id != $user_data.user_id }}
+
+                <div class="teacher-info-button-listen">
+                    预约试听
+                </div>
+
+                <div class="teacher-info-button-asks">
+                    {{ if empty($tpl_data.org_type) || $tpl_data.org_type != 4 }}
+                        {{ include file="common/component/chatLabel4.html"  user_number=$profile.user_number user_type='teacher' size="large" online_status=$profile.im_online_status }}
+                    {{ else }}
+                        {{ include file="common/component/chatLabel4.html"  user_number=$profile.organization.number user_type='institution' size="large" online_status=$profile.organization.im_online_status }}
+                    {{ /if }}
+                </div>
+            {{ else }}
+                <a class="btn-info" href="/teacher_center/profile" target="_blank">编辑个人资料</a>
+            {{ /if }}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+{{ *
+
+@file 星级评分
+@author wth
+
+* }}
+{{ strip }}
+
+<span class="star-score">
+    <i class="icon icon-star{{ if $score >= 1 }} star-shine{{ /if }}" data-title="1星 极不满意<br />教的很差，远达不<br />到老师所承诺的效果"></i>
+
+    <i class="icon icon-star{{ if $score >= 2 }} star-shine{{ /if }}" data-title="2星 不满意<br />教的不怎么样，距<br />离老师的承诺有较大差距"></i>
+
+    <i class="icon icon-star{{ if $score >= 3 }} star-shine{{ /if }}" data-title="3星 一般<br />基本合格，但没有<br />老师描述的那么好"></i>
+
+    <i class="icon icon-star{{ if $score >= 4 }} star-shine{{ /if }}" data-title="4星 满意<br />教得还可以，与老<br />师的描述基本一致">
+    </i>
+
+    <i class="icon icon-star{{ if $score >= 5 }} star-shine{{ /if }}" data-title="5星 非常满意<br />教的很棒，超出了<br />我的预期"></i>
+</span>
+
+{{ /strip }}

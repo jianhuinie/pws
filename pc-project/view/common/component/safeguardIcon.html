@@ -1,0 +1,65 @@
+{{ *
+    @file 平台支付保障图标
+    @author zengcheng
+
+    参数
+        use_plat_ensure 是否使用平台担保
+        user_type 用户类型 0：是老师 2：是学生
+        course_type 课程类型 2：是班课 1：一对一
+        retire_flag 1：开班前x小时可申请退款 2：第x节课可申请退款 100：不可退 其他：随时退
+        retire_length 当flag为1的时候表示秒，当flag为2的时候表示课次
+
+* }}
+
+{{ if !isset($use_plat_ensure) || $use_plat_ensure == 1 }}
+    {{ $use_plat_ensure = true }}
+{{ else }}
+    {{ $use_plat_ensure = false }}
+{{ /if }}
+{{ if !isset($retire_length) }}
+    {{ $retire_length = '' }}
+{{ /if }}
+
+{{ function getRetireText }}
+    {{ if $use_plat_ensure }}
+        平台支付保障已开启，
+        {{ if $course_type == 2 }}
+            {{ if $user_type == 0 }}
+                {{ if $retire_flag == 2 }}
+                    支持限时退，第{{ $retire_length|cat:'节课开始前学生可申请退款' }}
+                {{ else if $retire_flag == 1 }}
+                    支持限时退，开班{{ ($retire_length / 3600)|number_format:0|cat:'小时前学生可申请退款' }}
+                {{ else if $retire_flag == 100 }}
+                    该课程报名后不提供线上退课服务，如需退课学生会与您协商
+                {{ else }}
+                    支持随时退，学生首次课不满意全额退款，其余课次可申请退剩余课酬
+                {{ /if }}
+            {{ else if $user_type == 2 }}
+                {{ if $retire_flag == 2 }}
+                    支持限时退，第{{ $retire_length|cat:'节课开始前可申请退款' }}
+                {{ else if $retire_flag == 1 }}
+                    支持限时退，开班{{ ($retire_length / 3600)|number_format:0|cat:'小时前可申请退款' }}
+                {{ else if $retire_flag == 100 }}
+                    该课程报名后不提供线上退课服务，如需退课请与老师协商
+                {{ else }}
+                    支持随时退，首次课不满意全额退款，其余课次可申请退剩余课酬
+                {{ /if }}
+            {{ /if }}
+        {{ else }}
+            {{ if $user_type == 0 }}
+                支持随时退，学生首次课不满意全额退款，其余课次可申请退剩余课酬
+            {{ else if $user_type == 2 }}
+                支持随时退，首次课不满意全额退款，其余课次可申请退剩余课酬
+            {{ /if }}
+        {{ /if }}
+    {{ /if }}
+{{ /function }}
+
+<i class="icon icon-ic-safeguard {{ if $use_plat_ensure }}use-plat-ensure{{ /if }}" data-title="{{ if !$use_plat_ensure }}平台支付保障已关闭，不支持随时退{{ /if }}{{ getRetireText use_plat_ensure=$use_plat_ensure user_type=$user_type course_type=$course_type retire_flag=$retire_flag retire_length=$retire_length }}" data-width="20em"></i>
+
+
+
+
+
+
+

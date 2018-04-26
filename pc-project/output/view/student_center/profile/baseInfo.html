@@ -1,0 +1,162 @@
+{{ *
+
+@file 基本信息
+@author wangyujie
+
+* }}
+
+{{ strip }}
+
+{{ $blank = $tpl_data.base_info.blank }}
+
+<div class="baseinfo {{ if $blank }}no-data{{ else }}has-data{{ /if }}">
+
+    {{ function getBaseInfoShowcase data=null }}
+    <div class="info-header">
+        <i class="icon icon-portrait-o"></i>
+        <h3 name="baseInfo">基本信息</h3>
+        <div class="edit">
+            <i class="icon icon-pencil"></i>
+            编辑
+        </div>
+    </div>
+
+    <div class="info-body">
+
+        <div class="avatar">
+            {{ include file="common/component/avatar.html" type="large" img=$data.avatar  }}
+        </div>
+
+        <div class="info">
+            <ul>
+                <li>
+                    <div class="title">
+                        姓名：
+                    </div>
+                    <div class="cont">
+                        {{ $data.realname }}
+                    </div>
+                </li>
+
+                <li>
+                    <div class="title">
+                        性别：
+                    </div>
+                    <div class="cont">
+                        {{ if $data.sex == 0 }}
+                        女
+                        {{ else if $data.sex == 1 }}
+                        男
+                        {{ /if }}
+                    </div>
+                </li>
+
+                <li>
+                    <div class="title">
+                        昵称：
+                    </div>
+                    <div class="cont">
+                        {{ $data.nickname }}
+                    </div>
+                </li>
+
+                <li>
+                    <div class="title">
+                        生日：
+                    </div>
+                    <div class="cont">
+                        {{ $data.birthday }}
+                    </div>
+                </li>
+
+                <li>
+                    <div class="title">
+                        地址：
+                    </div>
+                    <div class="cont">
+                        <span class="province">
+                        {{ if $data.address.regular_address.province }}
+                            {{ $data.address.regular_address.province.name }}
+                            &nbsp;-&nbsp;
+                        {{ /if }}
+                        </span>
+
+                        {{ if $data.address.regular_address.province.name != $data.address.regular_address.city.name }}
+                        <span class="city">
+                        {{ if $data.address.regular_address.city }}
+                            {{ $data.address.regular_address.city.name }}
+                            &nbsp;-&nbsp;
+                        {{ /if }}
+                        </span>
+                        {{ /if }}
+
+                        <span class="area">
+                        {{ if $data.address.regular_address.area }}
+                            {{ $data.address.regular_address.area.name }}
+                            &nbsp;&nbsp;
+                        {{ /if }}
+                        </span>
+                        <span class="location_addr">
+                            {{ $data.address.regular_address.location_addr }}
+                        </span>
+                    </div>
+                </li>
+
+                <!--li>
+                    <div class="title">
+                        域名：
+                    </div>
+                    <div class="cont">
+
+                        { if data.private_domain }
+                            { domain_value = data.private_domain }
+                        { else }
+                            { domain_value = data.uid }
+                        { /if }
+
+                        <a href="http://genshuixue.com/x/{{ $data.uid }}" target="_blank">
+                            http://genshuixue.com/x/{{ $data.uid }}
+                        </a>
+                    </div>
+                </li-->
+
+                <li>
+                    <div class="title">
+                        简介：
+                    </div>
+                    <div class="cont">
+                        {{ $data.short_introduce }}
+                    </div>
+                </li>
+
+                <li>
+                    <div class="title">感兴趣课程：</div>
+                    <div class="cont">
+                        <span class="subjects">
+                            {{ foreach $data.subjects as $item }}
+                                {{ $item.name }}&nbsp;
+                            {{ /foreach }}
+                        </span>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+    {{ /function }}
+
+    {{ if !$blank }}
+    <div class="form-trigger" data-baseinfo='{{ json_encode($tpl_data.base_info, 77) }}'>
+
+        {{ getBaseInfoShowcase data=$tpl_data.base_info }}
+
+    </div>
+    {{ /if }}
+
+    {{ include file="./baseInfoForm.html" tpl_data=$tpl_data.base_info }}
+
+</div>
+
+{{ include file="common/component/baiduMap.html" }}
+{{ /strip }}

@@ -1,0 +1,103 @@
+@import "page/_base/base.styl";
+
+$b700 = #245bd2;
+$r600 = #f03748;
+$g500 = #6d6d6e;
+
+.head {
+  position: relative;
+}
+
+.head-bg {
+  width: 100%;
+  height: rem(385);
+}
+
+.app-icon {
+  position: absolute;
+  top: rem(40);
+  left: 50%;
+  transform: translateX(-50%);
+  width: rem(160);
+  height: rem(135);
+}
+
+.tip {
+  width: 100%;
+  font-size: rem(22);
+  color: #fff;
+  text-align: center;
+  position: absolute;
+  top: rem(145);
+}
+
+.top-image {
+  width: rem(316);
+  height: rem(274);
+  position: absolute;
+  top: rem(192);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.content {
+  text-align: center;
+  margin-bottom: rem(120);
+  .title {
+    font-size: rem(24);
+    color:#2bb398;
+  }
+  .red {
+    font-size: rem(16);
+    color: $r600;
+  }
+  .brown
+  {
+    font-size: rem(16);
+    color:#efa812;
+  }
+  .grey {
+    font-size: rem(16);
+    color: $g500;
+  }
+  .block1 {
+    margin-top: rem(132);
+  }
+  .block2 {
+    margin: 0 auto;
+    width: rem(303);
+    height: rem(67);
+    margin-top: rem(20);
+  }
+  .block3 {
+    margin-top: rem(55);
+  }
+  .block4 {
+    margin-top: rem(50);
+  }
+  .block5 {
+    margin-top: rem(48);
+  }
+}
+
+.bottom {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: rem(80);
+  background-color: #F7F9FA;
+  padding-top: rem(20);
+
+  .download-btn {
+    width: rem(230);
+    height: rem(45);
+    line-height: rem(45);
+    margin: 0 auto;
+
+    background-color: $r600;
+    color: #fff;
+    text-align: center;
+    border-radius: rem(31);
+  }
+}
+

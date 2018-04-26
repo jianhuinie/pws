@@ -1,0 +1,879 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for unit/ngService/ajaxService/ajaxServiceSpec.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../prettify.css">
+    <link rel="stylesheet" href="../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header high">
+    <h1>Code coverage report for <span class="entity">unit/ngService/ajaxService/ajaxServiceSpec.js</span></h1>
+    <h2>
+        Statements: <span class="metric">91.43% <small>(96 / 105)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">66.67% <small>(4 / 6)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">86.84% <small>(33 / 38)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">91.43% <small>(96 / 105)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">unit/ngService/ajaxService/</a> &#187; ajaxServiceSpec.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">14</span>
+<span class="cline-any cline-yes">14</span>
+<span class="cline-any cline-yes">14</span>
+<span class="cline-any cline-yes">14</span>
+<span class="cline-any cline-yes">14</span>
+<span class="cline-any cline-yes">14</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
+ * @file ajax service
+ * @author hanrui
+ * @date   2015/11/03
+ */
+define(function (require) {
+    describe('ajaxService', function() {
+        require('src/ngService/ajaxService/ajaxService');
+        beforeEach(module('library.services'));
+&nbsp;
+        var ajaxService;
+        var $http;
+        var $q;
+        var $cacheFactory;
+        // var $cacheFactory;
+        var data;
+        var path;
+&nbsp;
+        beforeEach(inject(function(_ajaxService_, _$http_, _$q_, _$cacheFactory_, _$timeout_) {
+            ajaxService = _ajaxService_;
+            $http = _$http_;
+            $q = _$q_;
+            $cacheFactory = _$cacheFactory_;
+            path = '/GET/person/info.do';
+            data = {
+                name: 'js-library',
+                author: 'hr'
+            };
+          // sinon.stub($log, 'warn', function() {});
+        }));
+&nbsp;
+        describe('public method', function() {
+            it('send method', function() {
+                expect(ajaxService.send).toBeDefined();
+            });
+&nbsp;
+            it('clearCache method', function() {
+                expect(ajaxService.clearCache).toBeDefined();
+            });
+        });
+&nbsp;
+        describe('case: method', function() {
+            it('POST method', inject(function (ajaxService, $httpBackend) {
+                $httpBackend
+                    .expect('POST', path)
+                    .respond(200, '{"data": true, "status": 200}');
+&nbsp;
+                ajaxService
+                  .send(path)
+                  .then(function(data) {
+                      expect(data.data).toBeTruthy();
+                  });
+&nbsp;
+                $httpBackend.flush();
+            }));
+&nbsp;
+            it('GET method', inject(function (ajaxService, $httpBackend) {
+                $httpBackend
+                    .expect('GET', path)
+                    .respond(200, '{"data": true, "status": 200}');
+&nbsp;
+                ajaxService
+                  .send(path, { method: 'GET' })
+                  .then(function(data) {
+                      expect(data.data).toBeTruthy();
+                  });
+&nbsp;
+                $httpBackend.flush();
+            }));
+&nbsp;
+            it('', inject(function (ajaxService, $httpBackend) {
+                $httpBackend
+                    .expect('GET', path)
+                    .respond(200, '{"data": true, "status": 200}');
+&nbsp;
+                ajaxService
+                  .send(path, { method: 'GET' })
+                  .then(function(data) {
+                      expect(data.data).toBeTruthy();
+                  });
+&nbsp;
+                $httpBackend.flush();
+            }));
+        });
+&nbsp;
+        describe('case: isResponseFilter', function() {
+            it('isResponseFilter=true', inject(function (ajaxService, $httpBackend) {
+                $httpBackend
+                    .expect('POST', path)
+                    .respond(200, '{"data": "�nr\u0002\b &amp;nbsp", "status": 200}');
+&nbsp;
+                ajaxService
+                  .send(path, { isResponseFilter: true })
+                  .then(function(data) {
+                      expect(data.data).toContain('&amp;nbsp');
+                  });
+&nbsp;
+                $httpBackend.flush();
+            }));
+&nbsp;
+            // it('isResponseFilter=false', inject(function (ajaxService, $httpBackend) {
+            //     $httpBackend
+            //         .expect('POST', path)
+            //         .respond(200, '{"data": "�nr\u0002\b &amp;nbsp", "status": 200}');
+&nbsp;
+            //     try {
+            //         ajaxService
+            //           .send(path);
+            //     } catch (e) {
+            //         console.log(e);
+            //         expect(1).toBe(1);
+            //     }
+            //     // expect(temp()).toThrow();
+&nbsp;
+            //     $httpBackend.flush();
+            // }));
+        });
+&nbsp;
+        describe('status', function() {
+            it('200', inject(function (ajaxService, $httpBackend) {
+                $httpBackend
+                    .expect('POST', path)
+                    .respond(200, '{"data": true, "status": 200}');
+&nbsp;
+                ajaxService
+                  .send(path)
+                  .then(function (data) {
+                      expect(data.status).toBe(200);
+                  }, <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                      expect(data).toThrow(400);</span>
+                  });
+&nbsp;
+                $httpBackend.flush();
+            }));
+&nbsp;
+            it('300', inject(function (ajaxService, $httpBackend) {
+                $httpBackend
+                    .expect('POST', path)
+                    .respond(200, '{"data": true, "status": 300}');
+&nbsp;
+                ajaxService
+                  .send(path, {
+                      partSuccessHandler: function (data) {
+                          expect(data.status).toBe(300);
+                      }
+                  });
+&nbsp;
+                $httpBackend.flush();
+            }));
+&nbsp;
+            it('400', inject(function (ajaxService, $httpBackend) {
+                $httpBackend
+                    .expect('POST', path)
+                    .respond(200, '{"data": true, "status": 400}');
+&nbsp;
+                ajaxService
+                  .send(path)
+                  .then(<span class="fstat-no" title="function not covered" >function (data) {</span>
+<span class="cstat-no" title="statement not covered" >                      expect(data.data).toContain('&amp;nbsp');</span>
+                  }, function (data) {
+                      expect(data.status).toBe(400);
+                  });
+&nbsp;
+                $httpBackend.flush();
+            }));
+&nbsp;
+            it('500', inject(function (ajaxService, $httpBackend) {
+                $httpBackend
+                    .expect('POST', path)
+                    .respond(200, '{"data": true, "status": 500}');
+&nbsp;
+                ajaxService
+                  .send(path);
+&nbsp;
+                $httpBackend.flush();
+            }));
+&nbsp;
+            it('700', inject(function (ajaxService, $httpBackend) {
+                $httpBackend
+                    .expect('POST', path)
+                    .respond(200, '{"data": true, "status": 700}');
+&nbsp;
+                ajaxService
+                  .send(path);
+&nbsp;
+                $httpBackend.flush();
+            }));
+        });
+&nbsp;
+        describe('content type', function() {
+            it('text', inject(function (ajaxService, $httpBackend) {
+                $httpBackend
+                    .expect('POST', path, function (data) {
+                        // console.log(data);
+                        // 'name=js-library&amp;author=hr'
+                        expect(data).toBe('name=js-library&amp;author=hr');
+                        return data;
+                    })
+                    .respond(200, '{"data": true, "status": 200}');
+&nbsp;
+                ajaxService
+                  .send(path, {
+                      data: data,
+                      contentType: 'application/x-www-form-urlencoded',
+                      transformRequest: function(obj) {
+                          // console.log(obj);
+                          obj = JSON.parse(obj);
+                          var str = [];
+                          for (var p in obj) {
+                              <span class="missing-if-branch" title="else path not taken" >E</span>if (obj.hasOwnProperty(p)) {
+                                  <span class="missing-if-branch" title="if path not taken" >I</span>if (obj[p] &amp;&amp; Object.prototype.toString.call(obj[p]) === '[object Object]') {
+<span class="cstat-no" title="statement not covered" >                                      str.push(encodeURIComponent(p) + '=' + encodeURIComponent(JSON.stringify(obj[p])));</span>
+                                  } else {
+                                      str.push(encodeURIComponent(p) + '=' + encodeURIComponent(obj[p]));
+                                  }
+                              }
+                          }
+                          return str.join('&amp;');
+                      }
+                  });
+&nbsp;
+                $httpBackend.flush();
+            }));
+        });
+        
+        describe('cache', function() {
+            var cache;
+            var params;
+            beforeEach(inject(function ($cacheFactory) {
+                cache = $cacheFactory('js-library-' + new Date().getTime());
+                params = {
+                    data: data,
+                    cache: cache
+                };
+                var key = path + '_' + JSON.stringify(params);
+                cache.put(key, {
+                    data: {
+                      "data": false,
+                      "status": 200
+                    },
+                    createTime: new Date().getTime()
+                });
+            }));
+&nbsp;
+            it('Get', inject(function (ajaxService, $httpBackend, $cacheFactory) {
+                $httpBackend
+                    .expect('POST', path)
+                    .respond(200, '{"data": true, "status": 200}');
+&nbsp;
+                ajaxService
+                    .send(path, params)
+                    .then(<span class="fstat-no" title="function not covered" >function (data) {</span>
+<span class="cstat-no" title="statement not covered" >                        expect(data.data).toBe(false);</span>
+<span class="cstat-no" title="statement not covered" >                        ajaxService.clearCache();</span>
+                    });
+&nbsp;
+                // $httpBackend.flush();
+            }));
+&nbsp;
+            // timeout风险
+            it('timeout', inject(function (ajaxService, $httpBackend, $cacheFactory, $timeout) {
+                // ajaxService.clearCache();
+                $httpBackend
+                    .expect('POST', path)
+                    .respond(200, '{"data": true, "status": 200}');
+&nbsp;
+                $timeout(<span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                    params.cacheExpires = 100;</span>
+<span class="cstat-no" title="statement not covered" >                    ajaxService</span>
+                        .send(path, params)
+                        .then(<span class="fstat-no" title="function not covered" >function (data) {</span>
+<span class="cstat-no" title="statement not covered" >                            expect(data.data).toBe(true);</span>
+                        });
+<span class="cstat-no" title="statement not covered" >                    $httpBackend.flush();</span>
+                }, 200);
+            }));
+        });
+    });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Nov 23 2015 10:40:55 GMT+0800 (CST)</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

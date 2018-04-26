@@ -1,0 +1,125 @@
+/**
+ * @file 支付 - 花呗分期
+ * @author niuxiaojing
+ */
+@import './common/layout.less';
+
+body {
+    overflow-y: scroll;
+}
+
+#main {
+
+    padding-bottom: 0;
+
+    > .header {
+        .purchase-notice {
+            font-size: @font-size-tiny;
+            color: @brand-text-lighter;
+            line-height: 2;
+            padding-bottom: @gap-vertical-medium;
+            border-bottom: 1px solid @brand-gray;
+
+            > span + span {
+                margin-left: @gap-horizontal-medium;
+            }
+        }
+    }
+
+    > .body {
+        padding-top: @gap-vertical-huge;
+        min-height: 300px;
+
+        .type-notice > .money {
+            float: right;
+        }
+
+        .type-list {
+            padding: @gap-vertical-huge 0;
+
+            > li {
+                display: inline-block;
+
+                & + li {
+                    margin-left: @gap-horizontal-large;
+                }
+
+                > input {
+                    display: none;
+                }
+
+                > label {
+                    display: inline-block;
+                    text-align: center;
+                    padding: @gap-vertical-small @gap-horizontal-huge;
+                    border: 1px solid @brand-gray;
+                    border-radius: 2px;
+                    cursor: pointer;
+
+                    .period {
+                        font-size: @font-size-medium;
+                    }
+
+                    .interest {
+                        color: @brand-text-lighter;
+                    }
+                }
+
+                > input:checked + label {
+                    color: @brand-primary;
+                    border-color: @brand-primary;
+
+                    .interest {
+                        color: @brand-primary;
+                    }
+                }
+            }
+        }
+
+        .unavailable-notice {
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: @gap-vertical-small @gap-horizontal-huge;
+            background-color: @brand-primary;
+            color: #fff;
+            border-radius: 2px;
+            min-width: 120px;
+            text-align: center;
+            font-size: @font-size-medium
+        }
+
+        .button:hover {
+            background-color: #f29100;
+            transition: background-color 0.2s;
+            cursor: pointer;
+        }
+    }
+
+    > .footer {
+        margin-top: 20px;
+        text-align: center;
+
+        > span {
+            background: url(../../img/im/expression-50.png) no-repeat 0 0;
+            display: inline-block;
+            margin-right: 15px;
+            width: 104px;
+            height: 123px;
+            vertical-align: middle;
+        }
+
+        a {
+            margin-left: 5px;
+            margin-right: 10px;
+            color: @brand-info;
+            &:hover {
+                color: @brand-primary;
+            }
+        }
+    }
+
+}
+

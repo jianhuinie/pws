@@ -1,0 +1,34 @@
+{{ *
+
+@file 活动 老师排名 第三期
+@author liucong
+
+* }}
+
+{{ extends file="./common/teacherRank.html" }}
+
+{{ block name="data" }}
+
+{{ $smarty.block.parent }}
+{{ include file="teacher_center/data/teacherRank/season3.html" scope=parent }}
+
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/teacherCenter/teacherRank3.less">
+{{ /block }}
+
+{{ block name="previousRank" }}
+    {{ if isset($tpl_data.is_download_app) &&  $tpl_data.is_download_app && !empty($tpl_data.previous_rank_list) }}
+    <div class="previous">
+        <div class="header">
+            往期排名
+        </div>
+        <div class="msg">
+            {{ foreach $tpl_data.previous_rank_list as $previous_rank }}
+                <p>{{ $previous_rank }}</p>
+            {{ /foreach }}
+        </div>
+    </div>
+    {{ /if }}
+{{ /block }}

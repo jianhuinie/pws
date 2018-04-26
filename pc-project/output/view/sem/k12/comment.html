@@ -1,0 +1,29 @@
+{{ *
+
+@file 评价板块
+@author wangyujie
+
+* }}
+
+{{ strip }}
+
+{{ $totalCount = $comments.great + $comments.middle + $comments.bad }}
+
+<div class="show-comment">
+    {{ if $totalCount > 0 }}
+        <div class="tab-nav-info">
+            {{ include file="sem/k12/comment/commentNav.html" }}
+        </div>
+
+        <div class="nav-content"></div>
+    {{ /if }}
+</div>
+
+{{ if $totalCount < 1 }}
+<div id="teacher-no-comment" style="height:340px;">
+    <div class="no-comment-icon"></div>
+    <span>暂时还没有评价<br/></span>
+</div>
+{{ /if }}
+
+{{ /strip }}

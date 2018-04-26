@@ -1,0 +1,13 @@
+{{ strip }}
+
+{{ if $user_data.user_type == 0 }}
+    {{ $identity = "teacher" }}
+{{ else }}
+    {{ $identity = "student" }}
+{{ /if }}
+
+{{ foreach $tpl_data.order_list as $order }}
+    {{ include file="./orderItem.html" order=$order }}
+{{ /foreach }}
+
+{{ /strip }}

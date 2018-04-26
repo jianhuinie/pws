@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_telephone</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="老师端" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-227.000000, -220.000000)" stroke="#000000">
+            <path d="M232.94904,226.722536 C234.114862,225.55482 235.132408,224.836582 233.064881,222.262047 C230.997353,219.688439 229.617457,221.665215 228.485923,222.796787 C227.182019,224.101663 228.417346,228.966218 233.225204,233.774241 C238.033063,238.582263 242.899306,239.819486 244.203211,238.512756 C245.335671,237.383038 247.310526,236.004948 244.738859,233.936423 C242.165338,231.866045 241.445272,232.883626 240.277596,234.052268 C239.460223,234.865035 237.398255,233.163507 235.617086,231.382277 C233.834991,229.601974 232.132594,227.538083 232.94904,226.722536 Z" id="ic_telephone"></path>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,65 @@
+/**
+ * @file 相关课程
+ * @author wangtianhua
+ */
+@import './common.styl';
+.related-course {
+    > .wrapper {
+        width: 835px;
+        padding: 25px;
+        background-color: #fff;
+        border: 1px solid $border-color;
+        color: $dark-gray;
+        .header {
+            .title {
+                font-size: 16px;
+            }
+            .help {
+                float: right;
+                font-size: 12px;
+            }
+        }
+        .related-course-editor {
+            padding-top: 30px;
+        }
+        .related-course-card {
+            vertical-align: top;
+            display: inline-block;
+            width: 240px;
+            margin-right: 10px;
+            position: relative;
+            img {
+                width: 100%;
+            }
+            .delete-icon {
+                display: none;
+                .icon {
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    padding: 11px;
+                    background-color: $grey;
+                }
+            }
+            &:hover {
+                .delete-icon {
+                    display: block;
+                }
+            }
+            .add-related-course {
+                border: 1px solid $muted;
+                padding: 36px;
+                background: #f8f8f8;
+                &:hover {
+                    background-color: #fff;
+                    border-color: #f90;
+                }
+                .icon-plus {
+                    font-size: 29px;
+                    padding: 0 66px;
+                }
+            }
+        }
+
+    }
+}

@@ -1,0 +1,37 @@
+.can-comment-order-dialog {
+    .dialog-body {
+        padding: 0;
+    }
+
+    .can-comment-order-list {
+
+        max-height: 470px;
+        overflow: auto;
+        li {
+            border-bottom: 1px solid #ddd;
+            font-size: 12px;
+            list-style-type: disc;
+            list-style-position: inside;
+            padding: @gap-vertical-medium
+                     2 * @gap-horizontal-medium;
+            span {
+                display: inline-block;
+            }
+        }
+        .course-name {
+            width: 230px;
+        }
+        .course-cat {
+            border: 1px solid @brand-primary;
+            border-radius: 2px;
+            color: @brand-primary;
+            width: 60px;
+            text-align: center;
+            margin-right: 20px;
+        }
+        .course-remain {
+            width: 100px;
+            margin: 0 @gap-horizontal-medium;
+        }
+    }
+}

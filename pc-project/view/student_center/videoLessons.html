@@ -1,0 +1,208 @@
+{{ *
+@file 学生个人中心 - 我的视频课
+@author liucong
+* }}
+
+{{ extends file="common/center/base.html" }}
+
+{{ block name="data" }}
+    {{ $smarty.block.parent }}
+
+    {{ $script_path = "studentCenter/videoLessons" }}
+
+{{ /block }}
+
+{{ block name="title" prepend }}
+我的视频课 -
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/studentCenter/videoLessons.less">
+{{ $smarty.block.parent }}
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+{{ include file="student_center/common/sidebar.html" active="videoLessons" }}
+
+{{ *
+    参数
+    $cur_index 当前播放课节序号
+    $course_number
+* }}
+{{ function getPlayLink }}
+    <a href="/video_course/play?course_number={{ $course_number }}" target="_blank" class="btn-default">{{ if $cur_index == 0 }}立即{{ else }}继续{{ /if }}学习</a>
+{{ /function }}
+
+{{ *
+    参数
+    $course_number
+* }}
+{{ function getPurchaseLink }}
+    <a href="/pay/productDetail?type=3&course_number={{ $course_number }}" class="btn-primary">购买继续学习</a>
+{{ /function }}
+
+{{ function getOffStockLink }}
+    <button class="btn-default" disabled="true">已下架</button>
+{{ /function }}
+
+<div class="card" id="content">
+    <div class="card-header">
+        <div class="operarions">
+            <div class="btn-default to-del">
+                删除视频课
+            </div>
+            <div class="btn-default cancel-del">
+                取消
+            </div>
+            <div class="btn-primary del-video-course">
+                删除选中视频课
+            </div>
+        </div>
+
+        <h2>
+            我的视频课
+        </h2>
+    </div>
+    <div class="card-body">
+        {{ if !empty($tpl_data.lesson_list) }}
+            {{ foreach $tpl_data.lesson_list as $lesson }}
+                <div class="video-course-group">
+                    <input class="checked-flag" type="checkbox" name="purchase_id" value="{{ $lesson.real_purchase_id }}" />
+
+                    <table class="table">
+                        <colgroup>
+                            <col width="50%">
+                            <col width="25%">
+                            <col width="25%">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th class="left" colspan="3">
+                                    <span>购买时间：{{ $lesson.purchase_time }}</span>
+                                    <span>课程编号：{{ $lesson.course_number }}</span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="course-info">
+                                    <div class="portrait">
+                                        <a target="_blank" href="/video_course/getcourseshowdetail?number={{ $lesson.course_info.number }}&user_number={{ $lesson.course_info.teacher_number }}">
+                                            {{ include file="common/component/image.html" url=$lesson.course_info.portrait width=120 height=80 }}
+                                        </a>
+                                    </div>
+                                    <div class="left">
+                                        <div class="name" data-title="{{ $lesson.course_info.name }}">
+                                            <a target="_blank" href="/video_course/getcourseshowdetail?number={{ $lesson.course_info.number }}&user_number={{ $lesson.course_info.teacher_number }}">{{ $lesson.course_info.name|cn_truncate:11 }}</a>
+                                        </div>
+                                        <div>老师：<span class="teacher-name">
+                                            <a target="_blank" href="/{{ $lesson.course_info.teacher_domain }}">{{ $lesson.course_info.teacher_name }}</a>
+                                                </span>
+                                        </div>
+                                        <div class="course-item-count">{{ $lesson.course_info.course_items_count }}课节</div>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div>
+                                        {{ if $lesson.current_index == 0 }}
+                                            {{ $lesson.first_lesson_name }}
+                                        {{ else $lesson.current_index > 0 }}
+                                            已经学习到第
+                                            <span class="text-error">
+                                                {{ $lesson.current_index }}
+                                            </span>课节
+                                        {{ /if }}
+                                    </div>
+                                    <div class="action">
+                                    {{ *
+                                        {{ if (($lesson.is_expired) or ($lesson.purchase_id == 0 && $lesson.lesson_type == 0)) }}
+                                        <a href="/pay/productDetail?type=3&course_number={{ $lesson.course_number }}" class="btn-primary">购买继续学习</a>
+                                        {{ else if $lesson.current_index == 0 }}
+                                        <a href="/video_course/play?course_number={{ $lesson.course_number }}" class="btn-default">立即去学习</a>
+                                        {{ else $lesson.current_index > 0 }}
+                                        <a href="/video_course/play?course_number={{ $lesson.course_number }}" class="btn-default">继续学习</a>
+                                        {{ /if }}
+                                    * }}
+                                    {{ if $lesson.course_info.video_status == 1 || $lesson.course_info.video_status == 3 }}
+                                        {{ getOffStockLink }}
+                                    {{ else }}
+                                        {{ * 未过期付费课 去学习 * }}
+                                        {{ if $lesson.lesson_type == 0 && $lesson.is_expired == 0 }}
+                                            {{ getPlayLink cur_index=$lesson.current_index course_number=$lesson.course_number }}
+
+                                        {{ * 未下架免费课 去学习 * }}
+                                        {{ else if $lesson.lesson_type == 1 && $lesson.course_info.status == 1 }}
+                                            {{ getPlayLink cur_index=$lesson.current_index course_number=$lesson.course_number }}
+
+                                        {{ * 下架已过期 已下架 阻止任何操作 * }}
+                                        {{ else if $lesson.is_expired == 1 && $lesson.course_info.status == 3 }}
+                                            {{ getOffStockLink }}
+
+                                        {{ * 老师删除视频 * }}
+                                        {{ else if $lesson.course_info.status == 5 }}
+                                            {{ getOffStockLink }}
+
+                                        {{ * 已过期未下架的付费课 去购买 * }}
+                                        {{ else if $lesson.is_expired == 1 && $lesson.course_info.status == 1 && $lesson.lesson_type == 0 }}
+                                            {{ getPurchaseLink course_number = $lesson.course_number }}
+                                        {{ /if }}
+                                    {{ /if }}
+                                    </div>
+                                </td>
+
+                                <td class="expire">
+                                    {{ * 已购买的付费课 变为免费课 未下架 * }}
+                                    {{ if $lesson.purchase_id != 0  && $lesson.lesson_type == 1 && $lesson.course_info.status == 1 }}
+                                    该课程已被老师</br>设置成免费课程
+
+                                    {{ * 免费课变为付费课 * }}
+                                    {{ else if $lesson.purchase_id == 0 && $lesson.lesson_type == 0 }}
+                                    该课程已被老师</br>设置成付费课程</br>
+                                        {{ * 要是还未下架 * }}
+                                        {{ if $lesson.course_info.status == 1 }}
+                                    请购买继续学习
+                                        {{ /if }}
+
+                                    {{ * 本身就是免费课 就是未购买 * }}
+                                    {{ else if $lesson.purchase_id == 0 && $lesson.lesson_type == 1 }}
+                                    该课程是免费课
+
+                                    {{ * 其他情况 * }}
+                                    {{ else }}
+                                    <div>
+                                        {{ if $lesson.is_expired }}
+                                        已过有效期
+                                        {{ else if $lesson.valid_days < 0 }}
+                                        永久有效
+                                        {{ else if $lesson.valid_days <= 5 }}
+                                        <span class="text-error">仅剩{{ $lesson.valid_days }}天</span>
+                                        {{ /if }}
+                                    </div>
+                                    <div>
+                                        {{ if $lesson.valid_days >= 0 }}
+                                        视频观看有效期至：</br>
+                                        <span class="expire_time">{{ $lesson.expire_time }}</span>
+                                        {{ /if }}
+                                    </div>
+                                    {{ /if }}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            {{ /foreach }}
+        {{ else }}
+            <div class="no-data">
+                <div class="wrapper">
+                    <i class="icon icon-info-circle"></i>
+                    没有视频课
+                </div>
+            </div>
+        {{ /if }}
+    </div>
+</div>
+
+{{ /strip }}
+{{ /block }}

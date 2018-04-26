@@ -1,0 +1,140 @@
+{{ strip }}
+
+{{ if isset($smarty.get.action) }}
+    {{ $url = $smarty.get.action }}
+{{ else }}
+    {{ $url = '' }}
+{{ /if }}
+
+<div id="all-courses" class="card">
+    <div class="title">
+        该课程全部课型
+        <span class="hint">
+            选择一个课型报名
+        </span>
+    </div>
+    <table class="course-list">
+        <thead>
+            <tr>
+                <td class="class-code">课程编号</td>
+                <td class="class-name">课程名称</td>
+                <td class="class-time">上课时间</td>
+                <td>课程安排</td>
+                <td>上课地点</td>
+                <td class="class-explain">课时说明</td>
+                <td class="class-option">操作</td>
+            </tr>
+        </thead>
+        <tbody>
+            {{ foreach $tpl_data.course_info.type_info as $course }}
+            <tr class="to-course">
+                <td>
+                    <a href="{{ $course.detail_url }}" target="_blank">
+                        {{ if $course.code }}
+                            {{ $course.code }}
+                        {{ else }}
+                            待定
+                        {{ /if }}
+                    </a>
+                </td>
+                <td class="class-name">
+                    <a href="{{ $course.detail_url }}" target="_blank">
+                        {{ $course.name }}
+                    </a>
+                </td>
+                <td>
+                    <a href="{{ $course.detail_url }}" target="_blank">
+                        {{ if $course.class_time }}
+                            {{ $course.class_time }}
+                        {{ else }}
+                            待定
+                        {{ /if }}
+                    </a>
+                </td>
+                <td>
+                    <a href="{{ $course.detail_url }}" target="_blank">
+                        {{ if $course.class_plan }}
+                            {{ $course.class_plan }}
+                        {{ else }}
+                            待定
+                        {{ /if }}
+                    </a>
+                </td>
+                <td>
+                    <a class="address" href="{{ $course.detail_url }}" target="_blank">
+                        {{ if $course.lesson_way == 2 }}
+                            在线授课
+                        {{ else if $course.lesson_way == 4 }}
+                            {{ if {{ $course.address }} }}
+                                {{ $course.address }}
+                            {{ else }}
+                                待定
+                            {{ /if }}
+                        {{ /if }}
+                    </a>
+                </td>
+                <td>
+                    <a href="{{ $course.detail_url }}" target="_blank">
+                        {{ $course.class_hour_explain }}
+                    </a>
+                </td>
+                <td class="text-primary">
+                    {{ if $tpl_data.course_info.course_type == 11 }}
+                        {{ if $course.status == 2 }}
+                            {{ if $course.buy_way == 1 }}
+                                <a class="btn-primary" href="{{ $course.detail_url }}" target="_blank">
+                                    选择课时
+                                </a>
+                            {{ else if $course.buy_way == 2 }}
+                                <div class="enroll-action">
+                                    <button class="btn-primary reserve-course" data-number="{{ $course.number }}" data-lessonway="{{ $course.lesson_way }}">
+                                        立即购买
+                                    </button>
+                                </div>
+                            {{ /if }}
+                        {{ else if $course.status == 3 }}
+                            <div class="enroll-action">
+                                <button class="btn-default">
+                                    暂停招生
+                                </button>
+                            </div>
+                        {{ else if $course.status == 14 }}
+                            <div class="enroll-action">
+                                <button class="btn-default">
+                                    已下架
+                                </button>
+                            </div>
+                        {{ /if }}
+                    {{ else if $tpl_data.course_info.course_type == 12 }}
+                        {{ $display_status = $course.display_status }}
+                        {{ if $display_status == 2 }}
+                            <div class="btn-primary
+                            {{ if $url != 'shenhe' }} reserve-course{{ else }} disabled{{ /if }}"
+                            data-number="{{ $course.number }}" data-lessonway="{{ $course.lesson_way }}" data-price="{{ $course.price }}">
+                                立即报名
+                            </div>
+                        {{ else if $display_status == 3 || ( $display_status == 5 && $course.status == 3) }}
+                            <div class="btn-default">暂停招生</div>
+                        {{ else if $display_status == 4 }}
+                            <div class="btn-default">已满班</div>
+                        {{ else if $display_status == 5 || $display_status == 17 }}
+                            <div class="btn-default">进行中</div>
+                        {{ else if $display_status == 6 || $display_status == 13 }}
+                            <div class="btn-default">已完成</div>
+                        {{ else if $display_status == 8 }}
+                            <div class="btn-default">审核中</div>
+                        {{ else if $display_status == 14 }}
+                            <div class="btn-default">已下架</div>
+                        {{ else if $display_status == 15 }}
+                            <div class="btn-success">已报名</div>
+                        {{ else if $display_status == 16 }}
+                            <div class="btn-default">即将开课</div>
+                        {{ /if }}
+                    {{ /if }}
+                </td>
+            </tr>
+            {{ /foreach }}
+        </tbody>
+    </table>
+</div>
+{{ /strip }}

@@ -1,0 +1,13 @@
+[{
+	"tpl": "./callForStudent/callForStudent.tpl",
+	"router": "/cfs",
+	"mock_data": "./callForStudent/mock/callForStudent.json"
+}, {
+	"tpl": "./backVisitTeacher/backVisitTeacher.tpl",
+	"router": "/bvt",
+	"mock_data": "./backVisitTeacher/mock/backVisitTeacher.json"
+}, {
+	"tpl": "./backVisitStudent/backVisitStudent.tpl",
+	"router": "/bvs",
+	"mock_data": "./backVisitStudent/mock/backVisitStudent.json"
+}]

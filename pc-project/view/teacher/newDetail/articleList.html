@@ -1,0 +1,81 @@
+{{ *
+
+@file 文章列表
+@author zengcheng
+
+* }}
+
+{{ strip }}
+<div class="article-list">
+    {{ $permissions = array("公开", "学生可见", "仅自己可见") }}
+    {{ $hasCover = false }}
+    {{ foreach $tpl_data.articles as $article }}
+    {{ $hasCover = false }}
+    {{ if isset($article.cover) && $article.cover != null }}
+    {{ $hasCover = true }}
+    {{ /if }}
+    <div class="article {{ if $hasCover }}has-cover{{ /if }}" data-id="{{ $article.item_id }}" data-url="{{ $article.detail_url }}">
+        <div class="article-header">
+            <span class="article-title">
+                {{ $article.title|cn_truncate:21|escape:"html" }}
+            </span>
+            <span class="icon icon-img"></span>
+            {{ * 暂时取消 * }}
+            {{ if false && $tpl_data.is_self == 1 }}
+            <span class="article-operation">
+                <a class="operation operation-edit" href="javascript:void(0)">编辑</a>
+                <span class="operation-divider">|</span>
+                <a class="operation operation-del" href="javascript:void(0)">删除</a>
+            </span>
+            {{ /if }}
+        </div>
+        <div class="article-content">
+            {{ $article.summary|default:"..."|escape:"html"|truncate:66:"...":true }}
+        </div>
+        <div class="article-shot-actions">
+            <span class="shot-action">
+                {{ $article.publish_at }}
+            </span>
+            <span class="shot-action">
+                <i class="icon icon-thumbs-up"></i>
+                {{ $article.upvotes }}
+            </span>
+         </div>
+         {{ if $hasCover }}
+         <div class="article-cover">
+            {{ include file="common/component/image.html" url=$article.cover width=200 height=112 }}
+         </div>
+         {{ /if }}
+    </div>
+    {{ foreachelse }}
+    <div class="no-article">
+        <div class="img-wrapper">
+            <div class="img"></div>
+        </div>
+        {{ if $tpl_data.is_self == 1 }}
+            {{ if !isset($smarty.request.cid) || $smarty.request.cid == 0 }}
+            <div class="text-center">快来写下你的第一篇文章吧!</div>
+            <div class="text-center">
+                <a class="btn-small btn-primary btn-writer" href="javascript:void(0)">我要写文章</a>
+            </div>
+            {{ else }}
+            <div class="text-center">
+                该分类下还没有文章哦!
+            </div>
+            {{ /if }}
+        {{ else }}
+            {{ if !isset($smarty.request.cid) || $smarty.request.cid == 0 }}
+            <div class="text-center">
+                该老师还没有写过一篇文章，下次再来吧！
+            </div>
+            {{ else }}
+            <div class="text-center">
+                该分类下还没有文章哦，去瞧瞧别的分类吧!
+            </div>
+            {{ /if }}
+        {{ /if }}
+    </div>
+    {{ /foreach }}
+</div>
+{{ include file="common/component/pager.html" show_count=8 count=$tpl_data.pager.total page=$tpl_data.pager.current_page hide_jump=true }}
+{{ /strip }}

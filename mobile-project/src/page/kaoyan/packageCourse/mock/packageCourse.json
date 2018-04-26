@@ -1,0 +1,53 @@
+{
+    "tpl_data": {
+        "cover": "http://test-img.gsxservice.com/0cms/d/file/content/2015/12/568287f5d9781.jpg",
+        "number": 160202475716,
+        "name": "第一门打包课",
+        "original_price": "20.02",
+        "price": "0.01",
+        "infomation": " 这是一门打包课",
+        "introduction": "<p><img width=\"100%\" height=\"auto\" whs=\"0.34076827757125\" clip=\"0\" data-src=\"https://imgs.genshuixue.com/5902141_gahm1yyc.jpeg\" title=\"\" alt=\"介绍课程1.JPG\" /><img width=\"100%\" height=\"auto\" whs=\"2.7118644067797\" clip=\"0\" data-src=\"https://imgs.genshuixue.com/6292319_8idjc5tp.jpeg\" title=\"\" alt=\"聚惠学.jpg\" /></p>  ",
+        "student_count_str": 0,
+        "download_url": "http://kaoyan.test-m.genshuixue.com/download/kaoyan",
+        "list": [
+            {
+                "cover": "http://test-img.gsxservice.com/378270_jbxrrtyt.jpeg",
+                "number": 15082973407,
+                "name": "A课节",
+                "price": "0.00",
+                "schedule_count": "共2课节",
+                "time_summary": null,
+                "detail_url": "http://kaoyan.test-m.genshuixue.com/video_course/getcourseshowdetail?number=15082973407",
+                "course_type": 3,
+                "course_type_str": "录播",
+                "teacher_name": "不要修改昵称不要修改昵称"
+            },
+            {
+                "cover": "http://test-img.gsxservice.com/425887_9ollagod.jpeg",
+                "number": 160129484376,
+                "name": "搜索02",
+                "price": "20.00",
+                "schedule_count": "共4课节",
+                "time_summary": "05月06日-05月09日",
+                "detail_url": "http://kaoyan.test-m.genshuixue.com/teacher/classCourseDetail/160129484376",
+                "course_type": 2,
+                "course_type_str": "直播",
+                "teacher_name": "郑冬"
+            },
+            {
+                "cover": "http://test-img.gsxservice.com/429781_ghm8v7wf.jpeg",
+                "number": 160220551185,
+                "name": "一分钱直播课",
+                "price": "0.01",
+                "schedule_count": "共38课节",
+                "time_summary": "02月22日-03月30日",
+                "detail_url": "http://kaoyan.test-m.genshuixue.com/teacher/classCourseDetail/160220551185",
+                "course_type": 2,
+                "course_type_str": "直播",
+                "teacher_name": "陈默"
+            }
+        ]
+    },
+    "ext_data": {
+    }
+}

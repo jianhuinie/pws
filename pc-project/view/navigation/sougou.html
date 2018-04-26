@@ -1,0 +1,87 @@
+{{ extends file="common/pc/base.html" }}
+
+{{ block name="data" }}
+{{ strip }}
+    {{ $need_im=false }}
+    {{ $smarty.block.parent }}
+
+    {{ $script_path = "navigation/sougou" }}
+    {{ $script_data.site = $tpl_data.site }}
+
+{{ /strip }}
+{{ /block }}
+
+
+{{ block name="meta" }}
+{{ strip }}
+{{ /strip }}
+{{ /block }}
+
+{{ block name="title" }}
+{{ strip }}
+跟谁学-找好老师，上跟谁学
+{{ /strip }}
+{{ /block }}
+
+
+{{ block name="keywords" }}
+{{ strip }}
+跟谁学
+{{ /strip }}
+{{ /block }}
+
+{{ block name="description" }}
+{{ strip }}
+跟谁学
+{{ /strip }}
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/navigation/sougou.less">
+{{ /block }}
+
+{{ block name="body" }}
+{{ strip }}
+{{ include file="main/constant.html" }}
+{{ include file="main/data/adId.html" scope=parent }}
+
+<div id="main">
+    <div class="wrapper">
+        {{ include file="navigation/sougou/head.html" }}
+        <div class="main-wrapper" data-floor="0">
+            <div class="main-banner">
+                <div class="main-banner-promotion loading">
+                    <div class="promotion-slider-container"></div>
+                    <div class="promotion-right-banner"></div>
+                    <div class="bottom-slider-container"></div>
+                    <div class="bottom-right-banner"></div>
+                </div>
+            </div>
+            {{ include file="navigation/sougou/studyMain.html" }}
+            {{ include file="main/mods/bannerTpl.html" }}
+        </div>
+        {{ include file="navigation/sougou/broadcast.html" }}
+        {{ include file="navigation/sougou/juhuixue.html" }}
+        {{ include file="navigation/sougou/course.html" }}
+        {{ include file="navigation/sougou/teacher.html" }}
+        {{ include file="navigation/sougou/org.html" }}
+        {{ include file="navigation/sougou/studyAll.html" }}
+        {{ include file="navigation/sougou/link.html" }}
+        {{ **include file="navigation/sougou/partner.html"** }}
+    </div>
+</div>
+{{ include file="common/script.html" }}
+{{ if !empty($tpl_data.site) && $tpl_data.site == 'qq' }}
+<script>
+var spb_vars={"productid":"qqdaohang","ptype":"qita","pcode":"jiaoyv","pstr":"","pfunc":function(fg){},"pingback":function(){}};
+</script>
+{{ else }}
+<script>
+var spb_vars={"ptype":"qita","pcode":"jiaoyu","pstr":"","pfunc":function(fg){},"pingback":function(){}};
+</script>
+{{ /if }}
+<script type="text/javascript" src="http://pb.i.sogou.com/u/pb/pb.692148.js"></script>
+{{ /strip }}
+{{ /block }}
+
+

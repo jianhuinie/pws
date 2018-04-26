@@ -1,0 +1,47 @@
+<div class="class-detail">
+    <div class="wrapper">
+        <div class="header">
+            <div class="help texts"
+            data-title="
+<span>
+    您可以简要地描述课程的适学人群、课程规划及特点等。适当的使用短视频、图片、音频将使课程详情更加富有吸引力，提高学生对教学质量的信任程度
+    <p></p>
+    仅支持5M以内的jpg、png、jpeg格式图片，宽度最好不要超过760像素<br>
+    视频最大支持250MB，上传后需要最多3个小时左右进行转码，请您耐心等待<br>
+    请不要在内容中出现电话、QQ和个人网址哦！
+</span>
+            " data-skin="primary classcourse-help-tooltip" data-placement="bottomLeft" data-offset-x="90">
+                <i class="text primary icon-help-o"></i>
+                <span class="text">
+                    帮助信息
+                </span>
+            </div>
+            <div class="title">
+                课程图文详情
+            </div>
+        </div>
+
+        <div class="detail-editor">
+            {{#if errorContent}}
+            <div class="muted error-detail">
+                <div class="button">
+                    <i class="icon icon-warning error"></i>
+                    <span class="error">
+                        {{errorContent}}
+                    </span>
+                </div>
+            </div>
+            {{/if}}
+            <Editor options={{editorOptions}} />
+            <div class="label muted detail-preview" on-click="preview()">
+                <div class="button preview-detail-button">
+                    预览课程详情
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        {{style}}
+    </style>
+</div>

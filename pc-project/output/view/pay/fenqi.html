@@ -1,0 +1,127 @@
+{{ *
+
+@file 支付订单
+@author niuxiaojing
+
+* }}
+
+{{ extends file="common/main/base.html" }}
+
+{{ block name="data" }}
+
+    {{ $need_im = false }}
+    {{ $smarty.block.parent }}
+    {{ $script_path = "pay/fenqi_e3313b1abf" }}
+
+    {{ $script_data.purchaseId = $tpl_data.purchase_id }}
+    {{ $script_data.fenqiList = $tpl_data.fenqi_detail }}
+    {{ $script_data.totalMoney = $tpl_data.chosed_fenqi_type.fenqi_need_all_money }}
+    {{ $script_data.periods = $tpl_data.chosed_fenqi_type.periods }}
+    {{ $script_data.payTypeNumber = $tpl_data.fenqi_pay_list.huabai.pay_type }}
+
+    {{ $chosed = $tpl_data.chosed_fenqi_type }}
+
+{{ /block }}
+
+{{ * SKU统计上报 * }}
+{{ block name='sku_id' }}
+{{ $sku_id=$tpl_data.purchase_id }}
+{{ /block }}
+
+
+{{ block name="title" prepend }}
+支付 -
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/pay/fenqi_7bf0f2dfc8.css">
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+
+
+<div id="main" class="card">
+
+    <div class="header">
+        <div>
+            分期金额：￥
+            <span id="fenqi-money">
+                {{ if $tpl_data.can_use_fenqi }}
+                    {{ $chosed.fenqi_total_money }}
+                {{ else }}
+                    {{ $tpl_data.purchase_money }}
+                {{ /if }}
+            </span>
+            （包含手续费）
+        </div>
+        <div class="purchase-notice">
+            <span>
+                订单号：{{ $tpl_data.purchase_id }}
+            </span>
+            <span>
+                请您在提交订单7天内完成支付，否则订单会自动取消
+            </span>
+        </div>
+    </div>
+
+    <div class="body">
+        {{ if $tpl_data.can_use_fenqi }}
+        <div class="type-notice">
+            <span>
+                分期方式
+            </span>
+            <span class="money">
+                应还金额：￥
+                <span id="total-money">
+                    {{ $chosed.fenqi_need_all_money }}
+                </span>
+                （包含利息￥
+                <span id="total-fee">
+                    {{ $chosed.fenqi_need_all_rate_fee }}
+                </span>
+                ）
+            </span>
+        </div>
+        <ul class="type-list">
+            {{ foreach $tpl_data.fenqi_detail as $item }}
+            <li class="type-item">
+                <input type="radio" name="type" value="{{ $item@index }}" id="{{ $item.periods }}" {{ if $chosed.periods == $item.periods }}checked="checked" {{ /if }}>
+                <label for="{{ $item.periods }}">
+                    <div class="period">
+                        ￥{{ $item.every_periods_repayment }}×{{ $item.periods }}期
+                    </div>
+                    <div class="interest">
+                        含利息￥{{ $item.every_period_fee }}/期
+                    </div>
+                </label>
+            </li>
+            {{ /foreach }}
+        </ul>
+        <div class="button btn-fenqi-pay">
+            分期支付
+        </div>
+        {{ else }}
+        <div class="unavailable-notice">
+            {{ $tpl_data.fenqi_message }}
+        </div>
+        <div class="button btn-other-pay">
+            其它支付方式
+        </div>
+        {{ /if }}
+    </div>
+
+    <div class="footer">
+
+        <span></span>
+
+        支付有问题？<a href="/guide/pay?a=pay" target="_blank">查看帮助</a>请拨打客服热线 4000-910-910，010-86448910
+
+    </div>
+
+
+
+</div>
+
+{{ /strip }}
+{{ /block }}

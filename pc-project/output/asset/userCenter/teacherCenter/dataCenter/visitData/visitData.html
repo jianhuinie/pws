@@ -1,0 +1,82 @@
+<div id="content" class="card">
+
+    <div id="content-header"></div>
+
+    <div class="visit-data">
+
+        <div class="datas week">
+            <span class="datas-times">昨日浏览量：
+                <span> {{yesterday}} </span>
+            </span>
+            <span class="datas-times nearly-seven">
+                {{viewDisc}}浏览量:
+                <span> {{views}} </span>
+            </span>
+        </div>
+
+        <div class="dates">
+            <div class="dates-times
+            {{#if checked_tab_index == 0}} checked{{/if}}
+            " on-click="changeItem(0)">
+                近7天
+            </div>
+            <div class="dates-times
+            {{#if checked_tab_index == 1}} checked{{/if}}
+            " on-click="changeItem(1)">
+                近30天
+            </div>
+            <div class="dates-times
+            {{#if checked_tab_index == 2}} checked{{/if}}
+            " on-click="changeItem(2)">
+                近90天
+            </div>
+        </div>
+
+    </div>
+
+    <div class="charts-line"></div>
+
+    <div class="title">数据来源</div>
+    <div class="data-source">
+        {{#if vipLevel}}
+            <div class="course-left">
+                <div class="data-pie"></div>
+                {{#if origin}}
+                <div class="data-source-items">
+                    {{#each origin.origin:index}}
+                    <div class="source-item">
+                        <div class="item-name">{{origin.origin[index]}}</div>
+                        <div class="gsx-percent">{{origin.order_rate[index]}}</div>
+                    </div>
+                    {{/each}}
+                </div>
+                {{/if}}
+            </div>
+            <div class="course-right">
+                <div class="visit-number">{{sum_pv}}</div>
+                <div class="visit-descrip">{{viewDisc}}访客数</div>
+            </div>
+        {{else}}
+            <div class="not-source">
+                {{#if org}}
+                    流量来源数据仅会员用户可见， 请联系机构开通会员
+                {{else}}
+                    流量来源数据仅会员用户可见，
+                    <a href="https://www.genshuixue.com/pay/vip">开通会员</a>随时看哦
+                {{/if}}
+                <div class="button">
+                    <a href="/teacher_center/vip_center" target="_blank">
+                        了解会员特权
+                    </a>
+                </div>
+            </div>
+        {{/if}}
+    </div>
+    {{#if vipLevel}}
+        <div class="data-source-sug">
+            分享主页、课程、文章，获得更多浏览
+        </div>
+    {{/if}}
+</div>
+
+

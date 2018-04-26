@@ -1,0 +1,1 @@
+define("cobble/function/imageDimension",["require","exports","module"],function(){"use strict";var e=[];return function(n,i){var o=new Image,t=e.push(o);o.onload=function(){var n=o.height;if(null!=n&&n>0)i(o.width,n),delete e[t-1],o=null;else setTimeout(o.onload,10)},o.src=n}});

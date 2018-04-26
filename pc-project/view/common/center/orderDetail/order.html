@@ -1,0 +1,362 @@
+{{ *
+
+@file 订单信息
+@author zhujialu
+
+* }}
+{{ strip }}
+
+{{ $is_teacher = $identity == 'teacher' }}
+
+{{ if $is_video_course }}
+    {{ include file="common/variable/videoCourseOrderStatus.html" scope=parent }}
+{{ else }}
+    {{ include file="common/variable/orderStatus.html" scope=parent }}
+{{ /if }}
+
+{{ $is_wait_for_pay = $tpl_data.status == 'wait_for_pay' }}
+
+<div class="order">
+
+    <h2>
+        <i class="icon icon-circle"></i>
+        订单信息
+    </h2>
+
+    <small>
+        订单编号：{{ $tpl_data.purchase_id }}
+    </small>
+
+    {{ if !$tpl_data.is_self && !is_video_course }}
+    <small>
+        上课人：{{ $tpl_data.real_student }}
+    </small>
+    {{ /if }}
+
+    {{ if $is_class_course && $tpl_data.student_no }}
+    <small>
+        班内序号：{{ $tpl_data.student_no }}
+    </small>
+    {{ /if }}
+
+    {{ $retire_flag = "" }}
+    {{ $retire_length = "" }}
+    {{ if $is_class_course }}
+        {{ $retire_flag = $tpl_data.retire_flag }}
+        {{ $retire_length = $tpl_data.retire_length }}
+    {{ /if }}
+
+    {{ include file="common/component/safeguardIcon.html" use_plat_ensure=($tpl_data.use_plat_ensure|default:1) user_type=$user_data.user_type course_type=$tpl_data.course_type retire_flag=$retire_flag retire_length=$retire_length }}
+
+    <div class="content">
+
+        <table class="table">
+            <colgroup>
+                <col class="col1"></col>
+                <col class="col2"></col>
+                <col class="col3"></col>
+                <col class="col4"></col>
+                <col class="col5"></col>
+            </colgroup>
+            <thead>
+                <tr>
+                    {{ if $is_teacher && ($tpl_data.course_type == 2) && $is_wait_for_pay }}
+                        <th>班课名称</th>
+                    {{ else }}
+                        <th>课程名称</th>
+                    {{ /if }}
+                    <th>
+                    {{ if $is_video_course }}
+                        课程节数
+                    {{ else }}
+                        订单时长
+                    {{ /if }}
+                    </th>
+                    <th>订单价格</th>
+                    <th class="order-status">订单状态</th>
+                    {{ if !($is_video_course && $is_teacher) }}
+                    <th class="order-action">订单操作</th>
+                    {{ /if }}
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        {{ if $is_video_course }}
+                            {{ $course_name = $tpl_data.course_name|cn_truncate: 14 }}
+                        {{ else if $is_trial_course }}
+                            <a href="{{ $origin_http }}/t/{{ $tpl_data.teacher_user_number }}" target="_blank">
+                                试听课{{ $tpl_data.hours }}小时
+                            </a>
+                        {{ else }}
+                            {{ $course_name = $tpl_data.course_name|cn_truncate: 18 }}
+                        {{ /if }}
+
+                        {{ if $is_video_course && !empty($tpl_data.title_verify_status) }}
+                            <h4 class="course-name include-video-tag wrong-title"{{ if $course_name != $tpl_data.course_name }} data-title="该课程标题包含违规内容，请等待老师修改完成后，再进行查看" data-width="20em"{{ /if }}>
+                                <i class="icon icon-info-circle"></i>该课程标题包含违规内容...
+                                <div class="tag"></div>
+                            </h4>
+                        {{ else if !$is_trial_course }}
+                            <h4 class="course-name{{ if $is_video_course }} include-video-tag{{ /if }}"{{ if $course_name != $tpl_data.course_name }} data-title="{{ $tpl_data.course_name }}"{{ /if }}>
+                                {{ if $is_class_course }}
+                                    <a href="/teacher/classCourseDetail?number={{ $tpl_data.course_number }}" target="_blank">
+                                        {{ $course_name }}
+                                    </a>
+                                {{ else if $is_video_course }}
+                                    <a href="/video_course/getcourseshowdetail?number={{ $tpl_data.course_number }}&user_number={{ $tpl_data.teacher_user_number }}" target="_blank">
+                                        {{ $course_name }}
+                                    </a>
+                                {{ else if $is_one2one_course }}
+                                    <a href="/teacher/one2oneCourseDetail/{{ $tpl_data.course_number }}" target="_blank">
+                                        {{ $course_name }}
+                                    </a>
+                                {{ /if }}
+
+                                {{ if $is_video_course }}
+                                <div class="tag"></div>
+                                {{ /if }}
+                            </h4>
+                        {{ /if }}
+
+                        {{ include file="common/variable/lesson.html" scope=parent }}
+
+                        {{ if $is_class_course && !$is_video_course }}
+                            {{ include file="common/component/classCourseIcon.html" lesson_way=$tpl_data.lesson_way show_class_course=true retire_flag=$tpl_data.retire_flag }}
+                        {{ /if }}
+
+                        {{ if $is_trial_course }}
+                            <div class="label trial-course">试听课</div>
+                        {{ /if }}
+                    </td>
+
+                    <td>
+                        {{ if $is_video_course }}
+                        {{ $tpl_data.course_items_count }}课节
+                        {{ else }}
+                        <ul>
+                            <li>
+                                总时长：
+                                {{ $tpl_data.hours }}小时
+                            </li>
+
+                            {{ if $tpl_data.step > 2 }}
+                            <li>
+                                已完成：
+                                {{ $tpl_data.used_hours }}小时
+                            </li>
+                            {{ /if }}
+
+                            {{ if $is_class_course }}
+                            <li class="lesson-count">
+                                <label class="label-default small">
+                                {{ $lesson_count }}次课程
+                                </label>
+                            </li>
+                            {{ else if !$is_wait_for_pay }}
+                            <li>
+                                可约课：
+                                {{ $tpl_data.rest_hours }}小时
+                            </li>
+                            {{ /if }}
+                        </ul>
+                        {{ /if }}
+                    </td>
+
+                    <td>
+                        <ul>
+                            {{ if !$is_video_course && !$is_trial_course }}
+                            <li>
+                                单价：
+                                ￥{{ $tpl_data.original_price|number_format: 2 }}/小时
+                            </li>
+                            {{ /if }}
+                            <li>
+                                {{ if $is_video_course }}
+                                价格：
+                                {{ else }}
+                                总价：
+                                {{ /if }}
+
+                                {{ $total_price = $tpl_data.total_prices|number_format: 2 }}
+                                {{ $pay_price = $pay.real_money|number_format: 2 }}
+
+                                {{ if $total_price != $pay_price }}
+                                    <del>
+                                    ￥{{ $total_price }}
+                                    </del>
+                                {{ else }}
+                                    ￥{{ $total_price }}
+                                {{ /if }}
+
+                            </li>
+                            {{ if $total_price != $pay_price }}
+                            <li class="text-success">
+                                折后：
+                                ￥{{ $pay_price }}
+                            </li>
+                            {{ /if }}
+                        </ul>
+
+                        {{ if isset($tpl_data.is_applestore_pay) && $tpl_data.is_applestore_pay == 1 }}
+                        <div class="buy-from-apple-flag text-error">
+                            （通过苹果设备购买订单）
+                        </div>
+                        {{ /if }}
+                    </td>
+
+                    <td class="order-status">
+                        {{ $orderStatus[$tpl_data.status][1] }}
+                        <span class="refund-time">{{ $tpl_data.canceld_at|truncate:10:"" }}</span>
+                    </td>
+
+                    {{ * if !($is_video_course && $is_teacher) * }}
+                    <td class="order-action" data-status="{{ $tpl_data.status }}">
+
+                        {{ $order_action = [] }}
+
+                        {{ if !$is_video_course || $tpl_data.video_lesson_type!='2' }}
+                            {{ $order_action[] = ['confirm_pay_url', 'confirm-pay', '确认支付'] }}
+                        {{ /if }}
+                        {{ if !$is_video_course }}
+                            {{ if $is_teacher }}
+                                {{ $order_action[] = ['reserve_lesson_url', 'reserve-lesson', '为学生排课'] }}
+                            {{ else if !is_trial_course }}
+                                {{ $order_action[] = ['reserve_lesson_url', 'reserve-lesson', '发起约课'] }}
+                            {{ /if }}
+
+                            {{ if $user_data.user_type == 2 && $tpl_data.price == 0 }}
+                                {{ $order_action[] = ['cancel_order_url', 'cancel-order', '取消订单'] }}
+                            {{ else if $user_data.user_type == 2 && $tpl_data.status == 'pay_success' && $tpl_data.rest_prices != '0.00' }}
+                                {{ if $tpl_data.retire_flag != 100 }}
+                                    {{ $order_action[] = ['cancel_order_url', 'cancel-order', '申请退款'] }}
+                                {{ /if }}
+                            {{ else }}
+                                {{ $order_action[] = ['cancel_order_url', 'cancel-order', '取消订单'] }}
+                            {{ /if }}
+
+                            
+
+                            {{ if $user_data.user_type == 2 }}
+                                {{ if $tpl_data.retire_flag != 100 }}
+                                    {{ $order_action[] = ['appeal_url', 'appeal-order', '申请退款'] }}
+                                {{ /if }}
+                            {{ else }}
+                                {{ $order_action[] = ['appeal_url', 'appeal-order', '我要申诉'] }}
+                            {{ /if }}
+
+                            {{ $order_action[] = ['pay_again_url', 'pay-again', '再次购买'] }}
+                        {{ else if isset($tpl_data.order_url.confirm_pay_url) && $tpl_data.order_url.confirm_pay_url }}
+                            {{ $order_action[] = ['cancel_order_url', 'cancel-order', '取消订单'] }}
+                        {{ /if }}
+
+                        {{ if !($is_teacher && $is_video_course) }}
+                            {{ $order_action[] = ['comment_url', 'comment-order', '评价'] }}
+                        {{ /if }}
+
+                        {{ $ajax_url['cancel_order_url'] = 1 }}
+                        {{ $ajax_url['appeal_url'] = 1 }}
+
+                        {{ $primary_button['confirm_pay_url'] = 1 }}
+                        {{ $primary_button['reserve_lesson_url'] = 1 }}
+
+                        {{ $info_button['pay_again_url'] = 1 }}
+
+                        {{ $default_button['comment_url'] = 1 }}
+
+                        {{ foreach $order_action as $item }}
+
+                            {{ $key = $item[0] }}
+
+                            {{ if isset($tpl_data.order_url[$key]) }}
+
+                                {{ $url = $tpl_data.order_url[$key] }}
+
+                                {{ if $tpl_data.rest_hours != 0 || $key != 'reserve_lesson_url' }}
+
+                                    {{ if isset($primary_button[$key]) }}
+                                        {{ $btn_class = 'btn-primary' }}
+                                    {{ else if isset($info_button[$key]) }}
+                                        {{ $btn_class = 'btn-info' }}
+                                    {{ else if isset($default_button[$key]) }}
+                                        {{ $btn_class = 'btn-default' }}
+                                    {{ else }}
+                                        {{ $btn_class = 'btn-link' }}
+                                    {{ /if }}
+
+                                    {{ if isset($ajax_url[$key]) }}
+
+                                    <b class="{{ $btn_class }} small {{ $item[1] }}" data-url="{{ $url }}">
+
+                                        {{ $item[2] }}
+
+                                    </b>
+
+                                    {{ else }}
+
+                                    <a class="{{ $btn_class }} small" href="{{ $url }}">
+                                        {{ $item[2] }}
+                                    </a>
+
+                                    {{ /if }}
+
+                                {{ /if }}
+                            {{ /if }}
+
+                        {{ /foreach }}
+
+
+                        {{ if $is_teacher && ($tpl_data.course_type == 1 || $tpl_data.course_type == 2) && $is_wait_for_pay }}
+                            {{ if $tpl_data.is_prefer_normal_course }}
+                                <b class="btn-link small" data-title="该类型订单暂不支持修改价格">
+                                    修改价格
+                                </b>
+                            {{ else }}
+                                <b class="btn-link small edit-price"
+                                {{ if $is_class_course || $is_org_class_course }}
+                                data-is-class-course="1"
+                                {{ /if }}
+                                >
+                                    修改价格
+                                </b>
+                            {{ /if }}
+                        {{ /if }}
+
+                    </td>
+                    {{ * /if * }}
+                </tr>
+
+                {{ if $tpl_data.location && !$is_video_course && $tpl_data.lesson_way != 2 }}
+                <tr>
+                    <td colspan="5">
+                        <label>上课地址：</label>
+                        {{ if !$tpl_data.country }}
+                            {{ $tpl_data.location }}
+                            {{ if isset($tpl_data.offline_poi) && $tpl_data.offline_poi.lng }}
+                            <a class="link search-map" data-offline='{{ json_encode($tpl_data.offline_poi, 77) }}' data-map="{{ $tpl_data.location|escape }}">查看地图位置</a>
+                            {{ /if }}
+                        {{ else }}
+                            {{ $tpl_data.country }}-{{ $tpl_data.location }}
+                        {{ /if }}
+
+                    </td>
+                </tr>
+                {{ /if }}
+
+                {{ if $tpl_data.note }}
+                <tr>
+                    <td colspan="5">
+                        <label>订单备注：</label>
+                        {{ $tpl_data.note }}
+                    </td>
+                </tr>
+                {{ /if }}
+
+            </tbody>
+        </table>
+    </div>
+
+
+</div>
+
+{{ /strip }}

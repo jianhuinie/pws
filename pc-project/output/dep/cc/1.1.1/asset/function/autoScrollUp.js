@@ -1,0 +1,1 @@
+define("cc/function/autoScrollUp",["require","exports","module"],function(){"use strict";return function(o,r){var e=o.scrollTop(),t=e+o.height(),c=r.prop("offsetTop");if(e>c||c>t)o.scrollTop(c)}});

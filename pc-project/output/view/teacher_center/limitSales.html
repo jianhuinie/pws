@@ -1,0 +1,62 @@
+{{ *
+
+@file 限时促销
+@author caoying
+
+* }}
+
+{{ extends file="common/center/base.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $nav_active_tab = 'index' }}
+
+    {{ $script_path = "teacherCenter/limitSales_fc8c3414b3" }}
+    {{ $script_data.page = 1 }}
+
+{{ /block }}
+
+{{ block name = "title" }}
+营销中心-促销活动
+{{ /block }}
+
+{{ block name = "style" }}
+    <link rel="stylesheet" href="{{ $static_origin }}/asset/css/teacherCenter/limitSales_95202493c8.css">
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+    {{ include file="teacher_center/common/sidebar.html" active="market" }}
+<div class="sale">
+    <div class="list-sale">
+        <div id="content" class="card">
+            <div class="card-header">
+                <h2>促销活动</h2>
+            </div>
+            <div class="card-body">
+                <div class="search">
+                    <button class="btn-small btn-info">
+                        <i class="icon icon-plus"></i>
+                        添加限时折扣
+                    </button>
+                </div>
+                <div class="result-list">
+                    <div class="title">
+                        <a class="current">当期活动</a>
+                        <a class="old">往期活动</a>
+                    </div>
+                    {{ include file="teacher_center/mktCenter/limitSalesList.html" }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="add-sale">
+        {{ include file="teacher_center/mktCenter/addLimitSales.html" }}
+    </div>
+</div>
+
+{{ /strip }}
+{{ /block }}

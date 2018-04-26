@@ -1,0 +1,126 @@
+{{ *
+
+@file 视频课详情页 - 主讲人简介
+@author jixiaohui
+
+* }}
+
+{{ strip }}
+{{ if !empty($tpl_data) }}
+
+<div id="video-author" class="card">
+    <h1 class="card-header">
+        <div class="head">主讲老师</div>
+    </h1>
+    <div class="card-body">
+        <div class="info">
+            {{ include file="common/component/avatar.html" type="medium" img=$tpl_data.teacher_avatar target="_blank" url=$tpl_data.teacher_url }}
+            <div class="detail">
+                {{ $name = $tpl_data.teacher_name|cn_truncate:6 }}
+                <a href="{{ $tpl_data.teacher_url }}" target="_blank"
+                    {{ if $name != $tpl_data.teacher_name }}
+                        data-title="{{ $tpl_data.teacher_name }}"
+                    {{ /if }} >
+                    {{ $name|cn_truncate: 12 }}
+                </a>
+
+                {{ if $tpl_data.vip_level }}
+                    {{ include file="common/variable/vipLevel.html" scope=parent }}
+                    <i class="icon icon-vip-{{ $vipLevelMap[$tpl_data.vip_level] }}"
+                    data-title="
+                        {{ if $tpl_data.vip_level == 1 }}
+                            跟谁学会员
+                        {{ else if $tpl_data.vip_level == 2 }}
+                            跟谁学高级会员
+                        {{ else if $tpl_data.vip_level == 3 }}
+                            跟谁学超级会员
+                        {{ /if }}
+                    "></i>
+                {{ /if }}
+
+            </div>
+            <p class="slogon">{{ $tpl_data.teacher_short_introduce|cn_truncate:18 }}</p>
+            <!-- <span class="chat-label" data-user-number="{{ $tpl_data.user_number }}" data-user-type="teacher">预约名师咨询</span> -->
+            {{ include file="common/component/chatLabel4.html" user_number=$tpl_data.user_number user_type='teacher' size="small" online_status=$tpl_data.im_online_status }}
+        </div>
+    </div>
+
+
+    {{ if $tpl_data.organization }}
+    {{ $org = $tpl_data.organization }}
+    <h1 class="card-header">
+        <div class="head">所属机构</div>
+    </h1>
+    <div class="card-body">
+        <div class="info">
+            {{ include file="common/component/avatar.html" type="medium" img=$org.avatar target="_blank" url=$org.url }}
+            <div class="detail">
+                {{ $name = $org.name|cn_truncate:6 }}
+                <a href="{{ $org.url }}" target="_blank"
+                {{ if $name != $org.name }}
+                data-title="{{ $org.name }}"
+                {{ /if }} >
+                {{ $name|cn_truncate: 12 }}
+                </a>
+
+                {{ if $org.vip_level }}
+                {{ include file="common/variable/vipLevel.html" scope=parent }}
+                <i class="icon icon-vip-{{ $vipLevelMap[$org.vip_level] }}"
+                   data-title="
+                        {{ if $org.vip_level == 1 }}
+                            跟谁学会员
+                        {{ else if $org.vip_level == 2 }}
+                            跟谁学高级会员
+                        {{ else if $org.vip_level == 3 }}
+                            跟谁学超级会员
+                        {{ /if }}
+                    "></i>
+                {{ /if }}
+
+            </div>
+            <p class="slogon">{{ $org.brief|cn_truncate:18 }}</p>
+            {{ *<span class="chat-label" data-user-number="{{ $org.number }}" data-user-type="org">咨询课程顾问</span> * }}
+            {{ include file="common/component/chatLabel4.html" user_number=$org.number user_type='institution' size="small" online_status=$org.im_online_status }}
+        </div>
+    </div>
+    {{ /if }}
+</div>
+
+{{ if $tpl_data.other_courses && count($tpl_data.other_courses) > 0 }}
+
+<div class="otherCourses">
+    <div class="title">老师其他课程</div>
+    <div class="lists">
+        {{ foreach $tpl_data.other_courses as $val }}
+        <div class="item">
+            <div class="photo">
+                <a href="{{ $val.url }}" rel="nofollow" target="_blank">
+                    {{ include file="common/component/image.html" width=240 height=135 url=$val.avatar }}
+                </a>
+            </div>
+            {{ $name = $val.name|cn_truncate:16 }}
+            <div class="description" {{ if $name != $val.name }}data-title="{{ $val.name }}"{{ /if }}>
+            <a href="{{ $val.url }}" target="_blank">
+                {{ $name }}
+            </a>
+        </div>
+        <div class="moreInfo">
+            <p>
+                {{ if $val.price > 0 }}
+                <span class="rmb">￥</span>
+                <span>{{ $val.price }}</span>
+                {{ else }}
+                <span class="free">免费</span>
+                {{ /if }}
+                &nbsp;|&nbsp;{{ $val.total_pay }}人学习
+            </p>
+        </div>
+    </div>
+    {{ /foreach }}
+</div>
+
+</div>
+{{ /if }}
+
+{{ /if }}
+{{ /strip }}

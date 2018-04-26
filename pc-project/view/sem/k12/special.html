@@ -1,0 +1,25 @@
+{{ strip }}
+<div class="special">
+
+    <div class="special-header">
+        <h3>聚惠学特价课程</h3>
+        <span class="hint">火爆得过分...</span>
+    </div>
+
+    <div class="special-content">
+
+        {{ $options = $juhuixue.options }}
+        {{ include file="sem/component/searchBox.html" category=$options.course_1 subject=$options.course_2 areas=$options.area }}
+
+        <div class="course-list">
+            {{ include file="sem/k12/courseList.html" courses=$juhuixue.data }}
+        </div>
+
+        <div class="more">
+            <a class="btn-default" href="http://ju.genshuixue.com?source={{ $getSource }}&plan={{ $getPlan }}&group={{ $getGroup }}&keyword={{ $getKeyword }}&q={{ $getQuery }}" target="_blank">更多课程&nbsp;&gt;</a>
+        </div>
+
+    </div>
+
+</div>
+{{ /strip }}

@@ -1,0 +1,374 @@
+/**
+ * @file 基本信息
+ * @author zhujialu
+ */
+
+@import './accessRegion.less';
+
+.baseinfo {
+
+    &.no-data {
+        .form {
+            display: block !important;
+            .btn-cancel {
+                display: none;
+            }
+        }
+    }
+
+    .info {
+        .realname {
+            color: #555;
+            font-size: 18px;
+            font-weight: bold;
+            display: inline-block;
+            max-width: 380px;
+        }
+        .sex {
+            color: #333;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .list-title {
+            .clearfix();
+            padding-top: 2 * @gap-horizontal-medium;
+            .icon {
+                font-size: 22px;
+                float: left;
+                margin-right: 7px;
+            }
+            h4 {
+                color: #333;
+                float: left;
+                font-size: 16px;
+            }
+        }
+        ul {
+            width: 100%;
+            .clearfix();
+            border-bottom: 1px solid #ebebeb;
+            padding-top: @gap-horizontal-medium;
+            padding-bottom: 2 * @gap-horizontal-medium;
+            li {
+                float: left;
+            }
+            .half-line {
+                min-width: 258px;
+            }
+            .full-line {
+                width: 516px;
+            }
+        }
+
+        .title {
+            color: #999;
+            min-width: 75px;
+            display: inline-block;
+            em {
+                letter-spacing: 28px;
+            }
+        }
+        .cont {
+            color: #333;
+            display: inline-block;
+        }
+        .domain {
+            padding-top: 2 * @gap-horizontal-small;
+        }
+        .access-region {
+            margin-top: @gap-vertical-huge;
+        }
+
+        .teacher-intro-title {
+            float: left;
+        }
+
+        .teacher-intro-content {
+            display: block;
+            width: 440px;
+            margin-left: 75px;
+            word-wrap: break-word;
+            word-break: break-all;
+        }
+    }
+
+    .message {
+        display: inline-block;
+        margin-left: @gap-horizontal-large;
+        padding: @gap-vertical-tiny
+                 @gap-horizontal-medium;
+    }
+
+    .baseinfo-audit {
+        color: #6287d5;
+        cursor: pointer;
+    }
+}
+
+
+.form-baseinfo {
+
+    position: relative;
+
+    .fleft {
+        float: left;
+    }
+    .clearfix {
+        clear: both;
+    }
+    .form-editor {
+        width: 70%;
+        .form-hint {
+            vertical-align: bottom !important;
+        }
+
+        .placeholder-wrapper {
+            background-color: #f6f5f4;
+            padding: 7px;
+            width: 70%;
+        }
+        textarea {
+            width: 100%;
+        }
+    }
+
+    .show-birthday {
+        input {
+            width: 100px;
+            margin-right: @gap-horizontal-medium;
+        }
+    }
+
+    .birthday {
+        .form-group {
+            margin-left: 0;
+            margin-right: @gap-horizontal-medium;
+        }
+    }
+
+    .year,
+    .month,
+    .date {
+        .btn-default {
+            width: 100px;
+        }
+    }
+
+    .form-editor {
+        .form-hint {
+            display: inline-block;
+            padding: 6px 0;
+            margin-left: 8px;
+        }
+    }
+
+    .avatar {
+        width: 160px;
+        margin-right: @gap-vertical-huge;
+        margin-top: @gap-vertical-huge;
+        float: left;
+        .image-preview {
+            height: 150px;
+        }
+        .image-uploader {
+            img {
+                height: 150px;
+            }
+        }
+    }
+
+    .edu-back {
+        .btn-default {
+            width: 120px;
+        }
+    }
+
+    .region-box {
+        display: none;
+    }
+
+    .regions-province {
+        .btn-default {
+            width:120px;
+        }
+    }
+
+    .edu-back-group,
+    .school-group {
+        margin-right: @gap-horizontal-small;
+    }
+
+    .reasons {
+        color: @brand-error;
+        .icon {
+            padding-right: @gap-horizontal-tiny;
+        }
+    }
+
+    .form-error {
+        border: 1px solid @brand-error;
+    }
+
+    .form-block {
+        .text-primary {
+            margin-left: @gap-horizontal-small;
+        }
+    }
+    .form-imagetip {
+        color: #6287d5;
+        font-size: 12px;
+        text-align: center;
+        cursor: pointer;
+        &:hover {
+            color: #f90;
+        }
+    }
+
+    .teacher-intro-txt {
+        float: left!important;
+    }
+
+    .teacher-intro {
+        float: left;
+        width: 450px;
+        height: 120px;
+    }
+
+    .teacher-intro-tip {
+        float: left;
+        color: #6287d5;
+        font-size: 12px;
+        cursor: pointer;
+        position: absolute;
+        right: 40px;
+        top: 5px;
+
+        .icon-question-circle {
+            float: left;
+            color: #6287d5;
+            position: relative;
+            top: 3px;
+            margin-right: 5px;
+            margin-left: 5px;
+        }
+    }
+
+    .introduce-editor {
+        position: relative;
+        .form-hint {
+            position: absolute;
+            bottom: 5px;
+            left: 522px;
+        }
+    }
+
+    .approach-box {
+        .approach-item {
+            float: left;
+            height: 36px;
+            line-height: 36px;
+            padding: 0 18px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            background: #fff;
+            cursor: pointer;
+            width: 100px;
+            text-align: center;
+        }
+
+        .active {
+            color: #f90;
+            background: url(../../../img/teacher/checked.png) right bottom no-repeat #fff;
+            border: 1px solid #f90;
+        }
+    }
+
+}
+
+
+.sensitive {
+    em {
+        color: @brand-primary;
+    }
+}
+.dialog-header {
+    text-align: center;
+}
+.dialog-tipimg {
+    .tip-title {
+        font-size: 20px;
+        text-align: center;
+        padding-bottom: 10px;
+        .icon {
+            color: #3aca66;
+            font-size: 36px;
+            margin-right: 5px;
+            vertical-align: top;
+            font-weight: bolder;
+        }
+        span {
+            height: 36px;
+            line-height: 36px;
+        }
+    }
+    .tip-con {
+        height: 50px;
+        line-height: 50px;
+        .icon {
+            color: #3aca66;
+            margin-right: 5px;
+        }
+    }
+    .tip-img {
+
+        img {
+            margin-left:53px;
+        }
+    }
+}
+
+.teacher-intro-body {
+    height: 300px;
+    overflow-y: scroll;
+
+    .form {
+        padding: 0;
+        background: #fff;
+    }
+
+    .group {
+        margin: 10px 0;
+    }
+
+    .form-text {
+        width: 430px;
+    }
+
+    .warning {
+        color: #f0ad4e;
+        margin-right: 5px;
+    }
+
+    .preview-text {
+        em {
+            color: #aaa;
+        }
+    }
+}
+
+.footer {
+    border-top: 1px solid #eee;
+    text-align: center;
+    padding-top: 20px;
+
+    .button {
+        background-color: #6187dc;
+        border-color: #6187dc;
+        color: #fff;
+        font-size: 14px;
+        padding: 6px 12px;
+        width: 200px;
+        margin: 0 auto;
+        cursor: pointer;
+    }
+}

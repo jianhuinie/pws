@@ -1,0 +1,7 @@
+[
+    {
+        "tpl": "./index.tpl",
+        "router": "/hotDocument/detail",
+        "mock_data": "./mock/index.json"
+    }
+]

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-controller="daterangepickerCtrl">
+<head>
+    <meta charset="UTF-8"/>
+    <title>daterangepicker - Demo</title>
+    <script src="../../../dep/jquery/dist/jquery.js"></script>
+    <script src="../../../dep/angular/angular.js"></script>
+    <!-- <script src="../../dep/angular-animate/angular-animate.js"></script> -->
+    <!-- <script src="../../dep/angular-route/angular-route.js"></script> -->
+    <script src="./controller.js"></script>
+    <link rel="stylesheet/less" href="../../../src/widget/index.less"/>
+</head>
+<body>
+<div>
+    <input daterangepicker
+           id="daterangepicker"
+           options="options" ng-model="dateRange"
+           style="width: 200px;display: inline-block;height: 20px"/>
+    </br>
+    ngModel值:
+    </br>
+    开始时间:<span ng-bind="dateRange.begin"></span>
+    </br>
+    结束时间:<span ng-bind="dateRange.end"></span>
+</div>
+</body>
+<script src="less.min.js"></script>
+<script src="../../../dep/requirejs/require.js"></script>
+<script type="text/javascript">
+
+    require.config({
+        baseUrl: '../../../src'
+    });
+
+    require(
+            [
+                'ngDirective/module'
+            ],
+            function () {
+                require(
+                        [
+                            'ngDirective/daterangepicker/directive'
+                        ],
+                        function () {
+                            angular.bootstrap(document, ['demo']);
+                        }
+                )
+            }
+    );
+</script>
+</html>

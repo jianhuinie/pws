@@ -1,0 +1,81 @@
+.my-video-course-panel {
+  position: relative;
+  font-size: rem(12);
+  background-color: #FFFFFF;
+  color: #9d9d9d;
+  .header {
+    padding: rem(10) rem(10) 0 rem(10);
+    .expire-tip {
+      color: #f88456;
+    }
+  }
+  .context {
+    clearfix();
+    position: relative;
+    line-height: rem(22);
+    margin-top: rem(10);
+    padding: 0 rem(10);
+    .teacher-image {
+      float: left;
+    }
+    .course-info {
+      margin-left: rem(120);
+      .course-name {
+        font-size: rem(14);
+
+      }
+      .course-name, .teacher-name span {
+        color: #3d3d3d;
+      }
+      .progress-wrap {
+        position: relative;
+        width: 100%;
+        div {
+          height: rem(8);
+          border-radius: rem(5);
+        }
+        .progress-bg {
+          position: relative;
+          width: 100%;
+          background-color: #ebebeb;
+        }
+        .progress-bar {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 50%;
+          background-color: #6eb135;
+        }
+      }
+    }
+  }
+  .bottom {
+    position: relative;
+    height: rem(35);
+    line-height: rem(35);
+    background-color: #f7f7f7;
+    padding: 0 rem(10);
+    .button {
+      background-color: #FFFFFF;
+      border: rem(1) solid #cccccc;
+      border-radius: rem(3);
+      display: inline-block;
+      line-height: rem(25);
+      padding: 0 rem(14);
+    }
+    .button.pay {
+      border: 0 none;
+      background-color: #fd9827;
+      color: #FFFFFF;
+    }
+    .button.dropdown {
+      border: 0 none;
+      border-radius: 0;
+      background-color: transparent;
+      color: #b0b0b0;
+    }
+  }
+  .right {
+    float: right
+  }
+}

@@ -1,0 +1,16 @@
+{{ *
+
+@file 我的信用 - 来自老师的评价
+@author jixiaohui
+
+* }}
+{{ extends file="common/center/credit.html" }}
+
+{{ block name="data" }}
+    {{ $smarty.block.parent }}
+    {{ $type = "commentFromTeacher" }}
+{{ /block }}
+
+{{ block name="sidebar" }}
+    {{ include file="student_center/common/sidebar.html" active="credit" }}
+{{ /block }}

@@ -1,0 +1,248 @@
+/*
+ * @file 签到弹窗样式
+ * @author wangyujie
+ */
+@import "../../common/variable";
+@import "../../common/mixin.styl";
+
+.checkin-dialog {
+    min-width: 339px;
+}
+
+.checkin-dialog > .body {
+
+    p {
+        margin: 0;
+    }
+    /* 已签到 */
+    .someday {
+        clearfix();
+        .bigExp {
+            float: left;
+            margin-right: $horizontal-medium;
+            width: 66px;
+            height: 66px;
+        }
+
+        .status {
+            color: $brand-header;
+            font-size: 14px;
+            .icon {
+                margin-right: $horizontal-tiny;
+                vertical-align: middle;
+            }
+        }
+
+        .credit {
+            .interval-line {
+                color: $brand-divider;
+                margin: 0 $horizontal-medium;
+            }
+        }
+
+        .tips {
+            font-size: 12px;
+            img {
+                width: 14px;
+                height: 14px;
+                margin-left: $horizontal-tiny;
+                vertical-align: middle;
+            }
+        }
+    }
+
+    .sign-calendar {
+        border-top: 1px solid #ddd;
+        text-align: center;
+        position: relative;
+
+        .overview {
+            .header {
+                position: relative;
+                padding: $horizontal-medium 0;
+                .prev,
+                .next {
+                    cursor: pointer;
+                    font-size: 14px;
+                    position: absolute;
+                    top: 10px;
+                }
+                .prev {
+                    left: 0;
+                }
+                .next {
+                    right: -11px;
+                }
+
+            }
+        }
+
+        .header {
+            .icon {
+                border: 1px solid #ddd;
+                color: #ddd;
+                font-size: 12px;
+                padding: 3px;
+                &:hover {
+                    color: #f90;
+                    border-color: #f90;
+                }
+            }
+        }
+
+        .oneday {
+            display: none;
+            background-color: #fff;
+            border: 1px solid #f90;
+            padding: $horizontal-tiny;
+            position: absolute;
+            text-align: left;
+            width: 314px;
+            box-shadow: 0 2px 3px #ededed;
+
+            clearfix();
+            p {
+                margin-left: 60px;
+                word-wrap: break-word;
+                word-break: break-all;
+            }
+            img {
+                float: left;
+                width: 50px;
+                height: 50px;
+            }
+            .checkin-text {
+                span {
+                    color: #a3a3a3;
+                }
+            }
+            .checkin-time {
+                color: #a3a3a3;
+            }
+        }
+
+        table {
+            width: 314px;
+            line-height: 1.5em;
+
+            th {
+                border: 1px solid #a3a3a3;
+                background-color: #a3a3a3;
+            }
+
+            td {
+                border: 1px solid #a3a3a3;
+                cursor: pointer;
+                width: 44px;
+                height: 56px;
+                text-align: center;
+                .icon-smile-o {
+                    color: #a3a3a3;
+                    display: block;
+                    font-size: 16px;
+                    margin-right: 0;
+                    margin-top: $vertical-tiny;
+                    margin-bottom: $vertical-tiny;
+                }
+                img {
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+
+            .active {
+                background-color: #f0f0f0;
+            }
+
+            .adjacency-month {
+                color: #ccc;
+                background-color: #f7f7f7;
+            }
+
+            .past {
+                color: #ccc;
+            }
+        }
+
+    }
+    /* 未签到 */
+    .expression-container {
+
+        .expression-panel {
+            border-right: 1px solid #d3e2f0;
+            border-bottom: 1px solid #d3e2f0;
+            background-color: #fbfbfe;
+            width: 309px;
+            height: 309px;
+            .expression-item {
+                float: left;
+                width: 77px;
+                height: 77px;
+                border-top: 1px solid #d3e2f0;
+                border-left: 1px solid #d3e2f0;
+                cursor: pointer;
+                position: relative;
+                img {
+                    width: 72px;
+                    height: 72px;
+                    padding: 3px;
+                }
+                .tip-container {
+                    display: none;
+                    z-index: $zindex-huge;
+                    position: absolute;
+                    height: 24px;
+                    line-height: 22px;
+                    width: 40px;
+                    text-align: center;
+                    background-color: #fffbef;
+                    border: 1px solid #f8ce69;
+
+                    top: 65px;
+                    left: 10px;
+
+                    .front-arrow,
+                    .back-arrow {
+                        position: absolute;
+                        top: -12px;
+                        left: 12px;
+                        border: 6px solid;
+                        border-color: transparent transparent #f8ce69;
+                    }
+
+                    .front-arrow {
+                        top: -11px;
+                        border-color: transparent transparent #fffbef;
+                    }
+                }
+                &:hover {
+                    background-color: #e8f5fc;
+                    border: 1px solid #4ca0d9;
+
+                    .tip-container {
+                        display: block;
+                    }
+                }
+            }
+            .lively {
+                background-color: #e8f5fc;
+                border: 1px solid #4ca0d9;
+            }
+        }
+    }
+
+    .group {
+        .mood-textarea {
+            width: 100%;
+            margin-top: $vertical-tiny;
+        }
+        .hint {
+            float: right;
+        }
+    }
+}
+
+.footer > .error {
+    float: left;
+    padding-top: 5px;
+}

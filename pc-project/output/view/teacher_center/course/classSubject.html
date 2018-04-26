@@ -1,0 +1,188 @@
+{{ *
+
+@file 班课设置 - 课程信息
+@author wangyujie
+
+* }}
+
+{{ strip }}
+
+{{ if !empty($tpl_data.number) }}
+    {{ $has_data = 1 }}
+{{ else }}
+    {{ $has_data = 0 }}
+{{ /if }}
+
+<div class="subject">
+    {{ if !empty($tpl_data.number) }}
+    <div class="course-number">班课编号：{{ $tpl_data.number }}</div>
+    {{ /if }}
+    <div class="class-subject {{ if $has_data }}has-data{{ else }}no-data{{ /if }}">
+
+        {{ function getSujectShowcase data=null }}
+        <div class="form-trigger">
+            <div class="info-header">
+                <i class="icon icon-bars-o"></i>
+                <h3>
+                    课程信息
+                    {{ if $reason }}
+                    <div class="message message-error">
+                        <i class="icon icon-info-circle"></i>
+                        你的课程信息包含违规内容，请修改后再次 提交审核
+                    </div>
+                    <a data-title="
+                    {{ foreach $reason as $list }}
+                        {{ $list|escape }}<br />
+                    {{ /foreach }}
+                    ">
+                        查看课程信息违规内容
+                    </a>
+                    {{ /if }}
+                </h3>
+                <div class="edit">
+                    <i class="icon icon-pencil"></i>
+                    编辑
+                </div>
+            </div>
+
+            <div class="info-body">
+
+                <div class="column">
+                    <div class="title">授课科目：</div>
+                    <div class="cont">
+                        <span class="remarkname">
+                        {{ $data.selected_subject.path[3].remark_name|escape }}
+                        </span>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="title">课程标题：</div>
+                    <div class="cont">
+                        <span class="course-name">
+                        {{ $data.name|escape }}
+                        </span>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="title">课程现价：</div>
+                    <div class="cont">
+                        <span class="price">
+                        {{ if isset($data.price) }}
+                        {{ $data.price|escape }}元
+                        {{ /if }}
+                        </span>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="title">课程原价：</div>
+                    <div class="cont">
+                        <span class="price">
+                        {{ if isset($data.original_price) && $data.original_price|number_format }}
+                        {{ $data.original_price|escape }}元
+                        {{ /if }}
+                        </span>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="title">班级人数：</div>
+                    <div class="cont">
+                        <span class="max-student">
+                        {{ if isset($data.max_student) && $data.max_student }}
+                        {{ $data.max_student|escape }}人
+                        {{ /if }}
+                        </span>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="title">保底开班：</div>
+                    <div class="cont">
+                        <span class="max-student">
+                        {{ if isset($data.min_student) && $data.min_student == 1 }}
+                        报名即开班
+                        {{ else }}
+                        最少{{ $data.min_student|escape }}人开班，开课3天前确认是否开班
+                        {{ /if }}
+                        </span>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="title">教学目标：</div>
+                    <div class="cont">
+                        <span class="student-desc">
+                        {{ $data.target|escape }}
+                        </span>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="title">适学人群：</div>
+                    <div class="cont">
+                        <span class="student-desc">
+                        {{ $data.student_desc|escape }}
+                        </span>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="title">上课方式：</div>
+                    <div class="cont">
+
+                        <span class="addr_location">
+                        {{ if isset($data.lesson_way) }}
+                            {{ if $data.lesson_way==2 }}
+                            在线授课
+                            {{ if $data.class_type == 1 }}
+                            （支持手机观看）
+                            {{ else }}
+                            （支持手机APP观看）
+                            {{ /if }}
+                            {{ elseif $data.lesson_way==4 }}
+                            线下授课
+                            {{ /if }}
+                        {{ /if }}
+                        </span>
+                    </div>
+                </div>
+
+                {{ if isset($data.lesson_way) && $data.lesson_way==4 }}
+                <div class="column">
+                    <div class="title">上课地点：</div>
+                    <div class="cont">
+                        <span class="addr_location">
+                            {{ $data.location|escape }}
+                        </span>
+                    </div>
+                </div>
+                {{ /if }}
+
+
+
+            </div>
+        </div>
+
+        {{ include file="./classSubjectForm.html" }}
+
+        {{ /function }}
+
+        <script class="tpl-showcase" type="text/plain">
+            {{ getSujectShowcase }}
+        </script>
+
+        {{ if $has_data }}
+
+            {{ getSujectShowcase data=$tpl_data }}
+
+        {{ else }}
+
+            {{ include file="./classSubjectForm.html" }}
+
+        {{ /if }}
+    </div>
+</div>
+{{ /strip }}

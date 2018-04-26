@@ -1,0 +1,220 @@
+{{ *
+
+@file 老师信息
+@author jixiaohui
+
+* }}
+
+{{ strip }}
+    <div id="teacher-profile">
+
+        <div class="info">
+            <div class="portrait">
+            <!-- <div class="teacher-info-avatar"> -->
+                {{ include file="common/component/avatar.html" type="larger" img=$tpl_data.avatar alt=$tpl_data.name }}
+                {{ include file="common/component/avatarPendant.html" type="square" isVipTemplate = false }}
+            <!-- </div> -->
+
+                {{ **3810项目IM交谈变成机构的** }}
+                {{ if empty($tpl_data.org_type) || $tpl_data.org_type != 4 }}
+                    {{ include file="common/component/chatLabel4.html"  user_number=$tpl_data.user_number user_type='teacher' size="huge" online_status=$tpl_data.im_online_status }}
+                {{ else }}
+                    {{ include file="common/component/chatLabel4.html"  user_number=$tpl_data.organization.number user_type='institution' size="huge" online_status=$tpl_data.im_online_status }}
+                {{ /if }}
+            </div>
+
+            <div class="data">
+                <div class="title-box">
+                    <h1 class="name">
+                        <a href="{{ $tpl_data.user_home }}">
+                            {{ $tpl_data.name|cn_truncate: 30 }}
+                        </a>
+                    </h1>
+
+                    {{ if $tpl_data.vip_level }}
+                        {{ include file="common/variable/vipLevel.html" scope=parent }}
+                        <i class="icon icon-vip-{{ $vipLevelMap[$tpl_data.vip_level] }}"
+                        data-title="
+                            {{ if $tpl_data.vip_level == 1 }}
+                                跟谁学会员
+                            {{ else if $tpl_data.vip_level == 2 }}
+                                跟谁学高级会员
+                            {{ else if $tpl_data.vip_level == 3 }}
+                                跟谁学超级会员
+                            {{ /if }}
+                        "></i>
+                    {{ /if }}
+
+                    {{ **3810项目隐藏这些图标** }}
+                    {{ if empty($tpl_data.org_type) || $tpl_data.org_type != 4 }}
+                        {{ if !empty($tpl_data.is_recommend) }}
+                            <i class="icon icon-recommend" data-title="平台推荐老师"></i>
+                        {{ /if }}
+
+                        {{ if !empty($tpl_data.medal) }}
+                            {{ include file="common/variable/medal.html" scope=parent }}
+                            {{ foreach $tpl_data.medal as $val }}
+                                <img class="medal" src="{{ $val.logo }}" data-title="{{ $val.desc }}">
+                            {{ /foreach }}
+                        {{ /if }}
+                    {{ /if }}
+
+                    <span class="visit-count"></span>
+
+                    <a class="edit" href="/teacher_center/profile" target="_blank" style="display:none;">
+                        <span class="btn-default small">编辑个人资料</span>
+                    </a>
+                </div>
+
+                <div class="summary-box">
+                    {{ if !empty($tpl_data.audio) }}
+                    <div class="voice1">
+                        <div class="player"></div>
+                        <div class="trigger">
+                            <img src="{{ $static_origin }}/src/img/teacher/voice.png" data-gif-src="{{ $static_origin }}/src/img/teacher/voice.gif">
+                            <span class="time"></span>
+                        </div>
+                    </div>
+                    {{ /if }}
+
+                    {{ **3810项目简介取前20个字** }}
+                    {{ if empty($tpl_data.org_type) || $tpl_data.org_type != 4 }}
+                        <span class="slogon">简介：{{ $tpl_data.slogan }}</span>
+                    {{ else }}
+                        <span class="slogon">简介：{{ $tpl_data.slogan|cn_truncate:20 }}</span>
+                    {{ /if }}
+
+                    <a href="{{ $tpl_data.user_home }}" class="mainpage">{{ $tpl_data.user_home }}</a>
+                </div>
+
+                <div class="address-box">
+                    {{ **3810项目地址取机构地址** }}
+                    {{ if !$tpl_data.country }}
+                        {{ if !empty($tpl_data.area) }}
+                        <div class="address">
+                            <i class="icon icon-location-o"></i>
+                            {{ $tpl_data.area }}
+                        </div>
+                        {{ else if !empty($tpl_data.org_address) }}
+                        <div class="address">
+                            <i class="icon icon-location-o"></i>
+                            {{ $tpl_data.org_address }}
+                        </div>
+                        {{ /if }}
+                    {{ else }}
+                        <div class="address">
+                            <i class="icon icon-location-o"></i>
+                            {{ $tpl_data.country }}
+                        </div>
+                    {{ /if }}
+
+                    <ul class="action">
+                        <li id="favor" data-teacherid="{{ $tpl_data.user_id|default:0 }}" data-haslogin="" {{ **3810项目隐藏收藏** }}
+                        {{ if isset($tpl_data.org_type) && $tpl_data.org_type == 4 }}style="display:none;"{{ /if }}>
+                            <i class="icon icon-favor"></i>
+                            <span>收藏</span>
+                        </li>
+
+                        {{ $share_text = "#跟谁学# 分享一位老师给你哦~"|cat: $tpl_data.name }}
+                        {{ $share_text = $share_text|cat: "，"|cat: $tpl_data.slogan|regex_replace:"/[\r\t\n]/":" " }}
+                        {{ $share_text = $share_text|cat: "，还在等什么？找好老师，上跟谁学，快来开启寻师之旅吧！" }}
+
+                        {{ $share_image = $tpl_data.avatar }}
+
+                        {{ if !$share_image || $share_image == "" }}
+                        {{ $share_image = $static_origin|cat:"/asset/img/share.jpg" }}
+                        {{ /if }}
+
+                        {{ $share_data = [] }}
+                        {{ $share_data.title = $share_text }}
+                        {{ $share_data.img = $share_image }}
+
+                        <li class="social-share" data-share='{{ json_encode($share_data, 77) }}'>
+                            <i class="icon icon-share"></i>
+                            分享
+                            {{ include file="common/component/baiduShare.html" }}
+                        </li>
+                        <li class="correct">
+                            <i class="icon icon-warning"></i>
+                            纠错
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <ul class="nav-box" {{ if isset($trial_course) && $trial_course.status != -1 }}id="trial_course"{{ /if }}>
+
+            {{ if isset($coupons) && count($coupons) > 0 }}
+            <li class="get-coupon text-primary">
+                <i class="icon icon-coupons"></i>
+                领取优惠券
+                <div class="coupon">
+                    <span class="small-arrow"></span>
+                    <span class="big-arrow"></span>
+                    <ul class="coupon-list">
+                        {{ foreach $coupons as $item }}
+                        {{ if $item.status==1 }}
+                        <li class="coupon-color" data-num="{{ $item.serial_num }}">
+                        {{ else }}
+                        <li class="coupon-gray">
+                        {{ /if }}
+                            <div class="coupon-info">
+                                <div class="balance">
+                                    ￥<em>{{ $item.balance }}</em>
+                                </div>
+                                <div class="threshold">
+                                    {{ if $item.cond_course_type != 0 }}
+                                        指定课程可用
+                                    {{ else if $item.cond_threshold == 0 }}
+                                        不限
+                                    {{ else }}
+                                        满{{ $item.cond_threshold }}使用
+                                    {{ /if }}
+                                </div>
+                            </div>
+                            <div class="status">
+                                {{ if isset($item.status) }}
+                                    {{ include file="common/variable/couponStatus.html" scope=parent }}
+                                    {{ $couponStatusMap[$item.status] }}
+                                {{ /if }}
+                            </div>
+
+                        </li>
+                        {{ /foreach }}
+                    </ul>
+                </div>
+            </li>
+            {{ /if }}
+
+            <li class="list-item {{ if $active == 'index' }}active{{ /if }}" data-nav="main-active">
+                <a href="/{{ $tpl_data.domain }}">主页</a>
+            </li>
+
+            {{ **如果老师没有课程就隐藏掉** }}
+            {{ if !empty($tpl_data.flag_course) }}
+                <li class="list-item {{ if $active == 'course' }}active{{ /if }}" data-nav="course-active">
+                    <a href="/{{ $tpl_data.domain }}/course">课程</a>
+                </li>
+            {{ /if }}
+
+            <li class="list-item {{ if $active == 'photovideo' }}active{{ /if }}" data-nav="media-active">
+                <a href="/{{ $tpl_data.domain }}/photoVideo">相册/视频</a>
+            </li>
+
+            <li class="list-item article-li {{ if $active == 'article' }}active{{ /if }}" data-nav="article-active">
+                <a href="/{{ $tpl_data.domain }}/article">文章</a>
+            </li>
+
+            <li class="list-item {{ if $active == 'intro' }}active {{ /if }}" data-nav="profile-active">
+                <a href="/{{ $tpl_data.domain }}/intro">个人资料</a>
+            </li>
+
+            <li class="list-item comment-click {{ if $active == 'comment' }}active{{ /if }}" data-nav="comment-active">
+                <a href="/{{ $tpl_data.domain }}/tcomment">评价</a>
+            </li>
+
+        </ul>
+    </div>
+{{ /strip }}

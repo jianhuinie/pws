@@ -1,0 +1,80 @@
+/**
+ * 字母检索
+ * @author wuhongjie
+ */
+
+@import './layout.less';
+
+#main {
+  background: #fff;
+  padding-left: 80px;
+  padding-top: 0px;
+}
+.inner-link-wrapper {
+  border-top: solid 1px #eee;
+  padding: 15px 0;
+  width: 1190px !important;
+  margin: 0 auto;
+  .inner-link {
+    width: 1100px;
+    margin: 15px auto;
+    padding: 0 42px;
+    display: inline-block;
+    .inner-title {
+      height: 25px;
+      line-height: 25px;
+      font-weight: bold;
+      overflow: hidden;
+    }
+    .inner-link-content {
+      margin-top: 5px;
+      display: inline-block;
+      .inner-link-item {
+        display: inline-block;
+        margin: 5px 20px 5px 0;
+      }
+    }
+    .letter-list {
+      .letter {
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        line-height: 25px;
+        text-align: center;
+        border: solid 1px #ccc;
+        background: #fff;
+        margin-right: 5px;
+        cursor: pointer;
+        &:hover,
+        &.active {
+          color: #fff;
+          background: #f90;
+          border-color: #f90;
+        }
+      }
+    }
+    .letter-content-wrapper{
+      margin-top: 20px;
+      width: 850px;
+      .letter-content{
+        &.active{
+          display: block;
+        }
+      }
+    }
+    .inner-link-list {
+      margin: 0px -10px;
+      overflow: hidden;
+      white-space: nowrap;
+      height: 31px;
+      .inner-link-item {
+        margin: 5px 0;
+        padding: 0 10px;
+        float: left;
+      }
+      &.open {
+        height: auto;
+      }
+    }
+  }
+}

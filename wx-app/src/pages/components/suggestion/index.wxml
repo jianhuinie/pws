@@ -1,0 +1,17 @@
+<template name="suggestion">
+    <scroll-view
+        scroll-y="true"
+        class="{{'suggestion ' + className}}"
+        bindtap="subjectHandler"
+        wx:if="{{source && source.length > 0}}"
+    >
+        <view
+            wx:for="{{source}}"
+            wx:key="id"
+            data-id="{{item.id}}"
+            data-title="{{item.title}}"
+        >
+            {{item.title}}
+        </view>
+    </scroll-view>
+</template>

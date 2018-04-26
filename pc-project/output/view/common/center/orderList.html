@@ -1,0 +1,97 @@
+{{ *
+
+@file 订单列表
+@author zhangjiayi
+
+* }}
+
+{{ extends file="common/center/base.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $script_path = "common/center/orderList_349406ef4c" }}
+
+    {{ $script_data.orderList = $tpl_data.order_list }}
+
+{{ /block }}
+
+{{ block name="title" prepend }}
+{{ if isset($tpl_data.huike.is_huike_student) && $tpl_data.huike.is_huike_student }}
+    我的报名 -
+{{ else }}
+    我的订单 -
+{{ /if }}
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/common/center/orderList_fd2ff3b645.css">
+{{ $smarty.block.parent }}
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+
+    {{ block name="sidebar" }}{{ /block }}
+
+    <div id="content" class="card">
+        <div class="card-header">
+        {{ if isset($tpl_data.huike.is_huike_student) && $tpl_data.huike.is_huike_student }}
+            <h2>我的报名</h2>
+        {{ else }}
+            <h2>我的订单</h2>
+        {{ /if }}
+        </div>
+        <div class="card-body">
+
+            {{ block name="course_type_nav" }}{{ /block }}
+
+            {{ $tabs = [] }}
+
+            {{ $tab0 = [] }}
+            {{ $tab0.title = '全部' }}
+            {{ $tab0.key = 'all' }}
+            {{ $tabs[] = $tab0 }}
+
+            {{ $tab1 = [] }}
+            {{ $tab1.title = '待支付' }}
+            {{ $tab1.key = 2 }}
+            {{ $tabs[] = $tab1 }}
+
+            {{ $tab2 = [] }}
+            {{ $tab2.title = '进行中' }}
+            {{ $tab2.key = 3 }}
+            {{ $tabs[] = $tab2 }}
+
+            {{ $tab3 = [] }}
+            {{ $tab3.title = '待评价' }}
+            {{ $tab3.key = 4 }}
+            {{ if isset($tpl_data.extra) && isset($tpl_data.extra.comment_prize_flag) && $tpl_data.extra.comment_prize_flag }}
+            {{ $tab3.prize_star = true }}
+            {{ /if }}
+            {{ $tabs[] = $tab3 }}
+
+            {{ include file="common/center/component/listTabs.html" tabs=$tabs tab_count=$tpl_data.pay_count type="default" }}
+
+            {{ if $tpl_data.order_list|count > 0 }}
+            <div class="order-list">
+                {{ include file="common/center/component/orderList.html" }}
+            </div>
+            {{ else }}
+            <div class="no-data">
+                <div class="wrapper">
+                    <i class="icon icon-info-circle"></i>
+                    暂时没有该类型的订单
+                </div>
+            </div>
+            {{ /if }}
+
+            {{ include file="common/component/pager.html" page=$tpl_data.pagination.page count=$tpl_data.pagination.count page_size=$tpl_data.pagination.page_size hide_jump=1 }}
+
+        </div>
+    </div>
+
+{{ /strip }}
+{{ /block }}
+

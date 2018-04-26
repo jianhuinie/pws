@@ -1,0 +1,84 @@
+{{ *
+
+@file 工作信息
+@author wangyujie
+
+* }}
+
+{{ strip }}
+<div class="work">
+
+    {{ function getWorkShowcase data=null }}
+
+    <div class="form-trigger" data-work='{{ json_encode($data, 77) }}'>
+
+        <div class="info-header">
+            <i class="icon icon-info-o"></i>
+            <h3>工作信息</h3>
+            <div class="edit">
+                <i class="icon icon-pencil"></i>
+                编辑
+            </div>
+        </div>
+
+        <div class="info-body">
+
+            <div class="info">
+                {{ foreach $data as $item }}
+                <ul>
+                    <li>
+                        <div class="title">
+                            公司：
+                        </div>
+                        <div class="cont">
+                            {{ $item.company }}
+                        </div>
+                    </li>
+                    <li>
+                        <div class="title">时间：</div>
+                        <div class="cont">
+                            {{ if $item.start_date }}
+                                {{ $item.start_date }}
+
+                                {{ if $item.end_date == '0000-00' }}
+                                    &nbsp;-&nbsp;至今
+                                {{ else }}
+                                    &nbsp;至&nbsp;{{ $item.end_date }}
+                                {{ /if }}
+                            {{ /if }}
+                        </div>
+                    </li>
+                </ul>
+                {{ /foreach }}
+            </div>
+
+        </div>
+    </div>
+
+    {{ /function }}
+
+    <script type="text/plain">
+    {{ getWorkShowcase }}
+    </script>
+
+    {{ if isset($tpl_data.work) }}
+
+    {{ getWorkShowcase data=$tpl_data.work }}
+
+    {{ else }}
+
+    <div class="noinfo form-trigger edit">
+
+        <span class="desc">填写你的行业与职位，帮你找到更多志同道合的朋友</span>
+
+        <i class="icon icon-round-edit"></i>
+        <h3>工作信息</h3>
+
+    </div>
+
+    {{ /if }}
+
+    {{ include file="./workForm.html" }}
+
+</div>
+{{ /strip }}

@@ -1,0 +1,39 @@
+{
+    "tpl_data": {
+        "purchase_info": {
+            "course_name": "线下-免费课",
+            "course_type": 3,
+            "teacher_title": "一九七四四二.一九七四四二.一九七四四二.一九七四四二.一九七四四二.一九七四四二.一九七"
+        },
+        "comment_activity_info": "对你的老师进行评价",
+        "lesson_list": [
+            {
+                "serial_number": "0",
+                "display_title": "总课程",
+                "comment_status_name": "待评价",
+                "teacher_number": "0",
+                "display_name": "一九七四四二.一九七四四二.一九七四四二.一九七四四二.一九七四四二.一九七四四二.一九七",
+                "can_comment": true
+            },
+            {
+                "serial_number": "160108675346",
+                "display_title": "第1课节(01月20日)",
+                "comment_status_name": "待评价",
+                "teacher_number": "416075388",
+                "display_name": "一九七四四二",
+                "can_comment": true
+            }
+        ],
+        "teacher_list": [
+            {
+                "number": "416075388",
+                "display_name": "一九七四四二.一九七四四二.一九七四四二.一九七四四二.一九七四四二.一九七四四二.一九七",
+                "avatar_url": "https://imgs.genshuixue.com/headpic_woman_06.jpg"
+            }
+        ],
+        "teacher_name": "一九七四四二.一九七四四二.一九七四四二.一九七四四二.一九七四四二.一九七四四二.一九七",
+        "single_teacher": 0,
+        "teacher_num": 788997,
+        "is_invited": 0
+    }
+}

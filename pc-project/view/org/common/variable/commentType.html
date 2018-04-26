@@ -1,0 +1,44 @@
+{{ $comment_types = [] }}
+
+{{ $comment_type = [] }}
+{{ $comment_type['text'] = "全部评价" }}
+{{ $comment_type['value'] = "0" }}
+{{ $comment_types[] = $comment_type }}
+
+{{ $comment_type = [] }}
+{{ $comment_type['text'] = "一对一评价" }}
+{{ $comment_type['value'] = "1" }}
+{{ $comment_types[] = $comment_type }}
+
+{{ $comment_type = [] }}
+{{ $comment_type['text'] = "邀请评价" }}
+{{ $comment_type['value'] = "2" }}
+{{ $comment_types[] = $comment_type }}
+
+{{ $comment_type = [] }}
+{{ $comment_type['text'] = "班课评价" }}
+{{ $comment_type['value'] = "3" }}
+{{ $comment_types[] = $comment_type }}
+
+{{ $comment_type = [] }}
+{{ $comment_type['text'] = "机构一对一评价" }}
+{{ $comment_type['value'] = "11" }}
+{{ $comment_types[] = $comment_type }}
+
+{{ $comment_type = [] }}
+{{ $comment_type['text'] = "机构班课评价" }}
+{{ $comment_type['value'] = "12" }}
+{{ $comment_types[] = $comment_type }}
+
+{{ $comment_type_top_item = [] }}
+{{ $comment_type_other_items = [] }}
+
+{{ foreach $comment_types as $item }}
+    {{ if ($item.value == $value) }}
+        {{ $comment_type_top_item = $item scope=parent }}
+    {{ else }}
+        {{ $comment_type_other_items[] = $item scope=parent }}
+    {{ /if }}
+{{ /foreach }}
+
+

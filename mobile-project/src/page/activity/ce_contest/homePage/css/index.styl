@@ -1,0 +1,136 @@
+@import "page/_base/base.styl";
+@import "page/_common/nav_bar/nav_bar.styl";
+
+.nav-bar{
+  background-color: #0089f9;
+  color:#fff;
+  .icon-back:before{
+    color:#fff;
+  }
+}
+.nav-bar{
+  border-bottom : 0px;
+}
+body{
+  background-color : #fff;
+}
+img,video{
+  width:100%;
+  height:100%;
+}
+.left{
+  float: left;
+}
+.center-homePage{
+  margin:rem(0) rem(10);
+}
+.center-video-object{
+  position : relative;
+  height:rem(180);
+  line-height : rem(180);
+  font-size:rem(12);
+  vertical-align : middle;
+  text-align : center;
+  background-color : #ddd;
+  color:#3d3d3d;
+  border:0px;
+  padding:rem(0);
+  .mask {
+    position : absolute;
+    top:rem(0);
+    right:rem(0);
+    bottom:rem(0);
+    left:rem(0);
+    z-index : 100;
+    .mask-dialog{
+      width: 100%;
+      height: 100%;
+      opacity : 0.7;
+    }
+    .icon{
+      position : absolute;
+      z-index : 200;
+      margin-top:rem(-32);
+      margin-left: rem(-32);
+      width: rem(64);
+      height: rem(64);
+      top: 50%;
+      left: 50%;
+    }
+  }
+  video{
+    display : none;
+  }
+}
+
+.center-info{
+  margin: rem(15) rem(0);
+  font-size:rem(15);
+  color : #333;
+  .center-info-avatar{
+    height:rem(98);
+    width:rem(98);
+    margin-right:rem(18);
+  }
+  .center-info-detail{
+    line-height: 1.6;
+
+    .talent{
+      width:rem(170);
+    }
+  }
+}
+.single-icon{
+  display : inline;
+  width:rem(14);
+  margin-top:rem(-4);
+  margin-right:rem(2);
+}
+.center-video-info{
+  position: relative;
+  font-size:rem(15);
+  color:#333;
+  margin-bottom:rem(15);
+  span{
+    color:#0089f9;
+  }
+  .source{
+    margin-right:rem(15);
+  }
+  .more{
+    font-size:rem(12);
+    color: #999;
+    position: absolute;
+    right : rem(0);
+  }
+}
+
+.describe{
+  .describe-title{
+    font-size:rem(13);
+    color:#333;
+    margin-bottom: rem(2);
+  }
+  p{
+    font-size:rem(12);
+    color:#666;
+    line-height : 1.6;
+  }
+}
+.center-video-canvassing{
+  width:rem(141);
+  background-color: #c5c5c5;
+  height:rem(38);
+  line-height : rem(38);
+  color:#fff;
+  border-radius: rem(2);
+  margin: auto;
+  text-align : center;
+  margin-top:rem(30);
+  font-size:rem(16);
+  margin-bottom:rem(20);
+}
+
+.center-video-canvassing-active{
+  background-color: #ff3360;
+}

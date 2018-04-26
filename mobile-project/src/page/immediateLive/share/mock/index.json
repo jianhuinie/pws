@@ -1,0 +1,68 @@
+{
+  "code": 0,
+  "tpl_data": {
+    "live_lesson_info": {
+      "live_status": true,
+      "title": "韩老师和王老师在吹牛逼拉，大家快来听听呀",
+      "cover_url": "http://test-img.gsxservice.com/747356_j4wcyyvq.png"
+    },
+    "teacher_info": {
+      "number": "834952358",
+      "display_name": "王希涛",
+      "avatar": "http://test-imgs.genshuixue.com/782668_eo32u3mj.jpeg",
+      "short_introduce": "我是一个好老师11我是一个好老师11我是一个好老师11我是一个好老师11我是一个好老师11"
+    },
+    "teacher_home_url": "http://local-m.genshuixue.com/834952358",
+    "check_key": "sss",
+    "more_courses_url": "http://local-m.genshuixue.com/teacher/course/834952358",
+    "courses_list": {
+      "total_count": 31,
+      "can_order_count": 31,
+      "list": [
+        {
+          "number": "361123886457",
+          "subject_id": "912",
+          "id": "49279",
+          "type": 1,
+          "name": "我靠阶段了没截断了没截断了没 jiejiejie",
+          "price": "5.01",
+          "info": "这是一个专业的汽车驾驶培训课程，需要我们共同努力",
+          "cover_url": "http://test-img.gsxservice.com/358101_l8j097vg.jpeg",
+          "sort": "29",
+          "is_online": 0,
+          "support_offline": 8,
+          "url": "/teacher/one2oneCourseDetail/361123886457"
+        },
+        {
+          "number": "361123863377",
+          "subject_id": "871",
+          "id": "49770",
+          "type": 4,
+          "name": "法制史-法学史",
+          "price": "1",
+          "info": "123",
+          "cover_url": "http://test-img.gsxservice.com/358209_pbfipy9l.jpeg",
+          "sort": "28",
+          "is_online": 0,
+          "support_offline": 8,
+          "url": "/teacher/one2oneCourseDetail/361123863377"
+        },
+        {
+          "number": "398704578897",
+          "subject_id": "910",
+          "id": "49280",
+          "type": 2,
+          "name": "生存逃生-兰博基尼",
+          "price": "5",
+          "info": "撒地方刚回家发的规划",
+          "cover_url": "http://test-img.gsxservice.com/358209_pbfipy9l.jpeg",
+          "sort": "27",
+          "is_online": 0,
+          "support_offline": 8,
+          "url": "/teacher/one2oneCourseDetail/398704578897"
+        }
+      ]
+    }
+  },
+  "render": null
+}

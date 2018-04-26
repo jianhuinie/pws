@@ -1,0 +1,61 @@
+/**
+* 字母检索
+* @author wuhongjie
+*/
+
+
+{{ extends file="common/main/base.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $script_path = "guide/letter_c1a3a28017" }}
+
+{{ /block }}
+
+{{ block name="title" }}
+字母检索 - 跟谁学
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/guide/letter_45919109ce.css">
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+
+<div id="main">
+
+    <div class="inner-link-wrapper">
+        <div class="inner-link">
+            <div class="inner-title">{{ $tpl_data.title }}字母检索</div>
+            <div class="inner-link-content">
+                <div class="letter-list">
+                    {{ $type = $tpl_data.type|escape: 'url' }}
+                    {{ foreach range('A','Z') as $letter }}
+                    <a {{ if isset($tpl_data.is_www) && $tpl_data.is_www }}
+                        href="/letter/{{ $letter }}?type={{ $type }}"
+                    {{ else }}
+                        href="/{{ $curr_city.domain }}/letter/{{ $letter }}?type={{ $type }}"
+                    {{ /if }}>
+                        <span class="letter lflag{{ $letter }}">{{ $letter }}</span>
+                    </a>
+                    {{ /foreach }}
+                </div>
+                <div class="letter-content-wrapper">
+                    {{ foreach $tpl_data.all as $item }}
+                    <a class="inner-link-item" href="{{ $item.link }}" target="_blank">
+                        {{ $item.name }}
+                    </a>
+                    {{ /foreach }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{{ /strip }}
+{{ /block }}

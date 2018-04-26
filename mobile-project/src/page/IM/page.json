@@ -1,0 +1,7 @@
+[
+    {
+        "tpl": "./index.tpl",
+        "router": "/IM/index",
+        "mock_data": "./mock/index.json"
+    }
+]

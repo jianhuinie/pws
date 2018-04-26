@@ -1,0 +1,95 @@
+{{ extends file="common/pc/base.html" }}
+
+{{ block name="title" }}
+    中英文化交流大使全国招募大赛
+{{ /block }}
+
+{{ block name="style" }}
+    <link rel="stylesheet" href="{{ $static_origin }}/asset/css/activity/uk_24419afddf.css">
+{{ /block }}
+
+{{ block name="data" }}
+
+    {{ $need_im = false }}
+    {{ $smarty.block.parent }}
+
+    {{ $script_path = "activity/uk/common_c6d373f0e6" }}
+
+    {{ $flotage_config.hidden = 1 }}
+    {{ $rave_config.hidden = 1 }}
+    {{ $nav_config.hidden = 1 }}
+
+
+{{ /block }}
+
+
+
+{{ strip }}
+{{ block name="body" }}
+
+{{ $smarty.block.parent }}
+
+{{ include file="common/script.html" }}
+
+{{ block name="variable" }}
+{{ /block }}
+
+<div class="uk-header">
+
+    <div class="uk-main">
+        <a href="/">
+            <img class="logo" src="{{ $static_origin }}/asset/img/logo-release2_96e0aea1fb.png">
+        </a>
+        <div class="title">
+            <div>2016中英文化交流大使全国招募大赛</div>
+            <span>The Audition For the Ambassador of Sino-UK Cultural Exchanges</span>
+        </div>
+
+        <div class="user">
+
+            {{ if $user_data.user_number }}
+                <img src="{{ $user_data.avatar }}" />
+                {{ $user_data.user_name }}
+                <i class="icon icon-plus"></i>
+
+                <div class="user-menu">
+                    <a href="/">跟谁学首页</a>
+                    <a href="/auth/logout?next=/uk">退出帐号</a>
+                </div>
+            {{ else }}
+                <a href="/static/register?user_type=2&next=/uk&source=gsx_uk_pc">注册</a> | <a id="hd-login" href="javascript:">登录</a>
+            {{ /if }}
+
+        </div>
+    </div>
+</div>
+
+<div class="uk-banner"></div>
+
+<div id="uk-nav" class="uk-nav">
+    <div class="uk-main">
+        <a class="item {{ if $menu == "index" }} active {{ /if }}" href="/uk?source=dt_uk2016_pc#uk-nav">赛事首页</a>
+        <a class="item {{ if $menu == "process" }} active {{ /if }}" href="/uk/rule#uk-nav">参赛流程</a>
+        <a class="item {{ if $menu == "memberList" }} active {{ /if }}" href="/uk/rank#uk-nav">投票专区</a>
+        <a class="item {{ if $menu == "profile" }} active {{ /if }}" href="/uk/profile#uk-nav">个人中心</a>
+
+        {{ if $user_data.user_type == -1 || (isset($tpl_data.has_pay) && $tpl_data.has_pay == 0) }}
+        <a id="btn-entry" class="uk-btn entry-btn" href="/uk/edit#uk-nav">
+            <i class="icon icon-heart"></i> 我要报名
+        </a>
+        {{ else }}
+        <a id="btn-to-vote" class="uk-btn entry-btn" href="/uk/rank#uk-nav">
+            <i class="icon icon-heart"></i> 我要投票
+        </a>
+        {{ /if }}
+
+    </div>
+</div>
+
+
+{{ block name="content" }}
+{{ /block }}
+
+{{ include file="common/footer.html" }}
+{{ /block }}
+{{ /strip }}

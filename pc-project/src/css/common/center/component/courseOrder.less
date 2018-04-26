@@ -1,0 +1,142 @@
+/**
+ * @file 单个班课订单元素
+ * @author zhangjiayi
+ */
+
+.course-order-item {
+
+    @order-padding-horizontal: 20px;
+
+    border-bottom: 1px solid #DDD;
+
+    .order-header {
+        color: #3d3d3d;
+        font-size: @font-size-tiny;
+        padding: 5px @order-padding-horizontal 5px 0;
+    }
+
+    .order-price {
+        float: right;
+    }
+
+    .order-id,
+    .pay-tip {
+        margin-left: @gap-horizontal-medium;
+    }
+
+    .new-price,
+    .old-price {
+        color: @brand-text-lighter;
+        font-size: @font-size-tiny;
+    }
+
+    .old-price {
+        margin-left: 5px;
+    }
+
+    table {
+        width: 100%;
+    }
+    td {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .course-info {
+        position: relative;
+
+        .course-photo {
+            display: block;
+            width: 100px;
+            height: 95px;
+            float: left;
+            margin-right: 15px;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .course-name {
+            font-size: 18px;
+            color: #3d3d3d;
+        }
+
+        div {
+            color: #9e9e9e;
+        }
+
+        .new-price {
+            margin-left: 10px;
+        }
+
+        .class-course-label {
+            position: absolute;
+            bottom: 20px;
+        }
+    }
+
+    .class-info,
+    .user-name{
+        margin-left: 12px;
+    }
+
+
+    .class-course-label {
+        background-color: @brand-primary;
+        color: #FFF;
+        display: inline-block;
+        font-size: @font-size-tiny;
+        padding: 1px 6px;
+    }
+
+    .progress {
+        margin: 5px 0;
+    }
+
+    .study-progress {
+        width: 30%;
+        text-align: center;
+
+        .rate {
+            color: @brand-primary;
+            b {
+                font-size: 16px;
+            }
+        }
+    }
+
+    .order-status {
+        position: relative;
+        &:before {
+
+            background-color: #999;
+            content: ' ';
+            display: inline-block;
+            width: 1px;
+            height: 10px;
+
+            margin: 0 10px;
+        }
+    }
+    .order-action {
+        width: 100px;
+        text-align: center;
+    }
+
+    .study-progress,
+    .order-action {
+        position: relative;
+        top: 10px;
+    }
+
+    .lesson-way {
+
+    }
+
+    .btn-block {
+        margin-top: 0;
+    }
+
+}

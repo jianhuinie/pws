@@ -1,0 +1,22 @@
+<!--发现精品机构-->
+<div id="org">
+    <span class="category">发现<i class="point"></i>{{ $tpl_data.current_city.name }}精品机构</span>
+    <ul class="list">
+        {{ foreach $tpl_data.orgs as $val }}
+            <li class="item {{ if $val@last }}last{{ /if }}">
+                <span class="num {{ if $val@index < 3 }}top{{ /if }}">{{ $val@index+1 }}</span>
+                <div class="info">
+                    <a class="avatar" href="{{ $val.domain }}" target="_blank">
+                        {{ if empty($val.logo) }}
+                        <img src="{{ $static_origin }}/src/img/org/logo.jpg">
+                        {{ else }}
+                        <img src="{{ $val.logo }}@1e_40w_40h_1c_0i_1o_90Q_1x">
+                        {{ /if }}
+                    </a>
+                    <a class="name" href="{{ $val.domain }}" target="_blank">{{ $val.name|cn_truncate:5 }}</a>
+                    <span class="course">{{ $val.brief|cn_truncate:8 }}</span>
+                </div>
+            </li>
+        {{ /foreach }}
+    </ul>
+</div>

@@ -1,0 +1,43 @@
+{{ *
+
+@file 客户端登录后老师页面
+@author zhangliyuan
+
+* }}
+
+{{ extends file="common/pc/base.html" }}
+
+{{ block name="title" }}
+登录
+{{ /block }}
+
+{{ block name="style" }}
+
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/client/loginSuccess_188c77142b.css">
+
+{{ /block }}
+
+{{ block name="data" }}
+
+    {{ $need_im = false }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $script_path = "client/course_dbc52e48b1" }}
+
+{{ /block }}
+
+{{ block name="body" }}
+{{ strip }}
+
+    <div id="main">
+
+        {{ include file="client/sidebar.html" }}
+        {{ include file="client/courseList.html" }}
+
+    </div>
+
+    {{ include file="common/script.html" }}
+
+{{ /strip }}
+{{ /block }}

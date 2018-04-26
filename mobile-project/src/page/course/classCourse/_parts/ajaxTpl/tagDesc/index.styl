@@ -1,0 +1,46 @@
+.class-course-tags-desc {
+	.header {
+		background: #F8F8F8;
+	    height: rem(40);
+	    line-height: rem(40);
+	    text-align: center;
+	    position: relative;
+		font-size: rem(14);
+		color: #6D6D6E;
+		.icon-close {
+		    right: rem(10);
+		    color: #cdcdce;
+		    font-size: rem(20);
+		    v-center(absolute);
+		}
+	}
+	.body {
+		.item {
+			background: #FFFFFF;
+			box-shadow: 0 0 0 0 #EBECED, 0 0 0 0 #ECECEC;
+			height: rem(65);
+			padding: rem(10);
+			border-bottom: 1px solid #f4f4f4;
+			position: relative;
+			padding-left: rem(40);
+			.icon {
+				position: absolute;
+			    font-size: rem(22);
+		    	color: #ff9100;
+		    	left: rem(10);
+			}
+			.info {
+				line-height: rem((65 - 10 - 10) / 2);
+				.name {
+					font-size: rem(14);
+					color: #3D3D3E;
+				}
+				.desc {
+					ellipsis();
+					font-size: rem(12);
+					color: #9D9D9E;
+				}
+			}
+		}
+	}
+}

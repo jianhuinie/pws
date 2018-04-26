@@ -1,0 +1,353 @@
+{{ *
+
+@file 学生主页
+@author zhengjunxin
+
+* }}
+
+{{ extends file="common/main/base.html" }}
+
+{{ block name="data" }}
+    {{ $active = 'index' }}
+    {{ $smarty.block.parent }}
+    {{ $nav_config.hidden = 1 }}
+    {{ $nav_config.active = '' }}
+    {{ $flotage_config.hidden = true }}
+
+{{ /block }}
+
+{{ block name="title" }}
+    {{ if isset($tpl_data.basic_info.nickname) }}
+        {{ $tpl_data.basic_info.nickname }}
+    {{ /if }} － 跟谁学
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/student/index.less">
+{{ if isset($tpl_data.huike.is_huike_student) && $tpl_data.huike.is_huike_student }}
+    <style type="text/css">
+        #site-nav .status-info li:nth-child(3){
+            display: none;
+        }
+
+        .user-info li {
+            display: none;
+        }
+        .user-info .my-course,
+        .user-info .custom-service {
+            display: inline-block;
+        }
+        #site-nav .course-menu {
+            left: -100px;
+        }
+        #site-nav .course-menu:before, #site-nav .course-menu:after {
+            left: 13em;
+        }
+        #header {
+            display: none;
+        }
+        #footer .wrapper > div {
+            display: none;
+        }
+        #footer .wrapper .copyright {
+            display: block;
+        }
+    </style>
+{{ /if }}
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+{{ if isset($tpl_data.huike.is_huike_student) && $tpl_data.huike.is_huike_student }}
+    <div class="huike-header">
+        <a href="{{ $tpl_data.huike.org_url }}" class="huike-logo" target="_blank"></a>
+    </div>
+{{ /if }}
+{{ include file= "./common/banner.html" }}
+<div id="main">
+    {{ include file="student/common/header.html" }}
+
+    <div id="student-sidebar">
+        <div id="student-user">
+            {{ $nickname = $tpl_data.basic_info.nickname|cn_truncate:5 }}
+            <span class="name" {{ if $nickname != $tpl_data.basic_info.nickname }}data-title="{{ $tpl_data.basic_info.nickname }}" data-width="20em"{{ /if }}>
+                {{ $tpl_data.basic_info.nickname }}
+            </span>
+            <span class="number">
+                学生ID：{{ $tpl_data.basic_info.user_number }}
+            </span>
+
+            {{ $address = $tpl_data.basic_info.address }}
+            {{ $final_address = '' }}
+            {{ if !empty($address.province.name) }}
+                {{ $final_address = $address.province.name }}
+            {{ /if }}
+            {{ if !empty($address.city.name) && $address.city.name !== $address.province.name }}
+                {{ if $final_address }}
+                    {{ $final_address = $final_address|cat:'-'|cat:$address.city.name }}
+                {{ else }}
+                    {{ $final_address = $address.city.name }}
+                {{ /if }}
+            {{ /if }}
+            {{ if !empty($address.area.name) }}
+                {{ if $final_address }}
+                    {{ $final_address = $final_address|cat:'-'|cat:$address.area.name }}
+                {{ else }}
+                    {{ $final_address = $address.area.name }}
+                {{ /if }}
+            {{ /if }}
+            {{ if $final_address }}
+                <div class="address">
+                    <i class="icon icon-location-o"></i>
+                    {{ $final_address }}
+                </div>
+            {{ /if }}
+        </div>
+        <div id="student-edu">
+            <span class="title">
+                <i class="icon-edu"></i>教育信息
+            </span>
+            {{ $background = $tpl_data.background }}
+            {{ if !empty($background.colleges) ||
+                  !empty($background.senior_schools) ||
+                  !empty($background.special_schools) ||
+                  !empty($background.middle_schools) ||
+                  !empty($background.primary_schools) }}
+                <ul class="detail">
+                    {{ if !empty($background.colleges) }}
+                        <li>
+                            <span class="school">大学：</span>
+                            <div class="txt">
+                                {{ foreach $background.colleges as $val }}
+                                    <div class="section">
+                                        {{ if !empty($val.school_name) }}
+                                            {{ $val.school_name }}
+                                        {{ /if }}
+                                        &nbsp;&nbsp;
+                                        {{ if !empty($val.enter_school) }}
+                                            {{ $val.enter_school|date_format: '%Y' }}年
+                                        {{ /if }}
+                                        &nbsp;&nbsp;
+                                        {{ if !empty($val.department_name) }}
+                                            <span>{{ $val.department_name }}</span>
+                                        {{ /if }}
+                                    </div>
+                                {{ /foreach }}
+                            </div>
+                        </li>
+                    {{ /if }}
+                    {{ if !empty($background.senior_schools) }}
+                        <li>
+                            <span class="school">高中：</span>
+                            <div class="txt">
+                                {{ foreach $background.senior_schools as $val }}
+                                    <div class="section">
+                                        {{ if !empty($val.school_name) }}
+                                            {{ $val.school_name }}
+                                        {{ /if }}
+                                        &nbsp;&nbsp;
+                                        {{ if !empty($val.enter_school) }}
+                                            {{ $val.enter_school|date_format: '%Y' }}年
+                                        {{ /if }}
+                                    </div>
+                                {{ /foreach }}
+                            </div>
+                        </li>
+                    {{ /if }}
+                    {{ if !empty($background.special_schools) }}
+                        <li>
+                            <span class="school">中专技校：</span>
+                            <div class="txt">
+                                {{ foreach $background.special_schools as $val }}
+                                    <div class="section">
+                                        {{ if !empty($val.school_name) }}
+                                            {{ $val.school_name }}
+                                        {{ /if }}
+                                        &nbsp;&nbsp;
+                                        {{ if !empty($val.enter_school) }}
+                                            {{ $val.enter_school|date_format: '%Y' }}年
+                                        {{ /if }}
+                                    </div>
+                                {{ /foreach }}
+                            </div>
+                        </li>
+                    {{ /if }}
+                    {{ if !empty($background.middle_schools) }}
+                        <li>
+                            <span class="school">初中：</span>
+                            <div class="txt">
+                                {{ foreach $background.middle_schools as $val }}
+                                    <div class="section">
+                                        {{ if !empty($val.school_name) }}
+                                            {{ $val.school_name }}
+                                        {{ /if }}
+                                        &nbsp;&nbsp;
+                                        {{ if !empty($val.enter_school) }}
+                                            {{ $val.enter_school|date_format: '%Y' }}年
+                                        {{ /if }}
+                                    </div>
+                                {{ /foreach }}
+                            </div>
+                        </li>
+                    {{ /if }}
+                    {{ if !empty($background.primary_schools) }}
+                        <li>
+                            <span class="school">小学：</span>
+                            <div class="txt">
+                                {{ foreach $background.primary_schools as $val }}
+                                    <div class="section">
+                                        {{ if !empty($val.school_name) }}
+                                            {{ $val.school_name }}
+                                        {{ /if }}
+                                        &nbsp;&nbsp;
+                                        {{ if !empty($val.enter_school) }}
+                                            {{ $val.enter_school|date_format: '%Y' }}年
+                                        {{ /if }}
+                                    </div>
+                                {{ /foreach }}
+                            </div>
+                        </li>
+                    {{ /if }}
+                </ul>
+            {{ else }}
+                <div class="empty">
+                    {{ if $tpl_data.is_self }}
+                        <span>你的求学经历还是个谜</span>
+                        <a href="/student_center/profile" class="btn btn-primary">添加</a>
+                    {{ else }}
+                        <span>该用户没填写过任何信息</span>
+                    {{ /if }}
+                </div>
+            {{ /if }}
+        </div>
+        <div id="student-work">
+            <span class="title">
+                <i class="icon-work"></i>工作信息
+            </span>
+            {{ if !empty($tpl_data.work) }}
+            <ul class="detail">
+                {{ foreach $tpl_data.work as $val }}
+                    {{ if !empty($val.start_date)&&!empty($val.end_date) }}
+                        <li>
+                            <div class="company">公司<span>{{ $val.company_name }}</span></div>
+                            <div class="time">时间
+                                {{ if $val.end_date > 0 }}
+                                    <span>{{ $val.start_date|date_format: '%Y-%m' }} 至 {{ $val.end_date|date_format: '%Y-%m' }}</span>
+                                {{ else }}
+                                    <span>{{ $val.start_date|date_format: '%Y-%m' }} - 至今</span>
+                                {{ /if }}
+                            </div>
+                        </li>
+                    {{ /if }}
+                {{ /foreach }}
+            </ul>
+            {{ else }}
+            <div class="empty">
+                {{ if $tpl_data.is_self }}
+                    <span>你还没有填写工作信息</span>
+                    <a href="/student_center/profile" class="btn btn-primary">添加</a>
+                {{ else }}
+                    <span>该用户没填写过任何信息</span>
+                {{ /if }}
+            </div>
+            {{ /if }}
+        </div>
+    </div>
+
+    <div id="student-content">
+
+        <div id="student-learning">
+            {{ $count = $tpl_data.trajectory.now_learning + $tpl_data.trajectory.has_learned }}
+            <div class="title">
+                <span>{{ $tpl_data.basic_info.nickname }}的学习轨迹</span>
+                {{ if $count > 0 }}
+                    <a href="/student/trackLearning?user_number={{ $tpl_data.basic_info.user_number }}" class="more">
+                        查看全部>
+                    </a>
+                {{ /if }}
+            </div>
+
+            {{ if $tpl_data.trajectory_hide }}
+                <div class="no-learning">
+                    <div class="wenzai"></div>
+                    <span>由于学生设置，学习轨迹暂时不可见哦~</span>
+                </div>
+            {{ else }}
+                {{ if $count > 0 }}
+                    {{ if $count > 3 && !isset($user_data.user_number) }}
+                        <ul class="list">
+                            {{ foreach $tpl_data.trajectory.learnings as $val }}
+                                {{ if $val@index < 3 }}
+                                    <li>
+                                        <i class="icon icon-circle"></i>
+                                        <span class="date">{{ $val.date|date_format:"%m月%d日" }}</span>
+                                        {{ foreach $val.courses as $v }}
+                                            <div class="section">
+                                                {{ * span class="status">正在学</span> * }}
+
+                                                {{ $course_name = $v.course_name|cn_truncate:16 }}
+                                                <a class="course" href="{{ $v.course_link }}" {{ if $course_name != $v.course_name }}data-title="{{ $v.course_name }}" data-width="20em"{{ /if }} target="_blank">
+                                                    {{ $v.course_name }}
+                                                </a>
+                                                {{ $teacher_name = $v.teacher_name|cn_truncate:5 }}
+                                                <a class="teacher" href="{{ $v.teacher_link }}" {{ if $teacher_name != $v.teacher_name }}data-title="{{ $v.teacher_name }}" data-width="20em"{{ /if }} target="_blank">
+                                                    {{ $v.teacher_name }}
+                                                </a>
+                                                <span class="type">（{{ $v.course_type }}）  {{ if $v.course_type == '一对一' }}{{ $v.course_process }}小时{{ else if $v.course_type == '直播课' }}第{{ $v.course_process }}课节{{ else if $v.course_type == '视频课' }}第{{ $v.course_process }}课节{{ /if }}</span>
+                                            </div>
+                                        {{ /foreach }}
+                                    </li>
+                                {{ /if }}
+                            {{ /foreach }}
+                        </ul>
+                        <p>
+                            要查看全部学习轨迹请先
+                            <a href="/static/login" target="_blank">登录</span>
+                        </p>
+                    {{ else }}
+                        <ul class="list">
+                            {{ foreach $tpl_data.trajectory.learnings as $val }}
+                                <li>
+                                    <i class="icon icon-circle"></i>
+                                    <span class="date">{{ $val.date|date_format:"%m月%d日" }}</span>
+                                    {{ foreach $val.courses as $v }}
+                                        <div class="section">
+                                            {{ * span class="status">正在学</span> * }}
+
+                                            {{ $course_name = $v.course_name|cn_truncate:16 }}
+                                            <a class="course" href="{{ $v.course_link }}" {{ if $course_name != $v.course_name }}data-title="{{ $v.course_name }}" data-width="20em"{{ /if }} target="_blank">
+                                                {{ $v.course_name }}
+                                            </a>
+                                            {{ $teacher_name = $v.teacher_name|cn_truncate:5 }}
+                                            <a class="teacher" href="{{ $v.teacher_link }}" {{ if $teacher_name != $v.teacher_name }}data-title="{{ $v.teacher_name }}" data-width="20em"{{ /if }} target="_blank">
+                                                {{ $v.teacher_name }}
+                                            </a>
+                                            <span class="type">（{{ $v.course_type }}）  {{ if $v.course_type == '一对一' }}{{ $v.course_process }}小时{{ else if $v.course_type == '直播课' }}第{{ $v.course_process }}课节{{ else if $v.course_type == '视频课' }}第{{ $v.course_process }}课节{{ /if }}</span>
+                                        </div>
+                                    {{ /foreach }}
+                                </li>
+                            {{ /foreach }}
+                        </ul>
+                    {{ /if }}
+                {{ else }}
+                    <div class="no-learning">
+                        <div class="wenzai"></div>
+                        {{ if $tpl_data.is_self }}
+                            <span>还没有学习任何课程，赶快去学习吧</span>
+                            <a href="/s/search.html" target="_blank" class="btn btn-primary">找好老师学习</a>
+                        {{ else }}
+                            <span>该用户还没有学习过</span>
+                        {{ /if }}
+                    </div>
+                {{ /if }}
+            {{ /if }}
+        </div>
+        {{ if !isset($tpl_data.huike.is_huike_student) || !$tpl_data.huike.is_huike_student }}
+            <div id="student-app"></div>
+        {{ /if }}
+
+    </div>
+</div>
+
+{{ /strip }}
+{{ /block }}

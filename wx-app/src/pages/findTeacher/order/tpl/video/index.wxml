@@ -1,0 +1,9 @@
+<template name="video">
+  	<view class="order-video-item">
+	  	<view class="poster" bindtap="onPlay" hidden="{{isShowVideo}}">
+		  	<image style="width: 100%; height: 100%;" mode="scaleToFill" src="{{item.cover_img}}"></image>
+			<image class="play-icon" src="https://imgs.genshuixue.com/0cms/d/file/content/2017/06/593b9f80b33de.png"></image>
+		</view>
+		<video src="{{item.video_url}}" controls="false" poster="{{item.cover_img}}" hidden="{{!isShowVideo}}" autoplay="{{autoplay}}"></video>
+	</view>
+</template>

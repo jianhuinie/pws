@@ -1,0 +1,14 @@
+{
+    "tpl_data": {
+        "id": "2",
+        "deduct_id": "216",
+        "problem": "2016-01-12 10:10:52风险控制小组判定您订单号的订单为虚假交易",
+        "deduct_reason": "feaefafeafjeafea",
+        "attach_photos": "45,55,23",
+        "status": "1",
+        "result": "同意解除",
+        "create_time": "2016-02-26 14:05:51",
+        "update_time": "2016-02-26 14:05:51"
+    }
+}
+

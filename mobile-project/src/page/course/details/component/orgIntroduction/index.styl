@@ -1,0 +1,113 @@
+@import "page/_base/css/color.styl";
+
+right()
+    margin-left: rem(77);
+
+.org-intro {
+    margin-top: rem(10);
+    background-color: #fff;
+    overflow: hidden;
+
+    .title {
+        margin: rem(16) rem(15) 0;
+        border-left: 2px solid #ff6c00;
+        padding-left: rem(5);
+        color: $brand-text;
+        font-size: rem(18);
+        line-height: 1;
+    }
+
+    .base-info {
+        margin: rem(19) rem(15) 0;
+        overflow: hidden;
+
+        .avatar {
+            display: block;
+            float: left;
+            width: rem(70);
+            height: rem(70);
+        }
+
+        .name {
+            right()
+            margin-top: rem(7);
+            font-size: rem(16);
+            font-family: PingFang-SC-Medium;
+            font-weight: bold;
+
+            .vip {
+                margin-left: rem(10);
+                width: rem(16);
+                width: rem(16);
+            }
+        }
+
+        .short-intro {
+            right()
+            margin-top: rem(18);
+            font-size: rem(14);
+            font-family: PingFang-SC-Regular;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+    }
+
+    .proportion-info {
+        margin: 0 rem(15);
+        height: rem(76);
+        display: flex;
+
+        .clap-board {
+            margin: rem(15) 0;
+            height: rem(46);
+            width: rem(1);
+            flex-basis: rem(1);
+            background-color: #ddddde;
+        }
+
+        .info {
+            flex: 1;
+            padding-top: rem(18);
+            text-align: center;
+
+            .number {
+                font-size: rem(18);
+                line-height: rem(20);
+                color: #3c3d3d;
+            }
+            .item {
+                margin-top: rem(9);
+                font-size: rem(13);
+                line-height: 1;
+                color: #9d9d9e;
+            }
+        }
+    }
+
+    .operation {
+        margin: 0 rem(15) rem(15);
+        display: flex;
+        justify-content: center;
+
+        .btn {
+            margin-right: rem(30);
+            width: rem(83) !important;
+            flex-basis: rem(83) !important;
+            height: rem(30) !important;
+            border: rem(1) solid #ff6c00;
+            border-radius: rem(3);
+            color: #ff6c00;
+            text-align: center;
+            line-height: rem(28);
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+            flex: none;
+            font-size: rem(15) !important;
+        }
+
+        .last {
+            margin-right: 0 !important;
+        }
+    }
+}

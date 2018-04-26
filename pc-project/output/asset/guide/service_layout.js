@@ -1,0 +1,1 @@
+define("guide/service_layout",["require","exports"],function(require,exports){"use strict";exports.init=function(){var t=$("h2:first").text(),e=$("#current");e.text(t)}});

@@ -1,0 +1,72 @@
+/**
+ * @file 我的收藏 - 机构收藏
+ * @author caoying
+ */
+
+@import '../common/center/common/layout.less';
+
+
+#content {
+
+    .card-body {
+
+        .org-body {
+
+            border-top: 1px solid #eeeeee;
+            margin-top: 30px;
+
+            .org-info {
+
+                border-bottom: 1px solid #eeeeee;
+                padding: 22px 5px;
+                overflow: hidden;
+
+                .org-img {
+                    float: left;
+                    margin-right: 30px;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+
+                .org-summary {
+                    width: 500px;
+                    float: left;
+
+                    .org-name {
+                        margin-bottom: 10px;
+                    }
+
+                    .org-score {
+                        margin-bottom: 10px;
+                    }
+
+                    .org-brief {
+                        line-height: 1.8;
+                    }
+                }
+
+                .org-oper {
+                    text-align: right;
+                    .org-delete {
+                        display: inline-block;
+                        padding: 12px;
+
+                        &:hover {
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+
+        }
+
+        .pager-block {
+            margin-top: 40px;
+        }
+
+    }
+
+}
+

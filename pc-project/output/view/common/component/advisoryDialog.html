@@ -1,0 +1,138 @@
+
+{{ *
+   * @file 留单弹窗
+   * @author wangyujie
+* }}
+
+{{ strip }}
+
+{{ if not isset($kf) }}
+    {{ $kf = 'false' }}
+{{ /if }}
+
+{{ if not isset($object_name) }}
+    {{ $object_name = '' }}
+{{ /if }}
+
+{{ if not isset($dialog_name) }}
+    {{ $dialog_name = '预约试听' }}
+{{ /if }}
+
+{{ if not isset($username) }}
+    {{ $username = '' }}
+{{ /if }}
+
+{{ if not isset($mobile) }}
+    {{ $mobile = '' }}
+{{ /if }}
+
+{{ if $kf == 'true' }}
+    <!-- 个体老师 留单 -->
+    <div id="kf-advisory-dialog-form">
+        <div class="form advisory-form">
+
+            <div class="course-title">
+                请填写您的学习需求，课程顾问会在15分钟内联系您
+            </div>
+
+            <div class="form-body">
+
+                <div class="form-group">
+                    <label class="form-label">
+                        姓名：
+                    </label>
+                    <div class="form-controls">
+                        <input class="form-text" type="text" name="username" required placeholder="您的姓名" pattern="^[\u4d00-\u9fa5]{2,}|[a-zA-Z]{4,}$" value="{{ $username }}">
+                        <span class="error"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        手机号：
+                    </label>
+                    <div class="form-controls">
+                        <input class="form-text" type="mobile" name="mobile" required placeholder="请输入手机号" pattern="^1[34578](\d){9}$" value="{{ $mobile }}">
+                        <span class="error"></span>
+                    </div>
+                </div>
+
+                <div id="captcha">
+                    {{ include file="common/component/captcha.html" captcha_name="advisory" }}
+                </div>
+
+                <div class="form-group clearfix">
+                    <label class="form-label">
+                        想学什么：
+                    </label>
+
+                    <div class="form-controls">
+                        <textarea class="form-text" name="info" required pattern="^[\u4d00-\u9fa5]{2,}|[a-zA-Z]{3,}$" placeholder="填写您的学习需求"></textarea>
+                    </div>
+                    <span class="error"></span>
+                </div>
+
+                <div class="form-action">
+                    <button type="submit" class="btn btn-primary btn-save">
+                        预约课程顾问
+                    </button>
+                    <span class="hint">
+                        咨询电话：4000-910-910，010-86448910
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+{{ else }}
+    <!-- 机构老师 留单 -->
+    <div id="advisory-dialog-form">
+        <div class="form advisory-form">
+
+            <div class="course-title">
+                {{ $object_name|cn_truncate: 20 }}，{{ $dialog_name }}
+            </div>
+
+            <div class="hint">
+                老师将直接与您登录的此手机号联系，确定细节
+            </div>
+
+            <div class="form-body">
+                <div class="form-group">
+                    <label class="form-label">
+                        手机号：
+                    </label>
+                    <div class="form-controls">
+                        <input class="form-text" type="mobile" name="mobile" required placeholder="请输入手机号" pattern="^1[34578](\d){9}$" value="{{ $mobile }}">
+                        <span class="error"></span>
+                    </div>
+                </div>
+
+                <div id="captcha">
+                    {{ include file="common/component/captcha.html" captcha_name="advisory" }}
+                </div>
+
+                <div class="form-group clearfix">
+                    <label class="form-label">
+                        留言：
+                    </label>
+
+                    <div class="form-editor">
+                        <textarea class="form-text" name="info" required maxlength="50" placeholder="请在这里写一下希望试听的内容或者要咨询的问题"></textarea>
+                        <div class="form-hint">
+                            还可以输入 <strong>50</strong> 个字
+                        </div>
+                    </div>
+                    <span class="error message"></span>
+                </div>
+
+                <div class="form-action">
+                    <button type="submit" class="btn btn-primary btn-save">
+                        {{ $dialog_name }}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+{{ /if }}
+
+{{ /strip }}

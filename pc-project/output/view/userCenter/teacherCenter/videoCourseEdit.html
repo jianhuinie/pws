@@ -1,0 +1,52 @@
+{{ *
+    @file: 视频课编辑
+    @author: zhujialu
+* }}
+
+{{ extends file="../common/base.html" }}
+
+{{ block name="data" }}
+    {{ $smarty.block.parent }}
+    {{ $need_ueditor = true }}
+{{ /block }}
+
+{{ block name="title" prepend }}
+    编辑视频课
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/userCenter/teacherCenter/videoCourseEdit/videoCourseEdit_7a54531493.css">
+{{ /block }}
+
+{{ block name="script" }}
+<script>
+require(
+    [
+        'userCenter/teacherCenter/common/layout_fca6630c9a',
+        'userCenter/teacherCenter/videoCourseEdit/videoCourseEdit_ecf1668799'
+    ],
+    function (layout, videoCourseEdit) {
+        {{ $php_data = $tpl_data }}
+
+        {{ if isset($tpl_data.is_huike_teacher) }}
+            {{ $is_huike_teacher = $tpl_data.is_huike_teacher }}
+        {{ else }}
+            {{ $is_huike_teacher = 0 }}
+        {{ /if }}
+
+        layout.init({
+            topMenu: 'userCenter',
+            sideMenu: 'courseSettings',
+            isHuikeTeacher: {{ $is_huike_teacher }},
+            appendBreadcrumb: {
+                text: '编辑视频课'
+            }
+        });
+
+        videoCourseEdit.init(
+            {{ json_encode($php_data, 77) }}
+        );
+    }
+);
+</script>
+{{ /block }}

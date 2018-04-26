@@ -1,0 +1,96 @@
+{{ extends file="common/main/base.html" }}
+
+{{ block name="title" }}
+首单奖不停，三百行不行？
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/activity/sendMoney.less">
+{{ /block }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $script_path = "activity/sendMoney" }}
+
+    {{ $baidu_share_text = '@跟谁学 “首单奖不停，三百行不行”活动超级给力，凡是未在跟谁学交易过的老师，首次与学生上课成功后，将获得额外现金奖励哦！' }}
+
+    {{ * $img = '<img src="/src/img/activity/center/sendmoney/blog-banner.jpg" />' * }}
+    {{ * $parts = explode('"', $img) * }}
+    {{ * $urlshare = $parts[1] * }}
+    {{ * $baidu_share_image =  $static_origin|cat: $urlshare * }}
+
+    {{ $baidu_share_image =  $static_origin|cat: '/asset/img/activity/center/sendmoney/blog-banner.jpg' }}
+
+{{ /block }}
+
+
+{{ block name="body" }}
+{{ strip }}
+
+{{ include file="common/siteNav.html" }}
+{{ include file="common/main/common/header.html" }}
+
+{{ include file="common/script.html" }}
+
+<div id="main">
+
+
+    <div id="layout"></div>
+
+    <div class="item-show">
+
+        <div class="title-small1">
+        </div>
+        <div class="words">
+            <h2>2015年2月11日-2015年4月15日</h2>
+        </div>
+        <div class="title-small2">
+        </div>
+        <div class="words" >
+            <span>凡是未在跟谁学交易过的老师，当您的第一个学生完成首单全部课时、确认课酬、并主动给予好评，将额外获得</span>
+
+            <em>首单课酬的10%</em>
+            <span>作为奖励，</span>
+            <em>每单补贴上限为300元</em>
+
+            <span>。如果有多个学生同时约课，默认首单为第一个确认支付了订单内全部课时的订单。</span>
+
+            <br>
+        </div>
+
+        <div class="title2">
+            <div class="whether-cash" data-progress='{{ json_encode($tpl_data.progress, 77) }}'></div>
+        </div>
+
+        <div class="title3">
+        </div>
+        <div class="words-last">
+            <div class="words-last-con"><span>1</span><div>约课学生需为2015年2月11日0时后注册的新用户。</div></div>
+            <div class="words-last-con"><span>2</span><div>本活动奖励老师限额10000名，每位老师每小时奖励上限50元。</div></div>
+            <div class="words-last-con"><span>3</span><div>首单需为1对1课程，奖励金额将在学生主动给予好评后到账。</div></div>
+            <div class="words-last-con"><span>4</span><div>机构老师的奖金划入所在机构的跟谁学账户，每个机构只奖励前5名参与活动的老师。</div></div>
+            <div class="words-last-con"><span class="last-long">5</span><div>针对虚假交易行为，跟谁学有权取消奖励。实施过程中的未尽事宜, 跟谁学在法律规定范围内享有解释权。</div></div>
+        </div>
+
+
+        <div class="share-trigger">
+            {{ include file="common/component/baiduShare.html" }}
+        </div>
+
+    </div>
+
+    <div class="share">
+    </div>
+
+</div>
+
+
+
+
+{{ include file="common/component/loginDialog.html" onlyShowTeacher=1 }}
+{{ include file="common/footer.html" }}
+
+{{ /strip }}
+{{ /block }}

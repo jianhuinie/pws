@@ -1,0 +1,319 @@
+$O600 = #ff6c00;
+$Orange = #ff9100;
+$g600 = #3c3d3d;
+$g500 = #6d6d6e;
+$g400 = #9d9e9e;
+$g300 = #dcddde;
+$g200 = #ebeced;
+$g100 = #f2f4f5;
+
+//.fc_origin_gray{
+//  color:$O600;
+//}
+
+@import "page/_base/base.styl";
+@import "page/_common/nav_bar/nav_bar.styl";
+@import "./component/commentList.styl";
+@import "./component/starScore.styl";
+
+.comment-main {
+    font-size: rem(14);
+    height: 100%;
+    text-align: center;
+
+    .comment-title {
+        height: rem(44);
+        line-height: rem(44);
+        background-color: #F8F9FB;
+    }
+    .comment-list {
+        background-color: #fff;
+        height: rem(132);
+        overflow: hidden;
+
+        .comment-item {
+            height: rem(44);
+            line-height: rem(44);
+            position: relative;
+
+            &:after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                border-top: 1px solid #E6E6E6;
+                -webkit-transform: scaley(0.5);
+                -wenkit-transform-orgin: 0 0;
+            }
+            a {
+                display: block;
+            }
+        }
+    }
+}
+
+.mask-p {
+    position: fixed;
+    width: 100%;
+    top: rem(44);
+    left: 0;
+    bottom: 0;
+    z-index: 4;
+    display: none;
+
+    .mask {
+        position: fixed;
+        width: 100%;
+        top: rem(44);
+        left: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+    .content-panel {
+        width: 100%;
+        position: relative;
+        max-height: rem(150);
+    }
+    .content {
+        height: 100%;
+    }
+    .content-wap {
+        background-color: #fff;
+        width: 100%;
+        max-height: rem(150);
+        position: absolute;
+        top: rem(50);
+    }
+    .bottom-corner {
+        position: absolute;
+        height: rem(8);
+        width: rem(8);
+        top: rem(-4);
+        background-color: #fff;
+        right: rem(20);
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+}
+
+.single-line {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    li {
+        list-style: none;
+    }
+}
+
+body {
+    background-color: $g100;
+}
+
+.icon-iconfont-edit {
+    font-size: rem(18);
+    color: $O600;
+}
+
+.comments-overview {
+    background-color: #fff;
+    padding-top: rem(22.5);
+    padding-bottom: rem(15);
+    color: #333;
+    border-bottom: 1px solid $g100;
+    overflow: hidden;
+    font-size: rem(14);
+    > ul {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    .comments-statistics {
+        padding: rem(10);
+        border-right: 1px solid $g100;
+        min-height: rem(80);
+        width: 37%;
+        float: left;
+        color: $g500;
+        > li {
+            list-style: none;
+            text-align: center;
+            .score {
+                font-size: rem(24);
+                margin-right: rem(2);
+                font-weight: 700;
+
+            }
+            .no-score {
+                display: inline-block;
+                margin-top: rem(10);
+                font-size: rem(16);
+            }
+            &.star {
+                margin-top: rem(15);
+
+            }
+            &.total-number {
+                margin-top: rem(15);
+            }
+        }
+    }
+}
+
+.comments-stars {
+    margin-left: 37%;
+    text-align: left;
+    padding-left: rem(10);
+    li {
+        list-style: none;
+        position: relative;
+        margin-bottom: rem(9);
+        .star-level {
+            font-size: rem(11);
+            color: $g400;
+            margin-right: rem(5);
+        }
+        .grey-line, .orange-line {
+            display: inline-block;
+            height: rem(10);
+            border-radius: rem(2);
+        }
+        .grey-line {
+            width: rem(110);
+            position: relative;
+            background-color: $g200;
+            margin-right: rem(1);
+        }
+        .orange-line {
+            width: rem(10);
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: $Orange;
+        }
+        .num {
+            font-size: rem(11);
+            color: $g400;
+        }
+    }
+}
+
+.tab-list {
+
+    .tab-title {
+        width: 100%;
+        height: rem(40);
+        font-size: rem(15);
+        line-height: rem(40);
+        background-color: #fff;
+        border-bottom: 1px solid #EDF0F0;
+    }
+    li.tab-item {
+        //display: inline-block;
+        float: left;
+        width: 25%;
+        text-align: center;
+        color: $g400;
+        height: 100%;
+        zoom: 1;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        &.active {
+            color: $Orange;
+            > div {
+
+                border-bottom: 1px solid $Orange;
+
+            }
+        }
+    }
+    .comments-filter {
+        font-size: rem(12);
+        padding: rem(10);
+        padding-bottom: 0;
+        border-bottom: 1px solid #f2f4f5;
+        > li {
+            display: inline-block;
+            text-align: center;
+            width: auto;
+
+            cursor: pointer;
+            padding: 0 rem(8);
+            border-radius: rem(2);
+            height: rem(27);
+            line-height: rem(27);
+            color: $g600;
+            margin-bottom: rem(10);
+
+            > i {
+                font-style: normal;
+            }
+            &:first-child {
+                border-left: 0;
+            }
+        }
+        .comment-tag {
+            background: #fff;
+            margin-right: rem(5);
+        }
+        .middle, .lower {
+            background: #f2f4f5;
+        }
+        > .active {
+            background: $O600;
+            color: #fff;
+
+            > i {
+                color: #fff;
+            }
+        }
+    }
+    .comment-panel {
+        .no-comment {
+            padding: 0 rem(30);
+            padding-top: rem(25);
+            text-align: center;
+            > img {
+                width: rem(75);
+                height: rem(80);
+
+            }
+            > p {
+                margin-top: rem(10);
+                font-size: rem(14);
+                color: #aeafb0;
+            }
+        }
+
+    }
+    .course-more-comment,
+    .more-comment {
+        padding: rem(15) 0;
+        font-size: rem(14);
+        color: $g400;
+        text-align: center;
+    }
+
+    .teacher-more-comment {
+        font-size: rem(13);
+        color: #6d6d6e;
+        line-height: rem(15);
+        display: block;
+        text-align: center;
+        margin: rem(30) 0;
+    }
+    .relate-title {
+        text-align: center;
+        height: rem(30);
+        font-size: rem(13);
+        color: #3c3d3d;
+        line-height: rem(15);
+        margin-top: rem(10);
+    }
+}

@@ -1,0 +1,7 @@
+[
+    {
+        "tpl": "./video/index.tpl",
+        "router": "/course/video",
+        "mock_data": "./video/mock/index.json"
+    }
+]

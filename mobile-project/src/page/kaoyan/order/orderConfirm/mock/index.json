@@ -1,0 +1,70 @@
+{
+    "tpl_data": {
+        "student_profile": {
+            "user_id": "3378033",
+            "mobile": "188****5729",
+            "name": "歪歪",
+            "display_name": "歪歪"
+        },
+        "account": {
+            "balance": 0,
+            "valid_prize": 0,
+            "prize_id": null,
+            "has_password": false,
+            "coupon": {
+                "available": [],
+                "unavailable": []
+            },
+            "market_activity": false,
+            "coupons": [],
+            "unavailable_coupons": [],
+            "discount": []
+        },
+        "product": {
+            "teacher_profile": {
+                "id": "342494",
+                "name": "孙立军",
+                "name_cut": "孙立军",
+                "display_name": "孙立军",
+                "number": "877452438",
+                "avatar": "https://test-imgs.genshuixue.com/829706_r83rpx5c.jpeg",
+                "organization_id": null
+            },
+            "org_profile": [],
+            "course_name": "12",
+            "course_name_cut": "12",
+            "course_type": 3,
+            "course_pub_time": "2016-11-05 21:50",
+            "course_number": "16110595235",
+            "course_items_count": 0,
+            "lesson_way": "video",
+            "course_id": "358252",
+            "expire_hours": "96",
+            "expire_days": 4,
+            "total_price": "600",
+            "pay_money": "600",
+            "price": "600",
+            "discount": 10,
+            "is_buy_able": true,
+            "subject_id": "946",
+            "portrait": "http://test-img.gsxservice.com/783859_8kosq7hj.jpeg",
+            "hours": 1,
+            "expire_time": 0,
+            "discount_type": 0,
+            "is_coin_pay": 0
+        },
+        "default_cancel_plat_ensure": 0,
+        "show_plat_ensure": true,
+        "fenqi_data": {
+            "every_periods_repayment": "54.43",
+            "periods": 12
+        },
+        "is_fenqi_whitelist": 1,
+        "choice_fenqi": 0,
+        "fenqi": {
+            "tag_name": "免息分期",
+            "tiexi_info": "3",
+            "desc": "可享3期免息分期付学费"
+        },
+        "ensure_attach_to_mobile": false
+}

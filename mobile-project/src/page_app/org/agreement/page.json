@@ -1,0 +1,5 @@
+[{
+    "tpl": "./agreement.tpl",
+    "router": "/org/agreement/agreement"
+}]
+

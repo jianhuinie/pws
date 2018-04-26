@@ -1,0 +1,152 @@
+{{ *
+
+@file 我的评价
+@author jixiaohui
+
+* }}
+{{ extends file="common/center/base.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+    {{ $script_path = "common/center/credit_e877cf4858" }}
+
+{{ /block }}
+
+{{ block name="title" prepend }}
+我的评价 -
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/common/center/credit_26c9179cdc.css">
+{{ $smarty.block.parent }}
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+
+    {{ block name="floatHelp" }}{{ /block }}
+    {{ block name="sidebar" }}{{ /block }}
+
+    {{ if $type == "commentStudent" }}
+        {{ $link = "/teacher_center/commentStudent" }}
+        {{ $activelink = "/teacher_center/commentFromStudent" }}
+    {{ elseif $type == "commentTeacher" }}
+        {{ $link = "/student_center/commentTeacher" }}
+        {{ $activelink = "/student_center/commentFromTeacher" }}
+    {{ elseif $type == "commentFromStudent" }}
+        {{ $link = "/teacher_center/commentFromStudent" }}
+        {{ $activelink = "/teacher_center/commentStudent" }}
+    {{ else }}
+        {{ $link = "/student_center/commentFromTeacher" }}
+        {{ $activelink = "/student_center/commentTeacher" }}
+    {{ /if }}
+
+    <div id="content" class="card" data-judge="{{ if isset($tpl_data.face_type) }}{{ $tpl_data.face_type }}{{ /if }}" data-link="{{ $link }}" data-type="{{ $type }}">
+        <div class="card-header">
+            <h2>我的评价</h2>
+        </div>
+        <div class="card-body">
+            <div class="credit-body">
+                <div class="tab-nav tab-nav-info">
+                    {{ if $type == "commentFromStudent" || $type == "commentStudent" }}
+                        {{ $from_comment = "来自学生的评价" }}
+                        {{ $to_comment = "给学生的评价" }}
+                        {{ $is_teacher = true }}
+                    {{ else }}
+                        {{ $from_comment = "来自老师的评价" }}
+                        {{ $to_comment = "给老师的评价" }}
+                        {{ $is_student = true }}
+                    {{ /if }}
+
+                    {{ if $type == "commentFromStudent" || $type == "commentFromTeacher" }}
+                        <span class="nav-item active">
+                            {{ $from_comment }}
+                        </span>
+                    {{ else }}
+                        <a class="nav-item" href="{{ $activelink }}?page=1&page_size=10">
+                            {{ $from_comment }}
+                        </a>
+                    {{ /if }}
+
+                    {{ if $type == "commentStudent" || $type == "commentTeacher" }}
+                        <span class="nav-item active">
+                            {{ $to_comment }}
+                        </span>
+                    {{ else }}
+                        <a class="nav-item" href="{{ $activelink }}?page=1&page_size=10">
+                            {{ $to_comment }}
+                        </a>
+                    {{ /if }}
+                </div>
+                {{ if $type == "commentFromStudent" }}
+                    {{ if isset($tpl_data.score) && $tpl_data.score }}
+
+                        {{ $score_total_score = $tpl_data.score.total_score|number_format:1 }}
+
+                        {{ $progress = $tpl_data.additional.total_score }}
+
+                        <div class="score">
+                            <div class="total">
+                                {{ if $tpl_data.score.total_score == 0  }}
+                                    <span class="no-score">
+                                        <b>暂无评分</b>
+                                    </span>
+                                {{ else }}
+                                    <span class="num">
+                                        <b>{{ $score_total_score }}</b>
+                                    </span>
+                                {{ /if }}
+                                {{ include file="common/component/starScore.html" score=$score_total_score }}
+                            </div>
+                            <div class="single">
+                                <div class="star-comment">主动评价星级分布</div>
+                                <ul>
+                                    <li>
+                                        <span class="text">5星</span>
+                                        {{ include file="common/component/progress.html" rate=$progress.five_rate }}
+                                    </li>
+                                    <li>
+                                        <span class="text">4星</span>
+                                        {{ include file="common/component/progress.html" rate=$progress.four_rate }}
+                                    </li>
+                                    <li>
+                                        <span class="text">3星</span>
+                                        {{ include file="common/component/progress.html" rate=$progress.three_rate }}
+                                    </li>
+                                    <li>
+                                        <span class="text">2星</span>
+                                        {{ include file="common/component/progress.html" rate=$progress.two_rate }}
+                                    </li>
+                                    <li>
+                                        <span class="text">1星</span>
+                                        {{ include file="common/component/progress.html" rate=$progress.one_rate }}
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="judge">
+                                <ul>
+                                    <li>
+                                        主动评价{{ $tpl_data.additional.user_comment_number }}个
+                                    </li>
+                                    <li>
+                                        邀请评价{{ $tpl_data.additional.invite_comment_number }}个
+                                    </li>
+                                    <li>
+                                        默认评价{{ $tpl_data.additional.default_comment_number }}个
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    {{ /if }}
+                {{ /if }}
+
+                {{ include file="common/component/commentList.html" tpl_data=$tpl_data type=$type link=$link }}
+
+            </div>
+        </div>
+    </div>
+
+{{ /strip }}
+{{ /block }}
+

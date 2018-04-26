@@ -1,0 +1,41 @@
+{
+    "code": 0,
+    "msg": "succ",
+    "tpl_data": {
+        "user_infos": [
+            {
+                "name": "JJ",
+                "url": "/wangqizhishufa",
+                "avatar": "http://test-img.gsxservice.com/2616_3alaca5t.png",
+                "subject": "高中数学辅导",
+                "intro1": "时间段飞就111",
+                "intro2": "就对了看风景的2222",
+                "number": "332274498",
+                "text": "获取600元优惠券",
+                "type": "0"
+            },
+            {
+                "name": "北京古典艺术工作室",
+                "avatar": "http://test-img.gsxservice.com/400085_y4htczc5.jpg",
+                "url": "331618579.test.genshuixue.com",
+                "subject": "初中数学辅导",
+                "intro1": "sjdkjdkf3111",
+                "intro2": "sdfjdjfdj2222",
+                "number": "331618579",
+                "text": "请领取80",
+                "type": "1"
+            }
+        ],
+        "type": "4",
+        "title": "哈哈哈",
+        "tanchuang_text": "点击付款的角度看房价肯定京东方的房价肯定",
+        "qq_url": "c",
+        "banner": "http://test-img.gsxservice.com/0cms/d/file/content/2016/05/57451ae763b6f.jpg",
+        "share_info": {
+            "title": "分享标题",
+            "content": "独守空房解释道交罚款了多少级了附近电视剧奋斗点击付款的零售价付款了绝对是开了房间空间的法律框架的水库路附近快乐积分款到即发可怜的健康积分抵抗力交罚款了就的减肥快到家说开了房间可怜的健康廊坊",
+            "img": "http://test-img.gsxservice.com/0cms/d/file/content/2016/05/57451ae763b6f.jpg"
+        }
+    },
+    "ts": 1464148224
+}

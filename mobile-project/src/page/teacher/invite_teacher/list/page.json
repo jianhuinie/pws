@@ -1,0 +1,7 @@
+[
+    {
+        "tpl": "./index.tpl",
+        "router": "/invite_teacher/list/index",
+        "mock_data": "./mock/index.json"
+    }
+]

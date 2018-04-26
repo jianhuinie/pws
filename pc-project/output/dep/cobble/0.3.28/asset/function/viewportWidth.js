@@ -1,0 +1,1 @@
+define("cobble/function/viewportWidth",["require","exports","module"],function(){"use strict";return function(){return window.innerWidth||document.documentElement.clientWidth}});

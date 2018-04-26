@@ -1,0 +1,764 @@
+{
+    "download": {
+        "head": [
+            {
+                "img": "http://img.gsxservice.com/0cms/d/file/content/2015/07/55a0aa5312291.jpg",
+                "url": "http://m.genshuixue.com"
+            }
+        ],
+        "mid": [
+            {
+                "img": "http://img.gsxservice.com/0cms/d/file/content/2015/07/55a0aa5312291.jpg",
+                "url": "http://m.genshuixue.com"
+            }
+        ],
+        "last": [
+            {
+                "img": "http://img.gsxservice.com/0cms/d/file/content/2015/07/55a0aa5312291.jpg",
+                "url": "http://m.genshuixue.com"
+            }
+        ]
+    },
+    "careers": [
+        {
+            "title": "9月招聘会",
+            "list": [
+                {
+                    "name": "测试群聊20-2",
+                    "speaker": "百度HR胡庆伟",
+                    "time": "8月28日 17:30",
+                    "button_name": "回看视频",
+                    "button_url": "http://m.genshuixue.com",
+                    "preface": "http://test-img.gsxservice.com/367458_e6nbekjz.jpeg"
+                },
+                {
+                    "name": "春游踏青",
+                    "speaker": "胡庆伟",
+                    "time": "8月28日 17:30",
+                    "button_name": "立即报名",
+                    "button_url": "http://m.genshuixue.com",
+                    "preface": "http://test-img.gsxservice.com/360215_kgp14ffr.jpeg"
+                },
+                {
+                    "name": "春游踏青",
+                    "speaker": "百度HR胡庆伟",
+                    "time": "8月28日 17:30",
+                    "button_name": "敬请期待",
+                    "button_url": "http://m.genshuixue.com",
+                    "preface": "http://test-img.gsxservice.com/360215_kgp14ffr.jpeg"
+                },
+                {
+                    "name": "测试群聊20-2",
+                    "speaker": "百度HR胡庆伟",
+                    "time": "8月28日 17:30",
+                    "button_name": "回看视频",
+                    "button_url": "http://m.genshuixue.com",
+                    "preface": "http://test-img.gsxservice.com/367458_e6nbekjz.jpeg"
+                },
+                {
+                    "name": "春游踏青",
+                    "speaker": "百度HR胡庆伟",
+                    "time": "8月28日 17:30",
+                    "button_name": "立即报名",
+                    "button_url": "http://m.genshuixue.com",
+                    "preface": "http://test-img.gsxservice.com/360215_kgp14ffr.jpeg"
+                },
+                {
+                    "name": "春游踏青",
+                    "speaker": "百度HR胡庆伟",
+                    "time": "8月28日 17:30",
+                    "button_name": "敬请期待",
+                    "button_url": "http://m.genshuixue.com",
+                    "preface": "http://test-img.gsxservice.com/360215_kgp14ffr.jpeg"
+                },
+                {
+                    "name": "测试群聊20-2",
+                    "speaker": "百度HR胡庆伟",
+                    "time": "8月28日 17:30",
+                    "button_name": "回看视频",
+                    "button_url": "http://m.genshuixue.com",
+                    "preface": "http://test-img.gsxservice.com/367458_e6nbekjz.jpeg"
+                },
+                {
+                    "name": "春游踏青",
+                    "speaker": "百度HR胡庆伟",
+                    "time": "8月28日 17:30",
+                    "button_name": "立即报名",
+                    "button_url": "http://m.genshuixue.com",
+                    "preface": "http://test-img.gsxservice.com/360215_kgp14ffr.jpeg"
+                },
+                {
+                    "name": "春游踏青",
+                    "speaker": "百度HR胡庆伟",
+                    "time": "8月28日 17:30",
+                    "button_name": "敬请期待",
+                    "button_url": "http://m.genshuixue.com",
+                    "preface": "http://test-img.gsxservice.com/360215_kgp14ffr.jpeg"
+                }
+            ]
+        },
+        {
+            "title": "10月招聘会",
+            "list": [
+                {
+                    "name": "测试群聊20-2",
+                    "speaker": "百度HR胡庆伟",
+                    "time": "8月28日 17:30",
+                    "button_name": "回看视频",
+                    "button_url": "http://m.genshuixue.com",
+                    "preface": "http://test-img.gsxservice.com/367458_e6nbekjz.jpeg"
+                },
+                {
+                    "name": "春游踏青",
+                    "speaker": "胡庆伟",
+                    "time": "8月28日 17:30",
+                    "button_name": "立即报名",
+                    "button_url": "http://m.genshuixue.com",
+                    "preface": "http://test-img.gsxservice.com/360215_kgp14ffr.jpeg"
+                },
+                {
+                    "name": "春游踏青",
+                    "speaker": "百度HR胡庆伟",
+                    "time": "8月28日 17:30",
+                    "button_name": "敬请期待",
+                    "button_url": "http://m.genshuixue.com",
+                    "preface": "http://test-img.gsxservice.com/360215_kgp14ffr.jpeg"
+                },
+                {
+                    "name": "测试群聊20-2",
+                    "speaker": "百度HR胡庆伟",
+                    "time": "8月28日 17:30",
+                    "button_name": "回看视频",
+                    "button_url": "http://m.genshuixue.com",
+                    "preface": "http://test-img.gsxservice.com/367458_e6nbekjz.jpeg"
+                },
+                {
+                    "name": "春游踏青",
+                    "speaker": "百度HR胡庆伟",
+                    "time": "8月28日 17:30",
+                    "button_name": "立即报名",
+                    "button_url": "http://m.genshuixue.com",
+                    "preface": "http://test-img.gsxservice.com/360215_kgp14ffr.jpeg"
+                },
+                {
+                    "name": "春游踏青",
+                    "speaker": "百度HR胡庆伟",
+                    "time": "8月28日 17:30",
+                    "button_name": "敬请期待",
+                    "button_url": "http://m.genshuixue.com",
+                    "preface": "http://test-img.gsxservice.com/360215_kgp14ffr.jpeg"
+                },
+                {
+                    "name": "测试群聊20-2",
+                    "speaker": "百度HR胡庆伟",
+                    "time": "8月28日 17:30",
+                    "button_name": "回看视频",
+                    "button_url": "http://m.genshuixue.com",
+                    "preface": "http://test-img.gsxservice.com/367458_e6nbekjz.jpeg"
+                },
+                {
+                    "name": "春游踏青",
+                    "speaker": "百度HR胡庆伟",
+                    "time": "8月28日 17:30",
+                    "button_name": "立即报名",
+                    "button_url": "http://m.genshuixue.com",
+                    "preface": "http://test-img.gsxservice.com/360215_kgp14ffr.jpeg"
+                },
+                {
+                    "name": "春游踏青",
+                    "speaker": "百度HR胡庆伟",
+                    "time": "8月28日 17:30",
+                    "button_name": "敬请期待",
+                    "button_url": "http://m.genshuixue.com",
+                    "preface": "http://test-img.gsxservice.com/360215_kgp14ffr.jpeg"
+                }
+            ]
+        }
+    ],
+    "tab_1": {
+        "title": "认识自己",
+        "list": [
+            {
+                "name": "测试群聊20-2",
+                "time": "8月28日 17:30",
+                "cou_avatar": "http://test-img.gsxservice.com/367458_e6nbekjz.jpeg",
+                "tea_avatar": "http://test-img.gsxservice.com/headpic_man.png",
+                "begin_time": "2015-08-28 17:30:00",
+                "course_url": "http://test.genshuixue.com/teacher/classCourseDetail/150820544450",
+                "teacher_url": "http://test.genshuixue.com/455420838",
+                "can_pay": 8
+            },
+            {
+                "name": "春游踏青",
+                "time": "8月28日 17:30",
+                "cou_avatar": "http://test-img.gsxservice.com/360215_kgp14ffr.jpeg",
+                "tea_avatar": "http://test-img.gsxservice.com/362422_580n069c.jpeg",
+                "begin_time": "2015-08-28 17:30:00",
+                "course_url": "http://test.genshuixue.com/teacher/classCourseDetail/150714479693",
+                "teacher_url": "http://test.genshuixue.com/834934838",
+                "can_pay": 2
+            },
+            {
+                "name": "天使爱美丽",
+                "time": "8月28日 17:30",
+                "cou_avatar": "http://test-img.gsxservice.com/373543_9750oyv1.jpeg",
+                "tea_avatar": "http://test-img.gsxservice.com/377282_343fz9q2.jpeg",
+                "begin_time": "2015-08-28 17:30:00",
+                "course_url": "http://test.genshuixue.com/teacher/classCourseDetail/150819478745",
+                "teacher_url": "http://test.genshuixue.com/412964518",
+                "can_pay": 91
+            },
+            {
+                "name": "疯狂化妆",
+                "time": "8月28日 17:30",
+                "cou_avatar": "http://test-img.gsxservice.com/330568_xv861fvc.jpeg",
+                "tea_avatar": "http://test-img.gsxservice.com/329360_pu49eezn.jpeg",
+                "begin_time": "2015-08-28 17:30:00",
+                "course_url": "http://test.genshuixue.com/teacher/classCourseDetail/150812479061",
+                "teacher_url": "http://test.genshuixue.com/876977548",
+                "can_pay": 47
+            },
+            {
+                "name": "【活动”CMS“模板化\"测试\"班课】",
+                "time": "8月28日 17:30",
+                "cou_avatar": "http://test-img.gsxservice.com/373922_joenpefv.jpeg",
+                "tea_avatar": "http://img.gsxservice.com/headpic_woman_02.jpg",
+                "begin_time": "2015-08-28 17:30:00",
+                "course_url": "http://test.genshuixue.com/teacher/classCourseDetail/150729543772",
+                "teacher_url": "http://test.genshuixue.com/835527078",
+                "can_pay": 1
+            },
+            {
+                "name": "活动CMS模板化测试01",
+                "time": "8月28日 17:30",
+                "cou_avatar": "http://test-img.gsxservice.com/359839_4ybkbxbz.jpeg",
+                "tea_avatar": "http://test-img.gsxservice.com/361526_tg6nwppq.jpeg",
+                "begin_time": "2015-08-28 17:30:00",
+                "course_url": "http://test.genshuixue.com/teacher/classCourseDetail/150820544834",
+                "teacher_url": "http://test.genshuixue.com/835509158",
+                "can_pay": 2
+            },
+            {
+                "name": "可插班-活动CMS模板化测试01",
+                "time": "8月28日 17:30",
+                "cou_avatar": "http://test-img.gsxservice.com/374064_fq5qw6o8.jpeg",
+                "tea_avatar": "http://test-img.gsxservice.com/361526_tg6nwppq.jpeg",
+                "begin_time": "2015-08-28 17:30:00",
+                "course_url": "http://test.genshuixue.com/teacher/classCourseDetail/150820544962",
+                "teacher_url": "http://test.genshuixue.com/835509158",
+                "can_pay": 2
+            },
+            {
+                "name": "【活动”CMS“模板化\"测试\"班课】",
+                "time": "8月28日 17:30",
+                "cou_avatar": "http://test-img.gsxservice.com/373922_joenpefv.jpeg",
+                "tea_avatar": "http://img.gsxservice.com/headpic_woman_02.jpg",
+                "begin_time": "2015-08-28 17:30:00",
+                "course_url": "http://test.genshuixue.com/teacher/classCourseDetail/150729543772",
+                "teacher_url": "http://test.genshuixue.com/835527078",
+                "can_pay": 1
+            },
+            {
+                "name": "活动CMS模板化测试01",
+                "time": "8月28日 17:30",
+                "cou_avatar": "http://test-img.gsxservice.com/359839_4ybkbxbz.jpeg",
+                "tea_avatar": "http://test-img.gsxservice.com/361526_tg6nwppq.jpeg",
+                "begin_time": "2015-08-28 17:30:00",
+                "course_url": "http://test.genshuixue.com/teacher/classCourseDetail/150820544834",
+                "teacher_url": "http://test.genshuixue.com/835509158",
+                "can_pay": 2
+            },
+            {
+                "name": "可插班-活动CMS模板化测试01",
+                "time": "8月28日 17:30",
+                "cou_avatar": "http://test-img.gsxservice.com/374064_fq5qw6o8.jpeg",
+                "tea_avatar": "http://test-img.gsxservice.com/361526_tg6nwppq.jpeg",
+                "begin_time": "2015-08-28 17:30:00",
+                "course_url": "http://test.genshuixue.com/teacher/classCourseDetail/150820544962",
+                "teacher_url": "http://test.genshuixue.com/835509158",
+                "can_pay": 2
+            },
+            {
+                "name": "【活动”CMS“模板化\"测试\"班课】",
+                "time": "8月28日 17:30",
+                "cou_avatar": "http://test-img.gsxservice.com/373922_joenpefv.jpeg",
+                "tea_avatar": "http://img.gsxservice.com/headpic_woman_02.jpg",
+                "begin_time": "2015-08-28 17:30:00",
+                "course_url": "http://test.genshuixue.com/teacher/classCourseDetail/150729543772",
+                "teacher_url": "http://test.genshuixue.com/835527078",
+                "can_pay": 1
+            },
+            {
+                "name": "活动CMS模板化测试01",
+                "time": "8月28日 17:30",
+                "cou_avatar": "http://test-img.gsxservice.com/359839_4ybkbxbz.jpeg",
+                "tea_avatar": "http://test-img.gsxservice.com/361526_tg6nwppq.jpeg",
+                "begin_time": "2015-08-28 17:30:00",
+                "course_url": "http://test.genshuixue.com/teacher/classCourseDetail/150820544834",
+                "teacher_url": "http://test.genshuixue.com/835509158",
+                "can_pay": 2
+            },
+            {
+                "name": "可插班-活动CMS模板化测试01",
+                "time": "8月28日 17:30",
+                "cou_avatar": "http://test-img.gsxservice.com/374064_fq5qw6o8.jpeg",
+                "tea_avatar": "http://test-img.gsxservice.com/361526_tg6nwppq.jpeg",
+                "begin_time": "2015-08-28 17:30:00",
+                "course_url": "http://test.genshuixue.com/teacher/classCourseDetail/150820544962",
+                "teacher_url": "http://test.genshuixue.com/835509158",
+                "can_pay": 2
+            },
+            {
+                "name": "【活动”CMS“模板化\"测试\"班课】",
+                "time": "8月28日 17:30",
+                "cou_avatar": "http://test-img.gsxservice.com/373922_joenpefv.jpeg",
+                "tea_avatar": "http://img.gsxservice.com/headpic_woman_02.jpg",
+                "begin_time": "2015-08-28 17:30:00",
+                "course_url": "http://test.genshuixue.com/teacher/classCourseDetail/150729543772",
+                "teacher_url": "http://test.genshuixue.com/835527078",
+                "can_pay": 1
+            },
+            {
+                "name": "活动CMS模板化测试01",
+                "time": "8月28日 17:30",
+                "cou_avatar": "http://test-img.gsxservice.com/359839_4ybkbxbz.jpeg",
+                "tea_avatar": "http://test-img.gsxservice.com/361526_tg6nwppq.jpeg",
+                "begin_time": "2015-08-28 17:30:00",
+                "course_url": "http://test.genshuixue.com/teacher/classCourseDetail/150820544834",
+                "teacher_url": "http://test.genshuixue.com/835509158",
+                "can_pay": 2
+            },
+            {
+                "name": "可插班-活动CMS模板化测试01",
+                "time": "8月28日 17:30",
+                "cou_avatar": "http://test-img.gsxservice.com/374064_fq5qw6o8.jpeg",
+                "tea_avatar": "http://test-img.gsxservice.com/361526_tg6nwppq.jpeg",
+                "begin_time": "2015-08-28 17:30:00",
+                "course_url": "http://test.genshuixue.com/teacher/classCourseDetail/150820544962",
+                "teacher_url": "http://test.genshuixue.com/835509158",
+                "can_pay": 2
+            },
+            {
+                "name": "【活动”CMS“模板化\"测试\"班课】",
+                "time": "8月28日 17:30",
+                "cou_avatar": "http://test-img.gsxservice.com/373922_joenpefv.jpeg",
+                "tea_avatar": "http://img.gsxservice.com/headpic_woman_02.jpg",
+                "begin_time": "2015-08-28 17:30:00",
+                "course_url": "http://test.genshuixue.com/teacher/classCourseDetail/150729543772",
+                "teacher_url": "http://test.genshuixue.com/835527078",
+                "can_pay": 1
+            },
+            {
+                "name": "活动CMS模板化测试01",
+                "time": "8月28日 17:30",
+                "cou_avatar": "http://test-img.gsxservice.com/359839_4ybkbxbz.jpeg",
+                "tea_avatar": "http://test-img.gsxservice.com/361526_tg6nwppq.jpeg",
+                "begin_time": "2015-08-28 17:30:00",
+                "course_url": "http://test.genshuixue.com/teacher/classCourseDetail/150820544834",
+                "teacher_url": "http://test.genshuixue.com/835509158",
+                "can_pay": 2
+            },
+            {
+                "name": "可插班-活动CMS模板化测试01",
+                "time": "8月28日 17:30",
+                "cou_avatar": "http://test-img.gsxservice.com/374064_fq5qw6o8.jpeg",
+                "tea_avatar": "http://test-img.gsxservice.com/361526_tg6nwppq.jpeg",
+                "begin_time": "2015-08-28 17:30:00",
+                "course_url": "http://test.genshuixue.com/teacher/classCourseDetail/150820544962",
+                "teacher_url": "http://test.genshuixue.com/835509158",
+                "can_pay": 2
+            },
+            {
+                "name": "【活动”CMS“模板化\"测试\"班课】",
+                "time": "8月28日 17:30",
+                "cou_avatar": "http://test-img.gsxservice.com/373922_joenpefv.jpeg",
+                "tea_avatar": "http://img.gsxservice.com/headpic_woman_02.jpg",
+                "begin_time": "2015-08-28 17:30:00",
+                "course_url": "http://test.genshuixue.com/teacher/classCourseDetail/150729543772",
+                "teacher_url": "http://test.genshuixue.com/835527078",
+                "can_pay": 1
+            },
+            {
+                "name": "活动CMS模板化测试01",
+                "time": "8月28日 17:30",
+                "cou_avatar": "http://test-img.gsxservice.com/359839_4ybkbxbz.jpeg",
+                "tea_avatar": "http://test-img.gsxservice.com/361526_tg6nwppq.jpeg",
+                "begin_time": "2015-08-28 17:30:00",
+                "course_url": "http://test.genshuixue.com/teacher/classCourseDetail/150820544834",
+                "teacher_url": "http://test.genshuixue.com/835509158",
+                "can_pay": 2
+            },
+            {
+                "name": "可插班-活动CMS模板化测试01",
+                "time": "8月28日 17:30",
+                "cou_avatar": "http://test-img.gsxservice.com/374064_fq5qw6o8.jpeg",
+                "tea_avatar": "http://test-img.gsxservice.com/361526_tg6nwppq.jpeg",
+                "begin_time": "2015-08-28 17:30:00",
+                "course_url": "http://test.genshuixue.com/teacher/classCourseDetail/150820544962",
+                "teacher_url": "http://test.genshuixue.com/835509158",
+                "can_pay": 2
+            },
+            {
+                "name": "【活动”CMS“模板化\"测试\"班课】",
+                "time": "8月28日 17:30",
+                "cou_avatar": "http://test-img.gsxservice.com/373922_joenpefv.jpeg",
+                "tea_avatar": "http://img.gsxservice.com/headpic_woman_02.jpg",
+                "begin_time": "2015-08-28 17:30:00",
+                "course_url": "http://test.genshuixue.com/teacher/classCourseDetail/150729543772",
+                "teacher_url": "http://test.genshuixue.com/835527078",
+                "can_pay": 1
+            },
+            {
+                "name": "活动CMS模板化测试01",
+                "time": "8月28日 17:30",
+                "cou_avatar": "http://test-img.gsxservice.com/359839_4ybkbxbz.jpeg",
+                "tea_avatar": "http://test-img.gsxservice.com/361526_tg6nwppq.jpeg",
+                "begin_time": "2015-08-28 17:30:00",
+                "course_url": "http://test.genshuixue.com/teacher/classCourseDetail/150820544834",
+                "teacher_url": "http://test.genshuixue.com/835509158",
+                "can_pay": 2
+            },
+            {
+                "name": "可插班-活动CMS模板化测试01",
+                "time": "8月28日 17:30",
+                "cou_avatar": "http://test-img.gsxservice.com/374064_fq5qw6o8.jpeg",
+                "tea_avatar": "http://test-img.gsxservice.com/361526_tg6nwppq.jpeg",
+                "begin_time": "2015-08-28 17:30:00",
+                "course_url": "http://test.genshuixue.com/teacher/classCourseDetail/150820544962",
+                "teacher_url": "http://test.genshuixue.com/835509158",
+                "can_pay": 2
+            },
+            {
+                "name": "【活动”CMS“模板化\"测试\"班课】",
+                "time": "8月28日 17:30",
+                "cou_avatar": "http://test-img.gsxservice.com/373922_joenpefv.jpeg",
+                "tea_avatar": "http://img.gsxservice.com/headpic_woman_02.jpg",
+                "begin_time": "2015-08-28 17:30:00",
+                "course_url": "http://test.genshuixue.com/teacher/classCourseDetail/150729543772",
+                "teacher_url": "http://test.genshuixue.com/835527078",
+                "can_pay": 1
+            },
+            {
+                "name": "活动CMS模板化测试01",
+                "time": "8月28日 17:30",
+                "cou_avatar": "http://test-img.gsxservice.com/359839_4ybkbxbz.jpeg",
+                "tea_avatar": "http://test-img.gsxservice.com/361526_tg6nwppq.jpeg",
+                "begin_time": "2015-08-28 17:30:00",
+                "course_url": "http://test.genshuixue.com/teacher/classCourseDetail/150820544834",
+                "teacher_url": "http://test.genshuixue.com/835509158",
+                "can_pay": 2
+            },
+            {
+                "name": "可插班-活动CMS模板化测试01",
+                "time": "8月28日 17:30",
+                "cou_avatar": "http://test-img.gsxservice.com/374064_fq5qw6o8.jpeg",
+                "tea_avatar": "http://test-img.gsxservice.com/361526_tg6nwppq.jpeg",
+                "begin_time": "2015-08-28 17:30:00",
+                "course_url": "http://test.genshuixue.com/teacher/classCourseDetail/150820544962",
+                "teacher_url": "http://test.genshuixue.com/835509158",
+                "can_pay": 2
+            },
+            {
+                "name": "【活动”CMS“模板化\"测试\"班课】",
+                "time": "8月28日 17:30",
+                "cou_avatar": "http://test-img.gsxservice.com/373922_joenpefv.jpeg",
+                "tea_avatar": "http://img.gsxservice.com/headpic_woman_02.jpg",
+                "begin_time": "2015-08-28 17:30:00",
+                "course_url": "http://test.genshuixue.com/teacher/classCourseDetail/150729543772",
+                "teacher_url": "http://test.genshuixue.com/835527078",
+                "can_pay": 1
+            },
+            {
+                "name": "活动CMS模板化测试01",
+                "time": "8月28日 17:30",
+                "cou_avatar": "http://test-img.gsxservice.com/359839_4ybkbxbz.jpeg",
+                "tea_avatar": "http://test-img.gsxservice.com/361526_tg6nwppq.jpeg",
+                "begin_time": "2015-08-28 17:30:00",
+                "course_url": "http://test.genshuixue.com/teacher/classCourseDetail/150820544834",
+                "teacher_url": "http://test.genshuixue.com/835509158",
+                "can_pay": 2
+            },
+            {
+                "name": "可插班-活动CMS模板化测试01",
+                "time": "8月28日 17:30",
+                "cou_avatar": "http://test-img.gsxservice.com/374064_fq5qw6o8.jpeg",
+                "tea_avatar": "http://test-img.gsxservice.com/361526_tg6nwppq.jpeg",
+                "begin_time": "2015-08-28 17:30:00",
+                "course_url": "http://test.genshuixue.com/teacher/classCourseDetail/150820544962",
+                "teacher_url": "http://test.genshuixue.com/835509158",
+                "can_pay": 2
+            },
+            {
+                "name": "【活动”CMS“模板化\"测试\"班课】",
+                "time": "8月28日 17:30",
+                "cou_avatar": "http://test-img.gsxservice.com/373922_joenpefv.jpeg",
+                "tea_avatar": "http://img.gsxservice.com/headpic_woman_02.jpg",
+                "begin_time": "2015-08-28 17:30:00",
+                "course_url": "http://test.genshuixue.com/teacher/classCourseDetail/150729543772",
+                "teacher_url": "http://test.genshuixue.com/835527078",
+                "can_pay": 1
+            },
+            {
+                "name": "活动CMS模板化测试01",
+                "time": "8月28日 17:30",
+                "cou_avatar": "http://test-img.gsxservice.com/359839_4ybkbxbz.jpeg",
+                "tea_avatar": "http://test-img.gsxservice.com/361526_tg6nwppq.jpeg",
+                "begin_time": "2015-08-28 17:30:00",
+                "course_url": "http://test.genshuixue.com/teacher/classCourseDetail/150820544834",
+                "teacher_url": "http://test.genshuixue.com/835509158",
+                "can_pay": 2
+            },
+            {
+                "name": "可插班-活动CMS模板化测试01",
+                "time": "8月28日 17:30",
+                "cou_avatar": "http://test-img.gsxservice.com/374064_fq5qw6o8.jpeg",
+                "tea_avatar": "http://test-img.gsxservice.com/361526_tg6nwppq.jpeg",
+                "begin_time": "2015-08-28 17:30:00",
+                "course_url": "http://test.genshuixue.com/teacher/classCourseDetail/150820544962",
+                "teacher_url": "http://test.genshuixue.com/835509158",
+                "can_pay": 2
+            },
+            {
+                "name": "【活动”CMS“模板化\"测试\"班课】",
+                "time": "8月28日 17:30",
+                "cou_avatar": "http://test-img.gsxservice.com/373922_joenpefv.jpeg",
+                "tea_avatar": "http://img.gsxservice.com/headpic_woman_02.jpg",
+                "begin_time": "2015-08-28 17:30:00",
+                "course_url": "http://test.genshuixue.com/teacher/classCourseDetail/150729543772",
+                "teacher_url": "http://test.genshuixue.com/835527078",
+                "can_pay": 1
+            },
+            {
+                "name": "活动CMS模板化测试01",
+                "time": "8月28日 17:30",
+                "cou_avatar": "http://test-img.gsxservice.com/359839_4ybkbxbz.jpeg",
+                "tea_avatar": "http://test-img.gsxservice.com/361526_tg6nwppq.jpeg",
+                "begin_time": "2015-08-28 17:30:00",
+                "course_url": "http://test.genshuixue.com/teacher/classCourseDetail/150820544834",
+                "teacher_url": "http://test.genshuixue.com/835509158",
+                "can_pay": 2
+            },
+            {
+                "name": "可插班-活动CMS模板化测试01",
+                "time": "8月28日 17:30",
+                "cou_avatar": "http://test-img.gsxservice.com/374064_fq5qw6o8.jpeg",
+                "tea_avatar": "http://test-img.gsxservice.com/361526_tg6nwppq.jpeg",
+                "begin_time": "2015-08-28 17:30:00",
+                "course_url": "http://test.genshuixue.com/teacher/classCourseDetail/150820544962",
+                "teacher_url": "http://test.genshuixue.com/835509158",
+                "can_pay": 2
+            }
+        ]
+    },
+    "tab_2": {
+        "title": "行业资料",
+        "list": [
+            {
+                "name": "测试群聊20-2",
+                "time": "8月28日 17:30",
+                "cou_avatar": "http://test-img.gsxservice.com/367458_e6nbekjz.jpeg",
+                "tea_avatar": "http://test-img.gsxservice.com/headpic_man.png",
+                "begin_time": "2015-08-28 17:30:00",
+                "course_url": "http://test.genshuixue.com/teacher/classCourseDetail/150820544450",
+                "teacher_url": "http://test.genshuixue.com/455420838",
+                "can_pay": 8
+            },
+            {
+                "name": "春游踏青",
+                "time": "8月28日 17:30",
+                "cou_avatar": "http://test-img.gsxservice.com/360215_kgp14ffr.jpeg",
+                "tea_avatar": "http://test-img.gsxservice.com/362422_580n069c.jpeg",
+                "begin_time": "2015-08-28 17:30:00",
+                "course_url": "http://test.genshuixue.com/teacher/classCourseDetail/150714479693",
+                "teacher_url": "http://test.genshuixue.com/834934838",
+                "can_pay": 2
+            },
+            {
+                "name": "天使爱美丽",
+                "time": "8月28日 17:30",
+                "cou_avatar": "http://test-img.gsxservice.com/373543_9750oyv1.jpeg",
+                "tea_avatar": "http://test-img.gsxservice.com/377282_343fz9q2.jpeg",
+                "begin_time": "2015-08-28 17:30:00",
+                "course_url": "http://test.genshuixue.com/teacher/classCourseDetail/150819478745",
+                "teacher_url": "http://test.genshuixue.com/412964518",
+                "can_pay": 91
+            },
+            {
+                "name": "疯狂化妆",
+                "time": "8月28日 17:30",
+                "cou_avatar": "http://test-img.gsxservice.com/330568_xv861fvc.jpeg",
+                "tea_avatar": "http://test-img.gsxservice.com/329360_pu49eezn.jpeg",
+                "begin_time": "2015-08-28 17:30:00",
+                "course_url": "http://test.genshuixue.com/teacher/classCourseDetail/150812479061",
+                "teacher_url": "http://test.genshuixue.com/876977548",
+                "can_pay": 47
+            },
+            {
+                "name": "【活动”CMS“模板化\"测试\"班课】",
+                "time": "8月28日 17:30",
+                "cou_avatar": "http://test-img.gsxservice.com/373922_joenpefv.jpeg",
+                "tea_avatar": "http://img.gsxservice.com/headpic_woman_02.jpg",
+                "begin_time": "2015-08-28 17:30:00",
+                "course_url": "http://test.genshuixue.com/teacher/classCourseDetail/150729543772",
+                "teacher_url": "http://test.genshuixue.com/835527078",
+                "can_pay": 1
+            },
+            {
+                "name": "活动CMS模板化测试01",
+                "time": "8月28日 17:30",
+                "cou_avatar": "http://test-img.gsxservice.com/359839_4ybkbxbz.jpeg",
+                "tea_avatar": "http://test-img.gsxservice.com/361526_tg6nwppq.jpeg",
+                "begin_time": "2015-08-28 17:30:00",
+                "course_url": "http://test.genshuixue.com/teacher/classCourseDetail/150820544834",
+                "teacher_url": "http://test.genshuixue.com/835509158",
+                "can_pay": 2
+            },
+            {
+                "name": "可插班-活动CMS模板化测试01",
+                "time": "8月28日 17:30",
+                "cou_avatar": "http://test-img.gsxservice.com/374064_fq5qw6o8.jpeg",
+                "tea_avatar": "http://test-img.gsxservice.com/361526_tg6nwppq.jpeg",
+                "begin_time": "2015-08-28 17:30:00",
+                "course_url": "http://test.genshuixue.com/teacher/classCourseDetail/150820544962",
+                "teacher_url": "http://test.genshuixue.com/835509158",
+                "can_pay": 2
+            }
+        ]
+    },
+    "tab_3": {
+        "title": "初入职场",
+        "list": [
+            {
+                "name": "测试群聊20-2",
+                "time": "8月28日 17:30",
+                "cou_avatar": "http://test-img.gsxservice.com/367458_e6nbekjz.jpeg",
+                "tea_avatar": "http://test-img.gsxservice.com/headpic_man.png",
+                "begin_time": "2015-08-28 17:30:00",
+                "course_url": "http://test.genshuixue.com/teacher/classCourseDetail/150820544450",
+                "teacher_url": "http://test.genshuixue.com/455420838",
+                "can_pay": 8
+            },
+            {
+                "name": "春游踏青",
+                "time": "8月28日 17:30",
+                "cou_avatar": "http://test-img.gsxservice.com/360215_kgp14ffr.jpeg",
+                "tea_avatar": "http://test-img.gsxservice.com/362422_580n069c.jpeg",
+                "begin_time": "2015-08-28 17:30:00",
+                "course_url": "http://test.genshuixue.com/teacher/classCourseDetail/150714479693",
+                "teacher_url": "http://test.genshuixue.com/834934838",
+                "can_pay": 2
+            },
+            {
+                "name": "天使爱美丽",
+                "time": "8月28日 17:30",
+                "cou_avatar": "http://test-img.gsxservice.com/373543_9750oyv1.jpeg",
+                "tea_avatar": "http://test-img.gsxservice.com/377282_343fz9q2.jpeg",
+                "begin_time": "2015-08-28 17:30:00",
+                "course_url": "http://test.genshuixue.com/teacher/classCourseDetail/150819478745",
+                "teacher_url": "http://test.genshuixue.com/412964518",
+                "can_pay": 91
+            },
+            {
+                "name": "疯狂化妆",
+                "time": "8月28日 17:30",
+                "cou_avatar": "http://test-img.gsxservice.com/330568_xv861fvc.jpeg",
+                "tea_avatar": "http://test-img.gsxservice.com/329360_pu49eezn.jpeg",
+                "begin_time": "2015-08-28 17:30:00",
+                "course_url": "http://test.genshuixue.com/teacher/classCourseDetail/150812479061",
+                "teacher_url": "http://test.genshuixue.com/876977548",
+                "can_pay": 47
+            },
+            {
+                "name": "【活动”CMS“模板化\"测试\"班课】",
+                "time": "8月28日 17:30",
+                "cou_avatar": "http://test-img.gsxservice.com/373922_joenpefv.jpeg",
+                "tea_avatar": "http://img.gsxservice.com/headpic_woman_02.jpg",
+                "begin_time": "2015-08-28 17:30:00",
+                "course_url": "http://test.genshuixue.com/teacher/classCourseDetail/150729543772",
+                "teacher_url": "http://test.genshuixue.com/835527078",
+                "can_pay": 1
+            },
+            {
+                "name": "活动CMS模板化测试01",
+                "time": "8月28日 17:30",
+                "cou_avatar": "http://test-img.gsxservice.com/359839_4ybkbxbz.jpeg",
+                "tea_avatar": "http://test-img.gsxservice.com/361526_tg6nwppq.jpeg",
+                "begin_time": "2015-08-28 17:30:00",
+                "course_url": "http://test.genshuixue.com/teacher/classCourseDetail/150820544834",
+                "teacher_url": "http://test.genshuixue.com/835509158",
+                "can_pay": 2
+            },
+            {
+                "name": "可插班-活动CMS模板化测试01",
+                "time": "8月28日 17:30",
+                "cou_avatar": "http://test-img.gsxservice.com/374064_fq5qw6o8.jpeg",
+                "tea_avatar": "http://test-img.gsxservice.com/361526_tg6nwppq.jpeg",
+                "begin_time": "2015-08-28 17:30:00",
+                "course_url": "http://test.genshuixue.com/teacher/classCourseDetail/150820544962",
+                "teacher_url": "http://test.genshuixue.com/835509158",
+                "can_pay": 2
+            }
+        ]
+    },
+    "org": [
+        {
+            "img": "http://img.gsxservice.com/0cms/d/file/content/2015/07/55a0aa5312291.jpg",
+            "url": "http://m.genshuixue.com"
+        },
+        {
+            "img": "http://img.gsxservice.com/0cms/d/file/content/2015/07/55a0aa5312291.jpg",
+            "url": "http://m.genshuixue.com"
+        },
+        {
+            "img": "http://img.gsxservice.com/0cms/d/file/content/2015/07/55a0aa5312291.jpg",
+            "url": "http://m.genshuixue.com"
+        },
+        {
+            "img": "http://img.gsxservice.com/0cms/d/file/content/2015/07/55a0aa5312291.jpg",
+            "url": ""
+        },
+        {
+            "img": "http://img.gsxservice.com/0cms/d/file/content/2015/07/55a0aa5312291.jpg",
+            "url": "http://m.genshuixue.com"
+        },
+        {
+            "img": "http://img.gsxservice.com/0cms/d/file/content/2015/07/55a0aa5312291.jpg",
+            "url": "http://m.genshuixue.com"
+        },
+        {
+            "img": "http://img.gsxservice.com/0cms/d/file/content/2015/07/55a0aa5312291.jpg",
+            "url": "http://m.genshuixue.com"
+        },
+        {
+            "img": "http://img.gsxservice.com/0cms/d/file/content/2015/07/55a0aa5312291.jpg",
+            "url": ""
+        },
+        {
+            "img": "http://img.gsxservice.com/0cms/d/file/content/2015/07/55a0aa5312291.jpg",
+            "url": "http://m.genshuixue.com"
+        },
+        {
+            "img": "http://img.gsxservice.com/0cms/d/file/content/2015/07/55a0aa5312291.jpg",
+            "url": "http://m.genshuixue.com"
+        },
+        {
+            "img": "http://img.gsxservice.com/0cms/d/file/content/2015/07/55a0aa5312291.jpg",
+            "url": "http://m.genshuixue.com"
+        },
+        {
+            "img": "http://img.gsxservice.com/0cms/d/file/content/2015/07/55a0aa5312291.jpg",
+            "url": ""
+        }
+    ],
+    "share": {
+        "title": "百度高薪职位！名企HR面对面，让你的简历，不再石沉大海。",
+        "img": "http://test-img.gsxservice.com/0cms/d/file/content/2015/09/55ecf88e6ccc7.jpg",
+        "content": "百度高薪职位！名企HR面对面，让你的简历，不再石沉大海。",
+        "url": "http://test-m.genshuixue.com"
+    },
+    "tdk": {
+        "title": "跟谁学携手百度，打造你的求职、留学、考研专属课。",
+        "description": "跟谁学携手百度，求职、留学、考研，这里有梦想，这里有远方！",
+        "keywords": "留学,考研,求职,名企,产品经理,面试技巧,笔经,简历设计,英语2,MBA保过"
+    }
+}

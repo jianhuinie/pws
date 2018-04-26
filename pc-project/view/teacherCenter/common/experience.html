@@ -1,0 +1,39 @@
+{{ if isset($length) }}
+{{ $length = $length }}
+{{ else }}
+{{ $length = count($experience) }}
+{{ /if }}
+
+{{ if !empty($experience) }}
+<ul id="teacher-experience">
+
+        {{ foreach $experience as $val }}
+        {{ if $val@index <$length }}
+        <li class="teacher-experience-item">
+            <div class="experience-title">
+                <i class="icon icon-circle"></i>
+                {{ if $val.end_date == '0000-00-00' }}
+                {{ $end = '至今' }}
+                {{ else }}
+                {{ $end = $val.end_date|date_format:"%Y年%m月" }}
+                {{ /if }}
+                <div class="title">{{ $val.start_date|date_format:"%Y年%m月" }} — {{ $end }}</div>
+            </div>
+            {{ $content_cut = addslashes($val.content_cut)|escape|nl2br }}
+            {{ $content = addslashes($val.content)|escape|nl2br }}
+            {{ $content_new_cut = addslashes($val.content_new_cut)|escape|nl2br }}
+            <div class="experience-content">
+                {{ $content }}
+            </div>
+        </li>
+        {{ /if }}
+        {{ /foreach }}
+
+</ul>
+{{ else }}
+{{ if $profile.user_id == $user_data.user_id }}
+<div class="no-content">您还未设置过往经历,<a href="/teacher_center/profile">去设置</a></div>
+{{ else }}
+<div class="no-content">老师太懒了，还没写点过往经历哦~</div>
+{{ /if }}
+{{ /if }}

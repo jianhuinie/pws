@@ -1,0 +1,202 @@
+{{ extends file="./base.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $script_path = "activity/uk/edit_41a3197b8d" }}
+
+    {{ $script_data.info = $tpl_data.basic_info }}
+
+    {{ $script_data.has_pay = $tpl_data.has_pay }}
+
+
+{{ /block }}
+
+{{ block name="variable" }}
+
+    {{ $menu = "profile" }}
+
+    {{ $info = $tpl_data.basic_info }}
+
+{{ /block }}
+
+{{ block name="content" }}
+<div class="content-wrapper" style="padding-bottom: 30px;">
+
+    <div class="uk-main">
+
+        <div class="member-header edit">
+
+            <div class="sub-nav">
+                <a href="/uk/profile#uk-nav" class="active">个人中心</a>
+                &gt;
+                编辑资料
+            </div>
+
+        </div>
+
+        <div class="profile-edit">
+            <h3>个人资料</h3>
+            <form id="edit-form" class="form">
+                <input id="field-avatar" name="avatar" type="hidden" value="{{ $info.avatar }}"/>
+                <div class="fields">
+                    <table>
+
+                        <tr>
+                            <td class="label">
+                                <div>姓名：</div>
+                            </td>
+                            <td class="form-group">
+                                <input name="name" required minlength="2" maxlength="10" type="text" value="{{ $info.name }}"/>
+                                <span class="error"></span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="label">
+                                <div>电子邮箱：</div>
+                            </td>
+                            <td class="form-group">
+                                <input name="email" required type="text" value="{{ $info.email }}"/>
+                                <span class="error"></span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="label">
+                                <div>联系电话：</div>
+                            </td>
+                            <td class="form-group">
+                                <input name="phone" required type="text" pattern="^(1[0-9])\d{9}$" value="{{ $info.phone }}"/>
+                                <span class="error"></span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="label">
+                                <div>地址：</div>
+                            </td>
+                            <td>
+                                <select name="province_id" id="field-province">
+                                    <option value="">省</option>
+                                    {{ foreach $tpl_data.province as $province }}
+                                    <option value="{{ $province.id }}">{{ $province.name }}</option>
+                                    {{ /foreach }}
+                                </select>
+
+
+                                <select name="city_id" id="field-city">
+                                    <option value="">市</option>
+                                </select>
+                                <div class="form-group inline-group">
+                                    <select name="district_id" required id="field-district">
+                                        <option value="">区县</option>
+                                    </select>
+                                    <span class="error"></span>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="label">
+                                <div>学校名称：</div>
+                            </td>
+                            <td class="form-group">
+                                <input name="school" required type="text" value="{{ $info.school }}"/>
+                                <span class="error"></span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="label">
+                                <div>年级分组：</div>
+                            </td>
+                            <td class="form-group">
+                                <select name="grade_id" required id="field-grade">
+                                    <option value="">请选择</option>
+                                    {{ foreach $tpl_data.grade as $gde }}
+                                    <option value="{{ $gde.id }}">{{ $gde.name }}</option>
+                                    {{ /foreach }}
+                                </select>
+                                <span class="error"></span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="label">
+                                <div>才艺类型：</div>
+                            </td>
+                            <td>
+                                <div class="form-group inline-group">
+                                    <select name="subject_id" required id="field-subject">
+                                        <option value="">请选择</option>
+                                        {{ foreach $tpl_data.subject as $sub }}
+                                        <option value="{{ $sub.id }}">{{ $sub.name }}</option>
+                                        {{ /foreach }}
+                                    </select>
+                                    <span class="error"></span>
+                                </div>
+
+                                <div class="form-group inline-group">
+                                    才艺名称：
+                                    <input name="talent" required type="text" maxlength="15" value="{{ $info.talent }}"/>
+                                    <span class="error"></span>
+                                </div>
+                            </td>
+                        </tr>
+
+                        {{ if $tpl_data.has_pay == 0 }}
+                        <tr>
+                            <td class="label">
+                                <div>邀请编号：</div>
+                            </td>
+                            <td class="form-group">
+                                <input name="invite_id" pattern="^[0-9]*$" type="text" placeholder="请输入邀请您参赛的选手编号，非必填" style="width: 260px;"/>
+                                <span class="error"></span>
+                            </td>
+                        </tr>
+                        {{ /if }}
+
+                        <tr>
+                            <td class="label">
+                                <div>个人描述：</div>
+                            </td>
+                            <td class="form-group">
+                                <textarea name="describe" required maxlength="200" rows="6" placeholder="请输入200字以内的个人描述，将展示于个人主页">{{ $info.describe }}</textarea>
+                                <span class="error"></span>
+                            </td>
+                        </tr>
+
+                    </table>
+
+                    <div class="photo-box">
+                        <img id="user-photo" src="{{ $info.avatar }}" {{ if !$info.avatar }} style="display: none;"{{ /if }} />
+                        <div class="btn-upload {{ if !$info.avatar }} upload-empty {{ /if }}">
+                            点击上传照片
+                        </div>
+                        上传照片
+                    </div>
+
+                </div>
+            </form>
+
+            <div class="edit-buttons">
+                <div class="uk-btn blue" id="save-btn">
+                    {{ if $tpl_data.has_pay == 0 }}
+                    报名
+                    {{ else }}
+                    保存
+                    {{ /if }}
+                </div>
+                <div id="cancel-btn" class="uk-btn light">取消</div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+{{ /block }}

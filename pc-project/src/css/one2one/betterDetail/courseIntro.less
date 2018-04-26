@@ -1,0 +1,46 @@
+/**
+ * @file 优选一对一课程详情页 - 授课信息
+ * @author wangyujie
+ */
+#course-intro {
+    background-color: #fff;
+    padding: 15px 20px;
+    @course-org-avatar-width: 80px;
+
+    .header {
+        font-size: 18px;
+        color: #3D3D3E;
+    }
+
+    .body {
+        margin-top: @gap-vertical-large;
+        li {
+            font-size: 16px;
+            line-height: 26px;
+            .title {
+                color: #6D6D6E;
+                margin-right: 10px;
+                float: left;
+                .icon {
+                    margin-right: 10px;
+                }
+            }
+            .content {
+                color: #3D3D3E;
+                margin-left: 100px;
+                em + em {
+                    &:before {
+                        content: '/'
+                    }
+                }
+            }
+        }
+        #map {
+            overflow: visible;
+            width: 251px;
+            height: 184px;
+        }
+    }
+
+
+}

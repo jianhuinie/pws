@@ -1,0 +1,36 @@
+{{ strip }}
+    {{ $count = count($tpl_data.course_info.schedule) }}
+    <div id="teachOutline" class="card">
+        <div class="title">教学大纲（{{ $count }}）</div>
+        <div class="timeArrange"> {{ $tpl_data.course_info.arrangement }},已上{{ $tpl_data.course_info.count_over }}节</div>
+        <div class="details">
+            <table>
+                {{ foreach $tpl_data.course_info.schedule as $val }}
+                    <tr {{ if $val@index > 3 }} style="display:none" {{ /if }}
+                        {{ if $val.is_over == 1 }} class="classOver" {{ /if }}>
+                        <td>第{{ $val@index + 1 }}节&nbsp;&nbsp;&nbsp;</td>
+                        {{ $text = $val.content|cn_truncate:22 }}
+                        <td {{ if $text != $val.content }} data-title="{{ $val.content }}" {{ /if }} data-width="400px">
+                            {{ if $val.content != "" }}
+                                {{ $text }}
+                            {{ else }}
+                                第{{ $val@index + 1 }}课时
+                            {{ /if }}
+                        </td>
+                        <td>{{ $val.begin_time|date_format:"%Y年%m月%d日 %H:%M" }}  -  {{ $val.end_time|date_format:"%H:%M" }}</td>
+                        <td>
+                            {{ if $val.is_over == 0 }}
+                                未开课
+                            {{ else if $val.is_over == 1 }}
+                                已结束
+                            {{ else if $val.is_over == 2 }}
+                                进行中
+                            {{ /if }}
+                        </td>
+                    </tr>
+                {{ /foreach }}
+            </table>
+        </div>
+        <div class="viewAll" {{ if $count <= 4 }} style="display:none" {{ /if }}>查看全部</div>
+    </div>
+{{ /strip }}

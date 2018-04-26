@@ -1,0 +1,26 @@
+{{ strip }}
+<div class="article-list">
+    {{ foreach $articleList as $article }}
+    <a class="article {{ if !empty($article.cover) }}with-cover{{ /if }}" data-click-monitor="1" data-rank="{{ $article@index + 1 }}" data-article-number="{{ $article.article_number }}" data-qid="{{ $article.qid }}" data-search-form="{{ $article.search_form }}" data-href="{{ $article.url }}" href="{{ $article.url }}" target="_blank">
+        <div class="article-title ellipsis" title="{{ $article.headline }}">
+            {{ $article.headline|escape:'html' }}
+        </div>
+        <p class="article-content rich-text">
+            {{ if !empty($article.cover) }}
+                {{ $article.content|cn_truncate:62|escape:'html' }}
+            {{ else }}
+                {{ $article.content|cn_truncate:95|escape:'html' }}
+            {{ /if }}
+        </p>
+        <div class="article-author">
+            <span class="article-author-name ellipsis" title="{{ $article.subhead|escape:'html' }}">{{ $article.subhead|escape:'html' }}</span>
+            <span class="article-update-time">{{ $article.create_at }}</span>
+        </div>
+        {{ if !empty($article.cover) }}
+        {{ include file="common/component/image.html" url=$article.cover width=200 height=113 class="cover" onerror="this.parentNode.className='article';this.parentNode.removeChild(this);" }}
+        {{ /if }}
+    </a>
+    {{ /foreach }}
+</div>
+{{ include file="common/component/seopager.html" show_count=8 count=$pager.count page_size=$pager.page_size page=$pager.page hide_jump=true url=$tpl_data.news_base_url }}
+{{ /strip }}

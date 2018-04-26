@@ -1,0 +1,45 @@
+{{ *
+
+@file 老师个人中心 - 管理总览
+@author wangyujie
+
+* }}
+
+{{ extends file="../common/base.html" }}
+
+{{ block name="title" }}个人中心 － 跟谁学{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/userCenter/teacherCenter/index/index.styl" />
+{{ /block }}
+
+{{ block name="script" }}
+<script>
+require(
+    [
+        'userCenter/teacherCenter/common/layout',
+        'userCenter/teacherCenter/index/index'
+    ],
+    function (layout, index) {
+
+        {{ $php_data = $tpl_data }}
+
+        {{ if isset($tpl_data.is_huike_teacher) }}
+            {{ $is_huike_teacher = $tpl_data.is_huike_teacher }}
+        {{ else }}
+            {{ $is_huike_teacher = 0 }}
+        {{ /if }}
+
+        layout.init({
+            topMenu: 'userCenter',
+            sideMenu: 'manageOverview',
+            isHuikeTeacher: {{ $is_huike_teacher }}
+        });
+
+        index.init(
+            {{ json_encode($php_data, 77) }}
+        );
+    }
+);
+</script>
+{{ /block }}

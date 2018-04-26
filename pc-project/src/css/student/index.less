@@ -1,0 +1,384 @@
+/**
+ * @file 学习轨迹
+ * @author zhengjunxin
+ */
+@import '../main/base.less';
+@import './common/header.less';
+@import './common/banner.less';
+
+.huike-header {
+    width: 1020px;
+    margin: 0 auto;
+    height: 90px;
+    .huike-logo {
+        display: inline-block;
+        width: 120px;
+        height: 50px;
+        margin-top: 20px;
+        background: url(../../img/logo-huikejian.png);
+    }
+}
+#main {
+    width: 1020px;
+    margin: 16px auto;
+}
+body {
+    background-color: #fff;
+}
+
+.icon-edu,
+.icon-work {
+    background-image: url(../../img/student/info_icon.png);
+    width: 23px;
+    height: 15px;
+    display: inline-block;
+    margin-right: 5px;
+    position: relative;
+    top: 2px;
+}
+
+.icon-edu {
+    background-position: 0 0;
+    width: 23px;
+    height: 15px;
+}
+
+.icon-work {
+    background-position: 0 20px;
+    width: 23px;
+    height: 20px;
+}
+
+#student-sidebar {
+    float: left;
+    width: 258px;
+    border: 1px solid #E6E6E6;
+    margin-right: 10px;
+}
+
+#student-user {
+    border-bottom: 1px solid #E6E6E6;
+    padding: 15px;
+    font-size: 12px;
+    color: #999999;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    .name {
+        font-size: 16px;
+        color: #333333;
+        margin-right: 10px;
+        .text-overflow();
+        max-width: 5em;
+        display: inline-block;
+        float: left;
+    }
+
+    .number {
+        float: left;
+        margin-top: 4px;
+    }
+
+    .address {
+        clear: left;
+    }
+
+    .icon-location-o {
+        margin-right: 6px;
+        font-size: 14px;
+    }
+
+}
+
+#student-edu {
+    padding: 20px 15px;
+    font-size: 12px;
+    color: #333;
+    border-bottom: 1px solid #E6E6E6;
+
+    .title {
+        font-size: 14px;
+        color: #666666;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    li {
+        clear: left;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        margin-bottom: 5px;
+    }
+
+    .school {
+        color: #999;
+        float: left;
+        width: 60px;
+        text-align: right;
+    }
+
+    .txt {
+        width: 166px;
+        float: left;
+    }
+
+    .empty {
+        width: 100%;
+        height: 65px;
+        text-align: center;
+        font-size: 14px;
+        color: #999999;
+
+        span {
+            display: block;
+            margin-bottom: 10px;
+            margin-top: 20px;
+        }
+
+        a {
+            padding: 2px 12px;
+        }
+    }
+}
+
+#student-work {
+    padding: 20px 15px;
+    font-size: 12px;
+    color: #666;
+
+    .title {
+        font-size: 14px;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    li {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        padding-top: 10px;
+    }
+
+    .company {
+        padding-left: 25px;
+
+        span {
+            margin-left: 5px;
+            color: #333;
+        }
+    }
+
+    .time {
+        padding-left: 25px;
+
+        span {
+            margin-left: 5px;
+            color: #333;
+        }
+    }
+
+    .empty {
+        width: 100%;
+        height: 65px;
+        text-align: center;
+        font-size: 14px;
+        color: #999999;
+
+        span {
+            display: block;
+            margin-bottom: 10px;
+            margin-top: 20px;
+        }
+
+        a {
+            padding: 2px 12px;
+        }
+    }
+}
+
+#student-content {
+    float: left;
+    width: 750px;
+}
+
+#student-learning {
+    width: 738px;
+    border: 1px solid #E6E6E6;
+    margin: 0 auto 20px;
+    padding-bottom: 20px;
+
+    .title {
+        color: #333333;
+        font-size: 12px;
+        margin: 20px;
+        height: 100%;
+        overflow: hidden;
+
+        span {
+            font-size: 14px;
+            font-weight: bold;
+            float: left;
+        }
+
+        div {
+            font-size: 12px;
+            float: left;
+
+            a {
+                color: #6085d7;
+                position: relative;
+                top: 1px;
+            }
+        }
+
+        .more {
+            font-size: 12px;
+            color: #666;
+            float: right;
+        }
+    }
+
+    .list {
+        border-left: 2px solid #ddd;
+        margin-left: 76px;
+        font-size: 12px;
+        clear: both;
+    }
+
+    li {
+        position: relative;
+        margin-left: 14px;
+        margin-bottom: 10px;
+        border: 1px solid transparent;
+        padding-left: 10px;
+
+        .icon-circle {
+            position: absolute;
+            color: #CCCCCC;
+            top: 16px;
+            left: -22px;
+        }
+
+        .date {
+            position: absolute;
+            top: 12px;
+            left: -75px;
+        }
+
+        .section {
+            margin: 12px 0;
+            clear: left;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+
+            .status {
+                margin-right: 10px;
+                color: #333;
+                float: left;
+            }
+
+            .course {
+                color: #333;
+                margin-right: 10px;
+                float: left;
+                .text-overflow();
+                max-width: 16em;
+                display: inline-block;
+            }
+
+            .teacher {
+                color: #6a8dda;
+                margin-right: 5px;
+                .text-overflow();
+                max-width: 5em;
+                display: inline-block;
+                float: left;
+            }
+
+            .type {
+                color: #999999;
+                float: left;
+            }
+        }
+
+        &:hover {
+            background-color: #F8F8F8;
+            border: 1px solid #E6E6E6;
+            border-right: none;
+
+            .icon-circle,
+            .date {
+                color: #6085d8;
+            }
+
+            &:before,
+            &:after {
+                border: 7px solid transparent;
+                content: ' ';
+                position: absolute;
+                left: -15px;
+                top: 15px;
+            }
+
+            &:before {
+                border-right-color: #E6E6E6;
+            }
+
+            &:after {
+                border-right-color: #F8F8F8;
+                left: -14px;
+            }
+        }
+
+        .course:hover {
+            color: #6085d8;
+        }
+
+        .teacher:hover {
+            color: #ff9900;
+        }
+    }
+
+    p {
+        text-align: center;
+        margin: 20px auto;
+        a {
+            color: @brand-primary;
+        }
+    }
+
+    .wz-yun {
+        background-image: url(../../img/teacher/comment_empty.png);
+        width: 106px;
+        height: 112px;
+        margin: 20px auto;
+    }
+
+    .no-learning {
+        text-align: center;
+
+        .wenzai {
+            background-image: url(../../img/teacher/media_empty.png);
+            width: 89px;
+            height: 112px;
+            margin: 0 auto;
+        }
+
+        span {
+            display: block;
+            font-size: 16px;
+            color: #999999;
+            margin: 10px auto 20px;
+        }
+    }
+}
+
+#student-app {
+    display: block;
+    background-image: url(../../img/teacher/banner_adnew.jpg);
+    width: 750px;
+    height: 380px;
+}

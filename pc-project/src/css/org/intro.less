@@ -1,0 +1,50 @@
+/**
+ * @file 机构介绍页
+ * @author jixiaohui
+ */
+
+@import '../main/base.less';
+@import '../common/card.less';
+@import '../common/component/searchList.less';
+@import '../common/component/loginDialog.less';
+@import '../common/main/common/nav.less';
+@import './common/profile.less';
+@import './common/goldProfile.less';
+@import './common/nav.less';
+
+.introduce {
+    width: 1100px;
+    margin: 0 auto 50px;
+    height: 100%;
+    overflow: hidden;
+    background: #fff;
+
+    >.content {
+        width: 1040px;
+        margin: 30px;
+        height: 100%;
+        overflow: hidden;
+
+        span {
+            white-space: normal !important;
+        }
+    }
+
+    .no-data {
+        width: 200px;
+        margin: 50px auto;
+        text-align: center;
+
+        .pic {
+            margin: 0 auto 20px;
+            background: url(../../img/org/empty_intro.png) no-repeat;
+            width: 125px;
+            height: 110px;
+        }
+
+        .text {
+            font-size: 14px;
+            color: #666;
+        }
+    }
+}

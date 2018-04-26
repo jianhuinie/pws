@@ -1,0 +1,428 @@
+/**
+ * @file 我是老师静态页
+ * @author tangrongyan,zhujialu
+ */
+
+@import '../common/layout.less';
+@import '../common/main/common/header.less';
+@import '../common/main/common/nav.less';
+@import '../common/footer.less';
+
+
+body {
+    background-color: #FFF;
+}
+#main {
+    margin: 0px auto;
+    width: 100%;
+}
+
+.dialog {
+    z-index: 100;
+}
+
+.teacher-banner {
+    background: #131514 url(../../img/teacher-intro/new/banner_teacher.jpg) no-repeat center 0;
+    color: #FFF;
+    height: 440px;
+    text-align: center;
+    .register {
+        display: inline-block;
+        /*background: red;*/
+        width: 163px;
+        height: 41px;
+        margin: 243px auto 0;
+        margin-left: -795px;
+    }
+}
+.wrapper {
+    width: 1105px;
+    margin: 0 auto;
+    position: relative;
+
+}
+.be {
+    height: 295px;
+    text-align: left;
+    color: #3d3d3d;
+    h1 {
+        font-size: 32px;
+        padding-top: 10px;
+        margin-bottom: 20px;
+
+    }
+    ul {
+        background: url(../../img/teacher-intro/new/teacher2.png) no-repeat  right 66px top 28px;
+        border: 2px dashed #999;
+        width: 912px;
+        height: 171px;
+        margin: 0 auto 0 132px;
+        font-size: 16px;
+        border-radius: 3px;
+    }
+    li {
+        margin: 6px auto auto 24px;
+    }
+    .source {
+        margin-top: 28px;
+    }
+}
+.register-enter {
+    color: #ff9900;
+    margin-right: 9px;
+}
+.app {
+    color: #ff9900;
+}
+.app:hover {
+    text-decoration: underline;
+
+}
+
+.enter {
+    text-align: center;
+}
+.will {
+    text-align: center;
+    background: #f9f9f9;
+}
+.who {
+    height: 406px;
+    color: #3d3d3d;
+    text-align: left;
+
+    h1 {
+        font-size: 32px;
+        padding-top: 35px;
+    }
+    ul {
+        li {
+            float: left;
+            margin-left: 72px;
+            margin-right: 70px;
+            margin-top: 32px;
+        }
+        i {
+            height: 198px;
+            width: 198px;
+            display: inline-block;
+        }
+        div {
+            text-align: center;
+            font-size: 24px;
+            color: #f90;
+        }
+        .teacher {
+            background: url(../../img/teacher-intro/new/teacher3.png) no-repeat 0 -1px;
+
+        }
+        .technology {
+            background: url(../../img/teacher-intro/new/teacher3.png) no-repeat 0 -199px;
+        }
+        .student {
+            background: url(../../img/teacher-intro/new/teacher3.png) no-repeat 0 -398px;
+        }
+    }
+}
+.why {
+    background: url(../../img/teacher-intro/new/teacher4.jpg) no-repeat 32px 128px;
+    height: 649px;
+    color: #3d3d3d;
+    text-align: left;
+    h1 {
+        font-size: 32px;
+        padding-top: 35px;
+    }
+    h2 {
+        font-size: 24px;
+        color: #70a4ec;
+    }
+    ul {
+        float: right;
+        margin-top: 55px;
+        margin-right: 82px;
+    }
+    ul li {
+        margin-bottom: 34px;
+    }
+    .source {
+        margin-left: -95px;
+        p {
+            margin-left: 26px;
+        }
+        span {
+            margin-left: 20px;
+        }
+    }
+    .person {
+        margin-bottom: 42px;
+        a {
+            color: #ff9900;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    }
+    .auto {
+        margin-bottom: 36px;
+    }
+    .free {
+        margin-left: -102px;
+    }
+    p {
+        width: 33em;
+        span {
+            display: block;
+        }
+    }
+}
+.easy-enter {
+    height: 557px;
+    color: #3d3d3d;
+    text-align: left;
+    .easy {
+        width: 163px;
+        height: 41px;
+        font-size: 22px;
+        border-radius: 5px;
+        margin-left: 30px;
+
+        vertical-align: middle;
+        line-height: 0;
+        font-family: PingHei,"Hiragino Sans GB","Microsoft YaHei",tahoma,arial,sans-serif;
+    }
+    .video {
+        font-size: 13px;
+        font-weight: 600;
+        float: right;
+        line-height: 1;
+        padding-right: 4px;
+        padding-top: 10px;
+        width: auto;
+        color: #6287d5;
+        display: inline-block;
+    }
+    .video:hover {
+        text-decoration: underline;
+    }
+    i {
+        color: #6287d5;
+        font-size: 20px;
+        position: relative;
+        top: 4px;
+        padding-right: 4px;
+
+    }
+    h1 {
+        font-size: 32px;
+        padding-top: 42px;
+        margin-bottom: 42px;
+
+    }
+    p {
+        font-size: 24px;
+        color: #6287d5;
+        margin-bottom: 30px;
+        margin-top: 32px;
+    }
+
+}
+.process {
+    height: 721px;
+    text-align: left;
+    color: #3d3d3d;
+    h1 {
+        font-size: 32px;
+        padding-top: 42px;
+        margin-bottom: 30px;
+    }
+    ul {
+        text-align: center;
+    }
+    ul li {
+        float: left;
+        /*margin-right: 78px;*/
+        margin-bottom: 26px;
+        width:33.333%
+    }
+    div {
+        width: 8em;
+        font-size: 24px;
+
+        margin: 10px auto 24px auto;
+    }
+    .item-3 div ,.item-5 div {
+        line-height: 1.3em;
+        margin-top: -6px;
+        margin-bottom: 14px;
+    }
+    p {
+        width: 17em;
+        font-size: 16px;
+        margin: 0 auto;
+    }
+    i {
+        height: 85px;
+        width: 85px;
+        display: inline-block;
+    }
+    .item-1 i {
+        background: url(../../img/teacher-intro/new/teacher6.png) no-repeat 0 -1px;
+
+    }
+    .item-2 i {
+        background: url(../../img/teacher-intro/new/teacher6.png) no-repeat 0 -88px;
+
+    }
+    .item-3 i {
+
+        background: url(../../img/teacher-intro/new/teacher6.png) no-repeat -1px -179px ;
+    }
+    .item-4 i {
+
+        background: url(../../img/teacher-intro/new/teacher6.png) no-repeat 0 -266px;
+    }
+    .item-5 i {
+
+        background: url(../../img/teacher-intro/new/teacher6.png) no-repeat 0 -352px;
+    }
+    .item-6 i {
+
+        background: url(../../img/teacher-intro/new/teacher6.png) no-repeat 0 -438px;
+    }
+    div i {
+        height: 34px;
+        width: 34px;
+        margin-right: 10px;
+        vertical-align: bottom;
+    }
+    .item-1 div i {
+        background: url(../../img/teacher-intro/new/teacher6.png) no-repeat -4px -534px;
+
+    }
+    .item-2 div i {
+        background: url(../../img/teacher-intro/new/teacher6.png) no-repeat -44px -534px;
+
+    }
+    .item-3 div i {
+
+        background: url(../../img/teacher-intro/new/teacher6.png) no-repeat  -4px -576px;
+        float: left;
+        margin-top: 16px;
+    }
+    .item-4 div i {
+
+        background: url(../../img/teacher-intro/new/teacher6.png) no-repeat -44px -576px;
+
+    }
+    .item-5 div i {
+
+        background: url(../../img/teacher-intro/new/teacher6.png) no-repeat -4px -615px;
+        float: left;
+        margin-top: 17px;
+    }
+    .item-6 div i {
+
+        background: url(../../img/teacher-intro/new/teacher6.png) no-repeat -44px -616px;
+    }
+
+}
+.faq {
+    background: url(../../img/teacher-intro/new/teacher7.png) no-repeat 44% 29px;
+    height: 625px;
+    text-align: left;
+    color: #3d3d3d;
+
+    li {
+        float: left;
+        margin-bottom: 32px;
+    }
+    h1 {
+        font-size: 32px;
+        padding-top: 42px;
+        margin-bottom: 42px;
+
+    }
+    h2 {
+        font-size: 24px;
+        color: #70a4ec;
+    }
+    p {
+        width: 32em;
+        line-height: 26px;
+    }
+    .odd {
+        margin-right: 182px;
+        p {
+            width: 29em;
+        }
+    }
+    .video-2 {
+        display: block;
+        color: #ff9900;
+    }
+    .video-2:hover {
+        text-decoration: underline;
+    }
+}
+
+/*视频*/
+.teacher-videos {
+    .title {
+        text-align: center;
+        font-size: 36px;
+        line-height: 100px;
+        /*margin: 0 auto 0 -886px;*/
+        color: #3d3d3d;
+    }
+    width: 100%;
+    .video-teacher {
+        width: 960px;
+        margin: 0 auto;
+        text-align: center;
+        .video-show {
+            .clearfix();
+            width: 960px;
+            padding: 0 0 60px 0;
+            li {
+                float: left;
+                cursor: pointer;
+                position: relative;
+                .video-thumbnail {
+                    width: 240px;
+                    height: 140px;
+                    position: relative;
+                    &:hover {
+                        .info {
+                            display: block;
+                        }
+                    }
+                    img {
+                        width: 240px;
+                        height: 140px;
+                    }
+                    .info {
+                        display: none;
+                        font-size: 14px;
+                        color: #fff;
+                        line-height: 22px;
+                        position: absolute;
+                        bottom: 10px;
+                        left: 70px;
+                        z-index: 1;
+                        .vname {
+                            text-align: left;
+                            span {
+                                display: block;
+                            }
+                        }
+                    }
+                }
+                .caption {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+

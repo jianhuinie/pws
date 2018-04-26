@@ -1,0 +1,138 @@
+/**
+ * @file 课程模块
+ * @author jixiaohui
+ */
+
+#course-box {
+    clear: left;
+    float: left;
+}
+
+.course {
+    width: 704px;
+    height: 100%;
+    overflow: hidden;
+    margin-bottom: 30px;
+    clear: left;
+
+    .category {
+        span {
+            font-weight: bold;
+            font-size: 18px;
+            color: #333;
+            float: left;
+            width: 100px;
+            display: inline-block;
+            margin-right: 30px;
+        }
+
+        li {
+            float: left;
+            padding: 5px 20px;
+
+            a {
+                font-size: 14px;
+                color: #666;
+            }
+
+            &:hover a{
+                color: #f90;
+            }
+        }
+
+        .more {
+            float: right;
+            font-size: 12px;
+            color: #999;
+            position: relative;
+            top: 8px;
+
+            &:hover {
+                color: #f90;
+            }
+        }
+    }
+
+    .list {
+        background: #f7f7f7;
+        border: 1px solid #eee;
+        padding: 20px;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+
+        .item {
+            width: 207px;
+            height: 116px;
+            margin-right: 20px;
+            float: left;
+
+            &.last {
+                margin-right: 0;
+            }
+        }
+
+        .cover,
+        img {
+            width: 207px;
+            height: 116px;
+        }
+
+        .cover {
+            position: relative;
+            display: block;
+
+            &:after {
+                .opacity(0.4);
+
+                background-color: transparent;
+
+                content: ' ';
+
+                position: absolute;
+                top: 0;
+                left: 0;
+
+                width: 100%;
+                height: 100%;
+
+            }
+
+            &:hover {
+                &:after {
+                    background-color: #000;
+                    .transition(background 0.3s);
+                }
+            }
+        }
+
+        .icon {
+            background: url(../../../img/navigation/play.png) no-repeat;
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            bottom: 34px;
+            left: 10px;
+        }
+
+        .title {
+            position: absolute;
+            font-size: 12px;
+            color: #fff;
+            height: 24px;
+            line-height: 24px;
+            width: 100%;
+            padding-left: 10px;
+            background: #000;
+            .opacity(0.8);
+            bottom: 0;
+            left: 0;
+
+            i {
+                float: right;
+                margin-right: 10px;
+            }
+        }
+    }
+}
+

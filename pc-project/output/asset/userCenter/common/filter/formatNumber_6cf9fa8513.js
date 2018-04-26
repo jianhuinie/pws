@@ -1,0 +1,1 @@
+define('userCenter/common/filter/formatNumber_6cf9fa8513',['require','exports','module'],function(){'use strict';return function(e,r){var t=(''+e).split('.'),n=t[1]||'',i=n.length;if(i>r)n=n.substr(0,r);else if(r>i)n+=new Array(r-i+1).join('0');return t[0]+'.'+n;};});

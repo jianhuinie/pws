@@ -1,0 +1,104 @@
+@import "module/index.styl";
+.classroom-basic {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0 rem(10);
+    background: #f2f3f4;
+    overflow-x: hidden; 
+    &-title {
+        display: flex;
+        margin-top: rem(14);
+        align-items: center;
+        font-size: rem(14);
+        color: #6d6d6e;
+        height: rem(15);
+        margin-bottom: rem(8);
+        &::before {
+            display: inline-block;
+            margin-right: rem(5);
+            content: '';
+            width: rem(4);
+            height: rem(15);
+            background: #f95d5d;
+            border-radius: rem(100);
+        }
+    }
+    &-portrait {
+        height: rem(162);
+        border: rem(1) solid #ebebeb;
+        border-radius: rem(4);
+        background: #fff;
+        text-align: center;
+        position: relative;
+        .portrait {
+            display: block;
+            width: rem(76);
+            margin: rem(23) auto 0;
+            .avatar-container-big {
+                width: rem(74);
+                height: rem(74);
+            }
+        }
+        .upload {
+            margin-top: rem(15);
+            font-size: rem(14);
+            color: #4896e4;
+            letter-spacing: rem(0.35);
+            line-height: rem(14);
+        }
+        .des {
+            margin-top: rem(8);
+            font-size: rem(12);
+            color: #9d9d9e;
+            letter-spacing: 0;
+            line-height: rem(12);
+            position: absolute;
+            left: 0;
+            bottom: rem(15);
+            width: 100%;
+            text-align: center;
+        }
+    }
+    &-name {
+        display: flex;
+        height: rem(46);
+        align-items: center;
+        border-radius: rem(4);
+        border: rem(1) solid #ebebeb;
+        overflow: hidden;
+        background: #fff;
+        input {
+            flex: 1;
+            height: rem(18);
+            line-height: rem(18);
+            padding: 0 rem(14);
+            font-size: rem(14);
+            color: #3d3d3e;
+        }
+    }
+    &-dec {
+        display: flex;
+        .text {
+            flex: 1;
+            min-height: rem(130);
+            border-radius: rem(4);
+            padding: rem(10) rem(14);
+            font-size: rem(14);
+            color: #3d3d3e;
+            line-height: rem(22);
+            resize: none;
+        }
+    }
+    &-next {
+        margin-top: rem(16);
+    }
+    &-tip {
+        margin-top: rem(14);
+        font-size: rem(12);
+        color: #9d9d9e;
+        padding-bottom: rem(100);
+    }
+}

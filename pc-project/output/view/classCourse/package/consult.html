@@ -1,0 +1,39 @@
+{{ *
+    @file 页面右侧的咨询
+    @author wangyujie
+* }}
+
+<div class="right-consult">
+    {{ if isset($tpl_data.site_config.qq) }}
+    <div class="consult-online" target="_blank">
+        <a href="{{ $tpl_data.site_config.qq }}" target="_blank">
+            <img src="http://img.gsxservice.com/0cms/d/file/content/2016/02/56cd58c66b062.png">
+            <br />
+            <span>在线咨询</span>
+        </a>
+    </div>
+    {{ /if }}
+
+    {{ if isset($tpl_data.site_config.contact) }}
+    <div class="consult-phone">
+        <img src="http://img.gsxservice.com/0cms/d/file/content/2016/02/56cd58c68f9f2.png">
+        <p>{{ $tpl_data.site_config.contact }}</p>
+        <p>咨询专线</p>
+    </div>
+    {{ /if }}
+</div>
+
+<div id="flotage-bottom">
+    <div class="wrapper">
+        <ul>
+            <li class="backup">
+                <a class="tip-icon" rel="nofollow" href="javascript:void(0)">
+                    <i class="icon icon-up"></i>
+                </a>
+                <a class="tip" rel="nofollow" href="javascript:void(0)">
+                    回到顶部
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

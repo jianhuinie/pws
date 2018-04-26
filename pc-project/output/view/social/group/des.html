@@ -1,0 +1,13 @@
+{{ strip }}
+<div class="des">
+    {{ include file="social/common/adminDes.html" admin=$admin group=$group isLogin=!empty($user) }}
+    <div class="rank">
+        {{ if !empty($user) && !empty($user.rank) }}
+        <label>我在达人榜排名<i class="small">{{ $user.rank }}</i>位</label>
+        {{ else }}
+        <label>{{ $group.name }}排行榜</label>
+        {{ /if }}
+        <a class="detail" href="/group/rank?group_id={{ $group.id }}" target="_blank">榜单详情&gt;</a>
+    </div>
+</div>
+{{ /strip }}

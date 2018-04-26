@@ -1,0 +1,52 @@
+<div class="module-content-header">
+    添加班课图片
+</div>
+<div class="module-content-form">
+
+    {{ if $tpl_data.basic_info.display_status == 2 }}
+    <div class="upload-tip-photo">新上传的照片需要再次审核</div>
+    {{ /if }}
+
+    <div class="uploaded-item-container" data-validate-name="photo">
+        {{ $photos = $photoInfo.photos|default:[] }}
+        {{ foreach $photos as $item }}
+        <div class="uploaded-item">
+            <img src="{{ $item.url }}@1e_188w_106h_1c_0i_1o_90Q_1x.jpeg" data-id="{{ $item.id }}" data-storage-id="{{ $item.storage_id }}" />
+            <div>
+                <label class="form-radio"><input type="radio" name="cover" value="{{ $item.storage_id }}" {{ if $item.storage_id == $photoInfo.cover }}checked="checked"{{ /if }}>设为封面</label>
+            </div>
+            <div class="action move-up icon icon-arrow-up">上移</div>
+            <div class="action move-down icon icon-arrow-down">下移</div>
+            <div class="action delete-item icon icon-delete">删除</div>
+        </div>
+        {{ /foreach }}
+    </div>
+
+    <div class="uploader-tip-container valid">
+        <div class="icon icon-info-circle description-error"></div>
+    </div>
+
+    <div class="add-photo-tip">
+        <div class="add-photo">
+            <span class="icon icon-plus"></span>
+            <div>添加照片</div>
+        </div>
+        <div class="photo-limit-tip">
+            <div>提示：</div>
+            <div class="new-line">1.请上传不超过<span>10</span>M、格式为jpg、</div>
+            <div class="next-line">jpeg、png的图片</div>
+            <div class="last-line">2.最多上传<span>12</span>张</div>
+        </div>
+    </div>
+
+    <div class="photo-sample">
+        <div class="photo-sample-text">图片示例：</div>
+        <div>你可以上传教学场地、教材、器材、作品或其他能体现该课程特色的照片，但是不能出现广告信息和水印哦！提供高质量图片（如下图），将有机会获得包括
+            <a href="http://ju.genshuixue.com/" class="text-info">聚惠学</a>
+        在内的更多展示位。</div>
+        <div class="photo-sample-img">
+            <img src="http://cdn.gsxservice.com/asset/img/teacher-center/classCourse/juhuixuePhoto/1_38d47763da.jpg" />
+            <img src="http://cdn.gsxservice.com/asset/img/teacher-center/classCourse/juhuixuePhoto/2_423eac440b.jpg" />
+        </div>
+    </div>
+</div>

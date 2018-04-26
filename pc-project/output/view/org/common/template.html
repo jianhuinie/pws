@@ -1,0 +1,426 @@
+{{ *
+    普通机构主页模版
+* }}
+{{ strip }}
+    {{ foreach $tpl_data as $org_index => $org_data }}
+
+        {{ if $org_index == "focus_img" }}
+            {{ if $org_data|@count > 0 }}
+                {{ $carousel_img_data = $org_data }}
+                <div class="org-carousel">
+                    <div class="carousel-con">
+
+                        <ul class="carousel-inner" role="listbox">
+
+                            {{ $carousel_length = $carousel_img_data|@count - 1 }}
+                            <li class="carousel-img-item">
+                                {{ if $carousel_img_data[$carousel_length].link }}
+                                    <a href="{{ $carousel_img_data[$carousel_length].link }}" target="_blank">
+                                        <img src="{{ $carousel_img_data[$carousel_length].img_url }}@0e_1100w_350h_1c_0i_1o_90Q_1x.jpg">
+                                    </a>
+                                {{ else }}
+                                    <a>
+                                        <img src="{{ $carousel_img_data[$carousel_length].img_url }}@0e_1100w_350h_1c_0i_1o_90Q_1x.jpg">
+                                    </a>
+                                {{ /if }}
+                            </li>
+
+                            {{ foreach $carousel_img_data as $imgindex => $imginfo }}
+                                <li class="carousel-img-item carousel-real-item">
+                                    {{ if $imginfo.link }}
+                                        <a href="{{ $imginfo.link }}" target="_blank">
+                                            <img src="{{ $imginfo.img_url }}@0e_1100w_350h_1c_0i_1o_90Q_1x.jpg">
+                                        </a>
+                                    {{ else }}
+                                        <a>
+                                            <img src="{{ $imginfo.img_url }}@0e_1100w_350h_1c_0i_1o_90Q_1x.jpg">
+                                        </a>
+                                    {{ /if }}
+                                </li>
+                            {{ /foreach }}
+
+                            <li class="carousel-img-item">
+                                {{ if $carousel_img_data[0].link }}
+                                    <a href="{{ $carousel_img_data[0].link }}" target="_blank">
+                                        <img src="{{ $carousel_img_data[0].img_url }}@0e_1100w_350h_1c_0i_1o_90Q_1x.jpg">
+                                    </a>
+                                {{ else }}
+                                    <a>
+                                        <img src="{{ $carousel_img_data[0].img_url }}@0e_1100w_350h_1c_0i_1o_90Q_1x.jpg">
+                                    </a>
+                                {{ /if }}
+                            </li>
+
+                        </ul>
+
+                        <ul class="footer-control">
+                            {{ foreach $carousel_img_data as $index => $item }}
+                                {{ if $index == 0 }}
+                                    <li class="active org-select"></li>
+                                {{ else }}
+                                    <li class="org-select"></li>
+                                {{ /if }}
+                            {{ /foreach }}
+                        </ul>
+
+                        {{ if $org_data|@count > 1 }}
+                            <a href="javascript:;" class="promotion-slider-left" title="上一张">
+                                <i class="icon icon-chevron-left"></i>
+                            </a>
+                            <a href="javascript:;" class="promotion-slider-right" title="下一张">
+                                <i class="icon icon-chevron-right"></i>
+                            </a>
+                        {{ /if }}
+
+                    </div>
+                </div>
+            {{ else }}
+                <div class="custom">
+                    <div class="banner">
+                        <span class="text">
+                            <i>{{ $tpl_data.base_info.name }}</i>
+                            入驻跟谁学
+                        </span>
+                    </div>
+                </div>
+            {{ /if }}
+        {{ else if $org_index == "black_info" }}
+            {{ $paper_length = $org_data|@count }}
+            {{ if $paper_length > 0 }}
+            <div class="inner-box">
+                <div class="title">机构黑板报：</div>
+                <div class="blackboard">
+                    <div class="paper-con">
+                        <div class="carousel-paper-container">
+                        {{ foreach $org_data as $paper_item }}
+                             <div class="blackboard-item blackboard-real-item">
+                             <a href="http://www.genshuixue.com/i/blackDetail/{{ $paper_item.id }}.html">
+                                【{{ $headerType[$paper_item.type - 1] }}】{{ $paper_item.title }}
+                             </a>
+                            </div>
+                        {{ /foreach }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{ /if }}
+        {{ if count($tpl_data.coupon) > 0 }}
+            <div class="coupon">
+                    <div class="title">优惠券</div>
+                {{ foreach $tpl_data.coupon as $item }}
+                    <a class="a-{{ $item@index }}" data-url="{{ $item.url }}" {{ if $item.total_money > 999 }}style="padding-top:14px;"{{ /if }}>
+                        ￥
+                        <span class="price" {{ if $item.total_money > 999 }}style="font-size:20px;"{{ /if }}>
+                        {{ $item.total_money|string_format:"%d" }}
+                        </span>
+                        优惠券
+                        <p>
+                            {{ if $item.cond_threshold == null || $item.cond_threshold == -1 }}
+                                不限
+                            {{ else }}
+                                满{{ $item.cond_threshold }}使用
+                            {{ /if }}
+                        </p>
+                    </a>
+                {{ /foreach }}
+            </div>
+        {{ /if }}
+        {{ else if $org_index == "recommend_course" }}
+            <div class="head">
+                <span class="title">推荐课程</span>
+                <a rel="nofollow" href="{{ if empty($org_data) }}{{ $url_video_course }}{{ else }}{{ $url_course }}{{ /if }}" target="_blank" class="more">
+                    全部课程 >
+                </a>
+            </div>
+            {{ if $org_data|@count > 0 }}
+            {{ $org_course = $org_data }}
+                <div class="course">
+                    <div class="list course-list">
+                        {{ foreach $org_course as $val }}
+                        <div class="item">
+                            <div class="course-img">
+                                <a href="{{ $val.detail_url }}" target="_blank">
+                                    {{ include file="common/component/image.html" url=$val.photo_url  width=250 height=141 }}
+                                </a>
+                            </div>
+                            <div class="name">
+                            <a href="{{ $val.detail_url }}" target="_blank">
+                                {{ $val.name|cn_truncate: 12 }}
+                            </a>
+                            </div>
+
+                            {{ $show_price_tip = false }}
+                            {{ if !empty($val.discount) }}
+                                {{ if $val.discount.type == 1 }}
+                                    {{ $show_price_tip = true }}
+                                    <div class="price-tip-box">
+                                        <div class="price-tip price-tip-end" data-cur="{{ $cur_time }}" data-end="{{ $end_time }}">
+                                            剩余{{ $val.discount.remain_amount }}个优惠名额
+                                        </div>
+                                        <span class="price">
+                                            ￥{{ $val.discount.discount_price }}
+                                        </span>
+                                        <span class="original-price">
+                                            ￥{{ $val.discount.pre_price }}
+                                        </span>
+                                    </div>
+                                    <div class="limit-count-e"></div>
+                                {{ else if $val.discount.type == 2 }}
+                                    {{ **获取当前时间** }}
+                                    {{ $cur_time = $smarty.now }}
+                                    {{ $start_time = strtotime($val.discount.start_time) }}
+                                    {{ $end_time = strtotime($val.discount.end_time) }}
+
+                                        {{ ** 距离活动开始一天内 ** }}
+
+                                    {{ if ($start_time - $cur_time) < (24*60*60) &&
+                                          ($start_time - $cur_time > 0) }}
+                                          {{ $show_price_tip = true }}
+                                        <div class="price-tip-box">
+                                            <span class="price">
+                                                ￥{{ $val.discount.pre_price }}
+                                            </span>
+                                            <span class="rob-price">抢购价:￥{{ $val.discount.discount_price }}</span>
+                                        </div>
+                                        <div class="price-tip price-tip-begin" data-cur="{{ $cur_time }}" data-start="{{ $start_time }}">
+                                            距抢购开始<span class="time">{{ include file='common/component/countDown.html' time=($start_time - $cur_time) }}</span>
+                                        </div>
+                                        <div class="limit-count"></div>
+                                        {{ ** 距离活动结束时间内 ** }}
+
+                                    {{ else if ($start_time < $cur_time) && ($cur_time < $end_time) }}
+                                        {{ $show_price_tip = true }}
+                                        <div class="price-tip-box">
+                                            <span class="price">
+                                                ￥{{ $val.discount.discount_price }}
+                                            </span>
+                                            <span class="original-price">
+                                                ￥{{ $val.discount.pre_price }}
+                                            </span>
+                                        </div>
+                                        <div class="price-tip price-tip-end" data-cur="{{ $cur_time }}" data-end="{{ $end_time }}">
+                                            距抢购结束<span class="time">{{ include file='common/component/countDown.html' time=($end_time - $cur_time) }}</span>
+                                        </div>
+                                        <div class="limit-count"></div>
+                                    {{ /if }}
+                                {{ /if }}
+                            {{ /if }}
+                            
+                            {{ ** 非限时折扣执行原来逻辑 ** }}
+                            {{ if empty($val.discount) || !$show_price_tip }}
+                                <div class="org-course-price">
+                                    {{ if $val.price == 0 }}
+                                        <span class="price-free">免费</span>
+                                    {{ else }}
+                                        <span class="price-now">￥{{ $val.price }}</span>
+                                    {{ /if }}
+                                    {{ if $val.original_price }}
+                                        <span class="original-price">原价&nbsp￥{{ $val.original_price }}</span>
+                                    {{ /if }}
+                                </div>
+                            {{ /if }}
+
+                            {{ if $val.fenqi }}
+                                <span class="fenqi-tag">{{ $val.fenqi.tag_name }}</span>
+                            {{ /if }}
+
+                            {{ if isset($val.lesson_way) && $val.lesson_way == 2 }}
+                                <div class="course-label live"></div>
+                            {{ else }}
+                                {{ if $val.course_type == 1 }}
+                                    <div class="course-label one2one"></div>
+                                {{ else if $val.course_type == 2 || $val.course_type == 4 }}
+                                    <div class="course-label offline"></div>
+                                {{ else if $val.course_type == 3 }}
+                                    <div class="course-label video"></div>
+                                {{ /if }}
+                            {{ /if }}
+                        </div>
+                        {{ /foreach }}
+                    </div>
+                </div>
+            {{ else }}
+                <div class="no-data">
+                    <div class="pic"></div>
+                    <div class="text">机构太懒了，没有发布课程，去别的机构看看吧</div>
+                </div>
+            {{ /if }}
+        {{ else if $org_index == "org_teacher" }}
+            {{ $teacher = $org_data }}
+            <div class="head">
+                <span class="title">机构老师</span>
+                <a rel="nofollow" href="{{ $url_teacher }}" target="_blank">全部老师 ></a>
+            </div>
+            <div class="teacher">
+                {{ if count($teacher) > 0 }}
+                    <div class="list">
+                        {{ foreach $teacher as $val }}
+                            {{ if !empty($val.domain) }}
+                                {{ $teacher_url = "http://www.genshuixue.com/"|cat:$val.domain }}
+                            {{ else }}
+                                {{ $teacher_url = "http://"|cat:$env|cat:".genshuixue.com"|cat:$val.url }}
+                            {{ /if }}
+                            <div class="item">
+                                <a href="{{ $teacher_url }}" target="_blank">
+                                    {{ include file="common/component/image.html" url=$val.img width=85 height=85 alt=$val.name }}
+                                </a>
+                                <div class="name">
+                                        {{ $t_name = $val.name|cn_truncate:4 }}
+                                        <a href="{{ $teacher_url }}" {{ if $t_name != $val.name }}data-title="{{ $val.name }}" data-width="20em"{{ /if }}>{{ $t_name }}</a>
+                                </div>
+                            </div>
+                        {{ /foreach }}
+                    </div>
+                {{ else }}
+                    <div class="no-data">
+                        <div class="pic"></div>
+                        <span class="text">老师都去哪儿了</span>
+                    </div>
+                {{ /if }}
+            </div>
+        {{ else if $org_index == "org_comment" }}
+            <div class="head" id="comment-list">
+                <span class="title">学员评价</span>
+            </div>
+
+            <div class="notice-tip">
+                用户信任是最重要的，跟谁学保证全站真实评价，机构无法通过付费方式删除或修改评价
+                <i class="icon icon-close"></i>
+            </div>
+
+            <div class="select-choices">
+                <div class="form-controls">
+                    {{ include file="common/ui/dropdown.html" class="type" size="small" data=$type_list_data }}
+                </div>
+                <!-- 隐藏掉类目选择 -->
+                <!-- <div class="form-controls">
+                    {{ * include file="common/ui/dropdown.html" class="subject" size="small" data=$subject_list_data * }}
+                </div> -->
+                <div class="form-controls">
+                    {{ include file="common/ui/dropdown.html" class="sortby" size="small" data=$sortby_list_data }}
+                </div>
+            </div>
+
+            <div id="org-comment">
+                <div class="tab-nav">
+                </div>
+
+                <div class="nav-content">
+                </div>
+            </div>
+        {{ else if $org_index == "org_distinct" && $org_data|@count > 0 }}
+            <div class="head">
+                <span class="title">机构地址</span>
+                <a rel="nofollow" href="{{ $url_area }}" target="_blank">查看全部 ></a>
+            </div>
+            {{ $area = $org_data }}
+            {{ $areaflag = false }}
+            {{ foreach $area as $val }}
+                {{ if $val.detail }}
+                    {{ $areaflag = true }}
+                {{ /if }}
+            {{ /foreach }}
+            {{ if $areaflag && count($area) > 0 }}
+                <div class="area">
+                    <div class="title">校区地址：</div>
+                    {{ foreach $area as $val }}
+                        {{ if $val.detail }}
+                            <div class="area-box">
+                                <div>
+                                    <i class="location-icon"></i>
+                                    <span>{{ $val.name }}</span>
+                                </div>
+                                <div>{{ $val.detail }}</div>
+                            </div>
+                        {{ /if }}
+                    {{ /foreach }}
+                </div>
+            {{ /if }}
+        {{ else if $org_index == "org_brief" && $org_data|@count > 0 }}
+            <div class="head">
+                    <span class="title">机构简介</span>
+            </div>
+            <div class="introduce">
+                {{ if $org_data[0] }}
+                    <div class="content">
+                        {{ $org_data[0] }}
+                    </div>
+                    <a href="{{ $url_intro }}" target="_blank">查看更多></a>
+                {{ else }}
+                    <div class="no-data">
+                        <div class="pic"></div>
+                        <span class="text">TA太懒了，还没有留下介绍</span>
+                    </div>
+                {{ /if }}
+            </div>
+        {{ else if $org_index == "org_album" && $org_data|@count > 0 }}
+            {{ $photos = $org_data }}
+            <div class="head">
+                    <span class="title">相册</span>
+                    <a rel="nofollow" href="{{ $url_photo }}" target="_blank">全部照片 ></a>
+            </div>
+            <div class="photo">
+                {{ if count($photos) > 0 }}
+                    <div class="list">
+                        {{ foreach $photos as $val }}
+                            <div class="item">
+                                <div class="img-thumbnail" data-image="{{ $val.img }}" data-name="{{ $val.name }}">
+                                    {{ if !empty($val.name) }}
+                                        {{ include file="common/component/image.html" url=$val.img width="200" height="200" alt=$val.name }}
+                                    {{ else }}
+                                        {{ include file="common/component/image.html" url=$val.img width="200" height="200" alt=$tpl_data.base_info.name }}
+                                    {{ /if }}
+                                </div>
+                                <div class="caption">
+                                    {{ $val.name }}
+                                </div>
+                            </div>
+                        {{ /foreach }}
+                    </div>
+                {{ else }}
+                    <div class="no-data">
+                        <div class="pic"></div>
+                        <span class="text">还没有真相哟！</span>
+                    </div>
+                {{ /if }}
+            </div>
+        {{ else if $org_index == "org_video" && $org_data.video|@count > 0 }}
+            {{ $video = $org_data.video }}
+            <div class="head">
+                    <span class="title">介绍视频</span>
+                    <a rel="nofollow" href="{{ $url_video }}" target="_blank">全部视频 ></a>
+            </div>
+            <div class="video">
+                {{ if count($video) > 0 }}
+                    <div class="list">
+                        {{ foreach $video as $val }}
+                            <div class="item">
+                                <div class="video-thumbnail" data-video="{{ $val.video }}" data-name="{{ $val.name }}" data-vid="{{ $val.video_id }}">
+                                    <img src="{{ $val.img }}" alt="{{ $tpl_data.base_info.name }} {{ if !empty($val.teacher_name) }}{{ $val.teacher_name }}{{ /if }} 视频">
+                                    <i class="icon icon-play-o"></i>
+                                </div>
+                                <span class="caption">{{ $val.name }}</span>
+                            </div>
+                        {{ /foreach }}
+                    </div>
+                {{ else }}
+                    <div class="no-data">
+                        <div class="pic"></div>
+                        <span class="text">暂时还没有视频~</span>
+                    </div>
+                {{ /if }}
+            </div>
+        {{ else if $org_index == "custom_area" && $org_data|@count > 0 }}
+            {{ if $org_data[0] }}
+                <div class="head">
+                    <span class="title">机构图文介绍</span>
+                </div>
+                <div class="custom-area">
+                    <div class="content">
+                        {{ $org_data[0] }}
+                    </div>
+                </div>
+            {{ /if }}
+        {{ /if }}
+    {{ /foreach }}
+{{ /strip }}

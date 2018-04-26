@@ -1,0 +1,38 @@
+{{ *
+
+@file 班课详情页 - 教学大纲
+@author liucong
+
+* }}
+
+{{ strip }}
+{{ $plan = $tpl_data.schedule }}
+{{ if count($plan) > 0 }}
+<div id="course-plan">
+    <h3><span>教学大纲</span></h3>
+    <table class="table content">
+        <col width="20%">
+        <col width="80%">
+        <tbody>
+            <tr>
+                <td>课程安排</td>
+                <td>{{ $tpl_data.arrangement }}</td>
+            </tr>
+            {{ foreach $plan as $val }}
+            <tr>
+                <td style="vertical-align:middle">第 {{ $val@index+1 }} 节</td>
+                <td>
+                    <div class="plan-info">
+                        <div><span class="td-label">课程时间：</span>{{ $val.begin_time|date_format:"%Y年%m月%d日 %H:%M" }}  -  {{ $val.end_time|date_format:"%H:%M" }}{{ if !empty($val.teacher) }}&nbsp&nbsp&nbsp&nbsp<span class="td-label">主讲老师：</span><a href="http://www.genshuixue.com/{{ $val.teacher.private_domain }}"target="_blank">{{ $val.teacher.display_name }}</a>{{ /if }}</div>
+                        {{ if !empty($val.content) }}
+                        <div><span class="td-label">课程内容：</span>{{ $val.content }}</div>
+                        {{ /if }}
+                    </div>
+                </td>
+            </tr>
+            {{ /foreach }}
+        </tbody>
+    </table>
+</div>
+{{ /if }}
+{{ /strip }}

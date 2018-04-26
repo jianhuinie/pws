@@ -1,0 +1,115 @@
+{{ extends file="common/main/base.html" }}
+
+{{ block name="data" }}
+
+{{ $smarty.block.parent }}
+
+{{ $script_path = "guide/team" }}
+
+
+{{ $nav_config.active = '' }}
+
+{{ /block }}
+
+
+{{ block name="title" }}
+管理团队- 用户指南 - 跟谁学
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/guide/team.less">
+{{ /block }}
+
+{{ block name="main" }}
+
+{{ strip }}
+
+
+<div id="main">
+
+    {{ include file="./common/sidebar.html" }}
+
+
+    <!--右-->
+    <div class="btright">
+        <h2>管理团队</h2>
+
+
+
+        <div class="banner">
+
+            <ul class="promotion" style="width:3845px;">
+                <li>
+                    <img src="{{ $static_origin }}/src/img/guide/team/team-3.png" width="769" height="410" alt="管理团队"/>
+                </li>
+                <li class="active" >
+                    <img src="{{ $static_origin }}/src/img/guide/team/team-1.png" width="769" height="410" alt="管理团队"/>
+                </li>
+                <li>
+                    <img src="{{ $static_origin }}/src/img/guide/team/team-2.png" width="769" height="410" alt="管理团队"/>
+                </li>
+                <li>
+                    <img src="{{ $static_origin }}/src/img/guide/team/team-3.png" width="769" height="410" alt="管理团队"/>
+                </li>
+                <li>
+                    <img src="{{ $static_origin }}/src/img/guide/team/team-1.png" width="769" height="410" alt="管理团队"/>
+                </li>
+            </ul>
+
+
+            <ul class="promotion-slider-nav">
+
+                <li>
+                    <span class="promotion-slider-navitem active" ></span>
+                </li>
+                <li>
+                    <span class="promotion-slider-navitem" ></span>
+                </li>
+                <li>
+                    <span class="promotion-slider-navitem" ></span>
+                </li>
+            </ul>
+
+        </div>
+
+
+
+        <div class="item">
+            <ul>
+                <li>
+                    <img src="{{ $static_origin }}/src/img/activity/wise/avatar.jpg" alt="" />
+
+                    <div>
+                        <em>殷实</em>
+                        <span class="mark">2011年辽宁省大连市理科状元</span>
+                        <span class="sorce">总分：692 </span>
+                        <span class="school" title="毕业学校：辽宁省庄河市高级中学 d">毕业学校：辽宁省庄河市高级中学</span>
+                        <span class="institution">考入学府：北京大学元培学院</span>
+                        <a href=""><button class="btn btn-primary">查看详情</button></a>
+                    </div>
+                </li>
+                <li>
+                    <img src="{{ $static_origin }}/src/img/activity/wise/avatar-2.jpg" alt="" />
+                    <div>
+                        <em>李江雁</em>
+                        <span class="mark">2009年江西省文科状元</span>
+                        <span class="sorce">总分：608 </span>
+                        <span data-title="毕业学校：辽宁省庄河市高级中学dddd" data-placement="top" class="school">毕业学校：江西省临川市一中</span>
+                        <span class="institution">考入学府：北京大学光华管理学院</span>
+                        <a href=""><button class="btn btn-primary">查看详情</button></a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+
+    </div>
+    <!--右 over-->
+</div>
+
+
+
+
+
+{{ /strip }}
+{{ /block }}

@@ -1,0 +1,54 @@
+{{ *
+
+@file: 单独用一个组件来设置搜索URL
+
+       参数：
+            $time 剩余秒数
+            $hidesecond 是否隐藏秒
+
+@author: jixiaohui
+
+* }}
+
+{{ strip }}
+
+{{ $day = 0 }}
+{{ $hour = 0 }}
+{{ $minute = 0 }}
+{{ $second = 0 }}
+
+{{ ** 天 24*3600 ** }}
+{{ if $time > 86400 }}
+    {{ $day = floor($time / 86400) }}
+{{ /if }}
+{{ $time = $time % 86400 }}
+
+{{ ** 小时 ** }}
+{{ if $time > 3600 }}
+    {{ $hour = floor($time / 3600) }}
+{{ /if }}
+{{ $time = $time % 3600 }}
+
+{{ ** 分钟 ** }}
+{{ if $time > 60 }}
+    {{ $minute = floor($time / 60) }}
+{{ /if }}
+
+{{ ** 秒数 ** }}
+{{ $second = $time % 60 }}
+
+{{ $day_txt = (($day > 9) ? $day : ('0'|cat:$day)) }}
+{{ $hour_txt = (($hour > 9) ? $hour : ('0'|cat:$hour)) }}
+{{ $minute_txt = (($minute > 9) ? $minute : ('0'|cat:$minute)) }}
+{{ $second_txt = (($second > 9) ? $second : ('0'|cat:$second)) }}
+
+{{ if empty($hidesecond) }}
+    {{ $time_txt = $day_txt|cat:'天'|cat:$hour_txt|cat:'时'|cat:$minute_txt|cat:'分'|cat:$second_txt|cat:'秒' }}
+    {{ $time_txt }}
+{{ else }}
+    {{ $time_txt = $day_txt|cat:'天'|cat:$hour_txt|cat:'时'|cat:$minute_txt|cat:'分' }}
+    {{ $time_txt }}
+{{ /if }}
+
+
+{{ /strip }}

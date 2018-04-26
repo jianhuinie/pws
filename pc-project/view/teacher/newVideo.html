@@ -1,0 +1,263 @@
+{{ *
+
+@file 新版老师详情页 - 视频课 2015.5.12
+@author jixiaohui
+
+* }}
+
+{{ extends file="common/main/base.html" }}
+
+{{ block name="data" }}
+{{ strip }}
+    {{ $smarty.block.parent }}
+    {{ $script_path = "teacher/newVideo" }}
+    {{ $script_data.teacherId = $tpl_data.profile.user_id }}
+    {{ $script_data.teacherNum = $tpl_data.profile.user_number }}
+    {{ $script_data.teacherName = $tpl_data.profile.name }}
+    {{ $script_data.userId = $user_data.user_id }}
+    {{ $script_data.isFavored = $tpl_data.is_favored }}
+    {{ $script_data.audio = $tpl_data.profile.audio }}
+    {{ $script_data.audio_length = $tpl_data.profile.audio_length }}
+    {{ if !empty($tpl_data.profile.org_type) }}
+        {{ $script_data.org_type = $tpl_data.profile.org_type }}
+    {{ /if }}
+    {{ if !empty($tpl_data.profile.organization) }}
+        {{ $script_data.org_id = $tpl_data.profile.organization.id }}
+    {{ /if }}
+    {{ $script_data.domain = $tpl_data.profile.domain }}
+    {{ $nav_config.hidden = 1 }}
+    {{ $nav_config.active = '' }}
+
+    {{ $baidu_share_text = "#跟谁学# 分享一位老师给你哦~"|cat: $tpl_data.profile.name }}
+    {{ $baidu_share_text = $baidu_share_text|cat: "，"|cat: $tpl_data.profile.slogan|regex_replace:"/[\r\t\n]/":" " }}
+    {{ $baidu_share_text = $baidu_share_text|cat: "，还在等什么？找好老师，上跟谁学，快来开启寻师之旅吧！" }}
+
+    {{ $baidu_share_image = $static_origin|cat:"/asset/img/share.jpg" }}
+
+    {{ **顶部搜索去掉placeholder支持空query** }}
+    {{ $current_page = 'detail' }}
+    {{ $need_location_seo = true }}
+{{ /strip }}
+{{ /block }}
+
+{{ block name="title" }}
+    {{ $tpl_data.title }}
+{{ /block }}
+
+{{ block name="keywords" }}
+    {{ $tpl_data.keywords }}
+{{ /block }}
+
+{{ block name="description" }}
+    {{ $tpl_data.description }}
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/teacher/newVideo.less">
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+
+{{ include file="./newDetail/crumb.html" profile=$tpl_data.profile crumb=$tpl_data.crumb }}
+{{ include file="./common/banner.html" }}
+
+{{ **李杜老师特殊处理,329108828** }}
+{{ $hidden = true }}
+
+<div id="main" class="course-active">
+
+    {{ include "teacher/newDetail/profile.html" tpl_data=$tpl_data.profile is_favored=$tpl_data.is_favored active="course" }}
+
+    <div id="teacher-content">
+        {{ $online_course = $tpl_data.online }}
+        {{ $offline_course = $tpl_data.offline }}
+        {{ $video_course = $tpl_data.video }}
+        {{ $one_course = $tpl_data.one2one }}
+        {{ $profile = $tpl_data.profile }}
+
+        <div id="teacher-course">
+
+            {{ $counter = 0 }}
+            <ul class="course-nav">
+                {{ * 如果不是班主任 * }}
+                {{ if $tpl_data.profile.user_number !== "685738818" }}
+                    {{ if $online_course.count > 0 }}
+                        <li data-nav="online-course-box" style="border-left:none;"><a href="/{{ $tpl_data.profile.domain }}/online">在线直播</a></li>
+                        {{ $counter = $counter + 1 }}
+                    {{ /if }}
+
+                    {{ if $offline_course.count > 0 }}
+                        <li data-nav="offline-course-box" {{ if $counter < 1 }} style="border-left:none;"{{ /if }} ><a href="/{{ $tpl_data.profile.domain }}/offline">线下班课</a></li>
+                        {{ $counter = $counter + 1 }}
+                    {{ /if }}
+                {{ else }}
+                    {{ if $offline_course.count > 0 }}
+                        <li data-nav="offline-course-box" style="border-left:none;">
+                            <a href="/{{ $tpl_data.profile.domain }}/offline">
+                                线下班课
+                            </a>
+                        </li>
+                        {{ $counter = $counter + 1 }}
+                    {{ /if }}
+
+                    {{ if $online_course.count > 0 }}
+                        <li data-nav="online-course-box" {{ if $counter < 1 }} style="border-left:none;"{{ /if }}>
+                            <a href="/{{ $tpl_data.profile.domain }}/online">
+                                在线直播
+                            </a>
+                        </li>
+                        {{ $counter = $counter + 1 }}
+                    {{ /if }}
+                {{ /if }}
+
+                {{ if $video_course.count > 0 }}
+                    <li data-nav="video-course-box"  class="active" {{ if $counter < 1 }} style="border-left:none;"{{ /if }}>
+                        <a href="/{{ $tpl_data.profile.domain }}/video">
+                            视频课程
+                        </a>
+                    </li>
+                    {{ $counter = $counter + 1 }}
+                {{ /if }}
+
+                {{ if $one_course.count > 0 }}
+                    <li data-nav="one-course-box"{{ if $counter < 1 }} style="border-left:none;"{{ /if }}>
+                        <a href="/{{ $tpl_data.profile.domain }}/one2one">
+                            1对1课程
+                        </a>
+                    </li>
+                    {{ $counter = $counter + 1 }}
+                {{ /if }}
+            </ul>
+
+            {{ $content_counter = 0 }}
+            <div class="course-content">
+
+                {{ include file="common/variable/videoLanguage.html" scope=parent }}
+                {{ if $video_course.count > 0 }}
+                    <div class="video-box static-video-course-box list" {{ if $content_counter > 0 }}style="display:none;"{{ /if }}>
+                        {{ if $profile.video_count > 3 }}
+                            <a class="more-box">查看全部></a>
+                        {{ /if }}
+                        <ul class="video-course">
+                            {{ foreach $video_course.course as $val }}
+                            <li class="item" {{ if $val@last }}style="border-bottom:none;padding-bottom:0;"{{ /if }}>
+                                <a href="/video_course/getcourseshowdetail?number={{ $val.number }}&user_number={{ $profile.user_num }}" target="_blank">
+                                    {{ include file="common/variable/photo.html" url=$val.portrait raw_width=300 raw_height=200 width=185 height=130 }}
+                                    <img src="{{ $photo }}" alt="{{ $val.title }}-{{ $profile.name }}">
+                                </a>
+                                <div class="info">
+                                    <div class="new-title">
+                                        <a  class="title" href="/video_course/getcourseshowdetail?number={{ $val.number }}&user_number={{ $profile.user_num }}" target="_blank">{{ $val.title }}</a>
+                                        {{ if $val.price == 0 }}
+                                            <span class="tip">免费课</span>
+                                        {{ /if }}
+                                    </div>
+                                    <ul class="course-info">
+                                        <li>主讲老师：{{ $val.user_name }}</li>
+                                        <li>课节数：{{ $val.course_items_count }}</li>
+                                        <li>课程类别：{{ foreach $val.subjects as $v }}{{ if !$v@last }}{{ $v }}/{{ else }}{{ $v }}{{ /if }}{{ /foreach }}</li>
+                                        <li>课程语言：{{ $video_language[$val.language] }}</li>
+                                        <li>{{ if $val.price == 0 }}学习人数：{{ else }}购买人数：{{ /if }}{{ $val.payers_count }}</li>
+                                    </ul>
+
+                                    {{ $show_price_tip = false }}
+
+                                    {{ ** 限时折扣 ** }}
+                                    {{ if isset($val.limit_discount) && !empty($val.limit_discount) }}
+
+                                        {{ **获取当前时间** }}
+                                        {{ $cur_time = $smarty.now }}
+                                        {{ $start_time = strtotime($val.limit_discount[0].start_time) }}
+                                        {{ $end_time = strtotime($val.limit_discount[0].end_time) }}
+
+                                        {{ ** 距离活动开始一天内 ** }}
+                                        {{ if ($start_time - $cur_time) < (24*60*60) && ($start_time - $cur_time > 0) }}
+                                            {{ $show_price_tip = true }}
+                                            {{ $class='price-tip-begin' }}
+                                            <div class="price-tip-box">
+                                                <div class="price-tip {{ $class }}" data-cur="{{ $cur_time }}" data-start="{{ $start_time }}">
+                                                    <span class="name">
+                                                        {{ $val.limit_discount[0].tag_name }}
+                                                    </span>
+                                                    距抢购开始
+                                                    <span class="time">
+                                                        {{ include file='common/component/countDown.html' time=($start_time - $cur_time) }}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        {{ ** 距离活动结束时间内 ** }}
+                                        {{ else if ($start_time < $cur_time) && ($cur_time < $end_time) }}
+                                            {{ $show_price_tip = true }}
+                                            {{ $class='price-tip-end' }}
+                                            <div class="price-tip-box">
+                                                <div class="price-tip {{ $class }}" data-cur="{{ $cur_time }}" data-end="{{ $end_time }}">
+                                                    <span class="name">
+                                                        {{ $val.limit_discount[0].tag_name }}
+                                                    </span>
+                                                    距抢购结束
+                                                    <span class="time">
+                                                        {{ include file='common/component/countDown.html' time=($end_time - $cur_time) }}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        {{ /if }}
+                                    {{ /if }}
+
+                                    <div class="button-box" data-link="/video_course/getcourseshowdetail?number={{ $val.number }}&user_number={{ $profile.user_num }}">
+                                        {{ if $val.price == 0 }}
+                                            <button class="btn btn-default start">开始学习</button>
+                                        {{ else }}
+                                            {{ if $val.section_id }}
+                                                <button class="btn btn-default try-listen"><i class="icon icon-camera"></i>试听</button>
+                                            {{ /if }}
+                                            <button class="btn btn-default buy {{ if !$profile.can_order }}disabled-order{{ /if }}" {{ if !$profile.can_order }}disabled{{ /if }}>
+                                                {{ ** 限时折扣 ** }}
+                                                {{ if $show_price_tip }}
+                                                    {{ if $class == 'price-tip-begin' }}
+                                                        {{ $val.limit_discount[0].pre_price }}元
+                                                        <span>{{ $val.limit_discount[0].price }}元</span>
+                                                        &nbsp;|&nbsp;购买课程
+                                                    {{ else if $class == 'price-tip-end' }}
+                                                        {{ $val.limit_discount[0].price }}元
+                                                        <span>{{ $val.limit_discount[0].pre_price }}元</span>
+                                                        &nbsp;|&nbsp;购买课程
+                                                    {{ /if }}
+                                                {{ else }}
+                                                    {{ $val.price }}元&nbsp;|&nbsp;购买课程
+                                                {{ /if }}
+                                            </button>
+                                        {{ /if }}
+                                    </div>
+
+                                </div>
+                            </li>
+                            {{ /foreach }}
+                        </ul>
+                        {{ include file="teacher/newDetail/pager.html" page=$tpl_data.pager.page page_size=$tpl_data.pager.page_size url='/'|cat:$tpl_data.profile.domain|cat:'/video' count=$tpl_data.pager.count }}
+                    </div>
+                    <div class="video-box video-course-box list"  style="display:none;">
+                    </div>
+                    {{ $content_counter = $content_counter + 1 }}
+                {{ /if }}
+            </div>
+        </div>
+
+        {{ include file="teacher/newDetail/newComment.html" tpl_data=$tpl_data }}
+
+        {{ include file="teacher/detail/orderForm.html" tpl_data=$tpl_data.teach.subject min_price=$tpl_data.teach.min_price hidden=$hidden can_order=$tpl_data.profile.can_order }}
+    </div>
+
+</div>
+{{ /strip }}
+{{ /block }}
+
+{{ block name="inner_link" }}
+    {{ include file="common/innerlink/searchList.html" data=$tpl_data.pageInnerLinks mod="老师" inner_type="teacher" }}
+{{ /block }}
+
+{{ block name="script" }}
+{{ strip }}
+    {{ include file="common/component/loginDialog.html" onlyShowStudent=1 }}
+{{ /strip }}
+{{ /block }}

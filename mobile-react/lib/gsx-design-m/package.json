@@ -1,0 +1,38 @@
+{
+  "name": "gsx-design-m",
+  "version": "0.0.1",
+  "description": "",
+  "main": "edp-webserver-config.js",
+  "scripts": {
+    "server": "edp webserver start",
+    "eslint": "eslint --cache --ignore-path .eslintignore --ext .js --format=node_modules/eslint-formatter-pretty ./src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.baijiahulian.com:gsxpt-web/web-fe.git"
+  },
+  "dependencies": {},
+  "author": "gsx",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^6.7.7",
+    "autoresponse": "^0.1.6",
+    "babel-eslint": "^8.0.0",
+    "edp-provider-rider": "^2.0.0",
+    "edpx-ws": "0.0.2",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-formatter-pretty": "^1.1.0",
+    "eslint-plugin-compat": "^1.0.2",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-react": "^7.3.0",
+    "gaze": "^1.1.2",
+    "less": "^2.4.0",
+    "livereload": "^0.4.0",
+    "stylus": "^0.53.0",
+    "superagent": "^1.8.1",
+    "write-data": "^0.1.0"
+  }
+}

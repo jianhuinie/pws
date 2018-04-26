@@ -1,0 +1,204 @@
+{{ strip }}
+<div class="sec-kill-wrapper">
+    <div class="sec-kill-top"></div>
+    <div class="sec-kill-content">
+        <div class="sec-content-title">
+            <span class="sec-kill-tip">{{ if $tpl_data.info.count <= 0 }}本轮秒杀瞬间结束{{ /if }}&nbsp;</span>
+            <span class="sec-kill-time-tip">
+                    <span class="sec-attach-tip before"></span>
+                    <span class="sec-time sec-time-hour">
+                        <em>0</em><em>0</em>
+                    </span>时
+                    <span class="sec-time sec-time-min">
+                        <em>0</em><em>0</em>
+                    </span>分
+                    <span class="sec-time sec-time-sec">
+                        <em>0</em><em>0</em>
+                    </span>秒
+                    <span class="sec-attach-tip after"></span>
+            </span>
+        </div>
+        <div class="sec-content-body">
+            <div class="current-sec">
+                {{ foreach $tpl_data.seckill as $sec }}
+                <ul class="course-list {{ if $sec.info.hour == $tpl_data.info.curr_hour }}show{{ /if }}" data-hour="{{ $sec.info.hour }}">
+                    {{ foreach $sec.courses as $course }}
+                    <li class="course-item" data-number="{{ $course.number }}">
+                        <div class="img-wrapper">
+                            <img src="{{ $course.cover.url }}@256w_1c_1e|0-0-256-176a" width="100%" height="176px"/>
+                            <div class="img-tip" title="{{ $course.name }}">
+                                {{ $course.name|truncate:13 }}
+                            </div>
+                        </div>
+                        <div class="course-info">
+                            <div>{{ $course.arrangement }}</div>
+                            <div title="{{ $course.teacher_name }}">
+                                主讲老师：{{ $course.teacher_name }}
+                            </div>
+                        </div>
+                        <div class="course-price">
+                            <div class="course-sec-price">
+                                <span class="label">秒杀价：</span>
+                                <span class="price">
+                                    ￥{{ $course.price }}
+                                </span>
+                            </div>
+                            <div class="course-price-other">
+                                <span class="origin-price">
+                                    原价：{{ $course.original_price }}元
+                                </span>
+                                <span class="join-number">
+                                    已报
+                                    {{ $course.total_pay }}
+                                    /{{ $course.max_student }}
+                                </span>
+                            </div>
+                            <div class="course-sec-btn" data-out="{{ if $course.total_pay >= $course.max_student }}1{{ else }}0{{ /if }}">
+                                尚未开启
+                            </div>
+                        </div>
+                    </li>
+                    {{ /foreach }}
+                </ul>
+                {{ /foreach }}
+            </div>
+            <div class="time-line">
+                <div class="time-tip-list">
+                    <div class="sec-tip-item" data-hour="10">
+                        <div class="index-tip">第1弹</div>
+                        <div class="item-circle">
+                            <span class="icon icon-circle"></span>
+                        </div>
+                        <div class="time-tip">10:00-10:30</div>
+                    </div>
+                    <div class="sec-tip-item" data-hour="11">
+                        <div class="index-tip">第2弹</div>
+                        <div class="item-circle">
+                            <span class="icon icon-circle"></span>
+                        </div>
+                        <div class="time-tip">11:00-11:30</div>
+                    </div>
+                    <div class="sec-tip-item" data-hour="12">
+                        <div class="index-tip">第3弹</div>
+                        <div class="item-circle">
+                            <span class="icon icon-circle"></span>
+                        </div>
+                        <div class="time-tip">12:00-12:30</div>
+                    </div>
+                    <div class="sec-tip-item" data-hour="13">
+                        <div class="index-tip">第4弹</div>
+                        <div class="item-circle">
+                            <span class="icon icon-circle"></span>
+                        </div>
+                        <div class="time-tip">13:00-13:30</div>
+                    </div>
+                    <div class="sec-tip-item" data-hour="14">
+                        <div class="index-tip">第5弹</div>
+                        <div class="item-circle">
+                            <span class="icon icon-circle"></span>
+                        </div>
+                        <div class="time-tip">14:00-14:30</div>
+                    </div>
+                    <div class="sec-tip-item" data-hour="15">
+                        <div class="index-tip">第6弹</div>
+                        <div class="item-circle">
+                            <span class="icon icon-circle"></span>
+                        </div>
+                        <div class="time-tip">15:00-15:30</div>
+                    </div>
+                    <div class="sec-tip-item" data-hour="16">
+                        <div class="index-tip">第7弹</div>
+                        <div class="item-circle">
+                            <span class="icon icon-circle"></span>
+                        </div>
+                        <div class="time-tip">16:00-16:30</div>
+                    </div>
+                    <div class="sec-tip-item" data-hour="17">
+                        <div class="index-tip">第8弹</div>
+                        <div class="item-circle">
+                            <span class="icon icon-circle"></span>
+                        </div>
+                        <div class="time-tip">17:00-17:30</div>
+                    </div>
+                    <div class="sec-tip-item" data-hour="18">
+                        <div class="index-tip">第9弹</div>
+                        <div class="item-circle">
+                            <span class="icon icon-circle"></span>
+                        </div>
+                        <div class="time-tip">18:00-18:30</div>
+                    </div>
+                    <div class="sec-tip-item" data-hour="19">
+                        <div class="index-tip">第10弹</div>
+                        <div class="item-circle">
+                            <span class="icon icon-circle"></span>
+                        </div>
+                        <div class="time-tip">19:00-19:30</div>
+                    </div>
+                    <div class="sec-tip-item" data-hour="20">
+                        <div class="index-tip">第11弹</div>
+                        <div class="item-circle">
+                            <span class="icon icon-circle"></span>
+                        </div>
+                        <div class="time-tip">20:00-20:30</div>
+                    </div>
+                    <div class="sec-tip-item" data-hour="21">
+                        <div class="index-tip">第12弹</div>
+                        <div class="item-circle">
+                            <span class="icon icon-circle"></span>
+                        </div>
+                        <div class="time-tip">21:00-21:30</div>
+                    </div>
+                </div>
+            </div>
+            <div class="next-sec">
+                {{ foreach $tpl_data.seckill as $sec }}
+                    <ul class="course-list  {{ if $sec.info.hour == $tpl_data.info.curr_hour + 1 }}show{{ /if }}" data-hour="{{ $sec.info.hour }}">
+                    {{ foreach $sec.courses as $course }}
+                    <li class="course-item" data-number="{{ $course.number }}">
+                        <div class="img-wrapper">
+                            <img src="{{ $course.cover.url }}@256w_1c_1e|0-0-256-176a" width="100%" height="176px"/>
+                            <div class="img-tip" title="{{ $course.name }}">
+                                {{ $course.name|truncate:13 }}
+                            </div>
+                        </div>
+                        <div class="course-info">
+                            <div>{{ $course.arrangement }}</div>
+                            <div title="{{ $course.teacher_name }}">
+                                主讲老师：{{ $course.teacher_name }}
+                            </div>
+                        </div>
+                        <div class="course-price">
+                            <div class="course-sec-price">
+                                <span class="label">秒杀价：</span>
+                                <span class="price">
+                                    ￥{{ $course.price }}
+                                </span>
+                            </div>
+                            <div class="course-price-other">
+                                <span class="origin-price">
+                                    原价：{{ $course.original_price }}元
+                                </span>
+                                <span class="join-number">
+                                    {{ if !$tpl_data.info.on || ($sec.info.hour > $tpl_data.info.curr_hour) }}
+                                    已报{{ $course.total_pay }}
+                                    /{{ $course.max_student }}
+                                    {{ /if }}
+                                </span>
+                            </div>
+                            <div class="course-sec-btn">
+                                {{ if !$tpl_data.info.on || ($sec.info.hour > $tpl_data.info.curr_hour) }}
+                                    尚未开启
+                                {{ else }}
+                                    已经结束
+                                {{ /if }}
+                            </div>
+                        </div>
+                    </li>
+                    {{ /foreach }}
+                    </ul>
+                {{ /foreach }}
+            </div>
+        </div>
+    </div>
+</div>
+{{ /strip }}

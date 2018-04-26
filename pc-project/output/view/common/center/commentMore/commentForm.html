@@ -1,0 +1,78 @@
+{{ *
+
+@file 订单列表 - 单个订单元素
+@author wangyujie
+
+* }}
+{{ strip }}
+
+{{ $is_class_course = $order.course_type == 2 }}
+{{ $is_video_course = $order.course_type == 3 }}
+{{ $is_org_course = $order.course_type == 4 }}
+{{ $is_trial_course = $order.course_type == 5 }}
+
+<div class="comment-box form">
+
+    <div class="teacher-list">
+        {{ if count($teachers) > 1 }}
+            <h3>选择本节课的授课老师</h3>
+        {{ /if }}
+
+        {{ if $order.course_type == 11 || $order.course_type == 12 }}
+            <div class="teacher active" data-num="{{ $order.org_profile.number }}">
+                {{ include file="common/component/avatar.html" type="small" img=$order.org_profile.avatar }}
+
+                <i class="icon icon-check-circle"></i>
+                {{ $order.org_profile.name|cn_truncate:4 }}
+            </div>
+        {{ else }}
+            {{ foreach $teachers as $val }}
+            <div class="teacher {{ if $lesson_teacher==$val.number }} active {{ /if }}" data-num="{{ $val.number }}">
+                {{ include file="common/component/avatar.html" type="small" img=$val.avatar_url }}
+
+                <i class="icon icon-check-circle"></i>
+
+                {{ $val.display_name|cn_truncate:4 }}
+            </div>
+            {{ /foreach }}
+        {{ /if }}
+    </div>
+
+    <div class="comment-form">
+
+        <div class="score">
+            <div class="">
+                <i class="form-required"></i>
+                总体评分: {{ include file="common/component/starScore2.html" score=0 }}
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="label">
+                <i class="form-required"></i>
+                评价内容：
+            </div>
+            <div class="form-editor">
+                <textarea name="info" type="text" class="form-text" placeholder="老师水平怎么样？教学效果好不好？说说你的感受吧" required>
+                </textarea>
+                <span class="form-hint">
+                    可以输入<strong>500</strong>字
+                </span>
+            </div>
+            <span class="error"></span>
+        </div>
+
+        {{ if $identity == "student" && !$is_video_course }}
+            {{ include file="common/component/moreImageUploader.html" }}
+        {{ /if }}
+
+        <div class="form-action">
+            <button class="btn btn-info btn-comment">提交评价</button>
+            {{ include file="common/component/checkBox.html" name="anonymous" value=1 text="匿名评价" }}
+        </div>
+    </div>
+
+</div>
+
+
+{{ /strip }}

@@ -1,0 +1,1 @@
+module.exports = require('edp-webserver/cli/webserver/start');

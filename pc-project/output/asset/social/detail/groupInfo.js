@@ -1,0 +1,1 @@
+define('social/detail/groupInfo',['require','exports','common/service_9c322508d3'],function(require,exports){var o,n=require('common/service_9c322508d3');exports.init=function(i,e){o=$(this),o.on('click','.join-btn',function(){var o=$(this);n.joinGroup({groupId:e.groupId}).done(function(n){if(!n.code)o.removeClass('join-btn').addClass('join-status').html('已加入');});});};});

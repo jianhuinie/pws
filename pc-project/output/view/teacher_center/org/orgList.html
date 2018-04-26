@@ -1,0 +1,51 @@
+{{ *
+
+@file 机构模块
+@author jixiaohui
+
+* }}
+
+{{ strip }}
+
+    {{ $type = $tpl_data.status }}
+
+    {{ if !empty($tpl_data.list) }}
+        {{ foreach $tpl_data.list as $val }}
+            <div class="org-item">
+                {{ if $val.org_logo }}
+                    {{ include file="common/component/avatar.html" type="small" img=$val.org_logo alt=$val.org_name }}
+                {{ else }}
+                    <b class="avatar-small">
+                        <div class="logo"></div>
+                    </b>
+                {{ /if }}
+                <div class="name-box">
+                    <a href="http://{{ $val.org_number }}.genshuixue.com" class="name">{{ $val.org_name }}</a>
+                    {{ include file="common/component/chatLabel.html"  user_number=$val.org_number user_type='institution' }}
+                </div>
+                <div class="org-url"><a href="http://{{ $val.org_number }}.genshuixue.com" target="_blank">http://{{ $val.org_number }}.genshuixue.com</a></div>
+                {{ if $type == 2 }}
+                    <div class="invite-time">{{ $val.create_time|date_format: '%Y-%m-%d %H:%M' }}</div>
+                    <div class="break-time">{{ $val.fire_time|date_format: '%Y-%m-%d %H:%M' }}</div>
+                {{ /if }}
+                {{ ** status  0邀请中，1已签约，2已解约，3已拒绝，4已失效，5撤销邀请 ** }}
+                {{ if $type == 1 }}
+                    <div class="time">{{ $val.create_time|date_format: '%Y-%m-%d %H:%M' }}</div>
+                    {{ if $val.status == 0 }}
+                        <a class="btn btn-default receive" data-rid="{{ $val.id }}" data-org="{{ $val.org_name }}">接受</a>
+                        <a class="btn btn-default reject" data-rid="{{ $val.id }}" data-org="{{ $val.org_name }}">拒绝</a>
+                    {{ else }}
+                        <div class="txt">{{ $val.status_name }}</div>
+                    {{ /if }}
+                {{ /if }}
+            </div>
+        {{ /foreach }}
+        {{ include file="common/component/pager.html" page=$tpl_data.pager.page count=$tpl_data.pager.count page_size=$tpl_data.pager.page_size hide_jump=1 }}
+    {{ else }}
+        {{ if $type == 2 }}
+            <div class="person"></div>
+            <span class="txt1">亲，你还没有已解约机构！</span>
+            <span class="txt2">如你希望与机构解约，请与机构协商一致后由机构操作</span>
+        {{ /if }}
+    {{ /if }}
+{{ /strip }}

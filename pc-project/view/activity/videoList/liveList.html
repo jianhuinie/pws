@@ -1,0 +1,312 @@
+{{ extends file="common/pc/base.html" }}
+{{ block name="data" }}
+
+    {{ $need_im = true }}
+
+    {{ $smarty.block.parent }}
+    {{ $script_path = "activity/videoList/liveList" }}
+    {{ $script_data.show_findTeacher = true }}
+
+{{ /block }}
+
+{{ block name="title" prepend }}
+直播课 -
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/activity/liveList.less" />
+{{ /block }}
+
+{{ block name="body" }}
+
+    {{ $smarty.block.parent }}
+    {{ include file="common/siteNav.html" }}
+    {{ strip }}
+    <div class="search-nav" data-module-path="activity/videoList/search" id="videolist-search">
+        <div class="wrapper">
+            <a class="logo" href="http://www.genshuixue.com" target="_blank"></a>
+            <h1 class="navTitle">直播课</h1>
+            <div class="search-box" data-click="search-box">
+                <input class="search-input" type="text" placeholder="搜索你感兴趣的课程">
+                <div class="search-button" data-type="8">
+                    <i class="icon icon-search"></i>
+                </div>
+                <a class="nav-icon to-liveroom" href="" target="_blank" data-click="classromm">
+                    <i class="icon icon-to-classromm"></i>体验直播教室
+                </a>
+                <a class="nav-icon" href="http://www.genshuixue.com/static/windows" target="_blank" data-click="teach">
+                    <i class="icon icon-teach-detail"></i>教学功能
+                </a>
+                <a class="not-mac nav-icon get-client" href="http://www.baijiacloud.com/default/home/liveclientDownload?partner_id=32891392&type=windows" data-click="client">
+                    <i class="icon icon-screen-o"></i>电脑客户端
+                </a>
+                <a class="mac nav-icon get-client" style="display: none" href="http://www.baijiacloud.com/default/home/liveclientDownload?partner_id=32891392&type=mac" data-click="client">
+                    <i class="icon icon-screen-o"></i>Mac客户端
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="slider-banner" data-module-path="activity/videoList/ad" id="videolist-ad">
+        <div class="slider-container" id="slider-container" data-adid="100">
+        </div>
+    </div>
+
+    <div class="contents">
+        <div class="warpper">
+            <div class="list-box hot-video" data-click="rencent-live">
+                <div>
+                    <div class="change-pages">
+                        <i class="icon icon-chevron-left" data-click="page-prev"></i>
+                        <i class="icon icon-chevron-right" data-click="page-down"></i>
+                    </div>
+                    <h2>
+                        <i class="icon icon-clock"></i>
+                        最近直播
+                    </h2>
+                </div>
+
+                <div class="video-list">
+                    <div class="scroll-list-box">
+                        {{ foreach $tpl_data.recent_live as $hotVideo }}
+                        {{ $count = count($tpl_data.recent_live) }}
+                        {{ if $hotVideo@index % 8 == 0 }}
+                        <ul class="list">
+                        {{ /if }}
+                            {{ $now = {{ $smarty.now }} }}
+                            <li class="item" data-sku="class|{{ $hotVideo.number }}">
+                                <a href="{{ $hotVideo.course_detail_url }}" target="_blank">
+                                    {{ include file="common/component/image.html" url=$hotVideo.cover_url width=282 height=188 lazy_load=true }}
+                                    <!--<img src="{{ $hotVideo.cover_url }}" width="282">-->
+                                </a>
+                                <div class="info-all">
+                                    <div class="date">
+                                        <div class="type">{{ $hotVideo.sub_name }}</div>
+                                        <div class="time">
+                                            {{ if $now >= $hotVideo.begin_time && $hotVideo.end_time >= $now }}
+                                            正在直播<i class="img-live"></i>
+                                            {{ else }}
+                                                {{ $begin_Y = $hotVideo.begin_time|date_format:'%Y' }}
+                                                {{ $begin_M = $hotVideo.begin_time|date_format:'%m' }}
+                                                {{ $begin_D = $hotVideo.begin_time|date_format:'%d' }}
+                                                {{ $now_Y = $now|date_format:'%Y' }}
+                                                {{ $now_M = $now|date_format:'%m' }}
+                                                {{ $now_D = $now|date_format:'%d' }}
+                                                {{ $tomorrow = $now + 60 * 60 * 24 }}
+                                                {{ $tomorrow_Y = $tomorrow|date_format:'%Y' }}
+                                                {{ $tomorrow_M = $tomorrow|date_format:'%m' }}
+                                                {{ $tomorrow_D = $tomorrow|date_format:'%d' }}
+                                                {{ if $now_Y == $begin_Y && $now_M == $begin_M && $now_D == $begin_D }}
+                                                    今天 {{ $hotVideo.begin_time|date_format:'%H:%M' }}
+                                                {{ else if $tomorrow_Y == $begin_Y && $tomorrow_M == $begin_M && $tomorrow_D == $begin_D }}
+                                                    明天 {{ $hotVideo.begin_time|date_format:'%H:%M' }}
+                                                {{ else }}
+                                                    {{ $times = $hotVideo.begin_time|date_format:'%H:%M' }}
+                                                    {{ $begin_M }}月{{ $begin_D }}日{{ $times }}
+                                                {{ /if }}
+                                            {{ /if }}
+                                        </div>
+                                    </div>
+                                    <div class="info">
+                                        <a href="{{ $hotVideo.course_detail_url }}" target="_blank">
+                                            <div class="title">
+                                                {{ $hotVideo.name }}
+                                            </div>
+                                            <div class="detail">
+                                                {{ if $hotVideo.price > 0 }}
+                                                <div class="price">￥{{ $hotVideo.price }}</div>
+                                                {{ else }}
+                                                <div class="price-no">免费</div>
+                                                {{ /if }}
+
+                                                <span class="stu-num">
+                                                    <i class="icon icon-user-o"></i>{{ $hotVideo.student_count }}人在学
+                                                </span>
+                                            </div>
+                                        </a>
+
+                                        {{ if $hotVideo.price == 0 }}
+                                            {{ if $now >= $hotVideo.begin_time && $hotVideo.end_time >= $now }}
+                                            <a class="button-no" href="{{ $hotVideo.course_detail_url }}" target="_blank">
+                                                进入教室
+                                                <i class="icon icon-caret-right"></i>
+                                            </a>
+                                            {{ else }}
+                                            <a class="button" href="{{ $hotVideo.course_detail_url }}" target="_blank">
+                                                立即报名
+                                                <i class="icon icon-caret-right"></i>
+                                            </a>
+                                            {{ /if }}
+                                        {{ else }}
+                                        <a class="button" href="{{ $hotVideo.course_detail_url }}" target="_blank">
+                                            立即报名
+                                            <i class="icon icon-caret-right"></i>
+                                        </a>
+                                        {{ /if }}
+                                    </div>
+                                </div>
+
+                            </li>
+                        {{ if $hotVideo@index % 8 == 7 || $hotVideo@index == ($count - 1) }}
+                        </ul>
+                        {{ /if }}
+                        {{ /foreach }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="list-box">
+                <h2>
+                    <i class="icon icon-course-class"></i>
+                    课程类目
+                </h2>
+                <div class="site-nav-bar" data-click="course-class">
+                    <table class="site-nav-table">
+                        <colgroup>
+                            <col width="20%">
+                            <col width="20%">
+                            <col width="20%">
+                            <col width="20%">
+                            <col width="20%">
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                {{ foreach $tpl_data.category as $key => $val }}
+                                <td>
+                                    <div class="site-title">
+                                        <i class="icon {{ $val.icon }}"></i>
+                                        <a href="{{ $val.url }}" target="_blank">{{ $key }}</a>
+                                    </div>
+                                    <ul>
+                                        {{ foreach $val.sub_class as $subClass }}
+                                        <li class="sites" data-click="{{ $subClass.cid }}">
+                                            <a href="{{ $subClass.url }}" target="_blank">{{ $subClass.name }}</a>
+                                            {{ if $subClass.is_new }}
+                                            <i class="icon icon-new"></i>
+                                            {{ else if $subClass.is_hot }}
+                                            <i class="icon icon-hot"></i>
+                                            {{ /if }}
+                                        </li>
+                                        {{ /foreach }}
+                                    </ul>
+                                </td>
+                                {{ /foreach }}
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="list-box like-video">
+                <div>
+                    <div class="refresh" data-click="likevideo-refresh">换一批<span class="icon icon-refresh-new"></span></div>
+                    <h2>
+                        <i class="icon icon-heart"></i>
+                        猜你喜欢
+                    </h2>
+                </div>
+
+                <div class="video-list" data-click="like-video">
+
+                    {{ foreach $tpl_data.recommend_live as $recommend }}
+                    {{ $idx = $recommend@index }}
+                    {{ $count = count($tpl_data.recommend_live) }}
+                    {{ if $idx % 8 == 0 }}
+                    <ul class="list{{ if $idx == 0 }} show {{ /if }}">
+                    {{ /if }}
+                        {{ $now = $smarty.now }}
+                        <li class="item" data-sku="class|{{ $recommend.number }}" data-monitor-rank="{{ $idx % 8 + 1 }}" data-monitor-qid="{{ $tpl_data.recommend_qid }}" data-monitor-item="id|{{ $recommend.number }}" data-monitor-q="" data-monitor-uuid="" data-monitor-tid="" >
+                            <a href="{{ $recommend.course_detail_url }}" target="_blank" class="click-monitor" data-monitor-location="avatar">
+                                {{ include file="common/component/image.html" url=$recommend.cover_url width=282 height=188 lazy_load=true }}
+                                <!--<img src="{{ $recommend.cover_url }}" width="282">-->
+
+                            </a>
+                            <div class="info-all">
+
+                                <div class="date">
+                                    <div class="type">{{ $recommend.sub_name }}</div>
+                                    <div class="time">
+                                        {{ if $now >= $recommend.begin_time && $recommend.end_time >= $now }}
+                                        正在直播<i class="img-live"></i>
+                                        {{ else }}
+                                            {{ $begin_Y = $recommend.begin_time|date_format:'%Y' }}
+                                            {{ $begin_M = $recommend.begin_time|date_format:'%m' }}
+                                            {{ $begin_D = $recommend.begin_time|date_format:'%d' }}
+                                            {{ $now_Y = $now|date_format:'%Y' }}
+                                            {{ $now_M = $now|date_format:'%m' }}
+                                            {{ $now_D = $now|date_format:'%d' }}
+                                            {{ $tomorrow = $now + 60 * 60 * 24 }}
+                                            {{ $tomorrow_Y = $tomorrow|date_format:'%Y' }}
+                                            {{ $tomorrow_M = $tomorrow|date_format:'%m' }}
+                                            {{ $tomorrow_D = $tomorrow|date_format:'%d' }}
+                                            {{ if $now_Y == $begin_Y && $now_M == $begin_M && $now_D == $begin_D }}
+                                                今天 {{ $recommend.begin_time|date_format:'%H:%M' }}
+                                            {{ else if $tomorrow_Y == $begin_Y && $tomorrow_M == $begin_M && $tomorrow_D == $begin_D }}
+                                                明天 {{ $recommend.begin_time|date_format:'%H:%M' }}
+                                            {{ else }}
+                                                {{ $times = $recommend.begin_time|date_format:'%H:%M' }}
+                                                {{ $begin_M }}月{{ $begin_D }}日{{ $times }}
+                                            {{ /if }}
+                                        {{ /if }}
+                                    </div>
+                                </div>
+                                <div class="info">
+                                    <a href="{{ $recommend.course_detail_url }}" target="_blank"  class="click-monitor" data-monitor-location="name">
+                                        <div class="title">
+                                            {{ $recommend.name }}
+                                        </div>
+                                        <div class="detail">
+                                            {{ if $recommend.price > 0 }}
+                                            <div class="price">￥{{ $recommend.price }}</div>
+                                            {{ else }}
+                                            <div class="price-no">免费</div>
+                                            {{ /if }}
+
+                                            <span class="stu-num">
+                                                <i class="icon icon-user-o"></i>{{ $recommend.student_count }}人在学
+                                            </span>
+                                        </div>
+                                    </a>
+                                    {{ if $recommend.price == 0 }}
+                                        {{ if $now >= $recommend.begin_time && $recommend.end_time >= $now }}
+                                        <a class="button-no" href="{{ $recommend.course_detail_url }}" target="_blank">
+                                            进入教室
+                                            <i class="icon icon-caret-right"></i>
+                                        </a>
+                                        {{ else }}
+                                        <a class="button" href="{{ $recommend.course_detail_url }}" target="_blank">
+                                            立即报名
+                                            <i class="icon icon-caret-right"></i>
+                                        </a>
+                                        {{ /if }}
+                                    {{ else }}
+                                    <a class="button" href="{{ $recommend.course_detail_url }}" target="_blank">
+                                        立即报名
+                                        <i class="icon icon-caret-right"></i>
+                                    </a>
+                                    {{ /if }}
+
+                                </div>
+
+                            </div>
+
+                        </li>
+                    {{ if $idx % 8 == 7 || $idx == ($count - 1) }}
+                    </ul>
+                    {{ /if }}
+                    {{ /foreach }}
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    {{ /strip }}
+
+    {{ include file="common/script.html" }}
+
+    {{ block name="script" }}{{ /block }}
+
+    {{ include file="common/footer.html" }}
+
+{{ /block }}

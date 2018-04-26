@@ -1,0 +1,5 @@
+[{
+    "tpl": "./k12Video.tpl",
+    "router": "/k12",
+    "mock_data": "./mock/k12Video.json"
+}]

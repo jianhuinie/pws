@@ -1,0 +1,97 @@
+{{ *
+
+@file 老师中心 - 营销中心 - 添加优惠券成功
+@author wangyujie
+
+* }}
+
+{{ extends file="common/center/base.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+
+    {{ $script_path = "teacherCenter/addCouponSuccess" }}
+
+    {{ $qrUrl = '' }}
+    {{ if isset($smarty.get.qrurl) }}
+        {{ $qrUrl = $smarty.get.qrurl }}
+    {{ /if }}
+
+    {{ $script_data.qrUrl = $qrUrl }}
+
+    {{ $dtUrl = '' }}
+    {{ if isset($smarty.get.dturl) }}
+        {{ $dtUrl = $smarty.get.dturl }}
+    {{ /if }}
+
+    {{ $script_data.dtUrl = $dtUrl }}
+
+    {{ $baidu_share_text = "如果人生像本书，愿你的那本多几张彩页，这就是学习的意义。奉上跟谁学" }}
+    {{ $baidu_share_text = $baidu_share_text|cat: $user_data.display_name }}
+    {{ $baidu_share_text = $baidu_share_text|cat: "老师优惠券，让你的学习轻松一点。" }}
+    {{ $baidu_share_url = $qrUrl }}
+    {{ $baidu_share_image = $static_origin|cat:"/asset/img/share.jpg" }}
+
+    {{ $script_data.coupon = [] }}
+    {{ $script_data.coupon['serial'] = $tpl_data.serial_num }}
+    {{ $script_data.coupon['id'] = $tpl_data.id }}
+
+{{ /block }}
+
+{{ block name="title" prepend }}
+营销中心 - 新建优惠券成功 -
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/teacherCenter/addCoupon.less">
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+
+    {{ include file="teacher_center/common/sidebar.html" active="mkt" }}
+
+    <div id="content" class="card">
+
+        <div class="card-header">
+            <a href="/teacher_center/myCoupons">
+                优惠券
+            </a>
+            &nbsp;&gt;&nbsp;
+            <a>发放优惠券</a>
+        </div>
+
+        <div class="card-body">
+
+            <div class="add-success">
+                <h3>
+                    <i class="icon icon-check-circle"></i>
+                    新建优惠券成功！
+                </h3>
+                <div class="qrcode"></div>
+                <div class="hr">
+                    <a class="to-url" href>
+                        查看优惠券领取页
+                    </a>
+                </div>
+                <div class="hr">
+                    <span class="show-on-main">
+                        <input type="checkbox" {{ if $tpl_data.sync == '0' }}checked="checked"{{ /if }}/>将该优惠券同步至我的主页展示
+                    </span>
+                    <span class="icon icon-question-circle" data-title="发布后学生可在你的个人主页领取，最多可以发布三个哦~" data-width="12em" data-placement="top"></span>
+                </div>
+                <div class="action">
+                    <span class="share">
+                        <button class="btn btn-primary btn-share">分享</button>
+                        {{ include file="common/component/baiduShare.html" }}
+                    </span>
+                    <a href='/teacher_center/getCouponFreeStudentList?serial_num={{ $smarty.get.serial }}' class="btn btn-info">发给学生</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ include file="common/component/couponSelectedList.html" }}
+{{ /strip }}
+{{ /block }}
+

@@ -1,0 +1,147 @@
+{{ *
+
+@file 我的银行卡
+@author zhujialu
+
+* }}
+{{ extends file="common/center/base.html" }}
+
+{{ block name="data" }}
+
+    {{ $smarty.block.parent }}
+    {{ $script_path = "common/center/myBankCard_248ef137a1" }}
+    {{ $script_data.hasPayPassword = $tpl_data.has_pay_password }}
+
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/common/center/myBankCard_9e7ba8d6d9.css">
+{{ $smarty.block.parent }}
+{{ /block }}
+
+{{ block name="main" }}
+
+    {{ if $identity == 'teacher' }}
+        {{ include file="teacher_center/common/sidebar.html" active="myBankCard" }}
+    {{ else }}
+        {{ include file="student_center/common/sidebar.html" active="myBankCard" }}
+    {{ /if }}
+
+    {{ include file="common/variable/bankIcon.html" scope=parent }}
+
+    {{ function name=bank_card_list list=[] type="" count=0 }}
+    {{ strip }}
+        {{ if count($list) > 0 }}
+            {{ foreach $list as $item }}
+
+            <div data-id="{{ $item.card_id }}" data-type="{{ $type }}" class=
+            {{ if $item.card_type == 'C' }}
+            "bank-card credit-card"
+            {{ else if $item.card_type == 'D' }}
+            "bank-card deposit-card"
+            {{ /if }}
+
+            {{ if $item@index % 2 == 0 }} style="margin-left: 0;"{{ /if }}
+            >
+                <div class="header">
+                    <div class="remark">
+                        <span class="card-type">
+                        {{ if $item.card_type == 'C' }}
+                            信用卡
+                        {{ else if $item.card_type == 'D' }}
+                            储蓄卡
+                        {{ /if }}
+                        </span>
+
+                        {{ if isset($item.pay_fast) && $item.pay_fast }}
+                        <i class="icon icon-bank-shortcut"></i>
+                        {{ /if }}
+                    </div>
+                    <i class="icon {{ $bank_icon[$item.bank_name] }}"></i>
+                </div>
+                <div class="body">
+                    <div class="card-number">
+                        {{ $item.card_no_mask_mid }}
+                    </div>
+                    <ul>
+                        <li>
+                            持卡人：{{ $item.owner_name }}
+                        </li>
+                        <li>
+                            手机号：{{ $item.owner_mobile }}
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer">
+                    <div class="action">
+                        <span class="btn-link tiny delete-card">删除</span>
+                        {{ if $type == 'withdraw' && $count > 1 }}
+                        <a href="/{{ $identity }}_center/changeWithDrawCard" class="btn-link tiny">替换</a>
+                        {{ /if }}
+                    </div>
+                    {{ if $item.pay_each >= 0 }}
+                    <span class="pay-each">
+                        单笔限额{{ $item.pay_each }}元
+                    </span>
+                    {{ /if }}
+                    {{ if $item.pay_day >= 0 }}
+                    <span class="pay-day">
+                        单日累计限额{{ $item.pay_day }}元
+                    </span>
+                    {{ /if }}
+                </div>
+            </div>
+            {{ /foreach }}
+
+            {{ if $type == 'pay' }}
+            <div class="add-card" data-type="{{ $type }}">
+                <div class="btn-link">
+                    <i class="icon icon-plus"></i>
+                    <p>添加银行卡</p>
+                </div>
+            </div>
+            {{ /if }}
+
+        {{ else }}
+        <div class="add-card" data-type="{{ $type }}">
+            <div class="btn-link">
+                <i class="icon icon-plus"></i>
+                <p>添加银行卡</p>
+            </div>
+        </div>
+        {{ /if }}
+
+
+    {{ /strip }}
+    {{ /function }}
+
+    <div id="content" class="card">
+
+        {{ if isset($tpl_data.notice) && $tpl_data.notice }}
+        <div class="message-primary">
+            {{ $tpl_data.notice }}
+        </div>
+        {{ /if }}
+
+        {{ $withdraw_card_count = count($tpl_data.withdraw_card_list) }}
+        {{ $pay_card_count = count($tpl_data.pay_card_list) }}
+        {{ $count = $withdraw_card_count + $pay_card_count }}
+
+        {{ if $withdraw_card_count > 0 || $identity == 'teacher' }}
+        <h2 class="bank-card-title">提现卡</h2>
+        <div class="bank-card-list">
+            {{ bank_card_list list=$tpl_data.withdraw_card_list type="withdraw" count=$count }}
+        </div>
+        {{ /if }}
+
+        {{ if $identity == 'student' }}
+        <h2 class="bank-card-title">支付卡</h2>
+        <div class="bank-card-list">
+            {{ bank_card_list list=$tpl_data.pay_card_list type="pay" count=$count }}
+        </div>
+        {{ /if }}
+
+        {{ include file="pay/component/bindCardDialog.html" }}
+    </div>
+
+{{ /block }}

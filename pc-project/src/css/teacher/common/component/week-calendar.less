@@ -1,0 +1,55 @@
+/**
+ * @file 可授课时间组件
+ * @author zhujialu
+ */
+.week-calendar {
+    .user-select(none);
+}
+.week-calendar .calendar-header {
+    position: relative;
+    padding: 5px;
+}
+.week-calendar .calendar-title {
+    color: @brand-primary;
+    margin: 0;
+    text-align: center;
+}
+.week-calendar .icon-chevron-left,
+.week-calendar .icon-chevron-right {
+    cursor: pointer;
+    position: absolute;
+    top: 9px;
+}
+.week-calendar .icon-chevron-left {
+    left: 10px;
+}
+.week-calendar .icon-chevron-right {
+    right: 10px;
+}
+.week-calendar th,
+.week-calendar td {
+
+    border-top: 1px solid #F1F1F1;
+    border-left: 1px solid #F1F1F1;
+    padding: 5px 0;
+    text-align: center;
+    width: 37px;
+
+    &:first-child {
+        border-left: none;
+    }
+}
+.week-calendar th {
+    font-weight: normal;
+}
+.week-calendar th.today {
+    font-weight: bold;
+}
+.week-calendar td {
+    color: @brand-gray;
+    font-size: @font-size-tiny;
+
+    &.active {
+        color: green;
+    }
+}

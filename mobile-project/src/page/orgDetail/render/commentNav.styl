@@ -1,0 +1,81 @@
+.comment-nav {
+    border-bottom: 1px solid #f2f2f2;
+    margin-bottom: rem(10);
+    &.comment-fix-tab {
+        position: fixed;
+        top: rem(45);
+        z-index: 3;
+        left: 0;
+        right: 0;
+    }
+    .comment-tab {
+        background: white;
+        width: 100%;
+        display: flex;
+        padding: 0 rem(10) 0;
+        .item {
+            flex: 1;
+            font-family: PingFang-SC-Regular;
+            font-size: rem(15);
+            color: #9D9D9E;
+            letter-spacing: rem(-0.37);
+            line-height: rem(35);
+            height: rem(35);
+            text-align: center;
+            &.active {
+                border-bottom: 2px solid #ff6c00;
+                color: #ff6c00;
+            }
+        }
+        .all {
+            flex: 1.5;
+            font-family: PingFang-SC-Regular;
+            font-size: rem(15);
+            color: #6D6D6E;
+            letter-spacing: rem(-0.37);
+            line-height: rem(35);
+            height: rem(35);
+            text-align: center;
+            img {
+                width: rem(14);
+                height: rem(16);
+                margin-left: rem(2);
+            }
+        }
+    }
+    .box {
+        background: white;
+        position: absolute;
+        z-index: 100;
+        width: 100%;
+        display: none;
+        .it {
+            height: rem(40);
+            line-height: rem(40);
+            border-bottom: 1px solid #F7F7F8;
+            color: #6D6D6E;
+            span {
+                float: left;
+                margin-left: rem(20);
+                font-family: PingFang-SC-Regular;
+                font-size: rem(15);
+                letter-spacing: rem(-0.37);
+                line-height: rem(39);
+                height: rem(39);
+            }
+            img {
+                float: right;
+                margin-right: rem(15);
+                height: rem(16);
+                width: rem(16);
+                margin-top: rem(12);
+                &.hide {
+                    display: none;
+                }
+            }
+            &.active {
+                color: #ff6c00;
+            }
+        }
+    }
+}

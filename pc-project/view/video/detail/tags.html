@@ -1,0 +1,22 @@
+{{ *
+
+@file 视频课详情页 - 课程标签
+@author jixiaohui
+
+* }}
+
+{{ strip }}
+{{ if $tpl_data.label_ids }}
+<div id="video-tags">
+    <h3>课程标签</h3>
+    <div class="content">
+        <ul>
+            {{ $list = explode(',', $tpl_data.label_ids) }}
+            {{ foreach $list as $val }}
+                <li>{{ $val }}</li>
+            {{ /foreach }}
+        </ul>
+    </div>
+</div>
+{{ /if }}
+{{ /strip }}

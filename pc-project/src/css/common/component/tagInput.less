@@ -1,0 +1,44 @@
+/**
+ * @file 可生成标签的输入框
+ * @author zhujialu
+ */
+.tag-input {
+
+    .inline-block();
+
+    background-color: @input-bg;
+    border: 1px solid @input-border;
+    padding: 0 0 0 5px;
+
+    &:hover {
+        border-color: @input-border-hover;
+    }
+    &.active {
+        border-color: @brand-primary;
+    }
+
+    .form-text {
+        border: none;
+    }
+
+    .tag-list {
+        float: left;
+        margin-top: 4px;
+    }
+
+    .label {
+
+        margin-left: @gap-horizontal-tiny;
+        .user-select(none);
+
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+
+    .icon-times {
+        cursor: pointer;
+        margin-left: @gap-horizontal-tiny;
+        vertical-align: middle;
+    }
+}

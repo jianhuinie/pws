@@ -1,0 +1,54 @@
+{{ *
+    @file 线下班课编辑
+    @author wangtianhua
+* }}
+
+{{ extends file="../../common/base.html" }}
+
+{{ block name="data" }}
+    {{ $smarty.block.parent }}
+    {{ $need_ueditor = true }}
+    {{ $need_baidu_map = true }}
+{{ /block }}
+
+{{ block name="title" prepend }}
+    编辑班课
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/userCenter/teacherCenter/classCourseEdit/offlineCourseEdit/offlineCourseEdit_2f4594d080.css">
+{{ /block }}
+
+{{ block name="script" }}
+<script>
+require(
+    [
+        'userCenter/teacherCenter/common/layout_fca6630c9a',
+        'userCenter/teacherCenter/classCourseEdit/offlineCourseEdit/offlineCourseEdit_51870949fc'
+    ],
+    function (layout, offlineCourseEdit) {
+
+        {{ $php_data = $tpl_data }}
+
+        {{ if isset($tpl_data.is_huike_teacher) }}
+            {{ $is_huike_teacher = $tpl_data.is_huike_teacher }}
+        {{ else }}
+            {{ $is_huike_teacher = 0 }}
+        {{ /if }}
+
+        layout.init({
+            topMenu: 'userCenter',
+            sideMenu: 'courseSettings',
+            isHuikeTeacher: {{ $is_huike_teacher }},
+            appendBreadcrumb: {
+                text: '编辑班课'
+            }
+        });
+
+        offlineCourseEdit.init(
+            {{ json_encode($php_data, 77) }}
+        );
+    }
+);
+</script>
+{{ /block }}

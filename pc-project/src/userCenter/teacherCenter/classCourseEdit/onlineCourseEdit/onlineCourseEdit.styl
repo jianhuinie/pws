@@ -1,0 +1,176 @@
+/**
+ * @file 直播课编辑
+ * @author wangtianhua
+ */
+@import 'userCenter/common/layout.styl';
+@import '../offlineCourseEdit/component/common.styl';
+
+body {
+    &.ie {
+        textarea {
+            resize: none;
+        }
+    }
+}
+#sidebar,
+#breadcrumb {
+    display: none;
+}
+#menu {
+    height: 5px;
+    .wrapper {
+        display: none;
+    }
+}
+#container {
+    margin-left: 0 !important;
+}
+.top-bar {
+    height: 80px;
+    padding: 30px 0px;
+    > span {
+        font-size: 16px;
+    }
+    .save-time {
+        margin-left: 100px;
+    }
+}
+
+.side-card {
+    width: 150px;
+    height: 210px;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ededee;
+    position: relative;
+    &:before {
+        content: ' ';
+        background-color: #ededee;
+        border-radius: 37px;
+        display: inline-block;
+        width: 1px;
+        height: 130px;
+        margin-right: 10px;
+        position: absolute;
+        left: 36px;
+        top: 40px;
+    }
+    .side-list {
+        display: inline-block;
+        padding: 10px;
+        position: relative;
+        padding-left: 30px;
+        &:before {
+            content: ' ';
+            background-color: #6d6d6e;
+            border-radius: 37px;
+            display: inline-block;
+            width: 3px;
+            height: 3px;
+            margin-right: 10px;
+            position: absolute;
+            left: 15px;
+            top: 20px;
+        }
+        &.checked,
+        &:active,
+        &:hover {
+            &:before {
+                height: 15px;
+                background-color: #F90;
+                top: 12px;
+            }
+        }
+        &.checked,
+        &:active {
+            color: #f90;
+        }
+    }
+    &.fixed {
+        position: fixed !important;
+        z-index: 3;
+        top: 0;
+    }
+}
+.content-wrapper {
+    float: right;
+    > .more {
+        width: 835px;
+        padding: 15px 25px;
+        background-color: #fff;
+        border: 1px solid $border-color;
+        color: $dark-gray;
+        margin-top: 20px;
+        .header {
+            .title {
+                font-size: 20px;
+                &:before {
+                    content: ' ';
+                    background-color: $dark-gray;
+                    border-radius: 37px;
+                    display: inline-block;
+                    width: 5px;
+                    height: 16px;
+                    margin-right: 10px;
+                }
+            }
+            .help {
+                float: right;
+                font-size: 14px;
+                color: #9d9d9e;
+                line-height: 20px;
+                margin-right: -14px;
+            }
+        }
+    }
+    .footer {
+        margin-top: 50px;
+        text-align: center;
+        .button {
+            width: 215px;
+            height: 46px;
+            font-size: 16px;
+            line-height: 33px;
+            &:active {
+                background-color: #f29100;
+                border-color: #e68a00;
+                -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+                box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+            }
+        }
+    }
+}
+.video-dialog {
+    .dialog-close {
+        font-size: 25px;
+        float: right;
+        margin-right: 14px;
+    }
+}
+.rich-editor {
+    width: 835px;
+    padding: 25px;
+    background-color: #fff;
+    border: 1px solid $border-color;
+    color: $dark-gray;
+    margin-top: 20px;
+    > .header {
+        margin-bottom: 20px;
+        .title {
+            font-size: 20px;
+            &:before {
+                content: ' ';
+                background-color: $dark-gray;
+                border-radius: 37px;
+                display: inline-block;
+                width: 5px;
+                height: 16px;
+                margin-right: 10px;
+            }
+        }
+        .help {
+            float: right;
+            font-size: 12px;
+        }
+    }
+}

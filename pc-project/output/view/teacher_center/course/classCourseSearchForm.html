@@ -1,0 +1,122 @@
+{{ *
+@file 课程设置 - 班课列表 - 查询表单
+@author liucong
+* }}
+
+{{ strip }}
+<div id="class-course-search" class="form">
+    <div>
+        <div class="form-group">
+            <label class="form-label">班课名称：</label>
+            <div class="form-controls">
+                <input type="text" name="name" class="form-text small" maxlength="30">
+                <span class="error"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-label">班课编号：</label>
+            <div class="form-controls">
+                <input type="text" name="number" pattern="^\d{0,20}$" class="form-text small">
+                <span class="error"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-label">班课类目：</label>
+            <div class="form-controls">
+            {{ $subject_list_data = [] }}
+
+            {{ if isset($tpl_data.subject_list) }}
+
+                {{ $subject_data = [] }}
+                {{ $subject_data['text'] = '全部类目' }}
+                {{ $subject_data['value'] = '-1' }}
+                {{ $subject_list_data[] = $subject_data }}
+
+                {{ foreach $tpl_data.subject_list as $subject }}
+                {{ if isset($subject.path['3']) }}
+                    {{ $subject_data = [] }}
+
+                    {{ $subject_data['text'] = $subject.path['3'].remark_name }}
+                    {{ $subject_data['value'] = $subject.path['3'].id }}
+                    {{ $subject_list_data[] = $subject_data }}
+
+                {{ /if }}
+                {{ /foreach }}
+            {{ /if }}
+
+            {{ include file="common/ui/dropdown.html" class="subject" size="small" data=$subject_list_data }}
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="form-group line-first price">
+            <label class="form-label">价&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp格：</label>
+            <div class="form-controls">
+                <input type="text" name="price_begin" pattern="^\d+(\.[0-9]{1,2})?$" class="form-text small short" max="999999.99">
+                <span class="error"></span>
+            </div>
+        </div>
+
+        <div class="form-group line-second">
+            <label class="form-label">到</label>
+            <div class="form-controls">
+                <input type="text" name="price_end" pattern="^\d+(\.[0-9]{1,2})?$" class="form-text small short" max="999999.99">
+                <span class="error"></span>
+            </div>
+        </div>
+
+        <div class="form-group line-first">
+            <label class="form-label">已报人数：</label>
+            <div class="form-controls">
+                <input type="int" name="student_begin" class="form-text small short" min=0 >
+                <span class="error"></span>
+            </div>
+        </div>
+
+        <div class="form-group line-second">
+            <label class="form-label">到</label>
+            <div class="form-controls">
+                <input type="int" name="student_end" class="form-text small short" min=0 >
+                <span class="error"></span>
+            </div>
+        </div>
+
+        {{ $search_status_data = [] }}
+        {{ if !empty($tpl_data.search_status) }}
+
+            {{ $search_status_item = [] }}
+            {{ $search_status_item['text']  = '全部状态' }}
+            {{ $search_status_item['value']  = '-1' }}
+            {{ $search_status_data[] = $search_status_item }}
+
+        {{ foreach $tpl_data.search_status as $search_status_key=>$search_status_value }}
+            {{ $search_status_item = [] }}
+            {{ $search_status_item['text']  = $search_status_value }}
+            {{ $search_status_item['value']  = $search_status_key }}
+            {{ $search_status_data[] = $search_status_item }}
+        {{ /foreach }}
+        {{ /if }}
+
+        <div class="form-group">
+            <label class="form-label">班课状态：</label>
+            <div class="form-controls">
+            {{ include file="common/ui/dropdown.html" class="display-status" size="small" data=$search_status_data }}
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="form-action">
+            <span class="clear">清空筛选条件</span>
+            <button class="btn-primary">搜索</button>
+        </div>
+        <div class="form-group other">
+            <label class="form-label">其他：</label>
+            <div class="form-controls">
+                {{ include file="common/ui/checkbox.html" text="在线授课" name="is_online" value="1" }}
+                {{ include file="common/ui/checkbox.html" text="线下授课" name="is_offline" value="1" }}
+                {{ include file="common/ui/checkbox.html" text="未完成班课" name="is_incomplete" value="1" }}
+            </div>
+        </div>
+    </div>
+</div>
+{{ /strip }}

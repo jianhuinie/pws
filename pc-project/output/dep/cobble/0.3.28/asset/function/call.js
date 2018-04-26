@@ -1,0 +1,1 @@
+define("cobble/function/call",["require","exports","module"],function(){"use strict";return function(n,r,e){if($.isFunction(n)){var i=$.isArray(e)?"apply":"call";return n[i](r,e)}}});

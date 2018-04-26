@@ -1,0 +1,87 @@
+@import "page/_base/base.styl";
+@import "page/_common/nav_bar/nav_bar.styl";
+
+body {
+    background: #f8f8f8;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.nav-header {
+    background: #f6f7f7;
+}
+
+.top-banner {
+    height: rem(160);
+    .background {
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+    }
+    .info {
+        position: relative;
+        display: flex;
+        z-index: 2;
+        overflow: hidden;
+        // top: 50%;
+        // left: 50%;
+        // margin: rem(-108) 0 0 rem(45);
+        margin: rem(-108) 0 0;
+        text-align: center;
+        .effect-share,
+        .invited-students,
+        .scores-got {
+            flex: 1;
+            // float: left;
+            .num {
+                font-family: SanFranciscoDisplay-Medium;
+                font-size: rem(30);
+                line-height: rem(38);
+                color: #fff;
+            }
+            .desc {
+                font-size: rem(13);
+                color: #f8f8f8;
+            }
+        }
+        .effect-share {
+            // padding-right: rem(36);
+        }
+        .invited-students {
+            // padding-right: rem(40);
+        }
+    }
+}
+
+.list {
+    line-height: 2.8;
+    .nav {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        .desc {
+            flex: 1;
+            font-size: rem(13);
+            text-align: center;
+            background: #f8f8f8;
+            color: #9d9d9e;
+        }
+    }
+    .row {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        background: #fff;
+        .column {
+            flex: 1;
+            border-bottom: rem(1) solid #f8f8f8;
+            text-align: center;
+        }
+    }
+}

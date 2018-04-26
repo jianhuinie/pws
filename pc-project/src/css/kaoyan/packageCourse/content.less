@@ -1,0 +1,275 @@
+/**
+ * @file 考研专区 - 打包课 － 课程内容
+ * @author wangyujie
+ */
+
+#content {
+    background-color: #fff;
+    border: 1px solid @border-color-gray;
+    width: @content-width;
+    .fixed-header {
+        background-color: #fff;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        margin-top: 0;
+        text-align: right;
+        width: 100%;
+        z-index: 4;
+        .wrapper {
+            .transition(width, 0.4s);
+            width: 1100px;
+            margin: 10px auto;
+            border: none;
+            div {
+                display: inline-block;
+            }
+            .course-info {
+                color: #6d6d6d;
+                float: left;
+                font-size: 12px;
+                text-align: left;
+                .icon {
+                    margin-right: 2px;
+                }
+                h1 {
+                    color: #333;
+                    font-size: 18px;
+                }
+            }
+            .course-price {
+                line-height: 45px;
+                strong {
+                    color: #f95710;
+                    font-size: 22px;
+                }
+            }
+            .course-action {
+                button {
+                    margin-left: 10px;
+                    width: 120px;
+                }
+                .phone {
+                    font-size: 12px;
+                    text-align: left;
+                    vertical-align: middle;
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+
+    .header {
+        .wrapper {
+            font-size: 18px;
+            height: 48px;
+            line-height: 48px;
+        }
+
+        .tab-nav-primary {
+            border-bottom: 1px solid @border-color-gray;
+        }
+        border-bottom: none;
+        padding: 0;
+
+        .nav-item-container {
+            .clearfix();
+        }
+        .nav-action-container {
+
+            display: none;
+
+            padding: 5px 10px;
+            font-size: @font-size-tiny;
+            float: right;
+            line-height: 2.5em;
+
+            .btn-primary {
+                background-color: #f95710;
+                border-color: #f95710;
+            }
+
+            .course-price {
+                line-height: initial;
+                margin-right: 10px;
+                em {
+                    color: #f95710;
+                    font-weight: bold;
+                }
+            }
+
+            & > * {
+                .inline-block();
+                vertical-align: middle;
+            }
+
+        }
+
+        .nav-item {
+            border-left: 1px solid @border-color-gray;
+            border-bottom: none;
+            text-align: center;
+            padding: 10px;
+
+            & > span {
+                display: inline-block;
+                text-align: center;
+                min-width: 110px;
+            }
+            &:first-child {
+                & > span {
+                    border-left: none;
+                }
+            }
+            &.active, &:hover {
+                border-bottom: none;
+            }
+            &.active {
+                background-color: @brand-primary;
+                color: #fff;
+                & > span {
+                    border-left: none;
+                }
+            }
+        }
+    }
+
+    .body {
+        padding: 0 20px;
+        h3 {
+            margin-top: 20px;
+            margin-left: -20px;
+            border: none;
+            span {
+                border: none;
+                border-left: 3px solid @brand-primary;
+                padding-left: @gap-horizontal-large;
+                padding-bottom: 0;
+            }
+            em {
+                color: @brand-text-lighter;
+                font-size: 16px;
+                font-weight: normal;
+                padding-left: @gap-horizontal-small;
+            }
+        }
+    }
+
+    #course-info {
+        .brief,
+        .retire {
+            margin-top: 10px;
+            label {
+                float: left;
+            }
+            p {
+                margin-left: 70px;
+            }
+        }
+
+        .retire {
+            margin-bottom: 30px;
+        }
+
+        .content {
+            overflow-x: hidden;
+            img {
+                max-width: 778px;
+            }
+        }
+    }
+
+    #schedule-info {
+        .schedule-item {
+            margin-top: 20px;
+            .info {
+                .preface {
+                    float: left;
+                }
+                .course-detail {
+                    line-height: 22px;
+                    margin-left: 150px;
+                    label {
+                        color: #999;
+                    }
+                    .course-type {
+                        border: 1px solid #3fa5f2;
+                        border-radius: 2px;
+                        color: #3fa5f2;
+                        font-size: 12px;
+                        padding: 0 5px;
+                        margin-right: 5px;
+                    }
+                    .price {
+                        color: #f95e5e;
+                        font-size: 18px;
+                        line-height: 38px;
+                        em {
+                            font-size: 12px;
+                            margin-right: 2px;
+                        }
+                    }
+                }
+            }
+            .brief {
+                margin-top: 20px;
+                label {
+                    color: #999;
+                    float: left;
+                }
+                div {
+                    margin-left: 70px;
+                }
+            }
+            .list {
+                margin-top: 20px;
+                margin-bottom: 10px;
+                label {
+                    color: #999;
+                }
+                li {
+                    border-bottom: 1px solid #eee;
+                    display: none;
+                    height: 50px;
+                    line-height: 50px;
+                    padding-left: 20px;
+                    padding-right: 20px;
+                    .serial {
+                        float: left;
+                        min-width: 60px;
+                        margin-right: 20px;
+                    }
+                    .title {
+                        float: left;
+                        min-width: 425px;
+                        margin-right: 40px;
+                    }
+                    .begin-time {
+                        float: left;
+                        min-width: 110px;
+                        margin-right: 40px;
+                    }
+                    .status {
+                        float: left;
+                        min-width: 42px;
+                    }
+                }
+                .view-all {
+                    background-color: #f7f7f7;
+                    border-bottom: 1px solid #dfe0e1;
+                    color: #9e9e9e;
+                    cursor: pointer;
+                    text-align: center;
+                    line-height: 36px;
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+
+}
+

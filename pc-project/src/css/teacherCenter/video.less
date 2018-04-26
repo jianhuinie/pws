@@ -1,0 +1,52 @@
+/**
+ * @file 我的视频
+ * @author zhujialu
+ */
+
+@import '../common/center/common/layout.less';
+
+#content {
+
+    .upload-video-tip {
+        font-size: 13px;
+        color: #6287d5;
+        margin-bottom: 5px;
+
+        & > i {
+            margin-right: 5px;
+        }
+    }
+
+    .video-list {
+
+        .clearfix();
+        margin-left: -6px;
+        margin-bottom: -1 * @gap-vertical-large;
+
+        > li {
+            float: left;
+            margin-left: 6px;
+            margin-bottom: @gap-vertical-large;
+        }
+    }
+
+    .upload-video {
+        background: url(../../img/teacher-center/upload-video.png) no-repeat;
+        display: block;
+        width: 180px;
+        height: 134px;
+    }
+
+    .message {
+        width: 179px;
+        padding: @gap-vertical-tiny;
+        margin-top: 3px;
+        .word-break();
+    }
+
+    .clearfix { // 第5个视频，清浮换行
+        clear: both;
+    }
+
+}
+

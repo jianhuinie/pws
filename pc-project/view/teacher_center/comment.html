@@ -1,0 +1,16 @@
+{{ *
+
+@file 课程评价
+@author jixiaohui
+
+* }}
+{{ extends file="common/center/comment.html" }}
+
+{{ block name="data" }}
+    {{ $smarty.block.parent }}
+{{ /block }}
+
+{{ block name="sidebar" }}
+    {{ include file="teacher_center/common/sidebar.html" active="order" }}
+{{ /block }}
+

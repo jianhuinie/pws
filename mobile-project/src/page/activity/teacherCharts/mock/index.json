@@ -1,0 +1,271 @@
+{
+    "code": 0,
+    "message": "名师排行获取成功",
+    "tpl_data": {
+        "teacher": {
+            "name": "舒柏乔",
+            "avatar": "https://img.genshuixue.com/21572727_fzgahyft.jpeg",
+            "url": "http://beta-m.genshuixue.com/643568438",
+            "subject_name": "考研考研英语",
+            "city": "重庆",
+            "rank_change": 0,
+            "student_count": 30,
+            "rank": null,
+            "vip_level": 0
+        },
+        "items": [
+            {
+                "name": "刘晓艳",
+                "avatar": "https://img.genshuixue.com/21572727_fzgahyft.jpeg",
+                "url": "http://beta-m.genshuixue.com/643568438",
+                "subject_name": "考研考研英语",
+                "city": "重庆",
+                "rank_change": 0,
+                "student_count": "24890",
+                "rank": 1
+            },
+            {
+                "name": "柴鹤轩（记忆力）",
+                "avatar": "https://imgs.genshuixue.com/24369793_o1xyo3zm.jpeg",
+                "url": "http://beta-m.genshuixue.com/979091458",
+                "subject_name": "脑力训练思维训练",
+                "city": "南京",
+                "rank_change": 0,
+                "student_count": "1895",
+                "rank": 2
+            },
+            {
+                "name": "李志强",
+                "avatar": "https://imgs.genshuixue.com/19878582_udts1mbn.jpeg",
+                "url": "http://beta-m.genshuixue.com/832494258",
+                "subject_name": "数学全部",
+                "city": "太原",
+                "rank_change": 0,
+                "student_count": "1513",
+                "rank": 3
+            },
+            {
+                "name": "钟平",
+                "avatar": "https://imgs.genshuixue.com/11040076_5ez7wefa.jpeg",
+                "url": "http://beta-m.genshuixue.com/707179368",
+                "subject_name": "考研考研英语",
+                "city": "北京",
+                "rank_change": 0,
+                "student_count": "1449",
+                "rank": 4
+            },
+            {
+                "name": "宋杰",
+                "avatar": "https://imgs.genshuixue.com/9661045_5f4ptgf4.jpeg",
+                "url": "http://beta-m.genshuixue.com/668705738",
+                "subject_name": "语文全部",
+                "city": "太原",
+                "rank_change": 0,
+                "student_count": "1437",
+                "rank": 5
+            },
+            {
+                "name": "续智贤",
+                "avatar": "https://imgs.genshuixue.com/8273966_2wqlabhz.jpeg",
+                "url": "http://beta-m.genshuixue.com/371040668",
+                "subject_name": "英语英语",
+                "city": "太原",
+                "rank_change": 0,
+                "student_count": "1419",
+                "rank": 6
+            },
+            {
+                "name": "刘挺",
+                "avatar": "https://imgs.genshuixue.com/11015672_str4131c.jpeg",
+                "url": "http://beta-m.genshuixue.com/580662518",
+                "subject_name": "物理全部",
+                "city": "杭州",
+                "rank_change": 0,
+                "student_count": "1416",
+                "rank": 7
+            },
+            {
+                "name": "黑脸大叔",
+                "avatar": "https://imgs.genshuixue.com/10291221_frda9it3.jpeg",
+                "url": "http://beta-m.genshuixue.com/333616398",
+                "subject_name": "语文语文",
+                "city": "广州",
+                "rank_change": 0,
+                "student_count": "1315",
+                "rank": 8
+            },
+            {
+                "name": "久久老师",
+                "avatar": "https://img.genshuixue.com/4542714_cpf2n7zv.jpeg",
+                "url": "http://beta-m.genshuixue.com/731405528",
+                "subject_name": "脑力训练记忆力",
+                "city": "广州",
+                "rank_change": 0,
+                "student_count": "1312",
+                "rank": 9
+            },
+            {
+                "name": "徐之明",
+                "avatar": "https://imgs.genshuixue.com/8980921_t9l0u8q4.jpeg",
+                "url": "http://beta-m.genshuixue.com/748561538",
+                "subject_name": "考研考研政治",
+                "city": "北京",
+                "rank_change": 0,
+                "student_count": "1277",
+                "rank": 10
+            },
+            {
+                "name": "范松",
+                "avatar": "https://img.genshuixue.com/14080123_udyfvtj3.jpeg",
+                "url": "http://beta-m.genshuixue.com/329116908",
+                "subject_name": "语文全部",
+                "city": "郑州",
+                "rank_change": 0,
+                "student_count": "1038",
+                "rank": 11
+            },
+            {
+                "name": "龚寸章",
+                "avatar": "https://imgs.genshuixue.com/20131327_2qd80oex.jpeg",
+                "url": "http://beta-m.genshuixue.com/458849088",
+                "subject_name": "数学数学",
+                "city": "广州",
+                "rank_change": 0,
+                "student_count": "1012",
+                "rank": 12
+            },
+            {
+                "name": "曹炜",
+                "avatar": "https://imgs.genshuixue.com/5084401_yarca0f6.jpeg",
+                "url": "http://beta-m.genshuixue.com/371509928",
+                "subject_name": "数学全部",
+                "city": "北京",
+                "rank_change": 0,
+                "student_count": "918",
+                "rank": 13
+            },
+            {
+                "name": "鸿帆唐龙老师",
+                "avatar": "https://imgs.genshuixue.com/23109038_m0ss7g46.jpeg",
+                "url": "http://beta-m.genshuixue.com/583263548",
+                "subject_name": "高考志愿高考志愿",
+                "city": "长春",
+                "rank_change": 0,
+                "student_count": "884",
+                "rank": 14
+            },
+            {
+                "name": "杨红",
+                "avatar": "https://imgs.genshuixue.com/18881867_pemsoqql.jpeg",
+                "url": "http://beta-m.genshuixue.com/857177538",
+                "subject_name": "语文全部",
+                "city": "太原",
+                "rank_change": 0,
+                "student_count": "874",
+                "rank": 15
+            },
+            {
+                "name": "赵永春",
+                "avatar": "https://imgs.genshuixue.com/7596976_05ommdsx.jpeg",
+                "url": "http://beta-m.genshuixue.com/583253718",
+                "subject_name": "高考志愿高考志愿",
+                "city": "吉林",
+                "rank_change": 0,
+                "student_count": "852",
+                "rank": 16
+            },
+            {
+                "name": "宁辰熙",
+                "avatar": "https://img.genshuixue.com/25403408_qdlxsmir.jpeg",
+                "url": "http://beta-m.genshuixue.com/354726728",
+                "subject_name": "运动瑜伽",
+                "city": "哈尔滨",
+                "rank_change": 0,
+                "student_count": "849",
+                "rank": 17
+            },
+            {
+                "name": "周烨",
+                "avatar": "https://imgs.genshuixue.com/9858939_spr3b97z.jpeg",
+                "url": "http://beta-m.genshuixue.com/498211968",
+                "subject_name": "脑力训练记忆力",
+                "city": "杭州",
+                "rank_change": 0,
+                "student_count": "831",
+                "rank": 18
+            },
+            {
+                "name": "鼎立英才赵益",
+                "avatar": "https://imgs.genshuixue.com/703347_6d99fuai.jpeg",
+                "url": "http://beta-m.genshuixue.com/499532598",
+                "subject_name": "高考咨询高考咨询",
+                "city": "长春",
+                "rank_change": 0,
+                "student_count": "793",
+                "rank": 19
+            },
+            {
+                "name": "曾珍",
+                "avatar": "https://img.genshuixue.com/20869460_civuieon.jpeg",
+                "url": "http://beta-m.genshuixue.com/811383448",
+                "subject_name": "物理全部",
+                "city": "成都",
+                "rank_change": 0,
+                "student_count": "777",
+                "rank": 20
+            }
+        ],
+        "pager": {
+            "has_more": true,
+            "next_page": 2,
+            "current_page": 1,
+            "total": 24,
+            "type": 0
+        },
+        "share": {
+            "share_email": {
+                "title": "跟谁学互联网名师排行榜",
+                "content": "名单在手，学习无忧！查看实时更新的名师排行榜，与名师一起打造属于你的互联网学习课程！",
+                "url": "https://beta-m.genshuixue.com/tcenter/top-teacher-rank/getRankIndex?type=0",
+                "img": "https://imgs.genshuixue.com/0tapi/ic_find_ranking_share.png"
+            },
+            "share_weibo": {
+                "title": "",
+                "content": "名单在手，学习无忧！查看实时更新的名师排行榜，与名师一起打造属于你的互联网学习课程！",
+                "url": "https://beta-m.genshuixue.com/tcenter/top-teacher-rank/getRankIndex?type=0",
+                "img": "https://imgs.genshuixue.com/0tapi/ic_find_ranking_share.png"
+            },
+            "share_qq": {
+                "title": "跟谁学互联网名师排行榜",
+                "content": "名单在手，学习无忧！查看实时更新的名师排行榜，与名师一起打造属于你的互联网学习课程！",
+                "url": "https://beta-m.genshuixue.com/tcenter/top-teacher-rank/getRankIndex?type=0",
+                "img": "https://imgs.genshuixue.com/0tapi/ic_find_ranking_share.png"
+            },
+            "share_sms": {
+                "title": "",
+                "content": "名单在手，学习无忧！查看实时更新的名师排行榜，与名师一起打造属于你的互联网学习课程！",
+                "url": "https://beta-m.genshuixue.com/tcenter/top-teacher-rank/getRankIndex?type=0",
+                "img": ""
+            },
+            "share_weixin": {
+                "title": "跟谁学互联网名师排行榜",
+                "content": "名单在手，学习无忧！查看实时更新的名师排行榜，与名师一起打造属于你的互联网学习课程！",
+                "url": "https://beta-m.genshuixue.com/tcenter/top-teacher-rank/getRankIndex?type=0",
+                "img": "https://imgs.genshuixue.com/0tapi/ic_find_ranking_share.png"
+            },
+            "share_pyq": {
+                "title": "",
+                "content": "跟谁学互联网名师排行榜",
+                "url": "https://beta-m.genshuixue.com/tcenter/top-teacher-rank/getRankIndex?type=0",
+                "img": "https://imgs.genshuixue.com/0tapi/ic_find_ranking_share.png"
+            },
+            "share_qzone": {
+                "title": "跟谁学互联网名师排行榜",
+                "content": "名单在手，学习无忧！查看实时更新的名师排行榜，与名师一起打造属于你的互联网学习课程！",
+                "url": "https://beta-m.genshuixue.com/tcenter/top-teacher-rank/getRankIndex?type=0",
+                "img": "https://imgs.genshuixue.com/0tapi/ic_find_ranking_share.png"
+            }
+        }
+    },
+    "render": "v2/resources/page/activity/teacherCharts/index"
+}

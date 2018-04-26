@@ -1,0 +1,29 @@
+{{ *
+
+@file 马上交谈 标签
+参数
+user_number
+user_type
+no_text 是否不需要文字
+
+@author zhujialu
+
+* }}
+{{ strip }}
+{{ *点击上报* }}
+{{ if isset($sku_type) && isset($click_type) }}
+<span class="chat-label" data-user-number="{{ $user_number }}" data-user-type="{{ $user_type }}">
+                <i class="icon icon-chat"></i>
+                {{ if !isset($no_text) || !$no_text }}
+                <b data-click="{{ $click_type }}" data-sku="{{ $sku_type }}|{{ $user_number }}">马上交谈</b>
+                {{ /if }}
+            </span>
+{{ else }}
+<span class="chat-label" data-user-number="{{ $user_number }}" data-user-type="{{ $user_type }}">
+                <i class="icon icon-chat"></i>
+                {{ if !isset($no_text) || !$no_text }}
+                <b>马上交谈</b>
+                {{ /if }}
+            </span>
+{{ /if }}
+{{ /strip }}

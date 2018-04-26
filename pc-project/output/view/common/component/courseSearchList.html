@@ -1,0 +1,43 @@
+{{ *
+
+@file 课程搜索结果列表组件
+@author  wuhongjie
+@description 课程搜索结果页
+
+* }}
+
+{{ strip }}
+<div id="search-list">
+    {{ $vip_name = [] }}
+    {{ $vip_name[1] = "跟谁学会员" }}
+    {{ $vip_name[2] = "跟谁学高级会员" }}
+    {{ $vip_name[3] = "跟谁学超级会员" }}
+
+    {{ $prev_item = '' }}
+    {{ $unlocal_tips = true }}
+
+    {{ if isset($tpl_data.qid) }}
+    {{ $log_id = $tpl_data.qid }}
+    {{ else }}
+    {{ $log_id = '' }}
+    {{ /if }}
+
+    {{ $log_flag = false }}
+
+    {{ if isset($tpl_data.q) }}
+    {{ $log_flag = true }}
+    {{ /if }}
+
+
+    {{ if $course_type == 2 }}
+        {{ include file = "searchResult/offline.html" course = $courses }}
+    {{ else if $course_type == 1 }}
+        {{ include file = "searchResult/one2one.html" course = $courses }}
+    {{ else if $course_type == 3 }}
+        {{ include file = "searchResult/online.html" course = $courses }}
+    {{ else }}
+        {{ include file = "searchResult/video.html" course = $courses }}
+    {{ /if }}
+
+</div>
+{{ /strip }}

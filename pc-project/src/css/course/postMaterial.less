@@ -1,0 +1,121 @@
+/**
+ * @file 邮寄资料信息
+ * @author wanglu
+ */
+
+@import '../common/center/common/layout.less';
+@import '../common/card.less';
+
+.post-nav {
+    height: 20px;
+    font-family: PingFang-SC-Regular;
+    color: #3D3D3E;
+    line-height: 7px;
+    font-size: 12px;
+    span {
+        margin: 5px;
+        position: relative;
+        bottom: 2px;
+
+    }
+}
+.post-card {
+    width: 797px;
+    height: 1056px;
+    margin-left: 15px;
+    background: #FFFFFF;
+    float: left;
+    display: inline-block;
+    border: 1px solid #CDCDCE;
+    font-family: PingFang-SC-Regular;
+
+    .post-header {
+        background: #FBFBFB;
+        border-bottom: 1px solid #CDCDCE;
+        height: 45px;
+        span {
+            font-size: 15px;
+            color: #3D3D3E;
+            margin-left: 20px;
+            line-height: 45px;
+        }
+    }
+
+    .course-name {
+        margin-left: 45px;
+        margin-top: 30px;
+        span {
+            font-size: 15px;
+        }
+        .course-name-info {
+            color: #6D6D6E;
+        }
+        .course-name-text {
+            color: #3D3D3E;
+            margin-left: 5px;
+        }
+        a {
+            width: 42px;
+            height: 25px;
+            display: inline-block;
+            border-radius: 2px;
+            font-size: 13px;
+            line-height: 25px;
+            vertical-align: middle;
+            padding-left: 7px;
+        }
+        .nav-right {
+            float: right;
+            .down-load {
+                background: #FF9A00;
+                color: #FFFFFF;
+            }
+            .print-right {
+                margin: 0 35px 0 15px;
+                border: 1px solid #9D9D9E;
+                color: #6D6D6E;
+            }
+        }
+        
+    }
+
+
+    .post-list {
+        margin-left: 24px;
+        margin-top: 37px;
+        .table {
+            width: 737px;
+            color: #3D3D3E;
+            font-size: 13px;
+            .thead {
+                height: 45px;
+                background: #F7F7F7;
+            }
+            tbody {
+                    width: 737px;
+                tr {
+                    border-bottom: 1px solid #CCCCCC;
+                    .stu-id {
+                        width: 83px;
+                    }
+                    .stu-name {
+                        width: 81px;
+                    }
+                    .stu-mobile {
+                        width: 115px;
+                    }
+                    .stu-address {
+                        width: 200px;
+                        word-break: break-all;
+                    }
+                    .stu-remark {
+                        width: 210px;
+                        word-break: break-all;
+                    }
+                }
+            } 
+        }
+    }
+
+}
+

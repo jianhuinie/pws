@@ -1,0 +1,181 @@
+{{ *
+
+@file 基本信息
+@author wangyujie
+
+* }}
+
+{{ strip }}
+
+{{ $blank = $tpl_data.base_info.blank }}
+
+<div class="baseinfo {{ if $blank }}no-data{{ else }}has-data{{ /if }}">
+    <a name="baseinfo"></a>
+
+    {{ function getBaseInfoShowcase data=null }}
+    <div class="info-header">
+        <i class="icon icon-bars-o"></i>
+        <h3>基本信息</h3>
+
+        {{ if isset($tpl_data.verify_group.basic) }}
+
+            {{ $basic = $tpl_data.verify_group.basic }}
+
+            {{ if $basic == 0 }}
+            <div class="message message-primary">
+                <i class="icon icon-clock"></i>
+                排队审核中，审核之后个人主页才会更新哦~
+            </div>
+            {{ elseif $basic == 2 }}
+            <div class="message message-error">
+                <i class="icon icon-info-circle"></i>
+                基本信息设置有问题哦，<a class="baseinfo-audit">点击查看拒绝原因</a>
+            </div>
+            {{ /if }}
+
+        {{ /if }}
+
+        <div class="edit">
+            <i class="icon icon-pencil"></i>
+            编辑
+        </div>
+    </div>
+    <div class="info-body">
+        {{ $avatar = $data.avatar }}
+        {{ if $tpl_data.audits.avatar.verify_status == '1' && ($tpl_data.private_show & 2) }}
+            {{ $avatar = 'http://img.gsxservice.com/'|cat:$data.def_avatar }}
+        {{ /if }}
+        <div class="avatar">
+            {{ include file="common/component/avatar.html" type="large" img=$avatar }}
+        </div>
+
+        <div class="info">
+            <div>
+                <span class="realname">
+                    {{ $data.realname }}
+                </span>
+                <span class="sex">
+                    {{ if $data.sex == 0 }}
+                        女
+                    {{ else if $data.sex == 1 }}
+                        男
+                    {{ /if }}
+                </span>
+            </div>
+            <ul>
+                <li class="half-line">
+                    <div class="title">
+                        <em>昵</em>称：
+                    </div>
+                    <div class="cont">{{ $data.nickname }}</div>
+                </li>
+                <li class="half-line">
+                    <div class="title">
+                        出生日期：
+                    </div>
+                    <div class="cont">{{ $data.birthday }}</div>
+                </li>
+                <li class="half-line">
+                    <div class="title">我的身份：</div>
+                    <div class="cont">
+                    {{ include file="common/variable/category.html" scope=parent }}
+                    {{ $categoryMap[$data.category] }}
+                    </div>
+                </li>
+
+
+                <li class="half-line">
+                    <div class="title">
+                        <em>学</em>历：
+                    </div>
+                    <div class="cont">
+                    {{ if !empty($data.edu_back) }}
+                        {{ include file="common/variable/education.html" scope=parent }}
+                        {{ $educationMap[$data.edu_back] }}
+                    {{ /if }}
+                    </div>
+                </li>
+
+                <li class="full-line">
+                    <div class="title">毕业院校：</div>
+                    <div class="cont">
+                        {{ $data.school }}
+                        {{ if $data.major }}
+                        （{{ $data.major }}）
+                        {{ /if }}
+                    </div>
+                </li>
+
+                <li class="full-line">
+                    <div class="title">一句话简介：</div>
+                    <div class="cont">{{ $data.short_introduce }}</div>
+                </li>
+                <li class="full-line">
+                    <div class="title teacher-intro-title">老师介绍：</div>
+                    <div class="cont teacher-intro-content">{{ $data.introduce }}</div>
+                </li>
+                <li class="full-line">
+                    <div class="title">授课方式：</div>
+                    <div class="cont">
+                        {{ $lw_flag = false }}
+                        {{ if $data.lesson_way.teacher }}
+                            老师上门
+                            {{ $lw_flag = true }}
+                        {{ /if }}
+                        {{ if $data.lesson_way.student }}
+                            {{ if $lw_flag }}/{{ /if }}学生上门
+                            {{ $lw_flag = true }}
+                        {{ /if }}
+                        {{ if $data.lesson_way.online }}
+                            {{ if $lw_flag }}/{{ /if }}在线教学
+                            {{ $lw_flag = true }}
+                        {{ /if }}
+                        {{ if $data.lesson_way.discuss }}
+                            {{ if $lw_flag }}/{{ /if }}协商地点
+                        {{ /if }}
+                    </div>
+                </li>
+            </ul>
+
+            <div class="list-title">
+                <i class="icon icon-door-o"></i>
+                <h4>可上门授课范围</h4>
+            </div>
+            <div class="access-region">
+                <table class="region-list"></table>
+            </div>
+            <div class="domain">
+                <div class="title">个人主页地址：</div>
+                <div class="cont">
+                    <span class="private_domain">
+                        {{ if $data.domain }}
+                            {{ $part = $data.domain }}
+                        {{ else }}
+                            {{ $part = $data.uid }}
+                        {{ /if }}
+                        <a href="/{{ $part }}" target="_blank">
+                            genshuixue.com/{{ $part }}
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    {{ /function }}
+
+    {{ if !$blank }}
+    <div class="form-trigger" data-baseinfo='{{ json_encode($tpl_data.base_info, 77) }}'>
+
+        {{ getBaseInfoShowcase data=$tpl_data.base_info }}
+
+    </div>
+    {{ /if }}
+
+    {{ $tpl_data.audits.identity = $tpl_data.verify_group.identity }}
+    {{ $tpl_data.audits.id_card = $tpl_data.verify_group.id_card }}
+
+    {{ include file="./baseInfoForm.html" tpl_data=$tpl_data.base_info audits=$tpl_data.audits private_show=$tpl_data.private_show }}
+
+</div>
+{{ /strip }}

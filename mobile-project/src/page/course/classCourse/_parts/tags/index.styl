@@ -1,0 +1,180 @@
+.class-course-tags {
+	.tag-icon-color {
+        color: #FF9100;
+        font-size: rem(16);
+    }
+    .tag-icon {
+        font-size: rem(20);
+        margin-right: rem(4);
+        vertical-align: middle;
+    }
+    .tag-icon + span {
+        font-size: rem(14);
+        color: #3C3D3E;
+    }
+    .icon-chevron-thin-right {
+        color: #c5c5c5;
+    }
+    tag() {
+        width: 100%;
+        border-bottom: 1px solid #efefef;
+        background: #F8F8F8;
+        box-shadow: rem(15) 0 0 0 #DDDDDE;
+        height: rem(44);
+        line-height: rem(44);
+        padding: 0 rem(8) 0 rem(10);
+    }
+    .float-right {
+        float: right;
+        .text {
+            font-size: rem(13);
+            color: #9D9D9E;
+        }
+    }
+	.class-course-recent-course {
+        height: rem(66);
+        background-color: #fff;
+        // line-height: rem(28);
+        padding: 0 rem(8) 0 rem(10);
+        width: 100%;
+        position: relative;
+        .desc {
+            display: inline-block;
+            color: #3D3D3E;
+            letter-spacing: 0;
+            height: rem(36);
+            line-height: rem(21);
+            margin-top: rem(13);
+            .title {
+                font-size: rem(13);
+                color: #9D9D9E;
+                letter-spacing: 0;
+            }
+            .time {
+                font-size: rem(15);
+                color: #3D3D3E;
+                letter-spacing: 0;
+                font-weight: 600;
+            }
+        }
+        .btn {
+            border: 1px solid #FF9100;
+            border-radius: rem(2);
+            font-size: rem(13);
+            color: #fff;
+            padding: 0 rem(8);
+            position: absolute;
+            top: 50%;
+            right: rem(8);
+            transform: translate(0, -50%);
+            background: #FF9100;
+            height: rem(30);
+            line-height: rem(30);
+        }
+    }
+    .class-course-tag {
+        tag();
+        ul.content {
+            width: 100%;
+            height: 100%;
+            display: inline-flex;
+            ul {
+                display: inline-block;
+                li {
+                    display: inline-block;
+                    .icon-focus {
+                        margin-right: rem(3);
+                    }
+                }
+            }
+            li:not(:first-child) {
+                margin-left: rem(6);
+            }
+            li:not(.more) {
+                flex: 1;
+                font-size: rem(13);
+                color: #3D3D3E;
+                >span {
+                    ellipsis();
+                    width: 100%;
+                    display: inline-block;
+                }
+            }
+            li.more {
+                text-align: right;
+                .icon-chevron-thin-right {
+                    font-size: rem(16);
+                }
+            }
+        }
+    }
+    .class-course-coupon {
+        position: relative;
+        tag();
+        .icon-youhuijuan {
+            v-center(absolute);
+            font-size: rem(15);
+            height: rem(16);
+        }
+        .icon-youhuijuan + span {
+            margin-left: rem(32);
+        }
+        .coupon {
+            position: relative;
+            background: #FFF2B9;
+            display: inline-block;
+            height: rem(24);
+            vertical-align: middle;
+            margin-top: rem(-4);
+            line-height: rem(24);
+            padding: 0 rem(15);
+            font-size: rem(14);
+            color: #C38C3A;
+        }
+        .coupon:not(:last-child) {
+            &:after {
+                width: rem(10);
+            }
+            margin-right: rem(8);
+        }
+        .coupon:before,.coupon:after {
+            content: "";
+            position: absolute;
+            top: rem(-20);
+            display: block;
+            width: rem(8);
+            height: 100%;
+            margin-top: rem(20);
+            background-size: rem(14) rem(7);
+        }
+        .coupon:before {
+            left: rem(-8);
+            background-color: #F8F8F8;
+            background-position: 100% 35%;
+            background-image: linear-gradient(-45deg, #FFF2B9 25%, transparent 25%, transparent), linear-gradient(-135deg, #FFF2B9 25%, transparent 25%, transparent), linear-gradient(-45deg, transparent 75%, #FFF2B9 75%), linear-gradient(-135deg, transparent 75%, #FFF2B9 75%);
+        }
+        .coupon:after {
+            right: rem(-8);
+            transform: rotate(180deg);
+            background-position: 100% 35%;
+            background-image: linear-gradient(-45deg, #FFF2B9 25%, transparent 25%, transparent), linear-gradient(-135deg, #FFF2B9 25%, transparent 25%, transparent), linear-gradient(-45deg, transparent 75%, #FFF2B9 75%), linear-gradient(-135deg, transparent 75%, #FFF2B9 75%);
+        }
+    }
+    .class-course-staging {
+        tag();
+        .icon-fenqi {
+            color: #1694ff;
+        }
+    }
+    .safe-guard{
+        position: relative;
+        tag();
+        .icon-safe-guard {
+            color: #43B244;
+        }
+        .float-right {
+            position: absolute
+            right: rem(8);
+        }
+    }
+}

@@ -1,0 +1,125 @@
+/**
+ * @file 主站头
+ * @author peilonghui
+ */
+#header {
+    background-color: #FFF;
+    position: relative;
+    z-index: @zindex-tiny;
+    width: 100%;
+
+   .wrapper {
+        .clearfix();
+        height: 90px;
+        margin: 0 auto;
+
+        position: relative;
+        width: @page-width;
+    }
+
+    .city {
+        width: 56px;
+        .text-overflow();
+        strong {
+            color: @brand-text;
+            font-weight: bold;
+        }
+        position: absolute;
+        left: 156px;
+        top: 25px;
+        padding-left: 8px;
+        border-left: 1px solid #DDDDDD;
+    }
+    .city-trigger {
+        cursor: pointer;
+        color: @brand-gray;
+        font-size: @font-size-tiny;
+
+        a {
+            color: #9d9d9d;
+        }
+
+        a:hover {
+            color: #f90;
+        }
+    }
+
+    .instruction {
+        position: absolute;
+        top: 88px;
+        img {
+            width: 158px;
+            height: 34px;
+            margin-left: 3px;
+        }
+        .gif {
+            display: none;
+        }
+    }
+
+    .logo {
+        position: absolute;
+        width: 148px;
+        height: 63px;
+        left: 0;
+        top: 16px;
+        background: url(../../../img/logo-release2.png) no-repeat;
+    }
+    .notify {
+        position: absolute;
+        width: 108px;
+        height: 34px;
+        top: 28px;
+        right: 0;
+        border: solid 1px #eee;
+        border-radius: 8px;
+        background: #f7f7f7;
+        color: #666;
+        text-align: center;
+        cursor: pointer;
+        &:hover {
+            background: #fff;
+        }
+        i {
+            display: inline-block;
+            margin-right: 8px;
+            color: #999;
+            font-size: 22px;
+            line-height: 32px;
+        }
+
+        .label {
+            display: inline-block;
+            line-height: 32px;
+            font-size: 12px;
+            vertical-align: top;
+        }
+
+        .notify-num {
+            position: absolute;
+            top: -12px;
+            left: 30px;
+            padding: 0 5px;
+            min-width: 24px;
+            height: 18px;
+            line-height: 18px;
+            font-size: 12px;
+            border-radius: 3px;
+            text-align: center;
+            background: #f00;
+            color: #fff;
+            border-bottom-left-radius: 0;
+
+            &:before {
+                position: absolute;
+                display: block;
+                content: " ";
+                z-index: 1;
+                bottom: -3px;
+                left: 0;
+                border-top: solid 3px #f00;
+                border-right: solid 3px transparent;
+            }
+        }
+    }
+}

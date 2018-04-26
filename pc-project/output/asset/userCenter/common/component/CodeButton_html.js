@@ -1,0 +1,1 @@
+define("userCenter/common/component/CodeButton_html", [], function () { return '<button class="button info{{#if options.className}} {{options.className}}{{/if}}" on-click="click"{{#if options.disabled}} disabled{{/if}}>{{options.text}}</button>'});

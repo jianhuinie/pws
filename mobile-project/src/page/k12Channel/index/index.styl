@@ -1,0 +1,88 @@
+@import "page/_base/base.styl";
+@import "page/_common/nav_bar/nav_bar.styl";
+@import "page/k12Channel/component/banner/index.styl";
+@import "page/k12Channel/component/fourTab/index.styl";
+@import "page/k12Channel/component/fiveTab/index.styl";
+@import "page/k12Channel/component/courseCardFour/index.styl";
+@import "page/k12Channel/component/courseCardThree/index.styl";
+@import "page/k12Channel/component/selectedTeacher/index.styl";
+@import "page/k12Channel/component/orgSelection/index.styl";
+@import "page/k12Channel/component/addQQ/index.styl";
+@import "page/k12Channel/component/moreCourse/index.styl";
+@import "page/k12Channel/component/dailySelection/index.styl";
+@import "page/k12Channel/component/tenTab/index.styl";
+
+
+.start-title{
+  text-align : center;
+  .title{
+    display : inline;
+    font-size:rem(17);
+    color:#3c3d3d;
+    margin:rem(0) rem(3);
+  }
+
+  .icon-star_all{
+    color:#ebeced;
+    font-size:rem(10);
+  }
+  .block-line{
+    position : relative;
+    top:rem(-2);
+    .line{
+      top:rem(5);
+      left: rem(-32);
+      position : absolute;
+      display : block;
+      width:rem(30);
+      height:rem(1);
+      font-size : rem(0);
+      border-top:1px solid #ebeced;
+    }
+    .line-sub{
+      width:rem(10);
+      left: rem(-10);
+      top:rem(7);
+    }
+  }
+  .block-line-right{
+    .line{
+      left:rem(14);
+    }
+    .line-sub{
+      left: rem(12);
+    }
+  }
+  .start-title-sub{
+    margin-top:rem(2);
+    font-size:rem(12);
+    color:#9d9e9e;
+    text-align:center;
+  }
+}
+
+.bubble {
+    position: fixed;
+    top: 40%;
+    right: 0;
+    animation: typing 3s linear infinite;
+    z-index: 100;
+    img {
+        height: rem(200);
+    }
+}
+
+@keyframes typing {
+    0% {
+        top: 40%;
+    }
+    25% {
+        top: 36%;
+    }
+    50% {
+        top: 40%;
+    }
+    75% {
+        top: 44%;
+    }
+}

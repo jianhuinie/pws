@@ -1,0 +1,62 @@
+{{ *
+
+@file 未领取优惠券的学生列表模板
+@author wangyujie
+
+* }}
+
+{{ strip }}
+
+<div class="data">
+
+    {{ if $tpl_data.students && $tpl_data.students|count > 0 }}
+    <table class="s-list">
+        {{ foreach $tpl_data.students as $item }}
+            <tr>
+                <td>
+                    <input type="checkbox" name="student_number" value="{{ $item.user_number }}" />
+                </td>
+                <td class="left">
+                    {{ include file="common/component/avatar.html" type="tiny" img=$item.avatar }}
+
+                    <span class="display-name">
+                        {{ $item.display_name }}
+                    </span>
+
+                    {{ if $item.sex == 0 }}
+                    <span class="text-error">
+                    {{ else if $item.sex == 1 }}
+                    <span class="text-info">
+                    {{ /if }}
+                        <i class="icon icon-user"></i>
+                    </span>
+
+                    {{ $item.mobile }}
+                </td>
+                <td>
+                    {{ $item.order_num }}
+                </td>
+                <td>
+                    ￥{{ $item.consume }}
+                </td>
+            </tr>
+        {{ /foreach }}
+    </table>
+    {{ /if }}
+
+    {{ if $tpl_data.students|count == 0 }}
+    <div class="no-data">
+        <div class="wrapper">
+            <img class="avatar" src="{{ $static_origin }}/asset/img/center/piezui_728edcc115.png">
+            <p>没有符合条件的学生哦~</p>
+        </div>
+    </div>
+    {{ /if }}
+
+    {{ $pager = $tpl_data.pager }}
+
+    {{ include file="common/component/pager.html" count=$pager.count page=$pager.page page_size=$pager.page_size hide_jump=1 }}
+
+</div>
+
+{{ /strip }}

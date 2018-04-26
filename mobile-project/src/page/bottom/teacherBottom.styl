@@ -1,0 +1,38 @@
+@import "page/bottom/focus/index.styl";
+@import "page/bottom/tryListen/index.styl";
+@import "common/courseBottom/consult/index.styl";
+@import "common/courseBottom/call/index.styl";
+@import "common/courseBottom/share/index.styl";
+
+.bottom {
+    display: flex;
+    text-align: center;
+    background: white;
+    position: fixed;
+    z-index: 3;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: rem(50);
+    &.hide {
+        display: none;
+    }
+    img {
+        height: rem(18);
+        width: rem(18);
+    }
+    .item-box {
+        font-family: PingFang-SC-Regular;
+        font-size: rem(12);
+        letter-spacing: rem(-0.29);
+        margin-top: rem(3);
+    }
+    .display-none {
+        display: none;
+    }
+    .super {
+        background: #00BCD4;
+        color: white;
+        border-right: 1px solid #13A7BA;
+    }
+}

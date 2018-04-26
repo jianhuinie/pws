@@ -1,0 +1,202 @@
+{{ extends file="common/pc/base.html" }}
+{{ block name="data" }}
+
+{{ $need_im = true }}
+
+{{ $smarty.block.parent }}
+{{ $flotage_config.hidden = 0 }}
+{{ $show_find_teacher = true }}
+{{ $script_data.show_findTeacher = true }}
+{{ $script_path = "videoLibrary/list" }}
+
+{{ /block }}
+
+{{ block name="title" prepend }}
+    {{ if isset($tpl_data.tdk.title) }}
+        {{ $tpl_data.tdk.title }}
+    {{ else }}
+        知识视频库 -
+    {{ /if }}
+{{ /block }}
+
+{{ block name="keywords" }}
+    {{ if isset($tpl_data.tdk.keywords) }}
+        {{ $tpl_data.tdk.keywords }}
+    {{ /if }}
+{{ /block }}
+
+{{ block name="description" }}
+    {{ if isset($tpl_data.tdk.description) }}
+        {{ $tpl_data.tdk.description }}
+    {{ /if }}
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/src/css/videoLibrary/list.less" />
+{{ /block }}
+
+{{ block name="body" }}
+
+{{ $smarty.block.parent }}
+{{ include file="common/siteNav.html" }}
+{{ strip }}
+
+<div id="video-main">
+    <div class="top-banner">
+        <img data-src="{{ $static_origin }}/src/img/videoLibrary/banner2.jpg">
+    </div>
+    <div id="main">
+
+        {{ $activenianji = "" }}
+
+        {{ $activekemu = "" }}
+        {{ foreach $tpl_data.kemu as $kemu }}
+            {{ if $kemu.active }}
+                {{ $activekemu = $kemu.name }}
+            {{ /if }}
+        {{ /foreach }}
+
+        {{ * 知识点树 * }}
+        <div class="left-tree">
+
+            <ul class="top-header">
+                {{ if $activekemu == "化学" || $activekemu == "物理" }}
+                    {{ foreach $tpl_data.nianji as $nianji }}
+                        {{ if $nianji.active }}
+                            {{ $activenianji = $nianji.name }}
+                            <a class="active" href="{{ $nianji.url }}" {{ if $nianji.name == "小学" }} style="display:none;" {{ /if }}>
+                                {{ $nianji.name }}
+                            </a>
+                        {{ else }}
+                            <a href="{{ $nianji.url }}" {{ if $nianji.name == "小学" }} style="display:none;" {{ /if }}>
+                                {{ $nianji.name }}
+                            </a>
+                        {{ /if }}
+                    {{ /foreach }}
+                {{ else }}
+                    {{ foreach $tpl_data.nianji as $nianji }}
+                        {{ if $nianji.active }}
+                            {{ $activenianji = $nianji.name }}
+                            <a class="active" href="{{ $nianji.url }}">{{ $nianji.name }}</a>
+                        {{ else }}
+                            <a href="{{ $nianji.url }}">{{ $nianji.name }}</a>
+                        {{ /if }}
+                    {{ /foreach }}
+                {{ /if }}
+            </ul>
+
+            <ul class="treeview">
+                {{ foreach $tpl_data.tree_data as $tree }}
+                    <li class="tree-view">
+                        {{ $treeName = $tree.name|cn_truncate:12 }}
+                        {{ if $tree.active }}
+                            <a class="tree-node1 active" href="{{ $tree.url }}" {{ if $treeName != $tree.name }}data-title = "{{ $tree.name }}" data-width="20em"{{ /if }}>{{ $treeName }}</a>
+                        {{ else }}
+                            <a class="tree-node1 " href="{{ $tree.url }}" {{ if $treeName != $tree.name }}data-title = "{{ $tree.name }}" data-width="20em"{{ /if }}>{{ $treeName }}</a>
+                        {{ /if }}
+                        <div class="node-open-close">
+                            {{ if !$tree.open }}
+                                <i class="icon-node icon-angle-down"></i>
+                            {{ else }}
+                                <i class="icon-node icon-angle-up"></i>
+                            {{ /if }}
+                        </div>
+                        {{ include file="videoLibrary/treeNode.html" children = $tree.children zhankai = $tree.open }}
+                    </li>
+                {{ /foreach }}
+            </ul>
+
+        </div>
+
+        {{ * 知识点视频内容 * }}
+        <div class="right-content">
+            <ul class="top-header">
+                {{ foreach $tpl_data.kemu as $kemu }}
+                    {{ if $kemu.active }}
+                        <a class="active" href="{{ $kemu.url }}">{{ $kemu.name }}</a>
+                    {{ else }}
+                        <a href="{{ $kemu.url }}" {{ if $activenianji =="小学" && ($kemu.name == "物理" || $kemu.name == "化学") }}style="display:none;" {{ /if }}>{{ $kemu.name }}</a>
+                    {{ /if }}
+                {{ /foreach }}
+            </ul>
+
+            <div class="video-list">
+                {{ if $tpl_data.list && count($tpl_data.list) >0 }}
+                <div class="list-title">{{ $tpl_data.active_title }}</div>
+                {{ foreach $tpl_data.list as $val }}
+                <div class="video-item">
+                    <div class="video-item-play" data-video="{{ $val.play_url }}" target="_blank" data-video-title="{{ $val.teacher_name }}-{{ $val.title }}">
+                    {{ include file="common/component/image.html" url=$val.cover_url width=210 height=118 lazy_load=true }}
+                    </div>
+                    <div class="play-times"><i class="icon icon-play-times"></i>{{ $val.play_times }}</div>
+                    {{ $title = $val.title|cn_truncate:13 }}
+                    <a class="item-title" href="{{ $val.url }}" target="_blank" {{ if $val.title != $title }}data-title="{{ $val.title|escape }}" data-width="20em"{{ /if }}>{{ $title }}</a>
+                    {{ $descript = $val.descript|cn_truncate:14 }}
+                    <div class="item-descript" {{ if $val.descript != $descript }}data-title="{{ $val.descript|escape }}" data-width="20em"{{ /if }}>{{ $descript }}</div>
+
+                    <a class="teacher-info" href="{{ $val.teacher_detail_url }}" target="_blank">
+                        {{ if $val.vip_level > 0 }}
+                        <i class="icon icon-level{{ $val.vip_level }}"></i>
+                        {{ /if }}
+                        {{ $tname = $val.teacher_name|cn_truncate:15 }}
+                        <span {{ if $tname != $val.teacher_name }}data-title="{{ $val.teacher_name|escape }}" data-width="20em"{{ /if }}>{{ $tname }}</span>
+                    </a>
+                </div>
+                {{ /foreach }}
+                {{ else }}
+                <div class="no-content">
+                    <i class="icon no-content-icon"></i>
+                    亲爱的同学，这里的知识点视频还在准备中，过几天再来看看吧～
+                </div>
+                {{ /if }}
+            </div>
+        </div>
+    </div>
+
+    <ul class="right-silder">
+        <li class="ask-course">
+            <i class="icon icon-ask"></i>
+            <span>咨询课程</span>
+        </li>
+
+        {{ $share_text = "#跟谁学# 分享一位老师给你哦~" }}
+        {{ $share_text = $share_text|cat: "，知识视频库" }}
+        {{ $share_text = $share_text|cat: "，还在等什么？找好老师，上跟谁学，快来开启寻师之旅吧！" }}
+
+        {{ $share_data = [] }}
+        {{ $share_data.title = $share_text }}
+        {{ $share_data.img = $static_origin|cat: "/asset/img/videoLibrary/banner.png" }}
+
+        <li class="share" data-share='{{ json_encode($share_data, 77) }}'>
+            <i class="icon icon-share2"></i><span>分享</span>
+        </li>
+
+        <li class="ask-qq">
+            <a target="_blank" href="{{ $tpl_data.qq.url }}">
+                入群领取名师优惠券
+                <i class="icon icon-qq2"></i>
+                <span>{{ $tpl_data.qq.number }}</span>
+            </a>
+        </li>
+
+        <li class="join">
+            <span>我是老师&nbsp;我要报名</span>
+        </li>
+    </ul>
+</div>
+
+
+
+{{ /strip }}
+
+{{ include file="common/script.html" }}
+
+{{ block name="script" }}
+{{ strip }}
+{{ include file="common/component/loginDialog.html" onlyShowStudent=1 }}
+{{ /strip }}
+{{ /block }}
+
+{{ include file="common/footer.html" }}
+
+{{ /block }}

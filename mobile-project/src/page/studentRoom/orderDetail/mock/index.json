@@ -1,0 +1,108 @@
+{
+    "code": 0,
+    "message": "请求成功",
+    "tpl_data": {
+        "order": {
+            "subject_name": "益智",
+            "min_price": "200",
+            "sex": 0,
+            "max_price": "400",
+            "lesson_way_cn_array": [
+                "协商地点",
+                "在线授课"
+            ],
+            "class_time_array": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0
+            ],
+            "class_address": "中国某地",
+            "remark": null,
+            "create_time": "2017-04-06 16:16:43"
+        },
+        "teacher_self": {
+            "timetable": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0
+            ],
+            "distance": "5.50",
+            "display_status": 4
+        },
+        "sign_teacher": {
+            "recommend_teacher": {
+                "user_id": "341957",
+                "display_name": "青青青青",
+                "vip_level": 0,
+                "home_url": "http://test-m.genshuixue.com/874275788",
+                "avatar_url_mobile": "https://imgs.genshuixue.com/headpic_man.png",
+                "audio_url": "http://test-img.gsxservice.com/333453_oa59zxja.mp3",
+                "comment_score": "4.4",
+                "comment_count": 309,
+                "video_url": 17612
+            },
+            "no_recommend_teacher": [
+                {
+                    "user_id": "342169",
+                    "display_name": "小唐老师",
+                    "vip_level": 3,
+                    "home_url": "http://test-m.genshuixue.com/835527078",
+                    "avatar_url_mobile": "https://imgs.genshuixue.com/headpic_woman_06.jpg",
+                    "audio_url": "http://test-img.gsxservice.com/399959_d76rm1yp.mp3",
+                    "sign_time": "2017-04-06 18:10:54",
+                    "comment_score": "4.6",
+                    "comment_count": 127,
+                    "video_url": "15298"
+                },
+                {
+                    "user_id": "346197",
+                    "display_name": true,
+                    "vip_level": 0,
+                    "home_url": "http://test-m.genshuixue.com/458038588",
+                    "avatar_url_mobile": "https://test-imgs.genshuixue.com/783358_gk3dy411.jpeg",
+                    "audio_url": null,
+                    "sign_time": "2017-04-06 18:10:57",
+                    "comment_score": "0.0",
+                    "comment_count": 0,
+                    "video_url": null
+                }
+            ]
+        }
+    }
+}

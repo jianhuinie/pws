@@ -1,0 +1,14 @@
+{
+    "code": 0,
+    "tpl_data": {
+            "apply_service":[
+                "退款"
+            ],
+            "reason":{
+                "1":"无法与老师达成一致",
+                "2":"下错单了"
+            },
+            "total_price": "100.00",
+            "class_fire_price": "50"
+    }
+}

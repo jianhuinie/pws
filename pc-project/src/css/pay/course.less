@@ -1,0 +1,84 @@
+/**
+ * @file 支付 - 选择课程
+ * @author zhujialu, liucong
+ */
+@import './common/layout.less';
+
+@import './course/classCourse.less';
+@import './course/teacher.less';
+@import './course/hours.less';
+@import '../common/component/loginDialog.less';
+
+#main {
+
+    .section-header {
+        border-bottom: 1px solid @brand-gray-light;
+        color: @brand-text;
+        font-size: @font-size-medium;
+        padding: @gap-vertical-small 0;
+    }
+
+    .section-body {
+        padding: @gap-vertical-huge 0;
+    }
+
+    .footer {
+
+        border-top: 1px solid @brand-gray-light;
+        padding: @gap-vertical-huge 0;
+        text-align: right;
+
+        .text-error {
+            margin-top: @gap-vertical-large;
+        }
+
+        .money {
+            margin-bottom: @gap-vertical-medium;
+        }
+        .refund {
+            color: @brand-gray;
+            height: 40px;
+            line-height: 40px;
+        }
+        .icon-cash-large-o {
+            font-size: 40px;
+            margin-right: @gap-horizontal-medium;
+            vertical-align: middle;
+        }
+    }
+    .btn-primary {
+        margin-left: @gap-horizontal-huge;
+    }
+
+    .form-summary {
+
+        text-align: right;
+
+        li + li {
+            margin-top: @gap-vertical-small;
+        }
+        .detail {
+            border-top: 1px dashed @brand-gray-light;
+            padding: @gap-vertical-large 0;
+
+            .price {
+                color: @brand-primary;
+            }
+            .discount-value,
+            .discount-price {
+                color: @brand-error;
+            }
+        }
+
+        .total {
+            border-top: 1px dashed @brand-gray-light;
+            padding: @gap-vertical-huge 0;
+
+            span {
+                color: @brand-primary;
+                font-size: @font-size-huge;
+            }
+        }
+    }
+
+}

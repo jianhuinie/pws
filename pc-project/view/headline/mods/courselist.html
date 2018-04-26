@@ -1,0 +1,26 @@
+{{ strip }}
+<div class="mode-list">
+    <div class="mode-header">
+        相关课程
+        <a class="more-link" href="{{ $relativeCourses.more }}" target="_blank">更多&gt;</a>
+    </div>
+    <div class="course-list">
+        {{ foreach $relativeCourses.courses as $course }}
+        <div class="course-item">
+            <a class="course-name ellipsis" title="{{ $course.headline }}" data-click-monitor="1" data-href="{{ $course.url }}" data-rank="{{ $course@index+1 }}" data-qid="{{ $course.qid }}" data-search-form="{{ $course.search_form }}" href="{{ $course.url }}">
+                {{ $course.headline }}
+            </a>
+            <div class="course-author">
+                <a class="course-author-img" href="{{ $course.teacher_url }}" target="_blank">
+                {{ include file="common/component/image.html" url=$course.avatar width=30 height=30 }}
+                </a>
+                <a class="course-author-name ellipsis" href="{{ $course.teacher_url }}" target="_blank">
+                    {{ $course.subhead|default:'' }}
+                </a>
+                <span class="course-author-experience">{{ $course.school_age }}</span>
+            </div>
+        </div>
+        {{ /foreach }}
+    </div>
+</div>
+{{ /strip }}

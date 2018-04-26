@@ -1,0 +1,56 @@
+.course-notes {
+	margin: rem(9) 0;
+    margin-top: rem(15);
+    background-color: #fff;
+    padding-top: rem(25);
+    .content {
+        &>ul {
+            &>li:not(:first-child) {
+                margin-top: rem(40);
+            }
+            li {
+                .title1 {
+                    font-size: rem(16);
+                    color: #3D3D3E;
+                    font-weight: 500;
+                }
+                ul {
+                    li {
+                        margin-top: rem(10);
+                        font-size: rem(14);
+                        p {
+                            position: relative;
+                        }
+                        .title2 {
+                            color: #6d6d6e;
+                            font-weight: 500;
+                            .index {
+                                color: #ff9100
+                            }
+                        }
+                        .title2 + p {
+                            line-height: rem(18);
+                        }
+                        // .title2:before {
+                        //     content: '';
+                        //     color: #ff9100
+                        //     font-size: 0;
+                        //     // left: rem(5);
+                        //     line-height: 0;
+                        //     v-center(absolute);
+                        //     // top: rem(7);
+                        //     width: rem(2);
+                        //     height: rem(2);
+                        //     border-radius: rem(20);
+                        //     background:#ff9100;
+                        //     border:rem(2) solid #ff9100;
+                        // }
+                        p:not(.title2) {
+                            color: #9d9d9e;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

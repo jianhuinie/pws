@@ -1,0 +1,421 @@
+/**
+ * @file 赢在校园【预报名】
+ * @author zhengjunxin
+ */
+
+@import '../main/base.less';
+@import '../common/component/loginDialog.less';
+@import '../common/layout.less';
+#main {
+    margin: 0 auto;
+    width: 100%;
+}
+.my-wrapper {
+    width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.floatge {
+    display: block;
+    /*width: 200px;
+    height: 505px;
+    background:url(http://img.gsxservice.com/0cms/d/file/content/2015/03/5514c7b6703c3.png) no-repeat right top;*/
+    position: fixed;
+    right: 0px;
+    top: 100px;
+    z-index: 2;
+
+    .icon-title {
+        background: url('../../../src/img/activity/xiaoyuan/right-button.png') no-repeat -126px top;
+        height: 153px;
+        width: 133px;
+
+    }
+    .icon-enroll {
+        background: url('../../../src/img/activity/xiaoyuan/right-button.png') no-repeat 3px -2px;
+        cursor: pointer;
+        height: 50px;
+        width: 133px;
+        &:hover {
+            background: url('../../../src/img/activity/xiaoyuan/right-button.png') no-repeat 3px -57px;
+        }
+    }
+    .icon-vote {
+        background: url('../../../src/img/activity/xiaoyuan/right-button.png') no-repeat 3px -169px;
+        height: 54px;
+        width: 133px;
+        display: block;
+        &:hover {
+            background: url('../../../src/img/activity/xiaoyuan/right-button.png') no-repeat 3px -228px;
+        }
+    }
+}
+/*title的公共部分*/
+.title {
+    background-color: #515151;
+    color: #fff;
+    font-size: 22px;
+    width: 180px;
+    height: 47px;
+    text-align: center;
+    line-height: 47px;
+}
+.content {
+    background-color: #fff;
+
+    .banner {
+        width: 100%;
+        height: 564px;
+        position: relative;
+
+        background: #f13639 url(http://img.gsxservice.com/0cms/d/file/content/2015/04/5523bba16dd13.png) no-repeat center center;
+
+    }
+}
+.video {
+    height: 198px;
+    background-color: #454545;
+    padding-top: 23px;
+    padding-bottom: 27px;
+
+    .video-thumbnail {
+        width: 1063px;
+        height: 148px;
+
+        img {
+            width: 1063px;
+            height: 148px;
+        }
+
+        .icon {
+            font-size: 84px;
+            left: 50%;
+            bottom: 50%;
+            margin-left: -42px;
+            margin-bottom: -42px;
+        }
+
+    }
+}
+
+
+/*大赛简介*/
+.intro {
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    margin-left: -550px;
+    padding-bottom: 28px;
+
+    .title {
+        position: relative;
+        top: -13px;
+        z-index: 2;
+    }
+}
+.desc {
+    font-size: 14px;
+    color: #fff;
+    line-height: 1.6;
+
+    p {
+        text-indent: 2em;
+    }
+}
+
+/*大赛奖励*/
+.prize {
+    margin-top: 20px;
+    margin-bottom: 60px;
+}
+.prize-bg {
+    width: 1078px;
+    height: 499px;
+    background: url(http://img.gsxservice.com/0cms/d/file/content/2015/04/5523c87502a41.png) no-repeat 5px top;
+}
+
+/*培养*/
+.cultivate {
+    background-color: #fff2f0;
+    .title {
+        display: inline-block;
+    }
+    .more {
+        border-left: 5px solid #f13639;
+        color: #fff;
+        background-color: #9b9b9b;
+        font-size: 22px;
+        display: inline-block;
+        width: 274px;
+        height: 47px;
+        vertical-align: top;
+        padding-top: 10px;
+        text-align: center;
+    }
+    p {
+        border-left: 5px solid #f13639;
+        color: #6d6d6d;
+        padding-left: 15px;
+        font-size: 24px;
+        height: 26px;
+        line-height: 26px;
+        margin-top: 18px;
+        margin-left: 180px;
+
+    }
+    .cultivate-bg {
+        width: 1160px;
+        height: 835px;
+        background: url(http://img.gsxservice.com/0cms/d/file/content/2015/03/55150de20ffe4.jpg) no-repeat 0 top;
+    }
+}
+/*大赛特约老师*/
+.teachers {
+    background-color: #fafafa;
+    font-size: 16px;
+    padding-bottom: 60px;
+
+    .title {
+        width: 220px;
+    }
+    .teacher-list {
+        padding-left: 16px;
+        margin-top: 14px;
+    }
+    .teacher {
+        vertical-align: top;
+        display: inline-block;
+        width: 303px;
+        height: 305px;
+        margin-right: 40px;
+        text-align: center;
+
+
+        p {
+            color: #3d3d3d;
+        }
+        .desc {
+            color: #6d6d6d;
+            text-indent: 2em;
+            text-align: left;
+        }
+        &:hover {
+            p {
+               color: #bbb;
+            }
+        }
+    }
+
+    .thumbnail {
+        height: 130px;
+        width: 130px;
+
+        img {
+            border: none;
+        }
+    }
+    .teacher-title {
+        background-color: #e84143;
+        color: #fff;
+        height: 36px;
+        text-align: center;
+        line-height: 36px;
+        width: 110px;
+    }
+}
+/*扫码*/
+.apply {
+    text-align: center;
+    background-color: #fff;
+    margin-top: 45px;
+    padding-bottom: 71px;
+    /*.apply-bg {
+        margin: 15px auto 21px auto;
+        width: 175px;
+        height: 175px;
+        background: url(http://img.gsxservice.com/0cms/d/file/content/2015/03/5514c7b6703c3.png) no-repeat -1009px top;
+    }
+
+    .apply-text {
+        text-align: center;
+        font-size: 20px;
+        color: #3d3d3d;
+    }*/
+
+    button {
+        overflow: visible;
+        width: 263px;
+        height: 66px;
+        background-color: #f13639;
+        font-size: 26px;
+        color: #fff;
+        line-height: 66px;
+        border-radius: 7px;
+        box-shadow: 0 2px 0 0 #bb090c;
+        border-color: #f13639;
+        cursor: pointer;
+    }
+    .processing:hover {
+            background-color: #ca282a;
+            box-shadow: 0 2px 0 0 #f13639;
+            border-color: #f13639;
+        }
+    .complete {
+        position: relative;
+
+        img {
+            position: absolute;
+            top: -70px;
+            right: -73px;
+            transform: rotate(-25deg);
+        }
+    }
+
+    .info {
+        color: #3d3d3d;
+        margin-top: 25px;
+        font-size: 16px;
+    }
+    .icons {
+        position: relative;
+        left: 11px;
+    }
+    span {
+        color: #515151;
+        font-size: 14px;
+        margin-top: 15px;
+        display: inline-block;
+        width: 76px;
+        height: 76px;
+        border: 1px solid #b3b3b3;
+        border-radius: 38px;
+        margin-right: 20px;
+        position: relative;
+        padding-top: 27px;
+
+        .icon {
+            background-color: #fff;
+            font-size: 34px;
+            position: absolute;
+            bottom: -7px;
+            right: -10px;
+        }
+        .icon-check-circle {
+            color: #52b119;
+        }
+        .icon-info-circle {
+            color: #fc5600;
+        }
+        &:hover {
+            border-color: #f13639;
+            color: #f13639;
+        }
+    }
+
+    /*.begining {
+        color: #676767;
+        font-size: 18px;
+        margin-top: 11px;
+    }*/
+}
+
+/*大赛流程*/
+.process {
+    background-color: #fff2f0;
+    padding-bottom: 80px;
+
+    .book {
+        width: 226px;
+        height: 68px;
+        position: absolute;
+        top: 44px;
+        right: 0;
+    }
+    .book-second {
+        width: 226px;
+        height: 68px;
+        position: absolute;
+        top: 138px;
+        right: 0;
+    }
+    .book-third {
+        width: 226px;
+        height: 68px;
+        position: absolute;
+        top: 232px;
+        right: 0;
+    }
+    .process-bg {
+        width: 1059px;
+        height: 359px;
+        margin-top: 30px;
+
+        position: relative;
+        background: url(http://img.gsxservice.com/0cms/d/file/content/2015/06/5570521317c11.png) no-repeat left top;
+    }
+}
+
+/*联系我们*/
+.contact {
+    background-color: #fff;
+    padding-top: 25px;
+    padding-bottom: 60px;
+
+    .contact-bg {
+        width: 1060px;
+        height: 492px;
+        margin-top: 6px;
+        /*background: url(http://img.gsxservice.com/0cms/d/file/content/2015/03/55151c324930c.png) no-repeat left top;*/
+        background: url(http://img.gsxservice.com/0cms/d/file/content/2015/04/55252294d3718.png) no-repeat left top;
+    }
+}
+
+/*赞助商*/
+.spon {
+    border-top: 40px solid #e83336;
+    background-color: #454545;
+    padding-top: 47px;
+    padding-bottom: 15px;
+    font-size: 14px;
+    color: #fff;
+
+    .sponsor {
+        margin-right: 145px;
+        display: inline-block;
+        position: relative;
+        span {
+            position: absolute;
+            left: 108px;
+            top: -5px;
+            width: 69px;
+            height: 29px;
+            background: url(http://img.gsxservice.com/0cms/d/file/content/2015/03/5514c7b6703c3.png) no-repeat right -436px;
+        }
+    }
+
+    .unite {
+        position: relative;
+        span {
+            position: absolute;
+            left: 67px;
+            top: -9px;
+            width: 106px;
+            height: 33px;
+            background: url(http://img.gsxservice.com/0cms/d/file/content/2015/03/5514c7b6703c3.png) no-repeat right bottom;
+        }
+    }
+    .spon-desc {
+        margin-top: 20px;
+    }
+    i {
+        display: inline-block;
+        text-indent: 71px;
+    }
+    .copyright {
+        color: #777777;
+        margin-top: 70px;
+        text-align: center;
+
+    }
+}
+

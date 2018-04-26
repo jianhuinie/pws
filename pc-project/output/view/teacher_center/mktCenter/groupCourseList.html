@@ -1,0 +1,73 @@
+{{ *
+
+@file 促销活动 - 课程列表
+@author wangyujie
+
+* }}
+{{ strip }}
+
+{{ if !isset($classCourseList) }}
+    {{ $classCourseList = '' }}
+{{ /if }}
+
+{{ if !isset($videoCourseList) }}
+    {{ $videoCourseList = '' }}
+{{ /if }}
+
+<div class="course-body">
+    {{ if ($classCourseList == '' && count($videoCourseList) == 0) ||
+          ($videoCourseList == '' && count($classCourseList) == 0) ||
+          (count($classCourseList) == 0 && count($videoCourseList) == 0) }}
+        <div class="no-data">
+            <div class="wrapper">
+                <img class="avatar" src="{{ $static_origin }}/asset/img/center/piezui_728edcc115.png">
+                <p>暂时还没有可以设置限时折扣的课程哦~</p>
+            </div>
+        </div>
+    {{ else }}
+        <div class="course-list">
+            {{ include file="teacher_center/mktCenter/groupCourseItem.html" classCourseList=$classCourseList videoCourseList=$videoCourseList }}
+        </div>
+
+        <div class="course-action">
+
+            <input type="hidden" name="center_id" value="{{ $smarty.get.center_id }}" />
+
+            {{ if isset($smarty.get.action) }}
+                {{ $urlAction = $smarty.get.action }}
+            {{ else }}
+                {{ $urlAction = 'add' }}
+            {{ /if }}
+
+            {{ if $urlAction == 'add' }}
+                <button class="btn btn-primary btn-update">
+                    添加课程
+                </button>
+            {{ else if $urlAction == 'update' }}
+                <button class="btn btn-primary btn-update">
+                    保存修改
+                </button>
+                <button class="btn btn-default btn-del">
+                    课程退出活动
+                </button>
+            {{ /if }}
+
+            <div class="selected-course">
+                已选<span>0</span>课程
+            </div>
+            <div class="master-option">
+                打
+                <input type="text" class="form-text" id="discount-all" name="" />
+                折
+            </div>
+            <div class="master-option">
+                或减
+                <input type="text" class="form-text" id="derate-all" name="" />
+                元
+            </div>
+        </div>
+    {{ /if }}
+</div>
+
+{{ /strip }}
+

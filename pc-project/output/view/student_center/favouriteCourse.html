@@ -1,0 +1,84 @@
+{{ *
+
+@file 我的收藏 - 课程收藏
+@author wangyujie
+
+* }}
+{{ extends file="common/center/base.html" }}
+
+{{ block name="data" }}
+    {{ $smarty.block.parent }}
+    {{ $script_path = "studentCenter/favouriteCourse_45fe402d5a" }}
+{{ /block }}
+
+{{ block name="title" prepend }}
+我的收藏 - 课程收藏
+{{ /block }}
+
+{{ block name="style" }}
+<link rel="stylesheet" href="{{ $static_origin }}/asset/css/studentCenter/favouriteCourse_2275d028bf.css">
+{{ $smarty.block.parent }}
+{{ /block }}
+
+{{ block name="main" }}
+{{ strip }}
+
+    {{ include file="student_center/common/sidebar.html" active="courseFav" }}
+
+    <div id="content" class="card" data-identity="">
+        <div class="card-header">
+            <h2>课程收藏</h2>
+        </div>
+        <div class="card-body">
+
+            <div class="tab">
+
+                <div class="tab-nav tab-nav-primary">
+
+                    <span class="batch-option">
+                        批量管理
+                    </span>
+
+                    <div class="batch">
+                        <span class="cancel-batch-option">
+                            取消管理
+                        </span>
+                        <span class="delete-all">
+                            <i class="icon icon-recycle-bin"></i>
+                            删除
+                        </span>
+                        <span class="select-all">
+                            <label>
+                                <input type="checkbox" id="select-all" />
+                                全选
+                            </label>
+                        </span>
+                    </div>
+
+                    <b class="nav-item active" id="all-course" data-type="course">
+                        全部课程 {{ $tpl_data.course_count }}
+                    </b>
+                    <b class="nav-item" id="nav-class-course" data-type="class_course">
+                        班课 {{ $tpl_data.class_course_count }}
+                    </b>
+                    <b class="nav-item" id="nav-video-course" data-type="video_course">
+                        视频课 {{ $tpl_data.video_course_count }}
+                    </b>
+                </div>
+
+                <div class="tab-content">
+                    <div class="tab-panel">
+
+                        <div class="data-container"></div>
+                        <div class="page-container"></div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+{{ /strip }}
+{{ /block }}

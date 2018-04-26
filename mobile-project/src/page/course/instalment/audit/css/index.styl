@@ -1,0 +1,63 @@
+@import "page/_base/base.styl";
+@import "page/_common/nav_bar/nav_bar.styl";
+
+$bg-font-color = #6d6d6e;
+
+body
+    color $bg-font-color
+    font-size rem(14)
+
+.audit-confirm
+    .icon-success
+        margin-top rem(45)
+        margin-bottom rem(25)
+        text-align center
+        > span.icon-check-alt
+            color #48b14b
+            font-size rem(100)
+
+    .confirm
+        margin 0 rem(25)
+        line-height 1.8
+
+    .instalment-info
+        padding rem(15)
+        margin rem(15)
+        background-color #fff
+        line-height 1.8
+        > .info
+            padding rem(10) 0
+
+        > .warn
+            color #f95710
+
+    .submit-wrapper
+        margin rem(15)
+        > .submit:hover
+            background-color #2C84C6
+
+        > .submit
+            width 100%
+            background-color #3fa5f2
+            border-radius rem(2)
+            height rem(42)
+            line-height rem(42)
+            text-align center
+            border none
+            font-size rem(16)
+            color #fff
+            outline none
+
+.audit-status
+    > div
+        margin 0 rem(20)
+        font-size rem(16)
+        height rem(240)
+
+    .icon-right
+        text-align center
+        font-size rem(100)
+        margin-top rem(60)
+        margin-bottom rem(35)
+        color #48b14b
+

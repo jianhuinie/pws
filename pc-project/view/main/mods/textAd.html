@@ -1,0 +1,22 @@
+{{ strip }}
+<script type="text/template" id="ad-text-template">
+<ul>
+    <!-- for: ${ads} as ${ad} -->
+    <li class="special-ad-item">
+        <a class="text-right" href="${ad.click}" target="_blank" data-click-monitor="${ad.clickMonitor}" data-monitor="${ad.monitor}">
+            <!-- if: ${ad.gsxProtocol | usehot()} -->
+            <i class="icon icon-fire"></i>
+            <span class="ad-tip">[火热报名]</span>
+            <!-- else -->
+            <i class="icon icon-thumbs-up"></i>
+            <span class="ad-tip">[推荐]</span>
+            <!-- /if -->
+            <span class="ad-content">
+                ${ad.hover}
+            </span>
+        </a>
+    </li>
+    <!-- /for -->
+</ul>
+</script>
+{{ /strip }}

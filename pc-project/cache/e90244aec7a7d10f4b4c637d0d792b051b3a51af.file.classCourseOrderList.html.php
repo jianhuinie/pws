@@ -1,0 +1,20 @@
+<?php /* Smarty version Smarty-3.1.19, created on 2016-08-06 16:33:21 compiled from "/Users/bjhl/workspace/web-fe/view/teacher_center/component/classCourseOrderList.html" */ ?>
+<?php /*%%SmartyHeaderCode:170655687957a5a0d11da9d7-40231639%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array ( 'file_dependency' => array ( 'e90244aec7a7d10f4b4c637d0d792b051b3a51af' => array ( 0 => '/Users/bjhl/workspace/web-fe/view/teacher_center/component/classCourseOrderList.html', 1 => 1466835415, 2 => 'file', ), ), 'nocache_hash' => '170655687957a5a0d11da9d7-40231639', 'function' => array ( ), 'variables' => array ( 'tpl_data' => 0, 'orders' => 0, 'order' => 0, 'orderStatus' => 0, 'pager' => 0, ), 'has_nocache_code' => false, 'version' => 'Smarty-3.1.19', 'unifunc' => 'content_57a5a0d122b7d1_57522900',
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_57a5a0d122b7d1_57522900')) {function content_57a5a0d122b7d1_57522900($_smarty_tpl) {?>
+<?php if (!empty($_smarty_tpl->tpl_vars['tpl_data']->value['order_list'])) {?><?php $_smarty_tpl->tpl_vars['orders'] = new Smarty_variable($_smarty_tpl->tpl_vars['tpl_data']->value['order_list']['object_list'], null, 0);?><?php $_smarty_tpl->tpl_vars['pager'] = new Smarty_variable($_smarty_tpl->tpl_vars['tpl_data']->value['order_list']['pager'], null, 0);?><?php echo $_smarty_tpl->getSubTemplate ("common/variable/orderStatus.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 1);?>
+<?php if (!empty($_smarty_tpl->tpl_vars['orders']->value)) {?><table class="table"><thead><tr><th>学生名称</th><th>订单编号</th><th>报名时间</th><th>班内序号</th><th>订单时长</th><th>订单价格</th><th>订单状态</th><th>订单操作</th></tr></thead><tbody><?php $_smarty_tpl->tpl_vars['order'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['order']->_loop = false; $_from = $_smarty_tpl->tpl_vars['orders']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['order']->key => $_smarty_tpl->tpl_vars['order']->value) {
+$_smarty_tpl->tpl_vars['order']->_loop = true;
+?><tr<?php if ($_smarty_tpl->tpl_vars['order']->value['status']=="canceled") {?> class="canceled"<?php }?>><td><a href="/x/<?php echo $_smarty_tpl->tpl_vars['order']->value['student_user_number'];?>
+" target="_blank"><?php echo $_smarty_tpl->tpl_vars['order']->value['display_name'];?>
+</a></td><td><?php if (isset($_smarty_tpl->tpl_vars['order']->value['is_coin_pay'])&&$_smarty_tpl->tpl_vars['order']->value['is_coin_pay']) {?><i class="icon icon-ic_applelogo" data-title="该订单通过苹果ios端APP购买，收取30%渠道费" data-width="20em"></i><?php } else { ?><i class="icon-apple"></i><?php }?><?php echo $_smarty_tpl->tpl_vars['order']->value['purchase_id'];?>
+</td><td><?php echo $_smarty_tpl->tpl_vars['order']->value['create_time'];?>
+</td><td class="dark"><?php echo $_smarty_tpl->tpl_vars['order']->value['student_no'];?>
+</td><td class="dark"><?php echo $_smarty_tpl->tpl_vars['order']->value['hours'];?>
+小时</td><td class="dark">￥<?php echo $_smarty_tpl->tpl_vars['order']->value['pay_money'];?>
+</td><td class="dark"><?php echo $_smarty_tpl->tpl_vars['orderStatus']->value[$_smarty_tpl->tpl_vars['order']->value['status']][1];?>
+</td><td><a href="<?php echo $_smarty_tpl->tpl_vars['order']->value['order_url']['order_detail_url'];?>
+" target="_blank">查看详情</a></td></tr><?php } ?></tbody></table><?php echo $_smarty_tpl->getSubTemplate ("common/component/pager.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array('count'=>$_smarty_tpl->tpl_vars['pager']->value['total'],'page'=>$_smarty_tpl->tpl_vars['pager']->value['page'],'page_size'=>$_smarty_tpl->tpl_vars['pager']->value['page_size']), 0);?>
+<?php } else { ?><div class="empty-order-list"><div class="empty-hint"></div><p>暂无符合条件的订单</p></div><?php }?><?php }?><?php }} ?>

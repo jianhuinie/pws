@@ -1,0 +1,1 @@
+define('userCenter/common/function/bindEach_898e0020d5',function(){'use strict';return function(n,e){$.each(e,function(e,t){n.set(e,n.get(t));var c=[e,t];$.each(c,function(e,t){n.observe(t,function(e,i){if('undefined'!=typeof i){var f={};$.each(c,function(n,c){if(c!==t)f[c]=e;}),n.set(f);}});});});};});

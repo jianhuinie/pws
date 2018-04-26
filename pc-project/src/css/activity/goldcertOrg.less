@@ -1,0 +1,613 @@
+/**
+ * @file 金牌机构宣传页
+ * @author niejianhui
+ */
+
+@import '../main/base.less';
+@import '../common/component/thirdCallDialog.less';
+
+#header {
+    display: none;
+}
+
+#cert-org {
+    .page-top {
+        height: 630px;
+        background: url('../../img/activity/goldcertOrg/bg_top.jpg');
+        background-position: center;
+        background-size: cover;
+        .content {
+            padding-top: 54px;
+            width: 1100px;
+            margin: 0 auto;
+            .logo-gsx {
+                width: 123px;
+                height: 50px;
+                background: url('../../img/logo-release3.png');
+            }
+            .inner-box {
+                text-align: center;
+                .logo-jinpai {
+                    width: 200px;
+                    height: 172px;
+                    margin: 0 auto;
+                    background: url('../../img/activity/goldcertOrg/jinpai_head.png');
+                }
+                .title {
+                    font-size: 50px;
+                    color: #FFFFFF;
+                    font-weight: bold;
+                    margin-top: 30px;
+                }
+                .text-intro {
+                    font-size: 28px;
+                    color: #FFFFFF;
+                }
+                .btn {
+                    width: 290px;
+                    line-height: 50px;
+                    color: #FFFFFF;
+                    text-align: center;
+                    margin: 0 auto;
+                    cursor: pointer;
+                }
+                .apply-btn {
+                    display: block;
+                    background: #FF382F;
+                    font-size: 20px;
+                    font-weight: bold;
+                    margin-top: 40px;
+                }
+                .consult-btn {
+                    opacity: 0.5;
+                    border: 1px solid #FFFFFF;
+                    font-size: 18px;
+                    margin-top: 16px;
+                }   
+            }
+        }
+    }
+    .what-goldorg {
+        background-color: #fff; 
+        .content {
+            padding: 100px 0;
+            width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+            .title {
+                font-size: 48px;
+                color: #2D2D2E;
+                font-weight: bold;
+            }
+            .text-keywords {
+                font-size: 24px;
+                color: #3D3D3E;
+                margin-bottom: 34px;
+            }
+            .text-intro {
+                width: 767px;
+                margin: 0 auto;
+                font-size: 16px;
+                color: #6D6D6E;
+                line-height: 26px;
+                text-align: left;
+                margin-top: 22px;
+            }
+            .circle-chart {
+                width: 767px;
+                margin: 0 auto;
+                text-align: center;
+            }
+            .circle-large {
+                background-color: #f8f8f8;
+                width: 470px;
+                height: 470px;
+                margin: 0 auto;
+                border-radius: 235px;
+                margin-top: 40px;
+                position: relative;
+                .circle-middle {
+                    background-color: #ededee;
+                    width: 310px;
+                    height: 310px;
+                    border-radius: 155px;
+                    position: relative;
+                    top: 80px;
+                    left: 80px;
+                    .circle-small {
+                        background-color: #fff;
+                        width: 150px;
+                        height: 150px;
+                        position: relative;
+                        top: 80px;
+                        left: 80px;
+                        border-radius: 75px;
+                        .jinpai-cert {
+                            width: 112px;
+                            height: 96px;
+                            background: url('../../img/activity/goldcertOrg/jinpai_cert.png');
+                            position: relative;
+                            top: 19px;
+                            left: 19px;
+                        }
+                    }
+                }
+                .circle-tiny {
+                    width: 120px;
+                    height: 120px;
+                    border-radius: 60px;
+                    background: #F61B11;
+                    padding-top: 35px;
+                    position: absolute;
+                    span {
+                        display: block;
+                        font-size: 20px;
+                        color: #FFFFFF;
+                        line-height: 25px;
+                        font-weight: bold;
+                    }
+                }
+                .ad, .openclass {
+                    background: #24223E;
+                    top: 175px;
+                }
+                .enroll {
+                    left: 175px;
+                    top: -20px;
+                }
+                .ad {
+                    left: -20px;
+                }
+                .openclass {
+                    right: -20px;
+                }
+                .famousclass, .rebuy {
+                    bottom: 0;
+                }
+                .famousclass {
+                    left: 85px;
+                }
+                .rebuy {
+                    right: 85px;
+                }
+            }
+        }
+    }
+    .what-for {
+        height: 930px;
+        background: url('../../img/activity/goldcertOrg/bg_kinds.jpg');
+        background-position: center;
+        background-size: cover;
+        .content {
+            width: 1100px;
+            margin: 0 auto;
+            padding: 100px 0;
+            text-align: center;
+            .title {
+                font-size: 48px;
+                color: #FFFFFF;
+                font-weight: bold;
+            }
+            .text-info {
+                opacity: 0.6;
+                font-size: 24px;
+                color: #FFFFFF;
+                line-height: 46px;
+            }
+            .kind-items {
+                text-align: center;
+                margin-top: 80px;
+                .item {
+                    margin-right: 110px;
+                    display: inline-block;
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                    .kind-icon {
+                        display: block;
+                        width: 120px;
+                        height: 120px;
+                        margin-bottom: 35px;
+                    }
+                    .xueqian {
+                        background: url('../../img/activity/goldcertOrg/xueqian.png');
+                    }
+                    .xiaoxue {
+                        background: url('../../img/activity/goldcertOrg/xiaoxue.png');
+                    }
+                    .liuxue {
+                        background: url('../../img/activity/goldcertOrg/liuxue.png');
+                    }
+                    .yuyan {
+                        background: url('../../img/activity/goldcertOrg/yuyan.png');
+                    }
+                    .kaoyan {
+                        background: url('../../img/activity/goldcertOrg/kaoyan.png');
+                    }
+                    .yiti {
+                        background: url('../../img/activity/goldcertOrg/yiti.png');
+                    }
+                    .zhiye {
+                        background: url('../../img/activity/goldcertOrg/zhiye.png');
+                    }
+                    .text {
+                        font-size: 20px;
+                        color: #FFFFFF;
+                        line-height: 20px;
+                    }
+                }
+            }
+        }
+    }
+    .how-develop {
+        background-color: #fff;
+        .content {
+            width: 1100px;
+            margin: 0 auto;
+            padding: 100px 0;
+            text-align: center;
+            .title {
+                font-size: 48px;
+                color: #100E29;
+                font-weight: bold;
+                margin-bottom: 55px;
+            }
+            .list-item {
+                margin-bottom: 120px;
+                .title-banner {
+                    margin-bottom: 36px;
+                    span {
+                        display: inline-block;
+                        line-height: 56px;
+                        color: #fff;
+                        text-align: center;
+                        font-size: 24px;
+                        color: #FFFFFF;
+                    }
+                    .banner-first {
+                        width: 116px;
+                        background-color: #110F29;;
+                    }
+                    .banner-second {
+                        width: 176px;
+                        background: #F61B11;
+                    }
+                }
+                .text-intro {
+                    font-size: 24px;
+                    color: #2D2D2E;
+                    margin-bottom: 45px;
+                }
+                .text-info {
+                    font-size: 16px;
+                    color: #6D6D6E;
+                    line-height: 16px;
+                    margin-bottom: 19px;
+
+                }
+                .cert {
+                    margin: 0 auto;
+                    width: 842px;
+                    height: 543px;
+                    background: url('../../img/activity/goldcertOrg/cert.png');
+                }
+                .sgs-cert {
+                    font-weight: bold;
+                    font-size: 24px;
+                    color: #F61B11;
+                    margin-bottom: 20px;
+                }
+            }
+            .ad-show {
+                .caseimgs-box {
+                    position: relative;
+                    .imgs-slider {
+                        width: 782px;
+                        height: 650px;
+                        margin: 0 auto;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        position: relative;
+                        .inner-slider {
+                            position: absolute;
+                            .img-item {
+                                width: 782px;
+                                height: 650px;
+                                cursor: pointer;
+                                position: relative;
+                                display: inline-block;
+                            }
+                            .item-1 {
+                                background: url('../../img/activity/goldcertOrg/page_pc.png');
+                            }
+                            .item-2 {
+                                background: url('../../img/activity/goldcertOrg/page_search.png');
+                            }
+                            .item-3 {
+                                background: url('../../img/activity/goldcertOrg/page_app.png');
+                            }
+                            .item-4 {
+                                background: url('../../img/activity/goldcertOrg/page_h5.png');
+                            }
+                        }
+                    }
+                    .slider-btns {
+                        position: absolute;
+                        bottom: 0;
+                        left: 48%;
+                        .btn-item {
+                            display: inline-block;
+                            width: 14px;
+                            height: 14px;
+                            border-radius: 7px;
+                            background: @brand-gray;
+                            margin-left: @gap-horizontal-tiny;
+                            opacity: 0.9;
+                            cursor: pointer;
+                            &.active {
+                                opacity: 1;
+                                background: #DC1007;
+                                position: relative;
+                            }
+                        }
+                    }
+                    .pre-img, .next-img {
+                        display: inline-block;
+                        position: absolute;
+                        top: 240px;
+                        width: 63px;
+                        height: 63px;
+                        cursor: pointer;
+                    }
+                    .pre-img {
+                        background: url('../../img/activity/goldcertOrg/arrow_right.png');
+                        left: 100px;
+                    }
+                    .next-img {
+                        background: url('../../img/activity/goldcertOrg/arrow_right.png');
+                        right: 100px;
+                        transform: matrix(-1, 0, 0, 1, 0, 0);
+                    }
+                }
+            }
+            .student-enroll {
+                .outer-box {
+                    width: 240px;
+                    height: 240px;
+                    text-align: center;
+                    margin: 0 auto;
+                    position: relative;
+                    .inner-circle {
+                        width: 120px;
+                        height: 120px;
+                        margin: 0 auto;
+                        margin-top: 220px;
+                        background: #FCFCFC;
+                        border: 3px solid #24223E;
+                        font-size: 20px;
+                        border-radius: 60px;
+                        color: #24223E;
+                        padding-top: 42px;
+                    }
+                    .circle-tiny {
+                        width: 120px;
+                        height: 120px;
+                        border-radius: 60px;
+                        background: #F61B11;
+                        padding-top: 35px;
+                        position: absolute;
+                        span {
+                            display: block;
+                            font-size: 20px;
+                            color: #FFFFFF;
+                            line-height: 25px;
+                            font-weight: bold;
+                        }
+                    }
+                    .freeclass, .coupon, .invitecard {
+                        background: #24223E;
+                    }
+                    .limitcount {
+                        padding-top: 46px;
+                        bottom: -35px;
+                        left: 65px;
+                    }
+                    .invitecard {
+                        bottom: 40px;
+                        right: -80px;
+                    }
+                    .coupon {
+                        bottom: 40px;
+                        left: -80px;
+                    }
+                    .freeclass {
+                        bottom: 280px;
+                        left: 60px;
+                    }
+                    .consult {
+                        bottom: 180px;
+                        left: -85px;
+                    }
+                    .videoclass {
+                        bottom: 180px;
+                        right: -85px;
+                    }
+                }
+            }
+        }
+    }
+    .success-cases {
+        height: 1024px;
+        background: url('../../img/activity/goldcertOrg/bg_success.jpg');
+        background-position: center;
+        background-size: cover;
+        .content {
+            width: 1100px;
+            margin: 0 auto;
+            padding: 80px 0;
+            text-align: center;
+            .title {
+                font-size: 48px;
+                color: #FFFFFF;
+                font-weight: bold;
+                margin-bottom: 100px;
+            }
+            .left-bar {
+                display: inline-block;
+                width: 210px;
+                text-align: left;
+                margin-right: 150px;
+                vertical-align: top;
+                .logo-jinyou {
+                    width: 154px;
+                    height: 154px;
+                    background: url('../../img/activity/goldcertOrg/logo_jinyou.png');
+                }
+                .name {
+                    font-size: 22px;
+                    color: #FFFFFF;
+                    line-height: 26px;
+                    position: relative;
+                    left: 20px;
+                    margin-bottom: 53px;
+                }
+                .item {
+                    position: relative;
+                    left: 20px;
+                    margin-top: 22px;
+                    span {
+                        font-size: 16px;
+                        color: #F8F8F8;
+                        line-height: 18px;
+                    }
+                    .count {
+                        font-size: 48px;
+                        color: #F51B11;
+                        line-height: 62px;
+                    }
+
+                }
+                a {
+                    font-size: 14px;
+                    color: #FFFFFF;
+                    line-height: 18px;
+                    position: relative;
+                    left: 20px;
+                    display: inline-block;
+                    margin-top: 112px;
+                }
+            }
+            .success-app {
+                vertical-align: top;
+                display: inline-block;
+                width: 242px;
+                height: 670px;
+                background: url('../../img/activity/goldcertOrg/success_app.png');
+            }
+            .success-pc {
+                position: relative;
+                top: 18px;
+                display: inline-block;
+                width: 367px;
+                height: 632px;
+                background: url('../../img/activity/goldcertOrg/success_pc.png');
+            }
+        }
+    }
+    #apply-form {
+        background-color: #fff;
+        .content {
+            width: 1100px;
+            margin: 0 auto;
+            padding: 100px 0;
+            text-align: center;
+            .text-bold {
+                font-size: 36px;
+                color: #2D2D2E;
+                font-weight: bold;
+            }
+            .title {
+                font-size: 72px;
+                color: #2D2D2E;
+                font-weight: bold;
+                span {
+                    color: #F61B11;
+                }
+            }
+            #userinfo-form {
+                margin-top: 64px;
+                input {
+                    width: 390px;
+                    line-height: 50px;
+                    outline: none;
+                    background: #F8F8F8;
+                    border: 1px solid #CDCDCE;
+                    font-size: 18px;
+                    color: #2D2D2E;
+                    height: 52px;
+                    text-align: center;
+                }
+            }
+            .submit-apply {
+                width: 390px;
+                line-height: 50px;
+                background: #F61B11;
+                font-size: 20px;
+                color: #FFFFFF;
+                text-align: center;
+                margin: 0 auto;
+                margin-top: 20px;
+                margin-bottom: 40px;
+                cursor: pointer;
+            }
+            .text-info {
+                font-size: 14px;
+                color: #9D9D9E;
+                line-height: 24px;
+            }
+        }
+    }
+
+    .fixed-bar {
+        width: 173px;
+        height: 298px;
+        position: fixed;
+        right: 20px;
+        bottom: 100px;
+        text-align: center;
+        .inner-box {
+            box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
+            background: #FFFFFF;
+            margin-bottom: -10px;
+        }
+        .cert-hover {
+            width: 132px;
+            height: 132px;
+            margin: 0 auto;
+            background: url('../../img/activity/goldcertOrg/jinpai_hover.png');
+        }
+        .title {
+            font-size: 28px;
+            color: #684603;
+            line-height: 20px;
+            margin: 10px 0;
+        }
+        .text-info {
+            font-size: 18px;
+            color: #684603;
+            margin-bottom: 10px;
+        }
+        .apply-btn, .consult-btn {
+            font-size: 14px;
+            color: #FFFFFF;
+            color: #fff;
+            background: #1E1B39;
+            line-height: 45px;
+            cursor: pointer;
+        }
+        .apply-btn {
+            display: block;
+            background: #F61B11;
+        }
+    }
+}

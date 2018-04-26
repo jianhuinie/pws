@@ -1,0 +1,70 @@
+{{ *
+
+@file 全部价格
+@author jixiaohui
+
+* }}
+{{ strip }}
+<div class="all-price">
+    <b class="price-trigger">
+        <i class="icon icon-angle-down"></i>
+        全部价格
+    </b>
+    <div class="price-menu">
+        <div class="box">
+            <span class="category-course">科目</span>
+            <span class="category-approach">上课方式</span>
+        </div>
+        <table class="price-table">
+            <thead>
+                <tr class="price-header">
+                    <th colspan="5">
+                        <span>请直接点击价格选择科目及上课方式</span>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="category"></th>
+                    <th>老师上门</th>
+                    <th>学生上门</th>
+                    <th>协商地点</th>
+                    <th>在线授课</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{ foreach $tpl_data as $item }}
+                <tr>
+                    <td data-course="{{ $item.id }}" >{{ $item.name }}</td>
+                    {{ if $item.price.teacher }}
+                        <td data-course="{{ $item.id }}" data-way="teacher">￥{{ $item.price.teacher }}</td>
+                    {{ else }}
+                        <td class="center">--</td>
+                    {{ /if }}
+                    {{ if $item.price.student }}
+                        <td data-course="{{ $item.id }}" data-way="student">￥{{ $item.price.student }}</td>
+                    {{ else }}
+                        <td class="center">--</td>
+                    {{ /if }}
+                    {{ if $item.price.discuss }}
+                        <td data-course="{{ $item.id }}" data-way="discuss">￥{{ $item.price.discuss }}</td>
+                    {{ else }}
+                        <td class="center">--</td>
+                    {{ /if }}
+                    {{ if $item.price.online }}
+                        <td data-course="{{ $item.id }}" data-way="online">￥{{ $item.price.online }}</td>
+                    {{ else }}
+                        <td class="center">--</td>
+                    {{ /if }}
+                </tr>
+                {{ /foreach }}
+                <tr>
+                    <td colspan="5" class="price-footer">
+                        <button class="btn-primary small allprice-confirm">确定</button>
+                        <button class="btn-default small allprice-cancel">取消</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+{{ /strip }}

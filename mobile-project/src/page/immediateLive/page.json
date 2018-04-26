@@ -1,0 +1,7 @@
+[
+    {
+        "tpl": "./index.tpl",
+        "router": "/immediateLive",
+        "mock_data": "./mock/index.json"
+    }
+]

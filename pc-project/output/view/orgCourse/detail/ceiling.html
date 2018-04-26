@@ -1,0 +1,62 @@
+{{ strip }}
+    {{ $org = $tpl_data.organization }}
+    {{ $display_status = $tpl_data.course_info.display_status }}
+    {{ **如果审核未通过则状态置为暂停招生** }}
+    {{ if $tpl_data.course_info.verify_status == 2 }}
+        {{ $display_status = 3 }}
+    {{ /if }}
+    <div id="ceiling">
+        <div class="lists">
+            <div class="courseInfo">
+                <p class="title">
+                    {{ $tpl_data.course_info.name|cn_truncate:12 }}
+                </p>
+
+                {{ if $tpl_data.course_info.lesson_way == 2 || $tpl_data.course_info.address }}
+                <p class="info">
+                    <i class="icon icon-location-o"></i>
+                    <span>
+                        {{ if $tpl_data.course_info.lesson_way == 4 }}
+                            {{ $tpl_data.course_info.address|cn_truncate:10 }}
+                        {{ else }}
+                            在线授课
+                        {{ /if }}
+                    </span>
+                </p>
+                {{ /if }}
+            </div>
+            <div class="right">
+                <div class="priceNow">
+                    ￥<span>{{ $tpl_data.course_info.price }}</span>
+                </div>
+
+                {{ if $tpl_data.organization.im_online_status == 0 }}
+                    {{ $online_status_class = " offline" }}
+                {{ else }}
+                    {{ $online_status_class = " online" }}
+                {{ /if }}
+
+                <div class="chat-wrapper">
+                    <span class="chat-label {{ $online_status_class }}" data-user-number="{{ $tpl_data.organization.number }}" data-user-type="institution">
+                        {{ if $tpl_data.organization.im_online_status == 0 }}
+                            <b>离线留言</b>
+                        {{ else }}
+                            <b>咨询课程</b>
+                        {{ /if }}
+                    </span>
+                </div>
+
+                <a class="btn-primary" href="#all-courses-anchor">
+                    选班报名
+                </a>
+
+                {{ if isset($org.city_filter) && $org.city_filter && isset($org.extension) && $org.extension }}
+                    <div class="phone">
+                        <p>免费咨询</p>
+                        <p class="number">{{ $org.extension }}</p>
+                    </div>
+                {{ /if }}
+            </div>
+        </div>
+    </div>
+{{ /strip }}

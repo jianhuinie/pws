@@ -1,0 +1,166 @@
+{{ strip }}
+
+    {{ if isset($tpl_data.teacher) && $tpl_data.teacher }}
+    <div class="teacher card">
+        <div class="title">
+            主讲老师
+        </div>
+        <div class="card-body">
+            {{ foreach $tpl_data.teacher as $teacher }}
+                <div class="info">
+                    {{ include file="common/component/avatar.html" type="medium" img=$teacher.avatar target="_blank" url=$teacher.url }}
+
+                    <div class="detail">
+                        {{ $name = $teacher.name|cn_truncate:6 }}
+                        <a href="{{ $teacher.url }}" target="_blank"
+                            {{ if $name != $teacher.name }}
+                                data-title="{{ $teacher.name }}"
+                            {{ /if }} class="name">
+                            {{ $name|cn_truncate: 12 }}
+                        </a>
+
+                        {{ if $teacher.vip_level }}
+                            {{ include file="common/variable/vipLevel.html" scope=parent }}
+                            <i class="icon icon-vip-{{ $vipLevelMap[$teacher.vip_level] }}"
+                            data-title="
+                                {{ if $teacher.vip_level == 1 }}
+                                    跟谁学会员
+                                {{ else if $teacher.vip_level == 2 }}
+                                    跟谁学高级会员
+                                {{ else if $teacher.vip_level == 3 }}
+                                    跟谁学超级会员
+                                {{ /if }}
+                            "></i>
+                        {{ /if }}
+                    </div>
+
+                    <p class="slogon">
+                        {{ $teacher.intro|cn_truncate:18 }}
+                    </p>
+
+                    {{ include file="common/component/chatLabel4.html" user_number=$teacher.number user_type='teacher' size="small" online_status=$teacher.im_online_status }}
+                </div>
+            {{ /foreach }}
+        </div>
+    </div>
+    {{ /if }}
+
+    {{ if isset($tpl_data.organization) && $tpl_data.organization }}
+    <div class="organization card">
+        {{ $org = $tpl_data.organization }}
+        <div class="title">
+            所属机构
+        </div>
+        <div class="card-body">
+            <div class="info">
+                {{ include file="common/component/avatar.html" type="medium" img=$org.avatar_url target="_blank" url=$org.url }}
+                <div class="detail">
+                    {{ $name = $org.name|cn_truncate:6 }}
+                    <a href="{{ $org.url }}" target="_blank" class="name"
+                    {{ if $name != $org.name }} data-title="{{ $org.name }}" {{ /if }} >
+                        {{ $name|cn_truncate: 12 }}
+                    </a>
+
+                    {{ if $org.membership_level }}
+                    {{ include file="common/variable/vipLevel.html" scope=parent }}
+                    <i class="icon icon-vip-{{ $orgVipLevelMap[$org.membership_level] }}"
+                       data-title="
+                            {{ if $org.membership_level == 2 }}
+                                跟谁学会员
+                            {{ else if $org.membership_level == 3 }}
+                                跟谁学高级会员
+                            {{ else if $org.membership_level == 4 }}
+                                跟谁学超级会员
+                            {{ /if }}
+                        "></i>
+                    {{ /if }}
+
+                </div>
+
+                <p class="slogon">
+                    {{ $org.brief|cn_truncate:18 }}
+                </p>
+
+                {{ include file="common/component/chatLabel4.html" user_number=$org.number user_type='institution' size="small" online_status=$org.im_online_status }}
+            </div>
+        </div>
+    </div>
+    {{ /if }}
+
+    {{ if isset($tpl_data.other_courses) && $tpl_data.other_courses && count($tpl_data.other_courses) > 0 }}
+    <div class="other-courses card">
+        <div class="title">
+            老师其他课程
+        </div>
+        <div class="list">
+            {{ foreach $tpl_data.other_courses as $val }}
+            <div class="item">
+                <div class="photo">
+                    <a href="{{ $val.url }}" rel="nofollow" target="_blank">
+                        {{ include file="common/component/image.html" width=240 height=135 url=$val.avatar }}
+                    </a>
+                </div>
+
+                {{ $name = $val.name|cn_truncate:16 }}
+                <div class="description" {{ if $name != $val.name }}data-title="{{ $val.name }}"{{ /if }}>
+                    <a href="{{ $val.url }}" target="_blank">
+                        {{ $name }}
+                    </a>
+                </div>
+
+                <div class="more-info">
+                    <p>
+                        {{ if $val.price > 0 }}
+                            <span class="rmb">￥</span>
+                            <span>{{ $val.price }}</span>
+                        {{ else }}
+                            <span class="free">免费</span>
+                        {{ /if }}
+                        &nbsp;|&nbsp;{{ $val.total_pay }}人学习
+                    </p>
+                </div>
+            </div>
+            {{ /foreach }}
+        </div>
+    </div>
+    {{ /if }}
+
+    {{ if isset($tpl_data.related_course) && $tpl_data.related_course && count($tpl_data.related_course) > 0 }}
+    <div class="related-courses card">
+        <div class="title">
+            相关课程
+        </div>
+        <div class="list">
+            {{ foreach $tpl_data.related_course as $val }}
+            <div class="item">
+                <div class="photo">
+                    <a href="{{ $val.url }}" rel="nofollow" target="_blank">
+                        {{ include file="common/component/image.html" width=240 height=135 url=$val.avatar }}
+                    </a>
+                </div>
+
+                {{ $name = $val.name|cn_truncate:16 }}
+                <div class="description" {{ if $name != $val.name }}data-title="{{ $val.name }}"{{ /if }}>
+                    <a href="{{ $val.url }}" target="_blank">
+                        {{ $name }}
+                    </a>
+                </div>
+
+                <div class="more-info">
+                    <p>
+                        {{ if $val.price > 0 }}
+                            <span class="rmb">￥</span>
+                            <span>{{ $val.price }}</span>
+                        {{ else }}
+                            <span class="free">免费</span>
+                        {{ /if }}
+                        &nbsp;|&nbsp;{{ $val.total_pay }}人学习
+                    </p>
+                </div>
+            </div>
+            {{ /foreach }}
+        </div>
+    </div>
+    {{ /if }}
+
+{{ /strip }}

@@ -1,0 +1,7 @@
+[
+    {
+        "tpl": "./limitDiscount.tpl",
+        "router": "/limitDiscount/index",
+        "mock_data": "./mock/index.json"
+    }
+]

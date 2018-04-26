@@ -1,0 +1,97 @@
+/**
+ * @file 编辑视频课
+ * @author zhujialu
+ */
+
+@import '../../common/layout.styl'
+@import './component/CourseInfo.styl'
+@import './component/CourseInfoForm.styl'
+@import './component/CourseSection.styl'
+@import './component/CourseSectionForm.styl'
+@import './component/CourseSectionFormList.styl'
+
+#container
+    background-color #FFF
+
+
+.video-course-edit
+    > .header
+        border-bottom 1px solid $brand-divider
+        padding $vertical-medium $horizontal-huge
+
+    > .body
+        padding $vertical-huge $horizontal-huge
+
+        > .buttons
+            margin-top $vertical-huge
+
+.section
+    margin-top $vertical-huge
+
+    &:first-child
+        margin-top 0
+
+.section-title
+    .floated
+        float right
+
+    .name
+        border-left 4px solid $brand-primary
+        font-weight normal
+        padding-left $horizontal-small
+
+    span.desc
+        margin-left $horizontal-huge
+    div.desc
+        line-height 1.6
+        margin-top $vertical-medium
+
+    .icon-info-circle
+        margin 0 $horizontal-tiny
+
+.section-body
+    margin-top $vertical-medium
+
+    &.default
+        border 1px solid $brand-divider
+        padding 15px
+    &.editing
+        background-color #F6F6F6
+        padding $vertical-huge $horizontal-huge
+
+    > .action
+        margin-top $vertical-huge
+        text-align center
+    .icon-info-circle
+        margin-right $horizontal-tiny
+
+.course-detail > .section-body.editing
+    padding 0 0 20px 0
+
+.course-section
+    display inline-block
+    width 340px
+    margin 10px
+    vertical-align top
+
+    .add-course-section
+        cursor pointer
+        border 1px dashed $brand-border
+        padding $vertical-large 0
+        text-align center
+
+.modify-reason
+    margin-top $vertical-huge
+
+    > .input
+        height 56px
+        margin-top $vertical-small
+
+.course-detail
+    word-break()
+
+.alert-sensitive
+    em
+        color $brand-primary
+        font-style normal
+

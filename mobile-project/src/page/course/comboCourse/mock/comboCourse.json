@@ -1,0 +1,449 @@
+{
+    "code": 0,
+    "msg": "succ",
+    "tpl_data": {
+        "status": 2,
+        "course_info": {
+            "course_type": 7,
+            "number": "441654333445",
+            "name": "徐磊老师全年英语体系课程（购买后不可退）",
+            "price": "2298.00",
+            "photos": [
+                {
+                    "url": "https://imgs.genshuixue.com/0cms/d/file/content/2017/06/595601979c3de.jpg"
+                }
+            ],
+            "telephone": "",
+            "information": "",
+            "introduction": "",
+            "retire_text": "报名之后不可退",
+            "feature": [
+                {
+                    "name": "师资认证",
+                    "icon": "http://img.gsxservice.com/0cms/d/file/content/2016/04/570f4ec1c506f.png"
+                },
+                {
+                    "name": "支付安全",
+                    "icon": "http://img.gsxservice.com/0cms/d/file/content/2016/04/570f4efe18a59.png"
+                },
+                {
+                    "name": "助教答疑",
+                    "icon": "http://img.gsxservice.com/0cms/d/file/content/2016/04/570f52c0a0ab9.png"
+                }
+            ],
+            "document_download": {
+                "qq_info": {
+                    "number": "",
+                    "link": ""
+                }
+            },
+            "course_count": 8,
+            "course_detail": {
+                "student": {
+                    "now": "45"
+                },
+                "main_teacher": [
+                    {
+                        "avatar": "https://imgs.genshuixue.com/652872_cx21cshi.jpeg",
+                        "name": "徐磊",
+                        "number": "373476408",
+                        "intro": "英语大神、高考英语大咖、小泰斗！",
+                        "url": "/kaoyan",
+                        "gender": "1",
+                        "teach_age": "8",
+                        "vip_level": 3,
+                        "org_name": ""
+                    }
+                ],
+                "course_items": [
+                    {
+                        "number": "170612754602",
+                        "course_type": "2",
+                        "url": "https://m.genshuixue.com/teacher/classCourseDetail/170612754602",
+                        "name": "2018高考英语改错语法填空满分特训",
+                        "sub_info": "8月1日开课－8月6日结课 共6节",
+                        "address": "",
+                        "plan": [
+                            {
+                                "title": "2017年08月01日 20:00-21:30",
+                                "content": "第1节 改错解题方法1"
+                            },
+                            {
+                                "title": "2017年08月02日 20:00-21:30",
+                                "content": "第2节 改错解题方法2与2017真题串讲\n"
+                            },
+                            {
+                                "title": "2017年08月03日 20:00-21:30",
+                                "content": "第3节 改错真题演练"
+                            },
+                            {
+                                "title": "2017年08月04日 20:00-21:30",
+                                "content": "第4节 语法填空解题方法1"
+                            },
+                            {
+                                "title": "2017年08月05日 20:00-21:30",
+                                "content": "第5节 语法填空解题方法2与真题演练"
+                            },
+                            {
+                                "title": "2017年08月06日 20:00-21:30",
+                                "content": "第6节 语法填空真题演练"
+                            }
+                        ]
+                    },
+                    {
+                        "number": "170610756092",
+                        "course_type": "2",
+                        "url": "https://m.genshuixue.com/teacher/classCourseDetail/170610756092",
+                        "name": "2018高考写作20+特训—徐磊英语135分系列",
+                        "sub_info": "8月7日开课－8月12日结课 共6节",
+                        "address": "",
+                        "plan": [
+                            {
+                                "title": "2017年08月07日 20:00-21:30",
+                                "content": "第1节 "
+                            },
+                            {
+                                "title": "2017年08月08日 20:00-21:30",
+                                "content": "第2节 "
+                            },
+                            {
+                                "title": "2017年08月09日 20:00-21:30",
+                                "content": "第3节 "
+                            },
+                            {
+                                "title": "2017年08月10日 20:00-21:30",
+                                "content": "第4节 "
+                            },
+                            {
+                                "title": "2017年08月11日 20:00-21:30",
+                                "content": "第5节 "
+                            },
+                            {
+                                "title": "2017年08月12日 20:00-21:30",
+                                "content": "第6节 "
+                            }
+                        ]
+                    },
+                    {
+                        "number": "170610755764",
+                        "course_type": "2",
+                        "url": "https://m.genshuixue.com/teacher/classCourseDetail/170610755764",
+                        "name": "2018高考英语完型填空满分特训",
+                        "sub_info": "9月6日开课－10月11日结课 共6节",
+                        "address": "",
+                        "plan": [
+                            {
+                                "title": "2017年09月06日 20:00-21:30",
+                                "content": "第1节 "
+                            },
+                            {
+                                "title": "2017年09月13日 20:00-21:30",
+                                "content": "第2节 "
+                            },
+                            {
+                                "title": "2017年09月20日 20:00-21:30",
+                                "content": "第3节 "
+                            },
+                            {
+                                "title": "2017年09月27日 20:00-21:30",
+                                "content": "第4节 "
+                            },
+                            {
+                                "title": "2017年10月04日 20:00-21:30",
+                                "content": "第5节 "
+                            },
+                            {
+                                "title": "2017年10月11日 20:00-21:30",
+                                "content": "第6节 "
+                            }
+                        ]
+                    },
+                    {
+                        "number": "170610755120",
+                        "course_type": "2",
+                        "url": "https://m.genshuixue.com/teacher/classCourseDetail/170610755120",
+                        "name": "2018高考英语阅读理解满分特训",
+                        "sub_info": "10月18日开课－12月20日结课 共10节",
+                        "address": "",
+                        "plan": [
+                            {
+                                "title": "2017年10月18日 20:00-21:30",
+                                "content": "第1节 "
+                            },
+                            {
+                                "title": "2017年10月25日 20:00-21:30",
+                                "content": "第2节 "
+                            },
+                            {
+                                "title": "2017年11月01日 20:00-21:30",
+                                "content": "第3节 "
+                            },
+                            {
+                                "title": "2017年11月08日 20:00-21:30",
+                                "content": "第4节 "
+                            },
+                            {
+                                "title": "2017年11月15日 20:00-21:30",
+                                "content": "第5节 "
+                            },
+                            {
+                                "title": "2017年11月22日 20:00-21:30",
+                                "content": "第6节 "
+                            },
+                            {
+                                "title": "2017年11月29日 20:00-21:30",
+                                "content": "第7节 "
+                            },
+                            {
+                                "title": "2017年12月06日 20:00-21:30",
+                                "content": "第8节 "
+                            },
+                            {
+                                "title": "2017年12月13日 20:00-21:30",
+                                "content": "第9节 "
+                            },
+                            {
+                                "title": "2017年12月20日 20:00-21:30",
+                                "content": "第10节 "
+                            }
+                        ]
+                    },
+                    {
+                        "number": "170626822567",
+                        "course_type": "2",
+                        "url": "https://m.genshuixue.com/teacher/classCourseDetail/170626822567",
+                        "name": "11-16高考全国卷真题特训—徐磊英语135分系列",
+                        "sub_info": "1月10日开课－1月19日结课 共10节",
+                        "address": "",
+                        "plan": [
+                            {
+                                "title": "2018年01月10日 20:00-21:30",
+                                "content": "第1节 "
+                            },
+                            {
+                                "title": "2018年01月11日 20:00-21:30",
+                                "content": "第2节 "
+                            },
+                            {
+                                "title": "2018年01月12日 20:00-21:30",
+                                "content": "第3节 "
+                            },
+                            {
+                                "title": "2018年01月13日 20:00-21:30",
+                                "content": "第4节 "
+                            },
+                            {
+                                "title": "2018年01月14日 20:00-21:30",
+                                "content": "第5节 "
+                            },
+                            {
+                                "title": "2018年01月15日 20:00-21:30",
+                                "content": "第6节 "
+                            },
+                            {
+                                "title": "2018年01月16日 20:00-21:30",
+                                "content": "第7节 "
+                            },
+                            {
+                                "title": "2018年01月17日 20:00-21:30",
+                                "content": "第8节 "
+                            },
+                            {
+                                "title": "2018年01月18日 20:00-21:30",
+                                "content": "第9节 "
+                            },
+                            {
+                                "title": "2018年01月19日 20:00-21:30",
+                                "content": "第10节 "
+                            }
+                        ]
+                    },
+                    {
+                        "number": "170610756216",
+                        "course_type": "2",
+                        "url": "https://m.genshuixue.com/teacher/classCourseDetail/170610756216",
+                        "name": "2018高考听力特训—徐磊英语135分系列",
+                        "sub_info": "1月29日开课－2月7日结课 共10节",
+                        "address": "",
+                        "plan": [
+                            {
+                                "title": "2018年01月29日 20:00-21:00",
+                                "content": "第1节 "
+                            },
+                            {
+                                "title": "2018年01月30日 20:00-21:00",
+                                "content": "第2节 "
+                            },
+                            {
+                                "title": "2018年01月31日 20:00-21:00",
+                                "content": "第3节 "
+                            },
+                            {
+                                "title": "2018年02月01日 20:00-21:00",
+                                "content": "第4节 "
+                            },
+                            {
+                                "title": "2018年02月02日 20:00-21:00",
+                                "content": "第5节 "
+                            },
+                            {
+                                "title": "2018年02月03日 20:00-21:00",
+                                "content": "第6节 "
+                            },
+                            {
+                                "title": "2018年02月04日 20:00-21:00",
+                                "content": "第7节 "
+                            },
+                            {
+                                "title": "2018年02月05日 20:00-21:00",
+                                "content": "第8节 "
+                            },
+                            {
+                                "title": "2018年02月06日 20:00-21:00",
+                                "content": "第9节 "
+                            },
+                            {
+                                "title": "2018年02月07日 20:00-21:00",
+                                "content": "第10节 "
+                            }
+                        ]
+                    },
+                    {
+                        "number": "170610755196",
+                        "course_type": "2",
+                        "url": "https://m.genshuixue.com/teacher/classCourseDetail/170610755196",
+                        "name": "高考英语三轮特训+17年真题—徐磊135分系列",
+                        "sub_info": "3月21日开课－5月23日结课 共10节",
+                        "address": "",
+                        "plan": [
+                            {
+                                "title": "2018年03月21日 20:00-21:30",
+                                "content": "第1节 "
+                            },
+                            {
+                                "title": "2018年03月28日 20:00-21:30",
+                                "content": "第2节 "
+                            },
+                            {
+                                "title": "2018年04月04日 20:00-21:30",
+                                "content": "第3节 "
+                            },
+                            {
+                                "title": "2018年04月11日 20:00-21:30",
+                                "content": "第4节 "
+                            },
+                            {
+                                "title": "2018年04月18日 20:00-21:30",
+                                "content": "第5节 "
+                            },
+                            {
+                                "title": "2018年04月25日 20:00-21:30",
+                                "content": "第6节 "
+                            },
+                            {
+                                "title": "2018年05月02日 20:00-21:30",
+                                "content": "第7节 "
+                            },
+                            {
+                                "title": "2018年05月09日 20:00-21:30",
+                                "content": "第8节 "
+                            },
+                            {
+                                "title": "2018年05月16日 20:00-21:30",
+                                "content": "第9节 "
+                            },
+                            {
+                                "title": "2018年05月23日 20:00-21:30",
+                                "content": "第10节 "
+                            }
+                        ]
+                    },
+                    {
+                        "number": "170610756088",
+                        "course_type": "2",
+                        "url": "https://m.genshuixue.com/teacher/classCourseDetail/170610756088",
+                        "name": "2018高考冲刺及预测-徐磊英语135分系列",
+                        "sub_info": "5月31日开课 共1节",
+                        "address": "",
+                        "plan": [
+                            {
+                                "title": "2018年05月31日 20:00-21:30",
+                                "content": "第1节 2018高考冲刺及预测-徐磊英语135分系列"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "share_info": {
+            "short_url": "http://gensx.cn/ymWfGv",
+            "url": "http://m.genshuixue.com/package_course/detail/441654333445&render=json?sf=1",
+            "img": "https://imgs.genshuixue.com/0cms/d/file/content/2017/06/595601979c3de.jpg@400w",
+            "share_name": "徐磊老师全年英语体系课程",
+            "course_name": "徐磊老师全年英语体系课程",
+            "content": "徐磊老师全年英语体系课程，7月31号之前仅2298元！",
+            "title": "徐磊老师全年英语体系课程",
+            "share_weixin": {
+                "short_url": "http://gensx.cn/ymWfGv",
+                "url": "http://m.genshuixue.com/package_course/detail/441654333445&render=json?sf=1",
+                "img": "https://imgs.genshuixue.com/0cms/d/file/content/2017/06/595601979c3de.jpg@400w",
+                "share_name": "徐磊老师全年英语体系课程",
+                "course_name": "徐磊老师全年英语体系课程",
+                "content": "徐磊老师全年英语体系课程，7月31号之前仅2298元！",
+                "title": "徐磊老师全年英语体系课程"
+            },
+            "share_pyq": {
+                "short_url": "http://gensx.cn/ymWfGv",
+                "url": "http://m.genshuixue.com/package_course/detail/441654333445&render=json?sf=1",
+                "img": "https://imgs.genshuixue.com/0cms/d/file/content/2017/06/595601979c3de.jpg@400w",
+                "share_name": "徐磊老师全年英语体系课程",
+                "course_name": "徐磊老师全年英语体系课程",
+                "content": "徐磊老师全年英语体系课程，7月31号之前仅2298元！",
+                "title": "徐磊老师全年英语体系课程"
+            },
+            "share_qq": {
+                "short_url": "http://gensx.cn/ymWfGv",
+                "url": "http://m.genshuixue.com/package_course/detail/441654333445&render=json?sf=1",
+                "img": "https://imgs.genshuixue.com/0cms/d/file/content/2017/06/595601979c3de.jpg@400w",
+                "share_name": "徐磊老师全年英语体系课程",
+                "course_name": "徐磊老师全年英语体系课程",
+                "content": "徐磊老师全年英语体系课程，7月31号之前仅2298元！",
+                "title": "徐磊老师全年英语体系课程"
+            },
+            "share_qzone": {
+                "short_url": "http://gensx.cn/ymWfGv",
+                "url": "http://m.genshuixue.com/package_course/detail/441654333445&render=json?sf=1",
+                "img": "https://imgs.genshuixue.com/0cms/d/file/content/2017/06/595601979c3de.jpg@400w",
+                "share_name": "徐磊老师全年英语体系课程",
+                "course_name": "徐磊老师全年英语体系课程",
+                "content": "徐磊老师全年英语体系课程，7月31号之前仅2298元！",
+                "title": "徐磊老师全年英语体系课程"
+            },
+            "share_weibo": {
+                "short_url": "http://gensx.cn/ymWfGv",
+                "url": "http://gensx.cn/ymWfGv",
+                "img": "https://imgs.genshuixue.com/0cms/d/file/content/2017/06/595601979c3de.jpg@400w",
+                "share_name": "徐磊老师全年英语体系课程",
+                "course_name": "徐磊老师全年英语体系课程",
+                "content": "徐磊老师全年英语体系课程，7月31号之前仅2298元！",
+                "title": ""
+            },
+            "share_sms": {
+                "short_url": "http://gensx.cn/ymWfGv",
+                "url": "http://gensx.cn/ymWfGv",
+                "img": "https://imgs.genshuixue.com/0cms/d/file/content/2017/06/595601979c3de.jpg@400w",
+                "share_name": "徐磊老师全年英语体系课程",
+                "course_name": "徐磊老师全年英语体系课程",
+                "content": "徐磊老师全年英语体系课程，7月31号之前仅2298元！",
+                "title": ""
+            }
+        },
+        "course_id": "441654333445",
+        "qrcode_url": "https://m.genshuixue.com/package_course/detail/441654333445",
+        "buy_url": "/pay/productDetail?course_number=441654333445&type=7"
+    },
+    "ts": 1500013327,
+    "declare_config": {
+        "declareTpl": "v2/resources/page/course/comboCourse/comboCourse"
+    }
+}

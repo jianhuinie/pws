@@ -1,0 +1,105 @@
+<div class="top-bar">
+
+    <span class="button" on-click="goBack()">
+        <i class="icon-chevron-left"></i>
+        返回
+        <span class="muted">
+            &nbsp;/&nbsp;设置班课
+        </span>
+    </span>
+    {{#if courseNumber}}
+    <span class="course-number muted">
+        班课编号：{{courseNumber}}
+    </span>
+    {{/if}}
+    {{#if needCaogao}}
+    <span class="save-time success">
+        草稿最近自动保存时间: {{saveTime}}
+    </span>
+    {{/if}}
+</div>
+
+<div class="content-wrapper">
+
+    <div id="basic-info-edit">
+        <OfflineBasicInfo options="{{offlineBasicInfoOptions}}" />
+    </div>
+
+    <div id="course-cover-edit">
+        <OfflineCoverEdit options="{{offlineCoverEditOptions}}" />
+    </div>
+
+    <div id="course-detail-edit">
+        {{#if !showOldEditor}}
+        <OfflineDetailEdit options="{{offlineDetailEditOptions}}" />
+        {{else}}
+        <div class="rich-editor">
+            <div class="header">
+                <div class="title">
+                    课程图文详情
+                </div>
+            </div>
+            <RichTextEditor options="{{richTextEditorOptions}}" />
+        </div>
+        {{/if}}
+    </div>
+
+    <div id="course-plan-edit">
+        <OfflinePlanEdit options="{{offlinePlanEditOptions}}" />
+    </div>
+
+    <div class="more" id="course-more-edit">
+        <div class="header">
+            <div class="help button" on-click="toggle('isShowMore')">
+                {{#if isShowMore}}
+                    点击收起
+                {{else}}
+                    展开更多
+                {{/if}}
+            </div>
+            <div class="title">
+                更多设置
+            </div>
+        </div>
+    </div>
+
+    {{#if isShowMore}}
+        <OfflineCourseSetting options="{{offlineCourseSettingOptions}}" />
+        <OfflineRelatedCourses options="{{offlineRelatedCoursesOptions}}" />
+        <div id="course-template-edit">
+            <OfflineCourseTemplate options="{{offlineCourseTemplateOptions}}"/>
+        </div>
+    {{/if}}
+
+    <div class="footer buttons">
+        <!-- <div class="button secondary">
+            保存草稿
+        </div> -->
+        <div class="button primary" {{#if saveStatus >= STATUS_UPLOADING}} disabled{{/if}}
+        on-click="submit()">
+            {{#if saveStatus == STATUS_UPLOADING}}
+            正在发布
+            {{else}}
+            发布班课
+            {{/if}}
+        </div>
+    </div>
+</div>
+
+<div class="side-card">
+    <a href="#basic-info-edit" class="side-list">
+        基础信息
+    </a>
+    <a href="#course-cover-edit" class="side-list">
+        课程封面
+    </a>
+    <a href="#course-detail-edit" class="side-list">
+        课程详情
+    </a>
+    <a href="#course-plan-edit" class="side-list">
+        教学计划
+    </a>
+</div>
+
+
+

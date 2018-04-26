@@ -1,0 +1,53 @@
+/**
+ * @file 表格
+ * @author zhujl
+ */
+
+
+table() {
+
+    width: 100%;
+    box-sizing: border-box;
+
+    thead {
+        ui-type($type-hash['table-header']);
+    }
+
+    th {
+        ui-size('table-header-cell');
+        text-align: $table-header-align;
+    }
+
+    tbody {
+
+        ui-type($type-hash['table-body']);
+
+        if (typeof($table-body-odd-row-bg) == 'rgba' && $table-body-odd-row-bg == $table-body-even-row-bg) {
+            background-color: $table-body-odd-row-bg;
+        }
+        else {
+            if (typeof($table-body-odd-row-bg) == 'rgba') {
+                tr:nth-child(odd) {
+                    background-color: $table-body-odd-row-bg;
+                }
+            }
+            if (typeof($table-body-even-row-bg) == 'rgba') {
+                tr:nth-child(even) {
+                    background-color: $table-body-even-row-bg;
+                }
+            }
+        }
+
+        if (typeof($table-body-row-border) == 'rgba') {
+            tr {
+                border-bottom: 1px solid $table-body-row-border;
+            }
+        }
+    }
+
+    td {
+        ui-size('table-body-cell');
+        text-align: $table-body-align;
+    }
+
+}

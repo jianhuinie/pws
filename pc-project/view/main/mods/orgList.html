@@ -1,0 +1,27 @@
+{{ strip }}
+
+    {{ if isset($log_data) && isset($log_data.qid) }}
+        {{ $log_id = $log_data.qid }}
+    {{ else }}
+        {{ $log_id = '' }}
+    {{ /if }}
+
+    {{ $log_flag = true }}
+
+<div class="org-list-wrapper">
+    <ul class="org-list">
+        {{ foreach $data as $item }}
+
+        {{ ** 埋点统计 ** }}
+            {{ $log_url = ($item@index+1)|cat:","|cat:$item.number|cat:","|cat:$qid.org_list|cat:','|cat:$item.is_cms }}
+
+        <li class="org-logo {{ if $item@last }}last{{ /if }}" {{ if $log_flag }} data-type="4" log="{{ $log_url }}" {{ /if }} data-num={{ $item.number }} data-cms="{{ $item.is_cms }}">
+
+            <a class="click-monitor" rel="nofollow" href="{{ $item.domain }}" target="_blank" data-monitor-stype="6" data-monitor-type="{{ $type }}"  data-monitor-oid="{{ $item.number }}">
+                <img alt="{{ $item.name }}" data-src="{{ $item.logo }}@1e_60h_1c_0i_1o_90Q_1x"/>
+            </a>
+        </li>
+        {{ /foreach }}
+    </ul>
+</div>
+{{ /strip }}

@@ -1,0 +1,378 @@
+{
+    "code": 0,
+    "msg": "succ",
+    "tpl_data": {
+        "city": {
+            "id": "17039360",
+            "name": "北京",
+            "pinyin": "bei'jing",
+            "province": "北京",
+            "province_id": "16777216",
+            "alpha": "b",
+            "display_order": "2",
+            "domain": "bj",
+            "order": "2",
+            "is_center": "1"
+        },
+        "teachers": {
+            "online": [
+                {
+                    "is_hot_teacher": true,
+                    "course_number": 160518485651,
+                    "course_name": "高三数学备考（1006）",
+                    "information": "JOJO在人生的道路上，我觉得充分发挥自己的优势最重要。比如说我英文不好，但是不等于说我英语能力不行，大学时我是英语课代表，同时还自学了日语，都能进行简单交流。但20年军旅生涯没有使用这个工具的机会，就生疏了。当我走向新的事业的时候，虽然语言对我很有用处，但我发现我最主要的优势是对逻辑及方向的理解。如果用过多精力去练习语言，可能对逻辑的理解就弱化了。我放弃对语言的努力，集中发挥我的优势，这个选择是",
+                    "class_date": "08月01日",
+                    "class_time": "10:00-11:00",
+                    "detail_url": "http://zhl-m.dev.genshuixue.com/teacher/classCourseDetail/160518485651",
+                    "has_buy": false,
+                    "teacher": {
+                        "id": "342810",
+                        "number": "835508278",
+                        "user_id": "342810",
+                        "display_name": "成丽娟哈哈哈哈哈哈",
+                        "realname": "成丽娟",
+                        "nickname": "娟娟",
+                        "mobile": "18911209086",
+                        "private_domain": "835508278",
+                        "sex": "1",
+                        "email": null,
+                        "avatar": "http://test-img.gsxservice.com/390140_eb6q14rt.jpeg",
+                        "role": 0,
+                        "area_id": "17040384",
+                        "private_protected": "0",
+                        "short_introduce": "改变人是上帝的事，我们只负责用好人",
+                        "school_age": "30",
+                        "school_age_format": "30年",
+                        "location_addr": "北京市海淀区软件园西二路",
+                        "status": "1",
+                        "category": "1",
+                        "subject_id": "979",
+                        "subject_name": "古筝",
+                        "vip_level": 0
+                    }
+                },
+                {
+                    "course_number": 160518485651,
+                    "course_name": "高三数学备考（1006）",
+                    "information": "JOJO在人生的道路上，我觉得充分发挥自己的优势最重要。比如说我英文不好，但是不等于说我英语能力不行，大学时我是英语课代表，同时还自学了日语，都能进行简单交流。但20年军旅生涯没有使用这个工具的机会，就生疏了。当我走向新的事业的时候，虽然语言对我很有用处，但我发现我最主要的优势是对逻辑及方向的理解。如果用过多精力去练习语言，可能对逻辑的理解就弱化了。我放弃对语言的努力，集中发挥我的优势，这个选择是",
+                    "class_date": "08月01日",
+                    "class_time": "10:00-11:00",
+                    "detail_url": "http://zhl-m.dev.genshuixue.com/teacher/classCourseDetail/160518485651",
+                    "has_buy": false,
+                    "teacher": {
+                        "id": "342810",
+                        "number": "835508278",
+                        "user_id": "342810",
+                        "display_name": "成丽娟",
+                        "realname": "成丽娟",
+                        "nickname": "娟娟",
+                        "mobile": "18911209086",
+                        "private_domain": "835508278",
+                        "sex": "1",
+                        "email": null,
+                        "avatar": "http://test-img.gsxservice.com/390140_eb6q14rt.jpeg",
+                        "role": 0,
+                        "area_id": "17040384",
+                        "private_protected": "0",
+                        "short_introduce": "改变人是上帝的事，我们只负责用好人",
+                        "school_age": "30",
+                        "school_age_format": "30年",
+                        "location_addr": "北京市海淀区软件园西二路",
+                        "status": "1",
+                        "category": "1",
+                        "subject_id": "979",
+                        "subject_name": "古筝",
+                        "vip_level": 0
+                    }
+                }
+            ],
+            "video": [
+                {
+                    "course_number": 16010782811,
+                    "course_name": "免费视频课-001",
+                    "information": "免费视频课-001",
+                    "play_count": 38,
+                    "detail_url": "http://zhl-m.dev.genshuixue.com/video_course/getcourseshowdetail?number=16010782811",
+                    "teacher": {
+                        "id": "342645",
+                        "number": "877633148",
+                        "user_id": "342645",
+                        "display_name": "小容",
+                        "realname": "容欣桐",
+                        "nickname": "小容",
+                        "mobile": "19600000008",
+                        "private_domain": "877633148",
+                        "sex": "0",
+                        "email": null,
+                        "avatar": "http://test-img.gsxservice.com/333574_u3ky9i9u.jpeg",
+                        "role": 0,
+                        "area_id": "17041408",
+                        "private_protected": "1",
+                        "short_introduce": "理论联系实际理论联系实际理论联系实际理亿",
+                        "school_age": "1",
+                        "school_age_format": "1年",
+                        "location_addr": "第三方呼叫中心公共平台",
+                        "status": "1",
+                        "category": "1",
+                        "subject_id": "920",
+                        "subject_name": "家常菜",
+                        "vip_level": 0
+                    },
+                    "class_date": "08月01日",
+                    "class_time": "10:00-11:00"
+                },
+                {
+                    "course_number": 16010782811,
+                    "course_name": "免费视频课-001",
+                    "information": "免费视频课-001",
+                    "play_count": 38,
+                    "detail_url": "http://zhl-m.dev.genshuixue.com/video_course/getcourseshowdetail?number=16010782811",
+                    "teacher": {
+                        "id": "342645",
+                        "number": "877633148",
+                        "user_id": "342645",
+                        "display_name": "小容",
+                        "realname": "容欣桐",
+                        "nickname": "小容",
+                        "mobile": "19600000008",
+                        "private_domain": "877633148",
+                        "sex": "0",
+                        "email": null,
+                        "avatar": "http://test-img.gsxservice.com/333574_u3ky9i9u.jpeg",
+                        "role": 0,
+                        "area_id": "17041408",
+                        "private_protected": "1",
+                        "short_introduce": "理论联系实际理论联系实际理论联系实际理亿",
+                        "school_age": "1",
+                        "school_age_format": "1年",
+                        "location_addr": "第三方呼叫中心公共平台",
+                        "status": "1",
+                        "category": "1",
+                        "subject_id": "920",
+                        "subject_name": "家常菜",
+                        "vip_level": 0
+                    },
+                    "class_date": "08月01日",
+                    "class_time": "10:00-11:00"
+                }
+            ]
+        },
+        "admissions": {
+            "online": [
+                {
+                    "course_number": 160518485527,
+                    "course_name": "高三备考专业课（1005）",
+                    "information": "高三备考专业课（1005）高三备考专业课（1005）高三备考专业课（1005）高三备考专业课（1005）高三备考专业课（1005）高三备考专业课（1005）高三备考专业课（1005）高三备考专业课（1005）高三备考专业课（1005）高三备考专业课（1005）高三备考专业课（1005）高三备考专业课（1005）",
+                    "class_date": "08月01日",
+                    "class_time": "10:00-11:00",
+                    "detail_url": "http://zhl-m.dev.genshuixue.com/teacher/classCourseDetail/160518485527",
+                    "has_buy": false,
+                    "teacher": {
+                        "id": "342810",
+                        "number": "835508278",
+                        "user_id": "342810",
+                        "display_name": "成丽娟",
+                        "realname": "成丽娟",
+                        "nickname": "娟娟",
+                        "mobile": "18911209086",
+                        "private_domain": "835508278",
+                        "sex": "1",
+                        "email": null,
+                        "avatar": "http://test-img.gsxservice.com/390140_eb6q14rt.jpeg",
+                        "role": 0,
+                        "area_id": "17040384",
+                        "private_protected": "0",
+                        "short_introduce": "改变人是上帝的事，我们只负责用好人",
+                        "school_age": "30",
+                        "school_age_format": "30年",
+                        "location_addr": "北京市海淀区软件园西二路",
+                        "status": "1",
+                        "category": "1",
+                        "subject_id": "979",
+                        "subject_name": "古筝",
+                        "vip_level": 0
+                    },
+                    "school_name": "南开大学",
+                    "school_logo": "http://test-img.gsxservice.com/0cms/d/file/content/2016/05/5736c4a6dc18b.png"
+                },
+                {
+                    "course_number": 160518485651,
+                    "course_name": "高三数学备考（1006）",
+                    "information": "JOJO在人生的道路上，我觉得充分发挥自己的优势最重要。比如说我英文不好，但是不等于说我英语能力不行，大学时我是英语课代表，同时还自学了日语，都能进行简单交流。但20年军旅生涯没有使用这个工具的机会，就生疏了。当我走向新的事业的时候，虽然语言对我很有用处，但我发现我最主要的优势是对逻辑及方向的理解。如果用过多精力去练习语言，可能对逻辑的理解就弱化了。我放弃对语言的努力，集中发挥我的优势，这个选择是",
+                    "class_date": "08月01日",
+                    "class_time": "10:00-11:00",
+                    "detail_url": "http://zhl-m.dev.genshuixue.com/teacher/classCourseDetail/160518485651",
+                    "has_buy": false,
+                    "teacher": {
+                        "id": "342810",
+                        "number": "835508278",
+                        "user_id": "342810",
+                        "display_name": "成丽娟",
+                        "realname": "成丽娟",
+                        "nickname": "娟娟",
+                        "mobile": "18911209086",
+                        "private_domain": "835508278",
+                        "sex": "1",
+                        "email": null,
+                        "avatar": "http://test-img.gsxservice.com/390140_eb6q14rt.jpeg",
+                        "role": 0,
+                        "area_id": "17040384",
+                        "private_protected": "0",
+                        "short_introduce": "改变人是上帝的事，我们只负责用好人",
+                        "school_age": "30",
+                        "school_age_format": "30年",
+                        "location_addr": "北京市海淀区软件园西二路",
+                        "status": "1",
+                        "category": "1",
+                        "subject_id": "979",
+                        "subject_name": "古筝",
+                        "vip_level": 0
+                    },
+                    "school_name": "清华大学",
+                    "school_logo": "http://test-img.gsxservice.com/0cms/d/file/content/2016/05/573ae7a377a02.png"
+                }
+            ],
+            "video": [
+                {
+                    "course_number": 15120549835,
+                    "course_name": "U自动化框架实现（1004）",
+                    "information": "selenium自动化框架实现selenium自动化框架实现selenium自动化框架实现selenium自动化框架实现selenium自动化框架实现selenium自动化框架实现selenium自动化框架实现selenium自动化框架实现",
+                    "play_count": 2,
+                    "class_date": "08月01日",
+                    "class_time": "10:00-11:00",
+                    "detail_url": "http://zhl-m.dev.genshuixue.com/video_course/getcourseshowdetail?number=15120549835",
+                    "teacher": {
+                        "id": "342810",
+                        "number": "835508278",
+                        "user_id": "342810",
+                        "display_name": "成丽娟",
+                        "realname": "成丽娟",
+                        "nickname": "娟娟",
+                        "mobile": "18911209086",
+                        "private_domain": "835508278",
+                        "sex": "1",
+                        "email": null,
+                        "avatar": "http://test-img.gsxservice.com/390140_eb6q14rt.jpeg",
+                        "role": 0,
+                        "area_id": "17040384",
+                        "private_protected": "0",
+                        "short_introduce": "改变人是上帝的事，我们只负责用好人",
+                        "school_age": "30",
+                        "school_age_format": "30年",
+                        "location_addr": "北京市海淀区软件园西二路",
+                        "status": "1",
+                        "category": "1",
+                        "subject_id": "979",
+                        "subject_name": "古筝",
+                        "vip_level": 0
+                    },
+                    "school_name": "北京大学",
+                    "school_logo": "http://test-img.gsxservice.com/0cms/d/file/content/2016/05/5736c3ddb6b68.jpg"
+                },
+                {
+                    "course_number": 15120549835,
+                    "course_name": "U自动化框架实现（1004）",
+                    "information": "selenium自动化框架实现selenium自动化框架实现selenium自动化框架实现selenium自动化框架实现selenium自动化框架实现selenium自动化框架实现selenium自动化框架实现selenium自动化框架实现",
+                    "play_count": 2,
+                    "class_date": "08月01日",
+                    "class_time": "10:00-11:00",
+                    "detail_url": "http://zhl-m.dev.genshuixue.com/video_course/getcourseshowdetail?number=15120549835",
+                    "teacher": {
+                        "id": "342810",
+                        "number": "835508278",
+                        "user_id": "342810",
+                        "display_name": "成丽娟",
+                        "realname": "成丽娟",
+                        "nickname": "娟娟",
+                        "mobile": "18911209086",
+                        "private_domain": "835508278",
+                        "sex": "1",
+                        "email": null,
+                        "avatar": "http://test-img.gsxservice.com/390140_eb6q14rt.jpeg",
+                        "role": 0,
+                        "area_id": "17040384",
+                        "private_protected": "0",
+                        "short_introduce": "改变人是上帝的事，我们只负责用好人",
+                        "school_age": "30",
+                        "school_age_format": "30年",
+                        "location_addr": "北京市海淀区软件园西二路",
+                        "status": "1",
+                        "category": "1",
+                        "subject_id": "979",
+                        "subject_name": "古筝",
+                        "vip_level": 0
+                    },
+                    "school_name": "北京大学",
+                    "school_logo": "http://test-img.gsxservice.com/0cms/d/file/content/2016/05/5736c3ddb6b68.jpg"
+                }
+            ]
+        },
+        "senior": [
+            {
+                "id": "3",
+                "video_url": "http://www.genshuixue.com/video/view/21692",
+                "logo": "https://imgs.genshuixue.com/650449_1ua8mrw5.jpeg",
+                "name": "小明",
+                "school_name": "清华大学",
+                "major": "电气工程与自动化"
+            },
+            {
+                "id": "4",
+                "video_url": "http://www.genshuixue.com/video/view/20750",
+                "logo": "https://imgs.genshuixue.com/107036_pza72fnx.jpeg",
+                "name": "小天",
+                "school_name": "清华大学",
+                "major": "电气工程与自"
+            }
+        ],
+        "news_list": [
+            {
+                "cover": {
+                    "height": 148,
+                    "url": "http://superfile.baijiahulian.com/news/xinsheng_s_pic.jpg",
+                    "width": 245
+                },
+                "paper_id": 5,
+                "paper_snippet": "新生入学防骗指南",
+                "paper_title": "新生入学防骗指南",
+                "paper_url": "http://interface.zhixue100.cn/wap/fangpian.html",
+                "paper_views": 18723
+            },
+            {
+                "cover": {
+                    "height": 148,
+                    "url": "http://superfile.baijiahulian.com/news/gaokaoshengbudebu_s_pic.jpg",
+                    "width": 245
+                },
+                "paper_id": 3,
+                "paper_snippet": "只需三点，轻松上一本",
+                "paper_title": "只需三点，轻松上一本",
+                "paper_url": "http://interface.zhixue100.cn/wap/three-point.html",
+                "paper_views": 12206
+            },
+            {
+                "cover": {
+                    "height": 148,
+                    "url": "http://superfile.baijiahulian.com/news/yiliunian_s_pic.jpg",
+                    "width": 245
+                },
+                "paper_id": 4,
+                "paper_snippet": "16年高三复习大事时间表",
+                "paper_title":"16年高三复习大事时间表",
+                "paper_url": "http://interface.zhixue100.cn/wap/2016sc.html",
+                "paper_views": 11091
+            }
+        ],
+        "banner_list": [
+            {
+                "image": "https://imgs.genshuixue.com/0cms/d/file/content/2016/05/5743ca8e72edc.jpg",
+                "url": "http://pandora.genshuixue.com/ap/info.json?id=24&u=http%3A%2F%2Fwww.genshuixue.com&k=dbmcZQMzjbm8nAN7ZQ5mBULRxKLqtUnRdKmhZQn8MQROxK/wVbjqdQROxK98nUhmBULRxKyq0Sy8tgsanbdrZQyzjbmhZQnzjbm1Vb3qd7ROxKH1jbMAjbL3WgYmHbHTnbN1nJv3jKuRWKsvHAnS0K6JVbD7jEhOMbmhnANvHAHhVs=="
+            },
+            {
+                "image": "https://imgs.genshuixue.com/0cms/d/file/content/2016/05/574bf11f57790.jpg",
+                "url": "http://pandora.genshuixue.com/ap/info.json?id=24&u=http%3A%2F%2Fwww.genshuixue.com&k=dbmcZQMzjbm8nAN7ZQ5mBULRxKLqtUnRdKmhZQn8MQROxK/wVbjqdQROxK98nUhmBULRxKyq0Sy8tgsanbdrZQyzjbmhZQnzjbm1Vb3qd7ROxKH1jbMAjbL3WgYmHbHTnbN1nJv3jKuRWKsvHAnS0K6JVbD7jEhOMbmhnANvHAHhVs=="
+            }
+        ]
+    },
+    "ts": 1463822797
+}

@@ -1,0 +1,253 @@
+{{ * @author liucong * }}
+{{ * 映射于display_status_search 用于班课列表页* }}
+
+{{ strip }}
+{{ $status_actions_map = [] }}
+
+{{ * 1 待编辑完整 && 上课中不可插班 && 停止招生后不可插班* }}
+{{ $status_actions = [] }}
+
+{{ $status_action = [] }}
+{{ $status_action["name"] = "edit" }}
+{{ $status_action["title"] = "编辑班课" }}
+{{ $status_actions[] = $status_action }}
+
+{{ $status_action = [] }}
+{{ $status_action["name"] = "delete" }}
+{{ $status_action["title"] = "删除班课" }}
+{{ $status_actions[] = $status_action }}
+
+{{ $status_action = [] }}
+{{ $status_action["name"] = "again" }}
+{{ $status_action["title"] = "再开一班" }}
+{{ $status_actions[] = $status_action }}
+
+{{ $status_actions_map['1'] = $status_actions }}
+
+{{ * 2 待提交审核 * }}
+{{ $status_actions = [] }}
+
+{{ $status_action = [] }}
+{{ $status_action["name"] = "check" }}
+{{ $status_action["title"] = "发布班课" }}
+{{ $status_actions[] = $status_action }}
+
+{{ $status_action = [] }}
+{{ $status_action["name"] = "edit" }}
+{{ $status_action["title"] = "编辑班课" }}
+{{ $status_actions[] = $status_action }}
+
+{{ $status_action = [] }}
+{{ $status_action["name"] = "delete" }}
+{{ $status_action["title"] = "删除班课" }}
+{{ $status_actions[] = $status_action }}
+
+{{ $status_action = [] }}
+{{ $status_action["name"] = "again" }}
+{{ $status_action["title"] = "再开一班" }}
+{{ $status_actions[] = $status_action }}
+
+{{ $status_actions_map['2'] = $status_actions }}
+
+{{ * 8 审核中 * }}
+{{ $status_actions = [] }}
+
+{{ $status_action = [] }}
+{{ $status_action["name"] = "revoke" }}
+{{ $status_action["title"] = "撤回审核" }}
+{{ $status_actions[] = $status_action }}
+
+{{ $status_action = [] }}
+{{ $status_action["name"] = "edit" }}
+{{ $status_action["title"] = "编辑班课" }}
+{{ $status_actions[] = $status_action }}
+
+{{ $status_action = [] }}
+{{ $status_action["name"] = "delete" }}
+{{ $status_action["title"] = "删除班课" }}
+{{ $status_actions[] = $status_action }}
+
+{{ $status_action = [] }}
+{{ $status_action["name"] = "again" }}
+{{ $status_action["title"] = "再开一班" }}
+{{ $status_actions[] = $status_action }}
+
+{{ $status_actions_map['8'] = $status_actions }}
+
+{{ * 9 审核被拒 * }}
+{{ $status_actions = [] }}
+
+{{ $status_action = [] }}
+{{ $status_action["name"] = "reason" }}
+{{ $status_action["title"] = "查看原因" }}
+{{ $status_actions[] = $status_action }}
+
+{{ $status_action = [] }}
+{{ $status_action["name"] = "edit" }}
+{{ $status_action["title"] = "编辑班课" }}
+{{ $status_actions[] = $status_action }}
+
+{{ $status_action = [] }}
+{{ $status_action["name"] = "check" }}
+{{ $status_action["title"] = "再次审核" }}
+{{ $status_actions[] = $status_action }}
+
+{{ $status_action = [] }}
+{{ $status_action["name"] = "delete" }}
+{{ $status_action["title"] = "删除班课" }}
+{{ $status_actions[] = $status_action }}
+
+{{ $status_actions_map['9'] = $status_actions }}
+
+{{ * 3 正在招生 * }}
+{{ $status_actions = [] }}
+
+{{ $status_action = [] }}
+{{ $status_action["name"] = "stop" }}
+{{ $status_action["title"] = "停止招生" }}
+{{ $status_actions[] = $status_action }}
+
+{{ $status_action = [] }}
+{{ $status_action["name"] = "edit" }}
+{{ $status_action["title"] = "编辑班课" }}
+{{ $status_actions[] = $status_action }}
+
+{{ $status_action = [] }}
+{{ $status_action["name"] = "delete" }}
+{{ $status_action["title"] = "删除班课" }}
+{{ $status_actions[] = $status_action }}
+
+{{ $status_action = [] }}
+{{ $status_action["name"] = "again" }}
+{{ $status_action["title"] = "再开一班" }}
+{{ $status_actions[] = $status_action }}
+
+{{ $status_actions_map['3'] = $status_actions }}
+
+{{ * 4 上课中可插班暂停招生 * }}
+{{ $status_actions = [] }}
+
+{{ $status_action = [] }}
+{{ $status_action["name"] = "continue" }}
+{{ $status_action["title"] = "继续招生" }}
+{{ $status_actions[] = $status_action }}
+
+{{ $status_action = [] }}
+{{ $status_action["name"] = "edit" }}
+{{ $status_action["title"] = "编辑班课" }}
+{{ $status_actions[] = $status_action }}
+
+{{ $status_action = [] }}
+{{ $status_action["name"] = "delete" }}
+{{ $status_action["title"] = "删除班课" }}
+{{ $status_actions[] = $status_action }}
+
+{{ $status_action = [] }}
+{{ $status_action["name"] = "again" }}
+{{ $status_action["title"] = "再开一班" }}
+{{ $status_actions[] = $status_action }}
+
+{{ $status_actions_map['4'] = $status_actions }}
+
+{{ * 5 已满班 * }}
+{{ $status_actions = [] }}
+
+{{ $status_action = [] }}
+{{ $status_action["name"] = "edit" }}
+{{ $status_action["title"] = "编辑班课" }}
+{{ $status_actions[] = $status_action }}
+
+{{ $status_action = [] }}
+{{ $status_action["name"] = "delete" }}
+{{ $status_action["title"] = "删除班课" }}
+{{ $status_actions[] = $status_action }}
+
+{{ $status_action = [] }}
+{{ $status_action["name"] = "again" }}
+{{ $status_action["title"] = "再开一班" }}
+{{ $status_actions[] = $status_action }}
+
+{{ $status_actions_map['5'] = $status_actions }}
+
+{{ * 6 上课中可插班 * }}
+{{ $status_actions = [] }}
+
+{{ $status_action = [] }}
+{{ $status_action["name"] = "stop" }}
+{{ $status_action["title"] = "停止招生" }}
+{{ $status_actions[] = $status_action }}
+
+{{ $status_action = [] }}
+{{ $status_action["name"] = "edit" }}
+{{ $status_action["title"] = "编辑班课" }}
+{{ $status_actions[] = $status_action }}
+
+{{ $status_action = [] }}
+{{ $status_action["name"] = "delete" }}
+{{ $status_action["title"] = "删除班课" }}
+{{ $status_actions[] = $status_action }}
+
+{{ $status_action = [] }}
+{{ $status_action["name"] = "again" }}
+{{ $status_action["title"] = "再开一班" }}
+{{ $status_actions[] = $status_action }}
+
+{{ $status_actions_map['6'] = $status_actions }}
+
+{{ * 10、11 手动关闭 * }}
+{{ $status_actions = [] }}
+
+{{ $status_action = [] }}
+{{ $status_action["name"] = "delete" }}
+{{ $status_action["title"] = "删除班课" }}
+{{ $status_actions[] = $status_action }}
+
+{{ $status_action = [] }}
+{{ $status_action["name"] = "again" }}
+{{ $status_action["title"] = "再开一班" }}
+{{ $status_actions[] = $status_action }}
+
+{{ $status_actions_map['10'] = $status_actions }}
+{{ $status_actions_map['11'] = $status_actions }}
+{{ /strip }}
+
+{{ * 7 已完成 * }}
+{{ $status_actions = [] }}
+
+{{ $status_action = [] }}
+{{ $status_action["name"] = "delete" }}
+{{ $status_action["title"] = "删除班课" }}
+{{ $status_actions[] = $status_action }}
+
+{{ $status_action = [] }}
+{{ $status_action["name"] = "again" }}
+{{ $status_action["title"] = "再开一班" }}
+{{ $status_actions[] = $status_action }}
+
+{{ $status_actions_map['7'] = $status_actions }}
+
+
+{{ * 12 上课中继续招生* }}
+{{ $status_actions = [] }}
+
+{{ $status_action = [] }}
+{{ $status_action["name"] = "continue" }}
+{{ $status_action["title"] = "继续招生" }}
+{{ $status_actions[] = $status_action }}
+
+{{ $status_action = [] }}
+{{ $status_action["name"] = "edit" }}
+{{ $status_action["title"] = "编辑班课" }}
+{{ $status_actions[] = $status_action }}
+
+{{ $status_action = [] }}
+{{ $status_action["name"] = "delete" }}
+{{ $status_action["title"] = "删除班课" }}
+{{ $status_actions[] = $status_action }}
+
+{{ $status_action = [] }}
+{{ $status_action["name"] = "again" }}
+{{ $status_action["title"] = "再开一班" }}
+{{ $status_actions[] = $status_action }}
+{{ $status_actions_map['12'] = $status_actions }}
+
