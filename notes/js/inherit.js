@@ -12,9 +12,9 @@
 
 let Super = function(name) {
     this.name = name;
-    this.getName = () => {
-        return this.name;
-    }
+    // this.getName = () => {
+    //     return this.name;
+    // }
    
 }
 Super.prototype.getName = () => {
@@ -27,6 +27,8 @@ let Sub = function(sex, name) {
     Super.call(this,name); 
     this.sex = sex;
 }
+
+Sub.prototype = new Super('alice');
 
 let sub1 = new Sub('male','eric'),
 sub2 = new Sub('female','eric');
