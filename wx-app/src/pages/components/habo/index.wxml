@@ -1,5 +1,0 @@
-<template name="habo">
-  	<view class="analysis-habo" style="position:fixed;left:-9999rpx;" hidde="{{!logParams}}">
-		<image src="{{'https://click.genshuixue.com/gs.gif?' + logParams}}"></image>
-	</view>
-</template>

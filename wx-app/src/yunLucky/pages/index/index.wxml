@@ -1,0 +1,11 @@
+<!--index.wxml-->
+<view class="index-page">
+  <view class="top-container">
+    <view class="pic-item-box {{index % 2 === 1 ? 'right-item' : 'left-item'}}" wx:for="{{picArray}}" wx:for-item="item" wx:key="{{index}}" data-key="{{index}}" bindtap="btnGoNextPage">
+      <image class="pic-item" src="{{item.img}}"></image>
+      <view class="pic-text">{{item.key}}</view>
+    </view>
+
+    <button class="action-btn" open-type="contact" bindtap="btnClick">更多祝福戳这里!</button>
+  </view>
+</view>

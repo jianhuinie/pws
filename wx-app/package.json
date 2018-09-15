@@ -4,9 +4,11 @@
   "description": "wxapp-cli template",
   "main": "index.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=dev gulp dev",
+    "dev": "cross-env NODE_ENV=dev gulp server",
+    "test": "cross-env NODE_ENV=test gulp build:local",
+    "beta": "cross-env NODE_ENV=beta gulp build:local",
     "dev-es5": "cross-env NODE_ENV=dev gulp dev:es5",
-    "build": "cross-env NODE_ENV=production gulp build",
+    "prod": "cross-env NODE_ENV=production gulp build",
     "build-es5": "cross-env NODE_ENV=production gulp build:es5"
   },
   "author": "kodo",
@@ -49,6 +51,10 @@
     "run-sequence": "^1.2.2",
     "vinyl-named": "^1.1.0",
     "webpack": "^1.12.14",
-    "webpack-stream": "^3.2.0"
+    "webpack-stream": "^3.2.0",
+    "hapi": "^11.0.3"
+  },
+  "dependencies": {
+    "git": "^0.1.5"
   }
 }

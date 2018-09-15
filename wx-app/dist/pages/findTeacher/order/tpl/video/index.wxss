@@ -1,1 +1,0 @@
-.order-video-item{width:100%;height:450rpx}.order-video-item video{width:100%;height:100%}.order-video-item .poster{width:100%;height:100%;position:relative}.order-video-item .poster .play-icon{position:absolute;left:50%;top:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);width:100rpx;height:100rpx}

@@ -1,5 +1,0 @@
-<template name="image">
-  	<view class="order-image-item">
-		<image style="{{'width: 100%; height: ' + item.height * 2 + 'rpx;'}}" mode="scaleToFill" src="{{item.url}}"></image>
-	</view>
-</template>

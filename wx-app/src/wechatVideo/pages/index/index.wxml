@@ -1,0 +1,4 @@
+<!--index.wxml-->
+<view class="index-page">
+    <view>this is wechatVideo home page</view>
+</view>

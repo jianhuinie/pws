@@ -15,7 +15,7 @@ var base64        = require('gulp-base64');
 var autoprefixer  = require('autoprefixer');
 var precss        = require('precss');
 var cssnano       = require('cssnano');
-var sass          = require('gulp-sass');
+// var sass          = require('gulp-sass');
 var less          = require('gulp-less');
 var runSequence   = require('run-sequence');
 var replace       = require('gulp-replace');
@@ -24,6 +24,7 @@ var plumber       = require('gulp-plumber');
 var isBuild       = false;
 var ES5DEV        = true;
 
+require('./gulp/server');
 var webpackConfig = {
 	resolve: {
 		root: path.join(__dirname, 'node_modules'),
@@ -57,6 +58,7 @@ var src  = {
 	fonts: './src/**/*.{eot,svg,ttf,woff}',
 	images: './src/**/*.{png,jpg,jpeg,svg}',
 	js: './src/**/*.js',
+	wxs: './src/**/*.wxs',
 	sass: './src/**/*.{scss,less,sass}',
 	wxss: './src/**/*.wxss',
 	wxml: './src/**/*.wxml',
@@ -73,10 +75,25 @@ gulp.task('dev', function () {
 	webpackConfig.plugins.push(new webpack.DefinePlugin({
 		NODE_ENV: JSON.stringify(process.env.NODE_ENV) || 'production'
 	}));
-	gulp.start('views', 'sass', 'wxss', 'images', 'fonts', 'js', 'json');
+	gulp.start('views', 'sass', 'wxss', 'images', 'fonts', 'js', 'wxs', 'json');
 });
 gulp.task('dev:es5', function () {
-	gulp.start('views', 'sass', 'wxss', 'images', 'fonts', 'js:es5', 'json');
+	gulp.start('views', 'sass', 'wxss', 'images', 'fonts', 'js:es5', 'wxs', 'json');
+});
+gulp.task('server', function () {
+	gulp.start('server:start', 'build:local');
+});
+gulp.task('build:local', function () {
+	isBuild = false;
+	webpackConfig.plugins.push(new webpack.DefinePlugin({
+		NODE_ENV: JSON.stringify(process.env.NODE_ENV) || 'production'
+	}));
+	build(false, function () {
+		setTimeout(function () {
+			console.log(chalk.green('	Local Build success!'));
+			gulp.start('dev');
+		}, 0)
+	});
 });
 
 gulp.task('build', function () {
@@ -87,6 +104,7 @@ gulp.task('build', function () {
 	build(false, function () {
 		setTimeout(function () {
 			console.log(chalk.green('	Build success!'));
+			gulp.start('dev');
 		}, 0)
 	});
 });
@@ -114,9 +132,9 @@ gulp.task('json', function () {
 gulp.task('sass', function () {
 	watch([src.sass], function (event) {
 		var paths = watchPath(event, src.sass, dist);
-		if (paths.srcPath.indexOf('.scss') > -1 || paths.srcPath.indexOf('.sass') > -1) {
-			return compileSass(src.sass, 'dist');
-		}
+		// if (paths.srcPath.indexOf('.scss') > -1 || paths.srcPath.indexOf('.sass') > -1) {
+		// 	return compileSass(src.sass, 'dist');
+		// }
 		compileLess(src.sass, 'dist');
 	})
 });
@@ -141,6 +159,11 @@ gulp.task('js', function () {
 	watch([src.js], function (event) {
 		var paths = watchPath(event, src.js, dist);
 		compileJS(paths.srcPath);
+	})
+});
+gulp.task('wxs', function () {
+	watch([src.wxs], function (event) {
+		compileWXS();
 	})
 });
 gulp.task('js:es5', function () {
@@ -178,6 +201,10 @@ function compileJS(path) {
 	.pipe(ifElse(isBuild === true, ugjs))
 	.pipe(gulp.dest(dist))
 }
+function compileWXS() {
+	gulp.src(src.wxs)
+	.pipe(gulp.dest(dist))
+}
 function compileJSes5(path, dist) {
 	
 	return gulp.src(path)
@@ -194,21 +221,21 @@ function compileWxss(src, dist) {
 	.pipe(postcss(processes))
 	.pipe(gulp.dest(dist))
 }
-function compileSass(src, dist) {
-	return gulp.src(src)
-	.pipe(sass().on('error', sass.logError))
-	.pipe(base64({
-		extensions: ['png', /\.jpg#datauri$/i],
-		maxImageSize: 10 * 1024 // bytes,
-	}))
-	.pipe(ifElse(isBuild === true, function () {
-		return postcss(processes);
-	}))
-	.pipe(rename({
-		extname: ".wxss"
-	}))
-	.pipe(gulp.dest(dist));
-}
+// function compileSass(src, dist) {
+// 	return gulp.src(src)
+// 	.pipe(sass().on('error', sass.logError))
+// 	.pipe(base64({
+// 		extensions: ['png', /\.jpg#datauri$/i],
+// 		maxImageSize: 10 * 1024 // bytes,
+// 	}))
+// 	.pipe(ifElse(isBuild === true, function () {
+// 		return postcss(processes);
+// 	}))
+// 	.pipe(rename({
+// 		extname: ".wxss"
+// 	}))
+// 	.pipe(gulp.dest(dist));
+// }
 function compileLess(src, dist) {
 	// console.log(src);
 	// console.log(dist);
@@ -254,6 +281,7 @@ function build(ises5, cb) {
 		images();
 		fonts();
 		json();
+		compileWXS();
 		cb && cb()
 	});
 	
