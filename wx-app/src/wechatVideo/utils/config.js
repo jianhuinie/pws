@@ -28,6 +28,7 @@ const config = {
          * habo上报
          */
         HABO: 'https://click.genshuixue.com/gs.gif',
+        RECOMMEND: '/recommend'
     }
 };
 

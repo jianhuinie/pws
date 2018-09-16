@@ -1,0 +1,7 @@
+<view class="video-detail">
+    <view class="video-box">
+        <video src="{{item.videoUrl}}">
+
+        </video>
+    </view>
+</view>

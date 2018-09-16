@@ -8,7 +8,7 @@ Page({
 	data: {
 		funVideos: [],
 		positiveVideos: [],
-		activedTab: 1
+		activedTab: 2
 	},
 	onLoad: function () {
 		var self = this;
@@ -26,13 +26,6 @@ Page({
 	},
 	onShow: function () {
 		
-	},
-	jumpDetail: function (e) { 
-		var item = e.currentTarget.dataset.item;
-		var itemStr = JSON.stringify(item);
-		wx.navigateTo({
-			url: '/pages/videoDetail/index?item=' + itemStr
-		});
 	},
 	onShareAppMessage: function (options) {
 		

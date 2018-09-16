@@ -8,10 +8,14 @@ Page({
 	data: {
 		funVideos: [],
 		positiveVideos: [],
-		activedTab: 1
+		item: {}
 	},
-	onLoad: function () {
+	onLoad: function (options) {
+		var itemStr = options.item;
+		var item = JSON.parse(itemStr);
 		var self = this;
+		self.setData({ item });
+		
 		wxService.sendWxRequest({
 			url: serverHost + PATHS.RECOMMEND,
 			data: {}, 
@@ -26,13 +30,6 @@ Page({
 	},
 	onShow: function () {
 		
-	},
-	jumpDetail: function (e) { 
-		var item = e.currentTarget.dataset.item;
-		var itemStr = JSON.stringify(item);
-		wx.navigateTo({
-			url: '/pages/videoDetail/index?item=' + itemStr
-		});
 	},
 	onShareAppMessage: function (options) {
 		
