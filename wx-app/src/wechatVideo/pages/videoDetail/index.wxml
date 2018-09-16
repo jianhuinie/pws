@@ -3,5 +3,21 @@
         <video src="{{item.videoUrl}}">
 
         </video>
+        <view class="video-name">
+            {{item.name}}
+        </view>
+        <button open-type="share">分享按钮</button>
+    </view>
+    <view class="">
+        公众号信息
+    </view>
+    <view class="video-container">
+        <view 
+            class="video-item" 
+            wx:for="{{positiveVideos}}" wx:key="{{index}}"
+        >
+            <image src="{{item.coverUrl}}"></image>
+            <view class="video-name">{{item.name}}</view>
+        </view>
     </view>
 </view>

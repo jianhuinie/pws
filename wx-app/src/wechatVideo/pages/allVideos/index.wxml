@@ -1,21 +1,9 @@
 <import src="../components/bottomTab/index.wxml" />
 <view class="all-videos">
     <view class="videos-container videos-fun">
-        <view class="title">搞笑视频</view>
-        <view class="video-box">
-            <view class="video-item" wx:for="{{funVideos}}" wx:key="{{index}}">
-                <image src="{{item.coverUrl}}"></image>
-                <view class="video-name">{{item.name}}</view>
-            </view>
-        </view>
-    </view>
-    <view class="videos-container videos-positive">
-        <view class="title">正能量视频</view>
-        <view class="video-box">
-            <view class="video-item" wx:for="{{positiveVideos}}" wx:key="{{index}}">
-                <image src="{{item.coverUrl}}"></image>
-                <view class="video-name">{{item.name}}</view>
-            </view>
+        <view class="video-item" wx:for="{{funVideos}}" wx:key="{{index}}">
+            <image src="{{item.coverUrl}}"></image>
+            <!-- <view class="video-name">{{item.name}}</view> -->
         </view>
     </view>
     <template is="bottomtab" data="{{activedTab: activedTab}}" />
