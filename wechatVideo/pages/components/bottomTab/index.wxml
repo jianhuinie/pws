@@ -1,0 +1,26 @@
+<template name="bottomtab">
+    <view class="bottom-tab" wx:if="{{activedTab === 1}}">
+        <view class="tab-item active">
+            <!-- <image src="https://imgs.genshuixue.com/0cms/d/file/content/2017/09/59c1de6474aca.png"></image> -->
+            <image src="/pages/resources/logo-home.png"></image>
+            <text>推荐</text>
+        </view>
+        <navigator open-type="redirect" url="/pages/allVideos/index" class="tab-item">
+            <!-- <image src="https://imgs.genshuixue.com/0cms/d/file/content/2017/09/59c1de64a987e.png"></image> -->
+            <image src="/pages/resources/logo-home.png"></image>
+            <text>所有视频</text>
+        </navigator>
+    </view>
+    <view class="bottom-tab" wx:if="{{activedTab === 2}}">
+        <navigator open-type="redirect" url="/pages/index/index" class="tab-item">
+            <!-- <image src="https://imgs.genshuixue.com/0cms/d/file/content/2017/09/59c1de64d7801.png"></image> -->
+           <image src="/pages/resources/logo-home.png"></image>
+            <text>推荐</text>
+        </navigator>
+        <view class="tab-item active">
+            <!-- <image src="https://imgs.genshuixue.com/0cms/d/file/content/2017/09/59c1de644f1c1.png"></image> -->
+           <image src="/pages/resources/logo-home.png"></image>
+            <text>所有视频</text>
+        </view>
+    </view>
+</template>

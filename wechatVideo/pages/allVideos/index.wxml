@@ -1,0 +1,15 @@
+<import src="../components/bottomTab/index.wxml" />
+<view class="all-videos">
+    <view class="videos-container videos-fun">
+        <view 
+            class="video-item" wx:for="{{allVideos}}" 
+            wx:key="{{index}}" data-item="{{item}}"
+            bindtap="jumpDetail"
+        >
+            <image src="https://aimg.tangdou.com{{item.pic}}"></image>
+            <image class="icon-play" src="/pages/resources/player.png"></image>
+            <view class="video-name">{{item.title}}</view>
+        </view>
+    </view>
+    <template is="bottomtab" data="{{activedTab: activedTab}}" />
+</view>

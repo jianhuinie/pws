@@ -1,0 +1,84 @@
+page .video-detail .video-box video {
+    width: 100%;
+    position: relative;
+}
+page .video-detail .video-box button.cover-button {
+    position:absolute;
+    top: 10rpx;
+    right: 10rpx;
+    z-index: 9999;
+    width: 120rpx;
+    height: 60rpx;
+    color: #fff;
+    background-color: #1DB954;
+    padding: 0;
+    line-height: 60rpx;
+    font-size: 32rpx;
+}
+page .video-detail .video-box button.share-button {
+    width: 288rpx;
+    height: 128rpx;
+    padding: 0;
+    float: right;
+    position: relative;
+    bottom: 10rpx;
+}
+page .video-detail .video-box .share-text {
+    clear: both;
+    float: right;
+    margin-right: 24rpx; 
+    color: #ff6c00;
+    margin-right: 10rpx;
+}
+page .video-detail .video-box button:after {
+    display: none;
+}
+page .video-detail .video-box image.icon-share {
+    width: 288rpx;
+    height: 128rpx;
+}
+page .video-detail .video-box .video-name {
+    font-size: 32rpx;
+    color: #2d2d2e;
+    font-weight: bold;
+    display: inline-block;
+    text-align: left;
+    margin-left: 10rpx;
+    margin-bottom: 20rpx;
+    width: 60%;
+}
+page .video-detail .info-box {
+    clear: both;
+    color: red;
+    font-size: 34rpx;
+    margin-left: 10rpx;
+}
+page .video-detail .video-container {
+    margin-top: 30rpx;
+}
+page .video-detail .video-container .video-item  {
+    position: relative;
+    margin-bottom: 40rpx;
+}
+page .video-detail .video-container .video-item image {
+    display: inline-block;
+    width: 45%;
+    height: 186rpx;
+}
+page .video-detail .video-container .video-item image.icon-play {
+    position: absolute;
+    width: 80rpx;
+    height: 80rpx;
+    top: 27%;
+    left: 17%;
+}
+page .video-detail .video-container .video-item .video-name {
+    font-size: 32rpx;
+    color: #2d2d2e;
+    font-weight: bold;
+    display: inline-block;
+    text-align: left;
+    width: 53%;
+    margin-left: 10rpx;
+    vertical-align: top;
+}

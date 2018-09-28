@@ -20,3 +20,16 @@ var obj = {
 };
 var sum = bind(add, obj, 4);
 console.log(sum(1, 2, 3));
+
+
+
+var add = function (x) {
+    return function (y) {
+        return x + y;
+    }
+};
+var increment = add(1);
+var addTen = add(10);
+increment(2);
+addTen(2);
+

@@ -1,0 +1,78 @@
+.dialog-component {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.dialog-component .dialog-box {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.dialog-component .dialog-box .dialog-mask {
+    z-index: 9998;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: .5;
+}
+
+.dialog-component .dialog-box .dialog-wrapper {
+    position: absolute;
+    box-sizing: border-box;
+    top: 35%;
+    left: 10%;
+    z-index: 9999;
+    width: 80%;
+    height: 360rpx;
+    color: #000;
+    background: #fff;
+    border: 2rpx solid #cdcdce;
+    vertical-align: middle;
+    border-radius: 12rpx;
+    padding: 30rpx;
+    text-align: center;
+}
+
+.dialog-component .dialog-box .dialog-wrapper .title {
+    font-size: 38rpx;
+    color: #2D2D2E;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 40rpx;
+}
+
+.dialog-component .dialog-box .dialog-wrapper .icon-close {
+    position: absolute;
+    right: 10rpx;
+    top: 20rpx;
+}
+
+.dialog-component .dialog-box .dialog-wrapper .icon-close image {
+    width: 22px;
+    height: 22px;
+}
+
+.dialog-component .dialog-box .dialog-wrapper .content {
+    font-size: 30rpx;
+    color: #3D3D3E;
+    padding-bottom: 40rpx;
+    border-bottom: 2rpx solid #DCDDDE;
+}
+
+.dialog-component .dialog-box .dialog-wrapper .action-btn {
+    font-size: 34rpx;
+    color: #60D8B1;
+    padding-top: 10rpx;
+    background: #fff;
+}
+
+.dialog-component .dialog-box .dialog-wrapper .action-btn:after {
+    display: none;
+}
