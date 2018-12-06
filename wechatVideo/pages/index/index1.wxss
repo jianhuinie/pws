@@ -1,0 +1,35 @@
+@import "../components/bottomTab/index.wxss";
+page .index-page .videos-container {
+    width: 50%;
+    text-align: center;
+    display: inline-block;
+    padding-bottom: 110rpx;
+}
+page .index-page .videos-container .title {
+    color: #2d2d2e;
+    font-size: 32rpx;
+    font-weight: bold;
+    margin: 40rpx 0;
+}
+page .index-page .videos-container .video-item {
+    margin-bottom: 20rpx;
+    position: relative;
+}
+page .index-page .videos-container .video-item image {
+    width: 90%;
+    height: 186rpx;
+}
+page .index-page .videos-container .video-item image.icon-play {
+    width: 80rpx;
+    height: 80rpx;
+    position: absolute;
+    top: 20%;
+    left: 40%;
+}
+page .index-page .videos-container .video-item .video-name {
+	color: #3d3d3e;
+    font-size: 28rpx;
+    font-weight: bold;
+    text-align: left;
+    margin-left: 10px
+}

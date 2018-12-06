@@ -1,51 +1,31 @@
 <!--index.wxml-->
-<import src="../components/bottomTab/index.wxml" />
 <view class="index-page">
-    <view class="videos-container videos-fun">
-        <view class="title">搞笑视频</view>
-        <view class="video-box">
-            <view 
-                class="video-item" wx:for="{{funVideos}}" 
-                wx:key="{{index}}" data-item="{{item}}"
-                bindtap="jumpDetail"
-            >
-                <image src="{{item.coverUrl}}"></image>
-                <image class="icon-play" src="/pages/resources/player.png"></image>
-                <view class="video-name">{{item.name}}</view>
-            </view>
-            <!-- <view 
-                class="video-item" wx:for="{{funVideos}}" 
-                wx:key="{{index}}" data-item="{{item}}"
-                bindtap="jumpDetail"
-            >
-                <image src="https://aimg.tangdou.com{{item.pic}}"></image>
-                <image class="icon-play" src="/pages/resources/player.png"></image>
-                <view class="video-name">{{item.title}}</view>
-            </view> -->
+    <view class="tab-nav">
+        <view 
+            wx:for="{{navTabs}}" 
+            wx:key="{{item.id}}"
+            data-id="{{item.id}}"
+            class="{{'tab-item' + (item.id === activeId ? ' active' : '')}}"
+            bindtap="switchTab"
+        >
+            {{item.name}}
         </view>
     </view>
-    <view class="videos-container videos-positive">
-        <view class="title">正能量视频</view>
-        <view class="video-box">
-            <view 
-                class="video-item" wx:for="{{positiveVideos}}" 
-                wx:key="{{index}}" data-item="{{item}}"
-                bindtap="jumpDetail"
-            >
-                <image src="{{item.coverUrl}}"></image>
-                <image class="icon-play" src="/pages/resources/player.png"></image>
-                <view class="video-name">{{item.name}}</view>
+    <view class="videos-container">
+        <view 
+            class="video-item" wx:for="{{videoList}}" 
+            wx:key="{{item.id}}" data-item="{{item}}"
+            bindtap="jumpDetail"
+        >
+            <view class="video-name">{{item.title}}</view>
+            <image src="{{'https://aimg.tangdou.com' + item.pic}}"></image>
+            <image class="icon-play" src="/pages/resources/player.png"></image>
+            <view class="duration-label">
+                {{item.duration}}
             </view>
-            <!-- <view 
-                class="video-item" wx:for="{{positiveVideos}}" 
-                wx:key="{{index}}" data-item="{{item}}"
-                bindtap="jumpDetail"
-            >
-                <image src="https://aimg.tangdou.com{{item.pic}}"></image>
-                <image class="icon-play" src="/pages/resources/player.png"></image>
-                <view class="video-name">{{item.title}}</view>
-            </view> -->
+            <view class="hit-total">
+                {{item.hits_total}}人气
+            </view>
         </view>
     </view>
-    <template is="bottomtab" data="{{activedTab: activedTab}}" />
 </view>

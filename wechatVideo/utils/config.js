@@ -29,7 +29,37 @@ const config = {
          */
         HABO: 'https://click.genshuixue.com/gs.gif',
         RECOMMEND: '/recommend'
-    }
+    },
+    NAV_TABS: [
+        {
+            id: 0,
+            name: '推荐'
+        }, 
+        {
+            id: 5,
+            name: '搞笑'
+        }, 
+        {
+            id: 6,
+            name: '情感'
+        }, 
+        {
+            id: 13,
+            name: '美文'
+        }, 
+        {
+            id: 10,
+            name: '祝福'
+        }, 
+        {
+            id: 3,
+            name: '健身'
+        }, 
+        {
+            id: 4,
+            name: '美食'
+        }
+    ]
 };
 
 export default config;
