@@ -1,1 +1,0 @@
-define("cc/function/decodeHTML",["require","exports","module"],function(){"use strict";return function(e){var r=String(e).replace(/&amp;/g,"&").replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/&quot;/g,'"').replace(/&#39;/g,"'");return r.replace(/&#([\d]+);/g,function(e,r){return String.fromCharCode(parseInt(r,10))})}});

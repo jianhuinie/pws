@@ -1,1 +1,0 @@
-define("userCenter/common/filter/formatDate",["require","exports","module","moment"],function(require){"use strict";var e=require("moment");return function(r,t){return e(r).format(t||"YYYY-MM-DD")}});

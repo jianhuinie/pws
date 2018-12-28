@@ -1,1 +1,0 @@
-define("cc/function/toString",["require","exports","module"],function(){"use strict";return function(e,n){var t=$.type(e);if("number"===t)e=""+e;else if("string"!==t){if(1===arguments.length)n="";e=n}return e}});

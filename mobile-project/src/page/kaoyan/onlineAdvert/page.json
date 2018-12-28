@@ -1,5 +1,0 @@
-[{
-    "tpl": "./onlineAdvert.tpl",
-    "router": "/onlineAdvert",
-    "mock_data": "./mock/onlineAdvert.json"
-}]

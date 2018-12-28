@@ -1,7 +1,0 @@
-[
-    {
-        "tpl": "./sem.tpl",
-        "router": "/chengduSem/sem",
-        "mock_data": "./mock/sem.json"
-    }
-]

@@ -1,1 +1,0 @@
-define("userCenter/common/biz/InviteResultDialog_css", [], function () { return '.invite-result-dialog .icon{float:left;font-size:50px}.invite-result-dialog .icon-check-circle{color:#56b02a}.invite-result-dialog .icon-times-circle{color:#f95710}.invite-result-dialog .invite-countdown{margin-top:10px}.invite-result-dialog .wrapper{margin-left:65px}'});

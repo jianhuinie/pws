@@ -1,7 +1,0 @@
-[
-    {
-        "tpl": "./index.tpl",
-        "router": "/staic/toOrg",
-        "mock_data": "./mock/index.json"
-    }
-]

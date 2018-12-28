@@ -1,5 +1,0 @@
-[{
-    "tpl": "./userComment.tpl",
-    "router": "/comment/userComment",
-    "mock_data": "./mock/userComment.json"
-}]

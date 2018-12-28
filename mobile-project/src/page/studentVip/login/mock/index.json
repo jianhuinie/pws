@@ -1,9 +1,0 @@
-{
-    "tpl_data": {
-        "is_vip": true,
-        "is_login": true,
-        "mobile": "19900000000",
-        "course_url": "http://baidu.com",
-        "card_url": "http://baidu.com"
-    }
-}

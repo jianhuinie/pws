@@ -1,8 +1,0 @@
-<?php /* Smarty version Smarty-3.1.19, created on 2016-06-25 18:30:53 compiled from "/Users/bjhl/workspace/web-fe/view/common/siteNav/courseList.html" */ ?>
-<?php /*%%SmartyHeaderCode:395088416576e5d5d0cfe14-88297610%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
-$_valid = $_smarty_tpl->decodeProperties(array ( 'file_dependency' => array ( '350950b541e13b1dcb8d225231d72b8b0903bdf6' => array ( 0 => '/Users/bjhl/workspace/web-fe/view/common/siteNav/courseList.html', 1 => 1466835415, 2 => 'file', ), ), 'nocache_hash' => '395088416576e5d5d0cfe14-88297610', 'function' => array ( ), 'variables' => array ( 'tpl_data' => 0, 'item' => 0, ), 'has_nocache_code' => false, 'version' => 'Smarty-3.1.19', 'unifunc' => 'content_576e5d5d0f7513_03990925',
-),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_576e5d5d0f7513_03990925')) {function content_576e5d5d0f7513_03990925($_smarty_tpl) {?> <?php $_smarty_tpl->tpl_vars['item'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['item']->_loop = false; $_from = $_smarty_tpl->tpl_vars['tpl_data']->value['course_list']['lessons']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['item']->key => $_smarty_tpl->tpl_vars['item']->value) {
-$_smarty_tpl->tpl_vars['item']->_loop = true;
-?> <?php echo $_smarty_tpl->getSubTemplate ("./course.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array('course'=>$_smarty_tpl->tpl_vars['item']->value), 0);?> <?php } ?><?php }} ?>

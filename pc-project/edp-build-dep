@@ -1,4 +1,0 @@
-edp build -f -s release
-rm -rf cache-build/asset
-rm -rf cache-build/view
-rm -rf cache-build/tool

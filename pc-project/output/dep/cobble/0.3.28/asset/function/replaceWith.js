@@ -1,1 +1,0 @@
-define("cobble/function/replaceWith",["require"],function(){"use strict";return function(e,n){e=e[0],n=n[0],e.parentNode.replaceChild(n,e)}});

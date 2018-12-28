@@ -1,7 +1,0 @@
-[
-    {
-        "tpl": "./index.tpl",
-        "router": "/orgDetail/teacher/index",
-        "mock_data": "./mock/index.json"
-    }
-]

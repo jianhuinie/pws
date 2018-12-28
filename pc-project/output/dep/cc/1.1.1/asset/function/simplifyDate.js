@@ -1,1 +1,0 @@
-define("cc/function/simplifyDate",["require","exports","module"],function(){"use strict";return function(e){if(e){if("number"===$.type(e))e=new Date(e);return{year:e.getFullYear(),month:e.getMonth()+1,date:e.getDate(),day:e.getDay()}}}});

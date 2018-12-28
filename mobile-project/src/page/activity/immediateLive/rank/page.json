@@ -1,7 +1,0 @@
-[
-    {
-        "tpl": "./index.tpl",
-        "router": "/activity/immediateLive/rank",
-        "mock_data": "./mock/index.json"
-    }
-]

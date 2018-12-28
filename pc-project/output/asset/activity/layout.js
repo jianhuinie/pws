@@ -1,1 +1,0 @@
-define("activity/layout",["require","exports"],function(require,exports){"use strict";exports.init=function(){}});

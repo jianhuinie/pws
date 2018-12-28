@@ -1,1 +1,0 @@
-define("cc/function/supportWebSocket",["require","exports","module"],function(){"use strict";return function(){return"undefined"!=typeof window.WebSocket}});

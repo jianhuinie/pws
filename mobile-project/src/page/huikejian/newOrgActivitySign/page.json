@@ -1,5 +1,0 @@
-[{
-    "tpl": "./activitySign.tpl",
-    "router": "/huikejian/newOrgActivitySign",
-    "mock_data": "./mock/activitySign.json"
-}]

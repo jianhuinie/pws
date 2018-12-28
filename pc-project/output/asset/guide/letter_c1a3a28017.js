@@ -1,1 +1,0 @@
-define('guide/letter_c1a3a28017',['require','exports'],function(require,exports){'use strict';$('#main');exports.init=function(){var i=window.location.pathname,t=i.split('/'),e=t[t.length-1]||'A';$('.lflag'+e).addClass('active');};});

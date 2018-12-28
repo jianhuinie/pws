@@ -1,7 +1,0 @@
-[
-    {
-        "tpl": "./index.tpl",
-        "router": "/videoCourse/Player",
-        "mock_data": "./mock/index.json"
-    }
-]

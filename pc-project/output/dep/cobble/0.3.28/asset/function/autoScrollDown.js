@@ -1,1 +1,0 @@
-define("cobble/function/autoScrollDown",["require","exports","module"],function(){"use strict";return function(o,e){var r=o.height(),t=o.scrollTop(),i=t+r,n=e.prop("offsetTop")+e.outerHeight(!0);if(t>n||n>i)o.scrollTop(n-r)}});

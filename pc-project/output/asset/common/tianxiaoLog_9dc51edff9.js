@@ -1,1 +1,0 @@
-define('common/tianxiaoLog_9dc51edff9',['require','common/store_a1a35b3dfc','common/service_9c322508d3'],function(require){require('common/store_a1a35b3dfc'),require('common/service_9c322508d3');window.script_data=window.script_data||{},window.page_data=window.page_data||{};return{send:function(o,n,e){return;}};});

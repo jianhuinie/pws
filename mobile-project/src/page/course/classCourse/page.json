@@ -1,7 +1,0 @@
-[
-    {
-        "tpl": "./default/index.tpl",
-        "router": "/classCourse/default",
-        "mock_data": "./mock/default.json"
-    }
-]

@@ -1,1 +1,0 @@
-define("teacherCenter/classCourse/success",["require","exports","TextClipboard"],function(require,exports){"use strict";var e=require("TextClipboard");exports.init=function(){var t=$("#main");new e({element:$("#empty"),text:t.find('input[name="url"]').val(),onClick:function(){success("复制成功"),this.copy(this.text)}})}});

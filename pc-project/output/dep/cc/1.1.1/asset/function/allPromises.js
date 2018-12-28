@@ -1,1 +1,0 @@
-define("cc/function/allPromises",["require","exports","module"],function(){"use strict";return function(e){var r=$.Deferred();return $.when.apply($,e).then(function(){r.resolve($.makeArray(arguments))},function(){r.reject($.makeArray(arguments))}),r}});

@@ -1,1 +1,0 @@
-define("cc/function/pageScrollLeft",["require","exports","module"],function(){"use strict";return function(){return Math.max(document.body.scrollLeft,document.documentElement.scrollLeft)}});

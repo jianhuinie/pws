@@ -1,1 +1,0 @@
-define("cc/function/debounce",["require","exports","module"],function(){"use strict";return function(n,e,u){function t(u){i=setTimeout(function(){i=null,r=$.now(),n.apply(null,$.makeArray(u))},e)}e="number"===$.type(e)?e:50;var r,i;return function(){if(u&&r>0&&$.now()-r<e)clearTimeout(i),i=null;if(!i)t(arguments)}}});

@@ -1,1 +1,0 @@
-define("cc/function/scrollBottom",["require","exports","module"],function(){"use strict";return function(r,o){var e=r.prop("scrollHeight"),l=r.innerHeight();if(null!=o)r.prop("scrollTop",e-l-o);else return e-r.prop("scrollTop")-l}});

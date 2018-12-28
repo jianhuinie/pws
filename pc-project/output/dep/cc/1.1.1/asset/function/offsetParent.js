@@ -1,1 +1,0 @@
-define("cc/function/offsetParent",["require","exports","module"],function(){"use strict";function t(t){return t.is("body")||"static"!==t.css("position")}return function(n){if(n.is("body"))return n;for(var r=n.parent();!t(r);)r=r.parent();return r}});

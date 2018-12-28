@@ -1,1 +1,0 @@
-define('userCenter/common/validator/isInt_559cc0af25',['require','exports','module'],function(){'use strict';return function(e){return/^\d+$/.test(e);};});

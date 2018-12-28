@@ -1,1 +1,0 @@
-define("cc/function/offsetSecond",["require","exports","module"],function(){"use strict";return function(e,t){if("date"===$.type(e))e=e.getTime();return new Date(e+1e3*t)}});

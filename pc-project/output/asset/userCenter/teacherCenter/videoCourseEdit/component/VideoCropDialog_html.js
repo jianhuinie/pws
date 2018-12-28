@@ -1,1 +1,0 @@
-define("userCenter/teacherCenter/videoCourseEdit/component/VideoCropDialog_html", [], function () { return '<div class="dialog video-crop-dialog"><div class="header"><div class="title">上传封面</div></div><div class="close">×</div><div class="body"><div style="width: {{width}}px;height: {{height}}px;"><div class="image-crop"></div></div></div></div>'});

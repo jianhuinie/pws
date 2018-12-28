@@ -1,7 +1,0 @@
-[
-    {
-        "tpl": "./index.tpl",
-        "router": "/contest/active",
-        "mock_data": "./mock/index.json"
-    }
-]

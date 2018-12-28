@@ -1,1 +1,0 @@
-define("cc/function/simplifyTime",["require","exports","module"],function(){"use strict";return function(e){if(e){if("number"===$.type(e))e=new Date(e);return{hour:e.getHours(),minute:e.getMinutes(),second:e.getSeconds()}}}});

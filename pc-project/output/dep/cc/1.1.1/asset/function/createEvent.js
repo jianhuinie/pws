@@ -1,1 +1,0 @@
-define("cc/function/createEvent",["require","exports","module"],function(){"use strict";return function(e){if(e&&!e[$.expando])e="string"===$.type(e)||e.type?$.Event(e):$.Event(null,e);return e||$.Event()}});

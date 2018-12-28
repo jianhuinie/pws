@@ -1,1 +1,0 @@
-define("cc/function/keys",["require","exports","module"],function(){"use strict";return function(e){if(Object.keys)return Object.keys(e);var n=[];return $.each(e,function(e){n.push(e)}),n}});

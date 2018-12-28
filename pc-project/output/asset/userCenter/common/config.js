@@ -1,1 +1,0 @@
-define("userCenter/common/config",["require","exports","module"],function(){"use strict"});

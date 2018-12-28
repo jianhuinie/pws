@@ -1,7 +1,0 @@
-[
-    {
-        "tpl": "./register_clause.tpl",
-        "router": "/jinyou/register_clause",
-        "mock": ""
-    }
-]

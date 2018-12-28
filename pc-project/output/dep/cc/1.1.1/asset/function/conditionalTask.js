@@ -1,1 +1,0 @@
-define("cc/function/conditionalTask",["require","exports","module"],function(){"use strict";return function(n,e){var i=e();if(i===!0)n();else if(i&&i.then)i.then(function(e){if(e===!0)n()})}});

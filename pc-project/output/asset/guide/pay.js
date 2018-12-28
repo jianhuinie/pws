@@ -1,1 +1,0 @@
-define("guide/pay",["require","exports"],function(require,exports){"use strict";exports.init=function(){$("#content .sub-section h3").on("click",function(){var s=$(this).closest(".sub-section");s.toggleClass("show");var i=$(this).closest(".section");i.find(".sub-section").each(function(i,t){if(t!=s[0])$(t).removeClass("show")})})}});

@@ -1,1 +1,0 @@
-define("cc/function/supportPlaceholder",["require","exports","module"],function(){"use strict";return function(){var e=$('<input type="text" />')[0];return"placeholder"in e}});

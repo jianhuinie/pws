@@ -1,1 +1,0 @@
-define("cc/function/isValidDate",["require","exports","module"],function(){"use strict";return function(e){if("date"!==$.type(e))return!1;var t=e.getTime();if("number"===$.type(t))return(""+t).length>8;else return!1}});

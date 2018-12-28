@@ -1,7 +1,0 @@
-[
-    {
-        "tpl": "./register_clause.tpl",
-        "router": "static/register_clause",
-        "mock": ""
-    }
-]

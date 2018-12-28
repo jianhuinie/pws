@@ -1,1 +1,0 @@
-define("cc/function/extend",["require","exports","module"],function(){"use strict";return function(n,e){if($.isPlainObject(e))$.each(e,function(e,i){if(!(e in n))n[e]=i})}});

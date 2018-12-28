@@ -1,9 +1,0 @@
-/**
- * 参数顺序：name duration type delay count direction
- */
-.animation(@value1, @value2:X, ...) {
-
-    @props: ~`"@{arguments}".replace(/[\[\]]|\,\sX/g, '')`;
-
-    -webkit-animation: @props;
-}

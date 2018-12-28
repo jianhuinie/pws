@@ -1,7 +1,0 @@
-[
-    {
-        "tpl": "./index.tpl",
-        "router": "/individualPush",
-        "mock_data": "./mock/index.json"
-    }
-]

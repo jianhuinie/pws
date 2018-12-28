@@ -1,1 +1,0 @@
-define("cobble/function/lpad",["require","exports","module"],function(){"use strict";return function(n,e){if(null==e)e=2;var r=new Array(e-(""+n).length+1);return r.join("0")+n}});

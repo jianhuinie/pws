@@ -1,5 +1,0 @@
-[{
-    "tpl": "./pre.tpl",
-    "router": "/data_pre",
-    "mock_data": "./mock/pre.json"
-}]

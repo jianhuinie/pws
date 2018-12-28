@@ -1,1 +1,0 @@
-define("userCenter/common/component/DatePicker_css", [], function () { return '.date-picker{display:inline-block;position:relative;}.date-picker > .input{display:block}'});

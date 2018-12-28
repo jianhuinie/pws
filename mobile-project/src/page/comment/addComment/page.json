@@ -1,5 +1,0 @@
-[{
-    "tpl": "./addComment.tpl",
-    "router": "/addComment/index",
-    "mock_data": "./mock/addComment.json"
-}]

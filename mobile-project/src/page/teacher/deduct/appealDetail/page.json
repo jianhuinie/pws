@@ -1,7 +1,0 @@
-[
-    {
-        "tpl": "./index.tpl",
-        "router": "/teacher_deduct/appealDetail/index",
-        "mock_data": "./mock/index.json"
-    }
-]

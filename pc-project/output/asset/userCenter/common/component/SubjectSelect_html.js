@@ -1,1 +1,0 @@
-define("userCenter/common/component/SubjectSelect_html", [], function () { return '<div class="dropdowns tight{{#if options.className}} {{options.className}}{{/if}}"><Select options={{options.subject1}} /><Select options={{options.subject2}} /><Select options={{options.subject3}} /></div>'});

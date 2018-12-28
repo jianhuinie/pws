@@ -1,1 +1,0 @@
-define("cc/function/ratio",["require","exports","module"],function(){"use strict";return function(e,r){if(e>=0&&r>0)return e/r;else return 0}});

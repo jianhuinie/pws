@@ -1,5 +1,0 @@
-[{
-    "tpl": "./newOrgDetail.tpl",
-    "router": "/huikejian/newOrgDetail",
-    "mock_data": "./mock/newOrgDetail.json"
-}]

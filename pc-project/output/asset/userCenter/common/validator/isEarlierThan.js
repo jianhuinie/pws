@@ -1,1 +1,0 @@
-define("userCenter/common/validator/isEarlierThan",["require","exports","module"],function(){"use strict";return function(e,r){if("number"===$.type(e))e=new Date(e);if("number"===$.type(r))r=new Date(r);return e.setHours(0,0,0,0),r.setHours(0,0,0,0),e.getTime()<r.getTime()}});

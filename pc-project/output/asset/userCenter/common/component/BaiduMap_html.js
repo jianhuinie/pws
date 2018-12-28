@@ -1,1 +1,0 @@
-define("userCenter/common/component/BaiduMap_html", [], function () { return '<div class="baidu-map" id="{{id}}"></div>'});

@@ -1,1 +1,0 @@
-define("userCenter/common/component/DatePicker_html", [], function () { return '<div class="date-picker"><Input options="{{options}}" /><div class="menu bordered calendar"></div><style>{{style}}</style></div>'});

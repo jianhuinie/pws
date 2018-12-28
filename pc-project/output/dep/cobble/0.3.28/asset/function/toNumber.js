@@ -1,1 +1,0 @@
-define("cobble/function/toNumber",["require","exports","module"],function(){"use strict";var e={"int":parseInt,"float":parseFloat};return function(r,t,n){if("number"!==$.type(r)){var i=e[n];if(r=i?i(r,10):+r,isNaN(r))r=t}return r}});

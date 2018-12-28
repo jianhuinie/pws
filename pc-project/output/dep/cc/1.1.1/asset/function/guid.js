@@ -1,1 +1,0 @@
-define("cc/function/guid",["require","exports","module"],function(){var n=0;return function(){return"cc_"+n++}});

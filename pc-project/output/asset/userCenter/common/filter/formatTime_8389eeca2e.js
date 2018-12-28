@@ -1,1 +1,0 @@
-define('userCenter/common/filter/formatTime_8389eeca2e',['require','exports','module','moment'],function(require){'use strict';var e=require('moment');return function(r,t){return e(r).format(t||'HH:mm');};});

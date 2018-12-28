@@ -1,1 +1,0 @@
-define("cc/function/isHidden",["require","exports","module"],function(){"use strict";return function(i){i.css("display");return"none"===i.css("display")||0==i.css("opacity")||"hidden"===i.css("visibility")}});

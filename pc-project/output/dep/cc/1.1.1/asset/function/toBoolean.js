@@ -1,1 +1,0 @@
-define("cc/function/toBoolean",["require","exports","module"],function(){"use strict";return function(e,n){if("boolean"!==$.type(e)){if(1===arguments.length)n=!!e;e=n}return e}});

@@ -1,7 +1,0 @@
-[
-    {
-        "tpl": "./index.tpl",
-        "router": "/orgX/receiveTextbook/edit",
-        "mock_data": "./mock/index.json"
-    }
-]

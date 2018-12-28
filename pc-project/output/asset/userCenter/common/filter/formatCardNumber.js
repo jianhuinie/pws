@@ -1,1 +1,0 @@
-define("userCenter/common/filter/formatCardNumber",["require","exports","module"],function(){"use strict";return function(e,r){if("string"!==$.type(e))e=""+e;var t=e.match(/.{4}/g);if(t)return t.push(e.substr(t.join("").length)),t.join(r||" ");else return e}});

@@ -1,1 +1,0 @@
-define("teacherCenter/profile/sidebar",["require","exports"],function(require,exports){"use strict";exports.updateAvatar=function(e){$("#sidebar").find(".user-info img").attr("src",e)}});

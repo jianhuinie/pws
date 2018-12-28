@@ -1,1 +1,0 @@
-define("classCourse/common/tabNav",["require","exports"],function(require,exports){"use strict";exports.init=function(){var i=$(".tabNav"),t=i.find("li").length;if(navigator.userAgent.indexOf("MSIE 8.0")>0){var n=parseInt(100/t)+"%";$(".tabNav li").css("width",n)}}});

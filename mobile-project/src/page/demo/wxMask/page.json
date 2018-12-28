@@ -1,7 +1,0 @@
-[
-    {
-        "tpl": "./index.tpl",
-        "router": "/demo/wxMask",
-        "mock_data": "./mock/index.json"
-    }
-]

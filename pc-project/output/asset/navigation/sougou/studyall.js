@@ -1,1 +1,0 @@
-define("navigation/sougou/studyall",["require","exports"],function(require,exports){"use strict";$("#study-all");exports.init=function(){}});

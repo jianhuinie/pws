@@ -1,7 +1,0 @@
-[
-    {
-        "tpl": "./index.tpl",
-        "router": "/gaokao/super",
-        "mock_data": "./mock/index.json"
-    }
-]

@@ -1,1 +1,0 @@
-define("cc/function/simplifySecond",["require","exports","module"],function(){"use strict";return function(r){var o=60,e=60*o,n=24*e,t=Math.floor(r/n);r%=n;var u=Math.floor(r/e);r%=e;var i=Math.floor(r/o),s=r%o;return{days:t,hours:u,minutes:i,seconds:s}}});

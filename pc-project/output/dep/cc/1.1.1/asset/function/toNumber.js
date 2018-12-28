@@ -1,1 +1,0 @@
-define("cc/function/toNumber",["require","exports","module"],function(){"use strict";var e={"int":parseInt,"float":parseFloat};return function(r,t,i){if("number"!==$.type(r)){var n=e[i];if(n)r=n(r,10);else if($.isNumeric(r))r=+r;else r=0/0}return isNaN(r)?t:r}});

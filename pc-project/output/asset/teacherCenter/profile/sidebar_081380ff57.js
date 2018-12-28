@@ -1,1 +1,0 @@
-define('teacherCenter/profile/sidebar_081380ff57',['require','exports'],function(require,exports){'use strict';exports.updateAvatar=function(e){$('#sidebar').find('.user-info img').attr('src',e);};});

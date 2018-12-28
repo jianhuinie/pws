@@ -1,1 +1,0 @@
-define("userCenter/common/biz/InviteDialog_css", [], function () { return '.invite-dialog .invite-form{margin-top:10px}'});

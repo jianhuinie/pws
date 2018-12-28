@@ -1,5 +1,0 @@
-[{
-    "tpl": "./index.tpl",
-    "router": "/k12/detail",
-    "mock_data": "./mock/index.json"
-}]

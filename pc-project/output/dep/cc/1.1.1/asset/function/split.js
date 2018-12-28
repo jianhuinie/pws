@@ -1,1 +1,0 @@
-define("cc/function/split",["require","exports","module"],function(){"use strict";return function(t,i){var e=[];if("number"===$.type(t))t=""+t;if(t&&"string"===$.type(t))$.each(t.split(i),function(t,i){if(i=$.trim(i))e.push(i)});return e}});

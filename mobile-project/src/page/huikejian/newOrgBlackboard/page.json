@@ -1,5 +1,0 @@
-[{
-    "tpl": "./blackboard.tpl",
-    "router": "/huikejian/newOrgBlackboard",
-    "mock_data": "./mock/blackboard.json"
-}]

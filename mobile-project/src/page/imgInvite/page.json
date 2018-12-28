@@ -1,7 +1,0 @@
-[
-    {
-        "tpl": "./index.tpl",
-        "router": "/imgInvite/index",
-        "mock_data": "./mock/index.json"
-    }
-]

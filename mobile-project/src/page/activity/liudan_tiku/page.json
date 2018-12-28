@@ -1,7 +1,0 @@
-[
-    {
-        "tpl": "./index.tpl",
-        "router": "/tiku/liudan",
-        "mock_data": "./mock/index.json"
-    }
-]

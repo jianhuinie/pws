@@ -1,1 +1,0 @@
-define("userCenter/teacherCenter/watermarkEdit/watermarkImage_html", [], function () { return '<div class="dialog watermark-upload"><div class="header"><div class="title">上传水印图片</div></div><div class="close">×</div><div class="body"><div style="width: {{width}}px;height: {{height}}px;"><div class="image-crop"></div></div></div>'});

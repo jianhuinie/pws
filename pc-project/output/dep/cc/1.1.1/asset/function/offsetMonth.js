@@ -1,1 +1,0 @@
-define("cc/function/offsetMonth",["require","exports","module"],function(){"use strict";return function(e,t){if("date"===$.type(e))e=e.getTime();return e=new Date(e),e.setDate(1),e.setMonth(e.getMonth()+t),e}});

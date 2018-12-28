@@ -1,5 +1,0 @@
-[{
-    "tpl": "./index.tpl",
-    "router": "/orgX/classCourse",
-    "mock_data": "./mock/index.json"
-}]

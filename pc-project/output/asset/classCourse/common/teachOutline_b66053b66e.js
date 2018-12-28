@@ -1,1 +1,0 @@
-define('classCourse/common/teachOutline_b66053b66e',['require','exports'],function(require,exports){'use strict';exports.init=function(){var i=$('#teachOutline');i.on('click','.viewAll',function(){$('.details').find('tr').show(),$(this).hide();});};});

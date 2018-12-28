@@ -1,1 +1,0 @@
-define("userCenter/common/biz/VideoDialog_css", [], function () { return '.video-dialog > .body{padding:0}'});
