@@ -1,6 +1,6 @@
 /**
  * 批量下载图片到本地
- * http.get
+ * https.get / http.get
  */
 const fs = require('fs');
 const https = require('https');
