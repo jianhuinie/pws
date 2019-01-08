@@ -46,6 +46,22 @@
             top: 50%;
             transform: translate(-50%, -50%);
             width: 100%;
+            font-size: 14px;
+            color: #2d2d2e;
+            line-height: 18px;
+        }
+        .employee-item {
+            display: inline-block;
+            width: 135px;
+            margin-right: 25px;
+        }
+        .employee-item:nth-child(5n) {
+            margin-right: 0;
+        }
+        .employee-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
         }
         #icon-close {
             display: none;
@@ -684,20 +700,19 @@
                     }
                     
                     // 添加照片
-                    console.log(result);
-                    var htmlStr = [];
+                    var htmlStr = '';
                     for(var j = 0; j < result.length; j++) {
-                        var item = result[j];
-                        // var itemNumber = item.substring(0, 5);
-                        var itemNumber = item.substr(0, 5);
-                        console.log(itemNumber);
-                        htmlStr.push(item);
-                        var memberAvatar = './icon-close.png';
-                        htmlStr.push('<image src="' + memberAvatar + '">');
-
+                        var employee = result[j];
+                        var employeeNumber = employee.substr(0, 5);
+                        var employeeName = employee.substring(8);
+                        var employeeAvatar = 'https://imgs.genshuixue.com//90512403_tb2yxlp7.jpeg@1e_222w_125h_1c_0i_1o_90Q_2x.jpg';
+                        htmlStr +=  '<div class="employee-item">'
+                                +       '<image class="employee-avatar" src="' + employeeAvatar + '">'
+                                +       '<div class="employ-number">' + employeeNumber + '</div>'
+                                +       '<div class="employ-nname">' + employeeName + '</div>'
+                                +   '</div>';
                     }
-                    // $('content').innerHTML = result.join('</br>');
-                    $('content').innerHTML = htmlStr.join('</br>');
+                    $('content').innerHTML = htmlStr;
                 }
 
                 // 结束抽奖
