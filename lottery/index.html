@@ -25,7 +25,7 @@
             top: 28%;
             transform: translate(-50%, 0);
             padding: 20px 60px;
-            width: 460px;
+            width: 900px;
             text-align: center;
             border-radius: 15px;
             box-shadow: 2px 2px 6px #7b2e30;
@@ -37,18 +37,8 @@
             color: #4C4C4C;
             margin-bottom: 1em;
             line-height: 44px;
-            min-height: 308px;
+            min-height: 140px;
             position: relative;
-        }
-        .content {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            width: 100%;
-            font-size: 14px;
-            color: #2d2d2e;
-            line-height: 18px;
         }
         .employee-item {
             display: inline-block;
@@ -63,77 +53,6 @@
             height: 100px;
             border-radius: 50%;
         }
-        #icon-close {
-            display: none;
-        }
-        .prize-names {
-            position: relative;
-            animation: 1s prizeNames forwards;
-        }
-        .prize-names #icon-close {
-            display: inline-block;
-            position: absolute;
-            right: 13px;
-            top: 0px;
-            line-height: initial;
-            height: 25px;
-            width: 25px;
-        }
-        .prize-names #icon-close img {
-            width: 100%;
-            height: 100%;
-        }
-        @keyframes prizeNames {
-            from {
-                width: 460px;
-            }
-            to {
-                background-color: rgba(255,255,255,1);
-                position: absolute;
-                left: 50%;
-                top: 0;
-                transform: translate(-50%, 0);
-                padding: 20px 60px;
-                width: 775px;
-                min-height: 404px;
-                text-align: center;
-                border-radius: 15px;
-                font-size: 32px;
-                margin: 0;
-                color: #4C4C4C;
-                line-height: 44px;
-            }
-        }
-
-        #footer {
-            margin-top: 20px;
-            font-size: 22px;
-            color: #DE0808;
-        }
-
-        input {
-            outline: 0;
-            border: 0;
-            font-size: 18px;
-            padding: 5px 10px;
-            width: 14em;
-            margin: 0 5px;
-            border: 1px solid #DE0808;
-            border-radius: 100px;
-            text-align: center;
-        }
-        button {
-            border: 1px solid #CE4242;
-            background-color: #FF6C00;
-            color: #FFF;
-            cursor: pointer;
-            font-size: 1.5em;
-            padding: 10px 20px;
-            margin-top: 20px;
-            border-radius: 3px;
-            outline: none;
-        }
-
     </style>
     <script>
         /**
@@ -653,35 +572,17 @@
                 return doc.getElementById(id);
             }
 
-            // 显示元素
-            function show(ele) {
-                ele.style.display = 'inline-block';
-            }
-
-            // 隐藏元素
-            function hide(ele) {
-                ele.style.display = 'none';
-            }
-
             window.onload = function () {
                 // 抽奖开关，true: 正在抽奖，false: 停止
                 var isToggle = false;
-                var btnFullScreen = $('btn-fullscreen');
-                var body = doc.body;
                 var timer;
                 var prizeCount;
                 // 开始抽奖
-                function start() {
+                function start(count) {
                     isToggle = true;
-                    prizeCount = +$('prize-count').value.trim();
+                    prizeCount = count;
                     if (!prizeCount) {
                         return;
-                    }
-                    $('names').className = 'prize-names';
-                    if (prizeCount > 8) {
-                        $('content').className = '';
-                    } else {
-                        $('content').className = 'content';
                     }
                     timer = setInterval(function () {
                         getRandomStudents();
@@ -723,37 +624,42 @@
                 }
 
                 doc.body.onkeydown = function (e) {
-                    if (e.keyCode == 32) {
-                        if (isToggle) {
+                    if (isToggle) {
+                        if (e.keyCode == 32) {
                             stop();
-                        } else {
-                            start();
+                            e.stopPropagation();
+                            return false;
+                        } else if (e.keyCode === 13) {
+                            document.documentElement.webkitRequestFullscreen();
+                            e.stopPropagation();
+                            return false;
                         }
-                        e.stopPropagation();
-                        return false;
+                    } else {
+                        var countKeyMap = {
+                            48: 10,
+                            49: 1,
+                            50: 2,
+                            51: 3,
+                            52: 4,
+                            53: 5,
+                            54: 6,
+                            55: 7,
+                            56: 8,
+                            57: 9,
+                        };
+                        // 1-9 对应1-9个  0 对应10个
+                        var count = countKeyMap[e.keyCode];
+                        if (count) {
+                            start(count);
+                            e.stopPropagation();
+                            return false;
+                        } else if (e.keyCode === 13) {
+                            document.documentElement.webkitRequestFullscreen();
+                            e.stopPropagation();
+                            return false;
+                        }
                     }
                 };
-                $('icon-close').onclick = function () {
-                    $('names').className = '';
-                };
-
-                // 全屏
-                btnFullScreen.onclick = function () {
-                    document.documentElement.webkitRequestFullscreen();
-                };
-
-                // 监听全屏事件
-                document.addEventListener(
-                    'webkitfullscreenchange',
-                    function () {
-                        if (document.webkitIsFullScreen) {
-                            hide(btnFullScreen);
-                        }
-                        else {
-                            show(btnFullScreen);
-                        }
-                    }
-                );
             };
         })();
     </script>
@@ -762,16 +668,16 @@
     <div id="main">
         <div id="names">
             <div id="prize-names">
-                <div id="content" class="content">请等待...</div>
+                <div id="content">请等待...</div>
             </div>
-            <span id="icon-close">
+            <!-- <span id="icon-close">
                 <img src="icon-close.png"/>
-            </span>
+            </span> -->
         </div>
-        <div id="footer">
+        <!-- <div id="footer">
             抽 <input id="prize-count" type="text" placeholder="请输入本次要抽奖的人数" autofocus> 个
         </div>
-        <button id="btn-fullscreen">全屏</button>
+        <button id="btn-fullscreen">全屏</button> -->
     </div>
 </body>
 </html>
