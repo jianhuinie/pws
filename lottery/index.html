@@ -1631,7 +1631,7 @@
 
                     timer = setInterval(function () {
                         getRandomEmployee();
-                    });
+                    }, 50);
                 }
 
                 function getRandomEmployee(isRemove) {
@@ -1651,7 +1651,8 @@
                         var employee = result[j];
                         var employeeNumber = employee.substr(0, 5);
                         var employeeName = employee.substring(8);
-                        var employeeAvatar = 'https://imgs.genshuixue.com//90512403_tb2yxlp7.jpeg@1e_222w_125h_1c_0i_1o_90Q_2x.jpg';
+                        // var employeeAvatar = 'https://imgs.genshuixue.com//90512403_tb2yxlp7.jpeg@1e_222w_125h_1c_0i_1o_90Q_2x.jpg';
+                        var employeeAvatar = './avatars/' + employeeNumber + '.jpg';
                         htmlStr +=  '<div class="employee-item">'
                                 +       '<image class="employee-avatar" src="' + employeeAvatar + '">'
                                 +       '<div class="employee-number">' + employeeNumber + '</div>'
