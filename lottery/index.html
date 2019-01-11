@@ -35,68 +35,23 @@
             font-size: 20px;
             color: #000;
             line-height: 30px;
-            width: 671px;
+            width: 100px;
             margin: 0 auto;
-            margin-top: 35px;
+            display: flex;
         }
         .employee-item {
             display: inline-block;
-            width: 87px;
-            margin-right: 59px;
-            margin-bottom: 22px;
-        }
-        .employee-item:nth-child(5n) {
-            margin-right: 0;
+            flex-grow: 1;
         }
         .employee-avatar {
-            width: 87px;
-            height: 87px;
             border-radius: 50%;
             box-sizing: border-box;
             border: 1px solid #cdcdce;
         }
-
-        #content.middle {
-            font-size: 26px;
-            line-height: 31px;
-            width: 538px;
-            margin: 0 auto;
-            margin-top: 86px;
-        }
-        #content.middle .employee-item {
-            width: 136px;
-            margin-right: 65px;
-            margin-bottom: 0;
-        }
-        #content.middle .employee-item:nth-child(3n) {
-            margin-right: 0;
-        }
-        #content.middle .employee-item .employee-avatar {
-            width: 136px;
-            height: 136px;
-            margin-bottom: 13px;
-        }
-
-        #content.large {
-            font-size: 30px;
-            line-height: 35px;
-            width: 538px;
-            margin: 0 auto;
-            margin-top: 80px;
-        }
-        #content.large .employee-item {
-            width: 150px;
-            margin: 0;
-        }
-        #content.large .employee-item .employee-avatar {
-            width: 150px;
-            height: 150px;
-            margin-bottom: 16px;
-        }
     </style>
     <script>
         /**
-        1、按下1、3、0 按键后开始抽奖 1代表抽1个 3代表抽3个 0代表抽10个；
+        1、按下1-0 按键后开始抽奖 1-9代表抽1-9个 0代表抽10个；
         2、易用性：空格结束；enter最大化，退出最大化；
         */
         (function () {
@@ -1613,6 +1568,59 @@
                 var isToggle = false;
                 var timer;
                 var prizeCount;
+                var styleMap = {
+                    1: {
+                        content: 'width: 538px; line-height: 35px; font-size: 30px; margin-top: 80px',
+                        avatar: 'width: 150px; height: 150px; margin-bottom: 16px',
+                        employee: 'width: 150px; margin: 0'
+                    },
+                    2: {
+                        content: 'width: 538px; line-height: 31px; font-size: 26px; margin-top: 86px',
+                        avatar: 'width: 136px; height: 136px; margin-bottom: 13px',
+                        employee: 'width: 136px; margin: 0'
+                    },
+                    3: {
+                        content: 'width: 538px; line-height: 31px; font-size: 26px; margin-top: 86px',
+                        avatar: 'width: 136px; height: 136px; margin-bottom: 13px',
+                        employee: 'width: 136px; margin: 0'
+                    },
+                    4: {
+                        content: 'width: 685px; line-height: 31px; font-size: 26px; margin-top: 86px',
+                        avatar: 'width: 136px; height: 136px; margin-bottom: 13px',
+                        employee: 'width: 136px; margin: 0'
+                    },
+                    5: {
+                        content: 'width: 685px; line-height: 30px; font-size: 20px; margin-top: 100px',
+                        avatar: 'width: 120px; height: 120px; margin-bottom: 13px',
+                        employee: 'width: 136px; margin: 0'
+                    },
+                    6: {
+                        content: 'width: 685px; line-height: 30px; font-size: 20px; margin-top: 35px; display: block',
+                        avatar: 'width: 87px; height: 87px; margin-bottom: 13px',
+                        employee: 'width: 136px; margin: 0'
+                    },
+                    7: {
+                        content: 'width: 685px; line-height: 30px; font-size: 20px; margin-top: 35px; display: block',
+                        avatar: 'width: 87px; height: 87px; margin-bottom: 13px',
+                        employee: 'width: 136px; margin: 0'
+                    },
+                    8: {
+                        content: 'width: 685px; line-height: 30px; font-size: 20px; margin-top: 35px; display: block',
+                        avatar: 'width: 87px; height: 87px; margin-bottom: 13px',
+                        employee: 'width: 136px; margin: 0'
+                    },
+                    9: {
+                        content: 'width: 685px; line-height: 30px; font-size: 20px; margin-top: 35px; display: block',
+                        avatar: 'width: 87px; height: 87px; margin-bottom: 13px',
+                        employee: 'width: 136px; margin: 0'
+                    },
+                    10: {
+                        content: 'width: 685px; line-height: 30px; font-size: 20px; margin-top: 35px; display: block',
+                        avatar: 'width: 87px; height: 87px; margin-bottom: 13px',
+                        employee: 'width: 136px; margin: 0'
+                    },
+                    
+                };
                 // 开始抽奖
                 function start(count) {
                     // 先清空下 防止闪烁
@@ -1623,13 +1631,6 @@
                     if (!prizeCount) {
                         return;
                     }
-
-                    var classMap = {
-                        1: 'large',
-                        3: 'middle',
-                        10: 'small'
-                    };
-                    $('content').className = (classMap[prizeCount]);
 
                     timer = setInterval(function () {
                         getRandomEmployee();
@@ -1646,6 +1647,7 @@
                             employees.splice(index, 1);
                         }
                     }
+                    var style = styleMap[prizeCount];
                     
                     // 添加照片
                     var htmlStr = '';
@@ -1653,14 +1655,15 @@
                         var employee = result[j];
                         var employeeNumber = employee.substr(0, 5);
                         var employeeName = employee.substring(8);
-                        // var employeeAvatar = 'https://imgs.genshuixue.com//90512403_tb2yxlp7.jpeg@1e_222w_125h_1c_0i_1o_90Q_2x.jpg';
                         var employeeAvatar = './avatars/' + employeeNumber + '.jpg';
-                        htmlStr +=  '<div class="employee-item">'
-                                +       '<image class="employee-avatar" src="' + employeeAvatar + '">'
+                        htmlStr +=  '<div class="employee-item" style="' + style.employee + '">'
+                                +       '<image class="employee-avatar" src="' + employeeAvatar + '" style="' + style.avatar + '">'
                                 +       '<div class="employee-number">' + employeeNumber + '</div>'
                                 +       '<div class="employee-name">' + employeeName + '</div>'
                                 +   '</div>';
                     }
+
+                    $('content').setAttribute('style', style.content);
                     $('content').innerHTML = htmlStr;
                 }
 
@@ -1674,7 +1677,7 @@
                 // 计算展示区域位置
                 function setContentPosition() {
                     var availHeight = window.screen.availHeight;
-                    var contentTop = ((availHeight * 315 / 600) - 200) + 'px';
+                    var contentTop = ((availHeight * 315 / 600) -210) + 'px';
                     $('main').setAttribute('style', 'top:' + contentTop);
                 }
 
@@ -1694,16 +1697,15 @@
                         var countKeyMap = {
                             48: 10,
                             49: 1,
-                            // 50: 2,
+                            50: 2,
                             51: 3,
-                            // 52: 4,
-                            // 53: 5,
-                            // 54: 6,
-                            // 55: 7,
-                            // 56: 8,
-                            // 57: 9,
+                            52: 4,
+                            53: 5,
+                            54: 6,
+                            55: 7,
+                            56: 8,
+                            57: 9,
                         };
-                        // 1、3 对应1、9个  0 对应10个
                         var count = countKeyMap[e.keyCode];
                         if (count) {
                             start(count);
