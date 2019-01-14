@@ -41,11 +41,15 @@
         }
         .wait-content {
             margin: 0 auto;
+            margin-top: 152px;
         }
         .employee-item {
             display: inline-block;
             flex-grow: 1;
             width: 137px;
+        }
+        .employee-item:nth-child(n + 6) {
+            margin-top: 24px;
         }
         .employee-avatar {
             border-radius: 50%;
@@ -1574,24 +1578,32 @@
                 var timer;
                 var prizeCount;
                 var moreThanFiveConfig = {
-                    content: 'margin-top: 35px; display: block',
-                    avatar: 'width: 87px; height: 87px',
+                    content: 'margin-top: 42px; display: block; line-height: 28px',
+                    avatar: 'width: 87px; height: 87px; margin-bottom: 2px',
                 };
-                var twoToFourConfig = {
-                    content: 'font-size: 26px; margin-top: 86px',
+                var twoConfig = {
+                    content: 'font-size: 26px; margin-top: 86px; width: 514px',
                     avatar: 'width: 136px; height: 136px',
+                };
+                var threeConfig = {
+                    content: 'font-size: 26px; margin-top: 86px; width: 514px',
+                    avatar: 'width: 110px; height: 110px',
+                };
+                var fourConfig = {
+                    content: 'font-size: 26px; margin-top: 86px',
+                    avatar: 'width: 110px; height: 110px',
                 };
                 var styleMap = {
                     1: {
                         content: 'line-height: 35px; font-size: 30px; margin-top: 80px',
                         avatar: 'width: 150px; height: 150px; margin-bottom: 16px',
                     },
-                    2: twoToFourConfig,
-                    3: twoToFourConfig,
-                    4: twoToFourConfig,
+                    2: twoConfig,
+                    3: threeConfig,
+                    4: fourConfig,
                     5: {
-                        content: 'margin-top: 100px',
-                        avatar: 'width: 120px; height: 120px',
+                        content: 'margin-top: 100px; width: 718px',
+                        avatar: 'width: 106px; height: 106px',
                     },
                     6: moreThanFiveConfig,
                     7: moreThanFiveConfig,
