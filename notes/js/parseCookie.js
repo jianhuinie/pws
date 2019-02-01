@@ -1,7 +1,7 @@
 const parseCookie = cookieStr => {
     const cookieObj = {};
-    // const reg = /(\w+)=(\w+);\s/g;
-    const reg = /([^=]+)=([^;]+);?\s*/g;
+    const reg = /([^\s]+)=([^;]+)/g;
+    // const reg = /([^=]+)=([^;]+);?\s?/g;
     while ((result = reg.exec(cookieStr)) !== null) {
         // const result = reg.exec(cookieStr);
         console.log(result);
