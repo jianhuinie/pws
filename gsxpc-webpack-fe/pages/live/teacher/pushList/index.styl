@@ -1,0 +1,64 @@
+@import '~normalize-styl';
+@import '~css/icomoon';
+
+// antd 中定义的
+*,
+::after,
+::before {
+    box-sizing: border-box;
+}
+
+body,
+p {
+    margin: 0;
+}
+
+body {
+    font-family: "Helvetica Neue For Number",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: rgba(0,0,0,.65);
+    background-color: #fff;
+}
+
+
+.teacher-course-list {
+    width: 440px;
+    height: 432px;
+    background: #FFFFFF;
+    border: 1px solid #DEDEDE;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.08);
+    border-radius: 8px;
+    position: relative;
+    .view-title{
+        height: 30px;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        p {
+            position: relative;
+            height:30px;
+            line-height 30px;
+            background: #555B6D;
+            color: #ffffff;
+            font-size: 14px;
+            padding-left: 8px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            .icon {
+                position: absolute;
+                top: 8px;
+                right: 8px;
+                font-size 14px;
+            }
+        }
+    }
+    .view-content {
+        padding: 16px;
+        height: 400px;
+        overflow-y: auto;
+
+        .push-course-item:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+}

@@ -1,0 +1,20 @@
+globals:
+    $: true
+rules:
+    camelcase: 0
+    import/no-unresolved: 2
+    react/react-in-jsx-scope: off
+    react/no-unknown-property:
+        - 1
+        -
+            ignore: [class]
+    react/prop-types: 0
+    react/prefer-stateless-function: 0
+    react/jsx-handler-names: off
+    jsx-a11y/no-redundant-roles: off
+    react/no-access-state-in-setstate: off
+    max-lines-per-function: off
+    complexity: off
+
+# settings:
+#     import/resolver: webpack

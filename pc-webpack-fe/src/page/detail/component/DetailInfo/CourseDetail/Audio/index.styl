@@ -1,0 +1,39 @@
+.detail-audio {
+    position: relative;
+    text-align: left;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 20px;
+    .icon {
+        position: absolute;
+        top: 30%;
+        left: 43%;
+        font-size: 20px;
+        width: 26px;
+        height: 24px;
+        color: #ccc;
+        &.play-gif {
+            display: none;
+        }
+        &.icon-recording {
+            display: inline-block;
+            width: 16px;
+            height: 17px;
+            background: url('https://imgs.genshuixue.com/0cms/d/file/content/2018/03/5ab4acd216f39.png') no-repeat center;
+        }
+    }
+    img {
+        max-width: 740px;
+    }
+    audio::-internal-media-controls-download-button {
+        display:none;
+    }
+
+    audio::-webkit-media-controls-enclosure {
+        overflow:hidden;
+    }
+
+    audio::-webkit-media-controls-panel {
+        width: calc(100% + 30px);
+    }
+}

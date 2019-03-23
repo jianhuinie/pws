@@ -1,0 +1,63 @@
+.chapter-section {
+    .chapter-name {
+        font-size: 18px;
+        color: #2D2D2E;
+        font-weight: bold;
+        cursor: pointer;
+        padding: 20px 0;
+        border-bottom: 1px solid #ededee;
+
+        i {
+            font-size: 14px;
+            float: right;
+            color: #CDCDCE;
+            position: relative;
+            top: 6px;
+
+            &.rotate {
+                transform: rotateX(180deg);
+            }
+        }
+
+        .label-audition {
+            display: inline-block;
+            background: #FF6C00;
+            border-radius: 1px;
+            width: 30px;
+            height: 15px;
+            line-height: 15px;
+            color: #fff;
+            font-size: 12px;
+            top: -2px;
+            left: 10px;
+            position: relative;
+            text-align: center;
+
+            &:before {
+                border: 4px solid transparent;
+                content: ' ';
+                position: absolute;
+                border-right-color: #ff6c00;
+                left: -8px;
+                top: 3px;
+            }
+        }
+    }
+
+    .check-more {
+        width: 124px;
+        height: 34px;
+        border: 0.5px solid #CDCDCD;
+        line-height: 32px;
+        text-align: center;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: 30px;
+        border-radius: 24px;
+        span {
+            font-size: 14px;
+            color: #5D5D5D;
+        }
+    }
+}

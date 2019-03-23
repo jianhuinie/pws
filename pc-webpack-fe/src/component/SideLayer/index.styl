@@ -1,0 +1,146 @@
+.side-layer {
+    background: #fff;
+    position: fixed;
+    border: 1px solid #ededee;
+    bottom: 40px;
+    right: 16px;
+    width: 48px;
+    border-radius: 8px;
+    padding: 8px 0;
+    cursor: pointer;
+    z-index: 1001;
+    .flotage-btn {
+        position: relative;
+        width: 46px;
+        font-size: 24px;
+        background-color: #fff;
+        text-align: center;
+        padding: 2px;
+        a {
+            text-decoration: none;
+        }
+        &.item {
+            padding: 0;
+            .line-box {
+                width: 24px;
+                height: 1px;
+                margin: 0 auto;
+                background: #ededee;
+                position: relative;
+                bottom: 1px;
+            }
+        }
+        .icon {
+            color: #3d3d3e;
+            display: inline-block;
+            margin-top: 12px;
+            font-size: 24px;
+        }
+        .icon-WeChat {
+            font-size: 21px;
+        }
+        .ant-back-top {
+            font-size: 24px;
+            position: relative;
+            right: 0px;
+            bottom: 0;
+            width: 46px;
+            height: 46px;
+        }
+        &:hover {
+            .icon {
+                color: #ffffff;
+            }
+            background-color: #3d3d3e;
+            .sub-menu {
+                display: block;
+                color: #9d9d9e;
+            }
+        }
+        .sub-menu {
+            text-align: left;
+            display: none;
+            padding: 11px 15px;
+            position: absolute;
+            background: #fff;
+            border: 1px solid #fff;
+            box-shadow: 0 0 5px 0 #cdcdce;
+            border-radius: 5px;
+            .sub-text-first {
+                font-size: 16px;
+                color: #ff6c00;
+                font-weight: bold;
+            }
+            .sub-text-middle {
+                font-size: 16px;
+                color: rgba(60, 60, 62, 1);
+            }
+            .sub-text-last {
+                font-size: 12px;
+                color: #9d9d9e;
+            }
+            .triangle {
+                width: 0;
+                height: 0;
+                border-top: 7px solid transparent;
+                border-bottom: 7px solid transparent;
+                border-left: 7px solid #fff;
+                position: absolute;
+            }
+            .sub-triangle4 {
+                left: 95px;
+                bottom: 15px;
+            }
+            .sub-triangle1 {
+                left: 111px;
+                bottom: 37px;
+            }
+            .sub-triangle2 {
+                left: 132px;
+                bottom: 37px;
+            }
+            .sub-triangle3 {
+                left: 151px;
+                bottom: 115px;
+            }
+        }
+        .sub-first {
+            left: -110px;
+            bottom: -23px;
+        }
+        .sub-middle {
+            left: -131px;
+            bottom: -23px;
+        }
+        .sub-last {
+            left: -151px;
+            bottom: -100px;
+            .qrcode {
+                width: 120px;
+                height: 120px;
+                margin: 8px 0;
+            }
+        }
+        .sub-final {
+            left: -94px;
+            bottom: 0;
+        }
+    }
+}
+#im-iframe {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    position: fixed;
+    right: 0;
+    margin-right: 70px;
+    bottom: 0;
+    z-index: 1000;
+    width: 0;
+    height: 0;
+    body {
+        background-color: transparent;
+    }
+}
+
+
