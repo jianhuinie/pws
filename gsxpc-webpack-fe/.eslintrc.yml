@@ -1,3 +1,0 @@
-extends: [plugin:mew/react]
-rules:
-    import/prefer-default-export: 0

@@ -1,14 +1,15 @@
 {
-	"pages": [
-		"pages/index/index",
-		"pages/allVideos/index",
-		"pages/videoDetail/index",
-		"pages/logs/logs"
-	],
-	"window": {
-		"backgroundTextStyle": "light",
-		"navigationBarBackgroundColor": "#fff",
-		"navigationBarTitleText": "视频社区",
-		"navigationBarTextStyle": "black"
-	}
+    "pages": [
+        "pages/index/index",
+        "pages/allVideos/index",
+        "pages/videoDetail/index",
+        "pages/logs/logs"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "视频社区",
+        "navigationBarTextStyle": "black"
+    },
+    "sitemapLocation": "sitemap.json"
 }

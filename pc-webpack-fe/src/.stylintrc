@@ -1,9 +1,0 @@
-{
-  "blocks": true,
-  "brackets": "always",
-  "colons": "always",
-  "semicolons": "always",
-  "leadingZero": "never",
-  "stylusSupremacy.selectorSeparator": ",\n",
-  "stylusSupremacy.insertNewLineBeforeElse": true
-}

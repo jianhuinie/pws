@@ -1,11 +1,12 @@
+<wxs src="../../utils/common.wxs" module="commonTools" />
 <view class="video-detail">
     <view class="video-box">
         <!-- <cover-view> -->
-            <video id="my-video" src="{{item.videoUrl}}" autoplay>
-                <button class="cover-button" open-type="share">
+            <video id="my-video" src="{{item.video_url}}" autoplay>
+                <!-- <button class="cover-button" open-type="share">
                     转发
-                    <!-- <image class="icon-share" src="/pages/resources/icon-share.png"></image> -->
-                </button>
+                    <image class="icon-share" src="/pages/resources/icon-share.png"></image>
+                </button> -->
             </video>
         <!-- </cover-view> -->
         <view class="video-name">
@@ -16,18 +17,18 @@
         </button>
         <!-- <view class="share-text">分享</view> -->
     </view>
-    <view class="info-box">
+    <!-- <view class="info-box">
         关注微信公众号sp68222 每日更新大量视频
-    </view>
+    </view> -->
     <view class="video-container">
-        <view 
-            class="video-item" wx:for="{{allVideos}}" 
+        <view
+            class="video-item" wx:for="{{allVideos}}"
             wx:key="{{index}}" data-item="{{item}}"
-            bindtap="jumpDetail"
+            bindtap="jumpDetail" wx:if="{{item.item_type === 'video'}}"
         >
-            <image src="https://aimg.tangdou.com{{item.pic}}"></image>
+            <image src="{{commonTools.getCoverUrl(item.oss_art_title_pic)}}"></image>
             <image class="icon-play" src="/pages/resources/player.png"></image>
-            <view class="video-name">{{item.title}}</view>
+            <view class="video-name">{{item.art_title}}</view>
         </view>
     </view>
 </view>

@@ -90,12 +90,12 @@ const wxService = {
         var method = options.method || 'GET';
         var header = options.header || {};
         var defaultHeader = {
-            "content-type": "application/json",
+            'content-type': 'application/json',
             // 'content-type': 'application/x-www-form-urlencoded',
             'X-Requested-With': 'XMLHttpRequest'
         };
         if (method === 'POST') {
-            header = extend(true, header, defaultHeader);
+            header = extend(true, defaultHeader, header);
         }
         //加loggerId
         var profile = wx.getStorageSync('PROFILE');
@@ -105,7 +105,7 @@ const wxService = {
             loggerId = profile.userId + '_' + timeStamp;
         }
         //每个请求加上token 和appVersion
-        var data = extend(true, options.data || {}, { token: wx.getStorageSync(TOKEN), appVersion: config.APP_VERSION, loggerId: loggerId });
+        var data = extend(true, { token: wx.getStorageSync(TOKEN), appVersion: config.APP_VERSION, loggerId: loggerId }, options.data || {});
         console.log("TOKEN:" + wx.getStorageSync(TOKEN));
         wx.request({
             url: options.url,
@@ -118,8 +118,8 @@ const wxService = {
                 //resData为后端的整体返回
                 var resData = response.data;
                 //具体信息还在里层的data里
-                var backendData = resData.data || resData.datas;
-                if (+resData.code === 0) {
+                var backendData = resData.data || resData.datas || resData.artlist;
+                if (+resData.code === 0 || resData.ret === 'ok') {
                     if (options.doneHandler && (typeof options.doneHandler === 'function')) {
                         options.doneHandler(backendData);
                     }

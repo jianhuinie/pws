@@ -1,0 +1,31 @@
+//获取图片url
+function getCoverUrl(str) {
+    var coverArr = JSON.parse(str);
+    return coverArr[0];
+}
+
+// 补0操作
+function addZero(number) {
+    return number > 9 ? number : '0' + number;
+ }
+// 格式化视频时间
+function formatVideoDuration(seconds) {
+    // 短视频 不考虑1小时以上  有些没返回时间
+    seconds = seconds || 0;
+    var minute = 0;
+
+    if (seconds > 60) {
+        minute = Math.floor(seconds / 60);
+    }
+
+    seconds %= 60;
+    minute = addZero(minute);
+    seconds = addZero(seconds);
+
+    return minute + ':' + seconds;
+}
+
+module.exports = {
+    getCoverUrl: getCoverUrl,
+    formatVideoDuration: formatVideoDuration
+};

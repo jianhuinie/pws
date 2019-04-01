@@ -1,13 +1,18 @@
+page .video-detail {
+    padding-top: 235px;
+}
 page .video-detail .video-box video {
     width: 100%;
-    position: relative;
+    position: fixed;
+    top: 0;
+    z-index: 999;
 }
 page .video-detail .video-box button.cover-button {
     position:absolute;
     top: 10rpx;
-    right: 10rpx;
+    right: 80rpx;
     z-index: 9999;
-    width: 120rpx;
+    width: 130rpx;
     height: 60rpx;
     color: #fff;
     background-color: #1DB954;
@@ -26,7 +31,7 @@ page .video-detail .video-box button.share-button {
 page .video-detail .video-box .share-text {
     clear: both;
     float: right;
-    margin-right: 24rpx; 
+    margin-right: 24rpx;
     color: #ff6c00;
     margin-right: 10rpx;
 }
@@ -55,10 +60,13 @@ page .video-detail .info-box {
 }
 page .video-detail .video-container {
     margin-top: 30rpx;
+    clear: both;
 }
 page .video-detail .video-container .video-item  {
     position: relative;
     margin-bottom: 40rpx;
+    padding-left:10px;
+
 }
 page .video-detail .video-container .video-item image {
     display: inline-block;
@@ -70,7 +78,7 @@ page .video-detail .video-container .video-item image.icon-play {
     width: 80rpx;
     height: 80rpx;
     top: 27%;
-    left: 17%;
+    left: 20%;
 }
 page .video-detail .video-container .video-item .video-name {
     font-size: 32rpx;

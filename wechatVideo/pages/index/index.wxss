@@ -1,12 +1,27 @@
+page .index-page {
+    padding-top: 30px;
+}
 page .index-page .tab-nav {
-    display: flex;
-    padding-left: 30rpx;
     font-size: 32rpx;
     color: #2d2d2e;
     margin-bottom: 10rpx;
+    width: 100%;
+    overflow-x: scroll;
+    white-space: nowrap;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    background: #f8f8f8;
+    line-height: 32px;
+}
+page .index-page .tab-nav::-webkit-scrollbar {
+    display: none;
 }
 page .index-page .tab-nav .tab-item {
-    flex-grow: 1;
+    display: inline-block;
+    width: 50px;
+    text-align: center;
+
 }
 page .index-page .tab-nav .tab-item.active {
     color: #ff6c00;

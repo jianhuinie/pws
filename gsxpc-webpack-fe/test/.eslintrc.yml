@@ -1,6 +1,0 @@
-globals:
-    jsdom: true
-
-rules:
-    no-magic-numbers: 0
-    max-lines-per-function: 0

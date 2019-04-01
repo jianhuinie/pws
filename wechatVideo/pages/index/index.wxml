@@ -1,30 +1,30 @@
 <!--index.wxml-->
+<wxs src="../../utils/common.wxs" module="commonTools" />
 <view class="index-page">
     <view class="tab-nav">
-        <view 
-            wx:for="{{navTabs}}" 
+        <view
+            wx:for="{{navTabs}}"
             wx:key="{{item.id}}"
             data-id="{{item.id}}"
             class="{{'tab-item' + (item.id === activeId ? ' active' : '')}}"
-            bindtap="switchTab"
-        >
+            bindtap="switchTab">
             {{item.name}}
         </view>
     </view>
     <view class="videos-container">
-        <view 
-            class="video-item" wx:for="{{videoList}}" 
-            wx:key="{{item.id}}" data-item="{{item}}"
-            bindtap="jumpDetail"
+        <view
+            class="video-item" wx:for="{{videoList}}"
+            wx:key="{{item.art_id}}" data-item="{{item}}"
+            bindtap="jumpDetail" wx:if="{{item.item_type === 'video'}}"
         >
-            <view class="video-name">{{item.title}}</view>
-            <image src="{{'https://aimg.tangdou.com' + item.pic}}"></image>
+            <view class="video-name">{{item.art_title}}</view>
+            <image src="{{commonTools.getCoverUrl(item.oss_art_title_pic)}}"></image>
             <image class="icon-play" src="/pages/resources/player.png"></image>
-            <view class="duration-label">
-                {{item.duration}}
+            <view class="duration-label" wx:if="{{item.durtion}}">
+                {{commonTools.formatVideoDuration(item.durtion)}}
             </view>
             <view class="hit-total">
-                {{item.hits_total}}人气
+                {{item.views}}人气
             </view>
         </view>
     </view>

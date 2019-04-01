@@ -12,6 +12,8 @@
 	"appid": "wx245ba42709066fe2",
 	"projectname": "wechatVideo",
 	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
