@@ -1,10 +1,10 @@
 js跨域指的是通过js在不同的域之间进行数据传输或通信
 #### 一、前端与前端跨域（主域相同）
-在项目中经常会出现这种问题，比如M站中的视频课页面，在html中嵌套了一个iframe（里面是video视频），本身的域名是 m.genshuixue.com，iframe的域名是 www.genshuixue.com；现在我们需要在页面底部做一个按钮，点击时让iframe中的video开始播放。在这种情况下，两个不同域名的js要进行跨域处理：
+在项目中经常会出现这种问题，比如M站中的视频课页面，在html中嵌套了一个iframe（里面是video视频），本身的域名是 a，iframe的域名是 b；现在我们需要在页面底部做一个按钮，点击时让iframe中的video开始播放。在这种情况下，两个不同域名的js要进行跨域处理：
 ##### 1、通过修改document.domain跨子域
 浏览器都有一个同源策略，其限制之一就是浏览器中不同域的框架之间是不能进行js的交互操作的。有一点需要说明，不同的框架之间（父子或同辈），是能够获取到彼此的window对象，但是你不能使用获取到的window对象的属性和方法（html5的postMessage方法例外，还有些浏览器比如ie6可以使用top、parent等少数几个属性）。总之，你可以获取到一个几乎没有什么用的window对象。
 
-我们可以在两个html中把 document.domain 都设置成 genshuixue.com。这样我们就可以通过js访问到jframe中的各种属性和对象了。
+我们可以在两个html中把 document.domain 都设置成 c。这样我们就可以通过js访问到jframe中的各种属性和对象了。
 
 ==注意：document.domain的设置是有限制的，只能把它设置成自身或更高一级的父域，且主域必须相同==
 
@@ -13,7 +13,7 @@ js跨域指的是通过js在不同的域之间进行数据传输或通信
 window对象有个name属性,这个属性有个特征：在一个窗口（window）的生命周期内，窗口载入的所有页面都是共享一个window.name的，每个页面对window.name都有读写的权限，window.name是持久存在一个窗口载入过的所有页面中的，并不会因新页的载入而进行重置。
 
 a.html
-    
+
     <script>
         window.name = '我是页面a设置的值';
         setTimeout(function () {
@@ -25,7 +25,7 @@ b.html
     <script>
         alert(window.name); //我是页面a设置的值
     </script>
-    
+
 上面的例子中在打开a页面3秒后跳到b页面并弹出“我是页面a设置的值”。如果之后所有载入的页面都没对window.name进行修改的话那么所有这些页面获取到的window.name的值都是a.html页面设置的那个值。当然，如果有需要，其中的任何一个页面都可以对window.name的值进行修改。a，b不同域也同样适用。
 
 但是我们不能用打开一个页面的方式传递，所以设置一个中间桥梁iframe。
@@ -46,21 +46,21 @@ a页面要和请求b页面的数据并跨域，可以在a页面中新建一个if
 
 给谁发送window就是谁，message是发送的数据信息（字符串形式），targetOrigin是目标域名（字符串形式），不限制可以写'*'。在上面的例子中我们可以用下面的写法：
 
-www.genshuixue.com页面
+b页面
 
-    mUrl = 'http://m.genshuixue.com';
+    mUrl = '';
     window.parent.postMessage('start play', mUrl);
-    
-m.genshuixue.com页面
+
+页面
 
      window.addEventListener('message', receiveMessage);
     function receiveMessage(event) {
-        if (event.origin.indexOf('genshuixue.com') < 0) return;
+        if (event.origin.indexOf('') < 0) return;
         if (event.data === 'start play') {
             .......//做出相应处理
         }
     }
-    
+
 上面的例子中得到的message我们可以对她的origin和data进行相应的校验处理。
 
 ==注意：postMessage支持IE8以上浏览器==
@@ -78,7 +78,7 @@ jsonp是一个非官方的协议，它允许在服务器端集成Script tags返�
         }
     </script>
     <script src="http://example.com/data.php?callback=dosomething"></script>
-    
+
 获取数据的地址后面还有一个callback参数，按惯例是这个参数名，但是用其他的也一样。
 
 data.php:
@@ -88,11 +88,11 @@ data.php:
         $data = array('a', 'b', 'c');
         echo $callback.'('.json_encode($data)')';
     ?>
-    
+
 最终输出：
-    
+
     dosomething(['a', 'b', 'c'])
-    
+
 ==jsonp原理：通过script标签引入一个js文件，这个js文件载入成功后会执行我们再url参数中指定的函数，并且把我们需要的json数据作为参数传入。故jsonp需要服务器端进行配合。==
 
 知道原理后，我们就可以用jquery或者用js动态声称script标签进行跨域操作：
@@ -106,8 +106,8 @@ data.php:
             success: suc(response)
         );
     }
-    
-    
+
+
 ##### 2、CORS
 CORS是跨域资源共享（Cross－Origin Resourse Sharing）的缩写。是跨域AJAX请求的根本解决方法。相比JSONP只能发GET请求，CORS允许任何类型的请求。
 
@@ -156,20 +156,20 @@ CORS是跨域资源共享（Cross－Origin Resourse Sharing）的缩写。是跨
 （3）Access-Control-Expose-Headers：该字段可选。CORS请求时，XMLHttpRequest对象的getResponseHeader()方法只能拿到6个基本字段：Cache-Control, Content-Language, Content-Type, Expires, Last-Modified, Pragma。如果想拿到其他字段，就必须在Access-Control-Expose-Headers里面指定。上面的例子指定，getResponseHeaderx('FooBar')可以返回FooBar字段的值。
 
  withCredentials属性
- 
+
 CORS请求默认不发送Cookie和HTTP认证信息。如果要把Cookie发到服务器，一方面要服务器同意，指定Access-Control-Allow-Credentials字段。
 
     Access-Control-Allow-Credentials: true
-    
+
 另一方面，开发者必须在AJAX请求中打开withCredentials属性。
 
     var xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
-    
+
 否则，即使服务器同意发送Cookie，浏览器也不会发送。或者，服务器要求设置Cookie，浏览器也不会处理。但是，如果省略withCredentials设置，有的浏览器还是会一起发送Cookie。这时，可以显式关闭withCredentials。
 
     xhr.withCredentials = false;
-    
+
 需要注意的是，如果要发送Cookie，Access-Control-Allow-Origin就不能设置为＊，必须指定明确的、与请求网页一致的域名。同时，Cookie依然遵循同源政策，只有用服务器域名设置的Cookie才会上传，其他域名的Cookie并不会上传，且（跨源）原网页代码中的document.cookie也无法读取服务器域名下的Cookie。
 
 ###### 非简单请求
@@ -187,7 +187,7 @@ CORS请求默认不发送Cookie和HTTP认证信息。如果要把Cookie发到服
     xhr.open('PUT', url, true);
     xhr.setRequestHeader('X-Custom-Header', 'Value');
     xhr.send();
-    
+
 上面的代码中，HTTP请求的方法是PUT，并且发送一个自定义头信息X-Custom-Header.
 
 浏览器发现，这是一个非简单请求，就自动发出一个“预检”请求，要求服务器确认可以这样请求。下面是这个“预检”请求的HTTP头信息。
@@ -200,7 +200,7 @@ CORS请求默认不发送Cookie和HTTP认证信息。如果要把Cookie发到服
     Accept-Language: en-US
     Connection: keep-alive
     User-Agent: Mozilla/5.0...
-    
+
 "预检"请求用的请求方法是OPTIONS，表示这个请求是用来询问的。头信息里面，关键字段是Origin，表示请求来自哪个源。
 除了Origin字段，"预检"请求的头信息包括两个特殊字段：Access-Control-Request-Method（该字段是必须的，用来列出浏览器的CORS请求会用到哪些HTTP方法，上例是PUT）；Access-Control-Request-Headers（该字段是一个逗号分隔的字符串，指定浏览器CORS请求会额外发送的头信息字段，上例是X-Custom-Header）。
 
@@ -220,21 +220,21 @@ CORS请求默认不发送Cookie和HTTP认证信息。如果要把Cookie发到服
     Keep-Alive: timeout=2, max=100
     Connection: Keep-Alive
     Content-Type: text/plain
-    
+
 上面的HTTP回应中，关键的是Access-Control-Allow-Origin字段，表示http://api.bob.com可以请求数据。该字段也可以设为星号，表示同意任意跨源请求。
 
 如果浏览器否定了"预检"请求，会返回一个正常的HTTP回应，但是没有任何CORS相关的头信息字段。这时，浏览器就会认定，服务器不同意预检请求，因此触发一个错误，被XMLHttpRequest对象的onerror回调函数捕获。控制台会打印出如下的报错信息。
 
     XMLHttpRequest cannot load http://api.alice.com.
     Origin http://api.bob.com is not allowed by Access-Control-Allow-Origin.
-    
+
 服务器回应的其他CORS相关字段如下。
 
     Access-Control-Allow-Methods: GET, POST, PUT
     Access-Control-Allow-Headers: X-Custom-Header
     Access-Control-Allow-Credentials: true
     Access-Control-Max-Age: 1728000
-    
+
 （1）Access-Control-Allow-Methods
 该字段必需，它的值是逗号分隔的一个字符串，表明服务器支持的所有跨域请求的方法。注意，返回的是所有支持的方法，而不单是浏览器请求的那个方法。这是为了避免多次"预检"请求。
 
@@ -258,19 +258,19 @@ CORS请求默认不发送Cookie和HTTP认证信息。如果要把Cookie发到服
     Accept-Language: en-US
     Connection: keep-alive
     User-Agent: Mozilla/5.0...
-    
+
 下面是服务器正常的回应。
 
     Access-Control-Allow-Origin: http://api.bob.com
     Content-Type: text/html; charset=utf-8
-    
+
 上面头信息中，Access-Control-Allow-Origin字段是每次回应都必定包含的。
 ##### 3.XDomainRequest
 XDomainRequest跨域是针对IE8和IE9的跨域技术(只支持IE8、IE9)，CORS跨域支持IE10+，所以IE8和IE9的跨域就是一个空档，我们需要用XDomainRequest实现。
 ###### 相应事件
-    
+
     var xdr = new XDomainRequest();
-    
+
 （1）onerror
 
 在跨域请求发生错误时触发，事件方法没有参数
@@ -279,7 +279,7 @@ XDomainRequest跨域是针对IE8和IE9的跨域技术(只支持IE8、IE9)，CORS
         alert('XDR onerror');
     }
     xdr.onerror = err;
-    
+
 （2）onload
 
 跨域请求完成后触发，事件方法没有参数
@@ -288,7 +288,7 @@ XDomainRequest跨域是针对IE8和IE9的跨域技术(只支持IE8、IE9)，CORS
         alert('XDR onload');
     }
     xdr.onload = loaded;
-    
+
 （3）onprogress
 
 跨域请求接受数据时触发，事件方法没有参数，此事件在调用send方法和onload事件触发间隔内触发0,1或者无数次
@@ -297,7 +297,7 @@ XDomainRequest跨域是针对IE8和IE9的跨域技术(只支持IE8、IE9)，CORS
         alert('XDR onprogress');
     }
     xdr.onprogress = progres;
-    
+
 （4）ontimeout
 
 跨域请求连接超时时触发，事件方法没有参数。此事件限于onload事件触发。触发了ontimeout事件，XDomainRequest属性responseText不可用，调用此属性会报错。
@@ -306,7 +306,7 @@ XDomainRequest跨域是针对IE8和IE9的跨域技术(只支持IE8、IE9)，CORS
         alert('XDR ontimeout');
     }
     xdr.ontimeout = timeo;
-    
+
 ###### 对象方法
 （1）abort
 
@@ -316,7 +316,7 @@ XDomainRequest跨域是针对IE8和IE9的跨域技术(只支持IE8、IE9)，CORS
 在open方法被调用后，onload事件触发前调用，在其他时间段内调用此方法会报错。
 
     xdr.abort();
-    
+
 （2）open
 
 链接服务器，打开跨域请求。
@@ -348,7 +348,7 @@ bstrUrl：字符串，服务器url地址，
 获取请求或者想要的内容类型
 
     value = xdr.get_contentType( p);
-    
+
 （3）responseText
 
 响应的内容，字符串格式
@@ -389,7 +389,7 @@ bstrUrl：字符串，服务器url地址，
             appliance.send();
             }, 0);
         }
-        
+
 ==上面的send放在timeout中，为了防止多个XDoaminRequest在同一时间发送而丢失。==
 ##### 4.withCredentials属性
 正常情况下前后端跨域，后端没有读写写cookie的权限，这种情况下我们可以通过给前后端加属性实现。
@@ -406,11 +406,11 @@ bstrUrl：字符串，服务器url地址，
 =======
 js跨域指的是通过js在不同的域之间进行数据传输或通信
 #### 一、前端与前端跨域（主域相同）
-在项目中经常会出现这种问题，比如M站中的视频课页面，在html中嵌套了一个iframe（里面是video视频），本身的域名是 m.genshuixue.com，iframe的域名是 www.genshuixue.com；现在我们需要在页面底部做一个按钮，点击时让iframe中的video开始播放。在这种情况下，两个不同域名的js要进行跨域处理：
+在项目中经常会出现这种问题，比如M站中的视频课页面，在html中嵌套了一个iframe（里面是video视频），本身的域名是 ，iframe的域名是 ；现在我们需要在页面底部做一个按钮，点击时让iframe中的video开始播放。在这种情况下，两个不同域名的js要进行跨域处理：
 ##### 1、通过修改document.domain跨子域
 浏览器都有一个同源策略，其限制之一就是浏览器中不同域的框架之间是不能进行js的交互操作的。有一点需要说明，不同的框架之间（父子或同辈），是能够获取到彼此的window对象，但是你不能使用获取到的window对象的属性和方法（html5的postMessage方法例外，还有些浏览器比如ie6可以使用top、parent等少数几个属性）。总之，你可以获取到一个几乎没有什么用的window对象。
 
-我们可以在两个html中把 document.domain 都设置成 genshuixue.com。这样我们就可以通过js访问到jframe中的各种属性和对象了。
+我们可以在两个html中把 document.domain 都设置成 。这样我们就可以通过js访问到jframe中的各种属性和对象了。
 
 ==注意：document.domain的设置是有限制的，只能把它设置成自身或更高一级的父域，且主域必须相同==
 
@@ -419,7 +419,7 @@ js跨域指的是通过js在不同的域之间进行数据传输或通信
 window对象有个name属性,这个属性有个特征：在一个窗口（window）的生命周期内，窗口载入的所有页面都是共享一个window.name的，每个页面对window.name都有读写的权限，window.name是持久存在一个窗口载入过的所有页面中的，并不会因新页的载入而进行重置。
 
 a.html
-    
+
     <script>
         window.name = '我是页面a设置的值';
         setTimeout(function () {
@@ -431,7 +431,7 @@ b.html
     <script>
         alert(window.name); //我是页面a设置的值
     </script>
-    
+
 上面的例子中在打开a页面3秒后跳到b页面并弹出“我是页面a设置的值”。如果之后所有载入的页面都没对window.name进行修改的话那么所有这些页面获取到的window.name的值都是a.html页面设置的那个值。当然，如果有需要，其中的任何一个页面都可以对window.name的值进行修改。a，b不同域也同样适用。
 
 但是我们不能用打开一个页面的方式传递，所以设置一个中间桥梁iframe。
@@ -452,21 +452,21 @@ a页面要和请求b页面的数据并跨域，可以在a页面中新建一个if
 
 给谁发送window就是谁，message是发送的数据信息（字符串形式），targetOrigin是目标域名（字符串形式），不限制可以写'*'。在上面的例子中我们可以用下面的写法：
 
-www.genshuixue.com页面
+页面
 
-    mUrl = 'http://m.genshuixue.com';
+    mUrl = '';
     window.parent.postMessage('start play', mUrl);
-    
-m.genshuixue.com页面
+
+页面
 
      window.addEventListener('message', receiveMessage);
     function receiveMessage(event) {
-        if (event.origin.indexOf('genshuixue.com') < 0) return;
+        if (event.origin.indexOf('') < 0) return;
         if (event.data === 'start play') {
             .......//做出相应处理
         }
     }
-    
+
 上面的例子中得到的message我们可以对她的origin和data进行相应的校验处理。
 
 ==注意：postMessage支持IE8以上浏览器==
@@ -484,7 +484,7 @@ jsonp是一个非官方的协议，它允许在服务器端集成Script tags返�
         }
     </script>
     <script src="http://example.com/data.php?callback=dosomething"></script>
-    
+
 获取数据的地址后面还有一个callback参数，按惯例是这个参数名，但是用其他的也一样。
 
 data.php:
@@ -494,11 +494,11 @@ data.php:
         $data = array('a', 'b', 'c');
         echo $callback.'('.json_encode($data)')';
     ?>
-    
+
 最终输出：
-    
+
     dosomething(['a', 'b', 'c'])
-    
+
 ==jsonp原理：通过script标签引入一个js文件，这个js文件载入成功后会执行我们再url参数中指定的函数，并且把我们需要的json数据作为参数传入。故jsonp需要服务器端进行配合。==
 
 知道原理后，我们就可以用jquery或者用js动态声称script标签进行跨域操作：
@@ -512,8 +512,8 @@ data.php:
             success: suc(response)
         );
     }
-    
-    
+
+
 ##### 2、CORS
 CORS是跨域资源共享（Cross－Origin Resourse Sharing）的缩写。是跨域AJAX请求的根本解决方法。相比JSONP只能发GET请求，CORS允许任何类型的请求。
 
@@ -562,20 +562,20 @@ CORS是跨域资源共享（Cross－Origin Resourse Sharing）的缩写。是跨
 （3）Access-Control-Expose-Headers：该字段可选。CORS请求时，XMLHttpRequest对象的getResponseHeader()方法只能拿到6个基本字段：Cache-Control, Content-Language, Content-Type, Expires, Last-Modified, Pragma。如果想拿到其他字段，就必须在Access-Control-Expose-Headers里面指定。上面的例子指定，getResponseHeaderx('FooBar')可以返回FooBar字段的值。
 
  withCredentials属性
- 
+
 CORS请求默认不发送Cookie和HTTP认证信息。如果要把Cookie发到服务器，一方面要服务器同意，指定Access-Control-Allow-Credentials字段。
 
     Access-Control-Allow-Credentials: true
-    
+
 另一方面，开发者必须在AJAX请求中打开withCredentials属性。
 
     var xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
-    
+
 否则，即使服务器同意发送Cookie，浏览器也不会发送。或者，服务器要求设置Cookie，浏览器也不会处理。但是，如果省略withCredentials设置，有的浏览器还是会一起发送Cookie。这时，可以显式关闭withCredentials。
 
     xhr.withCredentials = false;
-    
+
 需要注意的是，如果要发送Cookie，Access-Control-Allow-Origin就不能设置为＊，必须指定明确的、与请求网页一致的域名。同时，Cookie依然遵循同源政策，只有用服务器域名设置的Cookie才会上传，其他域名的Cookie并不会上传，且（跨源）原网页代码中的document.cookie也无法读取服务器域名下的Cookie。
 
 ###### 非简单请求
@@ -593,7 +593,7 @@ CORS请求默认不发送Cookie和HTTP认证信息。如果要把Cookie发到服
     xhr.open('PUT', url, true);
     xhr.setRequestHeader('X-Custom-Header', 'Value');
     xhr.send();
-    
+
 上面的代码中，HTTP请求的方法是PUT，并且发送一个自定义头信息X-Custom-Header.
 
 浏览器发现，这是一个非简单请求，就自动发出一个“预检”请求，要求服务器确认可以这样请求。下面是这个“预检”请求的HTTP头信息。
@@ -606,7 +606,7 @@ CORS请求默认不发送Cookie和HTTP认证信息。如果要把Cookie发到服
     Accept-Language: en-US
     Connection: keep-alive
     User-Agent: Mozilla/5.0...
-    
+
 "预检"请求用的请求方法是OPTIONS，表示这个请求是用来询问的。头信息里面，关键字段是Origin，表示请求来自哪个源。
 除了Origin字段，"预检"请求的头信息包括两个特殊字段：Access-Control-Request-Method（该字段是必须的，用来列出浏览器的CORS请求会用到哪些HTTP方法，上例是PUT）；Access-Control-Request-Headers（该字段是一个逗号分隔的字符串，指定浏览器CORS请求会额外发送的头信息字段，上例是X-Custom-Header）。
 
@@ -626,21 +626,21 @@ CORS请求默认不发送Cookie和HTTP认证信息。如果要把Cookie发到服
     Keep-Alive: timeout=2, max=100
     Connection: Keep-Alive
     Content-Type: text/plain
-    
+
 上面的HTTP回应中，关键的是Access-Control-Allow-Origin字段，表示http://api.bob.com可以请求数据。该字段也可以设为星号，表示同意任意跨源请求。
 
 如果浏览器否定了"预检"请求，会返回一个正常的HTTP回应，但是没有任何CORS相关的头信息字段。这时，浏览器就会认定，服务器不同意预检请求，因此触发一个错误，被XMLHttpRequest对象的onerror回调函数捕获。控制台会打印出如下的报错信息。
 
     XMLHttpRequest cannot load http://api.alice.com.
     Origin http://api.bob.com is not allowed by Access-Control-Allow-Origin.
-    
+
 服务器回应的其他CORS相关字段如下。
 
     Access-Control-Allow-Methods: GET, POST, PUT
     Access-Control-Allow-Headers: X-Custom-Header
     Access-Control-Allow-Credentials: true
     Access-Control-Max-Age: 1728000
-    
+
 （1）Access-Control-Allow-Methods
 该字段必需，它的值是逗号分隔的一个字符串，表明服务器支持的所有跨域请求的方法。注意，返回的是所有支持的方法，而不单是浏览器请求的那个方法。这是为了避免多次"预检"请求。
 
@@ -664,19 +664,19 @@ CORS请求默认不发送Cookie和HTTP认证信息。如果要把Cookie发到服
     Accept-Language: en-US
     Connection: keep-alive
     User-Agent: Mozilla/5.0...
-    
+
 下面是服务器正常的回应。
 
     Access-Control-Allow-Origin: http://api.bob.com
     Content-Type: text/html; charset=utf-8
-    
+
 上面头信息中，Access-Control-Allow-Origin字段是每次回应都必定包含的。
 ##### 3.XDomainRequest
 XDomainRequest跨域是针对IE8和IE9的跨域技术(只支持IE8、IE9)，CORS跨域支持IE10+，所以IE8和IE9的跨域就是一个空档，我们需要用XDomainRequest实现。
 ###### 相应事件
-    
+
     var xdr = new XDomainRequest();
-    
+
 （1）onerror
 
 在跨域请求发生错误时触发，事件方法没有参数
@@ -685,7 +685,7 @@ XDomainRequest跨域是针对IE8和IE9的跨域技术(只支持IE8、IE9)，CORS
         alert('XDR onerror');
     }
     xdr.onerror = err;
-    
+
 （2）onload
 
 跨域请求完成后触发，事件方法没有参数
@@ -694,7 +694,7 @@ XDomainRequest跨域是针对IE8和IE9的跨域技术(只支持IE8、IE9)，CORS
         alert('XDR onload');
     }
     xdr.onload = loaded;
-    
+
 （3）onprogress
 
 跨域请求接受数据时触发，事件方法没有参数，此事件在调用send方法和onload事件触发间隔内触发0,1或者无数次
@@ -703,7 +703,7 @@ XDomainRequest跨域是针对IE8和IE9的跨域技术(只支持IE8、IE9)，CORS
         alert('XDR onprogress');
     }
     xdr.onprogress = progres;
-    
+
 （4）ontimeout
 
 跨域请求连接超时时触发，事件方法没有参数。此事件限于onload事件触发。触发了ontimeout事件，XDomainRequest属性responseText不可用，调用此属性会报错。
@@ -712,7 +712,7 @@ XDomainRequest跨域是针对IE8和IE9的跨域技术(只支持IE8、IE9)，CORS
         alert('XDR ontimeout');
     }
     xdr.ontimeout = timeo;
-    
+
 ###### 对象方法
 （1）abort
 
@@ -722,7 +722,7 @@ XDomainRequest跨域是针对IE8和IE9的跨域技术(只支持IE8、IE9)，CORS
 在open方法被调用后，onload事件触发前调用，在其他时间段内调用此方法会报错。
 
     xdr.abort();
-    
+
 （2）open
 
 链接服务器，打开跨域请求。
@@ -754,7 +754,7 @@ bstrUrl：字符串，服务器url地址，
 获取请求或者想要的内容类型
 
     value = xdr.get_contentType( p);
-    
+
 （3）responseText
 
 响应的内容，字符串格式
@@ -795,7 +795,7 @@ bstrUrl：字符串，服务器url地址，
             appliance.send();
             }, 0);
         }
-        
+
 ==上面的send放在timeout中，为了防止多个XDoaminRequest在同一时间发送而丢失。==
 
 ##### 4.withCredentials属性

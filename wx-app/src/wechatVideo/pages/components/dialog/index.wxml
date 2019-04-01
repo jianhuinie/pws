@@ -6,7 +6,6 @@
         <view class="dialog-wrapper">
             <view class="title">{{title}}</view>
             <view class="icon-close" bindtap="hideDialog" wx:if="{{showCloseIcon}}">
-                <!-- <image src="https://imgs.genshuixue.com/0cms/d/file/content/2018/01/5a56fb54d6994.png"></image> -->
             </view>
             <view class="content">{{content}}</view>
             <button open-type="{{btnOpenType}}" class="action-btn" bindtap="btnClick">{{btnText}}</button>

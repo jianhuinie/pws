@@ -1,5 +1,5 @@
 var http = require('http');
-var url = 'http://www.genshuixue.com/bj/';
+var url = '';
 http
     .get(url, function (res) {
         var html = '';

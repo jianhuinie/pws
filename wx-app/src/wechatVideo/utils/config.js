@@ -7,7 +7,7 @@ let path = null;
 // es6 版本
 if (NODE_ENV === 'dev') {
     path = devServer;
-} 
+}
 else if (NODE_ENV === 'test') {
     path = testServer;
 }
@@ -23,11 +23,11 @@ const config = {
     SERVER_HOST: path,
     TOKEN: 'TOKEN',
     PATHS: {
-        PV0: 'https://pb0.genshuixue.com/pv0.gif',
+        PV0: '',
         /**
          * habo上报
          */
-        HABO: 'https://click.genshuixue.com/gs.gif',
+        HABO: '',
         RECOMMEND: '/recommend'
     }
 };
