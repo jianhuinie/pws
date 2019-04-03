@@ -26,6 +26,7 @@ Page({
 	onPullDownRefresh: function () {
 		const id = this.data.activeId;
 		this.getVideoList(id, false);
+		wx.stopPullDownRefresh();
 	},
     switchTab: function (e) {
         const id = +e.target.dataset.id;

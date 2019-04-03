@@ -1,15 +1,31 @@
-<import src="../components/bottomTab/index.wxml" />
-<view class="all-videos">
-    <view class="videos-container videos-fun">
-        <view 
-            class="video-item" wx:for="{{allVideos}}" 
-            wx:key="{{index}}" data-item="{{item}}"
-            bindtap="jumpDetail"
-        >
-            <image src="https://aimg.tangdou.com{{item.pic}}"></image>
-            <image class="icon-play" src="/pages/resources/player.png"></image>
-            <view class="video-name">{{item.title}}</view>
+<!--index.wxml-->
+<wxs src="../../utils/common.wxs" module="commonTools" />
+<view class="index-page">
+    <view class="tab-nav">
+        <view
+            wx:for="{{navTabs}}"
+            wx:key="{{item.id}}"
+            data-id="{{item.id}}"
+            class="{{'tab-item' + (item.id === activeId ? ' active' : '')}}"
+            bindtap="switchTab">
+            {{item.name}}
         </view>
     </view>
-    <template is="bottomtab" data="{{activedTab: activedTab}}" />
+    <view class="videos-container">
+        <view
+            class="video-item" wx:for="{{videoList}}"
+            wx:key="{{item.art_id}}" data-item="{{item}}"
+            bindtap="jumpDetail" wx:if="{{item.item_type === 'video'}}"
+        >
+            <view class="video-name">{{item.art_title}}</view>
+            <image src="{{commonTools.getCoverUrl(item.oss_art_title_pic)}}"></image>
+            <image class="icon-play" src="/pages/resources/player.png"></image>
+            <view class="duration-label" wx:if="{{item.durtion}}">
+                {{commonTools.formatVideoDuration(item.durtion)}}
+            </view>
+            <view class="hit-total">
+                {{item.views}}人气
+            </view>
+        </view>
+    </view>
 </view>

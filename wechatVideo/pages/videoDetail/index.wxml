@@ -10,10 +10,10 @@
             </video>
         <!-- </cover-view> -->
         <view class="video-name">
-            {{item.name}}
+            {{item.art_title}}
         </view>
         <button open-type="share" class="share-button">
-            <image class="icon-share" src="/pages/resources/icon-share.png"></image>
+            <image class="icon-share" src="/pages/resources/share.gif"></image>
         </button>
         <!-- <view class="share-text">分享</view> -->
     </view>

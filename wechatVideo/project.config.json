@@ -8,7 +8,7 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "1.9.90",
+	"libVersion": "1.9.9",
 	"appid": "wx245ba42709066fe2",
 	"projectname": "wechatVideo",
 	"isGameTourist": false,
@@ -23,13 +23,24 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
 			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
-			"list": []
+			"current": 0,
+			"list": [
+				{
+					"id": -1,
+					"name": "allVideos",
+					"pathName": "pages/allVideos/index",
+					"scene": null
+				}
+			]
 		}
 	}
 }
