@@ -8,7 +8,7 @@
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#fff",
-        "navigationBarTitleText": "视频社区",
+        "navigationBarTitleText": "鑫燕短视频",
         "navigationBarTextStyle": "black"
     },
     "sitemapLocation": "sitemap.json"

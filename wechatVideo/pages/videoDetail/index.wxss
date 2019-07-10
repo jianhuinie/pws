@@ -22,7 +22,7 @@ page .video-detail .video-box button.cover-button {
 }
 page .video-detail .video-box button.share-button {
     width: 288rpx;
-    height: 128rpx;
+    height: 90rpx;
     padding: 0;
     float: right;
     position: relative;
@@ -40,7 +40,7 @@ page .video-detail .video-box button:after {
 }
 page .video-detail .video-box image.icon-share {
     width: 288rpx;
-    height: 128rpx;
+    height: 90rpx;
 }
 page .video-detail .video-box .video-name {
     font-size: 32rpx;

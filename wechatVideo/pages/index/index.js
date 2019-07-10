@@ -91,7 +91,7 @@ Page({
 	},
 	onShareAppMessage: function (options) {
 		return {
-			title: 'wechatVideo',
+			title: '鑫燕短视频',
 			path: '/pages/index/index',
 			imageUrl: ''
 		};

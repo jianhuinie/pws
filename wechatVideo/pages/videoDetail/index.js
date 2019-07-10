@@ -64,11 +64,12 @@ Page({
 		var itemStr = JSON.stringify(item);
 
 		sharePath += '?item=' + encodeURIComponent(itemStr);
+		var imageUrl = JSON.parse(item.oss_art_title_pic)[0];
 
 		return {
-			title: item.name,
+			title: item.art_title,
 			path: sharePath,
-			imageUrl: ''
+			imageUrl: imageUrl
 		};
 	}
 });
