@@ -1,22 +1,22 @@
 ### 什么是跨域？
 协议、域名、端口三者有其一不一致即构成跨域；
 
-JS跨域指的是通过JS在不同的域之间进行数据传输或通信。
+JS 跨域指的是通过 JS 在不同的域之间进行数据传输或通信。
 
 
 ### 跨域如何实现？
 _______
 
 #### 一、前端与前端跨域（主域相同）
-在项目中经常会出现这种问题，比如M站中的课程详情页，在HTML中嵌套了一个 iframe（播放 video 视频），本身的域名是 a，iframe的域名是 b；
-现在我们需要在页面底部做一个按钮，点击时让 iframe 中的 video 开始播放。在这种情况下，两个不同域名的js要进行跨域处理：
+在项目中经常会出现这种问题，比如 M 站中的课程详情页，在 HTML 中嵌套了一个 iframe（播放 video 视频），本身的域名是 a，iframe 的域名是 b；
+现在我们需要在页面底部做一个按钮，点击时让 iframe 中的 video 开始播放。在这种情况下，两个不同域名的 JS 要进行跨域处理：
 
-##### 1、通过修改document.domain跨子域
-浏览器都有一个同源策略，其限制之一就是浏览器中不同域的框架之间是不能进行js的交互操作的。有一点需要说明，不同的框架之间（父子或同辈），
+##### 1、通过修改document.domain 跨子域
+浏览器都有一个同源策略，其限制之一就是浏览器中不同域的框架之间是不能进行 JS 的交互操作的。有一点需要说明，不同的框架之间（父子或同辈），
 是能够获取到彼此的 window 对象，但是你不能使用获取到的 window 对象的属性和方法（HTML5 的 postMessage 方法例外，还有些浏览器比如 ie6 可以使用 top、parent 等少数几个属性）。
 总之，你可以获取到一个几乎没有什么用的 window 对象。
 
-我们可以在两个HTML中把 document.domain 都设置成 c。这样我们就可以通过 js 访问到 iframe 中的各种属性和对象了。
+我们可以在两个 HTML 中把 document.domain 都设置成 c。这样我们就可以通过 JS 访问到 iframe 中的各种属性和对象了。
 
 注意：document.domain 的设置是有限制的，只能把它设置成自身或更高一级的父域，且主域必须相同。
 
@@ -29,7 +29,7 @@ window.name 是持久存在一个窗口载入过的所有页面中的，并不�
 a.HTML
 
     <script>
-        window.name = '我是页面a设置的值';
+        window.name = '我是页面 a 设置的值';
         setTimeout(function () {
             window.location = 'b.HTML';
         }, 3000);
@@ -42,7 +42,7 @@ b.HTML
     </script>
 ```
 
-上面的例子中在打开 a 页面 3 秒后跳到 b 页面并弹出“我是页面a设置的值”。如果之后所有载入的页面都没对 window.name 进行修改的话，
+上面的例子中在打开 a 页面 3 秒后跳到 b 页面并弹出“我是页面 a 设置的值”。如果之后所有载入的页面都没对 window.name 进行修改的话，
 那么所有这些页面获取到的 window.name 的值都是 a.HTML 页面设置的那个值。当然，如果有需要，其中的任何一个页面都可以对 window.name 的值进行修改。a，b 不同域也同样适用。
 
 但是我们不能用打开一个页面的方式传递，所以设置一个中间桥梁 iframe。
@@ -93,8 +93,8 @@ ______
 #### 前端和服务器跨域
 
 ##### 1、JSONP
-JSONP 是一个非官方的协议，它允许在服务器端集成 Script tags 返回至客服端，通过 javascript callback 的形式实现跨域访问 JSONP 即JSON with Padding。
-由于同源策略的限制，XmlHttpRequest 只允许请求当前源（域名、协议、端口）的资源。如果要进行跨域请求，我们可以通过使用HTML的 script 标记来进行跨域请求，
+JSONP 是一个非官方的协议，它允许在服务器端集成 Script tags 返回至客服端，通过 javascript callback 的形式实现跨域访问 JSONP 即 JSON with Padding。
+由于同源策略的限制，XmlHttpRequest 只允许请求当前源（域名、协议、端口）的资源。如果要进行跨域请求，我们可以通过使用 HTML 的 script 标记来进行跨域请求，
 并在响应中返回要执行的 script 代码，其中可以直接使用 JSON 传递 javascript 对象。
 
 现在有个 a.html 页面，它里面的代码需要利用 AJAX 获取一个不同域上的 json 数据，假设这个 json 数据地址是 http://example.com/data.php，那么 a.html 中的代码是下面这样：
@@ -124,7 +124,7 @@ data.php:
     dosomething(['a', 'b', 'c'])
 ```
 
-JSONP原理：通过 script 标签引入一个 JS 文件，这个 JS 文件载入成功后会执行我们在 URL 参数中指定的函数，并且把我们需要的 json 数据作为参数传入。故 JSONP 需要服务器端进行配合。
+JSONP 原理：通过 script 标签引入一个 JS 文件，这个 JS 文件载入成功后会执行我们在 URL 参数中指定的函数，并且把我们需要的 json 数据作为参数传入。故 JSONP 需要服务器端进行配合。
 
 知道原理后，我们就可以用 jquery 或者用 JS 动态声称 script 标签进行跨域操作：
 
@@ -141,7 +141,7 @@ JSONP原理：通过 script 标签引入一个 JS 文件，这个 JS 文件载�
 ```
 
 ##### 2、CORS
-CORS是跨域资源共享（Cross－Origin Resourse Sharing）的缩写。是跨域 AJAX 请求的根本解决方法。相比 JSONP 只能发 GET 请求，CORS 允许任何类型的请求。
+CORS 是跨域资源共享（Cross－Origin Resourse Sharing）的缩写。是跨域 AJAX 请求的根本解决方法。相比 JSONP 只能发 GET 请求，CORS 允许任何类型的请求。
 
 它是 W3C 标准，允许浏览器向跨域服务器发出 ‘XMLHttpRequest’ 请求，从而克服了 AJAX 只能同源使用的限制。
 
@@ -162,7 +162,7 @@ CORS 与 JSONP 的使用目的相同，但是比 JSONP 更强大。JSONP 只支�
 ###### 简单请求
 对于简单请求，浏览器直接发出 CORS 请求。就是在头信息之中，增加一个 Origin 字段。
 
-下面的例子中，浏览器发现这次跨源 AJAX 请求是简单请求，就自动在头信息之中，添加一个 Origin 字段。Origin 字段表现了本次请求来自哪个源（协议＋域名＋端口）。服务器根据这个值，决定是否同意这次请求。如果 Orgin 指定的源，不在许可范围内，服务器会返回一个正常的 HTTP 回应。浏览器发现这个回应的头信息没有包含 Access-Control-Allow-Orgin 字段，就知道出错了，从而抛出一个错误，被 XMLHttpRequest 的 onerror 回调函数捕获。注意，这种错误无法通过状态码识别，因为 HTTP 回应的状态码有可能是200.
+下面的例子中，浏览器发现这次跨源 AJAX 请求是简单请求，就自动在头信息之中，添加一个 Origin 字段。Origin 字段表现了本次请求来自哪个源（协议＋域名＋端口）。服务器根据这个值，决定是否同意这次请求。如果 Orgin 指定的源不在许可范围内，服务器会返回一个正常的 HTTP 回应。浏览器发现这个回应的头信息没有包含 Access-Control-Allow-Orgin 字段，就知道出错了，从而抛出一个错误，被 XMLHttpRequest 的 onerror 回调函数捕获。注意，这种错误无法通过状态码识别，因为 HTTP 回应的状态码有可能是200.
 
     GET /cors HTTP/1.1
     Origin: http://api.bob.com
@@ -368,9 +368,9 @@ XDomainRequest 跨域是针对 IE8 和 IE9 的跨域技术(只支持IE8、IE9)�
 参数说明：
 
 bstrMethod：字符串，请求方法，get 或者 post
-bstrUrl：字符串，服务器 url 地址
+bstrUrl：字符串，服务器 URL 地址
 
-把要发送的数据以参数形式放到 url 后面
+把要发送的数据以参数形式放到 URL 后面
 
     xdr.open(bstrMethod, bstrUrl);
 
