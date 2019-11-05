@@ -4,16 +4,15 @@
 JS 跨域指的是通过 JS 在不同的域之间进行数据传输或通信。
 
 
-### 跨域如何实现？
+### 如何实现跨域通信？
 _______
 
-#### 一、前端与前端跨域（主域相同）
+#### 一、前端页面跨域（主域相同）
 在项目中经常会出现这种问题，比如 M 站中的课程详情页，在 HTML 中嵌套了一个 iframe（播放 video 视频），本身的域名是 a，iframe 的域名是 b；
 现在我们需要在页面底部做一个按钮，点击时让 iframe 中的 video 开始播放。在这种情况下，两个不同域名的 JS 要进行跨域处理：
 
 ##### 1、通过修改document.domain 跨子域
-浏览器都有一个同源策略，其限制之一就是浏览器中不同域的框架之间是不能进行 JS 的交互操作的。有一点需要说明，不同的框架之间（父子或同辈），
-是能够获取到彼此的 window 对象，但是你不能使用获取到的 window 对象的属性和方法（HTML5 的 postMessage 方法例外，还有些浏览器比如 ie6 可以使用 top、parent 等少数几个属性）。
+浏览器都有一个同源策略，其限制之一就是浏览器中不同域的框架之间是不能进行 JS 的交互操作的。有一点需要说明，不同的框架之间（父子或同辈），是能够获取到彼此的 window 对象，但是你不能使用获取到的 window 对象的属性和方法（HTML5 的 postMessage 方法例外，还有些浏览器比如 ie6 可以使用 top、parent 等少数几个属性）。
 总之，你可以获取到一个几乎没有什么用的 window 对象。
 
 我们可以在两个 HTML 中把 document.domain 都设置成 c。这样我们就可以通过 JS 访问到 iframe 中的各种属性和对象了。
@@ -58,7 +57,7 @@ a 页面要和请求 b 页面的数据并跨域，可以在 a 页面中新建一
 
 注意：window.name 的值只能是字符串的形式，最大不超过2M。
 
-##### 3、window.postMessage 跨域
+##### 3、postMessage 跨域
 
 这个方法在子页面向父页面发送亲测有效（协议不同同样适用）
 
@@ -93,9 +92,9 @@ ______
 #### 前端和服务器跨域
 
 ##### 1、JSONP
-JSONP 是一个非官方的协议，它允许在服务器端集成 Script tags 返回至客服端，通过 javascript callback 的形式实现跨域访问 JSONP 即 JSON with Padding。
+JSONP 是一个非官方的协议，它允许在服务器端集成 Script tags 返回至客服端，通过 javaScript callback 的形式实现跨域访问 JSONP 即 JSON with Padding。
 由于同源策略的限制，XmlHttpRequest 只允许请求当前源（域名、协议、端口）的资源。如果要进行跨域请求，我们可以通过使用 HTML 的 script 标记来进行跨域请求，
-并在响应中返回要执行的 script 代码，其中可以直接使用 JSON 传递 javascript 对象。
+并在响应中返回要执行的 script 代码，其中可以直接使用 JSON 传递 javaScript 对象。
 
 现在有个 a.html 页面，它里面的代码需要利用 AJAX 获取一个不同域上的 json 数据，假设这个 json 数据地址是 http://example.com/data.php，那么 a.html 中的代码是下面这样：
 
@@ -206,13 +205,13 @@ CORS 请求默认不发送 Cookie 和 HTTP 认证信息。如果要把 Cookie �
 
 ###### 非简单请求
 
-1.预检请求
+1.预检请求（OPTIONS 请求）
 
 非简单请求是那种对服务器有特殊要求的请求，比如请求方法是 PUT或 DELETE ，或者 Content-Type 字段的类型是 application/json
 
 非简单请求的 CORS 请求，会在正式通信之前，增加一次 HTTP查询请求，称为“预检”请求。
 
-浏览器先询问服务器，当前网页所在的域名是否在服务器的许可名单之中，以及可以使用哪些 HTTP 动词和头信息字段。只有得到肯定答复，浏览器才会正式发出 XMLHttpRequest 请求，否则报错。下面是一段javascript 脚本。
+浏览器先询问服务器，当前网页所在的域名是否在服务器的许可名单之中，以及可以使用哪些 HTTP 动词和头信息字段。只有得到肯定答复，浏览器才会正式发出 XMLHttpRequest 请求，否则报错。下面是一段javaScript 脚本。
 
 ```js
     var url = 'http://api.alice.com/cors';
