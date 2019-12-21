@@ -4,11 +4,27 @@
  */
 const fs = require('fs');
 const https = require('https');
-const path = require('path');
+const  xlsx = require('node-xlsx');
 
+
+const sheets = xlsx.parse('./employees.xls');
 
 const baseUrl = './lottery/avatars';
-const imageList = []
+const imageList = [];
+
+sheets.forEach(function(sheet) {
+    // 读取每行内容
+    for(let rowId in sheet['data']) {
+        // console.log(sheet['data'][rowId]);
+        const [number = '', name = '', avatarUrl = ''] = sheet['data'][rowId];
+        const imgUrl = `${number}---${avatarUrl}`;
+        // console.log(imgUrl);
+
+        imageList.push(imgUrl);
+    }
+});
+
+
 
 function doDownloadImg(url, saveName) {
     https
@@ -50,9 +66,13 @@ function doDownloadImg(url, saveName) {
             console.error(`Got error: ${e.message}`);
         });
 }
-imageList.forEach(function(item) {
-    const employeeNumber = item.substr(0, 5);
-    const employeeAvatarUrl = item.substring(8) || '';
-    const saveName = employeeNumber + '.jpg';
-    doDownloadImg(employeeAvatarUrl, saveName);
-});
+
+doDownloadImg('https://ehr.baijiahulian.com/GET/file/file.json?file=02609ace-8a26-46f2-936d-31fbec123e0a.png', 'A9107.png');
+
+// imageList.forEach(function(item) {
+//     const employee = item.substr(0, 5);
+//     const employeeAvatarUrl = item.substring(8) || '';
+//     const saveName = employee + '.png';
+//     console.log(employeeAvatarUrl, saveName);
+//     doDownloadImg(employeeAvatarUrl, saveName);
+// });
