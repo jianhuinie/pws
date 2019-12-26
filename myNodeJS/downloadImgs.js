@@ -9,16 +9,14 @@ const  xlsx = require('node-xlsx');
 
 const sheets = xlsx.parse('./employees.xls');
 
-const baseUrl = './lottery/avatars';
+const baseUrl = '../lottery/avatars';
 const imageList = [];
 
 sheets.forEach(function(sheet) {
     // 读取每行内容
     for(let rowId in sheet['data']) {
-        // console.log(sheet['data'][rowId]);
         const [number = '', name = '', avatarUrl = ''] = sheet['data'][rowId];
         const imgUrl = `${number}---${avatarUrl}`;
-        // console.log(imgUrl);
 
         imageList.push(imgUrl);
     }
@@ -33,10 +31,10 @@ function doDownloadImg(url, saveName) {
             let error;
             if (statusCode !== 200) {
                 error = new Error('Request Failed.\n' +
-                                `Status Code: ${statusCode}`);
+                                `Status Code: ${statusCode} ${saveName}`);
             }
             if (error) {
-                console.error(error.message);
+                console.error(error.message, saveName);
                 res.resume();
                 return;
             }
@@ -54,7 +52,7 @@ function doDownloadImg(url, saveName) {
                         const fileName = baseUrl + '/' + saveName;
                         const totalBuff = Buffer.concat(imageBuffer);
                         fs.appendFile(fileName, totalBuff, function(err){
-                            console.log(err);
+                            // console.log(err);
                         });
                     }
                 catch (e) {
@@ -63,16 +61,19 @@ function doDownloadImg(url, saveName) {
             });
         })
         .on('error', (e) => {
-            console.error(`Got error: ${e.message}`);
+            console.error(`Got error: ${e.message} ${saveName}`);
         });
 }
 
-doDownloadImg('https://ehr.baijiahulian.com/GET/file/file.json?file=02609ace-8a26-46f2-936d-31fbec123e0a.png', 'A9107.png');
 
-// imageList.forEach(function(item) {
-//     const employee = item.substr(0, 5);
-//     const employeeAvatarUrl = item.substring(8) || '';
-//     const saveName = employee + '.png';
-//     console.log(employeeAvatarUrl, saveName);
-//     doDownloadImg(employeeAvatarUrl, saveName);
-// });
+// console.log(imageList.length);
+imageList.forEach(function(item) {
+    const employee = item.substr(0, 5);
+    const employeeAvatarUrl = item.substring(8) || '';
+
+    if (employeeAvatarUrl) {
+        const saveName = employee + '.jpg';
+
+        doDownloadImg(employeeAvatarUrl, saveName);
+    }
+});

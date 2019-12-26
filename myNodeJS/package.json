@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "node-xlsx": "^0.15.0",
+    "request": "^2.88.0",
     "tinify": "^1.6.0-beta.2",
     "xlsx": "^0.14.1"
   }
