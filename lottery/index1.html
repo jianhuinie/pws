@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>总监及以上</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        body {
+            background: url(bg.jpg) no-repeat;
+            background-size: 100% 100%;
+        }
+        html,
+        body {
+            height: 100%;
+        }
+
+        #main {
+            background-color: rgba(255, 255, 255, 1);
+            position: absolute;
+            left: 50%;
+            top: 30%;
+            transform: translate(-50%, 0);
+            width: 838px;
+            height: 400px;
+            border-radius: 15px;
+        }
+
+        #content {
+            text-align: center;
+            font-size: 42px;
+            color: #000;
+            line-height: 30px;
+            width: 685px;
+            margin: 0 auto;
+            margin-top: 22%;
+            display: flex;
+        }
+
+        .wait-content {
+            margin: 0 auto;
+        }
+
+        .employee-item {
+            display: inline-block;
+            flex-grow: 1;
+        }
+
+    </style>
+    <script>
+        /**
+        1、按下1-0 按键后开始抽奖 1-9代表抽1-9个 0代表抽10个；
+        2、易用性：空格结束；enter最大化，esc退出最大化；
+        */
+        (function () {
+            // 存放所有员工信息
+            var employees = [
+
+            ];
+
+            var doc = document;
+            var $ = function (id) {
+                return doc.getElementById(id);
+            }
+
+            window.onload = function () {
+                // 抽奖开关，true: 正在抽奖，false: 停止
+                var isToggle = false;
+                var timer;
+                var prizeCount;
+
+                // 开始抽奖
+                function start(count) {
+                    // 先清空下 防止闪烁
+                    $('content').innerHTML = '';
+
+                    isToggle = true;
+                    prizeCount = count;
+                    if (!prizeCount) {
+                        return;
+                    }
+
+                    timer = setInterval(function () {
+                        getRandomEmployee();
+                    }, 50);
+                }
+
+                function getRandomEmployee(isRemove) {
+                    var result = [];
+                    for (var i = 0; i < prizeCount; i++) {
+                        var index = Math.floor(Math.random() * employees.length);
+                        var employee = employees[index];
+                        result.push(employee);
+
+                        if (isRemove) {
+                            employees.splice(index, 1);
+                        }
+                    }
+
+                    // 添加照片
+                    var htmlStr = '';
+                    for(var j = 0; j < result.length; j++) {
+                        var employeeName = result[j];
+
+                        htmlStr +=  '<div class="employee-item">'
+                                +       '<div class="employee-name">' + employeeName + '</div>'
+                                +   '</div>';
+                    }
+
+                    $('content').innerHTML = htmlStr;
+                }
+
+                // 结束抽奖
+                function stop() {
+                    clearInterval(timer);
+                    isToggle = false;
+                    getRandomEmployee(true);
+                }
+
+                doc.body.onkeydown = function (e) {
+                    if (isToggle) {
+                        if (e.keyCode == 32) {
+                            stop();
+                            e.stopPropagation();
+
+                            return false;
+                        } else if (e.keyCode === 13) {
+                            document.documentElement.webkitRequestFullscreen();
+                            e.stopPropagation();
+
+                            return false;
+                        }
+                    } else {
+						console.log(e.keyCode);
+                        var countKeyMap = {
+                            48: 10,
+                            49: 1,
+                            50: 2,
+                            51: 3,
+                            52: 4,
+                            53: 5,
+                            54: 6,
+                            55: 7,
+                            56: 8,
+                            57: 9,
+                        };
+                        var count = countKeyMap[e.keyCode];
+
+                        if (count) {
+                            start(count);
+                            e.stopPropagation();
+
+                            return false;
+                        } else if (e.keyCode === 13) {
+                            document.documentElement.webkitRequestFullscreen();
+                            e.stopPropagation();
+
+                            return false;
+                        }
+                    }
+                };
+
+            };
+        })();
+    </script>
+</head>
+<body>
+    <div id="main">
+        <div id="content">
+            <div class="wait-content">请等待...</div>
+        </div>
+    </div>
+</body>
+</html>
