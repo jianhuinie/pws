@@ -4,21 +4,25 @@
  */
 const fs = require('fs');
 const https = require('https');
-const  xlsx = require('node-xlsx');
+const xlsx = require('node-xlsx');
 
 
-const sheets = xlsx.parse('./employees.xls');
+const sheets = xlsx.parse('./employees1.xlsx');
 
 const baseUrl = '../lottery/avatars';
 const imageList = [];
+const emptyList = [];
 
 sheets.forEach(function(sheet) {
     // 读取每行内容
     for(let rowId in sheet['data']) {
         const [number = '', name = '', avatarUrl = ''] = sheet['data'][rowId];
         const imgUrl = `${number}---${avatarUrl}`;
-
-        imageList.push(imgUrl);
+        if (avatarUrl) {
+            imageList.push(imgUrl);
+        } else {
+            emptyList.push(`${name}---${number}`);
+        }
     }
 });
 
@@ -66,7 +70,9 @@ function doDownloadImg(url, saveName) {
 }
 
 
-// console.log(imageList.length);
+console.log(imageList.length);
+// console.log(emptyList.length);
+// console.log(emptyList);
 imageList.forEach(function(item) {
     const employee = item.substr(0, 5);
     const employeeAvatarUrl = item.substring(8) || '';
