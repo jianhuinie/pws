@@ -29,7 +29,7 @@ function _instanceof(ins, cons) {
             return true;
         }
 
-        ins = ins.__proto;
+        ins = ins.__proto__;
     }
 
     return false;
